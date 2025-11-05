@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { Check, ArrowRight } from 'lucide-react'
+import Icon from '../components/Icon'
 import './SlideStyles.css'
 
 export default function LivePlatformSlide() {
@@ -16,10 +18,22 @@ export default function LivePlatformSlide() {
           <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '2rem', borderRadius: '12px' }}>
             <h3 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '1.2rem' }}>Live Integration</h3>
             <div style={{ fontSize: '0.95rem', lineHeight: '1.8' }}>
-              <p style={{ marginBottom: '0.5rem' }}>✓ Zerodha Kite API (India's largest broker)</p>
-              <p style={{ marginBottom: '0.5rem' }}>✓ Real-money test portfolio actively managed</p>
-              <p style={{ marginBottom: '0.5rem' }}>✓ Holdings: Adani Ports, ONGC, HDFC Index Fund</p>
-              <p>✓ Multi-broker architecture validated</p>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <Check size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Zerodha Kite API (India's largest broker)</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <Check size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Real-money test portfolio actively managed</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <Check size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Holdings: Adani Ports, ONGC, HDFC Index Fund</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem' }}>
+                <Check size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Multi-broker architecture validated</p>
+              </div>
             </div>
           </div>
           
@@ -38,15 +52,26 @@ export default function LivePlatformSlide() {
           <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '2rem', borderRadius: '12px' }}>
             <h3 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '1.2rem' }}>US Market Ready</h3>
             <div style={{ fontSize: '0.95rem', lineHeight: '1.8' }}>
-              <p style={{ marginBottom: '0.5rem' }}>→ Q1 2025: IBKR integration (sandbox testing)</p>
-              <p style={{ marginBottom: '0.5rem' }}>→ Q2 2025: Alpaca launch (commission-free)</p>
-              <p>→ Broker-agnostic architecture proven</p>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <ArrowRight size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Q1 2025: IBKR integration (sandbox testing)</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                <ArrowRight size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Q2 2025: Alpaca launch (commission-free)</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '0.5rem' }}>
+                <ArrowRight size={18} stroke="#14b8a6" strokeWidth={2.5} style={{ marginTop: '0.1rem', flexShrink: 0 }} />
+                <p>Broker-agnostic architecture proven</p>
+              </div>
             </div>
           </div>
         </div>
         
         <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>📊</div>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+            <Icon type="barChart" size={48} gradient="from-teal-400 to-green-400" delay={0.3} />
+          </div>
           <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem' }}>Platform Screenshots - Live System</p>
           <p style={{ fontSize: '1rem', color: '#94a3b8', marginBottom: '1rem' }}>Portfolio Dashboard • AI Committee • Execution</p>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8' }}>Real-time portfolio tracking • Multi-agent consensus & execution</p>

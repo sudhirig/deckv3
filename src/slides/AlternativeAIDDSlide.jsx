@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { FileText, BarChart3, TrendingUp, CheckCircle, AlertTriangle } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function AlternativeAIDDSlide() {
@@ -22,22 +23,28 @@ export default function AlternativeAIDDSlide() {
             
             <h3 style={{ color: '#14b8a6', marginBottom: '1.5rem', marginTop: '2rem' }}>Our AI Solution</h3>
             <div style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-              <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'start' }}>
-                <span style={{ fontSize: '2rem', marginRight: '1rem' }}>📄</span>
+              <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'start', gap: '1rem' }}>
+                <div style={{ marginTop: '0.2rem' }}>
+                  <FileText size={28} stroke="#14b8a6" strokeWidth={2} />
+                </div>
                 <div>
                   <p style={{ fontWeight: 'bold', color: '#14b8a6' }}>Reads & Synthesizes</p>
                   <p style={{ color: '#94a3b8', fontSize: '1rem' }}>Ingests 100+ page offering docs, extracts key data</p>
                 </div>
               </div>
-              <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'start' }}>
-                <span style={{ fontSize: '2rem', marginRight: '1rem' }}>📊</span>
+              <div style={{ marginBottom: '1rem', display: 'flex', alignItems: 'start', gap: '1rem' }}>
+                <div style={{ marginTop: '0.2rem' }}>
+                  <BarChart3 size={28} stroke="#14b8a6" strokeWidth={2} />
+                </div>
                 <div>
                   <p style={{ fontWeight: 'bold', color: '#14b8a6' }}>Generates 1-Page Memos</p>
                   <p style={{ color: '#94a3b8', fontSize: '1rem' }}>Overview, terms, risks, suitability in digestible format</p>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'start' }}>
-                <span style={{ fontSize: '2rem', marginRight: '1rem' }}>📈</span>
+              <div style={{ display: 'flex', alignItems: 'start', gap: '1rem' }}>
+                <div style={{ marginTop: '0.2rem' }}>
+                  <TrendingUp size={28} stroke="#14b8a6" strokeWidth={2} />
+                </div>
                 <div>
                   <p style={{ fontWeight: 'bold', color: '#14b8a6' }}>Tracks Performance</p>
                   <p style={{ color: '#94a3b8', fontSize: '1rem' }}>Ongoing monitoring and portfolio integration</p>
@@ -68,13 +75,23 @@ export default function AlternativeAIDDSlide() {
               
               <div style={{ marginBottom: '1.5rem' }}>
                 <p style={{ fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem' }}>Risk Assessment</p>
-                <p style={{ fontSize: '0.95rem', marginBottom: '0.3rem' }}>Credit Risk: ⚠️ Medium</p>
-                <p style={{ fontSize: '0.95rem', marginBottom: '0.3rem' }}>Market Risk: ✅ Low</p>
-                <p style={{ fontSize: '0.95rem' }}>Liquidity: ⚠️ High</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
+                  <AlertTriangle size={16} stroke="#fbbf24" />
+                  <p style={{ fontSize: '0.95rem' }}>Credit Risk: Medium</p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.3rem' }}>
+                  <CheckCircle size={16} stroke="#22c55e" />
+                  <p style={{ fontSize: '0.95rem' }}>Market Risk: Low</p>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <AlertTriangle size={16} stroke="#fbbf24" />
+                  <p style={{ fontSize: '0.95rem' }}>Liquidity: High</p>
+                </div>
               </div>
               
-              <div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '8px', textAlign: 'center' }}>
-                <p style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#22c55e' }}>✅ SUITABLE</p>
+              <div style={{ background: 'rgba(34, 197, 94, 0.2)', padding: '1rem', borderRadius: '8px', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+                <CheckCircle size={20} stroke="#22c55e" strokeWidth={2.5} />
+                <p style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#22c55e' }}>SUITABLE</p>
                 <p style={{ fontSize: '0.95rem', color: '#94a3b8' }}>Fits 15% alternative target allocation</p>
               </div>
               
