@@ -75,8 +75,12 @@ Note: This requires system dependencies that may not be available in all environ
 - **Slidev**: Modern presentation framework
 - **Vue 3**: Component framework with TypeScript
 - **UnoCSS**: Utility-first CSS engine
+- **Vite**: Build tool configured for Replit environment
 - **Custom Components**: 5 specialized Vue components
 - **Animations**: CSS keyframes and transitions
+
+### Configuration Notes
+The project includes a `vite.config.js` configured to work properly in the Replit environment by allowing all hosts. This prevents the "Blocked request" error that can occur with cloud development environments.
 
 ## 📝 Customization
 
