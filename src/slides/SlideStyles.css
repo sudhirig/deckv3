@@ -283,6 +283,30 @@
    ============================================ */
 
 @media print {
+  /* Override flex centering for natural top-down flow */
+  .slide-content {
+    display: block !important;
+    text-align: left !important;
+  }
+  
+  /* Title slide should remain centered */
+  .title-slide {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  /* Act slides should remain centered */
+  .act-slide .act-content {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
   /* Typography Optimization - Keep dark theme */
   .slide-title {
     font-size: 3rem !important;
@@ -316,11 +340,16 @@
     animation: none !important;
   }
 
-  /* Fixed positioning elements */
+  /* Date should only appear on title slide */
   .date {
-    position: fixed !important;
-    bottom: 4rem;
-    right: 4rem;
+    position: static !important;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  
+  /* Hide date on all slides except the first one */
+  .print-slide:not(:first-child) .date {
+    display: none !important;
   }
 
   /* Progress bars and indicators */
