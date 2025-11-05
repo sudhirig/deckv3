@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import './SlideStyles.css'
 
 export default function UnfairAdvantagesSlide() {
@@ -14,7 +15,9 @@ export default function UnfairAdvantagesSlide() {
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
           <div style={{ padding: '2rem', border: '2px solid #3b82f6', background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.05))', borderRadius: '16px' }}>
-            <div style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '1rem' }}>🔒</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+              <Icon type="lock" size={36} gradient="from-blue-400 to-cyan-400" delay={0.2} />
+            </div>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#60a5fa', textAlign: 'center', marginBottom: '1.5rem' }}>Technical Moat</h3>
             <div style={{ fontSize: '0.9rem', lineHeight: '1.7' }}>
               <div style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem' }}>
@@ -33,7 +36,9 @@ export default function UnfairAdvantagesSlide() {
           </div>
           
           <div style={{ padding: '2rem', border: '2px solid #22c55e', background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.05))', borderRadius: '16px' }}>
-            <div style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '1rem' }}>⚖️</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+              <Icon type="scale" size={36} gradient="from-green-400 to-emerald-400" delay={0.4} />
+            </div>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4ade80', textAlign: 'center', marginBottom: '1.5rem' }}>Regulatory Moat</h3>
             <div style={{ fontSize: '0.9rem', lineHeight: '1.7' }}>
               <div style={{ background: 'rgba(34, 197, 94, 0.1)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem' }}>
@@ -52,7 +57,9 @@ export default function UnfairAdvantagesSlide() {
           </div>
           
           <div style={{ padding: '2rem', border: '2px solid #14b8a6', background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(20, 184, 166, 0.05))', borderRadius: '16px' }}>
-            <div style={{ fontSize: '3rem', textAlign: 'center', marginBottom: '1rem' }}>🛡️</div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+              <Icon type="shield" size={36} gradient="from-teal-400 to-green-400" delay={0.6} />
+            </div>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#5eead4', textAlign: 'center', marginBottom: '1.5rem' }}>Trust Moat</h3>
             <div style={{ fontSize: '0.9rem', lineHeight: '1.7' }}>
               <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem' }}>

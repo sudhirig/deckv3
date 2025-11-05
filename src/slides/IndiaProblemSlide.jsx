@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import './SlideStyles.css'
 
 export default function IndiaProblemSlide() {
@@ -35,7 +36,9 @@ export default function IndiaProblemSlide() {
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ fontSize: '5rem', marginBottom: '1rem' }}>🔒</div>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <Icon type="lock" size={56} gradient="from-red-400 to-pink-400" delay={0.3} />
+            </div>
             <div style={{ textAlign: 'center' }}>
               <p style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>15%</p>
               <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '2rem' }}>of HNW portfolios want India exposure</p>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ArrowDown } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function AgentArchitectureSlide() {
@@ -23,13 +24,13 @@ export default function AgentArchitectureSlide() {
             </div>
             
             <h4 style={{ color: '#14b8a6', marginTop: '2rem', marginBottom: '1rem' }}>AI Platform</h4>
-            <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem' }}>
-              <p style={{ fontSize: '0.95rem' }}>↓</p>
+            <div style={{ display: 'flex', justifyContent: 'center', background: 'rgba(20, 184, 166, 0.1)', padding: '0.5rem', borderRadius: '8px', marginBottom: '1rem' }}>
+              <ArrowDown size={24} stroke="url(#gradient-teal)" strokeWidth={2.5} />
             </div>
             
             <h4 style={{ color: '#14b8a6', marginBottom: '1rem' }}>API Layer</h4>
-            <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem' }}>
-              <p style={{ fontSize: '0.95rem' }}>↓</p>
+            <div style={{ display: 'flex', justifyContent: 'center', background: 'rgba(20, 184, 166, 0.1)', padding: '0.5rem', borderRadius: '8px', marginBottom: '1rem' }}>
+              <ArrowDown size={24} stroke="url(#gradient-teal)" strokeWidth={2.5} />
             </div>
             
             <div style={{ background: 'rgba(71, 85, 105, 0.2)', padding: '1rem', borderRadius: '8px', marginBottom: '0.5rem' }}>
@@ -45,8 +46,8 @@ export default function AgentArchitectureSlide() {
               <p style={{ fontSize: '0.9rem', textAlign: 'center' }}>Schwab</p>
             </div>
             
-            <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '1rem', borderRadius: '8px' }}>
-              <p style={{ fontSize: '0.95rem' }}>↓</p>
+            <div style={{ display: 'flex', justifyContent: 'center', background: 'rgba(20, 184, 166, 0.1)', padding: '0.5rem', borderRadius: '8px' }}>
+              <ArrowDown size={24} stroke="url(#gradient-teal)" strokeWidth={2.5} />
             </div>
             
             <div style={{ marginTop: '1rem' }}>

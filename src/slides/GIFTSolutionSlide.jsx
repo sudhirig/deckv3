@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import './SlideStyles.css'
 
 export default function GIFTSolutionSlide() {
@@ -35,7 +36,9 @@ export default function GIFTSolutionSlide() {
           </div>
           
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-            <div style={{ fontSize: '5rem', marginBottom: '1rem' }}>🔓</div>
+            <div style={{ marginBottom: '1.5rem' }}>
+              <Icon type="unlock" size={56} gradient="from-green-400 to-emerald-400" delay={0.3} />
+            </div>
             <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
               <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem' }}>+300bps</p>
               <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '0.5rem' }}>in returns</p>
