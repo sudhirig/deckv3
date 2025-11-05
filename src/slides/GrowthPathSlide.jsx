@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import ProgressBar from '../components/ProgressBar'
+import InteractiveCard from '../components/InteractiveCard'
 import './SlideStyles.css'
 
 export default function GrowthPathSlide() {
@@ -40,34 +42,37 @@ export default function GrowthPathSlide() {
           </div>
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' }}>
-            <div style={{ padding: '1.5rem', background: 'rgba(20, 184, 166, 0.1)', border: '1px solid rgba(20, 184, 166, 0.3)', borderRadius: '12px' }}>
-              <p style={{ color: '#14b8a6', fontWeight: 'bold', marginBottom: '1rem' }}>Unit Economics</p>
-              <div style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.8' }}>
+            <InteractiveCard gradient="teal" glow={true} delay={0.2}>
+              <p style={{ color: '#14b8a6', fontWeight: 'bold', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Unit Economics</p>
+              <div style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.8', marginBottom: '1rem' }}>
                 <div>CAC: $3,500 (blended)</div>
                 <div>LTV: $62,500 (10-year)</div>
                 <div>LTV/CAC: <strong style={{ color: '#14b8a6' }}>17.8:1</strong></div>
                 <div>Payback: <strong style={{ color: '#14b8a6' }}>3.5 months</strong></div>
               </div>
-            </div>
+              <ProgressBar value={85} label="Efficiency Score" color="#14b8a6" delay={0.5} />
+            </InteractiveCard>
             
-            <div style={{ padding: '1.5rem', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)', borderRadius: '12px' }}>
-              <p style={{ color: '#22c55e', fontWeight: 'bold', marginBottom: '1rem' }}>Margins</p>
-              <div style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.8' }}>
+            <InteractiveCard gradient="green" glow={true} delay={0.4}>
+              <p style={{ color: '#22c55e', fontWeight: 'bold', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Margins</p>
+              <div style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.8', marginBottom: '1rem' }}>
                 <div>Gross Margin: <strong style={{ color: '#22c55e' }}>93%</strong></div>
                 <div>vs Traditional: 40-50%</div>
                 <div>Break-even: Month 28</div>
                 <div>Cash+: Month 30</div>
               </div>
-            </div>
+              <ProgressBar value={93} label="Gross Margin" color="#22c55e" delay={0.7} />
+            </InteractiveCard>
             
-            <div style={{ padding: '1.5rem', background: 'rgba(59, 130, 246, 0.1)', border: '1px solid rgba(59, 130, 246, 0.3)', borderRadius: '12px' }}>
-              <p style={{ color: '#3b82f6', fontWeight: 'bold', marginBottom: '1rem' }}>Benchmark</p>
-              <div style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.8' }}>
+            <InteractiveCard gradient="blue" glow={true} delay={0.6}>
+              <p style={{ color: '#3b82f6', fontWeight: 'bold', marginBottom: '1.5rem', fontSize: '1.1rem' }}>Benchmark</p>
+              <div style={{ fontSize: '0.9rem', color: '#94a3b8', lineHeight: '1.8', marginBottom: '1rem' }}>
                 <div>Wealthfront: $1B in 2.5 years</div>
                 <div>Our HNW model: Faster trajectory</div>
                 <div>Higher ARPU, better retention</div>
               </div>
-            </div>
+              <ProgressBar value={78} label="Market Readiness" color="#3b82f6" delay={0.9} />
+            </InteractiveCard>
           </div>
         </div>
       </motion.div>

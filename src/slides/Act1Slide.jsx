@@ -1,15 +1,18 @@
 import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
+import ParticleBackground from '../components/ParticleBackground'
 import './SlideStyles.css'
 
 export default function Act1Slide() {
   return (
-    <div className="slide-content act-slide">
+    <div className="slide-content act-slide" style={{ position: 'relative' }}>
+      <ParticleBackground count={40} color="#14b8a6" />
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, type: 'spring' }}
         className="act-content"
+        style={{ position: 'relative', zIndex: 1 }}
       >
         <motion.div 
           className="act-number"

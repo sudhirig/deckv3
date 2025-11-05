@@ -85,15 +85,35 @@ function App() {
 
   const CurrentSlideComponent = slides[currentSlide].component
 
+  const slideTransitions = {
+    fade: {
+      initial: { opacity: 0 },
+      animate: { opacity: 1 },
+      exit: { opacity: 0 },
+      transition: { duration: 0.4 }
+    },
+    slide: {
+      initial: { opacity: 0, x: 100 },
+      animate: { opacity: 1, x: 0 },
+      exit: { opacity: 0, x: -100 },
+      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+    },
+    zoom: {
+      initial: { opacity: 0, scale: 0.95 },
+      animate: { opacity: 1, scale: 1 },
+      exit: { opacity: 0, scale: 1.05 },
+      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] }
+    }
+  }
+
+  const currentTransition = slideTransitions.zoom
+
   return (
     <div className="presentation">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
-          transition={{ duration: 0.3 }}
+          {...currentTransition}
           className="slide"
         >
           <CurrentSlideComponent />

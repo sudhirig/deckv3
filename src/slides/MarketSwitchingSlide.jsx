@@ -3,6 +3,8 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import PulsingBadge from '../components/PulsingBadge'
+import CircularProgress from '../components/CircularProgress'
+import InteractiveCard from '../components/InteractiveCard'
 import './SlideStyles.css'
 
 export default function MarketSwitchingSlide() {
@@ -19,18 +21,33 @@ export default function MarketSwitchingSlide() {
           </GradientText>
         </h2>
         
-        <AnimatedText delay={0.3}>
-          <div style={{ textAlign: 'center', margin: '2rem 0' }}>
-            <div style={{ fontSize: '5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-              <GradientText gradient="from-orange-400 to-red-400" animate={false}>
-                <AnimatedCounter end={46} suffix="%" duration={2} />
-              </GradientText>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '3rem', margin: '2rem 0' }}>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.3, type: 'spring' }}
+          >
+            <CircularProgress 
+              value={46} 
+              size={180} 
+              strokeWidth={12} 
+              color="#fb923c"
+              label="Planning to Switch Advisors"
+              delay={0.3}
+            />
+          </motion.div>
+          
+          <AnimatedText delay={1.5}>
+            <div style={{ maxWidth: '400px' }}>
+              <p style={{ fontSize: '1.3rem', color: '#e2e8f0', fontWeight: '500', lineHeight: '1.6' }}>
+                Planning to switch advisors in next <strong style={{ color: '#fb923c' }}>1-2 years</strong>
+              </p>
+              <p style={{ fontSize: '0.95rem', color: '#94a3b8', marginTop: '1rem' }}>
+                The largest wealth transfer in history is creating unprecedented opportunity
+              </p>
             </div>
-            <p style={{ fontSize: '1.5rem', color: '#e2e8f0', fontWeight: '500' }}>
-              Planning to switch advisors in next 1-2 years
-            </p>
-          </div>
-        </AnimatedText>
+          </AnimatedText>
+        </div>
         
         <div style={{ marginTop: '3rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginBottom: '2rem' }}>
