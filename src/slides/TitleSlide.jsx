@@ -26,7 +26,7 @@ export default function TitleSlide() {
           <span className="dot">●</span>
           <span className="feature">GIFT City Gateway</span>
         </div>
-        <p className="tagline">Our three "alpha" moats in one platform</p>
+        <p className="tagline">The entire pitch in one line: Our three "alpha" moats</p>
         <p className="date">November 2025</p>
       </motion.div>
       <div className="tech-background"></div>

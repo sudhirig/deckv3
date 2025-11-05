@@ -2,41 +2,41 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
 import TitleSlide from './slides/TitleSlide'
-import ProblemSlide from './slides/ProblemSlide'
+import Act1Slide from './slides/Act1Slide'
 import StanfordSlide from './slides/StanfordSlide'
+import MarketSwitchingSlide from './slides/MarketSwitchingSlide'
 import AlphaGapSlide from './slides/AlphaGapSlide'
-import SolutionSlide from './slides/SolutionSlide'
-import OldModelSlide from './slides/OldModelSlide'
-import NewModelSlide from './slides/NewModelSlide'
-import TaxAlphaSlide from './slides/TaxAlphaSlide'
-import TaxStrategiesSlide from './slides/TaxStrategiesSlide'
-import AlternativesSlide from './slides/AlternativesSlide'
-import AlternativesAccessSlide from './slides/AlternativesAccessSlide'
-import GIFTCitySlide from './slides/GIFTCitySlide'
-import GIFTBenefitsSlide from './slides/GIFTBenefitsSlide'
-import AgentsSlide from './slides/AgentsSlide'
-import AgentFeaturesSlide from './slides/AgentFeaturesSlide'
-import UseCasesSlide from './slides/UseCasesSlide'
-import FinalSlide from './slides/FinalSlide'
+import AICommitteeSlide from './slides/AICommitteeSlide'
+import ThreeAlphaAgentsSlide from './slides/ThreeAlphaAgentsSlide'
+import Act3Slide from './slides/Act3Slide'
+import IndiaProblemSlide from './slides/IndiaProblemSlide'
+import GIFTSolutionSlide from './slides/GIFTSolutionSlide'
+import AIGatewaySlide from './slides/AIGatewaySlide'
+import TaxAlphaDailySlide from './slides/TaxAlphaDailySlide'
+import AlternativeAIDDSlide from './slides/AlternativeAIDDSlide'
+import AgentArchitectureSlide from './slides/AgentArchitectureSlide'
+import Act4Slide from './slides/Act4Slide'
+import RealJourneysSlide from './slides/RealJourneysSlide'
+import LivePlatformSlide from './slides/LivePlatformSlide'
 
 const slides = [
   { component: TitleSlide, title: 'Title' },
-  { component: ProblemSlide, title: 'Problem' },
-  { component: StanfordSlide, title: 'Stanford Research' },
-  { component: AlphaGapSlide, title: 'Alpha Gap' },
-  { component: SolutionSlide, title: 'Solution' },
-  { component: OldModelSlide, title: 'Old Model' },
-  { component: NewModelSlide, title: 'New Model' },
-  { component: TaxAlphaSlide, title: 'Tax Alpha' },
-  { component: TaxStrategiesSlide, title: 'Tax Strategies' },
-  { component: AlternativesSlide, title: 'Alternative Assets' },
-  { component: AlternativesAccessSlide, title: 'Alternatives Access' },
-  { component: GIFTCitySlide, title: 'GIFT City' },
-  { component: GIFTBenefitsSlide, title: 'GIFT Benefits' },
-  { component: AgentsSlide, title: 'AI Agents' },
-  { component: AgentFeaturesSlide, title: 'Agent Features' },
-  { component: UseCasesSlide, title: 'Use Cases' },
-  { component: FinalSlide, title: 'Thank You' }
+  { component: Act1Slide, title: 'Act 1: The Problem' },
+  { component: StanfordSlide, title: 'AI is the New Alpha' },
+  { component: MarketSwitchingSlide, title: 'Market Switching' },
+  { component: AlphaGapSlide, title: 'The Three Failures' },
+  { component: AICommitteeSlide, title: 'AI Investment Committee' },
+  { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },
+  { component: Act3Slide, title: 'Act 3: The Deep Dive' },
+  { component: IndiaProblemSlide, title: 'India Problem' },
+  { component: GIFTSolutionSlide, title: 'GIFT City Solution' },
+  { component: AIGatewaySlide, title: 'AI Gateway Agent' },
+  { component: TaxAlphaDailySlide, title: 'Tax Alpha Daily vs Annual' },
+  { component: AlternativeAIDDSlide, title: 'Alternative Asset AI DD' },
+  { component: AgentArchitectureSlide, title: 'Agent Architecture' },
+  { component: Act4Slide, title: 'Act 4: The Proof' },
+  { component: RealJourneysSlide, title: 'Real Journeys' },
+  { component: LivePlatformSlide, title: 'Live Platform' }
 ]
 
 function App() {

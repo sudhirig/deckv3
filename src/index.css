@@ -26,3 +26,39 @@ body {
     display: none !important;
   }
 }
+
+.act-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+}
+
+.act-content {
+  text-align: center;
+}
+
+.act-number {
+  font-size: 1.5rem;
+  color: #14b8a6;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.act-title {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #14b8a6, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.act-subtitle {
+  font-size: 1.8rem;
+  color: #94a3b8;
+  font-weight: 400;
+}
