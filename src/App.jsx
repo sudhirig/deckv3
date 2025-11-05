@@ -136,6 +136,13 @@ function App() {
         >
           →
         </button>
+        <button 
+          className="export-button"
+          onClick={() => window.print()}
+          title="Export to PDF (Ctrl/Cmd + P)"
+        >
+          📄 Export PDF
+        </button>
       </div>
 
       <div className="instructions">
