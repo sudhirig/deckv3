@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Check } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function TeamSlide() {
@@ -44,11 +45,26 @@ export default function TeamSlide() {
           <div style={{ padding: '2rem', border: '2px solid #3b82f6', borderRadius: '16px', background: 'rgba(59, 130, 246, 0.1)' }}>
             <h3 style={{ fontSize: '1.3rem', color: '#3b82f6', marginBottom: '1.5rem' }}>Track Record</h3>
             <div style={{ fontSize: '0.95rem', lineHeight: '2', color: '#94a3b8' }}>
-              <div>✓ $2B+ AUM managed</div>
-              <div>✓ 3 successful exits</div>
-              <div>✓ 15+ AI patents</div>
-              <div>✓ Published research in top journals</div>
-              <div>✓ Regulatory compliance 100%</div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Check size={18} stroke="#3b82f6" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                <span>$2B+ AUM managed</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Check size={18} stroke="#3b82f6" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                <span>3 successful exits</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Check size={18} stroke="#3b82f6" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                <span>15+ AI patents</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Check size={18} stroke="#3b82f6" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                <span>Published research in top journals</span>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Check size={18} stroke="#3b82f6" strokeWidth={2.5} style={{ flexShrink: 0 }} />
+                <span>Regulatory compliance 100%</span>
+              </div>
             </div>
           </div>
         </div>

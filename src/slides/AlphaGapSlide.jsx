@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { X, Check } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function AlphaGapSlide() {
@@ -14,7 +15,10 @@ export default function AlphaGapSlide() {
         
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem' }}>
           <div style={{ textAlign: 'center' }}>
-            <h3 style={{ color: '#ef4444', marginBottom: '1rem' }}>❌ Traditional</h3>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+              <X size={24} stroke="#ef4444" strokeWidth={3} />
+              <h3 style={{ color: '#ef4444', margin: 0 }}>Traditional</h3>
+            </div>
             <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '1.5rem', borderRadius: '12px' }}>
               <div style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>
                 <strong>Tax:</strong> Reactive, annual-only TLH
@@ -29,7 +33,10 @@ export default function AlphaGapSlide() {
           </div>
           
           <div style={{ textAlign: 'center' }}>
-            <h3 style={{ color: '#14b8a6', marginBottom: '1rem' }}>✓ What HNWIs Want</h3>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+              <Check size={24} stroke="#14b8a6" strokeWidth={3} />
+              <h3 style={{ color: '#14b8a6', margin: 0 }}>What HNWIs Want</h3>
+            </div>
             <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '1.5rem', borderRadius: '12px' }}>
               <div style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>
                 <strong>Tax:</strong> Proactive, daily optimization

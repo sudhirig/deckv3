@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function RealJourneysSlide() {
@@ -27,7 +28,11 @@ export default function RealJourneysSlide() {
                 </div>
                 <div>
                   <p style={{ fontWeight: 'bold', color: '#14b8a6' }}>Execution:</p>
-                  <p style={{ color: '#94a3b8' }}>One-click approval → IBKR execution</p>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#94a3b8' }}>
+                    <span>One-click approval</span>
+                    <ArrowRight size={18} stroke="#14b8a6" strokeWidth={2} />
+                    <span>IBKR execution</span>
+                  </div>
                 </div>
               </div>
             </div>

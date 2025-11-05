@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function GrowthPathSlide() {
@@ -19,13 +20,17 @@ export default function GrowthPathSlide() {
                 <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6' }}>$50M</p>
                 <p style={{ fontSize: '0.85rem', color: '#64748b' }}>AUM</p>
               </div>
-              <div style={{ fontSize: '2rem', color: '#475569' }}>→</div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <ArrowRight size={32} stroke="#475569" strokeWidth={2.5} />
+              </div>
               <div style={{ textAlign: 'center' }}>
                 <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 2</p>
                 <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#22c55e' }}>$250M</p>
                 <p style={{ fontSize: '0.85rem', color: '#64748b' }}>AUM</p>
               </div>
-              <div style={{ fontSize: '2rem', color: '#475569' }}>→</div>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <ArrowRight size={32} stroke="#475569" strokeWidth={2.5} />
+              </div>
               <div style={{ textAlign: 'center' }}>
                 <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 3</p>
                 <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}>$1B</p>
