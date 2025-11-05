@@ -38,36 +38,32 @@ The presentation includes print-optimized CSS that automatically:
 - Enables page breaks between slides
 - Maintains full styling and gradients
 
-## 🎯 Slide Overview
+## 🎯 Slide Overview (Matches GitHub repo sudhirig/deckv1)
 
-### Act I: The Problem (Slides 1-4)
-1. **Title Slide**: AI-Powered Digital Family Office
-2. **Problem Slide**: HNW families face critical wealth management gaps
-3. **Stanford Slide**: AI vs Human performance research
-4. **Alpha Gap Slide**: Traditional vs Our Solution comparison
+### Act I: The Problem (Slides 1-5)
+1. **Title Slide**: The AI-Powered Digital Family Office
+2. **Act 1 Intro**: The Hook & The Problem
+3. **Stanford Slide**: AI is the New Alpha (93% stat)
+4. **Market Switching**: 39% already switched providers
+5. **Alpha Gap**: Why They're Switching - The Three Failures
 
-### Act II: The Solution (Slides 5-7)
-5. **Solution Slide**: Four core platform features
-6. **Old Model Slide**: Fragmented & manual approach
-7. **New Model Slide**: Unified & intelligent platform
+### Act II: The Solution (Slides 6-7)
+6. **AI Investment Committee**: Not a Chatbot (Old vs New Model)
+7. **Three Alpha Agents**: Our Moat - Tax, Alternatives, India Gateway
 
-### Act III: Tax Alpha (Slides 8-9)
-8. **Tax Alpha Slide**: Systematic tax optimization overview
-9. **Tax Strategies Slide**: Four key tax optimization strategies
+### Act III: The Deep Dive (Slides 8-14)
+8. **Act 3 Intro**: The Moat & The Technology
+9. **India Problem**: $5T Market Locked by Red Tape
+10. **GIFT City Solution**: The "AI Gateway"
+11. **AI Gateway Agent**: How It Makes India Access Simple
+12. **Tax Alpha Daily**: Daily vs Annual TLH (+1.8% returns)
+13. **Alternative Asset AI DD**: 16,000+ funds analyzed
+14. **Agent Architecture**: Swarm of 20+ Specialized Agents
 
-### Act IV: Alternative Assets (Slides 10-11)
-10. **Alternatives Slide**: The missing piece in HNW portfolios
-11. **Alternatives Access Slide**: Our investment platform
-
-### Act V: GIFT City Gateway (Slides 12-13)
-12. **GIFT City Slide**: Tax-efficient India exposure
-13. **GIFT Benefits Slide**: Four key benefits
-
-### Act VI: AI Agents (Slides 14-17)
-14. **Agents Slide**: Four autonomous AI agents
-15. **Agent Features Slide**: What makes our agents different
-16. **Use Cases Slide**: Real-world applications
-17. **Final Slide**: Call to action
+### Act IV: The Proof (Slides 15-17)
+15. **Act 4 Intro**: Validation & Traction
+16. **Real Journeys**: Three HNW personas with measurable outcomes
+17. **Live Platform**: 100% Operational Today (Zerodha integrated)
 
 ## 🛠️ Technical Stack
 
