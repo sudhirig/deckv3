@@ -1,16 +1,16 @@
-# AI-Powered Digital Family Office - Premium Presentation Deck
+# AI-Powered Digital Family Office - Presentation
 
-A world-class Slidev presentation showcasing an AI-powered digital family office platform for high-net-worth investors, featuring ultra-modern graphics, custom Vue components, and professional animations.
+A world-class React presentation showcasing an AI-powered digital family office platform for high-net-worth investors, featuring ultra-modern graphics, smooth animations, and professional design.
 
 ## 🎨 Features
 
 - ✨ **Ultra-Modern UI**: Glassmorphism effects, gradient backgrounds, smooth animations
-- 📊 **Interactive Visualizations**: Custom Vue components for data presentation
-- 🎬 **Professional Animations**: Floating elements, pulse effects, smooth transitions
+- 🎬 **Professional Animations**: Powered by Framer Motion for smooth transitions
 - 🌙 **Optimized Dark Theme**: Premium color palette with teal/green gradients
 - ⌨️ **Keyboard Navigation**: Arrow keys, spacebar for slide navigation
 - 📱 **Responsive Design**: Optimized for 16:9 presentation format
-- 🎯 **PDF Export Ready**: Multiple export options available
+- 📄 **PDF Export**: Browser print function with optimized layout
+- ⚡ **Fast & Reliable**: React + Vite with proper Replit configuration
 
 ## 🚀 Getting Started
 
@@ -18,90 +18,79 @@ The presentation is already running! You can view it in the webview panel.
 
 ### Navigation
 
-- **Arrow Keys** or **Spacebar**: Navigate between slides
-- **F**: Toggle fullscreen mode
-- **O**: Toggle overview mode
-- **D**: Toggle dark mode
-- **G**: Toggle drawing mode
+- **Arrow Keys (← →)**: Navigate between slides
+- **Spacebar**: Next slide
+- **Home**: Jump to first slide
+- **End**: Jump to last slide
+- **Click Navigation**: Use the bottom-right navigation buttons
 
-### Presenter Mode
+## 📄 PDF Export
 
-Access presenter mode with notes and timer:
-```
-http://localhost:5000/presenter/
-```
-
-## 📄 PDF Export Options
-
-### Option 1: Browser Print (Recommended for Replit)
-1. Open the presentation
-2. Press `Ctrl+P` (or `Cmd+P` on Mac)
-3. Select "Save as PDF" as destination
-4. Choose "Landscape" orientation
+To export as PDF:
+1. Press `Ctrl+P` (Windows/Linux) or `Cmd+P` (Mac)
+2. Select "Save as PDF" as destination
+3. Set margins to "None" for best results
+4. Ensure "Background graphics" is enabled
 5. Click "Save"
 
-### Option 2: Slidev Export (Requires additional setup)
-```bash
-npm run export -- --output presentation.pdf
-```
-Note: This requires system dependencies that may not be available in all environments.
-
-### Option 3: Online Conversion
-1. Use the built-in export: `npm run build`
-2. Upload the generated SPA to any PDF conversion service
+The presentation includes print-optimized CSS that automatically:
+- Hides navigation controls
+- Enables page breaks between slides
+- Maintains full styling and gradients
 
 ## 🎯 Slide Overview
 
-1. **Cover**: AI-Powered Digital Family Office
-2. **Act 1 Intro**: The Hook & The Problem
-3. **AI Alpha**: Stanford study visualization
-4. **Market Switching**: Statistics and trends
-5. **Three Failures**: Alpha Gap comparison
-6. **Act 2 Intro**: The Solution
-7. **AI Committee**: Old vs New model comparison
-8. **Three Alpha Agents**: Tax, Alternative, India Gateway
-9. **Act 3 Intro**: The Deep Dive
-10. **India Market**: Problem visualization
-11. **GIFT City Solution**: Gateway benefits
-12. **Tax Alpha Agent**: Daily vs Annual TLH
-13. **Alternative Asset Agent**: AI due diligence
-14. **Agent Architecture**: Full system overview
-15. **Act 4 Intro**: The Proof
-16. **Live Platform**: Production validation
-17. **Thank You**: Closing slide
+### Act I: The Problem (Slides 1-4)
+1. **Title Slide**: AI-Powered Digital Family Office
+2. **Problem Slide**: HNW families face critical wealth management gaps
+3. **Stanford Slide**: AI vs Human performance research
+4. **Alpha Gap Slide**: Traditional vs Our Solution comparison
+
+### Act II: The Solution (Slides 5-7)
+5. **Solution Slide**: Four core platform features
+6. **Old Model Slide**: Fragmented & manual approach
+7. **New Model Slide**: Unified & intelligent platform
+
+### Act III: Tax Alpha (Slides 8-9)
+8. **Tax Alpha Slide**: Systematic tax optimization overview
+9. **Tax Strategies Slide**: Four key tax optimization strategies
+
+### Act IV: Alternative Assets (Slides 10-11)
+10. **Alternatives Slide**: The missing piece in HNW portfolios
+11. **Alternatives Access Slide**: Our investment platform
+
+### Act V: GIFT City Gateway (Slides 12-13)
+12. **GIFT City Slide**: Tax-efficient India exposure
+13. **GIFT Benefits Slide**: Four key benefits
+
+### Act VI: AI Agents (Slides 14-17)
+14. **Agents Slide**: Four autonomous AI agents
+15. **Agent Features Slide**: What makes our agents different
+16. **Use Cases Slide**: Real-world applications
+17. **Final Slide**: Call to action
 
 ## 🛠️ Technical Stack
 
-- **Slidev**: Modern presentation framework
-- **Vue 3**: Component framework with TypeScript
-- **UnoCSS**: Utility-first CSS engine
-- **Vite**: Build tool configured for Replit environment
-- **Custom Components**: 5 specialized Vue components
-- **Animations**: CSS keyframes and transitions
+- **React 18**: Modern UI framework
+- **Vite 5**: Lightning-fast build tool
+- **Framer Motion**: Smooth animations and transitions
+- **CSS3**: Glassmorphism and gradient effects
 
 ### Configuration Notes
-The project includes a `vite.config.js` configured to work properly in the Replit environment by allowing all hosts. This prevents the "Blocked request" error that can occur with cloud development environments.
+The project includes a `vite.config.js` configured for the Replit environment with proper host settings (`0.0.0.0:5000`). This ensures the presentation works reliably in cloud development environments.
 
 ## 📝 Customization
 
 ### Editing Content
-Edit `slides.md` to modify slide content. The file uses Markdown with Vue components.
+All slide components are in the `src/slides/` directory. Each slide is a React component with:
+- Full control over layout and styling
+- Framer Motion animations
+- Responsive design
 
-### Modifying Components
-Custom components are in the `components/` directory:
-- `StanfordChart.vue` - AI performance comparison
-- `StatCard.vue` - Animated statistics
-- `AlphaGapComparison.vue` - Problem/solution grid
-- `FlowDiagram.vue` - Process flow visualization
-- `AgentCard.vue` - Feature cards with icons
-
-### Changing Theme
-Modify the frontmatter in `slides.md`:
-```yaml
-theme: default
-colorSchema: 'dark'
-background: [your-image-url]
-```
+### Modifying Slides
+1. Edit existing slide components in `src/slides/`
+2. Update `src/App.jsx` to add/remove slides from the navigation
+3. Customize styling in `src/slides/SlideStyles.css`
 
 ## 🎨 Design System
 
@@ -113,9 +102,10 @@ background: [your-image-url]
 ## 📦 Commands
 
 ```bash
+npm install        # Install dependencies
 npm run dev        # Start development server on port 5000
 npm run build      # Build for production
-npm run export     # Export to PDF (requires dependencies)
+npm run preview    # Preview production build
 ```
 
 ## 🌟 Highlights
@@ -129,4 +119,4 @@ This presentation deck showcases:
 
 ---
 
-Built with ❤️ using Slidev, Vue 3, and modern web technologies
+Built with React, Vite, and Framer Motion

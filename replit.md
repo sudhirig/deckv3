@@ -1,17 +1,25 @@
-# AI-Powered Digital Family Office - Presentation Deck
+# AI-Powered Digital Family Office - React Presentation
 
 ## Overview
-A world-class Slidev presentation deck showcasing an AI-powered digital family office platform for high-net-worth investors. Features ultra-modern graphics, custom Vue components, professional animations, and PDF export capabilities.
+A world-class React presentation showcasing an AI-powered digital family office platform for high-net-worth investors. Features ultra-modern graphics, smooth animations, and professional design with reliable Replit configuration.
 
 ## Project Structure
 ```
-├── slides.md                    # Main presentation file
-├── components/                  # Custom Vue components
-│   ├── StanfordChart.vue       # AI vs Human performance chart
-│   ├── StatCard.vue            # Animated statistics cards
-│   ├── AlphaGapComparison.vue  # Problem/solution comparison
-│   ├── FlowDiagram.vue         # Old vs new model diagrams
-│   └── AgentCard.vue           # Agent feature cards
+├── src/
+│   ├── main.jsx                 # React app entry point
+│   ├── App.jsx                  # Main app with navigation
+│   ├── App.css                  # App-level styles
+│   ├── index.css                # Global styles & print CSS
+│   └── slides/                  # Individual slide components
+│       ├── TitleSlide.jsx       # Cover slide
+│       ├── ProblemSlide.jsx     # Problem overview
+│       ├── StanfordSlide.jsx    # AI research data
+│       ├── AlphaGapSlide.jsx    # Comparison slide
+│       ├── SolutionSlide.jsx    # Solution overview
+│       ├── [... 12 more slides]
+│       └── SlideStyles.css      # Shared slide styles
+├── index.html                   # HTML entry point
+├── vite.config.js              # Vite configuration
 └── package.json                # Dependencies
 ```
 
@@ -25,30 +33,33 @@ A world-class Slidev presentation deck showcasing an AI-powered digital family o
 - 🌙 Optimized dark theme
 
 ## Key Technologies
-- **Slidev**: Modern presentation framework
-- **Vue 3**: Component framework
-- **UnoCSS**: Utility-first CSS
-- **TypeScript**: Type safety
-- **Playwright**: PDF export
+- **React 18**: Modern UI framework
+- **Vite 5**: Lightning-fast build tool
+- **Framer Motion**: Professional animations
+- **CSS3**: Glassmorphism & gradients
+- **Print CSS**: PDF export optimization
 
 ## Commands
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
-- `npm run export` - Export to PDF
+- `npm run preview` - Preview production build
+- **PDF Export**: Use browser print (Ctrl/Cmd + P) to export as PDF
 
 ## Recent Changes
-- Initial setup with Slidev and custom components
-- Created 5 custom Vue components for visualizations
-- Built complete slide deck with all original content
-- Implemented glassmorphism UI and gradient effects
-- Added animations and transitions
+- **November 5, 2025**: Migrated from Slidev to React
+  - Resolved Vite host blocking issues in Replit
+  - Created 17 custom React slide components
+  - Implemented Framer Motion animations
+  - Added keyboard navigation and PDF export
+  - Proper Vite configuration for Replit (0.0.0.0:5000)
 
 ## Architecture Decisions
-- Using Slidev for native PDF/PPTX export support
-- Custom Vue components for reusable visualizations
-- Dark theme with teal/green gradient accent colors
-- Glassmorphism for modern, premium aesthetic
-- Responsive grid layouts for content organization
+- **React over Slidev**: Better reliability in Replit environment, no host blocking issues
+- **Component-based slides**: Each slide is an independent React component
+- **Framer Motion**: Smooth page transitions and animations
+- **Print CSS**: Browser-native PDF export without external dependencies
+- **Dark theme**: Teal/green gradient accent colors with glassmorphism
+- **Vite configuration**: Proper host settings (0.0.0.0:5000) for cloud environments
 
 ## User Preferences
 - Ultra-modern graphics and world-class design
