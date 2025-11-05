@@ -20,7 +20,7 @@ body {
 
   body {
     overflow: visible;
-    background: #ffffff !important;
+    background: #0a0a0a !important;
     margin: 0;
     padding: 0;
   }
@@ -32,15 +32,23 @@ body {
     min-height: 100vh;
     width: 100%;
     margin: 0;
-    padding: 3rem;
-    background: #ffffff !important;
+    padding: 4rem;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .slide-content {
-    background: #ffffff !important;
-    padding: 2rem !important;
+    padding: 0 !important;
     margin: 0 auto;
     max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .navigation {
@@ -48,50 +56,51 @@ body {
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.98) !important;
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
-    backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: none !important;
+    padding: 3rem !important;
   }
 
   .stat-card {
-    background: rgba(255, 255, 255, 0.98) !important;
-    border: 1px solid #e2e8f0 !important;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: none !important;
   }
 
   .act-slide {
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f8fafc 100%) !important;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%) !important;
   }
 
   .act-number {
-    color: #0f766e !important;
-    -webkit-text-fill-color: #0f766e !important;
+    color: #14b8a6 !important;
   }
 
   .act-title {
-    background: linear-gradient(135deg, #0f766e, #0891b2) !important;
+    background: linear-gradient(135deg, #14b8a6, #22d3ee) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
   }
 
   .act-subtitle {
-    color: #475569 !important;
+    color: #94a3b8 !important;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #1e293b !important;
+    color: #ffffff !important;
     page-break-after: avoid;
   }
 
   p, li {
-    color: #334155 !important;
+    color: rgba(255, 255, 255, 0.8) !important;
     line-height: 1.6 !important;
   }
 
   .gradient-text {
-    background: linear-gradient(135deg, #0f766e, #0891b2) !important;
+    background: linear-gradient(135deg, #14b8a6, #22d3ee) !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
     background-clip: text !important;
@@ -102,11 +111,7 @@ body {
   }
 
   canvas {
-    display: none !important;
-  }
-
-  [style*="background: linear-gradient"] {
-    background: #f8fafc !important;
+    display: block !important;
   }
 
   .comparison-container,
@@ -126,8 +131,8 @@ body {
   }
 
   @page {
-    size: 16in 9in;
-    margin: 0.5in;
+    size: A4 landscape;
+    margin: 0;
   }
 
   .slide:last-child {

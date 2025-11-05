@@ -34,13 +34,13 @@ Open your presentation in the browser (it should already be running).
 
 Your presentation has been optimized with professional print styles:
 
-✅ **Light backgrounds** with dark, readable text  
-✅ **16:9 aspect ratio** maintained across all slides  
-✅ **Proper page breaks** between slides  
-✅ **Print-friendly colors** (dark teal accents on light backgrounds)  
-✅ **No animations** or transitions in print mode  
+✅ **Dark theme preserved** - Exact colors from screen view  
+✅ **Teal/cyan gradients** maintained across all titles  
+✅ **Glassmorphism effects** kept for premium look  
+✅ **Proper page breaks** between all 28 slides  
+✅ **No animations** - Static for clean PDF export  
 ✅ **Professional typography** with optimized spacing  
-✅ **Clean borders and shadows** for clarity  
+✅ **A4 Landscape format** - Standard presentation size  
 
 ## Expected Output
 

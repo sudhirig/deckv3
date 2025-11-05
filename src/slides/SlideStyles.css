@@ -283,34 +283,22 @@
    ============================================ */
 
 @media print {
-  /* Typography Optimization */
+  /* Typography Optimization - Keep dark theme */
   .slide-title {
-    color: #1e293b !important;
-    -webkit-text-fill-color: #1e293b !important;
     font-size: 3rem !important;
     margin-bottom: 2rem !important;
   }
 
   .main-title {
-    color: #0f766e !important;
-    -webkit-text-fill-color: #0f766e !important;
     font-size: 3.5rem !important;
   }
 
   .subtitle {
-    color: #475569 !important;
     font-size: 1.6rem !important;
   }
 
-  .tagline {
-    color: #64748b !important;
-  }
-
-  /* Card Styling */
+  /* Card Styling - Keep glassmorphism */
   .feature-card {
-    background: #ffffff !important;
-    border: 1px solid #cbd5e1 !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
     page-break-inside: avoid;
   }
 
@@ -318,100 +306,21 @@
     page-break-inside: avoid;
   }
 
-  /* Icon Optimization */
-  .feature-icon svg,
-  .icon svg {
-    fill: #0f766e !important;
-    stroke: #0f766e !important;
-  }
-
   /* List and Comparison Styling */
   .comparison-grid {
     page-break-inside: avoid;
   }
 
-  .old-model {
-    background: #fef2f2 !important;
-    border: 1px solid #fca5a5 !important;
-  }
-
-  .new-model {
-    background: #f0fdfa !important;
-    border: 1px solid #5eead4 !important;
-  }
-
-  .old-model .comparison-title {
-    color: #dc2626 !important;
-  }
-
-  .new-model .comparison-title {
-    color: #0f766e !important;
-  }
-
-  .comparison-list li {
-    background: rgba(0, 0, 0, 0.02) !important;
-    color: #334155 !important;
-  }
-
-  /* Stats and Values */
-  .stat-value {
-    color: #0f766e !important;
-  }
-
-  .stat-label {
-    color: #475569 !important;
-  }
-
-  .feature-title {
-    color: #0f766e !important;
-  }
-
-  .feature-description {
-    color: #475569 !important;
-  }
-
-  /* Remove animations and transitions */
+  /* Remove animations but keep backgrounds */
   .tech-background {
-    display: none !important;
+    animation: none !important;
   }
 
   /* Fixed positioning elements */
   .date {
-    position: static !important;
-    margin-top: 2rem;
-    text-align: right;
-    color: #0f766e !important;
-  }
-
-  /* Features line optimization */
-  .feature {
-    color: #0f766e !important;
-  }
-
-  .dot {
-    color: #94a3b8 !important;
-  }
-
-  /* Ensure text is always readable */
-  * {
-    text-shadow: none !important;
-  }
-
-  /* Chart and data visualization */
-  .chart-container,
-  .data-viz {
-    page-break-inside: avoid;
-    background: #ffffff !important;
-  }
-
-  /* Button and interactive element reset */
-  button,
-  .button,
-  .btn {
-    background: #e2e8f0 !important;
-    color: #1e293b !important;
-    border: 1px solid #cbd5e1 !important;
-    box-shadow: none !important;
+    position: fixed !important;
+    bottom: 4rem;
+    right: 4rem;
   }
 
   /* Progress bars and indicators */
@@ -433,20 +342,6 @@
   }
 
   th, td {
-    border: 1px solid #cbd5e1;
     padding: 0.75rem;
-    color: #334155 !important;
-  }
-
-  th {
-    background: #f1f5f9 !important;
-    font-weight: 600;
-  }
-
-  /* Code blocks if present */
-  code, pre {
-    background: #f8fafc !important;
-    border: 1px solid #e2e8f0 !important;
-    color: #1e293b !important;
   }
 }
