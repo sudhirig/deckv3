@@ -1,7 +1,7 @@
 # AI-Powered Digital Family Office - React Presentation
 
 ## Overview
-A world-class React presentation showcasing an AI-powered digital family office platform for high-net-worth investors. Features ultra-modern graphics, smooth animations, and professional design with reliable Replit configuration. Content exactly matches the original GitHub repository (sudhirig/deckv1) slides.md file - only UI/UX has been enhanced.
+A complete **28-slide** React presentation showcasing an AI-powered digital family office platform for high-net-worth investors. Features ultra-modern graphics, smooth animations, and professional design with reliable Replit configuration. Content exactly matches the original GitHub repository (sudhirig/deckv1/slides.md) - only UI/UX has been enhanced.
 
 ## Project Structure
 ```
@@ -47,7 +47,7 @@ A world-class React presentation showcasing an AI-powered digital family office 
 
 ## Recent Changes
 - **November 5, 2025**: Complete rebuild matching GitHub repo content exactly
-  - All 17 slides now match sudhirig/deckv1 slides.md content precisely
+  - All 28 slides now match sudhirig/deckv1/slides.md content precisely (including Act dividers)
   - Migrated from Slidev to React for Replit compatibility
   - Resolved Vite host blocking issues with allowedHosts configuration
   - Created custom React slide components with glassmorphism UI

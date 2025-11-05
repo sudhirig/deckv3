@@ -1,6 +1,6 @@
 # AI-Powered Digital Family Office - Presentation
 
-A world-class React presentation showcasing an AI-powered digital family office platform for high-net-worth investors, featuring ultra-modern graphics, smooth animations, and professional design.
+A world-class React presentation with **28 slides** showcasing an AI-powered digital family office platform for high-net-worth investors. Content exactly matches the original GitHub repo (sudhirig/deckv1/slides.md) - only UI/UX has been enhanced with ultra-modern graphics, smooth animations, and professional design.
 
 ## 🎨 Features
 
@@ -38,7 +38,9 @@ The presentation includes print-optimized CSS that automatically:
 - Enables page breaks between slides
 - Maintains full styling and gradients
 
-## 🎯 Slide Overview (Matches GitHub repo sudhirig/deckv1)
+## 🎯 Complete Slide Deck (28 Slides)
+
+All content matches GitHub repo sudhirig/deckv1/slides.md exactly.
 
 ### Act I: The Problem (Slides 1-5)
 1. **Title Slide**: The AI-Powered Digital Family Office
