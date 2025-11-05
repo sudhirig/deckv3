@@ -1,0 +1,20 @@
+{
+  "name": "ai-family-office-deck",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "slidev --port 5000",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.49.29",
+    "@slidev/theme-default": "^0.25.0",
+    "vue": "^3.5.22"
+  },
+  "devDependencies": {
+    "@iconify-json/carbon": "^1.2.14",
+    "@iconify-json/mdi": "^1.2.3",
+    "playwright-chromium": "^1.56.1"
+  }
+}
