@@ -110,15 +110,30 @@ function App() {
 
   return (
     <div className="presentation">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={currentSlide}
-          {...currentTransition}
-          className="slide"
-        >
-          <CurrentSlideComponent />
-        </motion.div>
-      </AnimatePresence>
+      {/* Print view: All slides rendered */}
+      <div className="print-only-slides">
+        {slides.map((slide, index) => {
+          const SlideComponent = slide.component
+          return (
+            <div key={index} className="slide print-slide">
+              <SlideComponent />
+            </div>
+          )
+        })}
+      </div>
+
+      {/* Screen view: Current slide only */}
+      <div className="screen-only-slides">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            {...currentTransition}
+            className="slide"
+          >
+            <CurrentSlideComponent />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       <div className="navigation">
         <button 

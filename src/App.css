@@ -87,9 +87,42 @@
   backdrop-filter: blur(10px);
 }
 
+/* Print-only slides: Hidden on screen, visible only when printing */
+.print-only-slides {
+  display: none;
+}
+
+/* Screen-only slides: Visible on screen, hidden when printing */
+.screen-only-slides {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 @media print {
   .navigation,
   .instructions {
     display: none !important;
+  }
+
+  /* Hide screen view, show print view */
+  .screen-only-slides {
+    display: none !important;
+  }
+
+  .print-only-slides {
+    display: block !important;
+  }
+
+  .print-slide {
+    page-break-after: always;
+    page-break-inside: avoid;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .print-slide:last-child {
+    page-break-after: avoid;
   }
 }
