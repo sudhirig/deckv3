@@ -44,6 +44,8 @@ A complete **28-slide** React presentation showcasing an AI-powered digital fami
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - **PDF Export**: Use browser print (Ctrl/Cmd + P) to export as PDF
+  - Recommended filename: `AI-Digital-Family-Office-Deck_2025-11-05.pdf`
+  - See `export-instructions.md` for detailed export guide
 
 ## Recent Changes
 - **November 5, 2025**: Complete rebuild matching GitHub repo content exactly

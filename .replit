@@ -4,7 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
-packages = ["xorg.libX11", "xorg.libxcb", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr"]
+packages = ["xorg.libX11", "xorg.libxcb", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXext", "xorg.libXfixes", "xorg.libXrandr", "glib", "nss", "nspr", "atk", "cups", "expat", "libdrm", "xorg.libxshmfence", "pango", "cairo", "alsa-lib", "at-spi2-atk", "libxkbcommon", "mesa", "dbus"]
 
 [workflows]
 runButton = "Project"
