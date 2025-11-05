@@ -285,94 +285,52 @@
 @media print {
   /* Typography Optimization - Keep dark theme */
   .slide-title {
-    font-size: 2.5rem !important;
-    margin-bottom: 1.5rem !important;
+    font-size: 3rem !important;
+    margin-bottom: 2rem !important;
   }
 
   .main-title {
-    font-size: 3rem !important;
-    margin-bottom: 1.5rem !important;
+    font-size: 3.5rem !important;
   }
 
   .subtitle {
-    font-size: 1.4rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 1.6rem !important;
   }
 
-  /* Card Styling - Keep glassmorphism but reduce padding */
+  /* Card Styling - Keep glassmorphism */
   .feature-card {
     page-break-inside: avoid;
-    padding: 1.5rem !important;
-    margin-bottom: 1rem !important;
   }
 
   .stat-card {
     page-break-inside: avoid;
-    padding: 1rem !important;
   }
 
   /* List and Comparison Styling */
   .comparison-grid {
     page-break-inside: avoid;
-    gap: 1rem !important;
-    grid-template-columns: 1fr 1fr !important;
-  }
-
-  .comparison-column {
-    padding: 1rem !important;
-  }
-
-  .comparison-list li {
-    padding: 0.75rem !important;
-    margin-bottom: 0.5rem !important;
-    font-size: 0.9rem !important;
-  }
-
-  /* Features line optimization */
-  .features-line {
-    font-size: 1.1rem !important;
-    gap: 1rem !important;
-    margin-bottom: 1.5rem !important;
-  }
-
-  .tagline {
-    font-size: 1rem !important;
-    margin-bottom: 2rem !important;
   }
 
   /* Remove animations but keep backgrounds */
   .tech-background {
-    display: none !important;
+    animation: none !important;
   }
 
-  /* Act slide adjustments */
-  .act-content {
-    max-width: 90%;
-  }
-
-  .act-number {
-    font-size: 1.3rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  .act-title {
-    font-size: 3.5rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  .act-subtitle {
-    font-size: 1.5rem !important;
+  /* Fixed positioning elements */
+  .date {
+    position: fixed !important;
+    bottom: 4rem;
+    right: 4rem;
   }
 
   /* Progress bars and indicators */
   .progress-bar {
     page-break-inside: avoid;
-    max-width: 100% !important;
   }
 
   /* Ensure proper spacing */
   .content-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     page-break-inside: avoid;
   }
 
@@ -381,36 +339,9 @@
     border-collapse: collapse;
     width: 100%;
     page-break-inside: avoid;
-    font-size: 0.9rem !important;
   }
 
   th, td {
-    padding: 0.6rem !important;
-  }
-
-  /* Stat values */
-  .stat-value {
-    font-size: 2.5rem !important;
-  }
-
-  .stat-label {
-    font-size: 1rem !important;
-  }
-
-  /* Feature titles */
-  .feature-title {
-    font-size: 1.3rem !important;
-    margin-bottom: 0.75rem !important;
-  }
-
-  .feature-description {
-    font-size: 0.95rem !important;
-    line-height: 1.5 !important;
-  }
-
-  /* Reduce comparison title sizes */
-  .comparison-title {
-    font-size: 1.5rem !important;
-    margin-bottom: 1rem !important;
+    padding: 0.75rem;
   }
 }

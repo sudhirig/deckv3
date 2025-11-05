@@ -28,29 +28,27 @@ body {
   .slide {
     page-break-after: always;
     page-break-inside: avoid;
-    width: 1123px;
-    height: 794px;
+    height: 100vh;
+    min-height: 100vh;
+    width: 100%;
     margin: 0;
-    padding: 40px;
+    padding: 4rem;
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%) !important;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
-    overflow: hidden;
   }
   
   .slide-content {
     padding: 0 !important;
     margin: 0 auto;
-    max-width: 90%;
-    width: 90%;
+    max-width: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
   }
 
   .navigation {
@@ -63,16 +61,13 @@ body {
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     box-shadow: none !important;
-    padding: 1.5rem !important;
-    max-width: 90%;
-    box-sizing: border-box;
+    padding: 3rem !important;
   }
 
   .stat-card {
     background: rgba(255, 255, 255, 0.03) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     box-shadow: none !important;
-    padding: 1rem !important;
   }
 
   .act-slide {
@@ -116,47 +111,7 @@ body {
   }
 
   canvas {
-    display: none !important;
-  }
-  
-  /* Hide decorative elements that cause overflow */
-  .tech-background {
-    display: none !important;
-  }
-  
-  /* Fixed positioning elements to static */
-  .date {
-    position: static !important;
-    margin-top: 2rem;
-    text-align: right;
-  }
-  
-  /* Constrain grids and lists */
-  .comparison-grid,
-  .features-grid,
-  .team-grid {
-    max-width: 100%;
-    gap: 1rem !important;
-  }
-  
-  /* Handle text overflow */
-  h1, h2, h3, h4, h5, h6, p, li {
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    hyphens: auto;
-  }
-  
-  /* Reduce font sizes slightly for better fit */
-  .main-title {
-    font-size: 3rem !important;
-  }
-  
-  .slide-title {
-    font-size: 2.5rem !important;
-  }
-  
-  .subtitle {
-    font-size: 1.4rem !important;
+    display: block !important;
   }
 
   .comparison-container,
@@ -177,7 +132,7 @@ body {
 
   @page {
     size: A4 landscape;
-    margin: 0.25in;
+    margin: 0;
   }
 
   .slide:last-child {
