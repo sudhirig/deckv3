@@ -6,6 +6,11 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5000,
-    strictPort: true
+    strictPort: true,
+    allowedHosts: [
+      '.repl.co',
+      '.replit.dev',
+      '.replit.app'
+    ]
   }
 })
