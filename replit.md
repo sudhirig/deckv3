@@ -48,6 +48,13 @@ A complete **28-slide** React presentation showcasing an AI-powered digital fami
   - See `export-instructions.md` for detailed export guide
 
 ## Recent Changes
+- **November 5, 2025 (Latest)**: **PDF Export Issues Fixed** - Professional quality PDF export now working
+  - Fixed "November 2025" date appearing on all pages (now only on title slide)
+  - Fixed spacing and alignment issues (removed forced centering, natural top-down flow)
+  - Optimized card padding (reduced from 3rem to 1.5rem for better layout)
+  - Enhanced text contrast (increased opacity to 0.95 for better readability)
+  - Added explicit layout rules for print mode (block display with exceptions for title/act slides)
+  - All 28 slides now export correctly with proper spacing, colors, and dark theme preserved
 - **November 5, 2025**: Complete rebuild matching GitHub repo content exactly
   - All 28 slides now match sudhirig/deckv1/slides.md content precisely (including Act dividers)
   - **PDF Export Optimization**: Comprehensive print styles for professional PDF output
