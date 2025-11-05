@@ -6,6 +6,8 @@ import Act1Slide from './slides/Act1Slide'
 import StanfordSlide from './slides/StanfordSlide'
 import MarketSwitchingSlide from './slides/MarketSwitchingSlide'
 import AlphaGapSlide from './slides/AlphaGapSlide'
+import Act2Slide from './slides/Act2Slide'
+import IntroducingSlide from './slides/IntroducingSlide'
 import AICommitteeSlide from './slides/AICommitteeSlide'
 import ThreeAlphaAgentsSlide from './slides/ThreeAlphaAgentsSlide'
 import Act3Slide from './slides/Act3Slide'
@@ -18,25 +20,45 @@ import AgentArchitectureSlide from './slides/AgentArchitectureSlide'
 import Act4Slide from './slides/Act4Slide'
 import RealJourneysSlide from './slides/RealJourneysSlide'
 import LivePlatformSlide from './slides/LivePlatformSlide'
+import WhyWeWinSlide from './slides/WhyWeWinSlide'
+import UnfairAdvantagesSlide from './slides/UnfairAdvantagesSlide'
+import Act5Slide from './slides/Act5Slide'
+import OpportunitySlide from './slides/OpportunitySlide'
+import ValueCreationSlide from './slides/ValueCreationSlide'
+import GrowthPathSlide from './slides/GrowthPathSlide'
+import TeamSlide from './slides/TeamSlide'
+import FundingSlide from './slides/FundingSlide'
+import AppendixSlide from './slides/AppendixSlide'
 
 const slides = [
   { component: TitleSlide, title: 'Title' },
   { component: Act1Slide, title: 'Act 1: The Problem' },
   { component: StanfordSlide, title: 'AI is the New Alpha' },
-  { component: MarketSwitchingSlide, title: 'Market Switching' },
+  { component: MarketSwitchingSlide, title: 'Market Switching Now' },
   { component: AlphaGapSlide, title: 'The Three Failures' },
+  { component: Act2Slide, title: 'Act 2: The Solution' },
+  { component: IntroducingSlide, title: 'Introducing AI Family Office' },
   { component: AICommitteeSlide, title: 'AI Investment Committee' },
   { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },
   { component: Act3Slide, title: 'Act 3: The Deep Dive' },
-  { component: IndiaProblemSlide, title: 'India Problem' },
-  { component: GIFTSolutionSlide, title: 'GIFT City Solution' },
-  { component: AIGatewaySlide, title: 'AI Gateway Agent' },
-  { component: TaxAlphaDailySlide, title: 'Tax Alpha Daily vs Annual' },
+  { component: IndiaProblemSlide, title: 'India: $5T Market Locked' },
+  { component: GIFTSolutionSlide, title: 'GIFT City AI Gateway' },
+  { component: AIGatewaySlide, title: 'AI Makes It Simple' },
+  { component: TaxAlphaDailySlide, title: 'Tax Alpha: Daily vs Annual' },
   { component: AlternativeAIDDSlide, title: 'Alternative Asset AI DD' },
-  { component: AgentArchitectureSlide, title: 'Agent Architecture' },
+  { component: AgentArchitectureSlide, title: 'Swarm of 20+ Agents' },
   { component: Act4Slide, title: 'Act 4: The Proof' },
-  { component: RealJourneysSlide, title: 'Real Journeys' },
-  { component: LivePlatformSlide, title: 'Live Platform' }
+  { component: RealJourneysSlide, title: 'Real Journeys, Real Alpha' },
+  { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
+  { component: WhyWeWinSlide, title: 'Why We Win' },
+  { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
+  { component: Act5Slide, title: 'Act 5: The Business' },
+  { component: OpportunitySlide, title: 'Market Opportunity' },
+  { component: ValueCreationSlide, title: '10x Value Creation' },
+  { component: GrowthPathSlide, title: 'Path to $1B AUM' },
+  { component: TeamSlide, title: 'Team' },
+  { component: FundingSlide, title: '$5M Seed Round' },
+  { component: AppendixSlide, title: 'Appendix' }
 ]
 
 function App() {
