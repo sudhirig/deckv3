@@ -44,10 +44,18 @@ Your presentation has been optimized with professional print styles:
 
 ## Expected Output
 
-- **Total Pages:** 28 slides
+- **Total Pages:** 28 slides (all slides exported automatically)
 - **Format:** Landscape PDF
 - **Quality:** High-resolution, print-ready
 - **File Size:** Approximately 2-5 MB
+
+## Important: All 28 Slides Will Export
+
+The presentation has been specially configured to export all 28 slides in one PDF:
+- During normal viewing, you see one slide at a time with animations
+- When you click "Export PDF" or press Ctrl/Cmd+P, **all 28 slides are automatically rendered** for printing
+- The print dialog preview will show all 28 pages
+- Each slide becomes one page in the final PDF
 
 ## Tips for Best Results
 
