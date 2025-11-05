@@ -16,10 +16,10 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "slidev-dev"
+args = "react-dev"
 
 [[workflows.workflow]]
-name = "slidev-dev"
+name = "react-dev"
 author = "agent"
 
 [[workflows.workflow.tasks]]
@@ -33,13 +33,7 @@ outputType = "webview"
 [[ports]]
 localPort = 5000
 externalPort = 80
-exposeLocalhost = true
 
 [[ports]]
-localPort = 12445
-externalPort = 3001
-exposeLocalhost = true
-
-[[ports]]
-localPort = 42771
+localPort = 33309
 externalPort = 3000
