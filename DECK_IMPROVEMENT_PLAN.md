@@ -1,11 +1,12 @@
 # AI Digital Family Office - Mother Deck Improvement Plan
 ## Executive Summary & Current State Analysis
 
-### What We Have (54 Slides Total)
+### What We Have (28 Core Slides + Extensions)
 - **Strong Foundation**: Professional glassmorphism design, smooth Framer Motion animations
 - **Complete Narrative Arc**: Act 1-5 structure covering Problem → Solution → Proof → Business → Ask
 - **Technical Excellence**: React 18, Vite 5, PDF export ready, keyboard navigation
 - **Content Depth**: Case studies, financial projections, competitive analysis, risk mitigation
+- **Key Differentiators**: Stanford 600% AI stat, GIFT City exclusive access, Triple Lock moat
 
 ### Critical Gaps Identified
 1. **Credibility Gap**: Only Stanford validation, needs more third-party logos/endorsements
@@ -38,9 +39,12 @@
 #### 1.3 Real Team Slide Transformation
 - **Replace**: Placeholder avatars with professional headshots
 - **Add**: LinkedIn profile links as clickable badges
+  - **Co-Founder & CEO**: Sudhir G - https://www.linkedin.com/in/sudhir-g-0972298/
+  - **Co-Founder & CFO**: Sachin Shah - https://www.voraventures.com/executive-team/sachin-shah
 - **Add**: Previous company logos (Google, Goldman, etc.) as credibility markers
 - **Add**: Brief video introduction capability (play button on hover)
 - **Add**: Team expertise tags with animated reveal
+- **Key Messaging**: Position founders' combined experience in finance and technology
 
 #### 1.4 Live Metrics Dashboard
 - **Create**: New slide after traction showing real-time KPIs
@@ -326,6 +330,16 @@ Would you like me to proceed with implementing any of these improvements? Please
 #### Slide 1: The Organizational Architecture - Our Global Investment Ecosystem
 **Headline**: "Built for Scale: Multi-Jurisdiction Investment Platform"
 
+**Leadership Bar** (Top of slide):
+```
+            FOUNDING TEAM
+    ┌────────────────┬────────────────┐
+    │   SUDHIR G     │  SACHIN SHAH   │
+    │  Co-Founder    │  Co-Founder    │
+    │     CEO        │      CFO       │
+    └────────────────┴────────────────┘
+```
+
 **Enhanced Visual Hierarchy Diagram**:
 ```
                     VORA VENTURES LLC (USA)
@@ -347,6 +361,11 @@ Management IFSC LLP     Advisory IFSC LLP     Distribution LLP    Infrastructure
     ├─ PMS Division        ├─ Portfolio Advisory ├─ Product Dist.   ├─ Technology Platform
     └─ Fund Admin          └─ Research Services  └─ Platform Svcs   └─ Risk & Compliance
 ```
+
+**Team Credibility Elements**:
+- Professional headshots with LinkedIn icons (clickable)
+- Combined 40+ years financial services experience
+- Previous affiliations/logos (if available)
 
 **Interactive Elements**:
 - Hover over each entity to reveal regulatory details
@@ -778,6 +797,9 @@ The only question is: Will you join us before the next 100X happens?"
    - GIFT City team members
    - Advisory board members
    - Key personnel for each division
+   - **Confirmed Founders**:
+     - Sudhir G (Co-Founder & CEO) - LinkedIn: https://www.linkedin.com/in/sudhir-g-0972298/
+     - Sachin Shah (Co-Founder & CFO) - Vora Ventures profile available
 
 ---
 
@@ -922,11 +944,19 @@ Position Act 6 as "The Execution Engine" immediately after Act 5 (Team) but befo
 ### CONTENT TALKING POINTS
 
 #### Key Messages to Emphasize
+
+#### The Triple Lock Moat (From Current Deck)
+1. **Technical Moat**: 2-year head start with proprietary agentic AI architecture (24-30 months to replicate)
+2. **Regulatory Moat**: 18-month barrier with GIFT City IFSCA license + NSE IX integration
+3. **Trust Moat**: Zero custody risk - broker-agnostic model (incumbents can't pivot)
+**Combined moat width**: 36+ months for any competitor to match full capabilities
+
+#### Core Differentiators
 1. **First Mover Advantage**: "We're already operational while competitors are still figuring out the regulations"
-2. **Regulatory Moat**: "18-month head start that's nearly impossible to replicate quickly"
-3. **Tax Efficiency**: "0% tax for 10 years - that's 10-15% additional returns automatically"
-4. **Institutional Quality**: "Same structure used by sovereign wealth funds, now accessible at $75K"
-5. **Technology Edge**: "AI investment committee that never sleeps, never takes vacation"
+2. **Tax Efficiency**: "0% tax for 10 years = automatic 15-30% additional returns"
+3. **Institutional Quality**: "Same structure used by sovereign wealth funds, now accessible at $75K"
+4. **Technology Edge**: "20+ specialized AI agents vs Arta Finance's single AI approach"
+5. **Competitive Validation**: "Arta raised $90M proving AI wealth works - we add explainable AI + global access"
 
 #### Proof Points to Include
 - IFSCA License Number: [Include actual when available]
@@ -935,6 +965,15 @@ Position Act 6 as "The Execution Engine" immediately after Act 5 (Team) but befo
 - Current AUM: $XX Million
 - Number of Investors: XXX
 - Average Returns: XX% (once available)
+
+#### Key Statistics from Current Deck
+- **Market Opportunity**: $107T US HNW wealth + $124T wealth transfer in motion
+- **Switching Rate**: 42% planning to switch advisors (PwC Survey)
+- **AI Advantage**: 600% outperformance (Stanford Study)
+- **Tax Alpha**: +1.8% annual return from daily TLH
+- **India Gateway**: +300bps returns via GIFT City (JPMorgan Research)
+- **Alternative Access**: 16,000+ funds analyzed for +300-500bps potential alpha
+- **NSE IFSC Volume**: Up 400% YoY (Market validation)
 
 #### Risk Disclaimers (Footer Text)
 - "Past performance is not indicative of future results"
