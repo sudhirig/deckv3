@@ -282,18 +282,19 @@ Before implementing, I need to confirm:
 ##### Live Platform Dashboard Showcase
 **Based on operational Zerodha MCP platform**
 
-**Dashboard Components from Live Platform**:
+**Live Dashboard Components (From Actual Platform Screenshot)**:
 
 ```
-┌─────────────────────────────────────────┐
-│       ZERODHA MCP TRADING DASHBOARD     │
-├─────────────────────────────────────────┤
-│  Portfolio Value    │   Day's P&L       │
-│    ₹1,697          │   +₹74 (4.36%)    │
-├─────────────────────────────────────────┤
-│  Market Sentiment   │   Risk Score      │
-│    -70.5%          │   2.7% (Medium)   │
-└─────────────────────────────────────────┘
+┌─────────────────────────────────────────────────┐
+│         ZERODHA MCP TRADING PLATFORM            │
+├─────────────────────────────────────────────────┤
+│  📊 Total Portfolio Value  │  📈 Day's P&L      │
+│       ₹1,697              │  ₹74 (+4.36% Today) │
+├─────────────────────────────────────────────────┤
+│  📉 Market Sentiment      │  🛡️ Risk Score      │
+│    -70.5% (Neutral)       │   2.7% (Medium)     │
+└─────────────────────────────────────────────────┘
+         ⚡ Extreme Activity: 88.21% at 17940285 BPM
 ```
 
 **Key Features Demonstrated**:
@@ -307,22 +308,30 @@ Before implementing, I need to confirm:
 ##### ARIA AGENT: The Heart of Intelligent Trading
 **"AI-Powered Actions with Confidence Scores"**
 
-**Magic Actions - One-Click AI Trading**:
+**Magic Actions - One-Click AI Trading** (Actual from Live Platform):
 
 ```
-    🎯 MAGIC ACTIONS PANEL
-    ├── Portfolio Optimization (92% confidence)
-    │   └── AI-powered rebalancing for maximum returns
-    ├── Risk Shield (95% confidence)
-    │   └── Defensive positions against market volatility
-    ├── Profit Harvest (88% confidence)
-    │   └── Intelligent booking of winning positions
-    ├── Momentum Boost (65% confidence)
-    │   └── Identify and invest in trending opportunities
-    ├── Smart Rebalance (85% confidence)
-    │   └── Automatic target weight allocations
-    └── Opportunity Finder (90% confidence)
-        └── Discover hidden gems with AI analysis
+    🎯 MAGIC ACTIONS - AI-Powered Trading with Confidence Scores
+    
+    ┌─────────────────────────────────────────────────────┐
+    │ 📊 Portfolio Optimization         Confidence: 92%   │
+    │ "AI-powered rebalancing for maximum returns"        │
+    ├─────────────────────────────────────────────────────┤
+    │ 🛡️ Risk Shield                    Confidence: 95%   │
+    │ "Activate defensive positions against volatility"   │
+    ├─────────────────────────────────────────────────────┤
+    │ 💰 Profit Harvest                 Confidence: 88%   │
+    │ "Intelligently book profits from winning positions" │
+    ├─────────────────────────────────────────────────────┤
+    │ 🚀 Momentum Boost                 Confidence: 65%   │
+    │ "Identify and invest in trending opportunities"     │
+    ├─────────────────────────────────────────────────────┤
+    │ ⚖️ Smart Rebalance               Confidence: 85%   │
+    │ "Automatically adjust allocations to target weights"│
+    ├─────────────────────────────────────────────────────┤
+    │ 🔍 Opportunity Finder             Confidence: 90%   │
+    │ "Discover hidden gems with AI analysis"            │
+    └─────────────────────────────────────────────────────┘
 ```
 
 **ARIA Agent Capabilities**:
