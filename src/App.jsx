@@ -24,6 +24,7 @@ import RealJourneysSlide from './slides/RealJourneysSlide'
 import LivePlatformSlide from './slides/LivePlatformSlide'
 import TractionDashboardSlide from './slides/TractionDashboardSlide'
 import WhyWeWinSlide from './slides/WhyWeWinSlide'
+import WhyIncumbentsCantRespondSlide from './slides/WhyIncumbentsCantRespondSlide'
 import UnfairAdvantagesSlide from './slides/UnfairAdvantagesSlide'
 import Act5Slide from './slides/Act5Slide'
 import OpportunitySlide from './slides/OpportunitySlide'
@@ -57,6 +58,7 @@ const slides = [
   { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
   { component: TractionDashboardSlide, title: 'Traction Dashboard' },
   { component: WhyWeWinSlide, title: 'Why We Win' },
+  { component: WhyIncumbentsCantRespondSlide, title: 'Why Incumbents Can\'t Respond' },
   { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
   { component: Act5Slide, title: 'Act 5: The Business' },
   { component: OpportunitySlide, title: 'Market Opportunity' },
