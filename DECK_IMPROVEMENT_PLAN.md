@@ -286,6 +286,55 @@ Before implementing, I need to confirm:
 
 **🖥️ LIVE PLATFORM SNAPSHOT**: Shows ARIA chat interface with natural language queries and instant AI responses
 
+---
+
+### 📋 COMPLETE USER WORKFLOW - ZERODHA AI TRADING
+**"From Login to Smart Trade in 60 Seconds"**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  END-TO-END USER JOURNEY                    │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ STEP 1: CONNECT (10 seconds)                                │
+│ User Action: Click "Connect Zerodha"                        │
+│ What Happens: OAuth secure login                            │
+│ What You Get: ✅ Portfolio synced, AI ready                 │
+│                                                              │
+│ STEP 2: ASK ARIA (15 seconds)                               │
+│ User Says: "मुझे 50,000 रुपये invest करने हैं"               │
+│ What Happens: AI analyzes your profile + market            │
+│ What You Get: ✅ Personalized recommendations              │
+│   • Top 3 stocks with reasoning                            │
+│   • Risk assessment for each                               │
+│   • Expected returns calculation                           │
+│                                                              │
+│ STEP 3: REVIEW ELIVATE SCORE (10 seconds)                   │
+│ User Sees: Market Score 71/100 (BULLISH)                   │
+│ What It Means: Good time to invest                         │
+│ What You Get: ✅ Clear buy/hold/sell signal                │
+│                                                              │
+│ STEP 4: ONE-CLICK EXECUTION (5 seconds)                     │
+│ User Clicks: "Invest Smartly" Magic Action                 │
+│ What Happens: AI diversifies across best opportunities     │
+│ What You Get: ✅ Orders placed with:                       │
+│   • Automatic stop-loss set                                │
+│   • Position sized correctly                               │
+│   • Risk managed professionally                            │
+│                                                              │
+│ STEP 5: CONTINUOUS MONITORING (24/7)                        │
+│ User Does: Nothing - AI watches                            │
+│ What Happens: Real-time tracking & alerts                  │
+│ What You Get: ✅ Push notifications for:                   │
+│   • Target price reached                                   │
+│   • Stop-loss triggered                                    │
+│   • New opportunities detected                             │
+│                                                              │
+│ TOTAL TIME: 60 seconds from login to invested              │
+│ EXPERTISE NEEDED: Zero - AI handles everything             │
+└─────────────────────────────────────────────────────────────┘
+```
+
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                    ARIA CAPABILITIES                     │
@@ -764,6 +813,67 @@ Before implementing, I need to confirm:
 ```
 
 **🖥️ LIVE PLATFORM SNAPSHOT**: Shows actual Unified Fund Hub interface with fund cards, ELIVATE scores, and real-time market insights panel
+
+---
+
+### 📋 COMPLETE MUTUAL FUND INVESTMENT WORKFLOW
+**"From Goal to Optimized Portfolio in 2 Minutes"**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│            MUTUAL FUND AI JOURNEY - START TO FINISH         │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ STEP 1: DEFINE GOAL (30 seconds)                            │
+│ User Input: "I want ₹50 lakhs for retirement in 15 years"  │
+│ AI Processing: Analyzes age, risk profile, time horizon    │
+│ What You Get: ✅ Customized investment plan               │
+│   • Monthly SIP required: ₹12,500                          │
+│   • Expected returns: 12-14% CAGR                          │
+│   • Asset allocation: 70% equity, 30% debt                 │
+│                                                              │
+│ STEP 2: FUND DISCOVERY (30 seconds)                         │
+│ User Says: "Show me best tax-saving equity funds"          │
+│ AI Action: Searches 16,766 funds in 0.374 seconds         │
+│ What You Get: ✅ Top 5 ELSS funds with:                   │
+│   • ELIVATE scores (85-92/100)                            │
+│   • 3-year returns: 18-22%                                │
+│   • Tax saved: ₹46,800 (31% bracket)                      │
+│   • Risk ratings and expense ratios                        │
+│                                                              │
+│ STEP 3: AI ANALYSIS (20 seconds)                            │
+│ User Clicks: Any fund for deep dive                        │
+│ AI Processing: 9 agents analyze simultaneously             │
+│ What You Get: ✅ Comprehensive fund report:               │
+│   • Performance vs benchmark                               │
+│   • Risk metrics (VaR, Sharpe, Beta)                      │
+│   • Portfolio overlap with your holdings                   │
+│   • Fund manager track record                              │
+│   • Entry/exit load implications                           │
+│                                                              │
+│ STEP 4: PORTFOLIO CONSTRUCTION (25 seconds)                 │
+│ User Request: "Build my portfolio"                         │
+│ AI Action: Master Advisor coordinates all agents           │
+│ What You Get: ✅ Optimized portfolio:                     │
+│   • 3 Equity funds (₹8,750/month)                         │
+│   • 1 ELSS fund (₹2,500/month)                            │
+│   • 1 Debt fund (₹1,250/month)                            │
+│   • Expected portfolio return: 13.2%                       │
+│   • Risk score: Moderate (6/10)                           │
+│                                                              │
+│ STEP 5: ONE-CLICK EXECUTION (15 seconds)                    │
+│ User Action: Click "Start SIPs"                           │
+│ Platform Action: Creates all SIP mandates                  │
+│ What You Get: ✅ Automated investing:                     │
+│   • All SIPs scheduled for 5th of month                   │
+│   • Auto-debit set up from bank                           │
+│   • Email confirmations sent                              │
+│   • Portfolio tracking enabled                            │
+│                                                              │
+│ TOTAL TIME: Under 2 minutes                                │
+│ SAVINGS: ₹25K-100K advisor fees + ₹46K tax                │
+└─────────────────────────────────────────────────────────────┘
+```
 
 **Key Unified Fund Hub Features**:
 - **Instant Fund Discovery**: Natural language search ("Find conservative debt funds for retirement")
@@ -1278,10 +1388,54 @@ sector balance before adding AAPL position"
 
 ---
 
-### 💡 REAL-WORLD USE CASES
-**"See the AI Investment Committee in Action"**
+### 💡 COMPLETE TRADING AGENTS WORKFLOW
+**"From Question to Trade Decision in 15 Seconds"**
 
 **🖥️ LIVE PLATFORM SNAPSHOT**: Shows actual agent conversation analyzing a stock
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│         12-AGENT INVESTMENT COMMITTEE WORKFLOW              │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ STEP 1: ASK YOUR QUESTION (2 seconds)                       │
+│ User Input: "Should I buy Tesla stock today?"               │
+│ Platform Action: Routes to 12 specialized agents            │
+│ What Happens: All agents activate simultaneously            │
+│                                                              │
+│ STEP 2: MULTI-ANGLE ANALYSIS (5 seconds)                    │
+│ 4 Analysts Working in Parallel:                             │
+│ • Market Analyst → Technical indicators, chart patterns     │
+│ • Social Analyst → Twitter/Reddit sentiment analysis        │
+│ • News Analyst → Breaking news impact assessment            │
+│ • Fundamentals → Financial health, growth metrics           │
+│ What You Get: ✅ 360-degree market view instantly          │
+│                                                              │
+│ STEP 3: RESEARCH DEBATE (3 seconds)                         │
+│ 3 Researchers Synthesize:                                   │
+│ • Bull builds optimistic case                               │
+│ • Bear presents risks                                       │
+│ • Manager weighs both sides                                 │
+│ What You Get: ✅ Balanced perspective, no bias             │
+│                                                              │
+│ STEP 4: STRATEGY & RISK (3 seconds)                         │
+│ Trader + Risk Team Create Plan:                             │
+│ • Entry/exit points calculated                              │
+│ • Position sizing determined                                │
+│ • Risk scenarios evaluated                                  │
+│ What You Get: ✅ Executable trading plan                   │
+│                                                              │
+│ STEP 5: FINAL RECOMMENDATION (2 seconds)                    │
+│ Portfolio Manager Integration:                              │
+│ • Checks portfolio fit                                      │
+│ • Validates diversification                                 │
+│ • Provides final go/no-go                                   │
+│ What You Get: ✅ Clear action with reasoning               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 📊 ACTUAL OUTPUT EXAMPLE
+**Real 15-Second Analysis for Tesla Stock**
 
 ```
 USER: "Should I buy Tesla stock today?"
@@ -1318,6 +1472,27 @@ AI INVESTMENT COMMITTEE RESPONSE (15 seconds):
 
 FINAL RECOMMENDATION: BUY (SMALL POSITION)
 "Start with 1.5% position, add on dips to $235"
+```
+
+### 🎯 WHAT YOU GET vs TRADITIONAL RESEARCH
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              TIME & VALUE COMPARISON                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ TRADITIONAL RESEARCH           AI INVESTMENT COMMITTEE      │
+│ ────────────────────           ─────────────────────       │
+│ ⏱️ 3-4 hours minimum           ⏱️ 15 seconds total          │
+│ 👤 Single perspective           👥 12 expert perspectives    │
+│ 📊 Manual chart analysis        📊 Automated pattern detection│
+│ 📰 Miss breaking news           📰 Real-time news integration│
+│ 💭 Emotional bias               💭 Objective data-driven     │
+│ 💰 $100/hour analyst cost       💰 Fraction of the cost      │
+│ 😴 Office hours only            😴 24/7 availability         │
+│                                                              │
+│ BOTTOM LINE: 99.5% time saved, 12x more comprehensive      │
+└─────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -1485,35 +1660,90 @@ TRADING AGENTS TRACK RECORD
 
 ---
 
-### 🎯 COMPLETE WORKFLOW EXAMPLE
-**"From Idea to Optimized Strategy in 30 Seconds"**
+### 🎯 COMPLETE ALGO TRADING WORKFLOW
+**"From Idea to Live Strategy in 30 Seconds"**
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                   30-SECOND WORKFLOW                        │
+│           END-TO-END ALGORITHMIC STRATEGY CREATION          │
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
-│  Step 1: DESCRIBE (15 sec)                                  │
-│  "I want momentum strategy for Apple using RSI"             │
-│                         ↓                                    │
-│  Step 2: GENERATE (5 sec)                                   │
-│  • Complete algorithm code                                  │
-│  • Risk management included                                 │
-│                         ↓                                    │
-│  Step 3: BACKTEST (3 sec)                                   │
-│  • 2 years historical test                                  │
-│  • Return: 28.3%, Sharpe: 1.45                             │
-│                         ↓                                    │
-│  Step 4: OPTIMIZE (2 sec)                                   │
-│  • Tests 100 parameter combos                               │
-│  • Optimized return: 34.5% (+22%)                          │
-│                         ↓                                    │
-│  Step 5: VALIDATE (ongoing)                                 │
-│  • Paper trading with live data                            │
-│  • Risk-free validation                                     │
+│ STEP 1: DESCRIBE YOUR IDEA (15 seconds)                     │
+│ User Says: "I want momentum strategy for Apple using RSI"   │
+│ AI Understanding: Identifies strategy type, indicators      │
+│ What You Get: ✅ AI confirms understanding:                │
+│   • Strategy Type: Momentum                                │
+│   • Target Stock: AAPL                                     │
+│   • Main Indicator: RSI                                    │
+│   • Time Frame: Day trading                                │
 │                                                              │
-│  TOTAL TIME: Under 30 seconds                               │
-│  What took days now takes seconds                           │
+│ STEP 2: AI GENERATES STRATEGY (5 seconds)                   │
+│ AI Processing: Creates complete Python/Backtrader code      │
+│ What You Get: ✅ Production-ready algorithm with:          │
+│   • Entry Logic: Buy when RSI < 30                         │
+│   • Exit Logic: Sell when RSI > 70                         │
+│   • Stop Loss: Automatic 5% protection                     │
+│   • Position Sizing: 30% of capital per trade              │
+│   • Full source code visible and editable                  │
+│                                                              │
+│ STEP 3: INSTANT BACKTEST (3 seconds)                        │
+│ Platform Action: Tests against 2 years AAPL data           │
+│ What You Get: ✅ Professional metrics dashboard:           │
+│   • Total Return: 28.3%                                    │
+│   • Sharpe Ratio: 1.45 (good risk-adjusted)               │
+│   • Max Drawdown: -8.2% (acceptable)                       │
+│   • Win Rate: 63% (47 trades)                             │
+│   • Interactive chart with all entry/exit points           │
+│                                                              │
+│ STEP 4: AUTOMATIC OPTIMIZATION (2 seconds)                  │
+│ AI Action: Tests 100+ parameter combinations                │
+│ What You Get: ✅ Optimized parameters:                     │
+│   • Best RSI Period: 10 (was 14)                          │
+│   • Optimal Stop Loss: 3.5% (was 5%)                      │
+│   • New Return: 34.5% (+22% improvement!)                 │
+│   • Top 10 parameter sets ranked                           │
+│   • Comparison chart: baseline vs optimized                │
+│                                                              │
+│ STEP 5: PAPER TRADING VALIDATION (5 seconds to start)      │
+│ User Action: Click "Start Paper Trading"                   │
+│ What You Get: ✅ Live simulation with:                     │
+│   • $100K virtual capital                                  │
+│   • Real-time market data                                  │
+│   • Live P&L tracking                                      │
+│   • Trade log with timestamps                              │
+│   • Performance vs backtest comparison                     │
+│                                                              │
+│ TOTAL TIME: 30 seconds from idea to live testing           │
+│ COST SAVED: $5,000+ vs hiring quant developer             │
+│ RISK: ZERO - all testing with virtual money               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 📊 VISUAL RESULTS DASHBOARD
+**What You See After 30 Seconds**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  STRATEGY PERFORMANCE REPORT                │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  BACKTEST RESULTS              OPTIMIZATION IMPACT          │
+│  ────────────────              ──────────────────          │
+│  📈 Returns: 28.3%              Before: 28.3%               │
+│  📊 Sharpe: 1.45                After:  34.5% (+22%)        │
+│  📉 Drawdown: -8.2%             Parameters Tested: 100      │
+│  ✅ Win Rate: 63%               Time Taken: 2 seconds       │
+│                                                              │
+│  TRADE VISUALIZATION                                        │
+│  [====●====●====●====●====●====●====●====●====]           │
+│   Jan  Feb  Mar  Apr  May  Jun  Jul  Aug  Sep              │
+│  ● = Profitable Trade  ○ = Loss                            │
+│                                                              │
+│  STRATEGY INTELLIGENCE                                      │
+│  • Best For: Trending markets with volatility              │
+│  • Avoid: Sideways markets, major news days                │
+│  • Expected: 2-3 trades/week, 4-day avg hold               │
+│  • Risk Level: Moderate-Aggressive (7/10)                  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
