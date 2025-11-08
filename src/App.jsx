@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
 import TitleSlide from './slides/TitleSlide'
+import ExecutiveSummarySlide from './slides/ExecutiveSummarySlide'
+import AgendaRoadmapSlide from './slides/AgendaRoadmapSlide'
 import Act1Slide from './slides/Act1Slide'
 import StanfordSlide from './slides/StanfordSlide'
 import MarketSwitchingSlide from './slides/MarketSwitchingSlide'
@@ -32,6 +34,8 @@ import AppendixSlide from './slides/AppendixSlide'
 
 const slides = [
   { component: TitleSlide, title: 'Title' },
+  { component: ExecutiveSummarySlide, title: 'Executive Summary' },
+  { component: AgendaRoadmapSlide, title: 'Agenda & Roadmap' },
   { component: Act1Slide, title: 'Act 1: The Problem' },
   { component: StanfordSlide, title: 'AI is the New Alpha' },
   { component: MarketSwitchingSlide, title: 'Market Switching Now' },
