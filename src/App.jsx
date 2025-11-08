@@ -56,6 +56,53 @@ import CaseStudy3Slide from './slides/CaseStudy3Slide'
 import PartnershipStrategy1Slide from './slides/PartnershipStrategy1Slide'
 import PartnershipStrategy2Slide from './slides/PartnershipStrategy2Slide'
 import ClosingCommitmentSlide from './slides/ClosingCommitmentSlide'
+// Act Transition Slides
+import Act1to2TransitionSlide from './slides/Act1to2TransitionSlide'
+import Act2to3TransitionSlide from './slides/Act2to3TransitionSlide'
+import Act3to4TransitionSlide from './slides/Act3to4TransitionSlide'
+import Act4to5TransitionSlide from './slides/Act4to5TransitionSlide'
+import Act5toAppendixTransitionSlide from './slides/Act5toAppendixTransitionSlide'
+// GIFT City Act 6 Slides
+import GiftCityIntroSlide from './slides/GiftCityIntroSlide'
+import GiftCityEntityStructureSlide from './slides/GiftCityEntityStructureSlide'
+import GiftCityThreePillarPlatformSlide from './slides/GiftCityThreePillarPlatformSlide'
+import GiftCityAIFAdvantagesSlide from './slides/GiftCityAIFAdvantagesSlide'
+import GiftCityTaxOptimizationSlide from './slides/GiftCityTaxOptimizationSlide'
+import GiftCityGrowthStagesSlide from './slides/GiftCityGrowthStagesSlide'
+import GiftCityGlobalInvestorAccessSlide from './slides/GiftCityGlobalInvestorAccessSlide'
+import GiftCityRegulatoryComplianceSlide from './slides/GiftCityRegulatoryComplianceSlide'
+import GiftCityTechnologyInfrastructureSlide from './slides/GiftCityTechnologyInfrastructureSlide'
+import GiftCityCallToActionSlide from './slides/GiftCityCallToActionSlide'
+// Product Appendix Slides - Chapter 1: Zerodha
+import ZerodhaConceptSlide from './slides/ZerodhaConceptSlide'
+import ZerodhaFeaturesSlide from './slides/ZerodhaFeaturesSlide'
+import ZerodhaLiveSnapshotSlide from './slides/ZerodhaLiveSnapshotSlide'
+// Product Appendix Slides - Chapter 2: CGMF
+import CGMFConceptSlide from './slides/CGMFConceptSlide'
+import CGMFFeaturesSlide from './slides/CGMFFeaturesSlide'
+import CGMFLiveSnapshotSlide from './slides/CGMFLiveSnapshotSlide'
+// Product Appendix Slides - Chapter 3: Agentic AI
+import AgenticAIConceptSlide from './slides/AgenticAIConceptSlide'
+import AgenticAIFeaturesSlide from './slides/AgenticAIFeaturesSlide'
+import AgenticAILiveSnapshotSlide from './slides/AgenticAILiveSnapshotSlide'
+// Product Appendix Slides - Chapter 4: Future Modules
+import FutureModulesConceptSlide from './slides/FutureModulesConceptSlide'
+import FutureModulesFeaturesSlide from './slides/FutureModulesFeaturesSlide'
+import FutureModulesLiveSnapshotSlide from './slides/FutureModulesLiveSnapshotSlide'
+// Product Appendix Slides - Chapter 5: Trading Agents
+import TradingAgentsConceptSlide from './slides/TradingAgentsConceptSlide'
+import TradingAgentsFeaturesSlide from './slides/TradingAgentsFeaturesSlide'
+import TradingAgentsLiveSnapshotSlide from './slides/TradingAgentsLiveSnapshotSlide'
+// Product Appendix Slides - Chapter 6: Algo Trading
+import AlgoTradingConceptSlide from './slides/AlgoTradingConceptSlide'
+import AlgoTradingFeaturesSlide from './slides/AlgoTradingFeaturesSlide'
+import AlgoTradingLiveSnapshotSlide from './slides/AlgoTradingLiveSnapshotSlide'
+// Product Appendix Slides - Chapter 7: Sentiment Module
+import SentimentModuleConceptSlide from './slides/SentimentModuleConceptSlide'
+import SentimentModuleFeaturesSlide from './slides/SentimentModuleFeaturesSlide'
+import SentimentModuleLiveSnapshotSlide from './slides/SentimentModuleLiveSnapshotSlide'
+// Supporting Enhancement Slides
+import LiveMetricsDashboardSlide from './slides/LiveMetricsDashboardSlide'
 
 const slides = [
   { component: TitleSlide, title: 'Title' },
@@ -65,10 +112,12 @@ const slides = [
   { component: StanfordSlide, title: 'AI is the New Alpha' },
   { component: MarketSwitchingSlide, title: 'Market Switching Now' },
   { component: AlphaGapSlide, title: 'The Three Failures' },
+  { component: Act1to2TransitionSlide, title: 'Transition: Problem → Solution' },
   { component: Act2Slide, title: 'Act 2: The Solution' },
   { component: IntroducingSlide, title: 'Introducing AI Family Office' },
   { component: AICommitteeSlide, title: 'AI Investment Committee' },
   { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },
+  { component: Act2to3TransitionSlide, title: 'Transition: Solution → Deep Dive' },
   { component: Act3Slide, title: 'Act 3: The Deep Dive' },
   { component: IndiaProblemSlide, title: 'India: $5T Market Locked' },
   { component: GIFTSolutionSlide, title: 'GIFT City AI Gateway' },
@@ -76,6 +125,7 @@ const slides = [
   { component: TaxAlphaDailySlide, title: 'Tax Alpha: Daily vs Annual' },
   { component: AlternativeAIDDSlide, title: 'Alternative Asset AI DD' },
   { component: AgentArchitectureSlide, title: 'Swarm of 20+ Agents' },
+  { component: Act3to4TransitionSlide, title: 'Transition: Deep Dive → Proof' },
   { component: Act4Slide, title: 'Act 4: The Proof' },
   { component: RealJourneysSlide, title: 'Real Journeys, Real Alpha' },
   { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
@@ -83,6 +133,7 @@ const slides = [
   { component: WhyWeWinSlide, title: 'Why We Win' },
   { component: WhyIncumbentsCantRespondSlide, title: 'Why Incumbents Can\'t Respond' },
   { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
+  { component: Act4to5TransitionSlide, title: 'Transition: Proof → Business' },
   { component: Act5Slide, title: 'Act 5: The Business' },
   { component: OpportunitySlide, title: 'Market Opportunity' },
   { component: InvestorPersona1Slide, title: 'Investor Persona: Tech Founder' },
@@ -111,6 +162,60 @@ const slides = [
   { component: TeamSlide, title: 'Team' },
   { component: FundingSlide, title: '$5M Seed Round' },
   { component: ClosingCommitmentSlide, title: 'Join Us: The Commitment' },
+  
+  // GIFT City Act 6 - Complete Section
+  { component: GiftCityIntroSlide, title: 'Act 6: GIFT City Advantage' },
+  { component: GiftCityEntityStructureSlide, title: 'Vora Ventures Entity Structure' },
+  { component: GiftCityThreePillarPlatformSlide, title: 'Three-Pillar Platform' },
+  { component: GiftCityAIFAdvantagesSlide, title: 'Category III AIF Advantages' },
+  { component: GiftCityTaxOptimizationSlide, title: 'Tax Optimization Showcase' },
+  { component: GiftCityGrowthStagesSlide, title: '30-Month Growth Journey' },
+  { component: GiftCityGlobalInvestorAccessSlide, title: 'Global Investor Access' },
+  { component: GiftCityRegulatoryComplianceSlide, title: 'Full Regulatory Compliance' },
+  { component: GiftCityTechnologyInfrastructureSlide, title: 'GIFT City Tech Infrastructure' },
+  { component: GiftCityCallToActionSlide, title: 'Join Us in GIFT City' },
+  
+  // Transition to Product Appendix
+  { component: Act5toAppendixTransitionSlide, title: 'Ready to Deep Dive?' },
+  
+  // Product Appendix - Chapter 1: Zerodha
+  { component: ZerodhaConceptSlide, title: 'Chapter 1: Zerodha Trading Intelligence' },
+  { component: ZerodhaFeaturesSlide, title: 'Zerodha Features & Capabilities' },
+  { component: ZerodhaLiveSnapshotSlide, title: 'Zerodha Live Platform Snapshot' },
+  
+  // Product Appendix - Chapter 2: CGMF
+  { component: CGMFConceptSlide, title: 'Chapter 2: CGMF Mutual Fund Advisory' },
+  { component: CGMFFeaturesSlide, title: 'CGMF Features & Capabilities' },
+  { component: CGMFLiveSnapshotSlide, title: 'CGMF Live Platform Snapshot' },
+  
+  // Product Appendix - Chapter 3: Agentic AI
+  { component: AgenticAIConceptSlide, title: 'Chapter 3: Agentic AI System' },
+  { component: AgenticAIFeaturesSlide, title: 'Agentic AI Features' },
+  { component: AgenticAILiveSnapshotSlide, title: 'Agentic AI Live Snapshot' },
+  
+  // Product Appendix - Chapter 4: Future Modules
+  { component: FutureModulesConceptSlide, title: 'Chapter 4: Future Modules' },
+  { component: FutureModulesFeaturesSlide, title: 'Future Modules Features' },
+  { component: FutureModulesLiveSnapshotSlide, title: 'Future Modules Development Pipeline' },
+  
+  // Product Appendix - Chapter 5: Trading Agents
+  { component: TradingAgentsConceptSlide, title: 'Chapter 5: Trading Agents + Hedge Fund' },
+  { component: TradingAgentsFeaturesSlide, title: 'Trading Agents Features' },
+  { component: TradingAgentsLiveSnapshotSlide, title: 'Trading Agents Live Analysis' },
+  
+  // Product Appendix - Chapter 6: Algo Trading
+  { component: AlgoTradingConceptSlide, title: 'Chapter 6: Algo Trading Laboratory' },
+  { component: AlgoTradingFeaturesSlide, title: 'Algo Trading Features' },
+  { component: AlgoTradingLiveSnapshotSlide, title: 'Algo Trading Live Snapshot' },
+  
+  // Product Appendix - Chapter 7: Sentiment Module
+  { component: SentimentModuleConceptSlide, title: 'Chapter 7: Sentiment Intelligence Module' },
+  { component: SentimentModuleFeaturesSlide, title: 'Sentiment Module Features' },
+  { component: SentimentModuleLiveSnapshotSlide, title: 'Sentiment Module Live Snapshot' },
+  
+  // Supporting Enhancement Slides
+  { component: LiveMetricsDashboardSlide, title: 'Live Platform Metrics' },
+  
   { component: AppendixSlide, title: 'Appendix' }
 ]
 
