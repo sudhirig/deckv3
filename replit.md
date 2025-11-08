@@ -1,7 +1,7 @@
 # AI-Powered Digital Family Office - React Presentation
 
 ## Overview
-This project is a 28-slide React presentation showcasing an AI-powered digital family office platform designed for high-net-worth investors. The platform aims to redefine wealth management through advanced AI, offering personalized financial solutions, enhanced alpha generation, and seamless integration for complex financial needs, particularly in emerging markets like India (GIFT City). The presentation features a modern UI, smooth animations, and professional design, with a strong emphasis on user experience and visual appeal. The business vision is to capture a significant share of the evolving wealth management landscape by providing a superior, data-driven, and highly automated alternative to traditional family offices.
+This project is a 28-slide React presentation showcasing an AI-powered digital family office platform designed for high-net-worth investors. The platform features a comprehensive Product Appendix demonstrating 7 operational modules with 68+ AI agents including dual-team analysis (Investment Committee + Hedge Fund), sentiment intelligence from 182+ news sources, Zerodha trading integration, CGMF mutual fund advisory with 16,766 funds, algo trading laboratory, and real-time market mood tracking. The presentation emphasizes complete user workflows showing exact time savings (seconds vs hours), visual heat maps, and 100% real data with no synthetics.
 
 ## User Preferences
 - Ultra-modern graphics and world-class design

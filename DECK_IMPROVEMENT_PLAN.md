@@ -1497,6 +1497,130 @@ FINAL RECOMMENDATION: BUY (SMALL POSITION)
 
 ---
 
+### 🏦 AI HEDGE FUND MODULE - LEGENDARY INVESTORS AT YOUR SERVICE
+**"18 Investment Legends Working as Your Personal Team"**
+
+**🖥️ LIVE PLATFORM SNAPSHOT**: Shows AI Hedge Fund workflow with agent panels
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│         DUAL-TEAM ANALYSIS: COMMITTEE + HEDGE FUND          │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ 📊 TEAM 1: AI INVESTMENT COMMITTEE (12 Agents)              │
+│ • Market, Social, News, Fundamentals Analysts              │
+│ • Bull, Bear, Research Manager                              │
+│ • Trader, Risk Team, Portfolio Manager                      │
+│ ⏱️ Analysis Time: 15 seconds                                │
+│                                                              │
+│ 🏦 TEAM 2: AI HEDGE FUND (18 Legendary Investors)          │
+│ • Warren Buffett AI - Moats & predictable earnings          │
+│ • Peter Lynch AI - 10-baggers in everyday businesses        │
+│ • Cathie Wood AI - Disruptive innovation plays              │
+│ • Rakesh Jhunjhunwala AI - India market expertise          │
+│ • 14 more legendary investor AIs                            │
+│ ⏱️ Analysis Time: 20 seconds                                │
+│                                                              │
+│ 🎯 COMBINED OUTPUT: DUAL-PERSPECTIVE CONSENSUS              │
+│ Total Analysis Time: 35 seconds for both teams             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 📋 COMPLETE DUAL-TEAM WORKFLOW
+**"Two Elite Teams, One Powerful Consensus"**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              30 AI EXPERTS ANALYZING YOUR STOCK             │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ STEP 1: ASK BOTH TEAMS (3 seconds)                          │
+│ User Input: "Analyze Reliance Industries for investment"    │
+│ Platform Action: Routes to both AI teams simultaneously     │
+│ What Happens: 30 total AI agents activate in parallel       │
+│                                                              │
+│ STEP 2: INVESTMENT COMMITTEE ANALYSIS (15 seconds)          │
+│ 12 Agents Working:                                          │
+│ • Technical: RSI 45, Support at ₹2,380                     │
+│ • Social: Positive sentiment +0.65                          │
+│ • News: Green energy expansion announced                    │
+│ • Fundamentals: P/E 25, Revenue +18% YoY                  │
+│ What You Get: ✅ Data-driven market analysis               │
+│                                                              │
+│ STEP 3: HEDGE FUND LEGENDS ANALYSIS (20 seconds)           │
+│ 18 Expert Perspectives:                                     │
+│ • Buffett AI: "Strong moat in telecom/retail" (BUY)        │
+│ • Lynch AI: "Growth at reasonable price" (BUY)             │
+│ • Burry AI: "Overvalued, wait for dip" (HOLD)             │
+│ • Jhunjhunwala AI: "India growth story intact" (BUY)       │
+│ What You Get: ✅ Legendary investor insights               │
+│                                                              │
+│ STEP 4: CONSENSUS BUILDING (5 seconds)                      │
+│ AI Synthesis Engine:                                        │
+│ • Committee Vote: 8/12 BUY (67% confidence)                │
+│ • Hedge Fund Vote: 14/18 BUY (78% confidence)              │
+│ • Combined Confidence: 72.5%                                │
+│ What You Get: ✅ Unified recommendation                     │
+│                                                              │
+│ STEP 5: FINAL OUTPUT (2 seconds)                            │
+│ CONSENSUS RECOMMENDATION:                                   │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━            │
+│ 📈 ACTION: BUY (Moderate Position)                          │
+│ 💰 Entry: ₹2,400-2,450                                     │
+│ 🎯 Target: ₹2,750 (15% upside)                            │
+│ 🛑 Stop Loss: ₹2,280 (5% risk)                            │
+│ 📊 Position Size: 8% of portfolio                           │
+│ ⚠️ Risk Score: 6.5/10 (Moderate)                           │
+│                                                              │
+│ KEY INSIGHTS FROM BOTH TEAMS:                               │
+│ ✓ Strong fundamentals + Technical support                   │
+│ ✓ Positive sentiment + Growth catalysts                     │
+│ ✓ Legendary investors mostly bullish                        │
+│ ⚠ Valuation slightly stretched (Burry's concern)          │
+│                                                              │
+│ TOTAL TIME: 35 seconds for complete analysis               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🎭 THE 18 LEGENDARY AI INVESTORS
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│               YOUR AI HEDGE FUND TEAM ROSTER                │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ 💎 VALUE INVESTING LEGENDS                                  │
+│ • Warren Buffett - Quality companies with moats             │
+│ • Ben Graham - Deep value below intrinsic worth            │
+│ • Charlie Munger - Mental models & quality                  │
+│                                                              │
+│ 🚀 GROWTH & INNOVATION MASTERS                              │
+│ • Peter Lynch - 10-baggers in familiar companies           │
+│ • Cathie Wood - Disruptive tech & innovation               │
+│ • Phil Fisher - Long-term growth potential                  │
+│                                                              │
+│ 🌏 MARKET SPECIALISTS                                       │
+│ • Rakesh Jhunjhunwala - India's Big Bull                   │
+│ • Stanley Druckenmiller - Macro trends & timing            │
+│ • Michael Burry - Contrarian deep value                     │
+│                                                              │
+│ 📊 ANALYTICAL EXPERTS                                       │
+│ • Technical Analyst - Charts, patterns, momentum            │
+│ • Fundamental Analyst - Financial health & metrics          │
+│ • Sentiment Analyst - Market psychology                     │
+│ • Valuation Expert - DCF models & relative value           │
+│                                                              │
+│ ⚖️ RISK & PORTFOLIO MASTERS                                │
+│ • Risk Manager - Position sizing & protection               │
+│ • Portfolio Manager - Optimal allocation                    │
+│ • Plus 3 Additional Specialists                             │
+│                                                              │
+│ Each AI trained on their actual strategies & writings      │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ### 📊 PERFORMANCE METRICS
 **"Measurable Results from AI Research"**
 
@@ -2657,3 +2781,223 @@ Integrate into existing moat discussion, making GIFT City the crown jewel of you
 - Add 1 slide in Ask (investment opportunity)
 
 **Recommendation**: Option A - Create Act 6 as "The GIFT City Advantage" to give this unique differentiator the spotlight it deserves. This positions it as your execution strategy that makes everything else possible.
+
+---
+
+## CHAPTER 7: SENTIMENT MODULE - MARKET MOOD INTELLIGENCE HQ
+**"Real-Time Sentiment Tracking Across 500+ Stocks from 182+ News Sources"**
+
+### 📰 NEWS & SENTIMENT CENTRAL - YOUR MARKET RADAR
+**"Process 500+ Stocks' Sentiment in Under 60 Seconds"**
+
+**🖥️ LIVE PLATFORM SNAPSHOT**: Shows actual sentiment heat map visualization (Nifty 500 treemap)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│            SENTIMENT INTELLIGENCE DASHBOARD                 │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  📊 COVERAGE                   🤖 AI POWER                  │
+│  500+ NSE Stocks               FinBERT Model                │
+│  182+ News Sources             Same as Goldman Sachs        │
+│                                                              │
+│  ⚡ PROCESSING                 📈 ACCURACY                  │
+│  3 AM Daily Auto-Run           -1 to +1 Scoring            │
+│  60 Second Analysis            Time-decay weighted          │
+│                                                              │
+│  🗺️ VISUALIZATION              💬 INTERACTION              │
+│  Interactive Heat Maps         Chat with News              │
+│  Sector/Industry View          Ask Questions               │
+│                                                              │
+│  📅 TRACKING                   🔔 ALERTS                    │
+│  Historical Trends             Sentiment Shifts            │
+│  2.78M+ Data Points           Real-time Updates            │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🌡️ COMPLETE SENTIMENT WORKFLOW
+**"From Market News to Investment Insights"**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│          DAILY SENTIMENT INTELLIGENCE PIPELINE              │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ STEP 1: AUTOMATED COLLECTION (3:00 AM Daily)               │
+│ Platform Action: Crawls 182+ sources automatically          │
+│ Sources Include:                                            │
+│ • Google Finance, Economic Times, Moneycontrol             │
+│ • Business Standard, CNBC, Bloomberg Quint                 │
+│ • 176+ additional verified publishers                      │
+│ What Happens: ✅ Thousands of articles collected           │
+│                                                              │
+│ STEP 2: AI ANALYSIS (3:00-3:30 AM)                         │
+│ FinBERT Processing:                                         │
+│ • Analyzes each article's sentiment                        │
+│ • Identifies mentioned companies/sectors                    │
+│ • Assigns sentiment scores (-1 to +1)                      │
+│ • Applies time-decay weighting                             │
+│ What You Get: ✅ Sentiment scores for 500+ stocks         │
+│                                                              │
+│ STEP 3: MORNING CHECK (9:00 AM - User Login)               │
+│ User Action: Opens sentiment dashboard                      │
+│ What You See:                                               │
+│ • Heat map with red (bearish) to green (bullish)          │
+│ • Overnight sentiment shifts highlighted                    │
+│ • Top movers and sentiment changes                         │
+│ What You Get: ✅ Market mood at a glance                   │
+│                                                              │
+│ STEP 4: DRILL DOWN ANALYSIS (20 seconds)                   │
+│ User Click: Any sector for detailed view                    │
+│ Platform Shows:                                             │
+│ • Industry breakdown within sector                         │
+│ • Individual stock sentiments                              │
+│ • Relevant news articles                                   │
+│ • Historical sentiment chart                               │
+│ What You Get: ✅ Granular sentiment insights              │
+│                                                              │
+│ STEP 5: CONVERSATIONAL INSIGHTS (15 seconds)               │
+│ User Asks: "Why is banking sector negative?"               │
+│ AI Response: Analyzes and explains:                        │
+│ • "3 major banks reported NPAs"                            │
+│ • "RBI policy concerns mentioned 47 times"                 │
+│ • Links to relevant articles                               │
+│ What You Get: ✅ Context behind sentiment                  │
+│                                                              │
+│ STEP 6: ACTIONABLE ALERTS (Real-time)                      │
+│ Platform Monitors: Your watchlist stocks                    │
+│ Alert Triggers:                                             │
+│ • Sentiment shift > 0.3 points                             │
+│ • Volume of mentions spike                                 │
+│ • Sector rotation detected                                 │
+│ What You Get: ✅ Timely trading opportunities             │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🗺️ VISUAL HEAT MAP INTELLIGENCE
+**"See Market Mood in Living Color"**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│              NIFTY 500 SENTIMENT HEAT MAP                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│  [FINANCIAL SERVICES]           [TECHNOLOGY]                │
+│  ┌──────────────────┐          ┌──────────────────┐       │
+│  │ BANKS            │          │ IT SERVICES       │       │
+│  │ ████████ -0.15   │          │ ████████ +0.28    │       │
+│  │ • ICICI: -0.09   │          │ • TCS: +0.31      │       │
+│  │ • HDFC: +0.12    │          │ • INFY: +0.25     │       │
+│  │ • SBI: -0.20     │          │ • WIPRO: +0.22    │       │
+│  └──────────────────┘          └──────────────────┘       │
+│                                                              │
+│  [ENERGY]                       [PHARMA]                    │
+│  ┌──────────────────┐          ┌──────────────────┐       │
+│  │ OIL & GAS        │          │ ████████ +0.45    │       │
+│  │ ████████ -0.21   │          │ HEALTHCARE        │       │
+│  │ • RELIANCE: -0.18│          │ • SUNPHARMA: +0.52│       │
+│  │ • ONGC: -0.24    │          │ • DRREDDY: +0.41  │       │
+│  └──────────────────┘          └──────────────────┘       │
+│                                                              │
+│  COLOR LEGEND:                                              │
+│  🟩 Strong Bullish (+0.5 to +1.0)                          │
+│  🟢 Bullish (+0.2 to +0.5)                                 │
+│  ⚪ Neutral (-0.2 to +0.2)                                 │
+│  🟡 Bearish (-0.5 to -0.2)                                 │
+│  🔴 Strong Bearish (-1.0 to -0.5)                          │
+│                                                              │
+│  SIZE = Market Cap | Color = Sentiment | Click to Explore  │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 💬 CHAT WITH NEWS - CONVERSATIONAL INTELLIGENCE
+**"Ask Questions, Get Market Insights"**
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│            CONVERSATIONAL NEWS ANALYSIS EXAMPLES            │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ USER: "What's driving IT sector optimism?"                  │
+│ AI RESPONSE (5 seconds):                                    │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━           │
+│ 📈 IT Sector Sentiment: +0.28 (Bullish)                    │
+│                                                              │
+│ Key Drivers:                                                │
+│ • 3 major deal wins worth $2.5B announced                  │
+│ • Cloud migration demand surge (mentioned 89x)             │
+│ • Positive Q3 guidance from TCS and Infosys                │
+│ • Dollar strength benefiting exporters                      │
+│                                                              │
+│ Top Mentions: TCS (124), Infosys (98), Wipro (67)         │
+│ Related Articles: [12 articles linked]                      │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━           │
+│                                                              │
+│ USER: "Show me stocks with improving sentiment"             │
+│ AI RESPONSE (3 seconds):                                    │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━           │
+│ 📊 TOP SENTIMENT GAINERS (Last 7 Days):                    │
+│                                                              │
+│ 1. Sun Pharma: +0.72 change (was -0.20, now +0.52)        │
+│ 2. Adani Ports: +0.68 change (was -0.15, now +0.53)       │
+│ 3. Bajaj Auto: +0.45 change (was +0.10, now +0.55)        │
+│ 4. HCL Tech: +0.41 change (was -0.05, now +0.36)          │
+│ 5. Asian Paints: +0.38 change (was -0.12, now +0.26)      │
+│                                                              │
+│ Common Theme: Q3 results beating estimates                  │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 📊 WHAT YOU GET vs MANUAL NEWS TRACKING
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│           SENTIMENT ANALYSIS VALUE PROPOSITION              │
+├─────────────────────────────────────────────────────────────┤
+│                                                              │
+│ MANUAL NEWS READING             AI SENTIMENT MODULE         │
+│ ───────────────────             ──────────────────         │
+│ ⏱️ 3-4 hours daily              ⏱️ 60 seconds total         │
+│ 📰 10-20 sources max             📰 182+ sources covered     │
+│ 🎯 Track 5-10 stocks             🎯 500+ stocks tracked      │
+│ 😴 Miss overnight news           😴 3 AM auto-processing     │
+│ 📊 No quantification             📊 Precise -1 to +1 scores │
+│ 🔍 Manual pattern finding        🔍 AI pattern detection     │
+│ 💭 Subjective interpretation     💭 Objective FinBERT AI    │
+│ 📈 No historical tracking        📈 2.78M+ data points       │
+│                                                              │
+│ BOTTOM LINE: 20+ hours saved weekly                        │
+│ ACCURACY: Institutional-grade FinBERT (Goldman Sachs level)│
+│ COVERAGE: 25x more sources, 50x more stocks                │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🎯 KEY SENTIMENT MODULE FEATURES
+
+**Real-Time Intelligence**:
+- **3 AM Daily Collection**: Wake up to processed insights
+- **500+ Stock Coverage**: Complete NSE universe tracking
+- **182+ News Sources**: Comprehensive media monitoring
+- **Time-Decay Weighting**: Recent news matters more
+
+**Visual Power**:
+- **Interactive Heat Maps**: Click to drill down from sector → industry → stock
+- **Size by Market Cap**: Bigger blocks = larger companies
+- **Color by Sentiment**: Instant visual market mood
+- **Historical Charts**: Track sentiment trends over time
+
+**Conversational AI**:
+- **Natural Language Queries**: "Why is pharma bullish?"
+- **Contextual Explanations**: Links sentiment to actual news
+- **Pattern Recognition**: "Show sectors rotating positive"
+- **Custom Alerts**: "Alert me when Reliance sentiment improves"
+
+**What This Means for You**:
+- **Early Warning System**: Spot sentiment shifts before price moves
+- **Sector Rotation**: Identify money flow between sectors
+- **News-Driven Trades**: React to sentiment changes quickly
+- **Risk Management**: Avoid sectors with deteriorating sentiment
+- **Opportunity Discovery**: Find improving stocks others miss
+
+**Live Platform URL**: https://e9d32c61-f6a7-40c4-b18d-0f52c06e5062-00-3h1sa73vjivy.janeway.replit.dev/
