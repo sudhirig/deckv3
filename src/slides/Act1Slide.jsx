@@ -42,6 +42,31 @@ export default function Act1Slide() {
         >
           Why Now? Why AI? Why Us?
         </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          style={{ 
+            marginTop: '3rem',
+            padding: '1.5rem',
+            background: 'rgba(20, 184, 166, 0.1)',
+            borderRadius: '12px',
+            border: '1px solid rgba(20, 184, 166, 0.3)'
+          }}
+        >
+          <p style={{ fontSize: '1.1rem', color: '#5eead4', marginBottom: '1rem', fontWeight: 'bold' }}>
+            What You'll Discover:
+          </p>
+          <div style={{ fontSize: '1rem', lineHeight: '1.8', color: '#94a3b8' }}>
+            <div style={{ marginBottom: '0.5rem' }}>• AI outperforms 93% of human fund managers</div>
+            <div style={{ marginBottom: '0.5rem' }}>• 46% of HNWIs are switching advisors in the next 24 months</div>
+            <div style={{ marginBottom: '0.5rem' }}>• The three critical failures of traditional wealth management</div>
+          </div>
+          <p style={{ fontSize: '0.95rem', color: '#fbbf24', marginTop: '1rem', fontStyle: 'italic' }}>
+            Takeaway: A once-in-a-generation disruption is happening NOW
+          </p>
+        </motion.div>
       </motion.div>
     </div>
   )
