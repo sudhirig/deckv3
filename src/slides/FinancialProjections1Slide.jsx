@@ -251,7 +251,7 @@ export default function FinancialProjections1Slide() {
               </tr>
               <tr style={{ background: 'rgba(255, 255, 255, 0.02)' }}>
                 <td style={{ padding: '0.75rem', fontSize: '0.85rem', color: '#e2e8f0' }}>
-                  <Target size={14} style={{ display: 'inline', marginRight: '0.5rem', color: proj.ebitda >= 0 ? '#4ade80' : '#ef4444' }} />
+                  <Target size={14} style={{ display: 'inline', marginRight: '0.5rem', color: '#fbbf24' }} />
                   EBITDA ($M)
                 </td>
                 {projections.map(proj => (
