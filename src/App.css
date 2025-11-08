@@ -126,3 +126,20 @@
     page-break-after: avoid;
   }
 }
+
+/* Animations for Traction Dashboard */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes ping {
+  0% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+  75%, 100% { 
+    transform: scale(1.5); 
+    opacity: 0; 
+  }
+}

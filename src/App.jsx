@@ -22,6 +22,7 @@ import AgentArchitectureSlide from './slides/AgentArchitectureSlide'
 import Act4Slide from './slides/Act4Slide'
 import RealJourneysSlide from './slides/RealJourneysSlide'
 import LivePlatformSlide from './slides/LivePlatformSlide'
+import TractionDashboardSlide from './slides/TractionDashboardSlide'
 import WhyWeWinSlide from './slides/WhyWeWinSlide'
 import UnfairAdvantagesSlide from './slides/UnfairAdvantagesSlide'
 import Act5Slide from './slides/Act5Slide'
@@ -54,6 +55,7 @@ const slides = [
   { component: Act4Slide, title: 'Act 4: The Proof' },
   { component: RealJourneysSlide, title: 'Real Journeys, Real Alpha' },
   { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
+  { component: TractionDashboardSlide, title: 'Traction Dashboard' },
   { component: WhyWeWinSlide, title: 'Why We Win' },
   { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
   { component: Act5Slide, title: 'Act 5: The Business' },
