@@ -1,7 +1,7 @@
 # AI-Powered Digital Family Office - React Presentation
 
 ## Overview
-This project is a 28-slide React presentation showcasing an AI-powered digital family office platform designed for high-net-worth investors. The platform features a comprehensive Product Appendix demonstrating 7 operational modules with 68+ AI agents including dual-team analysis (Investment Committee + Hedge Fund), sentiment intelligence from 182+ news sources, Zerodha trading integration, CGMF mutual fund advisory with 16,766 funds, algo trading laboratory, and real-time market mood tracking. The presentation emphasizes complete user workflows showing exact time savings (seconds vs hours), visual heat maps, and 100% real data with no synthetics.
+This project is a 28-slide React presentation showcasing an AI-powered digital family office platform designed for high-net-worth investors. The platform features a comprehensive Product Appendix with 7 operational modules containing 68+ AI agents including dual-team analysis (30 experts: 12-agent Investment Committee + 18-agent Hedge Fund with legendary investor AIs), sentiment intelligence from 182+ news sources with FinBERT processing, Zerodha voice trading in 3 languages (11ms latency), CGMF mutual fund advisory managing 16,766 authentic funds with ₹1.55L annual tax savings examples, algo trading laboratory with 122+ indicators, and real-time market mood tracking via heat maps. Every chapter includes complete step-by-step workflows with exact timing (seconds vs hours), "What You Get" sections, visual aids, and 100% real data demonstrations.
 
 ## User Preferences
 - Ultra-modern graphics and world-class design
