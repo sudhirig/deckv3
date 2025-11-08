@@ -33,6 +33,29 @@ import GrowthPathSlide from './slides/GrowthPathSlide'
 import TeamSlide from './slides/TeamSlide'
 import FundingSlide from './slides/FundingSlide'
 import AppendixSlide from './slides/AppendixSlide'
+// New slides for 50+ mother deck
+import InvestorPersona1Slide from './slides/InvestorPersona1Slide'
+import InvestorPersona2Slide from './slides/InvestorPersona2Slide'
+import InvestorPersona3Slide from './slides/InvestorPersona3Slide'
+import CustomerJourney1Slide from './slides/CustomerJourney1Slide'
+import CustomerJourney2Slide from './slides/CustomerJourney2Slide'
+import CustomerJourney3Slide from './slides/CustomerJourney3Slide'
+import TechArchitecture1Slide from './slides/TechArchitecture1Slide'
+import TechArchitecture2Slide from './slides/TechArchitecture2Slide'
+import TechArchitecture3Slide from './slides/TechArchitecture3Slide'
+import CompetitiveMatrixSlide from './slides/CompetitiveMatrixSlide'
+import FinancialProjections1Slide from './slides/FinancialProjections1Slide'
+import FinancialProjections2Slide from './slides/FinancialProjections2Slide'
+import FinancialProjections3Slide from './slides/FinancialProjections3Slide'
+import RiskMitigation1Slide from './slides/RiskMitigation1Slide'
+import RiskMitigation2Slide from './slides/RiskMitigation2Slide'
+import ExitStrategySlide from './slides/ExitStrategySlide'
+import CaseStudy1Slide from './slides/CaseStudy1Slide'
+import CaseStudy2Slide from './slides/CaseStudy2Slide'
+import CaseStudy3Slide from './slides/CaseStudy3Slide'
+import PartnershipStrategy1Slide from './slides/PartnershipStrategy1Slide'
+import PartnershipStrategy2Slide from './slides/PartnershipStrategy2Slide'
+import ClosingCommitmentSlide from './slides/ClosingCommitmentSlide'
 
 const slides = [
   { component: TitleSlide, title: 'Title' },
@@ -62,10 +85,32 @@ const slides = [
   { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
   { component: Act5Slide, title: 'Act 5: The Business' },
   { component: OpportunitySlide, title: 'Market Opportunity' },
+  { component: InvestorPersona1Slide, title: 'Investor Persona: Tech Founder' },
+  { component: InvestorPersona2Slide, title: 'Investor Persona: Family Office' },
+  { component: InvestorPersona3Slide, title: 'Investor Persona: Executive' },
+  { component: CustomerJourney1Slide, title: 'Customer Journey: First 30 Days' },
+  { component: CustomerJourney2Slide, title: 'Customer Journey: Year One' },
+  { component: CustomerJourney3Slide, title: 'Customer Journey: Loyalty & Advocacy' },
+  { component: CompetitiveMatrixSlide, title: 'Competitive Analysis' },
   { component: ValueCreationSlide, title: '10x Value Creation' },
+  { component: FinancialProjections1Slide, title: 'Financial Projections: Path to Profitability' },
+  { component: FinancialProjections2Slide, title: 'Unit Economics & Revenue Model' },
+  { component: FinancialProjections3Slide, title: 'Use of Funds & Milestones' },
   { component: GrowthPathSlide, title: 'Path to $1B AUM' },
+  { component: CaseStudy1Slide, title: 'Case Study: Tech Founder Success' },
+  { component: CaseStudy2Slide, title: 'Case Study: Multi-Generational Family' },
+  { component: CaseStudy3Slide, title: 'Case Study: Executive Transformation' },
+  { component: TechArchitecture1Slide, title: 'Tech Architecture: System Overview' },
+  { component: TechArchitecture2Slide, title: 'Tech Architecture: Agent Swarm' },
+  { component: TechArchitecture3Slide, title: 'Tech Architecture: Security & Compliance' },
+  { component: PartnershipStrategy1Slide, title: 'Partnership Ecosystem' },
+  { component: PartnershipStrategy2Slide, title: 'GIFT City Global Gateway' },
+  { component: RiskMitigation1Slide, title: 'Risk Analysis & Mitigation' },
+  { component: RiskMitigation2Slide, title: 'Contingency Plans & Business Continuity' },
+  { component: ExitStrategySlide, title: 'Exit Strategy & Investor Returns' },
   { component: TeamSlide, title: 'Team' },
   { component: FundingSlide, title: '$5M Seed Round' },
+  { component: ClosingCommitmentSlide, title: 'Join Us: The Commitment' },
   { component: AppendixSlide, title: 'Appendix' }
 ]
 
