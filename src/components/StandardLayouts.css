@@ -591,3 +591,50 @@
 .layout-error h2 {
   color: #ef4444;
 }
+/* Responsive Utility Classes */
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.responsive-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+}
+
+.responsive-padding-sm {
+  padding: clamp(0.5rem, 1vw, 1rem);
+}
+
+.responsive-padding-md {
+  padding: clamp(1rem, 2vw, 1.5rem);
+}
+
+.responsive-padding-lg {
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.responsive-text-sm {
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+}
+
+.responsive-text-md {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.responsive-text-lg {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.responsive-max-width {
+  max-width: clamp(800px, 90%, 1200px);
+  margin: 0 auto;
+}
