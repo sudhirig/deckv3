@@ -64,8 +64,8 @@ export default function TractionDashboardSlide() {
     </div>
   )
 
-  // Grid items for 3-column layout
-  const gridItems = [
+  // Grid cards for 3-column layout
+  const cards = [
     // Column 1: Key Metrics
     <div key="metrics" style={{ display: 'grid', gap: '1.5rem' }}>
       <h3 style={{ color: '#22c55e', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
@@ -258,8 +258,7 @@ export default function TractionDashboardSlide() {
     <GridLayout
       title={title}
       columns={3}
-      gridItems={gridItems}
-      gap="2rem"
+      cards={cards}
     />
   )
 }

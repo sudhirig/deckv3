@@ -83,8 +83,8 @@ export default function TeamSlide() {
     </>
   )
 
-  // Grid items for 4-column layout
-  const gridItems = [
+  // Grid cards for 4-column layout
+  const cards = [
     // Column 1: CEO Profile
     <motion.div
       key="ceo"
@@ -336,14 +336,11 @@ export default function TeamSlide() {
   ]
 
   return (
-    <>
-      <ParticleBackground count={45} color="#8b5cf6" />
-      <GridLayout
-        title={title}
-        columns={4}
-        gridItems={gridItems}
-        gap="2rem"
-      />
-    </>
+    <GridLayout
+      title={title}
+      columns={4}
+      cards={cards}
+      particles={<ParticleBackground count={45} color="#8b5cf6" />}
+    />
   )
 }

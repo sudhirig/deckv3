@@ -79,7 +79,7 @@
 }
 
 .tagline {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.6);
   font-style: italic;
   margin-bottom: 3rem;
@@ -89,7 +89,7 @@
   position: fixed;
   bottom: 8rem;
   right: 4rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #14b8a6;
   font-weight: 600;
 }
@@ -124,7 +124,7 @@
 }
 
 .slide-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   margin-bottom: 2rem;
@@ -204,7 +204,7 @@
 }
 
 .feature-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 600;
   color: #14b8a6;
   margin-bottom: 1rem;
@@ -238,7 +238,7 @@
 }
 
 .comparison-title {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -424,7 +424,7 @@
 }
 
 .act-description {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.9);
   max-width: 100%;
@@ -454,7 +454,7 @@
 }
 
 .discovery-card p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.8);
 }
