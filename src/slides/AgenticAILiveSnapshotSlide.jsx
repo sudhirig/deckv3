@@ -50,8 +50,8 @@ const AgenticAILiveSnapshotSlide = () => {
             style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}
           >
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
+              animate={{ scale: [1, 1.2, 1], opacity: [1, 0.8, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
             >
               <Camera className="w-5 h-5 text-red-500" />
