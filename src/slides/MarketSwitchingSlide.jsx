@@ -62,6 +62,9 @@ export default function MarketSwitchingSlide() {
                 <AnimatedCounter end={39} suffix="%" duration={1.5} decimals={0} />
               </div>
               <div className="stat-label">Already switched or added provider (last 3 years)</div>
+              <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic', display: 'block', marginTop: '0.5rem' }}>
+                Source: PwC HNW Investor Survey, 2022
+              </span>
             </motion.div>
             
             <motion.div 

@@ -56,7 +56,9 @@ export default function TaxAlphaDailySlide() {
         <div style={{ marginTop: '2rem', textAlign: 'center' }}>
           <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem' }}>$180K/year</p>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8' }}>Additional tax savings vs traditional yearly harvesting</p>
-          <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '0.5rem' }}>Based on JPMorgan research on tax-loss harvesting frequency and alpha generation</p>
+          <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic', display: 'block', marginTop: '0.5rem' }}>
+            Source: JPMorgan Tax-Loss Harvesting Research, 2023
+          </span>
         </div>
       </motion.div>
     </div>

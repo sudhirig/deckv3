@@ -146,9 +146,12 @@ export default function StanfordSlide() {
             transition={{ delay: 0.8 }}
           >
             <AnimatedText delay={2}>
-              <div style={{ fontSize: '1.5rem', lineHeight: '1.8', marginBottom: '1rem' }}>
+              <div style={{ fontSize: '1.5rem', lineHeight: '1.8', marginBottom: '0.5rem' }}>
                 AI can outperform <strong style={{ color: '#14b8a6' }}>93% of fund managers</strong> by analyzing public data
               </div>
+              <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic' }}>
+                Source: Stanford HAI Index Report, 2024
+              </span>
             </AnimatedText>
             
             {/* Additional Validation Sources */}

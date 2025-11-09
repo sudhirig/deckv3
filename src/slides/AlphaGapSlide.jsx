@@ -54,6 +54,11 @@ export default function AlphaGapSlide() {
         <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#14b8a6', marginTop: '2rem', fontWeight: 'bold' }}>
           Traditional advisors can't scale these solutions. AI can.
         </p>
+        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic' }}>
+            Source: Capgemini Wealth Management Report, 2023
+          </span>
+        </div>
       </motion.div>
     </div>
   )

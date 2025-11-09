@@ -51,6 +51,11 @@ export default function IndiaProblemSlide() {
         <p style={{ textAlign: 'center', fontSize: '1.2rem', color: '#94a3b8', marginTop: '2rem', fontStyle: 'italic' }}>
           The barriers are too high. Traditional advisors say "too complex."
         </p>
+        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic' }}>
+            Source: Morgan Stanley India Market Outlook, 2024
+          </span>
+        </div>
       </motion.div>
     </div>
   )

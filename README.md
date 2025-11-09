@@ -1,23 +1,28 @@
-# AI-Powered Digital Family Office - Presentation
+# AI-Powered Digital Family Office - Investor Presentation
 
-A world-class React presentation with **28 slides** showcasing an AI-powered digital family office platform for high-net-worth investors. Content exactly matches the original GitHub repo (sudhirig/deckv1/slides.md) - only UI/UX has been enhanced with ultra-modern graphics, smooth animations, and professional design.
+A world-class **94-slide** investor presentation showcasing an AI-powered digital family office platform for high-net-worth investors. Features investment-grade "god slide" UI/UX with particle effects, animated gradients, and cinematic transitions.
 
 ## 🎨 Features
 
-- ✨ **Ultra-Modern UI**: Glassmorphism effects, gradient backgrounds, smooth animations
-- 🎬 **Professional Animations**: Powered by Framer Motion with advanced effects
-  - **Animated Counters**: Numbers count up with smooth easing (93%, 46%, $1B)
-  - **Staggered Reveals**: Content appears sequentially for impact
-  - **Gradient Text**: Dynamic gradient effects on headlines
-  - **Pulsing Badges**: Attention-grabbing animated badges
-  - **Scale Animations**: Smooth entrance effects for cards and circles
-- 🎨 **Enhanced Typography**: Gradient text effects and consistent hierarchy
-- 🎯 **Professional Icons**: Lucide React icons with gradient fills (no emojis)
-- 🌙 **Optimized Dark Theme**: Premium color palette with teal/green gradients
-- ⌨️ **Keyboard Navigation**: Arrow keys, spacebar for slide navigation
-- 📱 **Responsive Design**: Optimized for 16:9 presentation format
-- 📄 **PDF Export**: Browser print function with optimized layout
-- ⚡ **Fast & Reliable**: React + Vite with proper Replit configuration
+- ✨ **World-Class UI/UX**: 
+  - 45-50 particles (normal slides) / 55-60 particles (transitions)
+  - Multi-layer animated gradients with 20s loops
+  - Glassmorphism with backdrop blur(20px)
+  - Spring animations and hover halos
+  - Mobile-responsive particle optimization
+- 🎬 **Advanced Navigation**:
+  - Progress bar with act progression tracking  
+  - Thumbnail preview grid (Press T)
+  - Section indicators ("Act 1: Problem • 20% Complete")
+  - Adjacent slide preloading
+- 🎨 **Professional Components**:
+  - GradientText for all titles
+  - AnimatedCounter with smooth counting
+  - CircularProgress indicators
+  - Domain animations (money rain, voice waves, neural networks)
+- ⌨️ **Keyboard Shortcuts**: Arrow keys, Space, T (thumbnails), Home/End
+- 📄 **PDF Export**: High-quality browser-native export (Ctrl+P)
+- ⚡ **Performance**: React + Vite with optimized rendering
 
 ## 🚀 Getting Started
 
@@ -45,34 +50,17 @@ The presentation includes print-optimized CSS that automatically:
 - Enables page breaks between slides
 - Maintains full styling and gradients
 
-## 🎯 Complete Slide Deck (28 Slides)
+## 🎯 Presentation Structure (94 Slides)
 
-All content matches GitHub repo sudhirig/deckv1/slides.md exactly.
-
-### Act I: The Problem (Slides 1-5)
-1. **Title Slide**: The AI-Powered Digital Family Office
-2. **Act 1 Intro**: The Hook & The Problem
-3. **Stanford Slide**: AI is the New Alpha (93% stat)
-4. **Market Switching**: 39% already switched providers
-5. **Alpha Gap**: Why They're Switching - The Three Failures
-
-### Act II: The Solution (Slides 6-7)
-6. **AI Investment Committee**: Not a Chatbot (Old vs New Model)
-7. **Three Alpha Agents**: Our Moat - Tax, Alternatives, India Gateway
-
-### Act III: The Deep Dive (Slides 8-14)
-8. **Act 3 Intro**: The Moat & The Technology
-9. **India Problem**: $5T Market Locked by Red Tape
-10. **GIFT City Solution**: The "AI Gateway"
-11. **AI Gateway Agent**: How It Makes India Access Simple
-12. **Tax Alpha Daily**: Daily vs Annual TLH (+1.8% returns)
-13. **Alternative Asset AI DD**: 16,000+ funds analyzed
-14. **Agent Architecture**: Swarm of 20+ Specialized Agents
-
-### Act IV: The Proof (Slides 15-17)
-15. **Act 4 Intro**: Validation & Traction
-16. **Real Journeys**: Three HNW personas with measurable outcomes
-17. **Live Platform**: 100% Operational Today (Zerodha integrated)
+### Core Narrative Arc
+- **Opening (1-3)**: Title, Executive Summary, Agenda
+- **Act 1: Problem (4-7)**: Market failures driving 39% investor switching
+- **Act 2: Solution (8-12)**: AI Investment Committee with 3 alpha moats
+- **Act 3: Deep Dive (13-27)**: Technology architecture & competitive advantages
+- **Act 4: Proof (28-36)**: Traction with 127+ users, 18.5% alpha
+- **Act 5: Business (37-58)**: Team, financials, $20M Series A ask
+- **Opportunity (59-75)**: Exit paths, Gift City moat, market analysis
+- **Appendix (76-94)**: 7 product modules with live demonstrations
 
 ## 🛠️ Technical Stack
 

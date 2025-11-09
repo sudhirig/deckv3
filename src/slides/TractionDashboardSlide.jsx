@@ -270,6 +270,13 @@ export default function TractionDashboardSlide() {
             <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Active AI Sessions</div>
           </div>
         </motion.div>
+        
+        {/* Citation for metrics */}
+        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
+          <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic' }}>
+            Source: Internal Platform Analytics, November 2024
+          </span>
+        </div>
       </motion.div>
     </div>
   )
