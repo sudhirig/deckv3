@@ -3,6 +3,15 @@ import { motion } from 'framer-motion';
 import GradientText from './GradientText';
 import './StandardLayouts.css';
 
+// Shared AspectFrame wrapper that enforces 16:9 ratio
+const AspectFrame = ({ children }) => (
+  <div className="standard-layout-scene">
+    <div className="standard-layout-container">
+      {children}
+    </div>
+  </div>
+);
+
 // Template 1: Act Slide Layout - Full width with side panels
 export const ActSlideLayout = ({ 
   actNumber, 
@@ -13,9 +22,10 @@ export const ActSlideLayout = ({
   bottomPoints,
   particles 
 }) => (
-  <div className="act-layout">
-    {particles}
-    <div className="act-grid">
+  <AspectFrame>
+    <div className="act-layout">
+        {particles}
+        <div className="act-grid">
       <div className="act-left">
         <motion.div 
           className="act-number"
@@ -79,7 +89,8 @@ export const ActSlideLayout = ({
         {bottomPoints}
       </motion.div>
     )}
-  </div>
+    </div>
+  </AspectFrame>
 );
 
 // Template 2: Data Presentation - Visual left, insights right
@@ -91,7 +102,8 @@ export const DataSlideLayout = ({
   citation,
   particles 
 }) => (
-  <div className="data-layout">
+  <AspectFrame>
+    <div className="data-layout">
     {particles}
     <motion.div 
       className="data-header"
@@ -137,7 +149,8 @@ export const DataSlideLayout = ({
         {citation}
       </motion.div>
     )}
-  </div>
+    </div>
+  </AspectFrame>
 );
 
 // Template 3: Comparison Layout - Side by side with VS
@@ -150,7 +163,8 @@ export const ComparisonLayout = ({
   summary,
   particles 
 }) => (
-  <div className="comparison-layout">
+  <AspectFrame>
+    <div className="comparison-layout">
     {particles}
     <motion.h1 
       className="comparison-title"
@@ -202,7 +216,8 @@ export const ComparisonLayout = ({
         {summary}
       </motion.div>
     )}
-  </div>
+    </div>
+  </AspectFrame>
 );
 
 // Template 4: Grid Layout - Multiple cards in grid
@@ -214,7 +229,8 @@ export const GridLayout = ({
   summary,
   particles 
 }) => (
-  <div className="grid-layout">
+  <AspectFrame>
+    <div className="grid-layout">
     {particles}
     <motion.div 
       className="grid-header"
@@ -261,7 +277,8 @@ export const GridLayout = ({
         {summary}
       </motion.div>
     )}
-  </div>
+    </div>
+  </AspectFrame>
 );
 
 // Template 5: Financial/Table Layout - Full width tables
@@ -273,7 +290,8 @@ export const TableLayout = ({
   notes,
   particles 
 }) => (
-  <div className="table-layout">
+  <AspectFrame>
+    <div className="table-layout">
     {particles}
     <motion.div 
       className="table-header"
@@ -322,7 +340,8 @@ export const TableLayout = ({
         {notes}
       </motion.div>
     )}
-  </div>
+    </div>
+  </AspectFrame>
 );
 
 // Template 6: Hero/Feature Layout - Big visual with text overlay
@@ -334,7 +353,8 @@ export const HeroLayout = ({
   ctaButton,
   particles 
 }) => (
-  <div className="hero-layout">
+  <AspectFrame>
+    <div className="hero-layout">
     {particles}
     {backgroundVisual && (
       <div className="hero-background">
@@ -385,7 +405,8 @@ export const HeroLayout = ({
         </motion.div>
       )}
     </div>
-  </div>
+    </div>
+  </AspectFrame>
 );
 
 export default {

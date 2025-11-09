@@ -13,10 +13,19 @@ export default function CircularProgress({
   const timerRef = useRef(null)
   const intervalRef = useRef(null)
   
-  // Ensure size and strokeWidth are valid numbers
-  const validSize = Number(size) || 120
-  const validStrokeWidth = Number(strokeWidth) || 8
-  const radius = Math.max(1, (validSize - validStrokeWidth) / 2) // Ensure radius is always positive
+  // Parse and validate numeric props
+  const validSize = Number.parseFloat(size) || 120
+  const validStrokeWidth = Number.parseFloat(strokeWidth) || 8
+  
+  // Guard against invalid values
+  if (!Number.isFinite(validSize) || validSize <= 0 || 
+      !Number.isFinite(validStrokeWidth) || validStrokeWidth <= 0 ||
+      validStrokeWidth >= validSize) {
+    console.warn('CircularProgress: Invalid size or strokeWidth props', { size, strokeWidth })
+    return null
+  }
+  
+  const radius = (validSize - validStrokeWidth) / 2
   const circumference = radius * 2 * Math.PI
   const offset = circumference - (displayValue / 100) * circumference
 

@@ -1,76 +1,143 @@
 import { motion } from 'framer-motion'
+import { HeroLayout } from '../components/StandardLayouts'
 import AnimatedCounter from '../components/AnimatedCounter'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import './SlideStyles.css'
 
 export default function OpportunitySlide() {
-  return (
-    <div className="slide-content">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="glass-card"
+  // Title
+  const title = (
+    <GradientText gradient="from-purple-400 to-pink-400">
+      A Massive, Combined Opportunity
+    </GradientText>
+  )
+
+  // Subtitle - Fixed to be a string, not JSX
+  const subtitle = "TAM, SAM, SOM Analysis"
+
+  // Visual content - Three circles showing market size
+  const visualContent = (
+    <div style={{ 
+      display: 'flex', 
+      justifyContent: 'space-evenly', 
+      alignItems: 'center', 
+      width: '100%',
+      height: '100%',
+      padding: '2rem 0'
+    }}>
+      <motion.div 
+        style={{ textAlign: 'center' }}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.5, duration: 0.8, type: 'spring' }}
       >
-        <h2 className="slide-title">
-          <GradientText gradient="from-purple-400 to-pink-400">
-            A Massive, Combined Opportunity
-          </GradientText>
-        </h2>
-        <AnimatedText delay={0.2}>
-          <p className="slide-subtitle" style={{ marginBottom: '2rem' }}>TAM, SAM, SOM Analysis</p>
-        </AnimatedText>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '3rem', marginTop: '3rem' }}>
-          <motion.div 
-            style={{ textAlign: 'center' }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 0.6, type: 'spring' }}
-          >
-            <div style={{ width: '300px', height: '300px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1))', border: '3px solid #3b82f6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              <p style={{ fontSize: '3rem', fontWeight: 'bold', color: '#60a5fa' }}>$112T</p>
-              <p style={{ fontSize: '1.2rem', color: '#93c5fd' }}>TAM</p>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '0.5rem' }}>US HNW ($107T) +<br/>India Access ($5T)</p>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            style={{ textAlign: 'center' }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.6, type: 'spring' }}
-          >
-            <div style={{ width: '220px', height: '220px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.1))', border: '3px solid #22c55e', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4ade80' }}>$5.4T</p>
-              <p style={{ fontSize: '1.1rem', color: '#86efac' }}>SAM</p>
-              <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.5rem' }}>Tech-savvy HNW<br/>$5M+ investable</p>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            style={{ textAlign: 'center' }}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6, type: 'spring' }}
-          >
-            <div style={{ width: '160px', height: '160px', borderRadius: '50%', background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(20, 184, 166, 0.1))', border: '3px solid #14b8a6', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-              <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#5eead4' }}>$2.5B</p>
-              <p style={{ fontSize: '1rem', color: '#99f6e4' }}>SOM (Y3)</p>
-              <p style={{ fontSize: '0.8rem', color: '#94a3b8', marginTop: '0.5rem' }}>Conservative<br/>target AUM</p>
-            </div>
-          </motion.div>
+        <div style={{ 
+          width: '350px', 
+          height: '350px', 
+          borderRadius: '50%', 
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1))', 
+          border: '4px solid #3b82f6', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          boxShadow: '0 0 60px rgba(59, 130, 246, 0.4)'
+        }}>
+          <p style={{ fontSize: '4rem', fontWeight: 'bold', color: '#60a5fa' }}>$112T</p>
+          <p style={{ fontSize: '1.5rem', color: '#93c5fd', marginBottom: '1rem' }}>TAM</p>
+          <p style={{ fontSize: '1.1rem', color: '#e2e8f0', textAlign: 'center', padding: '0 1rem' }}>
+            US HNW ($107T) +<br/>India Access ($5T)
+          </p>
         </div>
-        
-        <AnimatedText delay={1.2}>
-          <div style={{ marginTop: '3rem', textAlign: 'center', padding: '1.5rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: '12px' }}>
-            <p style={{ fontSize: '1.2rem', color: '#14b8a6', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-              Year 3 SOM: <GradientText gradient="from-teal-400 to-green-400" animate={false}>$2.5B AUM = $12.5M Revenue</GradientText>
-            </p>
-            <p style={{ fontSize: '1rem', color: '#94a3b8' }}>Conservative and attainable with current growth trajectory</p>
-          </div>
-        </AnimatedText>
+      </motion.div>
+      
+      <motion.div 
+        style={{ textAlign: 'center' }}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.7, duration: 0.8, type: 'spring' }}
+      >
+        <div style={{ 
+          width: '280px', 
+          height: '280px', 
+          borderRadius: '50%', 
+          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.1))', 
+          border: '4px solid #22c55e', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          boxShadow: '0 0 50px rgba(34, 197, 94, 0.4)'
+        }}>
+          <p style={{ fontSize: '3.5rem', fontWeight: 'bold', color: '#4ade80' }}>$5.4T</p>
+          <p style={{ fontSize: '1.4rem', color: '#86efac', marginBottom: '1rem' }}>SAM</p>
+          <p style={{ fontSize: '1rem', color: '#e2e8f0', textAlign: 'center', padding: '0 1rem' }}>
+            Tech-savvy HNW<br/>$5M+ investable
+          </p>
+        </div>
+      </motion.div>
+      
+      <motion.div 
+        style={{ textAlign: 'center' }}
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ delay: 0.9, duration: 0.8, type: 'spring' }}
+      >
+        <div style={{ 
+          width: '220px', 
+          height: '220px', 
+          borderRadius: '50%', 
+          background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(20, 184, 166, 0.1))', 
+          border: '4px solid #14b8a6', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          justifyContent: 'center',
+          boxShadow: '0 0 40px rgba(20, 184, 166, 0.4)'
+        }}>
+          <p style={{ fontSize: '3rem', fontWeight: 'bold', color: '#5eead4' }}>$2.5B</p>
+          <p style={{ fontSize: '1.3rem', color: '#99f6e4', marginBottom: '0.5rem' }}>SOM (Y3)</p>
+          <p style={{ fontSize: '0.95rem', color: '#e2e8f0', textAlign: 'center', padding: '0 1rem' }}>
+            Conservative<br/>target AUM
+          </p>
+        </div>
       </motion.div>
     </div>
+  )
+
+  // CTA content - wrapped properly without nested paragraphs
+  const ctaContent = (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.2 }}
+      style={{ 
+        textAlign: 'center', 
+        padding: '2rem', 
+        background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(34, 197, 94, 0.15))', 
+        borderRadius: '16px',
+        border: '2px solid rgba(20, 184, 166, 0.3)'
+      }}
+    >
+      <p style={{ fontSize: '1.5rem', color: '#14b8a6', fontWeight: 'bold', marginBottom: '1rem' }}>
+        Year 3 SOM: <GradientText gradient="from-teal-400 to-green-400" animate={false}>$2.5B AUM = $12.5M Revenue</GradientText>
+      </p>
+      <p style={{ fontSize: '1.2rem', color: '#e2e8f0' }}>
+        Conservative and attainable with current growth trajectory
+      </p>
+      <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginTop: '1rem' }}>
+        Path to $5B AUM by Year 5 → $125M Revenue → $87M EBITDA
+      </p>
+    </motion.div>
+  )
+
+  return (
+    <HeroLayout
+      title={title}
+      subtitle={subtitle}
+      visualContent={visualContent}
+      ctaContent={ctaContent}
+    />
   )
 }
