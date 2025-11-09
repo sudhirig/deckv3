@@ -409,7 +409,10 @@ export const HeroLayout = ({
   </AspectFrame>
 );
 
+export { AspectFrame };
+
 export default {
+  AspectFrame,
   ActSlideLayout,
   DataSlideLayout,
   ComparisonLayout,

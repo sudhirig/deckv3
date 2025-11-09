@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
+import { AspectFrame } from '../components/StandardLayouts'
 import { Shield, Award, Lock, CheckCircle } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -23,7 +24,8 @@ export default function TitleSlide() {
   const mediaLogos = ['TechCrunch', 'Forbes', 'Bloomberg', 'WSJ', 'FT']
 
   return (
-    <div className="slide-content title-slide" style={{ position: 'relative', overflow: 'hidden' }}>
+    <AspectFrame>
+      <div className="title-slide" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Premium Particle Animation */}
       <ParticleBackground count={45} color="#14b8a6" />
       
@@ -228,5 +230,6 @@ export default function TitleSlide() {
       
       <div className="tech-background"></div>
     </div>
+    </AspectFrame>
   )
 }

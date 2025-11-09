@@ -13,30 +13,50 @@ export default function CircularProgress({
   const timerRef = useRef(null)
   const intervalRef = useRef(null)
   
-  // Parse and validate numeric props
-  const validSize = Number.parseFloat(size) || 120
-  const validStrokeWidth = Number.parseFloat(strokeWidth) || 8
+  // Parse and validate all numeric props
+  const parsedValue = Number.parseFloat(value)
+  const safeValue = (Number.isFinite(parsedValue) && parsedValue >= 0 && parsedValue <= 100) ? parsedValue : 0
   
-  // Guard against invalid values
-  if (!Number.isFinite(validSize) || validSize <= 0 || 
-      !Number.isFinite(validStrokeWidth) || validStrokeWidth <= 0 ||
-      validStrokeWidth >= validSize) {
-    console.warn('CircularProgress: Invalid size or strokeWidth props', { size, strokeWidth })
+  const parsedSize = Number.parseFloat(size)
+  const safeSize = (Number.isFinite(parsedSize) && parsedSize > 0) ? parsedSize : 120
+  
+  const parsedStrokeWidth = Number.parseFloat(strokeWidth)
+  const safeStrokeWidth = (Number.isFinite(parsedStrokeWidth) && parsedStrokeWidth > 0) ? parsedStrokeWidth : 8
+  
+  const parsedDelay = Number.parseFloat(delay)
+  const safeDelay = (Number.isFinite(parsedDelay) && parsedDelay >= 0) ? parsedDelay : 0
+  
+  // Guard against invalid size/strokeWidth relationship
+  if (safeStrokeWidth >= safeSize) {
+    console.warn('CircularProgress: strokeWidth must be less than size', { size: safeSize, strokeWidth: safeStrokeWidth })
     return null
   }
   
-  const radius = (validSize - validStrokeWidth) / 2
+  // Calculate radius with explicit fallback to ensure it's never undefined
+  const calculatedRadius = (safeSize - safeStrokeWidth) / 2
+  const radius = Number.isFinite(calculatedRadius) && calculatedRadius > 0 ? calculatedRadius : 56
+  
+  // Log warning if we had to use fallback
+  if (radius === 56 && calculatedRadius !== 56) {
+    console.warn('CircularProgress: Using fallback radius', { 
+      calculatedRadius, 
+      size: safeSize, 
+      strokeWidth: safeStrokeWidth,
+      originalProps: { value, size, strokeWidth, delay }
+    })
+  }
+  
   const circumference = radius * 2 * Math.PI
   const offset = circumference - (displayValue / 100) * circumference
 
   useEffect(() => {
     timerRef.current = setTimeout(() => {
       let current = 0
-      const increment = value / 60
+      const increment = safeValue / 60
       intervalRef.current = setInterval(() => {
         current += increment
-        if (current >= value) {
-          setDisplayValue(value)
+        if (current >= safeValue) {
+          setDisplayValue(safeValue)
           if (intervalRef.current) {
             clearInterval(intervalRef.current)
             intervalRef.current = null
@@ -45,7 +65,7 @@ export default function CircularProgress({
           setDisplayValue(Math.floor(current))
         }
       }, 16)
-    }, delay * 1000)
+    }, safeDelay * 1000)
 
     return () => {
       if (timerRef.current) {
@@ -57,7 +77,7 @@ export default function CircularProgress({
         intervalRef.current = null
       }
     }
-  }, [value, delay])
+  }, [safeValue, safeDelay])
 
   return (
     <div style={{ 
@@ -67,33 +87,33 @@ export default function CircularProgress({
       gap: '0.5rem'
     }}>
       <svg
-        width={validSize}
-        height={validSize}
+        width={safeSize}
+        height={safeSize}
         style={{ transform: 'rotate(-90deg)' }}
       >
         <circle
-          cx={validSize / 2}
-          cy={validSize / 2}
+          cx={safeSize / 2}
+          cy={safeSize / 2}
           r={radius}
           stroke="rgba(255, 255, 255, 0.1)"
-          strokeWidth={validStrokeWidth}
+          strokeWidth={safeStrokeWidth}
           fill="none"
         />
         <motion.circle
-          cx={validSize / 2}
-          cy={validSize / 2}
+          cx={safeSize / 2}
+          cy={safeSize / 2}
           r={radius}
-          stroke={color}
-          strokeWidth={validStrokeWidth}
+          stroke={color || '#14b8a6'}
+          strokeWidth={safeStrokeWidth}
           fill="none"
           strokeLinecap="round"
           strokeDasharray={circumference}
           strokeDashoffset={offset}
           initial={{ strokeDashoffset: circumference }}
           animate={{ strokeDashoffset: offset }}
-          transition={{ duration: 1.5, delay, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1.5, delay: safeDelay, ease: [0.16, 1, 0.3, 1] }}
           style={{
-            filter: `drop-shadow(0 0 8px ${color}88)`
+            filter: `drop-shadow(0 0 8px ${color || '#14b8a6'}88)`
           }}
         />
         <text
@@ -102,14 +122,14 @@ export default function CircularProgress({
           textAnchor="middle"
           dy="0.3em"
           style={{
-            fontSize: `${validSize / 3}px`,
+            fontSize: `${safeSize / 3}px`,
             fontWeight: 'bold',
-            fill: color,
+            fill: color || '#14b8a6',
             transform: 'rotate(90deg)',
             transformOrigin: 'center'
           }}
         >
-          {displayValue}%
+          {Math.round(displayValue)}%
         </text>
       </svg>
       {label && (

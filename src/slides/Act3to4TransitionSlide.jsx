@@ -5,13 +5,15 @@ import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
+import { AspectFrame } from '../components/StandardLayouts'
 import { Rocket, Star, TrendingUp, Users, Target, Award, DollarSign, ArrowUpRight, CheckCircle } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const Act3to4TransitionSlide = () => {
   return (
-    <div className="slide-content act-slide" style={{ position: 'relative' }}>
+    <AspectFrame>
+      <div className="act-slide" style={{ position: 'relative' }}>
       <ParticleBackground count={55} color="#a855f7" />
       
       {/* Deep Space Gradient Background */}
@@ -332,7 +334,8 @@ const Act3to4TransitionSlide = () => {
           </p>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+    </AspectFrame>
   )
 }
 
