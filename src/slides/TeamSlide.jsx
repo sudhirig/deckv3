@@ -1,6 +1,8 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Check, Linkedin, Building2, User, Briefcase, GraduationCap } from 'lucide-react'
+import ceoImage from '@assets/stock_images/professional_indian__b5bf24ba.jpg'
+import cfoImage from '@assets/stock_images/professional_indian__403e201d.jpg'
 import './SlideStyles.css'
 
 export default function TeamSlide() {
@@ -15,7 +17,7 @@ export default function TeamSlide() {
         'Ex-Goldman Sachs PWM',
         'MBA, CFA Charter'
       ],
-      photo: '👨‍💼'
+      photo: ceoImage
     },
     {
       name: 'Sachin Shah',
@@ -27,7 +29,7 @@ export default function TeamSlide() {
         'Financial Architecture',
         'Tax Optimization Expert'
       ],
-      photo: '👨‍💼'
+      photo: cfoImage
     }
   ]
 
@@ -69,23 +71,27 @@ export default function TeamSlide() {
               }} />
               
               <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                {/* Photo Placeholder with Professional Styling */}
+                {/* Professional Photo */}
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   style={{
                     width: '80px',
                     height: '80px',
                     borderRadius: '50%',
-                    background: 'linear-gradient(135deg, #14b8a6, #0d9488)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '2.5rem',
+                    overflow: 'hidden',
                     boxShadow: '0 0 20px rgba(20, 184, 166, 0.3)',
                     border: '2px solid rgba(20, 184, 166, 0.5)'
                   }}
                 >
-                  {founder.photo}
+                  <img 
+                    src={founder.photo} 
+                    alt={founder.name}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
                 </motion.div>
                 
                 <div style={{ flex: 1 }}>
