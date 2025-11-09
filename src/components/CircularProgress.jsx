@@ -12,7 +12,11 @@ export default function CircularProgress({
   const [displayValue, setDisplayValue] = useState(0)
   const timerRef = useRef(null)
   const intervalRef = useRef(null)
-  const radius = Math.max(0, (size - strokeWidth) / 2) // Ensure radius is never negative
+  
+  // Ensure size and strokeWidth are valid numbers
+  const validSize = Number(size) || 120
+  const validStrokeWidth = Number(strokeWidth) || 8
+  const radius = Math.max(1, (validSize - validStrokeWidth) / 2) // Ensure radius is always positive
   const circumference = radius * 2 * Math.PI
   const offset = circumference - (displayValue / 100) * circumference
 
@@ -54,24 +58,24 @@ export default function CircularProgress({
       gap: '0.5rem'
     }}>
       <svg
-        width={size}
-        height={size}
+        width={validSize}
+        height={validSize}
         style={{ transform: 'rotate(-90deg)' }}
       >
         <circle
-          cx={size / 2}
-          cy={size / 2}
+          cx={validSize / 2}
+          cy={validSize / 2}
           r={radius}
           stroke="rgba(255, 255, 255, 0.1)"
-          strokeWidth={strokeWidth}
+          strokeWidth={validStrokeWidth}
           fill="none"
         />
         <motion.circle
-          cx={size / 2}
-          cy={size / 2}
+          cx={validSize / 2}
+          cy={validSize / 2}
           r={radius}
           stroke={color}
-          strokeWidth={strokeWidth}
+          strokeWidth={validStrokeWidth}
           fill="none"
           strokeLinecap="round"
           strokeDasharray={circumference}
@@ -89,7 +93,7 @@ export default function CircularProgress({
           textAnchor="middle"
           dy="0.3em"
           style={{
-            fontSize: `${size / 3}px`,
+            fontSize: `${validSize / 3}px`,
             fontWeight: 'bold',
             fill: color,
             transform: 'rotate(90deg)',
