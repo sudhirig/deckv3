@@ -587,6 +587,6 @@ export default function ClosingCommitmentSlide() {
           </p>
         </motion.div>
       </motion.div>
-    </CinematicSlideFrame>
+    </div>
   )
 }
