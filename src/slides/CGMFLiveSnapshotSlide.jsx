@@ -1,21 +1,39 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
-import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
-import { Camera, Calculator, TrendingUp, Award, PiggyBank, Shield, Target, CheckCircle, DollarSign, Percent } from 'lucide-react'
+import { Camera, Calculator, TrendingUp, Award, PiggyBank, Shield, Target, CheckCircle, DollarSign, Percent, Brain, Sparkles } from 'lucide-react'
 import './SlideStyles.css'
 
-const CGMFLiveSnapshotSlide = () => {
+export default function CGMFLiveSnapshotSlide() {
   const [animateMetrics, setAnimateMetrics] = useState(false)
+  const [pulseAnimation, setPulseAnimation] = useState(true)
+  const [agentStatus, setAgentStatus] = useState(['Active', 'Active', 'Analyzing'])
   
   useEffect(() => {
     const timer = setTimeout(() => setAnimateMetrics(true), 500)
-    return () => clearTimeout(timer)
+    
+    const pulseInterval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 2000)
+    
+    // Cycle agent statuses
+    const agentInterval = setInterval(() => {
+      setAgentStatus(prev => {
+        const statuses = ['Active', 'Analyzing', 'Optimizing', 'Complete']
+        return prev.map(() => statuses[Math.floor(Math.random() * statuses.length)])
+      })
+    }, 3000)
+    
+    return () => {
+      clearTimeout(timer)
+      clearInterval(pulseInterval)
+      clearInterval(agentInterval)
+    }
   }, [])
   
   // Sample data for charts
@@ -36,64 +54,122 @@ const CGMFLiveSnapshotSlide = () => {
   ]
   
   return (
-    <div className="slide-content" style={{ position: 'relative' }}>
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
       <ParticleBackground count={45} color="#4caf50" />
       
-      {/* Deep Space Gradient Background */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'radial-gradient(circle at 20% 50%, rgba(76, 175, 80, 0.12) 0%, transparent 60%), radial-gradient(circle at 80% 50%, rgba(0, 188, 212, 0.1) 0%, transparent 50%)',
-        zIndex: 0
-      }} />
+      {/* Multi-layer Animated Gradients */}
+      <motion.div
+        animate={{
+          background: [
+            'radial-gradient(circle at 20% 50%, rgba(76, 175, 80, 0.15) 0%, transparent 60%)',
+            'radial-gradient(circle at 80% 50%, rgba(0, 188, 212, 0.12) 0%, transparent 60%)',
+            'radial-gradient(circle at 50% 80%, rgba(156, 39, 176, 0.12) 0%, transparent 60%)',
+            'radial-gradient(circle at 20% 50%, rgba(76, 175, 80, 0.15) 0%, transparent 60%)'
+          ]
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
+      
+      {/* Animated Money Rain */}
+      {[...Array(8)].map((_, i) => (
+        <motion.div
+          key={i}
+          initial={{ y: -100, x: Math.random() * window.innerWidth }}
+          animate={{ 
+            y: window.innerHeight + 100,
+            x: Math.random() * window.innerWidth,
+            rotate: [0, 360]
+          }}
+          transition={{
+            duration: 5 + Math.random() * 3,
+            repeat: Infinity,
+            delay: i * 0.5,
+            ease: 'linear'
+          }}
+          style={{
+            position: 'absolute',
+            fontSize: '1.5rem',
+            color: '#4caf50',
+            opacity: 0.3,
+            zIndex: 2
+          }}
+        >
+          ₹
+        </motion.div>
+      ))}
       
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring' }}
-        className="glass-card"
-        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3, maxWidth: '1200px', margin: '0 auto' }}
       >
-        {/* Header */}
+        {/* Header with Live Indicator */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '1.5rem' }}
         >
-          <h2 className="slide-title">
+          <h2 className="slide-title" style={{ marginBottom: '0.5rem' }}>
             <GradientText gradient="from-green-400 via-teal-400 to-cyan-400">
               CGMF Unified Fund Platform
             </GradientText>
           </h2>
           
+          {/* Live Indicator with Enhanced Animation */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
-            style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2rem' }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1rem'
+            }}
           >
             <motion.div
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              animate={{ 
+                scale: pulseAnimation ? [1, 1.3, 1] : 1,
+                rotate: pulseAnimation ? [0, 5, -5, 0] : 0
+              }}
+              transition={{ duration: 1 }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.5rem 1rem',
+                background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1))',
+                borderRadius: '50px',
+                border: '2px solid #ef4444'
+              }}
             >
-              <Camera className="w-5 h-5 text-red-500" />
-              <span style={{ fontSize: '1rem', color: '#ef4444' }}>LIVE</span>
+              <Camera size={20} color="#ef4444" />
+              <span style={{ fontSize: '1rem', color: '#ef4444', fontWeight: 'bold' }}>
+                LIVE
+              </span>
             </motion.div>
-            <span style={{ fontSize: '1rem', color: '#94a3b8', marginLeft: '1rem' }}>
-              Managing 16,766 Active Funds
+            <span style={{ fontSize: '1rem', color: '#94a3b8' }}>
+              Managing <span style={{ color: '#4caf50', fontWeight: 'bold' }}>16,766</span> Active Funds
             </span>
           </motion.div>
         </motion.div>
 
-        {/* Hero Metrics */}
+        {/* Hero Metrics with Enhanced Glass Cards */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(6, 1fr)',
@@ -111,72 +187,120 @@ const CGMFLiveSnapshotSlide = () => {
           ].map((item, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05, y: -5 }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
-              className="glass-card"
+              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.08, type: 'spring' }}
+              whileHover={{ 
+                scale: 1.08,
+                y: -8,
+                boxShadow: `0 20px 40px ${item.color}40`
+              }}
               style={{
                 padding: '1rem',
                 textAlign: 'center',
-                background: `linear-gradient(135deg, ${item.color}15 0%, ${item.color}08 100%)`,
-                border: `1px solid ${item.color}30`,
+                background: `linear-gradient(135deg, ${item.color}20, rgba(255, 255, 255, 0.02))`,
+                backdropFilter: 'blur(20px)',
+                borderRadius: '16px',
+                border: `2px solid ${item.color}30`,
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'visible'
               }}
             >
               {/* Animated Background Gradient */}
               <motion.div
                 animate={{ 
                   backgroundPosition: ['0% 0%', '100% 100%'],
-                  opacity: [0.05, 0.1, 0.05]
+                  opacity: [0.05, 0.15, 0.05]
                 }}
                 transition={{ duration: 5, repeat: Infinity }}
                 style={{
                   position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  bottom: 0,
+                  inset: 0,
                   background: `linear-gradient(45deg, transparent 30%, ${item.color}20 50%, transparent 70%)`,
                   backgroundSize: '200% 200%',
-                  zIndex: 0
+                  borderRadius: '16px',
+                  zIndex: -1
                 }}
               />
               
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <item.icon className="w-5 h-5 mx-auto mb-2" style={{ color: item.color }} />
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}>
-                  {item.prefix}<AnimatedCounter end={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
-                </div>
-                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
-              </div>
+              <motion.div
+                animate={{ 
+                  rotate: pulseAnimation && index === 0 ? [0, 360] : 0,
+                  scale: pulseAnimation && index === 3 ? [1, 1.3, 1] : 1
+                }}
+                transition={{ duration: 2 }}
+              >
+                <item.icon size={24} color={item.color} />
+              </motion.div>
+              
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}
+              >
+                {item.prefix}<AnimatedCounter value={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
+              </motion.div>
+              <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
             </motion.div>
           ))}
         </motion.div>
 
         {/* Main Content Grid */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-          {/* Left Side - Fund Recommendations */}
+          {/* Left Side - Fund Recommendations with Enhanced Visuals */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="glass-card"
+            initial={{ opacity: 0, x: -50, rotateY: -15 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ delay: 0.6, type: 'spring' }}
+            whileHover={{ scale: 1.02 }}
             style={{
-              background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.1) 0%, rgba(103, 58, 183, 0.05) 100%)',
-              border: '1px solid rgba(156, 39, 176, 0.3)',
-              position: 'relative'
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(156, 39, 176, 0.15), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(156, 39, 176, 0.3)',
+              position: 'relative',
+              overflow: 'visible'
             }}
           >
-            <h3 style={{ fontSize: '1.2rem', color: '#9c27b0', marginBottom: '1.5rem', display: 'flex', alignItems: 'center' }}>
-              <Award className="w-5 h-5 mr-2" />
+            {/* Animated Halo */}
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.2, 0.1]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              style={{
+                position: 'absolute',
+                inset: -30,
+                background: 'radial-gradient(circle, rgba(156, 39, 176, 0.2), transparent)',
+                borderRadius: '24px',
+                filter: 'blur(20px)',
+                zIndex: -1
+              }}
+            />
+            
+            <h3 style={{ 
+              fontSize: '1.2rem',
+              color: '#9c27b0',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <Award size={24} style={{ marginRight: '0.5rem' }} />
               Top ELSS Recommendations
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                style={{ marginLeft: 'auto' }}
+              >
+                <Sparkles size={20} color="#9c27b0" />
+              </motion.div>
             </h3>
             
             <BarChart data={fundScoreData} height={120} colorScheme="gradient" animated={animateMetrics} />
             
-            {/* Tax Optimization Summary with Glow Effect */}
+            {/* Tax Optimization Summary with Enhanced Glow */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -184,62 +308,122 @@ const CGMFLiveSnapshotSlide = () => {
               style={{
                 marginTop: '1.5rem',
                 padding: '1.5rem',
-                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.15) 0%, rgba(33, 150, 243, 0.1) 100%)',
-                borderRadius: '12px',
-                border: '1px solid rgba(76, 175, 80, 0.3)',
-                position: 'relative'
+                background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(33, 150, 243, 0.15))',
+                borderRadius: '16px',
+                border: '2px solid rgba(76, 175, 80, 0.3)',
+                position: 'relative',
+                overflow: 'visible'
               }}
             >
-              {/* Animated Glow */}
+              {/* Animated Glow Border */}
               <motion.div
-                animate={{ opacity: [0.3, 0.6, 0.3] }}
+                animate={{ 
+                  opacity: [0.3, 0.6, 0.3],
+                  scale: [0.98, 1.02, 0.98]
+                }}
                 transition={{ duration: 3, repeat: Infinity }}
                 style={{
                   position: 'absolute',
-                  inset: -2,
+                  inset: -3,
                   background: 'linear-gradient(135deg, #4caf50, #2196f3)',
-                  borderRadius: '12px',
+                  borderRadius: '16px',
                   filter: 'blur(10px)',
                   zIndex: -1
                 }}
               />
               
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  style={{ textAlign: 'center' }}
+                >
                   <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Section 80C Used</p>
-                  <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4caf50' }}>
-                    ₹<AnimatedCounter end={1.5} decimals={1} duration={1500} />L
-                  </div>
-                </div>
-                <div>
+                  <motion.div
+                    animate={{ 
+                      scale: pulseAnimation ? [1, 1.1, 1] : 1,
+                      color: pulseAnimation ? '#4caf50' : '#10b981'
+                    }}
+                    transition={{ duration: 1 }}
+                    style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
+                  >
+                    ₹<AnimatedCounter value={1.5} decimals={1} duration={1500} />L
+                  </motion.div>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  style={{ textAlign: 'center' }}
+                >
                   <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Annual Savings</p>
-                  <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#00bcd4' }}>
-                    ₹<AnimatedCounter end={1.55} decimals={2} duration={1500} />L
-                  </div>
-                </div>
+                  <motion.div
+                    animate={{ 
+                      scale: pulseAnimation ? [1, 1.1, 1] : 1,
+                      color: pulseAnimation ? '#00bcd4' : '#0891b2'
+                    }}
+                    transition={{ duration: 1 }}
+                    style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
+                  >
+                    ₹<AnimatedCounter value={1.55} decimals={2} duration={1500} />L
+                  </motion.div>
+                </motion.div>
               </div>
             </motion.div>
           </motion.div>
 
-          {/* Right Side - Performance Chart */}
+          {/* Right Side - Performance Chart with Enhanced Design */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="glass-card"
+            initial={{ opacity: 0, x: 50, rotateY: 15 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ delay: 0.8, type: 'spring' }}
+            whileHover={{ scale: 1.02 }}
             style={{
-              background: 'linear-gradient(135deg, rgba(0, 188, 212, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%)',
-              border: '1px solid rgba(0, 188, 212, 0.3)'
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(0, 188, 212, 0.15), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(0, 188, 212, 0.3)',
+              position: 'relative',
+              overflow: 'visible'
             }}
           >
-            <h3 style={{ fontSize: '1.2rem', color: '#00bcd4', marginBottom: '1.5rem', display: 'flex', alignItems: 'center' }}>
-              <TrendingUp className="w-5 h-5 mr-2" />
+            {/* Animated Background Pattern */}
+            <motion.div
+              animate={{
+                backgroundPosition: ['0% 0%', '100% 100%']
+              }}
+              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(45deg, rgba(0, 188, 212, 0.05), transparent, rgba(33, 150, 243, 0.05))',
+                backgroundSize: '200% 200%',
+                borderRadius: '20px',
+                zIndex: -1
+              }}
+            />
+            
+            <h3 style={{ 
+              fontSize: '1.2rem',
+              color: '#00bcd4',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <TrendingUp size={24} style={{ marginRight: '0.5rem' }} />
               6-Year Performance Trend
+              <motion.div
+                animate={{ 
+                  y: pulseAnimation ? [0, -5, 0] : 0
+                }}
+                transition={{ duration: 1 }}
+                style={{ marginLeft: 'auto' }}
+              >
+                <Target size={20} color="#00bcd4" />
+              </motion.div>
             </h3>
             
             <LineChart data={returnsData} height={120} animated={animateMetrics} />
             
-            {/* AI Agent Status with Pulse Animation */}
+            {/* AI Agent Status with Enhanced Pulse Animation */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -252,34 +436,59 @@ const CGMFLiveSnapshotSlide = () => {
               }}
             >
               {[
-                { name: 'Goal Agent', status: 'Active', color: '#4caf50' },
-                { name: 'Tax Agent', status: 'Active', color: '#2196f3' },
-                { name: 'Risk Agent', status: 'Analyzing', color: '#9c27b0' }
+                { name: 'Goal Agent', status: agentStatus[0], color: '#4caf50' },
+                { name: 'Tax Agent', status: agentStatus[1], color: '#2196f3' },
+                { name: 'Risk Agent', status: agentStatus[2], color: '#9c27b0' }
               ].map((agent, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: `0 10px 25px ${agent.color}30`
+                  }}
                   style={{
                     textAlign: 'center',
                     padding: '0.75rem',
-                    background: `${agent.color}15`,
-                    borderRadius: '8px',
-                    border: `1px solid ${agent.color}30`
+                    background: `linear-gradient(135deg, ${agent.color}20, ${agent.color}10)`,
+                    borderRadius: '12px',
+                    border: `2px solid ${agent.color}30`,
+                    position: 'relative',
+                    overflow: 'visible'
                   }}
                 >
+                  {/* Status Indicator */}
                   <motion.div
-                    animate={{ scale: [1, 1.5, 1] }}
+                    animate={{ 
+                      scale: agent.status === 'Active' ? [1, 1.5, 1] : 1,
+                      opacity: agent.status === 'Active' ? [1, 0.5, 1] : 0.5
+                    }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                     style={{
                       width: '8px',
                       height: '8px',
                       borderRadius: '50%',
                       background: agent.color,
-                      margin: '0 auto 0.5rem'
+                      margin: '0 auto 0.5rem',
+                      boxShadow: `0 0 15px ${agent.color}`
                     }}
                   />
-                  <p style={{ fontSize: '0.75rem', color: agent.color, fontWeight: 'bold' }}>{agent.name}</p>
-                  <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{agent.status}</p>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '0.25rem' }}>
+                    <Brain size={16} color={agent.color} />
+                  </div>
+                  
+                  <p style={{ fontSize: '0.75rem', color: agent.color, fontWeight: 'bold' }}>
+                    {agent.name}
+                  </p>
+                  <motion.p
+                    animate={{ 
+                      opacity: agent.status === 'Active' ? [1, 0.7, 1] : 1
+                    }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                    style={{ fontSize: '0.7rem', color: '#94a3b8' }}
+                  >
+                    {agent.status}
+                  </motion.p>
                 </motion.div>
               ))}
             </motion.div>
@@ -290,16 +499,40 @@ const CGMFLiveSnapshotSlide = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="glass-card"
+          transition={{ delay: 1 }}
           style={{
             marginTop: '2rem',
             padding: '1.5rem',
-            background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(156, 39, 176, 0.05) 100%)',
-            border: '1px solid rgba(20, 184, 166, 0.3)'
+            background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(156, 39, 176, 0.1))',
+            backdropFilter: 'blur(20px)',
+            borderRadius: '20px',
+            border: '2px solid rgba(20, 184, 166, 0.3)',
+            position: 'relative',
+            overflow: 'visible'
           }}
         >
-          <h3 style={{ fontSize: '1rem', color: '#14b8a6', marginBottom: '1rem' }}>
+          {/* Animated Border Glow */}
+          <motion.div
+            animate={{
+              opacity: [0.2, 0.4, 0.2]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{
+              position: 'absolute',
+              inset: -2,
+              background: 'linear-gradient(90deg, #14b8a6, #9c27b0, #14b8a6)',
+              borderRadius: '20px',
+              filter: 'blur(8px)',
+              zIndex: -1
+            }}
+          />
+          
+          <h3 style={{ 
+            fontSize: '1rem',
+            color: '#14b8a6',
+            marginBottom: '1rem',
+            textAlign: 'center'
+          }}>
             Live Portfolio Snapshot
           </h3>
           
@@ -313,36 +546,79 @@ const CGMFLiveSnapshotSlide = () => {
             ].map((item, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -5 }}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2 + index * 0.1 }}
+                transition={{ delay: 1.2 + index * 0.1, type: 'spring' }}
+                whileHover={{ 
+                  y: -8,
+                  scale: 1.1
+                }}
                 style={{ textAlign: 'center' }}
               >
                 <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
-                <p style={{ fontSize: '1.25rem', fontWeight: 'bold', color: item.color }}>{item.value}</p>
-                <p style={{ fontSize: '0.7rem', color: item.color, opacity: 0.8 }}>{item.trend}</p>
+                <motion.p
+                  animate={{ 
+                    scale: pulseAnimation ? [1, 1.05, 1] : 1
+                  }}
+                  transition={{ duration: 2, delay: index * 0.2 }}
+                  style={{ 
+                    fontSize: '1.25rem',
+                    fontWeight: 'bold',
+                    color: item.color
+                  }}
+                >
+                  {item.value}
+                </motion.p>
+                <p style={{ fontSize: '0.7rem', color: item.color, opacity: 0.8 }}>
+                  {item.trend}
+                </p>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Footer with Platform Links */}
+        {/* Footer with Platform Links and Enhanced Indicators */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.4 }}
-          style={{ textAlign: 'center', marginTop: '2rem' }}
+          style={{
+            textAlign: 'center',
+            marginTop: '2rem',
+            padding: '1rem',
+            background: 'linear-gradient(135deg, rgba(0, 188, 212, 0.1), rgba(76, 175, 80, 0.05))',
+            borderRadius: '12px',
+            border: '1px solid rgba(0, 188, 212, 0.2)'
+          }}
         >
           <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>
-            Live Platform: <span style={{ color: '#00bcd4' }}>app.voraventures.ai/cgmf</span>
-            <span style={{ color: '#4caf50', marginLeft: '1rem' }}>✓ Real AMC Data</span>
-            <span style={{ color: '#9c27b0', marginLeft: '1rem' }}>✓ AI-Powered</span>
+            Live Platform: <span style={{ color: '#00bcd4', fontWeight: 'bold' }}>app.voraventures.ai/cgmf</span>
           </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '0.5rem' }}>
+            <motion.span
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{ color: '#4caf50', fontSize: '0.875rem' }}
+            >
+              ✓ Real AMC Data
+            </motion.span>
+            <motion.span
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              style={{ color: '#9c27b0', fontSize: '0.875rem' }}
+            >
+              ✓ AI-Powered
+            </motion.span>
+            <motion.span
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+              style={{ color: '#00bcd4', fontSize: '0.875rem' }}
+            >
+              ✓ Tax Optimized
+            </motion.span>
+          </div>
         </motion.div>
       </motion.div>
     </div>
   )
 }
-
-export default CGMFLiveSnapshotSlide
