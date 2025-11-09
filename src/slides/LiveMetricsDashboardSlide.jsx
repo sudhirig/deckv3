@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Activity, TrendingUp, Users, DollarSign, Globe, Shield, Clock, CheckCircle, BarChart3, Zap } from 'lucide-react'
+import ParticleBackground from '../components/ParticleBackground'
+import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
+import { Activity, TrendingUp, Users, DollarSign, Globe, Shield, Clock, CheckCircle, BarChart3, Zap } from 'lucide-react'
+import './SlideStyles.css'
 
 const LiveMetricsDashboardSlide = () => {
   const [animateMetrics, setAnimateMetrics] = useState(false)
@@ -42,263 +45,395 @@ const LiveMetricsDashboardSlide = () => {
   ]
   
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <div className="slide-content" style={{ position: 'relative' }}>
+      <ParticleBackground count={60} color="#06b6d4" />
+      
+      {/* Deep Space Gradient Background */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.12) 0%, transparent 60%), radial-gradient(circle at 80% 70%, rgba(34, 197, 94, 0.08) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.06) 0%, transparent 70%)',
+        zIndex: 0
+      }} />
+      
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+      >
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="gradient-text text-4xl mb-2">Live Platform Metrics</h1>
-          <p className="text-lg text-gray-400 mb-4">Real-time Performance Dashboard</p>
+          <h2 className="slide-title">
+            <GradientText gradient="from-cyan-400 via-blue-400 to-purple-400">
+              Live Platform Metrics Dashboard
+            </GradientText>
+          </h2>
+          
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+            Real-time Performance & System Health
+          </p>
         </motion.div>
 
-        {/* Top Status Indicators */}
+        {/* Top Status Indicators with Pulse Effects */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="grid grid-cols-6 gap-2 mb-4"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(6, 1fr)',
+            gap: '1rem',
+            marginBottom: '2rem'
+          }}
         >
-          <div className="glassmorphic-card p-2 text-center">
-            <Activity className="w-4 h-4 text-green-400 mx-auto mb-1 animate-pulse" />
-            <div className="text-lg font-bold text-green-400">
-              <AnimatedCounter end={99.97} decimals={2} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Uptime</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <Zap className="w-4 h-4 text-yellow-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-yellow-400">
-              <AnimatedCounter end={11} duration={1000} />ms
-            </div>
-            <p className="text-xs text-gray-400">Response</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <Users className="w-4 h-4 text-blue-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-blue-400">
-              <AnimatedCounter end={10247} duration={2000} />
-            </div>
-            <p className="text-xs text-gray-400">Active Users</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <BarChart3 className="w-4 h-4 text-purple-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-purple-400">
-              <AnimatedCounter end={45892} duration={2500} />
-            </div>
-            <p className="text-xs text-gray-400">Daily Trades</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <DollarSign className="w-4 h-4 text-green-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-green-400">
-              ₹<AnimatedCounter end={2450} duration={2000} />Cr
-            </div>
-            <p className="text-xs text-gray-400">AUM</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <Shield className="w-4 h-4 text-teal-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-teal-400">
-              <AnimatedCounter end={1.2} decimals={1} duration={1500} />M
-            </div>
-            <p className="text-xs text-gray-400">Decisions/Day</p>
-          </div>
+          {[
+            { icon: Activity, label: 'Uptime', value: 99.97, decimals: 2, suffix: '%', color: '#10b981', pulse: true },
+            { icon: Zap, label: 'Response', value: 11, suffix: 'ms', color: '#fbbf24' },
+            { icon: Users, label: 'Active Users', value: 10247, color: '#3b82f6' },
+            { icon: BarChart3, label: 'Daily Trades', value: 45892, color: '#a78bfa' },
+            { icon: DollarSign, label: 'AUM', value: 2450, prefix: '₹', suffix: 'Cr', color: '#10b981' },
+            { icon: Shield, label: 'Decisions/Day', value: 1.2, decimals: 1, suffix: 'M', color: '#06b6d4' }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05, y: -5 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.4 + index * 0.1 }}
+              className="glass-card"
+              style={{
+                padding: '1rem',
+                textAlign: 'center',
+                background: `linear-gradient(135deg, ${item.color}15 0%, ${item.color}08 100%)`,
+                border: `1px solid ${item.color}30`,
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+            >
+              {/* Pulse Animation for Live Status */}
+              {item.pulse && (
+                <motion.div
+                  animate={{ scale: [1, 2, 1], opacity: [0.5, 0, 0.5] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    width: '100%',
+                    height: '100%',
+                    borderRadius: '50%',
+                    background: item.color,
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 0
+                  }}
+                />
+              )}
+              
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <item.icon className="w-5 h-5 mx-auto mb-2" style={{ color: item.color }} />
+                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}>
+                  {item.prefix}<AnimatedCounter end={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
+                </div>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-3 gap-4">
-          {/* Platform Health with Chart */}
+        {/* Main Dashboard Grid with 3 Charts */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+          {/* Platform Health */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="glassmorphic-card"
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              position: 'relative'
+            }}
           >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-green-400 flex items-center">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: '1rem', color: '#10b981', display: 'flex', alignItems: 'center' }}>
                 <Activity className="w-4 h-4 mr-2" />
                 Platform Health
               </h3>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-1"></div>
-                <span className="text-xs text-green-400">Live</span>
+              <motion.div
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}
+              >
+                <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#10b981' }} />
+                <span style={{ fontSize: '0.75rem', color: '#10b981' }}>Live</span>
+              </motion.div>
+            </div>
+            
+            <LineChart data={uptimeData} height={100} animated={animateMetrics} />
+            
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+              <div>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>API Response</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#10b981' }}>11ms avg</p>
+              </div>
+              <div>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Workflows</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#3b82f6' }}>127 active</p>
               </div>
             </div>
             
-            <LineChart data={uptimeData} height={80} animated={animateMetrics} />
-            
-            <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
-              <div>
-                <p className="text-gray-400">API Response:</p>
-                <p className="text-green-400 font-bold">11ms avg</p>
-              </div>
-              <div>
-                <p className="text-gray-400">Workflows:</p>
-                <p className="text-blue-400 font-bold">127 active</p>
-              </div>
-            </div>
-            
-            {/* Status Indicators */}
-            <div className="mt-3 flex justify-between">
-              <CircularProgress value={99.97} size={30} strokeWidth={2} />
-              <CircularProgress value={100} size={30} strokeWidth={2} />
-              <CircularProgress value={95} size={30} strokeWidth={2} />
+            {/* Health Indicators */}
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+              <CircularProgress value={99.97} size={35} strokeWidth={3} />
+              <CircularProgress value={100} size={35} strokeWidth={3} />
+              <CircularProgress value={95} size={35} strokeWidth={3} />
             </div>
           </motion.div>
 
-          {/* User Activity with Chart */}
+          {/* User Activity */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.7, duration: 0.5 }}
-            className="glassmorphic-card"
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
+              border: '1px solid rgba(59, 130, 246, 0.3)',
+              position: 'relative'
+            }}
           >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-blue-400 flex items-center">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: '1rem', color: '#3b82f6', display: 'flex', alignItems: 'center' }}>
                 <Users className="w-4 h-4 mr-2" />
                 User Activity
               </h3>
-              <span className="text-xs text-gray-400">Today</span>
+              <span style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Today</span>
             </div>
             
-            <LineChart data={userActivityData} height={80} animated={animateMetrics} />
+            <LineChart data={userActivityData} height={100} animated={animateMetrics} />
             
-            <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
               <div>
-                <p className="text-gray-400">Voice Commands:</p>
-                <p className="text-orange-400 font-bold">127K today</p>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Voice Commands</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#f59e0b' }}>127K today</p>
               </div>
               <div>
-                <p className="text-gray-400">Peak Users:</p>
-                <p className="text-blue-400 font-bold">10.2K @ 12PM</p>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Peak Users</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#3b82f6' }}>10.2K @ 12PM</p>
               </div>
             </div>
             
-            {/* Live Activity Pulse */}
-            <div className="mt-3 flex items-center justify-center">
+            {/* Activity Pulse Animation */}
+            <motion.div
+              style={{
+                marginTop: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
               <motion.div
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-16 h-16 rounded-full bg-blue-500/20 flex items-center justify-center"
+                style={{
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
               >
-                <div className="w-8 h-8 rounded-full bg-blue-500/40 flex items-center justify-center">
-                  <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-                </div>
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+                  style={{
+                    width: '30px',
+                    height: '30px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, transparent 50%)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <div style={{
+                    width: '10px',
+                    height: '10px',
+                    borderRadius: '50%',
+                    background: '#3b82f6'
+                  }} />
+                </motion.div>
               </motion.div>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Performance Metrics with Chart */}
+          {/* Performance Metrics */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.9, duration: 0.5 }}
-            className="glassmorphic-card"
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
+              position: 'relative'
+            }}
           >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-purple-400 flex items-center">
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: '1rem', color: '#a855f7', display: 'flex', alignItems: 'center' }}>
                 <TrendingUp className="w-4 h-4 mr-2" />
                 Performance
               </h3>
-              <span className="text-xs text-green-400">▲ +5.2%</span>
+              <span style={{ fontSize: '0.75rem', color: '#10b981' }}>▲ +5.2%</span>
             </div>
             
-            <BarChart data={performanceData} height={80} colorScheme="gradient" animated={animateMetrics} />
+            <BarChart data={performanceData} height={100} colorScheme="gradient" animated={animateMetrics} />
             
-            <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
               <div>
-                <p className="text-gray-400">Tax Saved/User:</p>
-                <p className="text-green-400 font-bold">₹1.55L avg</p>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Tax Saved/User</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#10b981' }}>₹1.55L avg</p>
               </div>
               <div>
-                <p className="text-gray-400">Algo Accuracy:</p>
-                <p className="text-purple-400 font-bold">94.5%</p>
+                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Algo Accuracy</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#a855f7' }}>94.5%</p>
               </div>
             </div>
             
             {/* Performance Badge */}
-            <div className="mt-3 text-center">
-              <div className="inline-flex items-center px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full">
-                <CheckCircle className="w-3 h-3 text-green-400 mr-1" />
-                <span className="text-xs text-green-400">All Systems Optimal</span>
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              style={{ marginTop: '1rem', textAlign: 'center' }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  padding: '0.5rem 1rem',
+                  background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%)',
+                  borderRadius: '20px',
+                  border: '1px solid rgba(168, 85, 247, 0.3)'
+                }}
+              >
+                <CheckCircle className="w-4 h-4 text-green-400 mr-2" />
+                <span style={{ fontSize: '0.875rem', color: '#10b981' }}>
+                  All Systems Optimal
+                </span>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
 
-        {/* Bottom Real-time Feed */}
+        {/* Live Activity Feed */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          className="glassmorphic-card mt-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20"
+          transition={{ delay: 1.2, duration: 0.6 }}
+          className="glass-card"
+          style={{
+            marginTop: '2rem',
+            padding: '1.5rem',
+            background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
+            border: '1px solid rgba(14, 165, 233, 0.3)'
+          }}
         >
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-semibold text-teal-400 flex items-center">
-              <Globe className="w-4 h-4 mr-2" />
-              Global Operations
-            </h3>
-            <div className="flex space-x-4 text-xs">
-              <span className="text-green-400">US: Active</span>
-              <span className="text-green-400">India: Active</span>
-              <span className="text-green-400">GIFT City: Active</span>
-            </div>
-          </div>
+          <h3 style={{ fontSize: '1rem', color: '#0ea5e9', marginBottom: '1rem' }}>
+            Live Activity Feed
+          </h3>
           
-          {/* Animated Activity Stream */}
-          <div className="grid grid-cols-4 gap-2 text-center">
-            <motion.div
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="text-xs"
-            >
-              <Clock className="w-4 h-4 text-blue-400 mx-auto mb-1" />
-              <p className="text-gray-400">Last Trade</p>
-              <p className="text-blue-400 font-bold">2s ago</p>
-            </motion.div>
-            <motion.div
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
-              className="text-xs"
-            >
-              <Activity className="w-4 h-4 text-green-400 mx-auto mb-1" />
-              <p className="text-gray-400">AI Decisions</p>
-              <p className="text-green-400 font-bold">342/min</p>
-            </motion.div>
-            <motion.div
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
-              className="text-xs"
-            >
-              <Shield className="w-4 h-4 text-purple-400 mx-auto mb-1" />
-              <p className="text-gray-400">Security</p>
-              <p className="text-purple-400 font-bold">100%</p>
-            </motion.div>
-            <motion.div
-              animate={{ opacity: [0.5, 1, 0.5] }}
-              transition={{ duration: 2, repeat: Infinity, delay: 1.5 }}
-              className="text-xs"
-            >
-              <DollarSign className="w-4 h-4 text-yellow-400 mx-auto mb-1" />
-              <p className="text-gray-400">Volume</p>
-              <p className="text-yellow-400 font-bold">₹450Cr</p>
-            </motion.div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+            {[
+              { time: '12:45:23', action: 'Voice Trade Executed', value: '₹2.4L', status: 'success' },
+              { time: '12:45:21', action: 'Tax Loss Harvested', value: '₹15K saved', status: 'warning' },
+              { time: '12:45:19', action: 'Portfolio Rebalanced', value: '12 positions', status: 'info' },
+              { time: '12:45:17', action: 'AI Consensus Reached', value: '4 agents', status: 'success' }
+            ].map((activity, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.3 + index * 0.1 }}
+                style={{
+                  padding: '0.75rem',
+                  background: 'rgba(0, 0, 0, 0.3)',
+                  borderRadius: '8px',
+                  borderLeft: `3px solid ${
+                    activity.status === 'success' ? '#10b981' :
+                    activity.status === 'warning' ? '#fbbf24' : '#0ea5e9'
+                  }`
+                }}
+              >
+                <p style={{ fontSize: '0.7rem', color: '#64748b' }}>{activity.time}</p>
+                <p style={{ fontSize: '0.875rem', color: '#e2e8f0', marginTop: '0.25rem' }}>
+                  {activity.action}
+                </p>
+                <p style={{ fontSize: '0.875rem', fontWeight: 'bold', color: '#0ea5e9', marginTop: '0.25rem' }}>
+                  {activity.value}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Footer */}
+        {/* System Stats Bar */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.3, duration: 0.4 }}
-          className="text-center mt-3"
+          transition={{ delay: 1.5 }}
+          style={{
+            marginTop: '2rem',
+            padding: '1rem',
+            background: 'linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(139, 92, 246, 0.05) 50%, rgba(236, 72, 153, 0.05) 100%)',
+            borderRadius: '12px',
+            border: '1px solid rgba(16, 185, 129, 0.2)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
+          }}
         >
-          <p className="text-xs text-gray-500">
-            Live Dashboard: <span className="text-teal-400">app.voraventures.ai/metrics</span> | 
-            <span className="text-green-400 ml-2">✓ Real-time Data</span> | 
-            <span className="text-purple-400 ml-2">✓ 24/7 Monitoring</span>
-          </p>
+          <div style={{ display: 'flex', gap: '2rem' }}>
+            {[
+              { label: 'Servers', value: '12/12', color: '#10b981' },
+              { label: 'Databases', value: '4/4', color: '#3b82f6' },
+              { label: 'APIs', value: '27/27', color: '#a855f7' },
+              { label: 'CDN Status', value: 'Global', color: '#06b6d4' }
+            ].map((stat, index) => (
+              <div key={index} style={{ textAlign: 'center' }}>
+                <p style={{ fontSize: '0.75rem', color: '#64748b' }}>{stat.label}</p>
+                <p style={{ fontSize: '1rem', fontWeight: 'bold', color: stat.color }}>{stat.value}</p>
+              </div>
+            ))}
+          </div>
+          
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            style={{
+              padding: '0.5rem 1rem',
+              background: 'linear-gradient(135deg, #10b981, #06b6d4)',
+              borderRadius: '20px'
+            }}
+          >
+            <span style={{ fontSize: '0.875rem', color: '#fff', fontWeight: 'bold' }}>
+              FULLY OPERATIONAL
+            </span>
+          </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   )
 }
