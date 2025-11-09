@@ -1,191 +1,601 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
-import { Camera, Rocket, Construction, Clock } from 'lucide-react'
+import { Camera, Rocket, Construction, Clock, Users, Battery, Activity, Target, Sparkles, TrendingUp } from 'lucide-react'
 import './SlideStyles.css'
 
-const FutureModulesLiveSnapshotSlide = () => {
+export default function FutureModulesLiveSnapshotSlide() {
+  const [pulseAnimation, setPulseAnimation] = useState(true)
+  const [progressAnimation, setProgressAnimation] = useState(true)
+  const [betaUsers, setBetaUsers] = useState(127)
+  
+  useEffect(() => {
+    const pulseInterval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 2000)
+    
+    const progressInterval = setInterval(() => {
+      setProgressAnimation(prev => !prev)
+    }, 3000)
+    
+    // Simulate beta users joining
+    const betaInterval = setInterval(() => {
+      setBetaUsers(prev => prev + Math.floor(Math.random() * 3))
+    }, 5000)
+    
+    return () => {
+      clearInterval(pulseInterval)
+      clearInterval(progressInterval)
+      clearInterval(betaInterval)
+    }
+  }, [])
+  
+  // Progress data for different modules
+  const modules = {
+    beta: [
+      { name: 'US Market Trading', progress: 85, color: '#10b981' },
+      { name: 'Crypto Module', progress: 72, color: '#10b981' }
+    ],
+    development: [
+      { name: 'Commodities Trading', progress: 45, color: '#fbbf24' },
+      { name: 'REITs Integration', progress: 30, color: '#fbbf24' }
+    ],
+    planning: [
+      { name: 'Private Equity', date: 'Q2 2025', color: '#3b82f6' },
+      { name: 'European Markets', date: 'Q3 2025', color: '#3b82f6' },
+      { name: 'Options Trading', date: 'Q4 2025', color: '#3b82f6' }
+    ]
+  }
+  
   return (
-    <CinematicSlideFrame
-      particleCount={50}
-      particleColor="#06b6d4"
-      gradientColors={{
-        primary: 'rgba(6, 182, 212, 0.12)',
-        secondary: 'rgba(8, 145, 178, 0.08)'
-      }}
-      gradientPositions={{
-        primary: '30% 30%',
-        secondary: '70% 70%'
-      }}
-    >
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
+      <ParticleBackground count={50} color="#06b6d4" />
+      
+      {/* Multi-layer Animated Gradients */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        animate={{
+          background: [
+            'radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)',
+            'radial-gradient(circle at 70% 70%, rgba(8, 145, 178, 0.12) 0%, transparent 60%)',
+            'radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.12) 0%, transparent 60%)',
+            'radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)'
+          ]
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
+      
+      {/* Animated Timeline Dots */}
+      {[...Array(7)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            opacity: [0.2, 0.8, 0.2],
+            scale: [1, 1.5, 1]
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            delay: i * 0.4
+          }}
+          style={{
+            position: 'absolute',
+            left: `${(i + 1) * 14}%`,
+            top: '50%',
+            width: '8px',
+            height: '8px',
+            borderRadius: '50%',
+            background: '#06b6d4',
+            boxShadow: '0 0 20px rgba(6, 182, 212, 0.5)',
+            zIndex: 2
+          }}
+        />
+      ))}
+      
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring' }}
-        className="glass-card"
-        style={{ maxWidth: '1200px', margin: '0 auto' }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3, maxWidth: '1200px', margin: '0 auto' }}
       >
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          style={{ textAlign: 'center', marginBottom: '1.5rem' }}
         >
-          <h2 className="slide-title">
+          <h2 className="slide-title" style={{ marginBottom: '0.5rem' }}>
             <GradientText gradient="from-cyan-400 via-blue-400 to-teal-400">
               Future Modules Development Pipeline
             </GradientText>
           </h2>
+          
+          {/* Live Beta Testing Indicator */}
           <motion.div 
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex items-center justify-center mb-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '1rem',
+              marginTop: '0.5rem'
+            }}
           >
-            <Camera className="w-5 h-5 text-red-500 mr-2" />
-            <p style={{ fontSize: '1rem', color: '#94a3b8' }}>Beta Testing Dashboard - Live Preview</p>
+            <motion.div
+              animate={{ 
+                scale: pulseAnimation ? [1, 1.3, 1] : 1,
+                rotate: pulseAnimation ? [0, 5, -5, 0] : 0
+              }}
+              transition={{ duration: 1 }}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                padding: '0.5rem 1rem',
+                background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(239, 68, 68, 0.1))',
+                borderRadius: '50px',
+                border: '2px solid #ef4444'
+              }}
+            >
+              <Camera size={20} color="#ef4444" />
+              <span style={{ fontSize: '1rem', color: '#ef4444', fontWeight: 'bold' }}>
+                LIVE
+              </span>
+            </motion.div>
+            <span style={{ fontSize: '1rem', color: '#94a3b8' }}>
+              Beta Testing Dashboard - Live Preview
+            </span>
           </motion.div>
         </motion.div>
 
+        {/* Main Dashboard Display */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="glassmorphic-card bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-3"
+          transition={{ delay: 0.4 }}
+          style={{
+            background: 'linear-gradient(135deg, rgba(15, 15, 15, 0.95), rgba(30, 30, 30, 0.9))',
+            backdropFilter: 'blur(20px)',
+            border: '2px solid rgba(6, 182, 212, 0.4)',
+            borderRadius: '20px',
+            padding: '1.5rem',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
         >
-          <div className="bg-black/70 rounded-lg p-3">
-            <div className="border-b border-gray-700 pb-2 mb-3">
-              <span className="text-purple-400">DEVELOPMENT PIPELINE</span>
-              <span className="text-gray-400 ml-4">Active Projects: 5 | Beta Testers: 127</span>
+          {/* Animated Scan Line */}
+          <motion.div
+            animate={{ x: ['-100%', '200%'] }}
+            transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              width: '100px',
+              height: '100%',
+              background: 'linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent)',
+              zIndex: 2
+            }}
+          />
+          
+          <div style={{
+            background: 'rgba(0, 0, 0, 0.8)',
+            backdropFilter: 'blur(15px)',
+            borderRadius: '16px',
+            padding: '1.5rem'
+          }}>
+            {/* System Header */}
+            <div style={{
+              borderBottom: '2px solid rgba(6, 182, 212, 0.3)',
+              paddingBottom: '1rem',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center'
+            }}>
+              <motion.div
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+                >
+                  <Rocket size={20} color="#06b6d4" />
+                </motion.div>
+                <span style={{ color: '#06b6d4', fontSize: '1rem', fontWeight: 'bold' }}>
+                  DEVELOPMENT PIPELINE
+                </span>
+              </motion.div>
+              <motion.div
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{ color: '#94a3b8' }}
+              >
+                Active Projects: 5 | Beta Testers: <AnimatedCounter value={betaUsers} duration={500} />
+              </motion.div>
             </div>
             
-            <div className="grid grid-cols-2 gap-3">
-              <div className="bg-gray-900/50 rounded p-2">
-                <h4 className="text-xs text-green-400 mb-2">🟢 IN BETA TESTING</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span>US Market Trading</span>
-                    <div className="flex items-center">
-                      <div className="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
-                        <div className="bg-green-400 h-1.5 rounded-full" style={{width: '85%'}}></div>
-                      </div>
-                      <span className="text-green-400">85%</span>
+            {/* Module Grid */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
+              {/* Beta Testing Section */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+                style={{
+                  background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(255, 255, 255, 0.02))',
+                  borderRadius: '12px',
+                  padding: '1rem',
+                  border: '1px solid rgba(16, 185, 129, 0.3)'
+                }}
+              >
+                <h4 style={{ 
+                  fontSize: '0.9rem',
+                  color: '#10b981',
+                  marginBottom: '1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}>
+                  <motion.div
+                    animate={{ scale: pulseAnimation ? [1, 1.3, 1] : 1 }}
+                    transition={{ duration: 1 }}
+                    style={{
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      background: '#10b981',
+                      boxShadow: '0 0 10px #10b981'
+                    }}
+                  />
+                  IN BETA TESTING
+                </h4>
+                {modules.beta.map((module, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ x: 5 }}
+                    style={{ marginBottom: '1rem' }}
+                  >
+                    <div style={{ 
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      marginBottom: '0.5rem'
+                    }}>
+                      <span style={{ color: '#e2e8f0', fontSize: '0.85rem' }}>{module.name}</span>
+                      <motion.span
+                        animate={{ color: progressAnimation ? module.color : '#94a3b8' }}
+                        transition={{ duration: 1 }}
+                        style={{ fontSize: '0.85rem', fontWeight: 'bold' }}
+                      >
+                        {module.progress}%
+                      </motion.span>
                     </div>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span>Crypto Module</span>
-                    <div className="flex items-center">
-                      <div className="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
-                        <div className="bg-green-400 h-1.5 rounded-full" style={{width: '72%'}}></div>
-                      </div>
-                      <span className="text-green-400">72%</span>
+                    <div style={{
+                      height: '6px',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      borderRadius: '3px',
+                      overflow: 'hidden'
+                    }}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${module.progress}%` }}
+                        transition={{ duration: 1.5, delay: index * 0.2 }}
+                        style={{
+                          height: '100%',
+                          background: `linear-gradient(90deg, ${module.color}, ${module.color}dd)`,
+                          boxShadow: `0 0 10px ${module.color}50`
+                        }}
+                      />
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </motion.div>
+                ))}
+              </motion.div>
               
-              <div className="bg-gray-900/50 rounded p-2">
-                <h4 className="text-xs text-yellow-400 mb-2">🟡 IN DEVELOPMENT</h4>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center text-xs">
-                    <span>Commodities Trading</span>
-                    <div className="flex items-center">
-                      <div className="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
-                        <div className="bg-yellow-400 h-1.5 rounded-full" style={{width: '45%'}}></div>
-                      </div>
-                      <span className="text-yellow-400">45%</span>
+              {/* Development Section */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+                style={{
+                  background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(255, 255, 255, 0.02))',
+                  borderRadius: '12px',
+                  padding: '1rem',
+                  border: '1px solid rgba(251, 191, 36, 0.3)'
+                }}
+              >
+                <h4 style={{ 
+                  fontSize: '0.9rem',
+                  color: '#fbbf24',
+                  marginBottom: '1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}>
+                  <motion.div
+                    animate={{ rotate: progressAnimation ? 360 : 0 }}
+                    transition={{ duration: 2 }}
+                  >
+                    <Construction size={16} color="#fbbf24" />
+                  </motion.div>
+                  IN DEVELOPMENT
+                </h4>
+                {modules.development.map((module, index) => (
+                  <motion.div
+                    key={index}
+                    whileHover={{ x: 5 }}
+                    style={{ marginBottom: '1rem' }}
+                  >
+                    <div style={{ 
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      marginBottom: '0.5rem'
+                    }}>
+                      <span style={{ color: '#e2e8f0', fontSize: '0.85rem' }}>{module.name}</span>
+                      <motion.span
+                        animate={{ opacity: [1, 0.6, 1] }}
+                        transition={{ duration: 1.5, delay: index * 0.3 }}
+                        style={{ color: module.color, fontSize: '0.85rem', fontWeight: 'bold' }}
+                      >
+                        {module.progress}%
+                      </motion.span>
                     </div>
-                  </div>
-                  <div className="flex justify-between items-center text-xs">
-                    <span>REITs Integration</span>
-                    <div className="flex items-center">
-                      <div className="w-16 bg-gray-700 rounded-full h-1.5 mr-2">
-                        <div className="bg-yellow-400 h-1.5 rounded-full" style={{width: '30%'}}></div>
-                      </div>
-                      <span className="text-yellow-400">30%</span>
+                    <div style={{
+                      height: '6px',
+                      background: 'rgba(255, 255, 255, 0.1)',
+                      borderRadius: '3px',
+                      overflow: 'hidden'
+                    }}>
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={{ width: `${module.progress}%` }}
+                        transition={{ duration: 1.5, delay: 0.5 + index * 0.2 }}
+                        style={{
+                          height: '100%',
+                          background: `linear-gradient(90deg, ${module.color}, ${module.color}dd)`,
+                          boxShadow: `0 0 10px ${module.color}50`
+                        }}
+                      />
                     </div>
-                  </div>
-                </div>
-              </div>
+                  </motion.div>
+                ))}
+              </motion.div>
             </div>
             
-            <div className="mt-3 bg-gray-900/50 rounded p-2">
-              <h4 className="text-xs text-blue-400 mb-2">🔵 PLANNING PHASE</h4>
-              <div className="grid grid-cols-3 gap-2 text-xs">
-                <div>
-                  <p className="text-gray-400">Private Equity</p>
-                  <p className="text-blue-400">Q2 2025</p>
-                </div>
-                <div>
-                  <p className="text-gray-400">European Markets</p>
-                  <p className="text-blue-400">Q3 2025</p>
-                </div>
-                <div>
-                  <p className="text-gray-400">Options Trading</p>
-                  <p className="text-blue-400">Q4 2025</p>
-                </div>
+            {/* Planning Phase Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              style={{
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(255, 255, 255, 0.02))',
+                borderRadius: '12px',
+                padding: '1rem',
+                border: '1px solid rgba(59, 130, 246, 0.3)'
+              }}
+            >
+              <h4 style={{ 
+                fontSize: '0.9rem',
+                color: '#3b82f6',
+                marginBottom: '1rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}>
+                <Clock size={16} color="#3b82f6" />
+                PLANNING PHASE
+              </h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+                {modules.planning.map((module, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.9 + index * 0.1, type: 'spring' }}
+                    whileHover={{ scale: 1.05, y: -3 }}
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      borderRadius: '8px',
+                      padding: '0.75rem',
+                      textAlign: 'center',
+                      border: '1px solid rgba(59, 130, 246, 0.2)'
+                    }}
+                  >
+                    <p style={{ color: '#e2e8f0', fontSize: '0.8rem', marginBottom: '0.25rem' }}>
+                      {module.name}
+                    </p>
+                    <motion.p
+                      animate={{ color: pulseAnimation ? module.color : '#94a3b8' }}
+                      transition={{ duration: 1 }}
+                      style={{ fontSize: '0.85rem', fontWeight: 'bold' }}
+                    >
+                      {module.date}
+                    </motion.p>
+                  </motion.div>
+                ))}
               </div>
-            </div>
+            </motion.div>
             
-            <div className="mt-3 bg-gray-900/50 rounded p-2">
-              <h4 className="text-xs text-purple-400 mb-2">BETA TESTER FEEDBACK</h4>
-              <div className="space-y-1 text-xs text-gray-300">
-                <p>"US market integration working seamlessly!" - Beta User #42</p>
-                <p>"Crypto module detected arbitrage opportunity, saved $2K" - Beta User #89</p>
-                <p>"Can't wait for commodities trading!" - Beta User #15</p>
+            {/* Beta Tester Feedback */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              style={{
+                marginTop: '1.5rem',
+                padding: '1rem',
+                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(255, 255, 255, 0.02))',
+                borderRadius: '12px',
+                border: '1px solid rgba(168, 85, 247, 0.3)'
+              }}
+            >
+              <h4 style={{ 
+                fontSize: '0.9rem',
+                color: '#a855f7',
+                marginBottom: '0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}>
+                <motion.div
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                >
+                  <Sparkles size={16} color="#a855f7" />
+                </motion.div>
+                BETA TESTER FEEDBACK
+              </h4>
+              <div style={{ fontSize: '0.8rem', color: '#e2e8f0', lineHeight: 1.6 }}>
+                {[
+                  { text: '"US market integration working seamlessly!"', user: 'Beta User #42' },
+                  { text: '"Crypto module detected arbitrage opportunity, saved $2K"', user: 'Beta User #89' },
+                  { text: '"Can\'t wait for commodities trading!"', user: 'Beta User #15' }
+                ].map((feedback, index) => (
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.1 + index * 0.1 }}
+                    whileHover={{ x: 5 }}
+                    style={{ marginBottom: '0.5rem' }}
+                  >
+                    <span style={{ color: '#a855f7' }}>{feedback.text}</span>
+                    <span style={{ color: '#64748b', marginLeft: '0.5rem' }}>- {feedback.user}</span>
+                  </motion.p>
+                ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-4 gap-2 mt-3">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.4 }}
-            className="glassmorphic-card p-2 text-center"
-          >
-            <Rocket className="w-4 h-4 text-green-400 mx-auto mb-1" />
-            <p className="text-sm font-bold text-green-400">2</p>
-            <p className="text-xs text-gray-400">Ready to Launch</p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.4 }}
-            className="glassmorphic-card p-2 text-center"
-          >
-            <Construction className="w-4 h-4 text-yellow-400 mx-auto mb-1" />
-            <p className="text-sm font-bold text-yellow-400">3</p>
-            <p className="text-xs text-gray-400">In Development</p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.4 }}
-            className="glassmorphic-card p-2 text-center"
-          >
-            <Clock className="w-4 h-4 text-blue-400 mx-auto mb-1" />
-            <p className="text-sm font-bold text-blue-400">10+</p>
-            <p className="text-xs text-gray-400">Planned</p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.4 }}
-            className="glassmorphic-card p-2 text-center"
-          >
-            <div className="text-sm mb-1">👥</div>
-            <p className="text-sm font-bold text-purple-400">127</p>
-            <p className="text-xs text-gray-400">Beta Testers</p>
-          </motion.div>
-        </div>
+        {/* Bottom Statistics */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+          style={{
+            marginTop: '1.5rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '1rem'
+          }}
+        >
+          {[
+            { icon: Rocket, label: 'Ready to Launch', value: 2, color: '#10b981' },
+            { icon: Construction, label: 'In Development', value: 3, color: '#fbbf24' },
+            { icon: Clock, label: 'Planned', value: '10+', color: '#3b82f6' },
+            { icon: Users, label: 'Beta Testers', value: betaUsers, color: '#a855f7' }
+          ].map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1.3 + index * 0.1, type: 'spring' }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              style={{
+                padding: '1rem',
+                background: `linear-gradient(135deg, ${stat.color}20, rgba(255, 255, 255, 0.02))`,
+                backdropFilter: 'blur(20px)',
+                borderRadius: '16px',
+                border: `2px solid ${stat.color}30`,
+                textAlign: 'center',
+                position: 'relative',
+                overflow: 'visible'
+              }}
+            >
+              {/* Hover Glow */}
+              <motion.div
+                animate={{ 
+                  opacity: pulseAnimation ? [0.2, 0.4, 0.2] : 0.2
+                }}
+                transition={{ duration: 2 }}
+                style={{
+                  position: 'absolute',
+                  inset: -10,
+                  background: `radial-gradient(circle, ${stat.color}30, transparent)`,
+                  borderRadius: '16px',
+                  filter: 'blur(10px)',
+                  zIndex: -1
+                }}
+              />
+              
+              <motion.div
+                animate={{ 
+                  rotate: index === 3 ? 360 : 0,
+                  scale: progressAnimation && index === 0 ? [1, 1.2, 1] : 1
+                }}
+                transition={{ 
+                  rotate: { duration: 4, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 2 }
+                }}
+              >
+                <stat.icon size={24} color={stat.color} />
+              </motion.div>
+              <motion.p
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                style={{ fontSize: '1.5rem', fontWeight: 'bold', color: stat.color, marginTop: '0.5rem' }}
+              >
+                {typeof stat.value === 'number' ? <AnimatedCounter value={stat.value} duration={1000} /> : stat.value}
+              </motion.p>
+              <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{stat.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Platform Link Footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          style={{
+            textAlign: 'center',
+            marginTop: '2rem',
+            padding: '1rem',
+            background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(168, 85, 247, 0.05))',
+            borderRadius: '12px',
+            border: '1px solid rgba(6, 182, 212, 0.2)'
+          }}
+        >
+          <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>
+            Join Beta: <span style={{ color: '#06b6d4', fontWeight: 'bold' }}>beta.voraventures.ai</span>
+          </p>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '0.5rem' }}>
+            <motion.span
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{ color: '#10b981', fontSize: '0.875rem' }}
+            >
+              ✓ Early Access
+            </motion.span>
+            <motion.span
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              style={{ color: '#a855f7', fontSize: '0.875rem' }}
+            >
+              ✓ Shape the Future
+            </motion.span>
+            <motion.span
+              animate={{ opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+              style={{ color: '#fbbf24', fontSize: '0.875rem' }}
+            >
+              ✓ Exclusive Features
+            </motion.span>
+          </div>
+        </motion.div>
       </motion.div>
-    </CinematicSlideFrame>
+    </div>
   )
 }
-
-export default FutureModulesLiveSnapshotSlide
