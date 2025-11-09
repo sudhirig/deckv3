@@ -1,52 +1,166 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Mic, LayoutDashboard, Bot, Clock } from 'lucide-react'
+import ParticleBackground from '../components/ParticleBackground'
+import GradientText from '../components/GradientText'
+import AnimatedText from '../components/AnimatedText'
+import AnimatedCounter from '../components/AnimatedCounter'
+import CircularProgress from '../components/CircularProgress'
+import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles } from 'lucide-react'
+import './SlideStyles.css'
 
 const ZerodhaFeaturesSlide = () => {
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <div className="slide-content" style={{ position: 'relative' }}>
+      <ParticleBackground count={50} color="#fb923c" />
+      
+      {/* Deep Space Gradient Background */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at 30% 30%, rgba(251, 146, 60, 0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%)',
+        zIndex: 0
+      }} />
+      
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+      >
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="gradient-text text-4xl mb-2">Zerodha Features & Capabilities</h1>
-          <p className="text-xl text-gray-400 mb-6">Transform Your Trading Experience</p>
+          <h2 className="slide-title">
+            <GradientText gradient="from-orange-400 via-amber-400 to-yellow-400">
+              Zerodha Features & Capabilities
+            </GradientText>
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+            Transform Your Trading Experience
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-6">
-          {/* Voice Trading */}
+        {/* Performance Metrics Bar */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '1rem',
+            marginBottom: '2rem'
+          }}
+        >
+          {[
+            { value: 11, label: 'Response', unit: 'ms', color: '#f97316' },
+            { value: 3, label: 'Languages', unit: '', color: '#3b82f6' },
+            { value: 100, label: 'Accuracy', unit: '%', color: '#10b981' },
+            { value: 24, label: 'Availability', unit: '/7', color: '#a855f7' }
+          ].map((metric, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + index * 0.1 }}
+              className="glass-card"
+              style={{
+                padding: '1rem',
+                textAlign: 'center',
+                background: `linear-gradient(135deg, ${metric.color}15 0%, ${metric.color}08 100%)`,
+                border: `1px solid ${metric.color}30`,
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.1, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{ fontSize: '1.8rem', fontWeight: 'bold', color: metric.color }}
+              >
+                <AnimatedCounter end={metric.value} duration={1500} />{metric.unit}
+              </motion.div>
+              <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{metric.label}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Features Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+          {/* Voice Trading 3.0 */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="glassmorphic-card"
+            transition={{ delay: 0.6, duration: 0.5 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.05) 100%)',
+              border: '1px solid rgba(249, 115, 22, 0.3)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <Mic className="w-6 h-6 text-orange-400 mr-2" />
-              <h3 className="text-xl text-orange-400">Voice Trading 3.0</h3>
-            </div>
+            {/* Animated Sound Waves */}
+            <motion.div
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.1, 0.2, 0.1]
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                right: '20px',
+                width: '60px',
+                height: '60px',
+                borderRadius: '50%',
+                border: '2px solid rgba(249, 115, 22, 0.3)'
+              }}
+            />
             
-            <div className="space-y-3">
-              <div className="border-l-2 border-orange-400 pl-3">
-                <p className="font-semibold text-sm">Multi-Language Support</p>
-                <p className="text-xs text-gray-400">English, Hindi, Tamil</p>
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <Mic className="w-7 h-7 text-orange-400 mr-3" />
+                <h3 style={{ fontSize: '1.3rem', color: '#f97316' }}>Voice Trading 3.0</h3>
               </div>
               
-              <div className="border-l-2 border-orange-400 pl-3">
-                <p className="font-semibold text-sm">Natural Commands</p>
-                <p className="text-xs text-gray-400">"Buy 100 shares of Reliance"</p>
-              </div>
-              
-              <div className="border-l-2 border-orange-400 pl-3">
-                <p className="font-semibold text-sm">Ultra-Low Latency</p>
-                <p className="text-xs text-gray-400">11ms response time</p>
-              </div>
-              
-              <div className="border-l-2 border-orange-400 pl-3">
-                <p className="font-semibold text-sm">Voice Confirmation</p>
-                <p className="text-xs text-gray-400">Audio feedback on execution</p>
+              <div style={{ space: 'y-3' }}>
+                {[
+                  { title: 'Multi-Language Support', desc: 'English, Hindi, Tamil', icon: Globe },
+                  { title: 'Natural Commands', desc: '"Buy 100 shares of Reliance"', icon: MessageSquare },
+                  { title: 'Ultra-Low Latency', desc: '11ms response time', icon: Clock },
+                  { title: 'Voice Confirmation', desc: 'Audio feedback on execution', icon: Shield }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8 + index * 0.1 }}
+                    whileHover={{ x: 5 }}
+                    style={{
+                      borderLeft: '3px solid #f97316',
+                      paddingLeft: '1rem',
+                      marginBottom: '1rem',
+                      padding: '0.5rem 0 0.5rem 1rem'
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div>
+                        <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#e2e8f0' }}>{item.title}</p>
+                        <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.desc}</p>
+                      </div>
+                      <item.icon className="w-4 h-4 text-orange-400" />
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -55,33 +169,68 @@ const ZerodhaFeaturesSlide = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 0.5 }}
-            className="glassmorphic-card"
+            transition={{ delay: 0.7, duration: 0.5 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
+              border: '1px solid rgba(59, 130, 246, 0.3)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <LayoutDashboard className="w-6 h-6 text-blue-400 mr-2" />
-              <h3 className="text-xl text-blue-400">Living Dashboard</h3>
-            </div>
+            {/* Pulse Animation */}
+            <motion.div
+              animate={{ 
+                scale: [0.8, 1.2, 0.8],
+                opacity: [0.3, 0.1, 0.3]
+              }}
+              transition={{ duration: 3, repeat: Infinity }}
+              style={{
+                position: 'absolute',
+                bottom: '-20px',
+                left: '-20px',
+                width: '100px',
+                height: '100px',
+                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)',
+                borderRadius: '50%'
+              }}
+            />
             
-            <div className="space-y-3">
-              <div className="border-l-2 border-blue-400 pl-3">
-                <p className="font-semibold text-sm">Real-Time P&L</p>
-                <p className="text-xs text-gray-400">Live profit tracking</p>
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <LayoutDashboard className="w-7 h-7 text-blue-400 mr-3" />
+                <h3 style={{ fontSize: '1.3rem', color: '#3b82f6' }}>Living Dashboard</h3>
               </div>
               
-              <div className="border-l-2 border-blue-400 pl-3">
-                <p className="font-semibold text-sm">AI Recommendations</p>
-                <p className="text-xs text-gray-400">Contextual suggestions</p>
-              </div>
-              
-              <div className="border-l-2 border-blue-400 pl-3">
-                <p className="font-semibold text-sm">Risk Monitoring</p>
-                <p className="text-xs text-gray-400">Automatic alerts</p>
-              </div>
-              
-              <div className="border-l-2 border-blue-400 pl-3">
-                <p className="font-semibold text-sm">Market Pulse</p>
-                <p className="text-xs text-gray-400">Sector heat maps</p>
+              <div style={{ space: 'y-3' }}>
+                {[
+                  { title: 'Real-Time P&L', desc: 'Live profit tracking', icon: TrendingUp },
+                  { title: 'AI Recommendations', desc: 'Contextual suggestions', icon: Brain },
+                  { title: 'Risk Monitoring', desc: 'Automatic alerts', icon: Shield },
+                  { title: 'Market Pulse', desc: 'Sector heat maps', icon: Sparkles }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.9 + index * 0.1 }}
+                    whileHover={{ x: -5 }}
+                    style={{
+                      borderLeft: '3px solid #3b82f6',
+                      paddingLeft: '1rem',
+                      marginBottom: '1rem',
+                      padding: '0.5rem 0 0.5rem 1rem'
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+                      <div>
+                        <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#e2e8f0' }}>{item.title}</p>
+                        <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.desc}</p>
+                      </div>
+                      <item.icon className="w-4 h-4 text-blue-400" />
+                    </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -90,72 +239,102 @@ const ZerodhaFeaturesSlide = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-            className="glassmorphic-card"
+            transition={{ delay: 0.9, duration: 0.5 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
+              position: 'relative'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <Bot className="w-6 h-6 text-purple-400 mr-2" />
-              <h3 className="text-xl text-purple-400">Magic Actions</h3>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <Bot className="w-7 h-7 text-purple-400 mr-3" />
+              <h3 style={{ fontSize: '1.3rem', color: '#a855f7' }}>Magic Actions</h3>
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+                style={{ marginLeft: 'auto' }}
+              >
+                <Sparkles className="w-5 h-5 text-purple-400" />
+              </motion.div>
             </div>
             
-            <div className="space-y-2">
-              <p className="text-sm">• Auto Stop-Loss placement</p>
-              <p className="text-sm">• Bracket order optimization</p>
-              <p className="text-sm">• Position sizing AI</p>
-              <p className="text-sm">• Exit strategy suggestions</p>
-              <p className="text-sm">• Tax-loss harvesting</p>
-            </div>
+            <AnimatedText delay={1.1}>
+              <div style={{ space: 'y-2' }}>
+                {[
+                  'Auto Stop-Loss placement',
+                  'Bracket order optimization',
+                  'Position sizing AI',
+                  'Exit strategy suggestions',
+                  'Tax-loss harvesting'
+                ].map((item, index) => (
+                  <motion.p
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.2 + index * 0.05 }}
+                    whileHover={{ x: 5, color: '#a855f7' }}
+                    style={{ fontSize: '0.9rem', marginBottom: '0.5rem', color: '#e2e8f0' }}
+                  >
+                    • {item}
+                  </motion.p>
+                ))}
+              </div>
+            </AnimatedText>
           </motion.div>
 
-          {/* Performance Metrics */}
+          {/* Speed & Scale */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-            className="glassmorphic-card"
+            transition={{ delay: 1.0, duration: 0.5 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              position: 'relative'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <Clock className="w-6 h-6 text-green-400 mr-2" />
-              <h3 className="text-xl text-green-400">Speed & Scale</h3>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <Clock className="w-7 h-7 text-green-400 mr-3" />
+              <h3 style={{ fontSize: '1.3rem', color: '#10b981' }}>Speed & Scale</h3>
             </div>
             
-            <div className="grid grid-cols-2 gap-2 text-center">
-              <div>
-                <p className="text-2xl font-bold text-green-400">11ms</p>
-                <p className="text-xs text-gray-400">Response</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-blue-400">10K+</p>
-                <p className="text-xs text-gray-400">Users</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-purple-400">99.9%</p>
-                <p className="text-xs text-gray-400">Uptime</p>
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-orange-400">3</p>
-                <p className="text-xs text-gray-400">Languages</p>
-              </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+              {[
+                { value: 11, label: 'Response', unit: 'ms', color: '#10b981' },
+                { value: 5000, label: 'Trades/sec', unit: '', color: '#14b8a6' },
+                { value: 99.9, label: 'Uptime', unit: '%', color: '#06b6d4' },
+                { value: 3, label: 'Languages', unit: '', color: '#0891b2' }
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.2 + index * 0.1, type: 'spring' }}
+                  whileHover={{ scale: 1.1 }}
+                  style={{
+                    textAlign: 'center',
+                    padding: '0.75rem',
+                    background: `${stat.color}10`,
+                    borderRadius: '8px',
+                    border: `1px solid ${stat.color}30`
+                  }}
+                >
+                  <motion.p
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    style={{ fontSize: '1.5rem', fontWeight: 'bold', color: stat.color }}
+                  >
+                    {stat.value}{stat.unit}
+                  </motion.p>
+                  <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{stat.label}</p>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
-
-        {/* What You Get */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.1, duration: 0.6 }}
-          className="glassmorphic-card bg-gradient-to-r from-orange-900/20 to-blue-900/20 mt-4"
-        >
-          <h4 className="text-lg text-teal-400 mb-2">What You Get:</h4>
-          <p className="text-sm">
-            <span className="text-orange-400">Voice-first trading</span> + 
-            <span className="text-blue-400"> AI recommendations</span> + 
-            <span className="text-purple-400"> automated actions</span> = 
-            <span className="text-green-400 font-bold"> Professional trading made simple</span>
-          </p>
-        </motion.div>
-      </div>
+      </motion.div>
     </div>
   )
 }

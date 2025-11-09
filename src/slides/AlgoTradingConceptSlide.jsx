@@ -1,160 +1,355 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Code2, Cpu, BarChart3, Zap } from 'lucide-react'
+import ParticleBackground from '../components/ParticleBackground'
+import GradientText from '../components/GradientText'
+import AnimatedText from '../components/AnimatedText'
+import AnimatedCounter from '../components/AnimatedCounter'
+import CircularProgress from '../components/CircularProgress'
+import { Code2, Cpu, BarChart3, Zap, TrendingUp, Activity, GitBranch, Sparkles } from 'lucide-react'
+import './SlideStyles.css'
 
 const AlgoTradingConceptSlide = () => {
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <div className="slide-content" style={{ position: 'relative' }}>
+      <ParticleBackground count={50} color="#06b6d4" />
+      
+      {/* Deep Space Gradient Background */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at 30% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 60%), radial-gradient(circle at 70% 30%, rgba(168, 85, 247, 0.08) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.06) 0%, transparent 50%)',
+        zIndex: 0
+      }} />
+      
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+      >
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="gradient-text text-4xl mb-2">Chapter 6: Algo Trading Laboratory</h1>
-          <p className="text-xl text-gray-400 mb-6">Natural Language to Trading Strategy</p>
+          <h2 className="slide-title">
+            <GradientText gradient="from-cyan-400 via-blue-400 to-purple-400">
+              Chapter 6: Algo Trading Laboratory
+            </GradientText>
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+            Natural Language to Trading Strategy
+          </p>
         </motion.div>
 
+        {/* From Words to Wealth Workflow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="glassmorphic-card mb-4"
+          className="glass-card"
+          style={{
+            marginBottom: '2rem',
+            padding: '2rem',
+            background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
+            border: '1px solid rgba(6, 182, 212, 0.3)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
         >
-          <h3 className="text-xl text-teal-400 mb-3 text-center">From Words to Wealth</h3>
-          <div className="flex items-center justify-between">
-            <div className="text-center">
-              <div className="w-14 h-14 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <div className="text-2xl">💬</div>
-              </div>
-              <p className="text-sm font-semibold">Natural Language</p>
-              <p className="text-xs text-gray-400">"Buy on RSI oversold"</p>
-            </div>
-            <motion.div
-              animate={{ x: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="text-teal-400"
-            >
-              →
-            </motion.div>
-            <div className="text-center">
-              <div className="w-14 h-14 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <Code2 className="w-7 h-7 text-purple-400" />
-              </div>
-              <p className="text-sm font-semibold">AI Translation</p>
-              <p className="text-xs text-gray-400">Strategy code</p>
-            </div>
-            <motion.div
-              animate={{ x: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-              className="text-teal-400"
-            >
-              →
-            </motion.div>
-            <div className="text-center">
-              <div className="w-14 h-14 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <BarChart3 className="w-7 h-7 text-orange-400" />
-              </div>
-              <p className="text-sm font-semibold">Backtest</p>
-              <p className="text-xs text-gray-400">5-year history</p>
-            </div>
-            <motion.div
-              animate={{ x: [0, 10, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
-              className="text-teal-400"
-            >
-              →
-            </motion.div>
-            <div className="text-center">
-              <div className="w-14 h-14 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                <Zap className="w-7 h-7 text-green-400" />
-              </div>
-              <p className="text-sm font-semibold">Deploy</p>
-              <p className="text-xs text-gray-400">Live trading</p>
+          {/* Animated Data Flow Background */}
+          <motion.div
+            animate={{ 
+              backgroundPosition: ['0% 0%', '100% 100%'],
+              opacity: [0.03, 0.06, 0.03]
+            }}
+            transition={{ duration: 10, repeat: Infinity }}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundImage: 'linear-gradient(45deg, transparent 30%, rgba(6, 182, 212, 0.1) 50%, transparent 70%)',
+              backgroundSize: '200% 200%',
+              zIndex: 0
+            }}
+          />
+          
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <h3 style={{ fontSize: '1.3rem', color: '#06b6d4', textAlign: 'center', marginBottom: '2rem' }}>
+              <Sparkles className="w-5 h-5 inline mr-2" />
+              From Words to Wealth
+              <Sparkles className="w-5 h-5 inline ml-2" />
+            </h3>
+            
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              {[
+                { emoji: '💬', title: 'Natural Language', desc: '"Buy on RSI oversold"', color: '#3b82f6', icon: MessageSquare },
+                { icon: Code2, title: 'AI Translation', desc: 'Strategy code', color: '#a855f7' },
+                { icon: BarChart3, title: 'Backtest', desc: '5-year history', color: '#f97316' },
+                { icon: Zap, title: 'Deploy', desc: 'Live trading', color: '#10b981' }
+              ].map((step, index) => (
+                <React.Fragment key={index}>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5 + index * 0.15, type: 'spring' }}
+                    style={{ textAlign: 'center' }}
+                  >
+                    <motion.div
+                      animate={{ 
+                        y: [-5, 5, -5],
+                        rotate: index === 1 ? [0, 360] : 0
+                      }}
+                      transition={{ 
+                        y: { duration: 2, repeat: Infinity, delay: index * 0.2 },
+                        rotate: { duration: 10, repeat: Infinity, ease: 'linear' }
+                      }}
+                      style={{
+                        width: '70px',
+                        height: '70px',
+                        background: `linear-gradient(135deg, ${step.color}30, ${step.color}10)`,
+                        borderRadius: '50%',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        margin: '0 auto 1rem',
+                        border: `2px solid ${step.color}50`
+                      }}
+                    >
+                      {step.emoji ? (
+                        <span style={{ fontSize: '1.8rem' }}>{step.emoji}</span>
+                      ) : (
+                        <step.icon className="w-8 h-8" style={{ color: step.color }} />
+                      )}
+                    </motion.div>
+                    
+                    <p style={{ fontSize: '0.9rem', fontWeight: '600', color: step.color }}>{step.title}</p>
+                    <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{step.desc}</p>
+                  </motion.div>
+                  
+                  {index < 3 && (
+                    <motion.div
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.3 }}
+                      style={{ color: '#06b6d4', fontSize: '1.5rem' }}
+                    >
+                      →
+                    </motion.div>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+          {/* 122+ Indicators */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="glassmorphic-card"
+            transition={{ delay: 1, duration: 0.6 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <Cpu className="w-6 h-6 text-purple-400 mr-2" />
-              <h3 className="text-lg text-purple-400">122+ Indicators</h3>
-            </div>
-            <div className="grid grid-cols-2 gap-1 text-xs">
-              <div>• RSI, MACD</div>
-              <div>• Bollinger Bands</div>
-              <div>• Moving Averages</div>
-              <div>• Fibonacci</div>
-              <div>• Volume Profile</div>
-              <div>• Market Structure</div>
-              <div>• Options Flow</div>
-              <div>• Custom Indicators</div>
+            {/* Animated Circuit Pattern */}
+            <motion.div
+              animate={{ opacity: [0.05, 0.1, 0.05] }}
+              transition={{ duration: 3, repeat: Infinity }}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                backgroundImage: `
+                  linear-gradient(0deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px)
+                `,
+                backgroundSize: '20px 20px',
+                zIndex: 0
+              }}
+            />
+            
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <Cpu className="w-7 h-7 text-purple-400 mr-3" />
+                <h3 style={{ fontSize: '1.2rem', color: '#a855f7' }}>
+                  <AnimatedCounter end={122} duration={2000} />+ Indicators
+                </h3>
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+                  style={{ marginLeft: 'auto' }}
+                >
+                  <Activity className="w-5 h-5 text-purple-400" />
+                </motion.div>
+              </div>
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                {[
+                  'RSI, MACD', 'Bollinger Bands',
+                  'Moving Averages', 'Fibonacci',
+                  'Volume Profile', 'Market Structure',
+                  'Options Flow', 'Custom Indicators'
+                ].map((indicator, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.2 + index * 0.05 }}
+                    whileHover={{ x: 5, color: '#a855f7' }}
+                    style={{
+                      fontSize: '0.8rem',
+                      padding: '0.25rem',
+                      color: '#e2e8f0'
+                    }}
+                  >
+                    <motion.span
+                      animate={{ opacity: [0.5, 1, 0.5] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                      style={{ color: '#a855f7', marginRight: '0.5rem' }}
+                    >
+                      •
+                    </motion.span>
+                    {indicator}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </motion.div>
 
+          {/* Optimization Engine */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="glassmorphic-card"
+            transition={{ delay: 1.1, duration: 0.6 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%)',
+              border: '1px solid rgba(16, 185, 129, 0.3)',
+              position: 'relative'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <BarChart3 className="w-6 h-6 text-green-400 mr-2" />
-              <h3 className="text-lg text-green-400">Optimization Engine</h3>
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <BarChart3 className="w-7 h-7 text-green-400 mr-3" />
+              <h3 style={{ fontSize: '1.2rem', color: '#10b981' }}>Optimization Engine</h3>
             </div>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span>Parameter Tuning:</span>
-                <span className="text-green-400">AI-powered</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Walk-Forward:</span>
-                <span className="text-blue-400">5 years</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Monte Carlo:</span>
-                <span className="text-purple-400">1000 runs</span>
-              </div>
-              <div className="flex justify-between">
-                <span>Risk Management:</span>
-                <span className="text-orange-400">Built-in</span>
-              </div>
+            
+            <div style={{ space: 'y-3' }}>
+              {[
+                { label: 'Parameter Tuning', value: 'AI-powered', color: '#10b981', progress: 95 },
+                { label: 'Walk-Forward', value: '5 years', color: '#3b82f6', progress: 100 },
+                { label: 'Monte Carlo', value: '1000 runs', color: '#a855f7', progress: 85 },
+                { label: 'Risk Management', value: 'Adaptive', color: '#f97316', progress: 90 }
+              ].map((opt, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.3 + index * 0.1 }}
+                  style={{ marginBottom: '1rem' }}
+                >
+                  <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+                    <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>{opt.label}:</span>
+                    <motion.span
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.3 }}
+                      style={{ fontSize: '0.9rem', fontWeight: 'bold', color: opt.color }}
+                    >
+                      {opt.value}
+                    </motion.span>
+                  </div>
+                  <div style={{ height: '4px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '2px', overflow: 'hidden' }}>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${opt.progress}%` }}
+                      transition={{ delay: 1.5 + index * 0.1, duration: 0.8 }}
+                      style={{
+                        height: '100%',
+                        background: opt.color,
+                        boxShadow: `0 0 10px ${opt.color}50`
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>
 
+        {/* Performance Metrics */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.9, duration: 0.6 }}
-          className="glassmorphic-card bg-gradient-to-r from-purple-900/20 to-green-900/20 mt-4"
+          transition={{ delay: 1.7, duration: 0.6 }}
+          className="glass-card"
+          style={{
+            marginTop: '2rem',
+            padding: '1.5rem',
+            background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%)',
+            border: '1px solid rgba(251, 191, 36, 0.3)',
+            position: 'relative'
+          }}
         >
-          <h4 className="text-lg text-center mb-2">Sample Strategies Created</h4>
-          <div className="grid grid-cols-3 gap-3 text-xs">
-            <div className="text-center">
-              <p className="text-blue-400 font-semibold">Mean Reversion</p>
-              <p>Annual Return: 24.5%</p>
-              <p className="text-gray-400">Sharpe: 1.8</p>
-            </div>
-            <div className="text-center">
-              <p className="text-green-400 font-semibold">Momentum</p>
-              <p>Annual Return: 31.2%</p>
-              <p className="text-gray-400">Sharpe: 2.1</p>
-            </div>
-            <div className="text-center">
-              <p className="text-purple-400 font-semibold">Arbitrage</p>
-              <p>Annual Return: 18.7%</p>
-              <p className="text-gray-400">Sharpe: 3.2</p>
-            </div>
+          <h4 style={{ fontSize: '1.2rem', color: '#fbbf24', textAlign: 'center', marginBottom: '1.5rem' }}>
+            Live Performance Metrics
+          </h4>
+          
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+            {[
+              { metric: 'Win Rate', value: 68, unit: '%', color: '#10b981', icon: TrendingUp },
+              { metric: 'Sharpe', value: 2.4, unit: '', color: '#3b82f6', icon: Activity },
+              { metric: 'Max DD', value: 12, unit: '%', color: '#ef4444', icon: BarChart3 },
+              { metric: 'ROI Annual', value: 127, unit: '%', color: '#fbbf24', icon: GitBranch }
+            ].map((perf, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.9 + index * 0.1, type: 'spring' }}
+                style={{ textAlign: 'center' }}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '50px',
+                    height: '50px',
+                    background: `${perf.color}20`,
+                    borderRadius: '12px',
+                    marginBottom: '0.5rem'
+                  }}
+                >
+                  <perf.icon className="w-6 h-6" style={{ color: perf.color }} />
+                </motion.div>
+                
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
+                  style={{ fontSize: '1.5rem', fontWeight: 'bold', color: perf.color }}
+                >
+                  <AnimatedCounter end={perf.value} duration={2000} decimals={perf.metric === 'Sharpe' ? 1 : 0} />{perf.unit}
+                </motion.div>
+                <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{perf.metric}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   )
 }
