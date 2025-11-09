@@ -4,6 +4,7 @@ import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import { Shield, Award, Lock, CheckCircle } from 'lucide-react'
+import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function TitleSlide() {
@@ -64,7 +65,7 @@ export default function TitleSlide() {
         </AnimatedText>
         
         {/* Sequential Moat Reveal with Descriptions */}
-        <div style={{ marginTop: '2rem', marginBottom: '2rem' }}>
+        <div style={{ marginTop: SPACING.lg, marginBottom: SPACING.lg }}>
           {moats.map((moat, index) => (
             <motion.div
               key={moat.text}
@@ -77,7 +78,7 @@ export default function TitleSlide() {
                 stiffness: 100
               }}
               style={{ 
-                marginBottom: '1rem',
+                marginBottom: SPACING.sm,
                 textAlign: 'center',
                 position: 'relative'
               }}
@@ -86,30 +87,30 @@ export default function TitleSlide() {
                 whileHover={{ scale: 1.05 }}
                 style={{
                   display: 'inline-block',
-                  padding: '0.75rem 2rem',
+                  padding: `${pxToRem(12)} ${SPACING.lg}`,
                   background: 'rgba(255, 255, 255, 0.03)',
-                  backdropFilter: 'blur(10px)',
-                  borderRadius: '12px',
+                  backdropFilter: `blur(${pxToRem(10)})`,
+                  borderRadius: pxToRem(12),
                   border: '1px solid rgba(20, 184, 166, 0.3)'
                 }}
               >
                 <span style={{ 
-                  fontSize: '1.5rem', 
+                  fontSize: pxToRem(24), 
                   fontWeight: 'bold',
                   color: '#14b8a6',
-                  marginRight: '1rem'
+                  marginRight: SPACING.sm
                 }}>
                   {index + 1}.
                 </span>
                 <span style={{ 
-                  fontSize: '1.3rem', 
+                  fontSize: pxToRem(20.8), 
                   color: '#fff',
-                  marginRight: '1rem'
+                  marginRight: SPACING.sm
                 }}>
                   {moat.text}
                 </span>
                 <span style={{ 
-                  fontSize: '0.9rem', 
+                  fontSize: pxToRem(14.4), 
                   color: '#94a3b8'
                 }}>
                   {moat.description}
@@ -131,9 +132,9 @@ export default function TitleSlide() {
           style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '2rem',
-            marginTop: '2rem',
-            marginBottom: '1.5rem'
+            gap: SPACING.lg,
+            marginTop: SPACING.lg,
+            marginBottom: SPACING.md
           }}
         >
           {trustBadges.map((badge, index) => (
@@ -147,26 +148,26 @@ export default function TitleSlide() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                padding: '0.75rem',
+                padding: pxToRem(12),
                 background: 'rgba(255, 255, 255, 0.02)',
-                borderRadius: '8px',
+                borderRadius: pxToRem(8),
                 border: '1px solid rgba(20, 184, 166, 0.2)'
               }}
             >
               {React.createElement(badge.icon, { 
                 size: 28, 
                 color: '#14b8a6',
-                style: { marginBottom: '0.25rem' }
+                style: { marginBottom: pxToRem(4) }
               })}
               <span style={{ 
-                fontSize: '0.85rem', 
+                fontSize: pxToRem(13.6), 
                 fontWeight: 'bold', 
                 color: '#fff' 
               }}>
                 {badge.label}
               </span>
               <span style={{ 
-                fontSize: '0.7rem', 
+                fontSize: pxToRem(11.2), 
                 color: '#94a3b8' 
               }}>
                 {badge.subtext}
@@ -181,23 +182,23 @@ export default function TitleSlide() {
           animate={{ opacity: 1 }}
           transition={{ delay: 3.0, duration: 0.8 }}
           style={{
-            marginTop: '1.5rem',
+            marginTop: SPACING.md,
             textAlign: 'center'
           }}
         >
           <p style={{ 
-            fontSize: '0.8rem', 
+            fontSize: pxToRem(12.8), 
             color: '#94a3b8', 
-            marginBottom: '0.75rem',
+            marginBottom: pxToRem(12),
             textTransform: 'uppercase',
-            letterSpacing: '2px'
+            letterSpacing: pxToRem(2)
           }}>
             As Featured In
           </p>
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '1.5rem',
+            gap: SPACING.md,
             alignItems: 'center'
           }}>
             {mediaLogos.map((logo, index) => (
@@ -208,7 +209,7 @@ export default function TitleSlide() {
                 whileHover={{ opacity: 1, scale: 1.1 }}
                 transition={{ delay: 3.2 + index * 0.1, duration: 0.4 }}
                 style={{
-                  fontSize: '1rem',
+                  fontSize: pxToRem(16),
                   fontWeight: '600',
                   color: '#64748b',
                   fontFamily: 'system-ui, -apple-system, sans-serif'
@@ -221,7 +222,7 @@ export default function TitleSlide() {
         </motion.div>
         
         <AnimatedText delay={3.8}>
-          <p className="date" style={{ marginTop: '1rem' }}>November 2025</p>
+          <p className="date" style={{ marginTop: SPACING.sm }}>November 2025</p>
         </AnimatedText>
       </div>
       

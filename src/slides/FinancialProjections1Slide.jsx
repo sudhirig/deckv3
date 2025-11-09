@@ -24,7 +24,7 @@ export default function FinancialProjections1Slide() {
     { label: 'Target', value: '$5B', sublabel: 'Year 5 AUM', icon: Rocket, color: '#a78bfa' }
   ]
 
-  const getChartHeight = (value, max) => (value / max) * 250
+  const getChartHeight = (value, max) => pxToRem((value / max) * 250)
 
   // Title
   const title = (
