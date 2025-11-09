@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { TableLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import CircularProgress from '../components/CircularProgress'
@@ -31,266 +32,237 @@ export default function FinancialProjections2Slide() {
     { month: 'M36', retention: 91 }
   ]
 
-  return (
-    <div className="slide-content">
+  // Title
+  const title = (
+    <GradientText gradient="from-blue-400 to-purple-400">
+      Unit Economics & Revenue Model
+    </GradientText>
+  )
+
+  // Subtitle
+  const subtitle = "Best-in-class metrics driving sustainable growth"
+
+  // Table content - Unit Economics and Revenue Streams
+  const tableContent = (
+    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+      {/* Unit Economics */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="glass-card"
-        style={{ maxWidth: '1200px', margin: '0 auto' }}
+        initial={{ opacity: 0, x: -30 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.4 }}
+        style={{
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
+          borderRadius: '12px',
+          padding: '1.5rem'
+        }}
       >
-        <AnimatedText delay={0.2}>
-          <h2 className="slide-title" style={{ marginBottom: '0.5rem' }}>
-            <GradientText gradient="from-blue-400 to-purple-400">
-              Unit Economics & Revenue Model
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Best-in-class metrics driving sustainable growth
-          </p>
-        </AnimatedText>
-
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
-          {/* Unit Economics */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.4 }}
-            style={{
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
-              borderRadius: '12px',
-              padding: '1.5rem'
-            }}
-          >
-            <h3 style={{ color: '#60a5fa', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
-              Unit Economics
-            </h3>
-            
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
-              <div style={{
-                textAlign: 'center',
-                padding: '1rem',
-                background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '8px'
-              }}>
-                <DollarSign size={20} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
-                <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>CAC</div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#e2e8f0' }}>
-                  ${unitEconomics.cac.toLocaleString()}
-                </div>
-              </div>
-              
-              <div style={{
-                textAlign: 'center',
-                padding: '1rem',
-                background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '8px'
-              }}>
-                <TrendingUp size={20} style={{ color: '#fbbf24', margin: '0 auto 0.5rem' }} />
-                <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>LTV</div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#e2e8f0' }}>
-                  ${unitEconomics.ltv.toLocaleString()}
-                </div>
-              </div>
-              
-              <div style={{
-                textAlign: 'center',
-                padding: '1rem',
-                background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '8px'
-              }}>
-                <Calculator size={20} style={{ color: '#c084fc', margin: '0 auto 0.5rem' }} />
-                <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>LTV/CAC</div>
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>
-                  {unitEconomics.ratio}:1
-                </div>
-              </div>
+        <h3 style={{ color: '#60a5fa', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
+          Unit Economics
+        </h3>
+        
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+          <div style={{
+            textAlign: 'center',
+            padding: '1rem',
+            background: 'rgba(255, 255, 255, 0.03)',
+            borderRadius: '8px'
+          }}>
+            <DollarSign size={20} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
+            <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>CAC</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+              ${unitEconomics.cac.toLocaleString()}
             </div>
-
-            <div style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(3, 1fr)', 
-              gap: '1rem',
-              marginTop: '1rem'
-            }}>
-              <div style={{
-                padding: '0.75rem',
-                background: 'rgba(34, 197, 94, 0.1)',
-                borderRadius: '6px',
-                textAlign: 'center'
-              }}>
-                <div style={{ fontSize: '0.75rem', color: '#4ade80' }}>Payback</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#e2e8f0' }}>
-                  {unitEconomics.payback} months
-                </div>
-              </div>
-              
-              <div style={{
-                padding: '0.75rem',
-                background: 'rgba(239, 68, 68, 0.1)',
-                borderRadius: '6px',
-                textAlign: 'center'
-              }}>
-                <div style={{ fontSize: '0.75rem', color: '#ef4444' }}>Annual Churn</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#e2e8f0' }}>
-                  {unitEconomics.churn}%
-                </div>
-              </div>
-              
-              <div style={{
-                padding: '0.75rem',
-                background: 'rgba(251, 191, 36, 0.1)',
-                borderRadius: '6px',
-                textAlign: 'center'
-              }}>
-                <div style={{ fontSize: '0.75rem', color: '#fbbf24' }}>ARPU</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#e2e8f0' }}>
-                  ${unitEconomics.arpu.toLocaleString()}
-                </div>
-              </div>
+          </div>
+          
+          <div style={{
+            textAlign: 'center',
+            padding: '1rem',
+            background: 'rgba(255, 255, 255, 0.03)',
+            borderRadius: '8px'
+          }}>
+            <TrendingUp size={20} style={{ color: '#fbbf24', margin: '0 auto 0.5rem' }} />
+            <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>LTV</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+              ${unitEconomics.ltv.toLocaleString()}
             </div>
-          </motion.div>
-
-          {/* LTV/CAC Visualization */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-            style={{
-              background: 'rgba(34, 197, 94, 0.05)',
-              borderRadius: '12px',
-              padding: '1.5rem',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <CircularProgress 
-              value={94} 
-              size={150}
-              strokeWidth={12}
-              color="#22c55e"
-            />
-            <div style={{ marginTop: '1rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>
-                17.8:1
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
-                Industry Best LTV/CAC
-              </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b', marginTop: '0.5rem' }}>
-                (Industry avg: 3:1)
-              </div>
+          </div>
+          
+          <div style={{
+            textAlign: 'center',
+            padding: '1rem',
+            background: 'rgba(255, 255, 255, 0.03)',
+            borderRadius: '8px'
+          }}>
+            <Calculator size={20} style={{ color: '#c084fc', margin: '0 auto 0.5rem' }} />
+            <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>LTV/CAC</div>
+            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>
+              {unitEconomics.ratio}:1
             </div>
-          </motion.div>
+          </div>
         </div>
 
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(3, 1fr)', 
+          gap: '1rem',
+          marginTop: '1rem'
+        }}>
+          <div style={{
+            padding: '0.75rem',
+            background: 'rgba(34, 197, 94, 0.1)',
+            borderRadius: '6px',
+            textAlign: 'center'
+          }}>
+            <div style={{ fontSize: '0.75rem', color: '#4ade80' }}>Payback</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+              {unitEconomics.payback} months
+            </div>
+          </div>
+          
+          <div style={{
+            padding: '0.75rem',
+            background: 'rgba(251, 191, 36, 0.1)',
+            borderRadius: '6px',
+            textAlign: 'center'
+          }}>
+            <div style={{ fontSize: '0.75rem', color: '#fbbf24' }}>Churn</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+              {unitEconomics.churn}%
+            </div>
+          </div>
+          
+          <div style={{
+            padding: '0.75rem',
+            background: 'rgba(236, 72, 153, 0.1)',
+            borderRadius: '6px',
+            textAlign: 'center'
+          }}>
+            <div style={{ fontSize: '0.75rem', color: '#ec4899' }}>ARPU</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+              ${unitEconomics.arpu.toLocaleString()}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Revenue Breakdown & Retention */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         {/* Revenue Streams */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.5 }}
           style={{
-            background: 'rgba(251, 191, 36, 0.05)',
+            background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))',
             borderRadius: '12px',
-            padding: '1.5rem',
-            marginBottom: '1.5rem'
+            padding: '1rem'
           }}
         >
-          <h3 style={{ color: '#fbbf24', marginBottom: '1rem', fontSize: '1.1rem' }}>
-            Revenue Streams (Year 5: $12.5M)
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
-            {revenueStreams.map((stream, index) => (
-              <motion.div
-                key={stream.name}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9 + index * 0.1 }}
-                style={{
-                  textAlign: 'center',
-                  padding: '1rem',
-                  background: 'rgba(255, 255, 255, 0.03)',
-                  borderRadius: '8px',
-                  borderTop: `3px solid ${stream.color}`
-                }}
-              >
-                <div style={{ 
-                  fontSize: '2rem', 
-                  fontWeight: 'bold',
-                  color: stream.color,
-                  marginBottom: '0.5rem'
-                }}>
-                  {stream.percentage}%
-                </div>
-                <div style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
-                  {stream.name}
-                </div>
-                <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
-                  ${stream.amount}M
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <h4 style={{ color: '#4ade80', marginBottom: '1rem', fontSize: '1rem' }}>
+            Revenue Streams (Y5)
+          </h4>
+          {revenueStreams.map((stream, index) => (
+            <div key={stream.name} style={{ marginBottom: '0.75rem' }}>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between',
+                marginBottom: '0.25rem',
+                fontSize: '0.85rem'
+              }}>
+                <span style={{ color: '#e2e8f0' }}>{stream.name}</span>
+                <span style={{ color: stream.color }}>${stream.amount}M</span>
+              </div>
+              <div style={{
+                height: '4px',
+                background: 'rgba(255, 255, 255, 0.05)',
+                borderRadius: '2px',
+                overflow: 'hidden'
+              }}>
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: `${stream.percentage}%` }}
+                  transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+                  style={{
+                    height: '100%',
+                    background: stream.color
+                  }}
+                />
+              </div>
+            </div>
+          ))}
         </motion.div>
 
         {/* Cohort Retention */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
+          transition={{ delay: 0.7 }}
           style={{
-            background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.05), rgba(6, 182, 212, 0.05))',
+            background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(168, 85, 247, 0.1))',
             borderRadius: '12px',
-            padding: '1.5rem'
+            padding: '1rem'
           }}
         >
-          <h3 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '1.1rem' }}>
-            Cohort Retention Rate
-          </h3>
-          <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: '120px' }}>
-            {cohortRetention.map((cohort, index) => (
-              <motion.div
-                key={cohort.month}
-                initial={{ height: 0 }}
-                animate={{ height: `${cohort.retention}%` }}
-                transition={{ delay: 1.3 + index * 0.05 }}
-                style={{
-                  width: '15%',
-                  background: cohort.retention >= 94 ? 
-                    'linear-gradient(180deg, #4ade80, #22c55e)' :
-                    'linear-gradient(180deg, #14b8a6, #06b6d4)',
-                  borderRadius: '4px 4px 0 0',
-                  position: 'relative'
-                }}
-              >
-                <div style={{
-                  position: 'absolute',
-                  top: '-25px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  fontSize: '0.9rem',
-                  fontWeight: 'bold',
-                  color: cohort.retention >= 94 ? '#4ade80' : '#14b8a6'
-                }}>
-                  {cohort.retention}%
+          <h4 style={{ color: '#a78bfa', marginBottom: '1rem', fontSize: '1rem' }}>
+            Cohort Retention
+          </h4>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.5rem' }}>
+            {cohortRetention.map((data, index) => (
+              <div key={data.month} style={{ textAlign: 'center' }}>
+                <div style={{ position: 'relative', marginBottom: '0.5rem' }}>
+                  <CircularProgress 
+                    value={data.retention} 
+                    size={40} 
+                    strokeWidth={3}
+                    color="#a78bfa"
+                    delay={0.8 + index * 0.1}
+                  />
                 </div>
-                <div style={{
-                  position: 'absolute',
-                  bottom: '-25px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  fontSize: '0.8rem',
-                  color: '#94a3b8'
-                }}>
-                  {cohort.month}
-                </div>
-              </motion.div>
+                <div style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{data.month}</div>
+              </div>
             ))}
           </div>
         </motion.div>
-      </motion.div>
+      </div>
     </div>
+  )
+
+  // Metrics
+  const metrics = [
+    <div key="ltv-cac" className="glass-card" style={{ 
+      padding: '1rem', 
+      background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.1))',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>17.8:1</div>
+      <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>LTV/CAC Ratio</div>
+    </div>,
+    
+    <div key="payback" className="glass-card" style={{ 
+      padding: '1rem', 
+      background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.1))',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}>3.5mo</div>
+      <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Payback Period</div>
+    </div>,
+    
+    <div key="retention" className="glass-card" style={{ 
+      padding: '1rem', 
+      background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.1))',
+      textAlign: 'center'
+    }}>
+      <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#a78bfa' }}>94%</div>
+      <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>12M Retention</div>
+    </div>
+  ]
+
+  return (
+    <TableLayout
+      title={title}
+      subtitle={subtitle}
+      tableContent={tableContent}
+      metrics={metrics}
+    />
   )
 }

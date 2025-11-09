@@ -241,7 +241,7 @@ export const GridLayout = ({
       <h1 className="grid-title">
         <GradientText>{title}</GradientText>
       </h1>
-      {subtitle && <p className="grid-subtitle">{subtitle}</p>}
+      {subtitle && <div className="grid-subtitle">{subtitle}</div>}
     </motion.div>
     
     <div 
@@ -302,7 +302,7 @@ export const TableLayout = ({
       <h1 className="table-title">
         <GradientText>{title}</GradientText>
       </h1>
-      {subtitle && <p className="table-subtitle">{subtitle}</p>}
+      {subtitle && <div className="table-subtitle">{subtitle}</div>}
     </motion.div>
     
     <motion.div 
@@ -373,14 +373,14 @@ export const HeroLayout = ({
       </motion.h1>
       
       {subtitle && (
-        <motion.p 
+        <motion.div 
           className="hero-subtitle"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {subtitle}
-        </motion.p>
+        </motion.div>
       )}
       
       {overlayContent && (
