@@ -374,3 +374,110 @@
     padding: 0.75rem;
   }
 }
+
+/* ============================================
+   NEW ACT SLIDE LANDSCAPE STYLES
+   ============================================ */
+
+/* Act Slide Specific Styles for Full Landscape Width */
+.act-side-metrics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: rgba(20, 184, 166, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  transition: all 0.3s ease;
+}
+
+.metric-item:hover {
+  background: rgba(20, 184, 166, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.2);
+}
+
+.metric-icon {
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #14b8a6, #10b981);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.act-description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 100%;
+}
+
+.act-discovery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  width: 100%;
+}
+
+.discovery-card {
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(20, 184, 166, 0.3);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.discovery-card h3 {
+  font-size: 1.3rem;
+  color: #14b8a6;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.discovery-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.discovery-card:hover {
+  border-color: rgba(20, 184, 166, 0.6);
+  box-shadow: 0 0 30px rgba(20, 184, 166, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Responsive adjustments for Act slides */
+@media (max-width: 1200px) {
+  .act-discovery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .metric-value {
+    font-size: 2rem;
+  }
+  
+  .discovery-card {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,472 @@
+/* StandardLayouts.css - Landscape-optimized layout templates */
+
+/* Common Layout Styles */
+.act-layout,
+.data-layout,
+.comparison-layout,
+.grid-layout,
+.table-layout,
+.hero-layout {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Act Slide Layout - Full width with 3 columns */
+.act-layout {
+  justify-content: space-between;
+}
+
+.act-grid {
+  display: grid;
+  grid-template-columns: 200px 1fr 300px;
+  gap: 3rem;
+  width: 100%;
+  flex: 1;
+  align-items: center;
+}
+
+.act-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.act-number {
+  font-size: 5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.act-progress-indicator {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.2), rgba(0, 255, 136, 0.1));
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.act-center {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+
+.act-title {
+  font-size: 3.5rem !important;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.act-subtitle {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.act-main-content {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  max-width: 900px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.act-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.act-metrics {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+}
+
+.act-bottom-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+/* Data Presentation Layout */
+.data-header {
+  width: 100%;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.data-title {
+  font-size: 3.2rem !important;
+  font-weight: 800;
+  margin: 0;
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 4rem;
+  width: 100%;
+  flex: 1;
+  align-items: center;
+}
+
+.data-visual {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.data-insights {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%;
+  justify-content: center;
+}
+
+.data-supporting {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  border-left: 3px solid rgba(0, 212, 255, 0.5);
+}
+
+.data-citation {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+/* Comparison Layout */
+.comparison-title {
+  font-size: 3.2rem !important;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 3rem;
+  width: 100%;
+  align-items: center;
+}
+
+.comparison-left,
+.comparison-right {
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.comparison-option-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #00d4ff;
+}
+
+.comparison-details {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.comparison-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.3), transparent);
+  border-radius: 50%;
+  position: relative;
+}
+
+.vs-text {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.comparison-summary {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.05));
+  border-radius: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* Grid Layout */
+.grid-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.grid-title {
+  font-size: 3.2rem !important;
+  margin-bottom: 1rem;
+}
+
+.grid-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.grid-cards {
+  display: grid;
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.grid-card {
+  padding: 1.8rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.grid-card:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+}
+
+.grid-summary {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+}
+
+/* Table Layout */
+.table-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.table-title {
+  font-size: 3.2rem !important;
+  margin-bottom: 0.5rem;
+}
+
+.table-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.table-content {
+  width: 100%;
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.table-content table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+}
+
+.table-content th {
+  background: rgba(0, 212, 255, 0.1);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #00d4ff;
+  border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.table-content td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.table-notes {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+/* Hero Layout */
+.hero-layout {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 4rem !important;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-overlay-content {
+  margin: 3rem 0;
+}
+
+.hero-cta {
+  margin-top: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .act-grid {
+    grid-template-columns: 150px 1fr 250px;
+  }
+  
+  .comparison-grid {
+    gap: 2rem;
+  }
+  
+  .data-grid {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .act-title,
+  .data-title,
+  .comparison-title,
+  .grid-title,
+  .table-title {
+    font-size: 2.8rem !important;
+  }
+  
+  .hero-title {
+    font-size: 3.2rem !important;
+  }
+  
+  .act-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .data-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .comparison-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .comparison-vs {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .act-layout,
+  .data-layout,
+  .comparison-layout,
+  .grid-layout,
+  .table-layout,
+  .hero-layout {
+    padding: 2rem;
+  }
+  
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .act-bottom-points {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Print styles */
+@media print {
+  .act-layout,
+  .data-layout,
+  .comparison-layout,
+  .grid-layout,
+  .table-layout,
+  .hero-layout {
+    padding: 2rem;
+  }
+  
+  .act-grid,
+  .data-grid,
+  .comparison-grid {
+    gap: 1.5rem;
+  }
+}
