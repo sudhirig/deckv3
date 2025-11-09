@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
@@ -5,6 +6,8 @@ import { Check, X, Minus, TrendingUp, DollarSign, Users, Shield } from 'lucide-r
 import './SlideStyles.css'
 
 export default function CompetitiveMatrixSlide() {
+  const [hoveredColumn, setHoveredColumn] = useState(null)
+  const [hoveredRow, setHoveredRow] = useState(null)
   const features = [
     'AI-Powered Portfolio Management',
     'Daily Tax Loss Harvesting', 
@@ -109,7 +112,7 @@ export default function CompetitiveMatrixSlide() {
                   Feature
                 </th>
                 {competitors.map((competitor) => (
-                  <th
+                  <motion.th
                     key={competitor.name}
                     style={{
                       padding: '0.75rem',
@@ -117,8 +120,17 @@ export default function CompetitiveMatrixSlide() {
                       borderBottom: '2px solid rgba(20, 184, 166, 0.3)',
                       background: competitor.name === 'Us' ? 
                         'linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(20, 184, 166, 0.15))' : 
-                        'transparent'
+                        hoveredColumn === competitor.name ? 
+                        'rgba(255, 255, 255, 0.03)' :
+                        'transparent',
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease'
                     }}
+                    onMouseEnter={() => setHoveredColumn(competitor.name)}
+                    onMouseLeave={() => setHoveredColumn(null)}
+                    animate={hoveredColumn === competitor.name ? {
+                      scale: 1.02
+                    } : {}}
                   >
                     <div style={{ 
                       fontSize: '0.9rem', 
@@ -131,7 +143,7 @@ export default function CompetitiveMatrixSlide() {
                     <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
                       {competitor.type}
                     </div>
-                  </th>
+                  </motion.th>
                 ))}
               </tr>
             </thead>
