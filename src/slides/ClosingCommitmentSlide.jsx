@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import CinematicSlideFrame from '../components/CinematicSlideFrame'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
@@ -36,10 +37,23 @@ export default function ClosingCommitmentSlide() {
   ]
 
   return (
-    <div className="slide-content">
+    <CinematicSlideFrame
+      particleCount={55}
+      particleColor="#ec4899"
+      gradientColors={{
+        primary: 'rgba(236, 72, 153, 0.12)',
+        secondary: 'rgba(168, 85, 247, 0.08)'
+      }}
+      gradientPositions={{
+        primary: '25% 40%',
+        secondary: '75% 60%'
+      }}
+    >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
         style={{ maxWidth: '1100px', margin: '0 auto' }}
       >
         {/* Header */}
@@ -336,6 +350,6 @@ export default function ClosingCommitmentSlide() {
           </p>
         </motion.div>
       </motion.div>
-    </div>
+    </CinematicSlideFrame>
   )
 }

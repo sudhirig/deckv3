@@ -1,21 +1,50 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import GradientText from '../components/GradientText'
+import AnimatedCounter from '../components/AnimatedCounter'
 import { Camera, Rocket, Construction, Clock } from 'lucide-react'
+import './SlideStyles.css'
 
 const FutureModulesLiveSnapshotSlide = () => {
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <CinematicSlideFrame
+      particleCount={50}
+      particleColor="#06b6d4"
+      gradientColors={{
+        primary: 'rgba(6, 182, 212, 0.12)',
+        secondary: 'rgba(8, 145, 178, 0.08)'
+      }}
+      gradientPositions={{
+        primary: '30% 30%',
+        secondary: '70% 70%'
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
+      >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="gradient-text text-4xl mb-2">Future Modules Development Pipeline</h1>
-          <div className="flex items-center justify-center mb-4">
+          <h2 className="slide-title">
+            <GradientText gradient="from-cyan-400 via-blue-400 to-teal-400">
+              Future Modules Development Pipeline
+            </GradientText>
+          </h2>
+          <motion.div 
+            animate={{ scale: [1, 1.05, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex items-center justify-center mb-4"
+          >
             <Camera className="w-5 h-5 text-red-500 mr-2" />
-            <p className="text-sm text-gray-400">Beta Testing Dashboard - Live Preview</p>
-          </div>
+            <p style={{ fontSize: '1rem', color: '#94a3b8' }}>Beta Testing Dashboard - Live Preview</p>
+          </motion.div>
         </motion.div>
 
         <motion.div
@@ -154,8 +183,8 @@ const FutureModulesLiveSnapshotSlide = () => {
             <p className="text-xs text-gray-400">Beta Testers</p>
           </motion.div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </CinematicSlideFrame>
   )
 }
 

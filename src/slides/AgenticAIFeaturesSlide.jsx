@@ -1,18 +1,45 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import GradientText from '../components/GradientText'
+import AnimatedCounter from '../components/AnimatedCounter'
 import { Cpu, Zap, GitBranch, Shield } from 'lucide-react'
+import './SlideStyles.css'
 
 const AgenticAIFeaturesSlide = () => {
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <CinematicSlideFrame
+      particleCount={55}
+      particleColor="#a855f7"
+      gradientColors={{
+        primary: 'rgba(168, 85, 247, 0.12)',
+        secondary: 'rgba(139, 92, 246, 0.08)'
+      }}
+      gradientPositions={{
+        primary: '30% 40%',
+        secondary: '70% 60%'
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
+      >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="gradient-text text-4xl mb-2">Agentic AI Features</h1>
-          <p className="text-xl text-gray-400 mb-6">Enterprise-Grade Multi-Agent System</p>
+          <h2 className="slide-title">
+            <GradientText gradient="from-purple-400 via-violet-400 to-indigo-400">
+              Agentic AI Features
+            </GradientText>
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+            Enterprise-Grade Multi-Agent System
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-2 gap-6">
@@ -125,8 +152,8 @@ const AgenticAIFeaturesSlide = () => {
             <span className="text-teal-400 font-bold"> superior investment decisions</span>
           </p>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </CinematicSlideFrame>
   )
 }
 

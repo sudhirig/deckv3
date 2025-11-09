@@ -1,15 +1,35 @@
 import { motion } from 'framer-motion'
+import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import AnimatedCounter from '../components/AnimatedCounter'
+import GradientText from '../components/GradientText'
 import './SlideStyles.css'
 
 export default function FundingSlide() {
   return (
-    <div className="slide-content">
+    <CinematicSlideFrame 
+      particleCount={50}
+      particleColor="#8b5cf6"
+      gradientColors={{
+        primary: 'rgba(139, 92, 246, 0.12)',
+        secondary: 'rgba(236, 72, 153, 0.08)'
+      }}
+      gradientPositions={{
+        primary: '20% 30%',
+        secondary: '70% 60%'
+      }}
+    >
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
         className="glass-card"
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
       >
-        <h2 className="slide-title">$5M to Scale Our Proven Platform</h2>
+        <h2 className="slide-title">
+          <GradientText gradient="from-purple-400 via-pink-400 to-indigo-400">
+            $5M to Scale Our Proven Platform
+          </GradientText>
+        </h2>
         
         <div style={{ marginTop: '2rem' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem' }}>
@@ -18,7 +38,11 @@ export default function FundingSlide() {
               <div style={{ fontSize: '1.1rem', lineHeight: '2.5' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                   <span>Product & Engineering</span>
-                  <span style={{ color: '#14b8a6', fontWeight: 'bold' }}>40% ($2M)</span>
+                  <motion.span 
+                    animate={{ scale: [1, 1.05, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    style={{ color: '#14b8a6', fontWeight: 'bold' }}
+                  >40% (<AnimatedCounter end={2} prefix="$" suffix="M" duration={1500} />)</motion.span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
                   <span>Sales & Marketing</span>
@@ -64,6 +88,6 @@ export default function FundingSlide() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </CinematicSlideFrame>
   )
 }

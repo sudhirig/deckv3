@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import GradientText from '../components/GradientText'
 import { Building, ArrowDown, Globe, Shield, TrendingUp, DollarSign, Percent } from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
+import './SlideStyles.css'
 
 const GiftCityEntityStructureSlide = () => {
   const [animateFlow, setAnimateFlow] = useState(false)
@@ -13,16 +16,39 @@ const GiftCityEntityStructureSlide = () => {
   }, [])
   
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <CinematicSlideFrame
+      particleCount={45}
+      particleColor="#06b6d4"
+      gradientColors={{
+        primary: 'rgba(6, 182, 212, 0.12)',
+        secondary: 'rgba(14, 165, 233, 0.08)'
+      }}
+      gradientPositions={{
+        primary: '30% 50%',
+        secondary: '70% 50%'
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
+      >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-6"
         >
-          <h1 className="gradient-text text-4xl mb-2">Vora Ventures Entity Structure</h1>
-          <p className="text-gray-400">Three-Layer Global Architecture</p>
+          <h2 className="slide-title">
+            <GradientText gradient="from-cyan-400 via-blue-400 to-indigo-400">
+              Vora Ventures Entity Structure
+            </GradientText>
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+            Three-Layer Global Architecture
+          </p>
         </motion.div>
 
         {/* Visual Flow Diagram */}
@@ -281,8 +307,8 @@ const GiftCityEntityStructureSlide = () => {
             <p className="text-xs text-gray-400">Entities</p>
           </div>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </CinematicSlideFrame>
   )
 }
 

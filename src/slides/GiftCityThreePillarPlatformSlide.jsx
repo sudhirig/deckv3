@@ -1,18 +1,45 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import GradientText from '../components/GradientText'
+import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, TrendingUp, Shield } from 'lucide-react'
+import './SlideStyles.css'
 
 const GiftCityThreePillarPlatformSlide = () => {
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <CinematicSlideFrame
+      particleCount={50}
+      particleColor="#8b5cf6"
+      gradientColors={{
+        primary: 'rgba(139, 92, 246, 0.12)',
+        secondary: 'rgba(16, 185, 129, 0.08)'
+      }}
+      gradientPositions={{
+        primary: '40% 30%',
+        secondary: '60% 70%'
+      }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="glass-card"
+        style={{ maxWidth: '1200px', margin: '0 auto' }}
+      >
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="gradient-text text-5xl mb-4">Three-Pillar Platform</h1>
-          <p className="text-xl text-gray-400 mb-8">Building the Future of Digital Finance from GIFT City</p>
+          <h2 className="slide-title">
+            <GradientText gradient="from-purple-400 via-green-400 to-blue-400">
+              Three-Pillar Platform
+            </GradientText>
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+            Building the Future of Digital Finance from GIFT City
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-3 gap-6">
@@ -144,8 +171,8 @@ const GiftCityThreePillarPlatformSlide = () => {
             <span className="gradient-text"> Complete Ecosystem</span>
           </p>
         </motion.div>
-      </div>
-    </div>
+      </motion.div>
+    </CinematicSlideFrame>
   )
 }
 
