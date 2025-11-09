@@ -1,181 +1,292 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
-import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
-import CircularProgress from '../components/CircularProgress'
-import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles, MessageSquare, Brain } from 'lucide-react'
+import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles, MessageSquare, Brain, Volume2, Zap } from 'lucide-react'
 import './SlideStyles.css'
 
-const ZerodhaFeaturesSlide = () => {
+export default function ZerodhaFeaturesSlide() {
+  const [hoveredFeature, setHoveredFeature] = useState(null)
+  const [voiceWaveAnimation, setVoiceWaveAnimation] = useState(true)
+  const [pulseAnimation, setPulseAnimation] = useState(true)
+  
+  useEffect(() => {
+    const voiceInterval = setInterval(() => {
+      setVoiceWaveAnimation(prev => !prev)
+    }, 2000)
+    
+    const pulseInterval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 3000)
+    
+    return () => {
+      clearInterval(voiceInterval)
+      clearInterval(pulseInterval)
+    }
+  }, [])
+  
   return (
-    <div className="slide-content" style={{ position: 'relative' }}>
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
       <ParticleBackground count={50} color="#fb923c" />
       
-      {/* Deep Space Gradient Background */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'radial-gradient(circle at 30% 30%, rgba(251, 146, 60, 0.1) 0%, transparent 60%), radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.08) 0%, transparent 50%)',
-        zIndex: 0
-      }} />
+      {/* Deep Space Gradient */}
+      <motion.div
+        animate={{
+          background: [
+            'radial-gradient(circle at 30% 30%, rgba(251, 146, 60, 0.15) 0%, transparent 60%)',
+            'radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.12) 0%, transparent 60%)',
+            'radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.12) 0%, transparent 60%)',
+            'radial-gradient(circle at 30% 30%, rgba(251, 146, 60, 0.15) 0%, transparent 60%)'
+          ]
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
       
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring' }}
-        className="glass-card"
-        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3 }}
       >
-        {/* Header */}
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="slide-title"
+          style={{ textAlign: 'center', marginBottom: '0.5rem' }}
         >
-          <h2 className="slide-title">
-            <GradientText gradient="from-orange-400 via-amber-400 to-yellow-400">
-              Zerodha Features & Capabilities
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Transform Your Trading Experience
-          </p>
-        </motion.div>
-
+          <GradientText gradient="from-orange-400 via-amber-400 to-yellow-400">
+            Zerodha Features & Capabilities
+          </GradientText>
+        </motion.h1>
+        
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{ 
+            textAlign: 'center', 
+            color: '#94a3b8', 
+            fontSize: '1.2rem',
+            marginBottom: '2rem'
+          }}
+        >
+          Transform Your Trading Experience with Voice AI
+        </motion.p>
+        
         {/* Performance Metrics Bar */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
             gap: '1rem',
-            marginBottom: '2rem'
+            marginBottom: '2rem',
+            maxWidth: '900px',
+            margin: '0 auto 2rem'
           }}
         >
           {[
-            { value: 11, label: 'Response', unit: 'ms', color: '#f97316' },
-            { value: 3, label: 'Languages', unit: '', color: '#3b82f6' },
-            { value: 100, label: 'Accuracy', unit: '%', color: '#10b981' },
-            { value: 24, label: 'Availability', unit: '/7', color: '#a855f7' }
+            { value: 11, label: 'Response', unit: 'ms', color: '#f97316', icon: Zap },
+            { value: 3, label: 'Languages', unit: '', color: '#3b82f6', icon: Globe },
+            { value: 100, label: 'Accuracy', unit: '%', color: '#10b981', icon: Shield },
+            { value: 24, label: 'Availability', unit: '/7', color: '#a855f7', icon: Clock }
           ].map((metric, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 + index * 0.1 }}
-              className="glass-card"
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ delay: 0.5 + index * 0.1, type: 'spring' }}
+              whileHover={{ scale: 1.05, y: -5 }}
               style={{
                 padding: '1rem',
+                background: `linear-gradient(135deg, ${metric.color}20, rgba(255, 255, 255, 0.02))`,
+                backdropFilter: 'blur(20px)',
+                borderRadius: '16px',
+                border: `2px solid ${metric.color}30`,
                 textAlign: 'center',
-                background: `linear-gradient(135deg, ${metric.color}15 0%, ${metric.color}08 100%)`,
-                border: `1px solid ${metric.color}30`,
                 position: 'relative',
-                overflow: 'hidden'
+                overflow: 'visible'
               }}
             >
               <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
+                animate={{ 
+                  scale: pulseAnimation && index === 0 ? [1, 1.2, 1] : 1,
+                  rotate: pulseAnimation && index === 0 ? [0, 5, -5, 0] : 0
+                }}
+                transition={{ duration: 1 }}
+                style={{ marginBottom: '0.5rem' }}
+              >
+                <metric.icon size={24} color={metric.color} />
+              </motion.div>
+              
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                 style={{ fontSize: '1.8rem', fontWeight: 'bold', color: metric.color }}
               >
-                <AnimatedCounter end={metric.value} duration={1500} />{metric.unit}
+                <AnimatedCounter value={metric.value} duration={1500} />{metric.unit}
               </motion.div>
               <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{metric.label}</p>
             </motion.div>
           ))}
         </motion.div>
-
+        
         {/* Features Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+        <div style={{ 
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '1.5rem',
+          maxWidth: '1100px',
+          margin: '0 auto'
+        }}>
           {/* Voice Trading 3.0 */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6, duration: 0.5 }}
-            className="glass-card"
+            initial={{ opacity: 0, x: -30, rotateY: -15 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ delay: 0.7, type: 'spring' }}
+            whileHover={{ scale: 1.03, y: -5 }}
+            onHoverStart={() => setHoveredFeature('voice')}
+            onHoverEnd={() => setHoveredFeature(null)}
             style={{
-              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.05) 100%)',
-              border: '1px solid rgba(249, 115, 22, 0.3)',
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(249, 115, 22, 0.3)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'visible'
             }}
           >
-            {/* Animated Sound Waves */}
-            <motion.div
-              animate={{ 
-                scale: [1, 1.2, 1],
-                opacity: [0.1, 0.2, 0.1]
-              }}
-              transition={{ duration: 2, repeat: Infinity }}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                right: '20px',
-                width: '60px',
-                height: '60px',
-                borderRadius: '50%',
-                border: '2px solid rgba(249, 115, 22, 0.3)'
-              }}
-            />
-            
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <Mic className="w-7 h-7 text-orange-400 mr-3" />
-                <h3 style={{ fontSize: '1.3rem', color: '#f97316' }}>Voice Trading 3.0</h3>
-              </div>
-              
-              <div style={{ space: 'y-3' }}>
-                {[
-                  { title: 'Multi-Language Support', desc: 'English, Hindi, Tamil', icon: Globe },
-                  { title: 'Natural Commands', desc: '"Buy 100 shares of Reliance"', icon: MessageSquare },
-                  { title: 'Ultra-Low Latency', desc: '11ms response time', icon: Clock },
-                  { title: 'Voice Confirmation', desc: 'Audio feedback on execution', icon: Shield }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
-                    whileHover={{ x: 5 }}
-                    style={{
-                      borderLeft: '3px solid #f97316',
-                      paddingLeft: '1rem',
-                      marginBottom: '1rem',
-                      padding: '0.5rem 0 0.5rem 1rem'
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <div>
-                        <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#e2e8f0' }}>{item.title}</p>
-                        <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.desc}</p>
-                      </div>
-                      <item.icon className="w-4 h-4 text-orange-400" />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            {/* Voice Wave Animation */}
+            <div style={{
+              position: 'absolute',
+              top: '20px',
+              right: '20px',
+              display: 'flex',
+              gap: '3px'
+            }}>
+              {[...Array(5)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  animate={{
+                    height: voiceWaveAnimation ? [10, 25, 10] : 10,
+                    opacity: hoveredFeature === 'voice' ? 1 : 0.5
+                  }}
+                  transition={{
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    repeat: Infinity
+                  }}
+                  style={{
+                    width: '3px',
+                    background: 'linear-gradient(to top, #f97316, #fbbf24)',
+                    borderRadius: '2px'
+                  }}
+                />
+              ))}
             </div>
+            
+            {/* Halo Effect */}
+            {hoveredFeature === 'voice' && (
+              <motion.div
+                animate={{ opacity: [0.2, 0.4, 0.2] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  left: '-20px',
+                  right: '-20px',
+                  bottom: '-20px',
+                  background: 'radial-gradient(circle, rgba(249, 115, 22, 0.3), transparent)',
+                  borderRadius: '24px',
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}
+              />
+            )}
+            
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <motion.div
+                animate={{ rotate: pulseAnimation ? 360 : 0 }}
+                transition={{ duration: 2 }}
+              >
+                <Mic size={32} color="#f97316" />
+              </motion.div>
+              <h3 style={{ fontSize: '1.4rem', color: '#f97316', marginLeft: '1rem' }}>
+                Voice Trading 3.0
+              </h3>
+            </div>
+            
+            {[
+              { title: 'Multi-Language Support', desc: 'English, Hindi, Tamil', icon: Globe },
+              { title: 'Natural Commands', desc: '"Buy 100 shares of Reliance"', icon: MessageSquare },
+              { title: 'Ultra-Low Latency', desc: '11ms response time', icon: Clock },
+              { title: 'Voice Confirmation', desc: 'Audio feedback on execution', icon: Volume2 }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.9 + index * 0.1 }}
+                whileHover={{ x: 10, backgroundColor: 'rgba(249, 115, 22, 0.1)' }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.75rem',
+                  borderLeft: '3px solid #f97316',
+                  marginBottom: '0.75rem',
+                  borderRadius: '0 8px 8px 0',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <div>
+                  <p style={{ fontWeight: '600', fontSize: '0.95rem', color: '#e2e8f0' }}>
+                    {item.title}
+                  </p>
+                  <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                    {item.desc}
+                  </p>
+                </div>
+                <motion.div
+                  animate={{ scale: hoveredFeature === 'voice' ? [1, 1.2, 1] : 1 }}
+                  transition={{ duration: 1, delay: index * 0.1 }}
+                >
+                  <item.icon size={20} color="#f97316" />
+                </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
-
+          
           {/* Living Dashboard */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.7, duration: 0.5 }}
-            className="glass-card"
+            initial={{ opacity: 0, x: 30, rotateY: 15 }}
+            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            transition={{ delay: 0.8, type: 'spring' }}
+            whileHover={{ scale: 1.03, y: -5 }}
+            onHoverStart={() => setHoveredFeature('dashboard')}
+            onHoverEnd={() => setHoveredFeature(null)}
             style={{
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
-              border: '1px solid rgba(59, 130, 246, 0.3)',
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(59, 130, 246, 0.3)',
               position: 'relative',
-              overflow: 'hidden'
+              overflow: 'visible'
             }}
           >
             {/* Pulse Animation */}
@@ -189,118 +300,249 @@ const ZerodhaFeaturesSlide = () => {
                 position: 'absolute',
                 bottom: '-20px',
                 left: '-20px',
-                width: '100px',
-                height: '100px',
-                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)',
-                borderRadius: '50%'
+                width: '120px',
+                height: '120px',
+                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4), transparent)',
+                borderRadius: '50%',
+                filter: 'blur(20px)'
               }}
             />
             
-            <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-                <LayoutDashboard className="w-7 h-7 text-blue-400 mr-3" />
-                <h3 style={{ fontSize: '1.3rem', color: '#3b82f6' }}>Living Dashboard</h3>
-              </div>
-              
-              <div style={{ space: 'y-3' }}>
-                {[
-                  { title: 'Real-Time P&L', desc: 'Live profit tracking', icon: TrendingUp },
-                  { title: 'AI Recommendations', desc: 'Contextual suggestions', icon: Brain },
-                  { title: 'Risk Monitoring', desc: 'Automatic alerts', icon: Shield },
-                  { title: 'Market Pulse', desc: 'Sector heat maps', icon: Sparkles }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.9 + index * 0.1 }}
-                    whileHover={{ x: -5 }}
-                    style={{
-                      borderLeft: '3px solid #3b82f6',
-                      paddingLeft: '1rem',
-                      marginBottom: '1rem',
-                      padding: '0.5rem 0 0.5rem 1rem'
-                    }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                      <div>
-                        <p style={{ fontWeight: '600', fontSize: '0.9rem', color: '#e2e8f0' }}>{item.title}</p>
-                        <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.desc}</p>
-                      </div>
-                      <item.icon className="w-4 h-4 text-blue-400" />
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+            {hoveredFeature === 'dashboard' && (
+              <motion.div
+                animate={{ opacity: [0.2, 0.4, 0.2] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  left: '-20px',
+                  right: '-20px',
+                  bottom: '-20px',
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
+                  borderRadius: '24px',
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}
+              />
+            )}
+            
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <motion.div
+                animate={{ y: pulseAnimation ? [0, -5, 0] : 0 }}
+                transition={{ duration: 1 }}
+              >
+                <LayoutDashboard size={32} color="#3b82f6" />
+              </motion.div>
+              <h3 style={{ fontSize: '1.4rem', color: '#3b82f6', marginLeft: '1rem' }}>
+                Living Dashboard
+              </h3>
             </div>
+            
+            {[
+              { title: 'Real-Time P&L', desc: 'Live profit tracking', icon: TrendingUp },
+              { title: 'AI Recommendations', desc: 'Contextual suggestions', icon: Brain },
+              { title: 'Risk Monitoring', desc: 'Automatic alerts', icon: Shield },
+              { title: 'Market Pulse', desc: 'Sector heat maps', icon: Sparkles }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.0 + index * 0.1 }}
+                whileHover={{ x: -10, backgroundColor: 'rgba(59, 130, 246, 0.1)' }}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                  padding: '0.75rem',
+                  borderLeft: '3px solid #3b82f6',
+                  marginBottom: '0.75rem',
+                  borderRadius: '0 8px 8px 0',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                <div>
+                  <p style={{ fontWeight: '600', fontSize: '0.95rem', color: '#e2e8f0' }}>
+                    {item.title}
+                  </p>
+                  <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>
+                    {item.desc}
+                  </p>
+                </div>
+                <motion.div
+                  animate={{ rotate: hoveredFeature === 'dashboard' ? 360 : 0 }}
+                  transition={{ duration: 1, delay: index * 0.1 }}
+                >
+                  <item.icon size={20} color="#3b82f6" />
+                </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
-
+          
           {/* Magic Actions */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.9, duration: 0.5 }}
-            className="glass-card"
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 1.1, type: 'spring' }}
+            whileHover={{ scale: 1.03, y: -5 }}
+            onHoverStart={() => setHoveredFeature('magic')}
+            onHoverEnd={() => setHoveredFeature(null)}
             style={{
-              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
-              border: '1px solid rgba(168, 85, 247, 0.3)',
-              position: 'relative'
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(168, 85, 247, 0.3)',
+              position: 'relative',
+              overflow: 'visible'
             }}
           >
+            {hoveredFeature === 'magic' && (
+              <motion.div
+                animate={{ 
+                  rotate: 360,
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  rotate: { duration: 8, repeat: Infinity, ease: 'linear' },
+                  scale: { duration: 2, repeat: Infinity }
+                }}
+                style={{
+                  position: 'absolute',
+                  top: '-30px',
+                  left: '-30px',
+                  right: '-30px',
+                  bottom: '-30px',
+                  background: 'conic-gradient(from 0deg, transparent, rgba(168, 85, 247, 0.2), transparent)',
+                  borderRadius: '24px',
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}
+              />
+            )}
+            
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <Bot className="w-7 h-7 text-purple-400 mr-3" />
-              <h3 style={{ fontSize: '1.3rem', color: '#a855f7' }}>Magic Actions</h3>
+              <Bot size={32} color="#a855f7" />
+              <h3 style={{ fontSize: '1.4rem', color: '#a855f7', marginLeft: '1rem' }}>
+                Magic Actions
+              </h3>
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
                 style={{ marginLeft: 'auto' }}
               >
-                <Sparkles className="w-5 h-5 text-purple-400" />
+                <Sparkles size={24} color="#a855f7" />
               </motion.div>
             </div>
             
-            <AnimatedText delay={1.1}>
-              <div style={{ space: 'y-2' }}>
-                {[
-                  'Auto Stop-Loss placement',
-                  'Bracket order optimization',
-                  'Position sizing AI',
-                  'Exit strategy suggestions',
-                  'Tax-loss harvesting'
-                ].map((item, index) => (
-                  <motion.p
-                    key={index}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 1.2 + index * 0.05 }}
-                    whileHover={{ x: 5, color: '#a855f7' }}
-                    style={{ fontSize: '0.9rem', marginBottom: '0.5rem', color: '#e2e8f0' }}
-                  >
-                    • {item}
-                  </motion.p>
-                ))}
-              </div>
-            </AnimatedText>
+            {[
+              'Auto Stop-Loss placement',
+              'Bracket order optimization',
+              'Position sizing AI',
+              'Exit strategy suggestions',
+              'Tax-loss harvesting'
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.3 + index * 0.08 }}
+                whileHover={{ 
+                  x: 5,
+                  color: '#a855f7',
+                  paddingLeft: '1rem'
+                }}
+                style={{
+                  fontSize: '0.95rem',
+                  marginBottom: '0.6rem',
+                  color: '#e2e8f0',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.5rem'
+                }}
+              >
+                <motion.span
+                  animate={{ 
+                    scale: hoveredFeature === 'magic' ? [1, 1.5, 1] : 1
+                  }}
+                  transition={{ duration: 1, delay: index * 0.1 }}
+                  style={{ color: '#a855f7' }}
+                >
+                  •
+                </motion.span>
+                {item}
+              </motion.div>
+            ))}
           </motion.div>
-
+          
           {/* Speed & Scale */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.0, duration: 0.5 }}
-            className="glass-card"
+            initial={{ opacity: 0, y: 30, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ delay: 1.2, type: 'spring' }}
+            whileHover={{ scale: 1.03, y: -5 }}
+            onHoverStart={() => setHoveredFeature('speed')}
+            onHoverEnd={() => setHoveredFeature(null)}
             style={{
-              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%)',
-              border: '1px solid rgba(16, 185, 129, 0.3)',
-              position: 'relative'
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(16, 185, 129, 0.3)',
+              position: 'relative',
+              overflow: 'visible'
             }}
           >
+            {hoveredFeature === 'speed' && (
+              <>
+                <motion.div
+                  animate={{ opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    position: 'absolute',
+                    top: '-20px',
+                    left: '-20px',
+                    right: '-20px',
+                    bottom: '-20px',
+                    background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent)',
+                    borderRadius: '24px',
+                    filter: 'blur(20px)',
+                    zIndex: -1
+                  }}
+                />
+                {/* Lightning Effect */}
+                <motion.div
+                  animate={{ 
+                    opacity: [0, 1, 0],
+                    y: ['-100%', '200%']
+                  }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                  style={{
+                    position: 'absolute',
+                    left: '50%',
+                    width: '2px',
+                    height: '100px',
+                    background: 'linear-gradient(to bottom, transparent, #10b981, transparent)',
+                    filter: 'blur(2px)',
+                    zIndex: -1
+                  }}
+                />
+              </>
+            )}
+            
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <Clock className="w-7 h-7 text-green-400 mr-3" />
-              <h3 style={{ fontSize: '1.3rem', color: '#10b981' }}>Speed & Scale</h3>
+              <Clock size={32} color="#10b981" />
+              <h3 style={{ fontSize: '1.4rem', color: '#10b981', marginLeft: '1rem' }}>
+                Speed & Scale
+              </h3>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div style={{ 
+              display: 'grid',
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '1rem'
+            }}>
               {[
                 { value: 11, label: 'Response', unit: 'ms', color: '#10b981' },
                 { value: 5000, label: 'Trades/sec', unit: '', color: '#14b8a6' },
@@ -311,24 +553,32 @@ const ZerodhaFeaturesSlide = () => {
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 1.2 + index * 0.1, type: 'spring' }}
+                  transition={{ delay: 1.4 + index * 0.1, type: 'spring' }}
                   whileHover={{ scale: 1.1 }}
                   style={{
                     textAlign: 'center',
                     padding: '0.75rem',
-                    background: `${stat.color}10`,
-                    borderRadius: '8px',
+                    background: `${stat.color}15`,
+                    borderRadius: '12px',
                     border: `1px solid ${stat.color}30`
                   }}
                 >
                   <motion.p
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    style={{ fontSize: '1.5rem', fontWeight: 'bold', color: stat.color }}
+                    animate={{ 
+                      scale: hoveredFeature === 'speed' ? [1, 1.1, 1] : 1
+                    }}
+                    transition={{ duration: 1, delay: index * 0.1 }}
+                    style={{ 
+                      fontSize: '1.5rem',
+                      fontWeight: 'bold',
+                      color: stat.color
+                    }}
                   >
                     {stat.value}{stat.unit}
                   </motion.p>
-                  <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{stat.label}</p>
+                  <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>
+                    {stat.label}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -338,5 +588,3 @@ const ZerodhaFeaturesSlide = () => {
     </div>
   )
 }
-
-export default ZerodhaFeaturesSlide
