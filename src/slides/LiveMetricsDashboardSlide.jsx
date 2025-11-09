@@ -11,10 +11,19 @@ import './SlideStyles.css'
 
 const LiveMetricsDashboardSlide = () => {
   const [animateMetrics, setAnimateMetrics] = useState(false)
+  const [liveUpdate, setLiveUpdate] = useState(0)
   
   useEffect(() => {
     const timer = setTimeout(() => setAnimateMetrics(true), 500)
     return () => clearTimeout(timer)
+  }, [])
+  
+  // Simulate live updates every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLiveUpdate(prev => prev + 1)
+    }, 3000)
+    return () => clearInterval(interval)
   }, [])
   
   // Sample data for charts
@@ -78,9 +87,25 @@ const LiveMetricsDashboardSlide = () => {
             </GradientText>
           </h2>
           
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Real-time Performance & System Health
-          </p>
+          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '1.2rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+              Real-time Performance & System Health
+            </p>
+            <motion.div
+              key={liveUpdate}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 1rem', background: 'rgba(16, 185, 129, 0.1)', borderRadius: '20px', border: '1px solid rgba(16, 185, 129, 0.3)' }}
+            >
+              <motion.div
+                animate={{ opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#10b981' }}
+              />
+              <span style={{ fontSize: '0.85rem', color: '#10b981' }}>Updated in real-time</span>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Top Status Indicators with Pulse Effects */}
