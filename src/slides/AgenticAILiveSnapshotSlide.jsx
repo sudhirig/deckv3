@@ -43,6 +43,76 @@ const AgenticAILiveSnapshotSlide = () => {
             </GradientText>
           </h2>
           
+          {/* AI Agent Statistics Display */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '2rem',
+              marginTop: '1.5rem',
+              marginBottom: '1rem'
+            }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              style={{
+                background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1))',
+                border: '1px solid rgba(139, 92, 246, 0.4)',
+                borderRadius: '16px',
+                padding: '1.5rem 2rem',
+                textAlign: 'center'
+              }}
+            >
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ fontSize: '3rem', fontWeight: 'bold', color: '#a78bfa' }}
+              >
+                68+
+              </motion.div>
+              <div style={{ fontSize: '1rem', color: '#e2e8f0', marginTop: '0.5rem' }}>
+                Total AI Agents
+              </div>
+            </motion.div>
+            
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+              {[
+                { count: '12', label: 'Investment Committee', color: '#fbbf24', icon: '🏛️' },
+                { count: '18', label: 'Hedge Fund Team', color: '#10b981', icon: '📈' },
+                { count: '9', label: 'Risk Management', color: '#ef4444', icon: '🛡️' },
+                { count: '20+', label: 'Operations & Support', color: '#60a5fa', icon: '⚡' }
+              ].map((group, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3 + index * 0.1 }}
+                  style={{
+                    background: 'rgba(255, 255, 255, 0.03)',
+                    borderLeft: `3px solid ${group.color}`,
+                    padding: '0.75rem 1rem',
+                    borderRadius: '8px'
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ fontSize: '1.2rem' }}>{group.icon}</span>
+                    <div>
+                      <div style={{ fontSize: '1.4rem', fontWeight: 'bold', color: group.color }}>
+                        {group.count}
+                      </div>
+                      <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+                        {group.label}
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+          
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
