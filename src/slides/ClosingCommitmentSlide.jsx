@@ -126,54 +126,85 @@ export default function ClosingCommitmentSlide() {
           </p>
         </AnimatedText>
 
-        {/* The Ask */}
+        {/* The Ask Section with Breathing Metrics */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.6 }}
           style={{
-            background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(236, 72, 153, 0.2))',
-            borderRadius: '16px',
+            background: 'rgba(255, 255, 255, 0.03)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '20px',
             padding: '2rem',
             marginBottom: '2rem',
-            border: '2px solid rgba(147, 51, 234, 0.3)',
-            textAlign: 'center'
+            border: '1px solid rgba(147, 51, 234, 0.3)',
+            textAlign: 'center',
+            position: 'relative',
+            overflow: 'hidden'
           }}
         >
-          <h3 style={{ color: '#c084fc', marginBottom: '1.5rem', fontSize: '1.3rem' }}>
-            THE ASK
+          {/* Inner Glow Animation */}
+          <motion.div
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+              scale: [1, 1.02, 1]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{
+              position: 'absolute',
+              top: -50,
+              left: -50,
+              right: -50,
+              bottom: -50,
+              background: 'radial-gradient(circle, rgba(236, 72, 153, 0.1), transparent)',
+              filter: 'blur(40px)',
+              zIndex: -1
+            }}
+          />
+
+          <h3 style={{ color: '#c084fc', marginBottom: '1.5rem', fontSize: '1.4rem', fontWeight: 'bold' }}>
+            THE INVESTMENT OPPORTUNITY
           </h3>
+          
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-            <div>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ec4899' }}>
-                {askDetails.raise}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Raise Amount</div>
-            </div>
-            <div>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#60a5fa' }}>
-                {askDetails.valuation}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Pre-Money Val</div>
-            </div>
-            <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80', paddingTop: '0.25rem' }}>
-                {askDetails.type}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Round Type</div>
-            </div>
-            <div>
-              <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#fbbf24', paddingTop: '0.5rem' }}>
-                {askDetails.lead}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Status</div>
-            </div>
-            <div>
-              <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#14b8a6', paddingTop: '0.25rem' }}>
-                {askDetails.minimum}
-              </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Minimum Check</div>
-            </div>
+            {[
+              { label: 'Raise Amount', value: askDetails.raise, prefix: '$', suffix: 'M', color: '#ec4899', icon: DollarSign },
+              { label: 'Pre-Money Val', value: askDetails.valuation, prefix: '$', suffix: 'M', color: '#60a5fa', icon: TrendingUp },
+              { label: 'Round Type', value: askDetails.type, color: '#4ade80', icon: Award },
+              { label: 'Status', value: askDetails.lead, color: '#fbbf24', icon: Target },
+              { label: 'Minimum Check', value: askDetails.minimum, prefix: '$', suffix: 'M', color: '#14b8a6', icon: Shield }
+            ].map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8 + index * 0.1, type: 'spring' }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                style={{ position: 'relative' }}
+              >
+                {/* Breathing Glow */}
+                <motion.div
+                  animate={{ scale: pulseAnimation ? 1 : 1.1 }}
+                  transition={{ duration: 0.5 }}
+                  style={{ marginBottom: '0.5rem' }}
+                >
+                  <metric.icon size={20} color={metric.color} />
+                </motion.div>
+                
+                <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: metric.color }}>
+                  {metric.prefix}
+                  {typeof metric.value === 'number' ? (
+                    <AnimatedCounter value={metric.value} duration={1500} delay={1000 + index * 100} />
+                  ) : (
+                    metric.value
+                  )}
+                  {metric.suffix}
+                </div>
+                <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginTop: '0.25rem' }}>
+                  {metric.label}
+                </div>
+              </motion.div>
+            ))}
           </div>
 
           {/* Use of Funds Bar */}
@@ -223,171 +254,319 @@ export default function ClosingCommitmentSlide() {
           </div>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginBottom: '2rem' }}>
-          {/* Why Now */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.9 }}
-            style={{
-              background: 'rgba(34, 197, 94, 0.05)',
-              borderRadius: '12px',
-              padding: '1.5rem'
-            }}
-          >
-            <Rocket size={24} style={{ color: '#4ade80', marginBottom: '0.75rem' }} />
-            <h4 style={{ color: '#4ade80', marginBottom: '0.75rem' }}>Why Now?</h4>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
-              <li style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.5rem' }}>
-                ✓ AI inflection point reached
-              </li>
-              <li style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.5rem' }}>
-                ✓ $112T wealth transfer starting
-              </li>
-              <li style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.5rem' }}>
-                ✓ Regulatory clarity emerging
-              </li>
-              <li style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>
-                ✓ First-mover advantage critical
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Investor Benefits */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.1 }}
-            style={{
-              background: 'rgba(59, 130, 246, 0.05)',
-              borderRadius: '12px',
-              padding: '1.5rem'
-            }}
-          >
-            <Star size={24} style={{ color: '#60a5fa', marginBottom: '0.75rem' }} />
-            <h4 style={{ color: '#60a5fa', marginBottom: '0.75rem' }}>Investor Benefits</h4>
-            {investorBenefits.map((benefit, index) => (
-              <div
-                key={index}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.75rem',
-                  marginBottom: '0.5rem'
-                }}
-              >
-                <benefit.icon size={16} style={{ color: '#60a5fa' }} />
-                <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>
-                  {benefit.text}
-                </span>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* Next Steps */}
+        {/* Investor Benefits Grid with Breathing Hover States */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.3 }}
+          transition={{ delay: 1.4 }}
           style={{
-            background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(236, 72, 153, 0.1))',
-            borderRadius: '12px',
-            padding: '1.5rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gap: '1.5rem',
             marginBottom: '2rem'
           }}
         >
-          <h4 style={{ color: '#fbbf24', marginBottom: '1rem', fontSize: '1.1rem' }}>
-            Next Steps
+          {investorBenefits.map((benefit, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.6 + index * 0.1, type: 'spring' }}
+              whileHover={{ scale: 1.03, y: -5 }}
+              onHoverStart={() => setHoveredBenefit(index)}
+              onHoverEnd={() => setHoveredBenefit(null)}
+              style={{
+                padding: '1.5rem',
+                background: 'rgba(255, 255, 255, 0.03)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '16px',
+                border: `1px solid ${benefit.color}40`,
+                position: 'relative',
+                overflow: 'hidden'
+              }}
+            >
+              {/* Particle Halo Effect on Hover */}
+              {hoveredBenefit === index && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{
+                    position: 'absolute',
+                    top: -20,
+                    left: -20,
+                    right: -20,
+                    bottom: -20,
+                    background: `radial-gradient(circle, ${benefit.color}30, transparent)`,
+                    filter: 'blur(25px)',
+                    zIndex: -1
+                  }}
+                />
+              )}
+
+              {/* Breathing Icon */}
+              <motion.div
+                animate={{
+                  scale: hoveredBenefit === index ? [1, 1.2, 1] : 1,
+                  rotate: hoveredBenefit === index ? [0, 5, 0] : 0
+                }}
+                transition={{ duration: 2, repeat: hoveredBenefit === index ? Infinity : 0 }}
+                style={{
+                  display: 'inline-flex',
+                  padding: '0.75rem',
+                  background: `${benefit.color}15`,
+                  borderRadius: '12px',
+                  marginBottom: '1rem'
+                }}
+              >
+                <benefit.icon size={24} color={benefit.color} />
+              </motion.div>
+
+              <p style={{
+                fontSize: '1rem',
+                color: '#e2e8f0',
+                fontWeight: '500',
+                lineHeight: '1.5'
+              }}>
+                {benefit.text}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Animated Next Steps Carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.0 }}
+          style={{
+            padding: '2rem',
+            background: 'rgba(255, 255, 255, 0.02)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '20px',
+            border: '1px solid rgba(251, 191, 36, 0.3)',
+            marginBottom: '2rem',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+        >
+          {/* Active Step Indicator */}
+          <motion.div
+            animate={{
+              left: `${activeStep * 25}%`
+            }}
+            transition={{ duration: 0.5, type: 'spring' }}
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              width: '25%',
+              height: '3px',
+              background: 'linear-gradient(90deg, #fbbf24, #f59e0b)',
+              borderRadius: '3px'
+            }}
+          />
+
+          <h4 style={{ 
+            color: '#fbbf24', 
+            marginBottom: '1.5rem', 
+            fontSize: '1.2rem',
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem'
+          }}>
+            <Rocket size={24} />
+            Next Steps Timeline
           </h4>
+
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
             {nextSteps.map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.4 + index * 0.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.2 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '0.5rem'
+                  padding: '1rem',
+                  background: index === activeStep ? 
+                    'linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(245, 158, 11, 0.2))' : 
+                    'rgba(255, 255, 255, 0.02)',
+                  borderRadius: '12px',
+                  border: `1px solid ${index === activeStep ? '#fbbf24' : 'rgba(251, 191, 36, 0.2)'}`,
+                  textAlign: 'center',
+                  position: 'relative'
                 }}
               >
-                <div style={{
-                  width: '30px',
-                  height: '30px',
-                  borderRadius: '50%',
-                  background: '#fbbf24',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.9rem',
+                {/* Step Icon with Breathing Animation */}
+                <motion.div
+                  animate={{ 
+                    scale: index === activeStep ? [1, 1.1, 1] : 1,
+                    rotate: index === activeStep ? [0, 5, 0] : 0
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    width: '40px',
+                    height: '40px',
+                    margin: '0 auto 0.75rem',
+                    background: `linear-gradient(135deg, ${index === activeStep ? '#fbbf24' : '#64748b'}, ${index === activeStep ? '#f59e0b' : '#475569'})`,
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <step.icon size={20} color="#fff" />
+                </motion.div>
+
+                <h5 style={{ 
+                  color: index === activeStep ? '#fbbf24' : '#e2e8f0',
+                  fontSize: '0.95rem',
                   fontWeight: 'bold',
-                  color: '#0f172a'
+                  marginBottom: '0.25rem'
                 }}>
-                  {index + 1}
-                </div>
-                <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{step}</span>
+                  {step.phase}
+                </h5>
+                
+                <p style={{ 
+                  color: '#94a3b8',
+                  fontSize: '0.8rem'
+                }}>
+                  {step.duration}
+                </p>
+
+                {/* Connecting Line */}
                 {index < nextSteps.length - 1 && (
-                  <ChevronRight size={16} style={{ color: '#64748b', marginLeft: 'auto' }} />
+                  <motion.div
+                    animate={{ 
+                      opacity: index < activeStep ? 1 : 0.3,
+                      scaleX: index < activeStep ? 1 : 0
+                    }}
+                    transition={{ duration: 0.5 }}
+                    style={{
+                      position: 'absolute',
+                      top: '30px',
+                      right: '-0.5rem',
+                      width: '1rem',
+                      height: '2px',
+                      background: '#fbbf24',
+                      transformOrigin: 'left'
+                    }}
+                  />
                 )}
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Call to Action */}
+        {/* Bold CTA Ribbon with Pulse Animation */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.8 }}
+          transition={{ delay: 2.8, type: 'spring', stiffness: 100 }}
           style={{
-            background: 'linear-gradient(135deg, #4ade80, #22c55e)',
-            borderRadius: '12px',
-            padding: '2rem',
+            background: 'linear-gradient(135deg, #10b981, #059669)',
+            borderRadius: '20px',
+            padding: '3rem',
             textAlign: 'center',
-            boxShadow: '0 10px 40px rgba(34, 197, 94, 0.3)'
+            boxShadow: '0 20px 60px rgba(16, 185, 129, 0.4)',
+            position: 'relative',
+            overflow: 'hidden'
           }}
         >
-          <h3 style={{ 
-            fontSize: '1.8rem', 
-            color: '#0f172a',
-            marginBottom: '0.75rem',
-            fontWeight: 'bold'
-          }}>
+          {/* Pulse Wave Animation */}
+          <motion.div
+            animate={{
+              scale: [1, 2, 3],
+              opacity: [0.5, 0.2, 0]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: '100px',
+              height: '100px',
+              borderRadius: '50%',
+              background: 'radial-gradient(circle, rgba(255, 255, 255, 0.4), transparent)'
+            }}
+          />
+
+          <motion.h3
+            animate={{ scale: pulseAnimation ? 1 : 1.05 }}
+            transition={{ duration: 0.5 }}
+            style={{ 
+              fontSize: '2rem', 
+              color: '#fff',
+              marginBottom: '1rem',
+              fontWeight: 'bold',
+              textShadow: '0 2px 10px rgba(0, 0, 0, 0.2)'
+            }}
+          >
             Let's Build the Future Together
-          </h3>
-          <p style={{ fontSize: '1rem', color: '#0f172a', marginBottom: '1.5rem' }}>
+          </motion.h3>
+          
+          <p style={{ 
+            fontSize: '1.1rem', 
+            color: '#fff', 
+            marginBottom: '2rem',
+            opacity: 0.95,
+            maxWidth: '600px',
+            margin: '0 auto 2rem'
+          }}>
             Join us in creating the AI-powered wealth management platform that will serve 
             millions of investors globally
           </p>
+
           <div style={{
             display: 'flex',
             justifyContent: 'center',
-            gap: '2rem',
+            gap: '1.5rem',
             flexWrap: 'wrap'
           }}>
-            <div style={{
-              padding: '0.75rem 2rem',
-              background: '#0f172a',
-              borderRadius: '8px',
-              color: '#4ade80',
-              fontSize: '1.1rem',
-              fontWeight: 'bold',
-              cursor: 'pointer'
-            }}>
-              Schedule Deep Dive →
-            </div>
-            <div style={{
-              padding: '0.75rem 2rem',
-              background: 'rgba(15, 23, 42, 0.5)',
-              borderRadius: '8px',
-              color: '#e2e8f0',
-              fontSize: '1.1rem',
-              cursor: 'pointer'
-            }}>
+            <motion.button
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{ 
+                boxShadow: pulseAnimation ? 
+                  '0 10px 40px rgba(255, 255, 255, 0.3)' : 
+                  '0 5px 20px rgba(255, 255, 255, 0.2)'
+              }}
+              transition={{ duration: 0.3 }}
+              style={{
+                padding: '1rem 2.5rem',
+                background: '#fff',
+                borderRadius: '12px',
+                color: '#059669',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              Schedule Deep Dive <ChevronRight size={20} />
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              style={{
+                padding: '1rem 2.5rem',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
+                borderRadius: '12px',
+                color: '#fff',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+                border: '2px solid rgba(255, 255, 255, 0.3)',
+                cursor: 'pointer'
+              }}
+            >
               Request Data Room
-            </div>
+            </motion.button>
           </div>
         </motion.div>
 
