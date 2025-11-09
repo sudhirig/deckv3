@@ -167,10 +167,10 @@ export default function FinancialProjections2Slide() {
             }}
           >
             <CircularProgress 
-              percentage={94} 
+              value={94} 
               size={150}
               strokeWidth={12}
-              gradient="from-green-400 to-emerald-500"
+              color="#22c55e"
             />
             <div style={{ marginTop: '1rem', textAlign: 'center' }}>
               <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>
