@@ -52,7 +52,7 @@ export default function ZerodhaLiveSnapshotSlide() {
   return (
     <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Premium Particle Animation */}
-      <ParticleBackground count={40} color="#ff7043" />
+      <ParticleBackground count={45} color="#ff7043" />
       
       {/* Multi-layer Animated Gradients */}
       <motion.div

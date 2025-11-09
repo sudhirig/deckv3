@@ -55,7 +55,7 @@ const LiveMetricsDashboardSlide = () => {
   
   return (
     <div className="slide-content" style={{ position: 'relative' }}>
-      <ParticleBackground count={60} color="#06b6d4" />
+      <ParticleBackground count={50} color="#06b6d4" />
       
       {/* Deep Space Gradient Background */}
       <div style={{

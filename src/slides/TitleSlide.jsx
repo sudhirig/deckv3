@@ -24,7 +24,7 @@ export default function TitleSlide() {
   return (
     <div className="slide-content title-slide" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Premium Particle Animation */}
-      <ParticleBackground count={40} color="#14b8a6" />
+      <ParticleBackground count={45} color="#14b8a6" />
       
       {/* Animated Gradient Background */}
       <motion.div

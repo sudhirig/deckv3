@@ -221,6 +221,50 @@ const slides = [
 
 function App() {
   const [currentSlide, setCurrentSlide] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+  const [showThumbnails, setShowThumbnails] = useState(false)
+  const [preloadedSlides, setPreloadedSlides] = useState(new Set([0]))
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Preload adjacent slides for smoother transitions
+  useEffect(() => {
+    const slidesToPreload = new Set([currentSlide])
+    if (currentSlide > 0) slidesToPreload.add(currentSlide - 1)
+    if (currentSlide < slides.length - 1) slidesToPreload.add(currentSlide + 1)
+    setPreloadedSlides(slidesToPreload)
+  }, [currentSlide])
+
+  // Get current section/act based on slide number
+  const getSlideSection = (slideIndex) => {
+    if (slideIndex <= 3) return 'Opening'
+    if (slideIndex >= 4 && slideIndex <= 7) return 'Act 1: Problem'
+    if (slideIndex >= 8 && slideIndex <= 12) return 'Act 2: Solution'
+    if (slideIndex >= 13 && slideIndex <= 27) return 'Act 3: Deep Dive'
+    if (slideIndex >= 28 && slideIndex <= 36) return 'Act 4: Proof'
+    if (slideIndex >= 37 && slideIndex <= 58) return 'Act 5: Business'
+    if (slideIndex >= 59 && slideIndex <= 75) return 'Opportunity'
+    if (slideIndex >= 76) return 'Appendix'
+    return ''
+  }
+
+  // Get act progress percentage
+  const getActProgress = (slideIndex) => {
+    if (slideIndex <= 7) return 20
+    if (slideIndex <= 12) return 40
+    if (slideIndex <= 27) return 60
+    if (slideIndex <= 36) return 80
+    if (slideIndex <= 75) return 90
+    return 100
+  }
 
   useEffect(() => {
     const handleKeyPress = (e) => {
@@ -234,6 +278,8 @@ function App() {
         setCurrentSlide(0)
       } else if (e.key === 'End') {
         setCurrentSlide(slides.length - 1)
+      } else if (e.key === 't' || e.key === 'T') {
+        setShowThumbnails(prev => !prev)
       }
     }
 
@@ -293,6 +339,93 @@ function App() {
         </AnimatePresence>
       </div>
 
+      {/* Progress Bar */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '4px',
+        background: 'rgba(255, 255, 255, 0.1)',
+        zIndex: 1000
+      }}>
+        <motion.div
+          style={{
+            height: '100%',
+            background: 'linear-gradient(90deg, #14b8a6, #3b82f6, #a855f7)',
+            transformOrigin: 'left'
+          }}
+          animate={{ scaleX: (currentSlide + 1) / slides.length }}
+          transition={{ duration: 0.3 }}
+        />
+        <div style={{
+          position: 'absolute',
+          top: '8px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          fontSize: '0.8rem',
+          color: '#94a3b8',
+          background: 'rgba(0, 0, 0, 0.8)',
+          padding: '2px 8px',
+          borderRadius: '4px'
+        }}>
+          {getSlideSection(currentSlide)} • {getActProgress(currentSlide)}% Complete
+        </div>
+      </div>
+
+      {/* Thumbnail Preview (Press T to toggle) */}
+      {showThumbnails && (
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          style={{
+            position: 'fixed',
+            top: '50px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            background: 'rgba(0, 0, 0, 0.95)',
+            borderRadius: '12px',
+            padding: '20px',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(6, 150px)',
+            gap: '10px',
+            maxHeight: '70vh',
+            overflowY: 'auto',
+            zIndex: 999,
+            backdropFilter: 'blur(20px)'
+          }}
+        >
+          {slides.map((slide, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              onClick={() => {
+                setCurrentSlide(index)
+                setShowThumbnails(false)
+              }}
+              style={{
+                cursor: 'pointer',
+                borderRadius: '8px',
+                border: index === currentSlide ? '2px solid #14b8a6' : '1px solid rgba(255, 255, 255, 0.1)',
+                padding: '8px',
+                background: index === currentSlide ? 'rgba(20, 184, 166, 0.1)' : 'rgba(255, 255, 255, 0.02)'
+              }}
+            >
+              <div style={{ fontSize: '0.7rem', color: '#94a3b8', marginBottom: '4px' }}>
+                Slide {index + 1}
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#fff', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                {slide.title}
+              </div>
+              <div style={{ fontSize: '0.6rem', color: '#64748b', marginTop: '4px' }}>
+                {getSlideSection(index)}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
+
       <div className="navigation">
         <button 
           onClick={() => setCurrentSlide(prev => Math.max(prev - 1, 0))}
@@ -300,9 +433,14 @@ function App() {
         >
           ←
         </button>
-        <span className="slide-counter">
-          {currentSlide + 1} / {slides.length}
-        </span>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+          <span style={{ fontSize: '0.8rem', color: '#14b8a6', fontWeight: 'bold' }}>
+            {getSlideSection(currentSlide)}
+          </span>
+          <span className="slide-counter">
+            {currentSlide + 1} / {slides.length}
+          </span>
+        </div>
         <button 
           onClick={() => setCurrentSlide(prev => Math.min(prev + 1, slides.length - 1))}
           disabled={currentSlide === slides.length - 1}
@@ -319,7 +457,7 @@ function App() {
       </div>
 
       <div className="instructions">
-        Use ← → arrow keys or click to navigate • Press Ctrl/Cmd + P to export PDF
+        Use ← → arrow keys or click to navigate • Press T for thumbnails • Ctrl/Cmd + P to export PDF
         <br />
         <span style={{ fontSize: '0.9em', opacity: 0.7 }}>
           💾 Recommended filename: AI-Digital-Family-Office-Deck_2025-11-05.pdf

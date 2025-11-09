@@ -59,7 +59,7 @@ export default function ClosingCommitmentSlide() {
   return (
     <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Premium Particle Animation */}
-      <ParticleBackground count={55} color="#ec4899" />
+      <ParticleBackground count={50} color="#ec4899" />
       
       {/* Animated Gradient Background */}
       <motion.div

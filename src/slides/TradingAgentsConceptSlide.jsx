@@ -10,7 +10,7 @@ import './SlideStyles.css'
 const TradingAgentsConceptSlide = () => {
   return (
     <div className="slide-content" style={{ position: 'relative' }}>
-      <ParticleBackground count={60} color="#fbbf24" />
+      <ParticleBackground count={50} color="#fbbf24" />
       
       {/* Deep Space Gradient Background */}
       <div style={{

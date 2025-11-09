@@ -10,7 +10,7 @@ import './SlideStyles.css'
 const AgenticAIConceptSlide = () => {
   return (
     <div className="slide-content" style={{ position: 'relative' }}>
-      <ParticleBackground count={55} color="#a855f7" />
+      <ParticleBackground count={50} color="#a855f7" />
       
       {/* Deep Space Gradient Background */}
       <div style={{

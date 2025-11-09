@@ -11,7 +11,7 @@ import './SlideStyles.css'
 const Act1to2TransitionSlide = () => {
   return (
     <div className="slide-content act-slide" style={{ position: 'relative' }}>
-      <ParticleBackground count={50} color="#22c55e" />
+      <ParticleBackground count={55} color="#22c55e" />
       
       {/* Deep Space Gradient Background */}
       <div style={{

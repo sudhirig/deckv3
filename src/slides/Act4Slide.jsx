@@ -19,8 +19,8 @@ export default function Act4Slide() {
   
   return (
     <div className="slide-content act-slide" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Premium Particle Animation - 45 particles */}
-      <ParticleBackground count={45} color="#a78bfa" />
+      {/* Premium Particle Animation - 50 particles */}
+      <ParticleBackground count={50} color="#a78bfa" />
       
       {/* Multi-layer Animated Gradients */}
       <motion.div

@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
-export default function ParticleBackground({ count = 30, color = '#14b8a6' }) {
+export default function ParticleBackground({ count = 30, color = '#14b8a6', isMobile = false }) {
   const [particles, setParticles] = useState([])
 
   useEffect(() => {
-    const newParticles = Array.from({ length: count }, (_, i) => ({
+    // Reduce particle count on mobile for better performance
+    const particleCount = isMobile ? Math.floor(count * 0.5) : count
+    const newParticles = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: Math.random() * 100,
@@ -14,7 +16,7 @@ export default function ParticleBackground({ count = 30, color = '#14b8a6' }) {
       delay: Math.random() * 5
     }))
     setParticles(newParticles)
-  }, [count])
+  }, [count, isMobile])
 
   return (
     <div style={{ 

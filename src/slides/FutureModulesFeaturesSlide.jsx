@@ -29,7 +29,7 @@ export default function FutureModulesFeaturesSlide() {
   return (
     <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Premium Particle Animation */}
-      <ParticleBackground count={60} color="#fbbf24" />
+      <ParticleBackground count={50} color="#fbbf24" />
       
       {/* Multi-layer Animated Gradients */}
       <motion.div

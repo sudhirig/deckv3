@@ -11,7 +11,7 @@ import './SlideStyles.css'
 const GiftCityGrowthStagesSlide = () => {
   return (
     <div className="slide-content" style={{ position: 'relative' }}>
-      <ParticleBackground count={60} color="#f59e0b" />
+      <ParticleBackground count={50} color="#f59e0b" />
       
       {/* Deep Space Gradient Background */}
       <div style={{

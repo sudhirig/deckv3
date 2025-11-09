@@ -30,7 +30,7 @@ export default function AgenticAIFeaturesSlide() {
   return (
     <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Premium Particle Animation */}
-      <ParticleBackground count={55} color="#a855f7" />
+      <ParticleBackground count={50} color="#a855f7" />
       
       {/* Multi-layer Animated Gradients */}
       <motion.div

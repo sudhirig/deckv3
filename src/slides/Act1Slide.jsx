@@ -6,7 +6,7 @@ import './SlideStyles.css'
 export default function Act1Slide() {
   return (
     <div className="slide-content act-slide" style={{ position: 'relative' }}>
-      <ParticleBackground count={40} color="#14b8a6" />
+      <ParticleBackground count={50} color="#14b8a6" />
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}

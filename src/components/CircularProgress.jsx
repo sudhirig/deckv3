@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { useEffect, useState, useRef } from 'react'
 
 export default function CircularProgress({ 
-  value, 
+  value = 0, 
   size = 120, 
   strokeWidth = 8, 
   color = '#14b8a6',
@@ -12,7 +12,7 @@ export default function CircularProgress({
   const [displayValue, setDisplayValue] = useState(0)
   const timerRef = useRef(null)
   const intervalRef = useRef(null)
-  const radius = (size - strokeWidth) / 2
+  const radius = Math.max(0, (size - strokeWidth) / 2) // Ensure radius is never negative
   const circumference = radius * 2 * Math.PI
   const offset = circumference - (displayValue / 100) * circumference
 

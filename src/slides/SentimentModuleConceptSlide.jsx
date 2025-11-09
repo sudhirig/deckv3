@@ -11,7 +11,7 @@ import './SlideStyles.css'
 const SentimentModuleConceptSlide = () => {
   return (
     <div className="slide-content" style={{ position: 'relative' }}>
-      <ParticleBackground count={55} color="#3b82f6" />
+      <ParticleBackground count={50} color="#3b82f6" />
       
       {/* Deep Space Gradient Background */}
       <div style={{
