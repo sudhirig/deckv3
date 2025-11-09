@@ -1,10 +1,23 @@
-import { motion } from 'framer-motion'
+import React, { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
-import { ChevronRight, Clock, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react'
+import { ChevronRight, Clock, Sparkles, TrendingUp, Shield, Zap, ArrowRight } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function CustomerJourney1Slide() {
+  const [activeStep, setActiveStep] = useState(-1)
+  
+  // Cinematic sequencing
+  useEffect(() => {
+    const sequence = [0, 1, 2, 3]
+    sequence.forEach((step, index) => {
+      setTimeout(() => {
+        setActiveStep(step)
+      }, 800 + (index * 600))
+    })
+  }, [])
+  
   const journeySteps = [
     {
       phase: 'Discovery',
@@ -108,13 +121,41 @@ export default function CustomerJourney1Slide() {
                 style={{ position: 'relative' }}
               >
                 {/* Step Card */}
-                <div style={{
-                  background: `linear-gradient(135deg, ${step.color}15, transparent)`,
-                  border: `1px solid ${step.color}33`,
-                  borderRadius: '12px',
-                  padding: '1.5rem',
-                  height: '100%'
-                }}>
+                <motion.div 
+                  style={{
+                    background: activeStep === index 
+                      ? `linear-gradient(135deg, ${step.color}25, ${step.color}10)`
+                      : `linear-gradient(135deg, ${step.color}15, transparent)`,
+                    border: `1px solid ${step.color}33`,
+                    borderRadius: '12px',
+                    padding: '1.5rem',
+                    height: '100%',
+                    position: 'relative',
+                    overflow: 'hidden'
+                  }}
+                  animate={activeStep === index ? {
+                    scale: [1, 1.02, 1],
+                    boxShadow: [`0 0 0 ${step.color}00`, `0 0 20px ${step.color}55`, `0 0 0 ${step.color}00`]
+                  } : {}}
+                  transition={{ duration: 0.6 }}
+                >
+                  {/* Glow effect when active */}
+                  {activeStep === index && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: [0, 0.3, 0] }}
+                      transition={{ duration: 0.8 }}
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        background: `radial-gradient(circle at center, ${step.color}33, transparent)`,
+                        pointerEvents: 'none'
+                      }}
+                    />
+                  )}
                   {/* Icon and Duration */}
                   <div style={{ 
                     display: 'flex', 
@@ -200,7 +241,7 @@ export default function CustomerJourney1Slide() {
                   }}>
                     {step.metric}
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Arrow */}
                 {index < journeySteps.length - 1 && (
