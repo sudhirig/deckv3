@@ -1,171 +1,352 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
+import ParticleBackground from '../components/ParticleBackground'
+import GradientText from '../components/GradientText'
+import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
-import { ArrowRight, Users, Cpu, Zap, Target, Award, Sparkles, TrendingUp, Shield, CheckCircle } from 'lucide-react'
+import { ArrowRight, Users, Brain, Shield, CheckCircle, Sparkles, Code, Database, Zap } from 'lucide-react'
+import './SlideStyles.css'
 
 const Act2to3TransitionSlide = () => {
-  const [animateProgress, setAnimateProgress] = useState(false)
-  
-  useEffect(() => {
-    const timer = setTimeout(() => setAnimateProgress(true), 500)
-    return () => clearTimeout(timer)
-  }, [])
-  
   return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+    <div className="slide-content act-slide" style={{ position: 'relative' }}>
+      <ParticleBackground count={45} color="#3b82f6" />
+      
+      {/* Deep Space Gradient Background */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 60%), radial-gradient(circle at 20% 70%, rgba(99, 102, 241, 0.1) 0%, transparent 50%)',
+        zIndex: 0
+      }} />
+      
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, type: 'spring' }}
+        className="act-content"
+        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+      >
+        {/* Journey Progress */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          style={{ marginBottom: '3rem' }}
         >
-          <h1 className="gradient-text text-5xl mb-4">Solution Defined</h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginBottom: '1rem' }}>
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+              style={{
+                width: '80px',
+                height: '80px',
+                borderRadius: '50%',
+                background: 'conic-gradient(from 0deg, #3b82f6, #06b6d4, #3b82f6)',
+                padding: '3px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <div style={{
+                width: '100%',
+                height: '100%',
+                borderRadius: '50%',
+                background: '#0a0a0a',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#3b82f6' }}>
+                  <AnimatedCounter end={40} duration={1500} />%
+                </span>
+              </div>
+            </motion.div>
+            
+            <div>
+              <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>JOURNEY PROGRESS</p>
+              <h2 style={{ fontSize: '1.8rem', color: '#fff', fontWeight: '600' }}>Act 2 → Act 3</h2>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Main Title */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
+          style={{ textAlign: 'center', marginBottom: '3rem' }}
+        >
+          <h1 style={{ fontSize: '4rem', fontWeight: '700', marginBottom: '1rem' }}>
+            <GradientText gradient="from-blue-400 via-cyan-400 to-teal-400">
+              Solution Defined
+            </GradientText>
+          </h1>
+          <p style={{ fontSize: '1.8rem', color: '#94a3b8' }}>
+            Now, See the Proof in Action
+          </p>
+        </motion.div>
+
+        {/* Central Showcase */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
+          style={{
+            textAlign: 'center',
+            marginBottom: '3rem',
+            padding: '2rem',
+            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
+            borderRadius: '20px'
+          }}
+        >
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-center mb-6"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{
+              display: 'inline-block',
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(99, 102, 241, 0.1) 100%)',
+              borderRadius: '50%',
+              marginBottom: '1.5rem'
+            }}
           >
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-r from-blue-500/20 to-teal-500/20 mb-4">
-              <Sparkles className="w-10 h-10 text-teal-400" />
-            </div>
-            <h2 className="text-3xl text-teal-400">See the Proof</h2>
-          </motion.div>
-        </motion.div>
-
-        {/* Enhanced Progress Metrics */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="grid grid-cols-4 gap-3 mb-6"
-        >
-          <div className="glassmorphic-card p-3 text-center">
-            <Users className="w-5 h-5 text-purple-400 mx-auto mb-1" />
-            <div className="text-2xl font-bold text-purple-400">
-              <AnimatedCounter end={68} duration={1500} />+
-            </div>
-            <p className="text-xs text-gray-400">AI Agents</p>
-          </div>
-          <div className="glassmorphic-card p-3 text-center">
-            <Target className="w-5 h-5 text-blue-400 mx-auto mb-1" />
-            <div className="text-2xl font-bold text-blue-400">
-              <AnimatedCounter end={7} duration={1500} />
-            </div>
-            <p className="text-xs text-gray-400">Modules</p>
-          </div>
-          <div className="glassmorphic-card p-3 text-center">
-            <TrendingUp className="w-5 h-5 text-green-400 mx-auto mb-1" />
-            <div className="text-2xl font-bold text-green-400">
-              <AnimatedCounter end={250} duration={1500} />M
-            </div>
-            <p className="text-xs text-gray-400">Target AUM</p>
-          </div>
-          <div className="glassmorphic-card p-3 text-center">
-            <Award className="w-5 h-5 text-yellow-400 mx-auto mb-1" />
-            <div className="text-2xl font-bold text-yellow-400">
-              <AnimatedCounter end={100} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Live</p>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.6 }}
-          className="grid grid-cols-2 gap-6"
-        >
-          <motion.div 
-            className="glassmorphic-card"
-            whileHover={{ scale: 1.02 }}
-          >
-            <div className="flex items-center mb-3">
-              <Cpu className="w-5 h-5 text-blue-400 mr-2" />
-              <h3 className="text-lg text-blue-400 font-semibold">Solution Recap</h3>
-            </div>
-            <div className="space-y-3">
-              {[
-                { icon: <Users />, text: 'AI Family Office with 68+ agents', value: 68 },
-                { icon: <Zap />, text: 'Three alpha sources automated', value: 3 },
-                { icon: <Shield />, text: 'Institutional grade, retail access', value: 100 }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ x: -20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 1 + index * 0.1 }}
-                  className="flex items-center justify-between"
-                >
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 text-blue-300 mr-2">
-                      {React.cloneElement(item.icon, { className: 'w-4 h-4' })}
-                    </div>
-                    <span className="text-sm">{item.text}</span>
-                  </div>
-                  <CircularProgress value={item.value} size={30} strokeWidth={2} />
-                </motion.div>
-              ))}
-            </div>
+            <Sparkles className="w-16 h-16 text-blue-400" />
           </motion.div>
           
-          <motion.div 
-            className="glassmorphic-card"
-            whileHover={{ scale: 1.02 }}
+          <h2 style={{ fontSize: '2.5rem', color: '#60a5fa', marginBottom: '1rem' }}>
+            68+ AI Agents Working 24/7
+          </h2>
+          <p style={{ fontSize: '1.2rem', color: '#94a3b8' }}>
+            Let's see them in action
+          </p>
+        </motion.div>
+
+        {/* Solution Architecture */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
+              border: '1px solid rgba(34, 197, 94, 0.3)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
           >
-            <div className="flex items-center mb-3">
-              <ArrowRight className="w-5 h-5 text-teal-400 mr-2" />
-              <h3 className="text-lg text-teal-400 font-semibold">Coming Next</h3>
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <Code className="w-8 h-8 text-green-400 mr-3" />
+                <h3 style={{ fontSize: '1.5rem', color: '#22c55e' }}>Solution Recap</h3>
+              </div>
+              
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#f8f9fa' }}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1, duration: 0.4 }}
+                  style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                >
+                  <Brain className="w-5 h-5 text-green-300 mr-3 flex-shrink-0" />
+                  <span>AI Family Office with <strong style={{ color: '#14b8a6' }}>68+ agents</strong></span>
+                </motion.div>
+                
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.1, duration: 0.4 }}
+                  style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                >
+                  <Zap className="w-5 h-5 text-green-300 mr-3 flex-shrink-0" />
+                  <span>Three <strong style={{ color: '#14b8a6' }}>alpha sources</strong> automated</span>
+                </motion.div>
+                
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.2, duration: 0.4 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Shield className="w-5 h-5 text-green-300 mr-3 flex-shrink-0" />
+                  <span><strong style={{ color: '#22c55e' }}>Institutional grade</strong>, retail access</span>
+                </motion.div>
+              </div>
+              
+              {/* Status Indicator */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.3 }}
+                style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between' }}
+              >
+                <CircularProgress value={100} size={50} strokeWidth={3} />
+                <CircularProgress value={100} size={50} strokeWidth={3} />
+                <CircularProgress value={100} size={50} strokeWidth={3} />
+              </motion.div>
             </div>
-            <div className="space-y-3">
-              {[
-                { icon: <CheckCircle />, text: 'Live platform demonstration', status: 'ready' },
-                { icon: <CheckCircle />, text: 'Real customer results', status: 'ready' },
-                { icon: <CheckCircle />, text: '100% operational today', status: 'ready' }
-              ].map((item, index) => (
+          </motion.div>
+
+          {/* Coming Next */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8, duration: 0.6 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
+              border: '1px solid rgba(59, 130, 246, 0.3)',
+              position: 'relative',
+              overflow: 'hidden'
+            }}
+          >
+            <div style={{ position: 'relative', zIndex: 1 }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                <Database className="w-8 h-8 text-blue-400 mr-3" />
+                <h3 style={{ fontSize: '1.5rem', color: '#3b82f6' }}>Coming Next</h3>
+              </div>
+              
+              <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#f8f9fa' }}>
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.4, duration: 0.4 }}
+                  style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                >
+                  <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                  <span><strong style={{ color: '#60a5fa' }}>Live platform</strong> demonstration</span>
+                </motion.div>
+                
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.5, duration: 0.4 }}
+                  style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                >
+                  <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                  <span>Real <strong style={{ color: '#60a5fa' }}>customer results</strong></span>
+                </motion.div>
+                
+                <motion.div 
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 1.6, duration: 0.4 }}
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <CheckCircle className="w-5 h-5 text-blue-300 mr-3 flex-shrink-0" />
+                  <span><strong style={{ color: '#3b82f6' }}>100% operational</strong> today</span>
+                </motion.div>
+              </div>
+              
+              {/* Live Pulse Animation */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.7 }}
+                style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'center' }}
+              >
                 <motion.div
-                  key={index}
-                  initial={{ x: 20, opacity: 0 }}
-                  animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 1 + index * 0.1 }}
-                  className="flex items-center"
+                  animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    borderRadius: '50%',
+                    background: 'radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)'
+                  }}
                 >
                   <motion.div
                     animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 1, repeat: Infinity, repeatDelay: 2 }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.2 }}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      borderRadius: '50%',
+                      background: 'radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, transparent 50%)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
                   >
-                    {React.cloneElement(item.icon, { 
-                      className: `w-5 h-5 ${item.status === 'ready' ? 'text-green-400' : 'text-gray-400'} mr-2` 
-                    })}
+                    <div style={{
+                      width: '20px',
+                      height: '20px',
+                      borderRadius: '50%',
+                      background: '#3b82f6'
+                    }} />
                   </motion.div>
-                  <span className="text-sm">{item.text}</span>
                 </motion.div>
-              ))}
+              </motion.div>
             </div>
           </motion.div>
+        </div>
+
+        {/* Achievement Metrics */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.6 }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '1.5rem',
+            marginBottom: '2rem'
+          }}
+        >
+          {[
+            { icon: Users, label: 'Agents Ready', value: 68, color: '#8b5cf6' },
+            { icon: Code, label: 'Modules Live', value: 7, color: '#3b82f6' },
+            { icon: Zap, label: 'Response Time', value: 11, suffix: 'ms', color: '#14b8a6' },
+            { icon: ArrowRight, label: 'Platform Status', value: 100, suffix: '%', color: '#22c55e' }
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05 }}
+              className="glass-card"
+              style={{
+                padding: '1.5rem',
+                textAlign: 'center',
+                background: `linear-gradient(135deg, ${item.color}20 0%, ${item.color}10 100%)`,
+                border: `1px solid ${item.color}40`
+              }}
+            >
+              <item.icon className="w-8 h-8 mx-auto mb-2" style={{ color: item.color }} />
+              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: item.color }}>
+                <AnimatedCounter end={item.value} duration={1500 + index * 200} />
+                {item.suffix}
+              </div>
+              <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>{item.label}</p>
+            </motion.div>
+          ))}
         </motion.div>
 
+        {/* Call to Action */}
         <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: '100%' }}
-          transition={{ delay: 0.9, duration: 1 }}
-          className="mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.2, duration: 0.6 }}
+          style={{ 
+            textAlign: 'center',
+            padding: '1.5rem',
+            background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%)',
+            borderRadius: '16px',
+            border: '1px solid rgba(139, 92, 246, 0.3)'
+          }}
         >
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-sm text-gray-400">Journey Progress</span>
-            <span className="text-sm text-teal-400">40%</span>
-          </div>
-          <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-            <motion.div
-              initial={{ width: '20%' }}
-              animate={{ width: '40%' }}
-              transition={{ delay: 1, duration: 0.8 }}
-              className="h-full bg-gradient-to-r from-teal-500 to-green-500"
-            />
-          </div>
+          <p style={{ fontSize: '1.3rem', color: '#8b5cf6', fontWeight: 'bold' }}>
+            Platform is 100% operational. Ready to see the deep dive?
+          </p>
+          <p style={{ fontSize: '1rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+            Let's explore our three defensible moats and live platform demos
+          </p>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   )
 }
