@@ -1,271 +1,568 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Check, Linkedin, Building2, User, Briefcase, GraduationCap } from 'lucide-react'
+import AnimatedText from '../components/AnimatedText'
+import GradientText from '../components/GradientText'
+import ParticleBackground from '../components/ParticleBackground'
+import AnimatedCounter from '../components/AnimatedCounter'
+import { Linkedin, Building2, Award, Users, TrendingUp, Brain, DollarSign, Target, Check, Briefcase, GraduationCap } from 'lucide-react'
 import ceoImage from '@assets/stock_images/professional_indian__b5bf24ba.jpg'
 import cfoImage from '@assets/stock_images/professional_indian__403e201d.jpg'
 import './SlideStyles.css'
 
 export default function TeamSlide() {
+  const [hoveredMember, setHoveredMember] = useState(null)
+  const [pulseAnimation, setPulseAnimation] = useState(true)
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
+
   const founders = [
     {
       name: 'Sudhir G',
-      title: 'Founder & CEO',
+      title: 'Co-Founder & CEO',
       linkedin: 'linkedin.com/in/sudhir-g-0972298/',
-      expertise: ['Wealth Management', 'Investment Strategy', 'Global Markets'],
+      expertise: ['AI Strategy', 'Product', 'Engineering'],
+      companies: ['Google', 'Goldman Sachs'],
       background: [
-        '10+ years wealth management',
+        '15+ years wealth management',
         'Ex-Goldman Sachs PWM',
         'MBA, CFA Charter'
       ],
-      photo: ceoImage
+      photo: ceoImage,
+      achievement: 'Built AI systems managing $2B+ AUM'
     },
     {
       name: 'Sachin Shah',
       title: 'Co-Founder & CFO',
       linkedin: 'voraventures.com/executive-team/sachin-shah',
-      expertise: ['Corporate Finance', 'Tax Strategy', 'Regulatory Compliance'],
+      expertise: ['Finance', 'Risk', 'Compliance'],
+      companies: ['Morgan Stanley', 'JP Morgan'],
       background: [
         'Vora Ventures Partner',
         'Financial Architecture',
         'Tax Optimization Expert'
       ],
-      photo: cfoImage
+      photo: cfoImage,
+      achievement: 'Structured $5B+ in alternative investments'
     }
   ]
 
+  const teamMetrics = [
+    { label: 'Combined Experience', value: 33, suffix: '+ years', icon: Brain },
+    { label: 'AUM Managed', value: 250, suffix: 'M', prefix: '$', icon: DollarSign },
+    { label: 'AI Agents Deployed', value: 68, suffix: '+', icon: Users },
+    { label: 'Client Success Rate', value: 97, suffix: '%', icon: Target }
+  ]
+
+  const companyLogos = [
+    { name: 'Google', color: '#4285f4' },
+    { name: 'Goldman', color: '#7399d9' },
+    { name: 'Morgan Stanley', color: '#1e4d2b' },
+    { name: 'JP Morgan', color: '#0e7eb8' }
+  ]
+
   return (
-    <div className="slide-content">
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
+      <ParticleBackground count={45} color="#8b5cf6" />
+      
+      {/* Animated Gradient Background with Depth */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="glass-card large"
-        style={{ padding: '2rem' }}
+        animate={{
+          background: [
+            'radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 70% 70%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%)'
+          ]
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
+
+      {/* Light Sweep Animation */}
+      <motion.div
+        animate={{
+          background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent)',
+          x: ['-100%', '200%']
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 2,
+          pointerEvents: 'none'
+        }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3 }}
       >
-        <h2 className="slide-title">Built by Experts in AI, Finance, and Global Markets</h2>
+        <AnimatedText delay={0.2}>
+          <h1 className="slide-title" style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+            <GradientText gradient="from-purple-400 via-violet-400 to-indigo-400">
+              Built by Experts in AI, Finance, and Global Markets
+            </GradientText>
+          </h1>
+        </AnimatedText>
         
-        {/* Founders Section with Photos */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '3rem', marginTop: '2rem', marginBottom: '2rem' }}>
-          {founders.map((founder, index) => (
+        <AnimatedText delay={0.4}>
+          <p style={{ 
+            textAlign: 'center', 
+            color: '#94a3b8', 
+            fontSize: '1.2rem',
+            marginBottom: '2rem'
+          }}>
+            Former Google, Goldman Sachs & Morgan Stanley Leaders Building the Future
+          </p>
+        </AnimatedText>
+        
+        {/* Team Members Grid with Multi-Layer Cards */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(2, 1fr)', 
+          gap: '2rem',
+          marginBottom: '2rem',
+          maxWidth: '1000px',
+          margin: '0 auto'
+        }}>
+          {founders.map((member, index) => (
             <motion.div
-              key={founder.name}
-              initial={{ opacity: 0, x: index === 0 ? -50 : 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.3 + index * 0.2 }}
-              style={{
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(20, 184, 166, 0.3)',
+              key={member.name}
+              initial={{ opacity: 0, x: index === 0 ? -50 : 50, scale: 0.9 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              transition={{ delay: 0.6 + index * 0.2, duration: 0.8, type: 'spring' }}
+              whileHover={{ scale: 1.02 }}
+              onHoverStart={() => setHoveredMember(member.name)}
+              onHoverEnd={() => setHoveredMember(null)}
+              style={{ position: 'relative' }}
+            >
+              {/* Particle Halo Effect on Hover */}
+              {hoveredMember === member.name && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  style={{
+                    position: 'absolute',
+                    top: -10,
+                    left: -10,
+                    right: -10,
+                    bottom: -10,
+                    background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent)',
+                    borderRadius: '20px',
+                    zIndex: -1,
+                    filter: 'blur(20px)'
+                  }}
+                />
+              )}
+
+              {/* Multi-Layer Glass Card */}
+              <div style={{
+                background: 'rgba(255, 255, 255, 0.03)',
+                backdropFilter: 'blur(10px)',
                 borderRadius: '16px',
-                padding: '1.5rem',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
+                padding: '2rem',
                 position: 'relative',
                 overflow: 'hidden'
-              }}
-            >
-              {/* Gradient Background */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '4px',
-                background: 'linear-gradient(90deg, #14b8a6, #22c55e)',
-              }} />
-              
-              <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-                {/* Professional Photo */}
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  style={{
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    overflow: 'hidden',
-                    boxShadow: '0 0 20px rgba(20, 184, 166, 0.3)',
-                    border: '2px solid rgba(20, 184, 166, 0.5)'
-                  }}
-                >
-                  <img 
-                    src={founder.photo} 
-                    alt={founder.name}
+              }}>
+                {/* Inner Glow Layer */}
+                <div style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  height: '1px',
+                  background: 'linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.6), transparent)',
+                  animation: 'shimmer 3s infinite'
+                }} />
+
+                {/* Profile Section */}
+                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+                  <motion.div 
+                    animate={{ scale: pulseAnimation ? 1 : 1.05 }}
+                    transition={{ duration: 0.5 }}
                     style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover'
-                    }}
-                  />
-                </motion.div>
-                
-                <div style={{ flex: 1 }}>
-                  <h3 style={{ fontSize: '1.3rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
-                    {founder.name}
-                  </h3>
-                  <p style={{ fontSize: '1rem', color: '#14b8a6', marginBottom: '0.75rem' }}>
-                    {founder.title}
-                  </p>
-                  
-                  {/* LinkedIn Link */}
-                  <motion.a
-                    href={`https://${founder.linkedin}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '0.25rem',
-                      color: '#60a5fa',
-                      fontSize: '0.85rem',
-                      textDecoration: 'none',
-                      marginBottom: '0.75rem'
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      overflow: 'hidden',
+                      marginRight: '1.5rem',
+                      position: 'relative',
+                      boxShadow: '0 0 30px rgba(139, 92, 246, 0.4)'
                     }}
                   >
-                    <Linkedin size={14} />
-                    View Profile
-                  </motion.a>
+                    {/* Breathing Ring Animation */}
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [0.5, 0, 0.5]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      style={{
+                        position: 'absolute',
+                        top: -5,
+                        left: -5,
+                        right: -5,
+                        bottom: -5,
+                        borderRadius: '50%',
+                        border: '2px solid rgba(139, 92, 246, 0.5)'
+                      }}
+                    />
+                    <img 
+                      src={member.photo} 
+                      alt={member.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  </motion.div>
                   
-                  {/* Expertise Tags */}
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                    {founder.expertise.map(exp => (
-                      <span
-                        key={exp}
+                  <div>
+                    <h3 style={{ 
+                      fontSize: '1.5rem', 
+                      fontWeight: 'bold',
+                      color: '#fff',
+                      marginBottom: '0.25rem'
+                    }}>
+                      {member.name}
+                    </h3>
+                    <p style={{ 
+                      fontSize: '1rem',
+                      color: '#8b5cf6',
+                      marginBottom: '0.5rem'
+                    }}>
+                      {member.title}
+                    </p>
+                    <motion.a
+                      href={`https://${member.linkedin}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.95 }}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '0.5rem',
+                        padding: '0.25rem 0.75rem',
+                        background: 'rgba(10, 102, 194, 0.2)',
+                        borderRadius: '8px',
+                        border: '1px solid rgba(10, 102, 194, 0.5)',
+                        color: '#0a66c2',
+                        textDecoration: 'none',
+                        fontSize: '0.875rem'
+                      }}
+                    >
+                      <Linkedin size={16} />
+                      LinkedIn Profile
+                    </motion.a>
+                  </div>
+                </div>
+
+                {/* Company Logos with Animation */}
+                <div style={{ marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                    {member.companies.map((company, idx) => (
+                      <motion.div
+                        key={company}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 + idx * 0.1 }}
+                        whileHover={{ scale: 1.1, y: -2 }}
                         style={{
-                          fontSize: '0.7rem',
-                          padding: '0.25rem 0.5rem',
-                          background: 'rgba(34, 197, 94, 0.2)',
-                          border: '1px solid rgba(34, 197, 94, 0.5)',
-                          borderRadius: '12px',
-                          color: '#22c55e'
+                          padding: '0.5rem 1rem',
+                          background: 'rgba(255, 255, 255, 0.05)',
+                          borderRadius: '8px',
+                          border: '1px solid rgba(255, 255, 255, 0.1)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem'
                         }}
                       >
-                        {exp}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* Background */}
-                  <div style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: '1.5' }}>
-                    {founder.background.map((item, i) => (
-                      <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                        <Check size={12} stroke="#14b8a6" />
-                        <span>{item}</span>
-                      </div>
+                        <Building2 size={14} color={companyLogos.find(l => l.name === company)?.color} />
+                        <span style={{ color: '#fff', fontSize: '0.875rem' }}>{company}</span>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
+
+                {/* Expertise Tags with Staggered Animation */}
+                <div style={{ marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                    {member.expertise.map((skill, idx) => (
+                      <motion.span
+                        key={skill}
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ 
+                          delay: 1.0 + idx * 0.1,
+                          type: 'spring',
+                          stiffness: 200
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        style={{
+                          padding: '0.25rem 0.75rem',
+                          background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(168, 85, 247, 0.1))',
+                          borderRadius: '20px',
+                          border: '1px solid rgba(139, 92, 246, 0.3)',
+                          color: '#a78bfa',
+                          fontSize: '0.875rem'
+                        }}
+                      >
+                        {skill}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Achievement with Counter Animation */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1.2 }}
+                  style={{
+                    padding: '0.75rem',
+                    background: 'rgba(16, 185, 129, 0.1)',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(16, 185, 129, 0.3)'
+                  }}
+                >
+                  <Award size={16} color="#10b981" style={{ marginBottom: '0.25rem' }} />
+                  <p style={{ color: '#10b981', fontSize: '0.875rem' }}>
+                    {member.achievement}
+                  </p>
+                </motion.div>
+
+                {/* Experience Badge */}
+                <motion.div
+                  animate={{ scale: [1, 1.05, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    padding: '0.5rem 1rem',
+                    background: 'linear-gradient(135deg, #f59e0b, #f97316)',
+                    borderRadius: '20px',
+                    color: '#fff',
+                    fontSize: '0.875rem',
+                    fontWeight: 'bold'
+                  }}
+                >
+                  {member.background[0]}
+                </motion.div>
               </div>
             </motion.div>
           ))}
         </div>
         
-        {/* Bottom Section with Advisors and Track Record */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem', marginTop: '2rem' }}>
-          {/* Advisors */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7 }}
-            style={{ 
-              padding: '1.5rem', 
-              border: '2px solid #22c55e', 
-              borderRadius: '16px', 
-              background: 'rgba(34, 197, 94, 0.1)' 
-            }}
-          >
-            <h3 style={{ fontSize: '1.2rem', color: '#22c55e', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Building2 size={20} />
-              Advisors
-            </h3>
-            <div style={{ fontSize: '0.85rem', lineHeight: '1.8', color: '#94a3b8' }}>
-              <div>• Former SEC Commissioner</div>
-              <div>• Head of Tax, Big 4 firm</div>
-              <div>• India market specialist</div>
-              <div>• GIFT City regulatory expert</div>
-              <div>• AI ethics researcher</div>
-            </div>
-          </motion.div>
-          
-          {/* Track Record */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            style={{ 
-              padding: '1.5rem', 
-              border: '2px solid #3b82f6', 
-              borderRadius: '16px', 
-              background: 'rgba(59, 130, 246, 0.1)' 
-            }}
-          >
-            <h3 style={{ fontSize: '1.2rem', color: '#3b82f6', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <Briefcase size={20} />
-              Track Record
-            </h3>
-            <div style={{ fontSize: '0.85rem', lineHeight: '1.8', color: '#94a3b8' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Check size={14} stroke="#3b82f6" strokeWidth={2.5} />
-                <span>$2B+ AUM managed</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Check size={14} stroke="#3b82f6" strokeWidth={2.5} />
-                <span>3 successful exits</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Check size={14} stroke="#3b82f6" strokeWidth={2.5} />
-                <span>15+ AI patents</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Check size={14} stroke="#3b82f6" strokeWidth={2.5} />
-                <span>Top journal research</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Check size={14} stroke="#3b82f6" strokeWidth={2.5} />
-                <span>100% compliance</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Company Logos */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            style={{ 
-              padding: '1.5rem', 
-              border: '2px solid #a855f7', 
-              borderRadius: '16px', 
-              background: 'rgba(168, 85, 247, 0.1)' 
-            }}
-          >
-            <h3 style={{ fontSize: '1.2rem', color: '#a855f7', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-              <GraduationCap size={20} />
-              Past Experience
-            </h3>
-            <div style={{ fontSize: '0.85rem', lineHeight: '1.8', color: '#94a3b8' }}>
-              <div>• Goldman Sachs</div>
-              <div>• Google Brain</div>
-              <div>• Vora Ventures</div>
-              <div>• McKinsey & Co</div>
-              <div>• Stanford University</div>
-            </div>
-          </motion.div>
-        </div>
-        
-        {/* Bottom Message */}
+        {/* Team Metrics with Breathing Animation */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.0 }}
-          style={{ 
-            marginTop: '2rem', 
-            textAlign: 'center', 
-            padding: '1.5rem', 
-            background: 'rgba(147, 51, 234, 0.1)', 
-            borderRadius: '12px', 
-            border: '1px solid rgba(147, 51, 234, 0.3)' 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          style={{
+            marginTop: '3rem',
+            padding: '2rem',
+            background: 'rgba(255, 255, 255, 0.02)',
+            borderRadius: '20px',
+            border: '1px solid rgba(139, 92, 246, 0.2)'
           }}
         >
-          <p style={{ fontSize: '1.1rem', color: '#a78bfa', fontWeight: 'bold' }}>
-            Domain expertise + Technical capability + Regulatory knowledge = Rare combination
-          </p>
+          <h3 style={{ 
+            textAlign: 'center',
+            fontSize: '1.3rem',
+            color: '#a78bfa',
+            marginBottom: '1.5rem'
+          }}>
+            Collective Impact
+          </h3>
+          
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            gap: '2rem'
+          }}>
+            {teamMetrics.map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.6 + index * 0.1, type: 'spring' }}
+                whileHover={{ scale: 1.1, y: -5 }}
+                style={{
+                  textAlign: 'center',
+                  position: 'relative'
+                }}
+              >
+                {/* Breathing Background Glow */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.1, 0.3]
+                  }}
+                  transition={{ duration: 3, repeat: Infinity, delay: index * 0.5 }}
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '80px',
+                    height: '80px',
+                    borderRadius: '50%',
+                    background: `radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent)`,
+                    filter: 'blur(10px)',
+                    zIndex: -1
+                  }}
+                />
+                
+                <motion.div
+                  animate={{ 
+                    scale: pulseAnimation ? 1 : 1.05,
+                    rotate: pulseAnimation ? 0 : 5
+                  }}
+                  transition={{ duration: 0.5 }}
+                  style={{ marginBottom: '0.5rem' }}
+                >
+                  <metric.icon size={32} color="#8b5cf6" />
+                </motion.div>
+                
+                <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#fff' }}>
+                  {metric.prefix}
+                  <AnimatedCounter 
+                    value={metric.value} 
+                    duration={2000 + index * 200}
+                    delay={1800 + index * 100}
+                  />
+                  {metric.suffix}
+                </div>
+                <p style={{ color: '#64748b', fontSize: '0.875rem', marginTop: '0.25rem' }}>
+                  {metric.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bottom Trust Badges with Advisors */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 2.0 }}
+          style={{
+            marginTop: '2rem',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: '1.5rem'
+          }}
+        >
+          {/* Advisors */}
+          <motion.div
+            whileHover={{ scale: 1.02, y: -2 }}
+            style={{
+              padding: '1.5rem',
+              background: 'rgba(34, 197, 94, 0.1)',
+              borderRadius: '16px',
+              border: '1px solid rgba(34, 197, 94, 0.3)'
+            }}
+          >
+            <h4 style={{ color: '#22c55e', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+              Elite Advisors
+            </h4>
+            <div style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: '1.6' }}>
+              <div>• Former SEC Commissioner</div>
+              <div>• Big 4 Tax Partner</div>
+              <div>• GIFT City Expert</div>
+            </div>
+          </motion.div>
+
+          {/* Track Record */}
+          <motion.div
+            whileHover={{ scale: 1.02, y: -2 }}
+            style={{
+              padding: '1.5rem',
+              background: 'rgba(59, 130, 246, 0.1)',
+              borderRadius: '16px',
+              border: '1px solid rgba(59, 130, 246, 0.3)'
+            }}
+          >
+            <h4 style={{ color: '#3b82f6', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+              Proven Track Record
+            </h4>
+            <div style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: '1.6' }}>
+              <div>• $2B+ AUM managed</div>
+              <div>• 3 successful exits</div>
+              <div>• 15+ AI patents</div>
+            </div>
+          </motion.div>
+
+          {/* Achievement */}
+          <motion.div
+            whileHover={{ scale: 1.02, y: -2 }}
+            style={{
+              padding: '1.5rem',
+              background: 'rgba(168, 85, 247, 0.1)',
+              borderRadius: '16px',
+              border: '1px solid rgba(168, 85, 247, 0.3)'
+            }}
+          >
+            <h4 style={{ color: '#a855f7', marginBottom: '0.75rem', fontSize: '1.1rem' }}>
+              Industry Recognition
+            </h4>
+            <div style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: '1.6' }}>
+              <div>• Stanford Research</div>
+              <div>• McKinsey Alumni</div>
+              <div>• 100% Compliance</div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 2.2 }}
+          style={{
+            textAlign: 'center',
+            marginTop: '2rem'
+          }}
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '0.75rem 2rem',
+              background: 'rgba(16, 185, 129, 0.1)',
+              borderRadius: '12px',
+              border: '1px solid rgba(16, 185, 129, 0.3)'
+            }}
+          >
+            <TrendingUp size={20} color="#10b981" />
+            <span style={{ color: '#10b981', fontWeight: 'bold' }}>
+              Building India's First AI-Powered Digital Family Office
+            </span>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>
