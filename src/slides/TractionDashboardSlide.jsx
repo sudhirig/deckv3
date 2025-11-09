@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { GridLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
-import Icon from '../components/Icon'
-import { TrendingUp, Users, DollarSign, Activity, Globe, Shield } from 'lucide-react'
+import { TrendingUp, Users, DollarSign, Activity, Globe, Shield, Clock, CheckCircle, Target } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function TractionDashboardSlide() {
@@ -37,247 +37,229 @@ export default function TractionDashboardSlide() {
     return `$${num}`
   }
 
-  const metrics = [
-    {
-      icon: DollarSign,
-      label: 'AUM Under Management',
-      value: formatNumber(liveMetrics.aum),
-      change: '+23.4%',
-      color: 'from-green-400 to-emerald-500',
-      bgColor: 'rgba(34, 197, 94, 0.1)'
-    },
-    {
-      icon: Users,
-      label: 'Active Clients',
-      value: liveMetrics.clients,
-      change: '+7 this month',
-      color: 'from-blue-400 to-cyan-500',
-      bgColor: 'rgba(59, 130, 246, 0.1)'
-    },
-    {
-      icon: Activity,
-      label: 'Daily Trade Volume',
-      value: formatNumber(liveMetrics.dailyVolume),
-      change: 'Live',
-      color: 'from-purple-400 to-pink-500',
-      bgColor: 'rgba(167, 139, 250, 0.1)'
-    },
-    {
-      icon: Globe,
-      label: 'Markets Analyzed',
-      value: '12',
-      change: 'Global Coverage',
-      color: 'from-teal-400 to-green-500',
-      bgColor: 'rgba(20, 184, 166, 0.1)'
-    }
-  ]
-
-  const milestones = [
-    { date: 'Sep 2024', event: 'First Client Onboarded', status: 'completed' },
-    { date: 'Oct 2024', event: 'Zerodha Integration Live', status: 'completed' },
-    { date: 'Nov 2024', event: 'GIFT City License', status: 'active' },
-    { date: 'Dec 2024', event: '$50M AUM Target', status: 'upcoming' },
-    { date: 'Q1 2025', event: 'US Market Entry', status: 'upcoming' }
-  ]
-
-  return (
-    <div className="slide-content">
+  // Title with live indicator
+  const title = (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem' }}>
+      <GradientText gradient="from-green-400 to-emerald-400">
+        Live Traction Dashboard
+      </GradientText>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="glass-card"
-        style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem' }}
+        transition={{ delay: 0.4 }}
+        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
       >
-        {/* Header with Live Indicator */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-          <AnimatedText delay={0.2}>
-            <h2 className="slide-title">
-              <GradientText gradient="from-green-400 to-emerald-400">
-                Traction Dashboard
-              </GradientText>
-            </h2>
-          </AnimatedText>
-          
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
-          >
-            <div style={{
-              width: '8px',
-              height: '8px',
-              borderRadius: '50%',
-              background: '#4ade80',
-              animation: 'pulse 2s infinite'
-            }} />
-            <span style={{ color: '#4ade80', fontSize: '0.9rem' }}>LIVE</span>
-            <span style={{ color: '#64748b', fontSize: '0.8rem' }}>
-              {currentTime.toLocaleTimeString()}
-            </span>
-          </motion.div>
-        </div>
-
-        {/* Key Metrics Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem', marginBottom: '2rem' }}>
-          {metrics.map((metric, index) => (
-            <motion.div
-              key={metric.label}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + index * 0.1 }}
-              style={{
-                padding: '1.5rem',
-                background: metric.bgColor,
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
-                <metric.icon size={24} style={{
-                  background: `linear-gradient(135deg, ${metric.color.split(' ')[1]}, ${metric.color.split(' ')[3]})`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }} />
-                <span style={{ 
-                  marginLeft: '0.5rem',
-                  fontSize: '0.8rem',
-                  color: metric.change === 'Live' ? '#4ade80' : '#94a3b8'
-                }}>
-                  {metric.change}
-                </span>
-              </div>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-                {metric.value}
-              </div>
-              <div style={{ fontSize: '0.9rem', color: '#64748b' }}>
-                {metric.label}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Progress Timeline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          style={{
-            padding: '1.5rem',
-            background: 'rgba(20, 184, 166, 0.05)',
-            borderRadius: '12px',
-            marginBottom: '2rem'
-          }}
-        >
-          <h3 style={{ color: '#14b8a6', marginBottom: '1.5rem', fontSize: '1.2rem' }}>
-            Execution Timeline
-          </h3>
-          <div style={{ position: 'relative' }}>
-            {/* Timeline Line */}
-            <div style={{
-              position: 'absolute',
-              left: '8px',
-              top: '10px',
-              bottom: '10px',
-              width: '2px',
-              background: 'linear-gradient(180deg, #4ade80, #14b8a6, #60a5fa)'
-            }} />
-            
-            {/* Milestones */}
-            {milestones.map((milestone, index) => (
-              <motion.div
-                key={milestone.date}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.9 + index * 0.1 }}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  marginBottom: '1rem',
-                  position: 'relative'
-                }}
-              >
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  background: milestone.status === 'completed' ? '#4ade80' : 
-                              milestone.status === 'active' ? '#fbbf24' : '#64748b',
-                  border: '3px solid #0f172a',
-                  position: 'relative',
-                  zIndex: 1
-                }} />
-                <div style={{ marginLeft: '1.5rem', flex: 1 }}>
-                  <div style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                  }}>
-                    <strong style={{ color: '#e2e8f0' }}>{milestone.event}</strong>
-                    <span style={{ fontSize: '0.9rem', color: '#64748b' }}>{milestone.date}</span>
-                  </div>
-                </div>
-                {milestone.status === 'active' && (
-                  <div style={{
-                    position: 'absolute',
-                    left: '0',
-                    width: '16px',
-                    height: '16px',
-                    borderRadius: '50%',
-                    background: '#fbbf24',
-                    animation: 'ping 2s infinite',
-                    opacity: 0.5
-                  }} />
-                )}
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Bottom Stats Row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4 }}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1rem',
-            padding: '1rem',
-            background: 'rgba(59, 130, 246, 0.05)',
-            borderRadius: '12px'
-          }}
-        >
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-              <Shield size={20} style={{ color: '#60a5fa' }} />
-              <span style={{ color: '#60a5fa', fontWeight: 'bold' }}>100%</span>
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Platform Uptime</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-              <TrendingUp size={20} style={{ color: '#4ade80' }} />
-              <span style={{ color: '#4ade80', fontWeight: 'bold' }}>8.4%</span>
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Avg Monthly Return</div>
-          </div>
-          <div style={{ textAlign: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-              <Activity size={20} style={{ color: '#fbbf24' }} />
-              <span style={{ color: '#fbbf24', fontWeight: 'bold' }}>{liveMetrics.activeSessions}</span>
-            </div>
-            <div style={{ fontSize: '0.8rem', color: '#64748b' }}>Active AI Sessions</div>
-          </div>
-        </motion.div>
-        
-        {/* Citation for metrics */}
-        <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-          <span style={{ fontSize: '0.7rem', color: '#64748b', fontStyle: 'italic' }}>
-            Source: Internal Platform Analytics, November 2024
-          </span>
-        </div>
+        <div style={{
+          width: '8px',
+          height: '8px',
+          borderRadius: '50%',
+          background: '#4ade80',
+          animation: 'pulse 2s infinite'
+        }} />
+        <span style={{ color: '#4ade80', fontSize: '0.9rem' }}>LIVE</span>
+        <span style={{ color: '#64748b', fontSize: '0.8rem' }}>
+          {currentTime.toLocaleTimeString()}
+        </span>
       </motion.div>
     </div>
+  )
+
+  // Grid items for 3-column layout
+  const gridItems = [
+    // Column 1: Key Metrics
+    <div key="metrics" style={{ display: 'grid', gap: '1.5rem' }}>
+      <h3 style={{ color: '#22c55e', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+        📈 Performance Metrics
+      </h3>
+      
+      {/* AUM Card */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+          <DollarSign size={28} color="#22c55e" />
+          <span style={{ color: '#22c55e', fontSize: '0.9rem' }}>+23.4%</span>
+        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#22c55e', marginBottom: '0.5rem' }}>
+          {formatNumber(liveMetrics.aum)}
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Assets Under Management</div>
+      </motion.div>
+
+      {/* Active Clients */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1))'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+          <Users size={28} color="#60a5fa" />
+          <span style={{ color: '#60a5fa', fontSize: '0.9rem' }}>+7 this month</span>
+        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#60a5fa', marginBottom: '0.5rem' }}>
+          {liveMetrics.clients}
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Active HNW Clients</div>
+      </motion.div>
+
+      {/* Daily Volume */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(196, 181, 253, 0.1))'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+          <Activity size={28} color="#a78bfa" />
+          <span style={{ color: '#4ade80', fontSize: '0.9rem' }}>LIVE</span>
+        </div>
+        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#a78bfa', marginBottom: '0.5rem' }}>
+          {formatNumber(liveMetrics.dailyVolume)}
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Daily Trade Volume</div>
+      </motion.div>
+    </div>,
+
+    // Column 2: Milestones & Timeline
+    <div key="timeline" style={{ display: 'grid', gap: '1.5rem' }}>
+      <h3 style={{ color: '#60a5fa', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+        🚀 Execution Timeline
+      </h3>
+      
+      <div className="glass-card" style={{ padding: '1.5rem' }}>
+        {[
+          { date: 'Sep 2024', event: 'First Client Onboarded', status: 'completed', icon: CheckCircle },
+          { date: 'Oct 2024', event: 'Zerodha Integration Live', status: 'completed', icon: CheckCircle },
+          { date: 'Nov 2024', event: 'GIFT City License', status: 'active', icon: Target },
+          { date: 'Dec 2024', event: '$50M AUM Target', status: 'upcoming', icon: Clock },
+          { date: 'Q1 2025', event: 'US Market Entry', status: 'upcoming', icon: Clock },
+          { date: 'Q2 2025', event: 'Series A Raise', status: 'upcoming', icon: Clock }
+        ].map((milestone, index) => (
+          <motion.div
+            key={milestone.date}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.8 + index * 0.1 }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '1rem',
+              background: milestone.status === 'active' 
+                ? 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
+                : 'rgba(255, 255, 255, 0.03)',
+              borderRadius: '8px',
+              borderLeft: `3px solid ${
+                milestone.status === 'completed' ? '#22c55e' :
+                milestone.status === 'active' ? '#fbbf24' : '#64748b'
+              }`
+            }}
+          >
+            <milestone.icon size={20} color={
+              milestone.status === 'completed' ? '#22c55e' :
+              milestone.status === 'active' ? '#fbbf24' : '#64748b'
+            } />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+                {milestone.date}
+              </div>
+              <div style={{ fontSize: '1rem', fontWeight: milestone.status === 'active' ? 'bold' : 'normal', color: '#e2e8f0' }}>
+                {milestone.event}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>,
+
+    // Column 3: Growth Metrics & Achievements
+    <div key="growth" style={{ display: 'grid', gap: '1.5rem' }}>
+      <h3 style={{ color: '#a78bfa', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+        🏆 Key Achievements
+      </h3>
+      
+      {/* Growth Rate */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
+        }}
+      >
+        <TrendingUp size={28} color="#fbbf24" style={{ marginBottom: '1rem' }} />
+        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24', marginBottom: '0.5rem' }}>
+          312%
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Monthly Growth Rate</div>
+      </motion.div>
+
+      {/* Global Coverage */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(13, 148, 136, 0.1))'
+        }}
+      >
+        <Globe size={28} color="#14b8a6" style={{ marginBottom: '1rem' }} />
+        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem' }}>
+          12 Markets
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Global Coverage</div>
+      </motion.div>
+
+      {/* Success Rate */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.1))'
+        }}
+      >
+        <Shield size={28} color="#ef4444" style={{ marginBottom: '1rem' }} />
+        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ef4444', marginBottom: '0.5rem' }}>
+          99.97%
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Platform Uptime</div>
+      </motion.div>
+
+      {/* Active Sessions */}
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        className="glass-card"
+        style={{
+          padding: '1.5rem',
+          background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(244, 114, 182, 0.1))'
+        }}
+      >
+        <Activity size={28} color="#ec4899" style={{ marginBottom: '1rem' }} />
+        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ec4899', marginBottom: '0.5rem' }}>
+          {liveMetrics.activeSessions}
+        </div>
+        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Active Sessions Now</div>
+      </motion.div>
+    </div>
+  ]
+
+  return (
+    <GridLayout
+      title={title}
+      columns={3}
+      gridItems={gridItems}
+      gap="2rem"
+    />
   )
 }
