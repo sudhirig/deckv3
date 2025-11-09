@@ -96,12 +96,12 @@ const LiveMetricsDashboardSlide = () => {
           }}
         >
           {[
-            { icon: Activity, label: 'Uptime', value: 99.97, decimals: 2, suffix: '%', color: '#10b981', pulse: true },
-            { icon: Zap, label: 'Response', value: 11, suffix: 'ms', color: '#fbbf24' },
-            { icon: Users, label: 'Active Users', value: 10247, color: '#3b82f6' },
-            { icon: BarChart3, label: 'Daily Trades', value: 45892, color: '#a78bfa' },
-            { icon: DollarSign, label: 'AUM', value: 2450, prefix: '₹', suffix: 'Cr', color: '#10b981' },
-            { icon: Shield, label: 'Decisions/Day', value: 1.2, decimals: 1, suffix: 'M', color: '#06b6d4' }
+            { icon: Activity, label: 'Uptime', value: 99.97, decimals: 2, suffix: '%', color: '#10b981', pulse: true, live: true },
+            { icon: Zap, label: 'Response', value: 11, suffix: 'ms', color: '#fbbf24', breathing: true },
+            { icon: Users, label: 'Active Users', value: 10247, color: '#3b82f6', pulse: true, live: true },
+            { icon: BarChart3, label: 'Daily Trades', value: 45892, color: '#a78bfa', breathing: true },
+            { icon: DollarSign, label: 'AUM', value: 2450, prefix: '₹', suffix: 'Cr', color: '#10b981', pulse: true },
+            { icon: Shield, label: 'Decisions/Day', value: 1.2, decimals: 1, suffix: 'M', color: '#06b6d4', breathing: true }
           ].map((item, index) => (
             <motion.div
               key={index}
@@ -123,7 +123,7 @@ const LiveMetricsDashboardSlide = () => {
               {item.pulse && (
                 <motion.div
                   animate={{ scale: [1, 2, 1], opacity: [0.5, 0, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
                   style={{
                     position: 'absolute',
                     top: '50%',
@@ -139,10 +139,49 @@ const LiveMetricsDashboardSlide = () => {
               )}
               
               <div style={{ position: 'relative', zIndex: 1 }}>
-                <item.icon className="w-5 h-5 mx-auto mb-2" style={{ color: item.color }} />
-                <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}>
+                <motion.div
+                  animate={item.breathing ? { 
+                    scale: [1, 1.1, 1],
+                    opacity: [1, 0.8, 1]
+                  } : {}}
+                  transition={item.breathing ? {
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: 'easeInOut'
+                  } : {}}
+                >
+                  <item.icon className="w-5 h-5 mx-auto mb-2" style={{ color: item.color }} />
+                </motion.div>
+                {item.live && (
+                  <motion.div
+                    animate={{ opacity: [1, 0.4, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    style={{
+                      position: 'absolute',
+                      top: -5,
+                      right: -5,
+                      width: '8px',
+                      height: '8px',
+                      borderRadius: '50%',
+                      background: '#10b981',
+                      boxShadow: '0 0 10px #10b981'
+                    }}
+                  />
+                )}
+                <motion.div 
+                  style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}
+                  animate={item.breathing ? {
+                    scale: [1, 1.02, 1]
+                  } : {}}
+                  transition={item.breathing ? {
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.5
+                  } : {}}
+                >
                   {item.prefix}<AnimatedCounter end={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
-                </div>
+                </motion.div>
                 <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
               </div>
             </motion.div>
