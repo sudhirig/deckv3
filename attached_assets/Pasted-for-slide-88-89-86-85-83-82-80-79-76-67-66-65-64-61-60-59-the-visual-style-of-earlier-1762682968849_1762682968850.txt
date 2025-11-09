@@ -1,0 +1,39 @@
+for slide 88, 89, 86, 85, 83, 82, 80, 79, 76, 67, 66, 65, 64,61, 60, 59
+
+the visual style of earlier slides is missing completly.. pls review our MD file DECK_IMPROVEMENT_PLAN.md.. need to redo all the new slides again with the same content...
+
+also givne below is how you solved similiar issues for 30+ slides in the deck..
+
+for the above slides, once again, do a through analyssis again. treat this as the mother deck which can be exhaustive and we will later choose which slides to remove.. we need god slides here .. need this to world class deck with world class UI/UX/Visualisation/top story telling etc.My enhanced slides were too basic. Let me create a comprehensive plan to completely rebuild all 40 new slides with "god slide" quality:
+
+"
+Perfect! Now I understand the exact design system. Let me completely rebuild all the new slides with world-class quality matching the original design. I'll start with the Act Transitions and apply the proper visual sophistication:
+
+Now I understand the issue completely. The original slides use sophisticated design elements like:
+
+ParticleBackground components with floating particles
+GradientText with rich multi-color gradients
+glass-card styling with depth and layering
+Sophisticated motion animations with spring effects
+Deep space gradients with rgba layers
+Professional typography with clear hierarchy
+
+see how you solved si,ili thigns earlier
+
+review all new slides again.. and see if as per plan https://replit.com/t/capitalglobal/repls/DeckRevampv28nov#DECK_IMPROVEMENT_PLAN.md
+
+Critical Gaps Found:
+PRIORITY 1: Credibility Boosters (Missing!)
+Title Slide: Lacks particle animation, trust badges, media logos
+Stanford Slide: Missing QR code, additional citations, animated counter
+Team Slide: Still has placeholder avatars, no real photos/LinkedIn
+Live Metrics: No breathing/pulse animations
+PRIORITY 2: Storytelling (Partially Missing!)
+Customer Journeys: Static grids, no cinematic sequencing
+Competitive Matrix: No hover/interactive states
+Product Appendix (Structure exists but missing dynamics!)
+Live Snapshots: No continuous breathing/pulse animations
+AI Agent Counts: Not displaying 12/18/9/20+ agents as specified
+Let me start fixing these gaps immediately, beginning with Priority 1 credibility boosters:
+
+"
