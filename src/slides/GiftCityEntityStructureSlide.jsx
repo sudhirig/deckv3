@@ -1,315 +1,581 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import CinematicSlideFrame from '../components/CinematicSlideFrame'
+import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
-import { Building, ArrowDown, Globe, Shield, TrendingUp, DollarSign, Percent } from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter'
-import CircularProgress from '../components/CircularProgress'
+import { Building, ArrowDown, Globe, Shield, TrendingUp, DollarSign, Percent, Building2, Zap, Users } from 'lucide-react'
 import './SlideStyles.css'
 
-const GiftCityEntityStructureSlide = () => {
-  const [animateFlow, setAnimateFlow] = useState(false)
+export default function GiftCityEntityStructureSlide() {
+  const [hoveredEntity, setHoveredEntity] = useState(null)
+  const [pulseAnimation, setPulseAnimation] = useState(true)
+  const [flowStep, setFlowStep] = useState(0)
   
   useEffect(() => {
-    const timer = setTimeout(() => setAnimateFlow(true), 500)
-    return () => clearTimeout(timer)
+    const pulseInterval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 3000)
+    
+    const flowInterval = setInterval(() => {
+      setFlowStep(prev => (prev + 1) % 4)
+    }, 2000)
+    
+    return () => {
+      clearInterval(pulseInterval)
+      clearInterval(flowInterval)
+    }
   }, [])
   
   return (
-    <CinematicSlideFrame
-      particleCount={45}
-      particleColor="#06b6d4"
-      gradientColors={{
-        primary: 'rgba(6, 182, 212, 0.12)',
-        secondary: 'rgba(14, 165, 233, 0.08)'
-      }}
-      gradientPositions={{
-        primary: '30% 50%',
-        secondary: '70% 50%'
-      }}
-    >
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
+      <ParticleBackground count={45} color="#06b6d4" />
+      
+      {/* Animated Gradient Background */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        animate={{
+          background: [
+            'radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 80% 60%, rgba(14, 165, 233, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 50%)'
+          ]
+        }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
+      
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring' }}
-        className="glass-card"
-        style={{ maxWidth: '1200px', margin: '0 auto' }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3 }}
       >
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-6"
+          className="slide-title"
+          style={{ textAlign: 'center', marginBottom: '0.5rem' }}
         >
-          <h2 className="slide-title">
-            <GradientText gradient="from-cyan-400 via-blue-400 to-indigo-400">
-              Vora Ventures Entity Structure
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Three-Layer Global Architecture
-          </p>
-        </motion.div>
-
-        {/* Visual Flow Diagram */}
-        <div className="relative">
+          <GradientText gradient="from-cyan-400 via-blue-400 to-teal-400">
+            Vora Ventures Entity Structure
+          </GradientText>
+        </motion.h1>
+        
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{ 
+            textAlign: 'center', 
+            color: '#94a3b8', 
+            fontSize: '1.2rem',
+            marginBottom: '2rem'
+          }}
+        >
+          Three-Layer Global Architecture for Maximum Tax Efficiency
+        </motion.p>
+        
+        {/* Animated Flow Diagram */}
+        <div style={{ position: 'relative', maxWidth: '900px', margin: '0 auto' }}>
           {/* Animated Connection Lines */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+          <svg 
+            style={{ 
+              position: 'absolute', 
+              top: 0, 
+              left: 0, 
+              width: '100%', 
+              height: '100%', 
+              zIndex: 1,
+              pointerEvents: 'none'
+            }}
+            viewBox="0 0 900 600"
+          >
             <defs>
               <linearGradient id="flowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#60a5fa" stopOpacity="0.6" />
-                <stop offset="50%" stopColor="#14b8a6" stopOpacity="0.8" />
-                <stop offset="100%" stopColor="#10b981" stopOpacity="0.6" />
+                <stop offset="0%" stopColor="#06b6d4" stopOpacity="0.8">
+                  <animate attributeName="stop-color" 
+                    values="#06b6d4;#10b981;#8b5cf6;#06b6d4" 
+                    dur="6s" 
+                    repeatCount="indefinite" />
+                </stop>
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0.4">
+                  <animate attributeName="stop-color" 
+                    values="#10b981;#8b5cf6;#06b6d4;#10b981" 
+                    dur="6s" 
+                    repeatCount="indefinite" />
+                </stop>
               </linearGradient>
             </defs>
-            {animateFlow && (
-              <>
-                <motion.line
-                  x1="50%" y1="25%" x2="50%" y2="45%"
-                  stroke="url(#flowGradient)" strokeWidth="2"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.8, delay: 0.5 }}
-                />
-                <motion.line
-                  x1="50%" y1="55%" x2="50%" y2="75%"
-                  stroke="url(#flowGradient)" strokeWidth="2"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 0.8, delay: 1 }}
-                />
-              </>
-            )}
+            
+            {/* Animated Flow Lines */}
+            <motion.path
+              d="M450 120 L450 200"
+              stroke="url(#flowGradient)"
+              strokeWidth="3"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: flowStep >= 1 ? 1 : 0 }}
+              transition={{ duration: 0.8 }}
+              style={{ filter: 'drop-shadow(0 0 10px rgba(6, 182, 212, 0.5))' }}
+            />
+            
+            <motion.path
+              d="M450 320 L450 400"
+              stroke="url(#flowGradient)"
+              strokeWidth="3"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: flowStep >= 2 ? 1 : 0 }}
+              transition={{ duration: 0.8 }}
+              style={{ filter: 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.5))' }}
+            />
+            
+            {/* Branching to 3 GIFT entities */}
+            <motion.path
+              d="M450 400 L300 480"
+              stroke="url(#flowGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: flowStep >= 3 ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+            />
+            <motion.path
+              d="M450 400 L450 480"
+              stroke="url(#flowGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: flowStep >= 3 ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+            />
+            <motion.path
+              d="M450 400 L600 480"
+              stroke="url(#flowGradient)"
+              strokeWidth="2"
+              fill="none"
+              initial={{ pathLength: 0 }}
+              animate={{ pathLength: flowStep >= 3 ? 1 : 0 }}
+              transition={{ duration: 0.6 }}
+            />
           </svg>
           
-          <div className="flex flex-col items-center relative z-10">
-            {/* US Entity with Metrics */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0, rotate: -10 }}
-              animate={{ opacity: 1, scale: 1, rotate: 0 }}
-              transition={{ delay: 0.3, duration: 0.5, type: "spring" }}
-              className="glassmorphic-card w-full max-w-lg mb-4 border border-blue-500/20"
-            >
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <div className="flex items-center mb-2">
-                    <Globe className="w-6 h-6 text-blue-400 mr-2" />
-                    <h3 className="text-xl font-bold text-blue-400">Vora Ventures LLC</h3>
-                  </div>
-                  <p className="text-sm text-gray-400">Delaware, USA</p>
-                  <p className="text-sm mt-2">Global Holding Entity</p>
+          {/* US Entity - Top */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ delay: 0.3, type: 'spring', stiffness: 100 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            onHoverStart={() => setHoveredEntity('US')}
+            onHoverEnd={() => setHoveredEntity(null)}
+            style={{
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.05))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(59, 130, 246, 0.3)',
+              marginBottom: '2rem',
+              position: 'relative',
+              overflow: 'visible'
+            }}
+          >
+            {/* Halo Effect on Hover */}
+            {hoveredEntity === 'US' && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  left: '-20px',
+                  right: '-20px',
+                  bottom: '-20px',
+                  background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
+                  borderRadius: '24px',
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}
+              />
+            )}
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                  <motion.div
+                    animate={{ rotate: pulseAnimation ? 0 : 360 }}
+                    transition={{ duration: 3 }}
+                  >
+                    <Globe size={32} color="#3b82f6" />
+                  </motion.div>
+                  <h3 style={{ fontSize: '1.5rem', color: '#3b82f6' }}>
+                    Vora Ventures LLC
+                  </h3>
                 </div>
-                <div className="text-right">
-                  <div className="text-2xl font-bold text-blue-400">
-                    $<AnimatedCounter end={250} duration={1500} />M
-                  </div>
-                  <p className="text-xs text-gray-400">Target AUM</p>
-                </div>
+                <p style={{ color: '#94a3b8', marginBottom: '0.5rem' }}>Delaware, USA</p>
+                <p style={{ color: '#10b981', fontWeight: 'bold' }}>Global Holding Entity</p>
               </div>
-            </motion.div>
-
-            {/* Animated Flow Arrow */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.3 }}
-              className="my-2"
-            >
-              <ArrowDown className="w-8 h-8 text-teal-400 animate-pulse" />
-            </motion.div>
-
-            {/* India Entity with Tax Benefits */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1, duration: 0.5 }}
-              className="glassmorphic-card w-full max-w-lg mb-4 border border-orange-500/20"
-            >
-              <div className="flex justify-between items-start">
-                <div className="flex-1">
-                  <div className="flex items-center mb-2">
-                    <Building className="w-6 h-6 text-orange-400 mr-2" />
-                    <h3 className="text-xl font-bold text-orange-400">Vora Ventures LLP</h3>
-                  </div>
-                  <p className="text-sm text-gray-400">Mumbai, India</p>
-                  <p className="text-sm mt-2">Operations Hub</p>
+              
+              <motion.div
+                animate={{ scale: pulseAnimation ? 1 : 1.05 }}
+                transition={{ duration: 0.5 }}
+                style={{ textAlign: 'right' }}
+              >
+                <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#3b82f6' }}>
+                  $<AnimatedCounter value={250} duration={2000} />M
+                </p>
+                <p style={{ color: '#64748b', fontSize: '0.85rem' }}>Target AUM</p>
+              </motion.div>
+            </div>
+          </motion.div>
+          
+          {/* India Entity - Middle */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: -50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ delay: 0.6, type: 'spring', stiffness: 100 }}
+            whileHover={{ scale: 1.05, y: -5 }}
+            onHoverStart={() => setHoveredEntity('India')}
+            onHoverEnd={() => setHoveredEntity(null)}
+            style={{
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(251, 146, 60, 0.15), rgba(249, 115, 22, 0.05))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(251, 146, 60, 0.3)',
+              marginBottom: '2rem',
+              position: 'relative',
+              overflow: 'visible'
+            }}
+          >
+            {/* Halo Effect */}
+            {hoveredEntity === 'India' && (
+              <motion.div
+                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  top: '-20px',
+                  left: '-20px',
+                  right: '-20px',
+                  bottom: '-20px',
+                  background: 'radial-gradient(circle, rgba(251, 146, 60, 0.3), transparent)',
+                  borderRadius: '24px',
+                  filter: 'blur(20px)',
+                  zIndex: -1
+                }}
+              />
+            )}
+            
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'start' }}>
+              <div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                  <motion.div
+                    animate={{ y: pulseAnimation ? 0 : -5 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Building size={32} color="#fb923c" />
+                  </motion.div>
+                  <h3 style={{ fontSize: '1.5rem', color: '#fb923c' }}>
+                    Vora Ventures LLP
+                  </h3>
                 </div>
-                <div className="grid grid-cols-2 gap-2 text-right">
-                  <div>
-                    <div className="text-lg font-bold text-green-400">
-                      <AnimatedCounter end={30} duration={1000} />%
-                    </div>
-                    <p className="text-xs text-gray-400">Tax Rate</p>
-                  </div>
-                  <div>
-                    <div className="text-lg font-bold text-purple-400">
-                      <AnimatedCounter end={100} duration={1000} />+
-                    </div>
-                    <p className="text-xs text-gray-400">Team</p>
-                  </div>
-                </div>
+                <p style={{ color: '#94a3b8', marginBottom: '0.5rem' }}>Mumbai, India</p>
+                <p style={{ color: '#fbbf24', fontWeight: 'bold' }}>Operations Hub</p>
               </div>
-            </motion.div>
-
-            {/* Animated Flow Arrow */}
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.3 }}
-              className="my-2"
-            >
-              <ArrowDown className="w-8 h-8 text-teal-400 animate-pulse" />
-            </motion.div>
-
-            {/* GIFT City Entities with Enhanced Metrics */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2, duration: 0.5 }}
-              className="grid grid-cols-3 gap-3 w-full"
-            >
-              {/* Tech LLP */}
+              
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                <motion.div
+                  animate={{ scale: hoveredEntity === 'India' ? 1.1 : 1 }}
+                  style={{ textAlign: 'center' }}
+                >
+                  <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>
+                    <AnimatedCounter value={30} duration={1500} />%
+                  </p>
+                  <p style={{ color: '#64748b', fontSize: '0.75rem' }}>Tax Rate</p>
+                </motion.div>
+                <motion.div
+                  animate={{ scale: hoveredEntity === 'India' ? 1.1 : 1 }}
+                  style={{ textAlign: 'center' }}
+                >
+                  <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#a855f7' }}>
+                    <AnimatedCounter value={100} duration={1500} />+
+                  </p>
+                  <p style={{ color: '#64748b', fontSize: '0.75rem' }}>Team</p>
+                </motion.div>
+              </div>
+            </div>
+          </motion.div>
+          
+          {/* GIFT City Entities - Bottom Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem' }}>
+            {[
+              {
+                name: 'Tech LLP',
+                icon: Shield,
+                color: '#14b8a6',
+                gst: 0,
+                tax: 10,
+                status: 'AI Platform Ready',
+                features: ['Zero GST', 'Tech Hub', 'R&D Center']
+              },
+              {
+                name: 'AIF LLP',
+                icon: DollarSign,
+                color: '#8b5cf6',
+                aum: 250,
+                category: 'Category III',
+                status: 'Fund Raising',
+                features: ['Global LPs', 'Tax Pass-through', 'USD Denominated']
+              },
+              {
+                name: 'Advisory LLP',
+                icon: TrendingUp,
+                color: '#10b981',
+                capGains: 0,
+                license: 'IFSCA',
+                status: 'Operational',
+                features: ['Zero Cap Gains', 'Global Access', 'Full Compliance']
+              }
+            ].map((entity, index) => (
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="glassmorphic-card border border-teal-500/20"
+                key={entity.name}
+                initial={{ opacity: 0, y: 50, rotateX: -20 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                transition={{ 
+                  delay: 0.9 + index * 0.15,
+                  type: 'spring',
+                  stiffness: 100
+                }}
+                whileHover={{ 
+                  scale: 1.08,
+                  y: -10,
+                  transition: { type: 'spring', stiffness: 300 }
+                }}
+                onHoverStart={() => setHoveredEntity(entity.name)}
+                onHoverEnd={() => setHoveredEntity(null)}
+                style={{
+                  padding: '1.25rem',
+                  background: `linear-gradient(135deg, ${entity.color}20, rgba(255, 255, 255, 0.02))`,
+                  backdropFilter: 'blur(20px)',
+                  borderRadius: '16px',
+                  border: `2px solid ${entity.color}40`,
+                  position: 'relative',
+                  overflow: 'visible',
+                  cursor: 'pointer'
+                }}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center">
-                    <Shield className="w-5 h-5 text-teal-400 mr-2" />
-                    <h4 className="text-sm font-bold text-teal-400">Tech LLP</h4>
-                  </div>
-                  <CircularProgress value={100} size={30} strokeWidth={3} />
-                </div>
-                <p className="text-xs text-gray-400 mb-2">GIFT IFSC</p>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">GST</span>
-                    <span className="text-sm font-bold text-green-400">0%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Tax</span>
-                    <span className="text-sm font-bold text-green-400">10%</span>
-                  </div>
-                  <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
+                {/* Particle Halo on Hover */}
+                {hoveredEntity === entity.name && (
+                  <>
                     <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: '90%' }}
-                      transition={{ delay: 2.5, duration: 0.8 }}
-                      className="h-full bg-gradient-to-r from-teal-500 to-green-500"
+                      animate={{ 
+                        scale: [1, 1.5, 1],
+                        opacity: [0.5, 0.2, 0.5]
+                      }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      style={{
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '100px',
+                        height: '100px',
+                        borderRadius: '50%',
+                        background: `radial-gradient(circle, ${entity.color}40, transparent)`,
+                        zIndex: -1
+                      }}
                     />
-                  </div>
-                  <p className="text-xs text-teal-400">AI Platform Ready</p>
-                </div>
-              </motion.div>
-
-              {/* AIF LLP */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="glassmorphic-card border border-purple-500/20"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center">
-                    <DollarSign className="w-5 h-5 text-purple-400 mr-2" />
-                    <h4 className="text-sm font-bold text-purple-400">AIF LLP</h4>
-                  </div>
-                  <div className="text-lg font-bold text-purple-400">
-                    $<AnimatedCounter end={250} duration={1500} />M
-                  </div>
-                </div>
-                <p className="text-xs text-gray-400 mb-2">Category III AIF</p>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Global LPs</span>
-                    <span className="text-sm font-bold text-blue-400">✓</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Tax Pass</span>
-                    <span className="text-sm font-bold text-green-400">✓</span>
-                  </div>
-                  <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
                     <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: '75%' }}
-                      transition={{ delay: 2.7, duration: 0.8 }}
-                      className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+                      style={{
+                        position: 'absolute',
+                        top: '-10px',
+                        left: '-10px',
+                        right: '-10px',
+                        bottom: '-10px',
+                        background: `conic-gradient(from 0deg, transparent, ${entity.color}20, transparent)`,
+                        borderRadius: '20px',
+                        zIndex: -2
+                      }}
                     />
-                  </div>
-                  <p className="text-xs text-purple-400">Fund Raising</p>
-                </div>
-              </motion.div>
-
-              {/* Advisory LLP */}
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="glassmorphic-card border border-green-500/20"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center">
-                    <TrendingUp className="w-5 h-5 text-green-400 mr-2" />
-                    <h4 className="text-sm font-bold text-green-400">Advisory LLP</h4>
-                  </div>
-                  <Percent className="w-5 h-5 text-green-400" />
-                </div>
-                <p className="text-xs text-gray-400 mb-2">IFSCA Licensed</p>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Cap Gains</span>
-                    <span className="text-sm font-bold text-green-400">0%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs text-gray-400">Global</span>
-                    <span className="text-sm font-bold text-blue-400">✓</span>
-                  </div>
-                  <div className="h-1 bg-gray-800 rounded-full overflow-hidden">
+                  </>
+                )}
+                
+                {/* Header with Icon */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: '100%' }}
-                      transition={{ delay: 2.9, duration: 0.8 }}
-                      className="h-full bg-gradient-to-r from-green-500 to-emerald-500"
-                    />
+                      animate={{ 
+                        rotate: hoveredEntity === entity.name ? [0, -10, 10, 0] : 0,
+                        scale: pulseAnimation ? 1 : 1.1
+                      }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <entity.icon size={24} color={entity.color} />
+                    </motion.div>
+                    <h4 style={{ color: entity.color, fontWeight: 'bold' }}>
+                      {entity.name}
+                    </h4>
                   </div>
-                  <p className="text-xs text-green-400">Operational</p>
                 </div>
+                
+                {/* Entity Specific Metrics */}
+                {entity.aum && (
+                  <motion.div
+                    animate={{ scale: hoveredEntity === entity.name ? 1.05 : 1 }}
+                    style={{ marginBottom: '0.75rem' }}
+                  >
+                    <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: entity.color }}>
+                      $<AnimatedCounter value={entity.aum} duration={2000} />M
+                    </p>
+                    <p style={{ color: '#64748b', fontSize: '0.75rem' }}>{entity.category}</p>
+                  </motion.div>
+                )}
+                
+                {entity.gst !== undefined && (
+                  <div style={{ display: 'flex', gap: '1rem', marginBottom: '0.75rem' }}>
+                    <div>
+                      <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#10b981' }}>
+                        {entity.gst}%
+                      </p>
+                      <p style={{ color: '#64748b', fontSize: '0.7rem' }}>GST</p>
+                    </div>
+                    <div>
+                      <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#06b6d4' }}>
+                        {entity.tax}%
+                      </p>
+                      <p style={{ color: '#64748b', fontSize: '0.7rem' }}>Tax</p>
+                    </div>
+                  </div>
+                )}
+                
+                {entity.capGains !== undefined && (
+                  <div style={{ marginBottom: '0.75rem' }}>
+                    <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#10b981' }}>
+                      {entity.capGains}% Cap Gains
+                    </p>
+                    <p style={{ color: '#64748b', fontSize: '0.75rem' }}>{entity.license} Licensed</p>
+                  </div>
+                )}
+                
+                {/* Features List */}
+                <div style={{ marginTop: '0.75rem' }}>
+                  {entity.features.map((feature, fi) => (
+                    <motion.div
+                      key={feature}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 1.2 + index * 0.15 + fi * 0.1 }}
+                      style={{
+                        fontSize: '0.75rem',
+                        color: '#94a3b8',
+                        marginBottom: '0.25rem',
+                        paddingLeft: '1rem',
+                        position: 'relative'
+                      }}
+                    >
+                      <span style={{
+                        position: 'absolute',
+                        left: 0,
+                        color: entity.color
+                      }}>▸</span>
+                      {feature}
+                    </motion.div>
+                  ))}
+                </div>
+                
+                {/* Status Bar */}
+                <motion.div
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 1.4 + index * 0.15, duration: 0.8 }}
+                  style={{
+                    marginTop: '0.75rem',
+                    height: '3px',
+                    background: `linear-gradient(90deg, ${entity.color}, ${entity.color}80)`,
+                    borderRadius: '3px',
+                    transformOrigin: 'left'
+                  }}
+                />
+                
+                <p style={{ 
+                  fontSize: '0.75rem', 
+                  color: entity.color,
+                  marginTop: '0.5rem',
+                  fontWeight: 'bold'
+                }}>
+                  {entity.status}
+                </p>
               </motion.div>
-            </motion.div>
+            ))}
           </div>
         </div>
-
-        {/* Bottom Metrics Summary */}
+        
+        {/* Bottom Summary Metrics */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.2, duration: 0.6 }}
-          className="mt-6 grid grid-cols-4 gap-4"
+          transition={{ delay: 1.8 }}
+          style={{
+            marginTop: '2rem',
+            padding: '1.5rem',
+            background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(16, 185, 129, 0.05))',
+            borderRadius: '20px',
+            border: '1px solid rgba(6, 182, 212, 0.2)'
+          }}
         >
-          <div className="text-center">
-            <div className="text-2xl font-bold text-teal-400">
-              <AnimatedCounter end={0} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">GST Rate</p>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-green-400">
-              <AnimatedCounter end={10} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Corp Tax</p>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-purple-400">
-              <AnimatedCounter end={100} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Compliant</p>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-blue-400">
-              <AnimatedCounter end={3} duration={1500} />
-            </div>
-            <p className="text-xs text-gray-400">Entities</p>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(4, 1fr)', 
+            gap: '2rem',
+            textAlign: 'center'
+          }}>
+            {[
+              { label: 'GST Rate', value: 0, suffix: '%', color: '#14b8a6' },
+              { label: 'Corp Tax', value: 10, suffix: '%', color: '#06b6d4' },
+              { label: 'Compliant', value: 100, suffix: '%', color: '#10b981' },
+              { label: 'Total Entities', value: 3, color: '#8b5cf6' }
+            ].map((metric, index) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 2.0 + index * 0.1, type: 'spring' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                <motion.p
+                  animate={{ 
+                    scale: pulseAnimation && index === 0 ? [1, 1.1, 1] : 1,
+                    color: pulseAnimation && index === 0 ? [metric.color, '#fff', metric.color] : metric.color
+                  }}
+                  transition={{ duration: 1 }}
+                  style={{ 
+                    fontSize: '2rem', 
+                    fontWeight: 'bold'
+                  }}
+                >
+                  <AnimatedCounter value={metric.value} duration={1500 + index * 200} />
+                  {metric.suffix}
+                </motion.p>
+                <p style={{ color: '#64748b', fontSize: '0.85rem' }}>
+                  {metric.label}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </motion.div>
-    </CinematicSlideFrame>
+    </div>
   )
 }
-
-export default GiftCityEntityStructureSlide

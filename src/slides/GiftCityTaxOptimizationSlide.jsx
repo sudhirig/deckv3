@@ -1,369 +1,582 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
-import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
-import CircularProgress from '../components/CircularProgress'
-import BarChart from '../components/BarChart'
-import { Calculator, TrendingUp, PiggyBank, Award, DollarSign, Shield, Percent, ArrowRight, Sparkles } from 'lucide-react'
+import { Calculator, TrendingUp, PiggyBank, Award, DollarSign, Shield, Percent, Sparkles, ChevronRight, IndianRupee } from 'lucide-react'
 import './SlideStyles.css'
 
-const GiftCityTaxOptimizationSlide = () => {
-  const [animateMetrics, setAnimateMetrics] = useState(false)
-  const [savingsCounter, setSavingsCounter] = useState(0)
+export default function GiftCityTaxOptimizationSlide() {
+  const [hoveredInvestment, setHoveredInvestment] = useState(null)
+  const [moneyFlow, setMoneyFlow] = useState(0)
+  const [pulseAnimation, setPulseAnimation] = useState(true)
   
   useEffect(() => {
-    const timer = setTimeout(() => setAnimateMetrics(true), 500)
+    const moneyInterval = setInterval(() => {
+      setMoneyFlow(prev => (prev + 1) % 20)
+    }, 200)
     
-    // Continuous counter animation for savings
-    const interval = setInterval(() => {
-      setSavingsCounter(prev => (prev + 1) % 100)
-    }, 50)
+    const pulseInterval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 2000)
     
     return () => {
-      clearTimeout(timer)
-      clearInterval(interval)
+      clearInterval(moneyInterval)
+      clearInterval(pulseInterval)
     }
   }, [])
   
-  // Sample data for comparison chart
-  const taxComparisonData = [
-    { label: 'Mainland', value: 30, displayValue: '30%' },
-    { label: 'MF Tax', value: 20, displayValue: '20%' },
-    { label: 'GIFT City', value: 10, displayValue: '10%' },
-    { label: 'No GST', value: 0, displayValue: '0%' }
+  const taxComparison = [
+    { type: 'Direct Equity', mainland: 30, giftCity: 10, color: '#ef4444' },
+    { type: 'Mutual Funds', mainland: 20, giftCity: 10, color: '#f59e0b' },
+    { type: 'GST on Services', mainland: 18, giftCity: 0, color: '#8b5cf6' },
+    { type: 'Capital Gains', mainland: 20, giftCity: 0, color: '#06b6d4' }
+  ]
+  
+  const investmentOptions = [
+    { 
+      type: 'Traditional Equity',
+      tax: 30,
+      postTax: 70,
+      fiveYearReturn: 350,
+      color: '#ef4444',
+      icon: '📉'
+    },
+    { 
+      type: 'Mutual Funds',
+      tax: 20,
+      postTax: 80,
+      fiveYearReturn: 400,
+      color: '#f59e0b',
+      icon: '📊'
+    },
+    { 
+      type: 'GIFT City AIF',
+      tax: 10,
+      postTax: 90,
+      fiveYearReturn: 450,
+      color: '#10b981',
+      icon: '🚀'
+    }
   ]
   
   return (
-    <div className="slide-content" style={{ position: 'relative' }}>
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
       <ParticleBackground count={50} color="#10b981" />
       
-      {/* Deep Space Gradient Background */}
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        background: 'radial-gradient(circle at 70% 30%, rgba(16, 185, 129, 0.12) 0%, transparent 60%), radial-gradient(circle at 30% 70%, rgba(251, 191, 36, 0.08) 0%, transparent 50%)',
-        zIndex: 0
-      }} />
+      {/* Money Particle Rain Effect */}
+      {[...Array(20)].map((_, i) => (
+        <motion.div
+          key={i}
+          animate={{
+            y: ['-10vh', '110vh'],
+            x: [Math.random() * 20 - 10, Math.random() * 20 - 10],
+            rotate: [0, 360],
+            opacity: [0, 1, 0]
+          }}
+          transition={{
+            duration: 8 + Math.random() * 4,
+            repeat: Infinity,
+            delay: i * 0.3,
+            ease: 'linear'
+          }}
+          style={{
+            position: 'absolute',
+            left: `${5 + i * 5}%`,
+            top: 0,
+            fontSize: '1.5rem',
+            color: i % 3 === 0 ? '#10b981' : i % 3 === 1 ? '#fbbf24' : '#8b5cf6',
+            zIndex: 1,
+            pointerEvents: 'none'
+          }}
+        >
+          ₹
+        </motion.div>
+      ))}
+      
+      {/* Animated Gradient Background */}
+      <motion.div
+        animate={{
+          background: [
+            'radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 60%)',
+            'radial-gradient(circle at 70% 60%, rgba(251, 191, 36, 0.15) 0%, transparent 60%)',
+            'radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 60%)',
+            'radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.15) 0%, transparent 60%)'
+          ]
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 2
+        }}
+      />
       
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring' }}
-        className="glass-card"
-        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3 }}
       >
-        {/* Header */}
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          className="slide-title"
+          style={{ textAlign: 'center', marginBottom: '0.5rem' }}
         >
-          <h2 className="slide-title">
-            <GradientText gradient="from-green-400 via-emerald-400 to-yellow-400">
-              Tax Optimization Showcase
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Real Savings for Real Investors
-          </p>
-        </motion.div>
-
+          <GradientText gradient="from-green-400 via-emerald-400 to-yellow-400">
+            Tax Optimization Showcase
+          </GradientText>
+        </motion.h1>
+        
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          style={{ 
+            textAlign: 'center', 
+            color: '#94a3b8', 
+            fontSize: '1.2rem',
+            marginBottom: '2rem'
+          }}
+        >
+          Real Savings for Real Investors
+        </motion.p>
+        
         {/* Hero Savings Display */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.3, duration: 0.8, type: 'spring' }}
+          transition={{ delay: 0.4, type: 'spring' }}
           style={{
             textAlign: 'center',
             marginBottom: '2rem',
-            padding: '1.5rem',
-            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 70%)',
-            borderRadius: '20px',
-            position: 'relative'
+            padding: '2rem',
+            background: 'radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%)',
+            borderRadius: '24px',
+            position: 'relative',
+            overflow: 'visible'
           }}
         >
-          {/* Animated Money Particles */}
-          <motion.div
-            animate={{ y: [-20, 20, -20] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            style={{
-              position: 'absolute',
-              top: '20%',
-              left: '10%',
-              color: '#10b981',
-              fontSize: '2rem',
-              opacity: 0.3
-            }}
-          >
-            ₹
-          </motion.div>
-          <motion.div
-            animate={{ y: [20, -20, 20] }}
-            transition={{ duration: 4, repeat: Infinity }}
-            style={{
-              position: 'absolute',
-              top: '60%',
-              right: '15%',
-              color: '#fbbf24',
-              fontSize: '1.5rem',
-              opacity: 0.3
-            }}
-          >
-            ₹
-          </motion.div>
-          
-          <Sparkles className="w-12 h-12 text-green-400 mx-auto mb-2" />
-          <h3 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
-            <GradientText gradient="from-green-400 to-yellow-400">
-              ₹<AnimatedCounter end={10} duration={2000} /> Lakh
-            </GradientText>
-          </h3>
-          <p style={{ color: '#94a3b8' }}>5-Year Tax Savings</p>
-        </motion.div>
-
-        {/* Top Metrics with Continuous Animation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: '1rem',
-            marginBottom: '2rem'
-          }}
-        >
-          {[
-            { icon: DollarSign, label: '5-Year Savings', value: 10, prefix: '₹', suffix: 'L', color: '#10b981', pulse: true },
-            { icon: Shield, label: 'GST Rate', value: 0, suffix: '%', color: '#06b6d4' },
-            { icon: Percent, label: 'Corp Tax', value: 10, suffix: '%', color: '#a855f7' },
-            { icon: Award, label: 'Compliant', value: 100, suffix: '%', color: '#fbbf24' }
-          ].map((item, index) => (
+          {/* Sparkle Effects */}
+          {[...Array(6)].map((_, i) => (
             <motion.div
-              key={index}
-              whileHover={{ scale: 1.05, y: -5 }}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.6 + index * 0.1 }}
-              className="glass-card"
+              key={i}
+              animate={{
+                scale: [0, 1, 0],
+                opacity: [0, 1, 0],
+                rotate: [0, 180]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                delay: i * 0.3
+              }}
               style={{
-                padding: '1rem',
-                textAlign: 'center',
-                background: `linear-gradient(135deg, ${item.color}15 0%, ${item.color}08 100%)`,
-                border: `1px solid ${item.color}30`,
-                position: 'relative',
-                overflow: 'hidden'
+                position: 'absolute',
+                top: `${20 + i * 15}%`,
+                left: `${10 + i * 15}%`,
+                color: '#fbbf24'
               }}
             >
-              {/* Continuous Pulse for Key Metrics */}
-              {item.pulse && (
-                <motion.div
-                  animate={{ scale: [1, 2, 1], opacity: [0.3, 0, 0.3] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    width: '100%',
-                    height: '100%',
-                    borderRadius: '50%',
-                    background: item.color,
-                    transform: 'translate(-50%, -50%)',
-                    zIndex: 0
-                  }}
-                />
-              )}
-              
-              <div style={{ position: 'relative', zIndex: 1 }}>
-                <item.icon className="w-5 h-5 mx-auto mb-2" style={{ color: item.color }} />
-                <motion.div
-                  animate={item.pulse ? { scale: [1, 1.1, 1] } : {}}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                  style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}
-                >
-                  {item.prefix}<AnimatedCounter end={item.value} duration={1500} />{item.suffix}
-                </motion.div>
-                <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
-              </div>
+              <Sparkles size={20} />
             </motion.div>
           ))}
-        </motion.div>
-
-        {/* Main Content Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-          {/* Visual Tax Comparison with Enhanced Animation */}
+          
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            animate={{ 
+              scale: pulseAnimation ? [1, 1.05, 1] : 1,
+              rotate: pulseAnimation ? [0, 2, -2, 0] : 0
+            }}
+            transition={{ duration: 2 }}
+          >
+            <h3 style={{ 
+              fontSize: '3rem',
+              fontWeight: 'bold',
+              marginBottom: '0.5rem'
+            }}>
+              <GradientText gradient="from-green-400 to-yellow-400">
+                ₹<AnimatedCounter value={10} duration={2000} /> Lakh
+              </GradientText>
+            </h3>
+            <p style={{ color: '#10b981', fontSize: '1.2rem', fontWeight: 'bold' }}>
+              5-Year Tax Savings
+            </p>
+            <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+              Through GIFT City optimization
+            </p>
+          </motion.div>
+        </motion.div>
+        
+        {/* Main Content Grid */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1fr 1fr', 
+          gap: '1.5rem',
+          maxWidth: '1100px',
+          margin: '0 auto'
+        }}>
+          {/* Visual Tax Comparison */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
-            className="glass-card"
+            transition={{ delay: 0.6 }}
             style={{
-              background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%)',
-              border: '1px solid rgba(6, 182, 212, 0.3)',
-              position: 'relative'
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(6, 182, 212, 0.3)'
             }}
           >
-            <h3 style={{ fontSize: '1.2rem', color: '#06b6d4', marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-              <Calculator className="w-5 h-5 mr-2" />
+            <h3 style={{ 
+              fontSize: '1.2rem',
+              color: '#06b6d4',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}>
+              <Calculator size={24} />
               Tax Rate Comparison
             </h3>
             
-            <BarChart data={taxComparisonData} height={120} colorScheme="gradient" animated={animateMetrics} />
+            {taxComparison.map((item, index) => (
+              <motion.div
+                key={item.type}
+                initial={{ opacity: 0, scaleX: 0 }}
+                animate={{ opacity: 1, scaleX: 1 }}
+                transition={{ delay: 0.8 + index * 0.1 }}
+                style={{ marginBottom: '1rem' }}
+              >
+                <div style={{ 
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: '0.5rem'
+                }}>
+                  <span style={{ color: '#e2e8f0', fontSize: '0.9rem' }}>
+                    {item.type}
+                  </span>
+                  <div style={{ display: 'flex', gap: '1rem' }}>
+                    <motion.span
+                      animate={{ opacity: pulseAnimation ? 0.5 : 1 }}
+                      style={{ color: '#ef4444' }}
+                    >
+                      {item.mainland}%
+                    </motion.span>
+                    <span style={{ color: '#64748b' }}>→</span>
+                    <motion.span
+                      animate={{ 
+                        scale: pulseAnimation ? 1.1 : 1,
+                        color: pulseAnimation ? '#10b981' : '#22c55e'
+                      }}
+                      style={{ fontWeight: 'bold' }}
+                    >
+                      {item.giftCity}%
+                    </motion.span>
+                  </div>
+                </div>
+                
+                {/* Animated Comparison Bar */}
+                <div style={{ 
+                  height: '8px',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  borderRadius: '4px',
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}>
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${item.mainland}%` }}
+                    transition={{ delay: 0.9 + index * 0.1, duration: 0.6 }}
+                    style={{
+                      position: 'absolute',
+                      height: '100%',
+                      background: '#ef4444',
+                      opacity: 0.7
+                    }}
+                  />
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${item.giftCity}%` }}
+                    transition={{ delay: 1.0 + index * 0.1, duration: 0.6 }}
+                    style={{
+                      position: 'absolute',
+                      height: '100%',
+                      background: `linear-gradient(90deg, ${item.color}, #10b981)`,
+                      boxShadow: `0 0 20px ${item.color}50`
+                    }}
+                  />
+                </div>
+              </motion.div>
+            ))}
             
-            {/* Animated Savings Indicator */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1 }}
+              transition={{ delay: 1.3 }}
               style={{
-                marginTop: '1rem',
+                marginTop: '1.5rem',
                 padding: '1rem',
-                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%)',
-                borderRadius: '8px',
+                background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(251, 191, 36, 0.1))',
+                borderRadius: '12px',
                 textAlign: 'center'
               }}
             >
-              <p style={{ fontSize: '0.875rem', color: '#94a3b8' }}>
-                GIFT City offers{' '}
-                <motion.span
-                  animate={{ color: ['#10b981', '#fbbf24', '#10b981'] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  style={{ fontWeight: 'bold', fontSize: '1.1rem' }}
-                >
-                  66% lower taxes
-                </motion.span>
-                {' '}than mainland
+              <motion.p
+                animate={{ 
+                  scale: [1, 1.02, 1],
+                  color: ['#10b981', '#fbbf24', '#10b981']
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
+              >
+                66% Lower Taxes
+              </motion.p>
+              <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+                vs Mainland Funds
               </p>
             </motion.div>
           </motion.div>
-
-          {/* Investment Analysis Calculator */}
+          
+          {/* Investment Analysis */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-            className="glass-card"
+            transition={{ delay: 0.7 }}
             style={{
-              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
-              border: '1px solid rgba(168, 85, 247, 0.3)',
-              position: 'relative'
+              padding: '1.5rem',
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(255, 255, 255, 0.02))',
+              backdropFilter: 'blur(20px)',
+              borderRadius: '20px',
+              border: '2px solid rgba(168, 85, 247, 0.3)'
             }}
           >
-            <h3 style={{ fontSize: '1.2rem', color: '#a855f7', marginBottom: '1rem', display: 'flex', alignItems: 'center' }}>
-              <TrendingUp className="w-5 h-5 mr-2" />
-              ₹1 Crore Investment Analysis
+            <h3 style={{ 
+              fontSize: '1.2rem',
+              color: '#a855f7',
+              marginBottom: '1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}>
+              <TrendingUp size={24} />
+              ₹1 Crore Investment (5 Years)
             </h3>
             
-            {/* Investment Options with Animated Progress */}
-            <div style={{ space: 'y-3' }}>
-              {[
-                { type: 'Direct Equity', tax: 30, savings: 0, color: '#ef4444' },
-                { type: 'Mutual Funds', tax: 20, savings: 5, color: '#f59e0b' },
-                { type: 'GIFT City AIF', tax: 10, savings: 10, color: '#10b981' }
-              ].map((item, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.1 + index * 0.1 }}
-                  style={{
-                    marginBottom: '1rem',
-                    padding: '0.75rem',
-                    background: 'rgba(0, 0, 0, 0.3)',
-                    borderRadius: '8px',
-                    border: `1px solid ${item.color}30`
-                  }}
-                >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
-                      <CircularProgress value={100 - item.tax} size={35} strokeWidth={3} />
-                      <span style={{ marginLeft: '0.75rem', color: '#e2e8f0' }}>{item.type}</span>
+            {investmentOptions.map((option, index) => (
+              <motion.div
+                key={option.type}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 + index * 0.15 }}
+                whileHover={{ scale: 1.02, x: 5 }}
+                onHoverStart={() => setHoveredInvestment(option.type)}
+                onHoverEnd={() => setHoveredInvestment(null)}
+                style={{
+                  marginBottom: '1rem',
+                  padding: '1rem',
+                  background: `linear-gradient(135deg, ${option.color}20, rgba(0, 0, 0, 0.3))`,
+                  borderRadius: '12px',
+                  border: `1px solid ${option.color}40`,
+                  position: 'relative',
+                  overflow: 'hidden'
+                }}
+              >
+                {/* Hover Glow */}
+                {hoveredInvestment === option.type && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background: `radial-gradient(circle at center, ${option.color}20, transparent)`,
+                      zIndex: 0
+                    }}
+                  />
+                )}
+                
+                <div style={{ position: 'relative', zIndex: 1 }}>
+                  <div style={{ 
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '0.5rem'
+                  }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <motion.span
+                        animate={{ 
+                          rotate: hoveredInvestment === option.type ? [0, 10, -10, 0] : 0
+                        }}
+                        transition={{ duration: 0.5 }}
+                        style={{ fontSize: '1.5rem' }}
+                      >
+                        {option.icon}
+                      </motion.span>
+                      <span style={{ color: '#e2e8f0', fontWeight: 'bold' }}>
+                        {option.type}
+                      </span>
                     </div>
                     <div style={{ textAlign: 'right' }}>
-                      <div style={{ fontSize: '1rem', fontWeight: 'bold', color: item.color }}>
-                        {item.tax}% Tax
-                      </div>
-                      {item.savings > 0 && (
-                        <motion.div
-                          animate={{ opacity: [0.5, 1, 0.5] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                          style={{ fontSize: '0.75rem', color: '#10b981' }}
-                        >
-                          Save ₹{item.savings}L
-                        </motion.div>
-                      )}
+                      <p style={{ color: option.color, fontWeight: 'bold' }}>
+                        {option.tax}% Tax
+                      </p>
                     </div>
                   </div>
                   
-                  {/* Animated Tax Bar */}
-                  <div style={{ height: '4px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '2px', overflow: 'hidden' }}>
+                  {/* Returns Visualization */}
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ 
+                        height: '6px',
+                        background: 'rgba(255, 255, 255, 0.1)',
+                        borderRadius: '3px',
+                        overflow: 'hidden'
+                      }}>
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${option.postTax}%` }}
+                          transition={{ delay: 1.1 + index * 0.15, duration: 0.8 }}
+                          style={{
+                            height: '100%',
+                            background: `linear-gradient(90deg, ${option.color}, ${option.color}80)`,
+                            boxShadow: `0 0 10px ${option.color}50`
+                          }}
+                        />
+                      </div>
+                      <p style={{ 
+                        fontSize: '0.75rem',
+                        color: '#64748b',
+                        marginTop: '0.25rem'
+                      }}>
+                        {option.postTax}% Post-Tax Returns
+                      </p>
+                    </div>
+                    
                     <motion.div
-                      initial={{ width: 0 }}
-                      animate={{ width: `${item.tax}%` }}
-                      transition={{ delay: 1.3 + index * 0.1, duration: 0.8 }}
-                      style={{
-                        height: '100%',
-                        background: item.color,
-                        boxShadow: `0 0 10px ${item.color}50`
+                      animate={{ 
+                        scale: hoveredInvestment === option.type ? 1.1 : 1,
+                        y: hoveredInvestment === option.type ? -2 : 0
                       }}
-                    />
+                      style={{ 
+                        padding: '0.5rem',
+                        background: `${option.color}20`,
+                        borderRadius: '8px'
+                      }}
+                    >
+                      <p style={{ 
+                        fontSize: '1.2rem',
+                        fontWeight: 'bold',
+                        color: option.color
+                      }}>
+                        ₹<AnimatedCounter value={option.fiveYearReturn} duration={2000} />L
+                      </p>
+                      <p style={{ fontSize: '0.65rem', color: '#64748b' }}>
+                        5Y Returns
+                      </p>
+                    </motion.div>
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                  
+                  {option.type === 'GIFT City AIF' && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 1.5 }}
+                      style={{
+                        marginTop: '0.5rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                      }}
+                    >
+                      <Award size={16} color="#10b981" />
+                      <span style={{ 
+                        fontSize: '0.8rem',
+                        color: '#10b981',
+                        fontWeight: 'bold'
+                      }}>
+                        Best Tax Efficiency
+                      </span>
+                    </motion.div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
-
-        {/* Bottom Savings Visualization */}
+        
+        {/* Bottom Savings Summary */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="glass-card"
+          transition={{ delay: 1.6 }}
           style={{
             marginTop: '2rem',
-            padding: '1.5rem',
-            background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%)',
-            border: '1px solid rgba(251, 191, 36, 0.3)'
+            padding: '1.5rem 2rem',
+            background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(16, 185, 129, 0.1))',
+            borderRadius: '20px',
+            border: '2px solid rgba(251, 191, 36, 0.3)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center'
           }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <h4 style={{ 
+              fontSize: '1.3rem',
+              color: '#fbbf24',
+              marginBottom: '0.5rem'
+            }}>
+              Your Total Savings Over 5 Years
+            </h4>
+            <p style={{ color: '#94a3b8' }}>
+              Through GIFT City tax optimization structure
+            </p>
+          </div>
+          
+          <motion.div
+            animate={{ 
+              scale: [1, 1.05, 1],
+              rotate: [0, 5, -5, 0]
+            }}
+            transition={{ duration: 3, repeat: Infinity }}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              padding: '1rem 1.5rem',
+              background: 'linear-gradient(135deg, #10b981, #fbbf24)',
+              borderRadius: '16px'
+            }}
+          >
+            <PiggyBank size={40} color="#fff" />
             <div>
-              <h4 style={{ fontSize: '1.3rem', color: '#fbbf24', marginBottom: '0.5rem' }}>
-                Your Total Savings Over 5 Years
-              </h4>
-              <p style={{ color: '#94a3b8' }}>
-                Through GIFT City tax optimization structure
-              </p>
-            </div>
-            
-            <motion.div
-              animate={{ 
-                scale: [1, 1.05, 1],
-                rotate: [0, 5, -5, 0]
-              }}
-              transition={{ duration: 3, repeat: Infinity }}
-              style={{
-                padding: '1.5rem',
-                background: 'linear-gradient(135deg, #10b981, #fbbf24)',
-                borderRadius: '16px'
-              }}
-            >
-              <PiggyBank className="w-12 h-12 text-white" />
-              <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginTop: '0.5rem' }}>
+              <p style={{ 
+                fontSize: '2rem',
+                fontWeight: 'bold',
+                color: '#fff'
+              }}>
                 ₹10L+
               </p>
-            </motion.div>
-          </div>
+              <p style={{ 
+                fontSize: '0.8rem',
+                color: 'rgba(255, 255, 255, 0.9)'
+              }}>
+                Tax Saved
+              </p>
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
     </div>
   )
 }
-
-export default GiftCityTaxOptimizationSlide
