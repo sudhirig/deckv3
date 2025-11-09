@@ -7,6 +7,7 @@ import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, DollarSign, Rocket, Target, Users, Award, Building2, ChevronRight } from 'lucide-react'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FundingSlide() {
@@ -52,7 +53,7 @@ export default function FundingSlide() {
     <div style={{ position: 'relative' }}>
       <ParticleBackground count={30} color="#8b5cf6" />
       
-      <div className="responsive-grid-4" style={{ marginBottom: '2rem' }}>
+      <div className="responsive-grid-4" style={{ marginBottom: SPACING.lg }}>
         {fundingMetrics.map((metric, index) => (
           <motion.div
             key={metric.label}
@@ -65,7 +66,7 @@ export default function FundingSlide() {
             className="glass-card responsive-padding-md"
             style={{
               background: `linear-gradient(135deg, ${metric.color}20, rgba(255, 255, 255, 0.02))`,
-              border: `2px solid ${metric.color}30`,
+              border: `${pxToRem(2)} solid ${metric.color}30`,
               textAlign: 'center',
               position: 'relative',
               overflow: 'visible'
@@ -79,21 +80,21 @@ export default function FundingSlide() {
               transition={{ duration: 2, repeat: Infinity }}
               style={{
                 position: 'absolute',
-                top: '-20px',
-                right: '-20px',
-                width: '40px',
-                height: '40px',
+                top: pxToRem(-20),
+                right: pxToRem(-20),
+                width: pxToRem(40),
+                height: pxToRem(40),
                 borderRadius: '50%',
                 background: metric.color,
-                filter: 'blur(20px)',
+                filter: `blur(${pxToRem(20)})`,
                 zIndex: -1
               }}
             />
-            <metric.icon size={24} color={metric.color} style={{ margin: '0 auto 0.5rem' }} />
-            <div className="responsive-text-sm" style={{ color: '#94a3b8', marginBottom: '0.25rem' }}>
+            <metric.icon size={24} color={metric.color} style={{ margin: `0 auto ${SPACING.xs}` }} />
+            <div className="responsive-text-sm" style={{ color: '#94a3b8', marginBottom: pxToRem(4) }}>
               {metric.label}
             </div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: metric.color }}>
+            <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: metric.color }}>
               <AnimatedCounter 
                 value={metric.value} 
                 prefix={metric.prefix} 
@@ -105,10 +106,10 @@ export default function FundingSlide() {
         ))}
       </div>
 
-      <h3 style={{ color: '#ec4899', marginBottom: '1rem', fontSize: '1.2rem' }}>
+      <h3 style={{ color: '#ec4899', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
         Use of Funds
       </h3>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: pxToRem(12) }}>
         {useOfFunds.map((item, index) => (
           <motion.div
             key={item.category}
@@ -116,16 +117,16 @@ export default function FundingSlide() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 + index * 0.1 }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: SPACING.xs }}>
               <span className="responsive-text-sm" style={{ color: '#e2e8f0' }}>{item.category}</span>
               <span className="responsive-text-sm" style={{ color: item.color, fontWeight: 'bold' }}>
                 ${item.amount}M ({item.percentage}%)
               </span>
             </div>
             <div style={{ 
-              height: '8px', 
+              height: pxToRem(8), 
               background: 'rgba(255, 255, 255, 0.1)', 
-              borderRadius: '4px',
+              borderRadius: pxToRem(4),
               overflow: 'hidden'
             }}>
               <motion.div
@@ -135,7 +136,7 @@ export default function FundingSlide() {
                 style={{
                   height: '100%',
                   background: item.color,
-                  borderRadius: '4px'
+                  borderRadius: pxToRem(4)
                 }}
               />
             </div>
@@ -147,7 +148,7 @@ export default function FundingSlide() {
 
   // Key insights - Investors & Traction
   const keyInsights = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', height: '100%' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.md, height: '100%' }}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -158,7 +159,7 @@ export default function FundingSlide() {
           flex: 1
         }}
       >
-        <h4 style={{ color: '#10b981', marginBottom: '1rem', fontSize: '1.1rem' }}>
+        <h4 style={{ color: '#10b981', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
           Committed Investors
         </h4>
         {investors.map((investor, index) => (
@@ -171,14 +172,14 @@ export default function FundingSlide() {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              padding: '0.75rem',
-              marginBottom: '0.5rem',
+              padding: pxToRem(12),
+              marginBottom: SPACING.xs,
               background: 'rgba(255, 255, 255, 0.03)',
-              borderRadius: '8px'
+              borderRadius: pxToRem(8)
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <span style={{ fontSize: '1.5rem' }}>{investor.logo}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12) }}>
+              <span style={{ fontSize: TYPOGRAPHY.subheadline }}>{investor.logo}</span>
               <span className="responsive-text-sm" style={{ color: '#e2e8f0' }}>{investor.name}</span>
             </div>
             <span style={{ color: '#10b981', fontWeight: 'bold' }}>${investor.amount}M</span>
@@ -196,11 +197,11 @@ export default function FundingSlide() {
           textAlign: 'center'
         }}
       >
-        <Rocket size={32} color="#ec4899" style={{ margin: '0 auto 0.5rem' }} />
+        <Rocket size={32} color="#ec4899" style={{ margin: `0 auto ${SPACING.xs}` }} />
         <div className="responsive-text-md" style={{ color: '#ec4899', fontWeight: 'bold' }}>
           Accelerating to $1B AUM
         </div>
-        <div className="responsive-text-sm" style={{ color: '#94a3b8', marginTop: '0.5rem' }}>
+        <div className="responsive-text-sm" style={{ color: '#94a3b8', marginTop: SPACING.xs }}>
           18-month timeline with proven traction
         </div>
       </motion.div>
@@ -220,8 +221,8 @@ export default function FundingSlide() {
           textAlign: 'center'
         }}
       >
-        <Target size={24} color="#fbbf24" style={{ margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>250</div>
+        <Target size={24} color="#fbbf24" style={{ margin: `0 auto ${SPACING.xs}` }} />
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24' }}>250</div>
         <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>Current Clients</div>
       </motion.div>
 
@@ -235,8 +236,8 @@ export default function FundingSlide() {
           textAlign: 'center'
         }}
       >
-        <DollarSign size={24} color="#3b82f6" style={{ margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#3b82f6' }}>$250M</div>
+        <DollarSign size={24} color="#3b82f6" style={{ margin: `0 auto ${SPACING.xs}` }} />
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#3b82f6' }}>$250M</div>
         <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>Current AUM</div>
       </motion.div>
 
@@ -250,8 +251,8 @@ export default function FundingSlide() {
           textAlign: 'center'
         }}
       >
-        <TrendingUp size={24} color="#10b981" style={{ margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#10b981' }}>17.8:1</div>
+        <TrendingUp size={24} color="#10b981" style={{ margin: `0 auto ${SPACING.xs}` }} />
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#10b981' }}>17.8:1</div>
         <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>LTV/CAC</div>
       </motion.div>
     </div>

@@ -3,6 +3,7 @@ import { TableLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import { TrendingUp, DollarSign, Clock, Award, ChevronRight } from 'lucide-react'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CaseStudy1Slide() {
@@ -40,55 +41,55 @@ export default function CaseStudy1Slide() {
         transition={{ delay: 0.3 }}
         style={{
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
-          borderRadius: '12px',
-          padding: '1.5rem',
-          marginBottom: '2rem'
+          borderRadius: pxToRem(12),
+          padding: SPACING.md,
+          marginBottom: SPACING.lg
         }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: SPACING.lg }}>
           {/* Client Info */}
           <div>
             <div style={{
-              width: '80px',
-              height: '80px',
+              width: pxToRem(80),
+              height: pxToRem(80),
               borderRadius: '50%',
               background: 'linear-gradient(135deg, #60a5fa, #c084fc)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '2rem',
+              fontSize: TYPOGRAPHY.subheadline,
               fontWeight: 'bold',
               color: '#0f172a',
-              marginBottom: '1rem'
+              marginBottom: SPACING.sm
             }}>
               RK
             </div>
-            <h3 style={{ color: '#e2e8f0', marginBottom: '0.5rem' }}>Raj Kapoor</h3>
-            <div style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+            <h3 style={{ color: '#e2e8f0', marginBottom: SPACING.xs }}>Raj Kapoor</h3>
+            <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginBottom: pxToRem(4) }}>
               Tech Founder & Angel Investor
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#64748b' }}>
+            <div style={{ fontSize: TYPOGRAPHY.body, color: '#64748b' }}>
               Age: 38 | Location: San Francisco
             </div>
           </div>
 
           {/* Challenge & Solution */}
           <div>
-            <div style={{ marginBottom: '1rem' }}>
-              <h4 style={{ color: '#ef4444', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+            <div style={{ marginBottom: SPACING.sm }}>
+              <h4 style={{ color: '#ef4444', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
                 🔴 THE CHALLENGE
               </h4>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5 }}>
+              <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', lineHeight: 1.5 }}>
                 After selling his second startup, Raj had $8.5M scattered across 12 accounts, 
                 was paying $180K/year in unnecessary taxes, and spending 20+ hours monthly 
                 managing investments with mediocre 12% returns.
               </div>
             </div>
             <div>
-              <h4 style={{ color: '#4ade80', fontSize: '0.95rem', marginBottom: '0.5rem' }}>
+              <h4 style={{ color: '#4ade80', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
                 ✅ THE SOLUTION
               </h4>
-              <div style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: 1.5 }}>
+              <div style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', lineHeight: 1.5 }}>
                 Our AI consolidated his portfolio, implemented daily tax harvesting, 
                 accessed pre-IPO investments, and automated rebalancing—all while 
                 reducing fees by 75% and tripling his after-tax returns.
@@ -105,11 +106,11 @@ export default function CaseStudy1Slide() {
         transition={{ delay: 0.7 }}
         style={{
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(16, 185, 129, 0.05))',
-          borderRadius: '12px',
-          padding: '1.5rem'
+          borderRadius: pxToRem(12),
+          padding: SPACING.md
         }}
       >
-        <h4 style={{ color: '#4ade80', marginBottom: '1rem', fontSize: '1.1rem' }}>
+        <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
           12-Month Journey
         </h4>
         <div style={{ position: 'relative' }}>
@@ -121,39 +122,39 @@ export default function CaseStudy1Slide() {
               transition={{ delay: 0.8 + index * 0.1 }}
               style={{
                 display: 'grid',
-                gridTemplateColumns: '100px 1fr',
-                gap: '1rem',
-                marginBottom: '1rem',
-                paddingLeft: '20px',
+                gridTemplateColumns: `${pxToRem(100)} 1fr`,
+                gap: SPACING.sm,
+                marginBottom: SPACING.sm,
+                paddingLeft: pxToRem(20),
                 position: 'relative'
               }}
             >
               {index < timeline.length - 1 && (
                 <div style={{
                   position: 'absolute',
-                  left: '10px',
-                  top: '20px',
-                  width: '2px',
-                  height: 'calc(100% + 1rem)',
+                  left: pxToRem(10),
+                  top: pxToRem(20),
+                  width: pxToRem(2),
+                  height: `calc(100% + ${SPACING.sm})`,
                   background: 'rgba(74, 222, 128, 0.3)'
                 }} />
               )}
               <div style={{
                 position: 'absolute',
-                left: '5px',
-                top: '8px',
-                width: '12px',
-                height: '12px',
+                left: pxToRem(5),
+                top: pxToRem(8),
+                width: pxToRem(12),
+                height: pxToRem(12),
                 borderRadius: '50%',
                 background: '#4ade80',
-                border: '2px solid #0f172a'
+                border: `${pxToRem(2)} solid #0f172a`
               }} />
-              <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>{item.month}</span>
+              <span style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>{item.month}</span>
               <div>
-                <div style={{ fontSize: '0.9rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+                <div style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', marginBottom: pxToRem(4) }}>
                   {item.event}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#64748b', fontStyle: 'italic' }}>
+                <div style={{ fontSize: TYPOGRAPHY.body, color: '#64748b', fontStyle: 'italic' }}>
                   {item.highlight}
                 </div>
               </div>
@@ -175,18 +176,18 @@ export default function CaseStudy1Slide() {
       className="glass-card"
       style={{
         background: `linear-gradient(135deg, ${result.color}20, ${result.color}10)`,
-        borderLeft: `3px solid ${result.color}`,
-        padding: '1rem',
+        borderLeft: `${pxToRem(3)} solid ${result.color}`,
+        padding: SPACING.sm,
         textAlign: 'center'
       }}
     >
-      <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: result.color }}>
+      <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: result.color }}>
         {result.value}
       </div>
-      <div style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+      <div style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', marginBottom: pxToRem(4) }}>
         {result.metric}
       </div>
-      <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+      <div style={{ fontSize: TYPOGRAPHY.body, color: '#64748b' }}>
         {result.benchmark}
       </div>
     </motion.div>
@@ -200,12 +201,12 @@ export default function CaseStudy1Slide() {
       transition={{ delay: 1 }}
       style={{
         background: 'linear-gradient(90deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
-        padding: '1rem',
-        borderRadius: '8px',
+        padding: SPACING.sm,
+        borderRadius: pxToRem(8),
         textAlign: 'center'
       }}
     >
-      <div style={{ fontSize: '0.9rem', color: '#fbbf24' }}>
+      <div style={{ fontSize: TYPOGRAPHY.body, color: '#fbbf24' }}>
         <strong>Client Testimonial:</strong> "The AI caught tax loss opportunities I never knew existed. 
         It's like having a team of experts working 24/7 on my wealth."
       </div>

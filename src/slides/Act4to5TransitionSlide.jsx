@@ -6,6 +6,7 @@ import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import { Gem, TrendingUp, Users, Target, Rocket, DollarSign, Briefcase, Handshake } from 'lucide-react'
+import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const Act4to5TransitionSlide = () => {
@@ -29,22 +30,22 @@ const Act4to5TransitionSlide = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, type: 'spring' }}
         className="act-content"
-        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+        style={{ position: 'relative', zIndex: 1, maxWidth: pxToRem(1200), margin: '0 auto' }}
       >
         {/* Journey Progress */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          style={{ marginBottom: '3rem' }}
+          style={{ marginBottom: SPACING.xl }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg, marginBottom: SPACING.sm }}>
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
-                width: '80px',
-                height: '80px',
+                width: pxToRem(80),
+                height: pxToRem(80),
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #fbbf24, #f59e0b, #d97706, #fbbf24)',
                 padding: '3px',
@@ -80,14 +81,14 @@ const Act4to5TransitionSlide = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
-          style={{ textAlign: 'center', marginBottom: '3rem' }}
+          style={{ textAlign: 'center', marginBottom: SPACING.xl }}
         >
-          <h1 style={{ fontSize: '4rem', fontWeight: '700', marginBottom: '1rem' }}>
+          <h1 style={{ fontSize: TYPOGRAPHY.hero, fontWeight: '700', marginBottom: SPACING.sm }}>
             <GradientText gradient="from-yellow-400 via-amber-400 to-orange-400">
               Team & Growth Proven
             </GradientText>
           </h1>
-          <p style={{ fontSize: '1.8rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#94a3b8' }}>
             Now, The Partnership Opportunity
           </p>
         </motion.div>
@@ -99,7 +100,7 @@ const Act4to5TransitionSlide = () => {
           transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
           style={{
             textAlign: 'center',
-            marginBottom: '3rem'
+            marginBottom: SPACING.xl
           }}
         >
           <motion.div
@@ -110,27 +111,27 @@ const Act4to5TransitionSlide = () => {
             transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
             style={{
               display: 'inline-block',
-              padding: '2rem',
+              padding: SPACING.lg,
               background: 'radial-gradient(circle, rgba(251, 191, 36, 0.3) 0%, rgba(251, 191, 36, 0.1) 40%, transparent 70%)',
               borderRadius: '50%',
-              marginBottom: '1.5rem'
+              marginBottom: SPACING.md
             }}
           >
             <Gem className="w-24 h-24 text-yellow-400" />
           </motion.div>
           
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>
+          <h2 style={{ fontSize: pxToRem(40), marginBottom: SPACING.xs }}>
             <GradientText gradient="from-yellow-400 to-orange-400">
               $5 Trillion Opportunity
             </GradientText>
           </h2>
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: pxToRem(19), color: '#94a3b8' }}>
             Ready to lead this transformation together
           </p>
         </motion.div>
 
         {/* Traction & Opportunity */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.xl, marginBottom: SPACING.xl }}>
           {/* Traction Achieved */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -162,9 +163,9 @@ const Act4to5TransitionSlide = () => {
             />
             
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.md }}>
                 <TrendingUp className="w-8 h-8 text-amber-400 mr-3" />
-                <h3 style={{ fontSize: '1.5rem', color: '#fbbf24' }}>Traction Achieved</h3>
+                <h3 style={{ fontSize: SPACING.md, color: '#fbbf24' }}>Traction Achieved</h3>
               </div>
               
               <div style={{ fontSize: '1.1rem', lineHeight: '2', color: '#f8f9fa' }}>
@@ -178,7 +179,7 @@ const Act4to5TransitionSlide = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1 + index * 0.1, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}
+                    style={{ display: 'flex', alignItems: 'center', marginBottom: pxToRem(12) }}
                   >
                     <item.icon className="w-5 h-5 text-amber-300 mr-3 flex-shrink-0" />
                     <span>{item.text}</span>
@@ -187,7 +188,7 @@ const Act4to5TransitionSlide = () => {
                       transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                       style={{ marginLeft: 'auto' }}
                     >
-                      <span style={{ color: '#fbbf24', fontSize: '1.2rem' }}>✓</span>
+                      <span style={{ color: '#fbbf24', fontSize: pxToRem(19) }}>✓</span>
                     </motion.div>
                   </motion.div>
                 ))}
@@ -198,26 +199,26 @@ const Act4to5TransitionSlide = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.3 }}
-                style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(251, 191, 36, 0.2)' }}
+                style={{ marginTop: SPACING.md, paddingTop: SPACING.md, borderTop: '1px solid rgba(251, 191, 36, 0.2)' }}
               >
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>
+                    <div style={{ fontSize: SPACING.md, fontWeight: 'bold', color: '#fbbf24' }}>
                       <AnimatedCounter end={250} duration={1500} />M
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Target AUM</p>
+                    <p style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>Target AUM</p>
                   </div>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#f59e0b' }}>
+                    <div style={{ fontSize: SPACING.md, fontWeight: 'bold', color: '#f59e0b' }}>
                       <AnimatedCounter end={17.8} decimals={1} duration={1500} />:1
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>LTV/CAC</p>
+                    <p style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>LTV/CAC</p>
                   </div>
                   <div style={{ textAlign: 'center' }}>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#d97706' }}>
+                    <div style={{ fontSize: SPACING.md, fontWeight: 'bold', color: '#d97706' }}>
                       <AnimatedCounter end={3.5} decimals={1} duration={1500} />mo
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Payback</p>
+                    <p style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>Payback</p>
                   </div>
                 </div>
               </motion.div>
@@ -257,9 +258,9 @@ const Act4to5TransitionSlide = () => {
             />
             
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.md }}>
                 <Handshake className="w-8 h-8 text-teal-400 mr-3" />
-                <h3 style={{ fontSize: '1.5rem', color: '#14b8a6' }}>Your Decision</h3>
+                <h3 style={{ fontSize: SPACING.md, color: '#14b8a6' }}>Your Decision</h3>
               </div>
               
               <div style={{ fontSize: '1.1rem', lineHeight: '2', color: '#f8f9fa' }}>
@@ -273,7 +274,7 @@ const Act4to5TransitionSlide = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.4 + index * 0.1, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}
+                    style={{ display: 'flex', alignItems: 'center', marginBottom: pxToRem(12) }}
                   >
                     <item.icon className="w-5 h-5 text-teal-300 mr-3 flex-shrink-0" />
                     <span>{item.text}</span>
@@ -282,7 +283,7 @@ const Act4to5TransitionSlide = () => {
                       transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.2 }}
                       style={{ marginLeft: 'auto' }}
                     >
-                      <span style={{ color: '#14b8a6', fontSize: '1.2rem' }}>→</span>
+                      <span style={{ color: '#14b8a6', fontSize: pxToRem(19) }}>→</span>
                     </motion.div>
                   </motion.div>
                 ))}
@@ -293,12 +294,12 @@ const Act4to5TransitionSlide = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.7 }}
-                style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid rgba(20, 184, 166, 0.2)' }}
+                style={{ marginTop: SPACING.md, paddingTop: SPACING.md, borderTop: '1px solid rgba(20, 184, 166, 0.2)' }}
               >
-                <p style={{ fontSize: '1.2rem', color: '#14b8a6', fontWeight: 'bold', textAlign: 'center' }}>
+                <p style={{ fontSize: pxToRem(19), color: '#14b8a6', fontWeight: 'bold', textAlign: 'center' }}>
                   $5M Seed Round
                 </p>
-                <p style={{ fontSize: '0.9rem', color: '#94a3b8', textAlign: 'center', marginTop: '0.5rem' }}>
+                <p style={{ fontSize: pxToRem(14), color: '#94a3b8', textAlign: 'center', marginTop: SPACING.xs }}>
                   Lead the transformation of wealth management
                 </p>
               </motion.div>
@@ -311,17 +312,17 @@ const Act4to5TransitionSlide = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}
-          style={{ marginBottom: '2rem' }}
+          style={{ marginBottom: SPACING.lg }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'between', marginBottom: '1rem' }}>
-            <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Journey to Partnership</span>
-            <span style={{ fontSize: '1.2rem', color: '#fbbf24', fontWeight: 'bold', marginLeft: 'auto' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'between', marginBottom: SPACING.sm }}>
+            <span style={{ fontSize: pxToRem(14), color: '#94a3b8' }}>Journey to Partnership</span>
+            <span style={{ fontSize: pxToRem(19), color: '#fbbf24', fontWeight: 'bold', marginLeft: 'auto' }}>
               <AnimatedCounter end={80} duration={1000} />% Complete
             </span>
           </div>
           
           <div style={{ position: 'relative' }}>
-            <div style={{ width: '100%', height: '12px', background: 'rgba(255, 255, 255, 0.1)', borderRadius: '6px', overflow: 'hidden' }}>
+            <div style={{ width: '100%', height: pxToRem(12), background: 'rgba(255, 255, 255, 0.1)', borderRadius: pxToRem(6), overflow: 'hidden' }}>
               <motion.div
                 initial={{ width: '60%' }}
                 animate={{ width: '80%' }}
@@ -329,7 +330,7 @@ const Act4to5TransitionSlide = () => {
                 style={{
                   height: '100%',
                   background: 'linear-gradient(90deg, #fbbf24, #f59e0b, #14b8a6)',
-                  borderRadius: '6px',
+                  borderRadius: pxToRem(6),
                   boxShadow: '0 0 20px rgba(251, 191, 36, 0.5)'
                 }}
               />
@@ -346,8 +347,8 @@ const Act4to5TransitionSlide = () => {
                   style={{
                     position: 'absolute',
                     left: `${pos}%`,
-                    width: '8px',
-                    height: '8px',
+                    width: pxToRem(8),
+                    height: pxToRem(8),
                     borderRadius: '50%',
                     background: pos <= 80 ? '#fbbf24' : '#475569',
                     transform: 'translateX(-50%)'
@@ -365,9 +366,9 @@ const Act4to5TransitionSlide = () => {
           transition={{ delay: 2.5, duration: 0.6 }}
           style={{ 
             textAlign: 'center',
-            padding: '2rem',
+            padding: SPACING.lg,
             background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%)',
-            borderRadius: '16px',
+            borderRadius: pxToRem(16),
             border: '1px solid rgba(139, 92, 246, 0.3)'
           }}
         >
@@ -377,10 +378,10 @@ const Act4to5TransitionSlide = () => {
           >
             <Gem className="w-12 h-12 text-purple-400 mx-auto mb-2" />
           </motion.div>
-          <p style={{ fontSize: '1.3rem', color: '#a855f7', fontWeight: 'bold' }}>
+          <p style={{ fontSize: pxToRem(21), color: '#a855f7', fontWeight: 'bold' }}>
             The moment is now. The team is ready. The platform is live.
           </p>
-          <p style={{ fontSize: '1rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+          <p style={{ fontSize: SPACING.sm, color: '#94a3b8', marginTop: SPACING.xs }}>
             Let's discuss how we build the future of wealth management together
           </p>
         </motion.div>

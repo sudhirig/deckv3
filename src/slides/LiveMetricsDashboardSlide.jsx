@@ -8,6 +8,7 @@ import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
 import { Activity, TrendingUp, Users, DollarSign, Globe, Shield, Clock, CheckCircle, BarChart3, Zap, Award } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 const LiveMetricsDashboardSlide = () => {
@@ -198,7 +199,7 @@ const LiveMetricsDashboardSlide = () => {
           
           <LineChart data={uptimeData} height={100} animated={animateMetrics} />
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.sm, marginTop: SPACING.sm }}>
             <div>
               <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>API Response</p>
               <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#10b981' }}>11ms avg</p>
@@ -209,7 +210,7 @@ const LiveMetricsDashboardSlide = () => {
             </div>
           </div>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: SPACING.sm }}>
             <CircularProgress value={99.97} size={35} strokeWidth={3} />
             <CircularProgress value={100} size={35} strokeWidth={3} />
             <CircularProgress value={95} size={35} strokeWidth={3} />
@@ -237,7 +238,7 @@ const LiveMetricsDashboardSlide = () => {
           
           <LineChart data={userActivityData} height={100} animated={animateMetrics} />
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.sm, marginTop: SPACING.sm }}>
             <div>
               <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Voice Commands</p>
               <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#f59e0b' }}>127K today</p>
@@ -270,7 +271,7 @@ const LiveMetricsDashboardSlide = () => {
           
           <BarChart data={performanceData} height={100} colorScheme="gradient" animated={animateMetrics} />
           
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginTop: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.sm, marginTop: SPACING.sm }}>
             <div>
               <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Tax Saved/User</p>
               <p style={{ fontSize: '1rem', fontWeight: 'bold', color: '#10b981' }}>₹1.55L avg</p>

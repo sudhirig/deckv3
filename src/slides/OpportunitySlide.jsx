@@ -3,6 +3,7 @@ import { HeroLayout } from '../components/StandardLayouts'
 import AnimatedCounter from '../components/AnimatedCounter'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function OpportunitySlide() {
@@ -24,7 +25,7 @@ export default function OpportunitySlide() {
       alignItems: 'center', 
       width: '100%',
       height: '100%',
-      padding: '2rem 0'
+      padding: `${SPACING.lg} 0`
     }}>
       <motion.div 
         style={{ textAlign: 'center' }}
@@ -33,20 +34,20 @@ export default function OpportunitySlide() {
         transition={{ delay: 0.5, duration: 0.8, type: 'spring' }}
       >
         <div style={{ 
-          width: '350px', 
-          height: '350px', 
+          width: pxToRem(350), 
+          height: pxToRem(350), 
           borderRadius: '50%', 
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(59, 130, 246, 0.1))', 
-          border: '4px solid #3b82f6', 
+          border: `${pxToRem(4)} solid #3b82f6`, 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
           justifyContent: 'center',
-          boxShadow: '0 0 60px rgba(59, 130, 246, 0.4)'
+          boxShadow: `0 0 ${pxToRem(60)} rgba(59, 130, 246, 0.4)`
         }}>
-          <p style={{ fontSize: '4rem', fontWeight: 'bold', color: '#60a5fa' }}>$112T</p>
-          <p style={{ fontSize: '1.5rem', color: '#93c5fd', marginBottom: '1rem' }}>TAM</p>
-          <p style={{ fontSize: '1.1rem', color: '#e2e8f0', textAlign: 'center', padding: '0 1rem' }}>
+          <p style={{ fontSize: TYPOGRAPHY.hero, fontWeight: 'bold', color: '#60a5fa' }}>$112T</p>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#93c5fd', marginBottom: SPACING.sm }}>TAM</p>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', textAlign: 'center', padding: `0 ${SPACING.sm}` }}>
             US HNW ($107T) +<br/>India Access ($5T)
           </p>
         </div>
@@ -59,20 +60,20 @@ export default function OpportunitySlide() {
         transition={{ delay: 0.7, duration: 0.8, type: 'spring' }}
       >
         <div style={{ 
-          width: '280px', 
-          height: '280px', 
+          width: pxToRem(280), 
+          height: pxToRem(280), 
           borderRadius: '50%', 
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(34, 197, 94, 0.1))', 
-          border: '4px solid #22c55e', 
+          border: `${pxToRem(4)} solid #22c55e`, 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
           justifyContent: 'center',
-          boxShadow: '0 0 50px rgba(34, 197, 94, 0.4)'
+          boxShadow: `0 0 ${pxToRem(50)} rgba(34, 197, 94, 0.4)`
         }}>
-          <p style={{ fontSize: '3.5rem', fontWeight: 'bold', color: '#4ade80' }}>$5.4T</p>
-          <p style={{ fontSize: '1.4rem', color: '#86efac', marginBottom: '1rem' }}>SAM</p>
-          <p style={{ fontSize: '1rem', color: '#e2e8f0', textAlign: 'center', padding: '0 1rem' }}>
+          <p style={{ fontSize: TYPOGRAPHY.hero, fontWeight: 'bold', color: '#4ade80' }}>$5.4T</p>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#86efac', marginBottom: SPACING.sm }}>SAM</p>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', textAlign: 'center', padding: `0 ${SPACING.sm}` }}>
             Tech-savvy HNW<br/>$5M+ investable
           </p>
         </div>
@@ -85,20 +86,20 @@ export default function OpportunitySlide() {
         transition={{ delay: 0.9, duration: 0.8, type: 'spring' }}
       >
         <div style={{ 
-          width: '220px', 
-          height: '220px', 
+          width: pxToRem(220), 
+          height: pxToRem(220), 
           borderRadius: '50%', 
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.3), rgba(20, 184, 166, 0.1))', 
-          border: '4px solid #14b8a6', 
+          border: `${pxToRem(4)} solid #14b8a6`, 
           display: 'flex', 
           flexDirection: 'column', 
           alignItems: 'center', 
           justifyContent: 'center',
-          boxShadow: '0 0 40px rgba(20, 184, 166, 0.4)'
+          boxShadow: `0 0 ${pxToRem(40)} rgba(20, 184, 166, 0.4)`
         }}>
-          <p style={{ fontSize: '3rem', fontWeight: 'bold', color: '#5eead4' }}>$2.5B</p>
-          <p style={{ fontSize: '1.3rem', color: '#99f6e4', marginBottom: '0.5rem' }}>SOM (Y3)</p>
-          <p style={{ fontSize: '0.95rem', color: '#e2e8f0', textAlign: 'center', padding: '0 1rem' }}>
+          <p style={{ fontSize: TYPOGRAPHY.hero, fontWeight: 'bold', color: '#5eead4' }}>$2.5B</p>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#99f6e4', marginBottom: SPACING.xs }}>SOM (Y3)</p>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', textAlign: 'center', padding: `0 ${SPACING.sm}` }}>
             Conservative<br/>target AUM
           </p>
         </div>
@@ -114,19 +115,19 @@ export default function OpportunitySlide() {
       transition={{ delay: 1.2 }}
       style={{ 
         textAlign: 'center', 
-        padding: '2rem', 
+        padding: SPACING.lg, 
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(34, 197, 94, 0.15))', 
-        borderRadius: '16px',
-        border: '2px solid rgba(20, 184, 166, 0.3)'
+        borderRadius: pxToRem(16),
+        border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`
       }}
     >
-      <p style={{ fontSize: '1.5rem', color: '#14b8a6', fontWeight: 'bold', marginBottom: '1rem' }}>
+      <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#14b8a6', fontWeight: 'bold', marginBottom: SPACING.sm }}>
         Year 3 SOM: <GradientText gradient="from-teal-400 to-green-400" animate={false}>$2.5B AUM = $12.5M Revenue</GradientText>
       </p>
-      <p style={{ fontSize: '1.2rem', color: '#e2e8f0' }}>
+      <p style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0' }}>
         Conservative and attainable with current growth trajectory
       </p>
-      <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginTop: '1rem' }}>
+      <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginTop: SPACING.sm }}>
         Path to $5B AUM by Year 5 → $125M Revenue → $87M EBITDA
       </p>
     </motion.div>

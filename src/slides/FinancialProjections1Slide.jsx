@@ -3,7 +3,9 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
+import ResponsiveTable from '../components/ResponsiveTable'
 import { TrendingUp, DollarSign, Users, Target, BarChart3, PiggyBank, Rocket } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FinancialProjections1Slide() {
@@ -53,7 +55,7 @@ export default function FinancialProjections1Slide() {
         5-Year AUM Growth Trajectory
       </h3>
       
-      <div style={{ position: 'relative', height: '300px', marginBottom: '1rem' }}>
+      <div style={{ position: 'relative', height: pxToRem(300), maxHeight: '40vh', marginBottom: SPACING.sm }}>
         {/* Grid Lines */}
         {[0, 1, 2, 3, 4, 5].map(i => (
           <div
@@ -62,8 +64,8 @@ export default function FinancialProjections1Slide() {
               position: 'absolute',
               left: 0,
               right: 0,
-              bottom: `${i * 50}px`,
-              height: '1px',
+              bottom: pxToRem(i * 50),
+              height: pxToRem(1),
               background: 'rgba(255, 255, 255, 0.05)'
             }}
           />
@@ -75,8 +77,8 @@ export default function FinancialProjections1Slide() {
             key={i}
             style={{
               position: 'absolute',
-              left: '-40px',
-              bottom: `${i * 50 - 8}px`,
+              left: pxToRem(-40),
+              bottom: pxToRem(i * 50 - 8),
               fontSize: '0.85rem',
               color: '#64748b'
             }}
@@ -90,8 +92,8 @@ export default function FinancialProjections1Slide() {
           display: 'flex',
           justifyContent: 'space-evenly',
           alignItems: 'flex-end',
-          height: '250px',
-          paddingTop: '30px'
+          height: pxToRem(250),
+          paddingTop: SPACING.lg
         }}>
           {projections.map((proj, index) => (
             <div key={proj.year} style={{ width: '15%', position: 'relative' }}>
@@ -102,9 +104,9 @@ export default function FinancialProjections1Slide() {
                 style={{
                   width: '100%',
                   background: 'linear-gradient(180deg, #60a5fa, #3b82f6)',
-                  borderRadius: '8px 8px 0 0',
+                  borderRadius: `${pxToRem(8)} ${pxToRem(8)} 0 0`,
                   position: 'relative',
-                  boxShadow: '0 -4px 20px rgba(96, 165, 250, 0.3)'
+                  boxShadow: `0 ${pxToRem(-4)} ${pxToRem(20)} rgba(96, 165, 250, 0.3)`
                 }}
               >
                 <motion.div
@@ -113,7 +115,7 @@ export default function FinancialProjections1Slide() {
                   transition={{ delay: 1.3 + index * 0.1 }}
                   style={{
                     position: 'absolute',
-                    top: '-30px',
+                    top: pxToRem(-30),
                     left: '50%',
                     transform: 'translateX(-50%)',
                     fontSize: '1.1rem',
@@ -205,14 +207,15 @@ export default function FinancialProjections1Slide() {
       transition={{ delay: 1.8 }}
       style={{
         background: 'rgba(147, 51, 234, 0.05)',
-        borderRadius: '12px',
-        padding: '1.5rem'
+        borderRadius: pxToRem(12),
+        padding: SPACING.md
       }}
     >
-      <h4 style={{ color: '#a78bfa', marginBottom: '1rem', fontSize: '1.1rem' }}>
+      <h4 style={{ color: '#a78bfa', marginBottom: SPACING.sm, fontSize: '1.1rem' }}>
         Detailed Financial Model
       </h4>
       
+      <ResponsiveTable minWidth={pxToRem(600)}>
       <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0' }}>
         <thead>
           <tr style={{ borderBottom: '1px solid rgba(147, 51, 234, 0.2)' }}>
@@ -264,8 +267,9 @@ export default function FinancialProjections1Slide() {
           </tr>
         </tbody>
       </table>
+      </ResponsiveTable>
       
-      <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: '8px' }}>
+      <div style={{ marginTop: SPACING.sm, padding: SPACING.sm, background: 'rgba(34, 197, 94, 0.1)', borderRadius: pxToRem(8) }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
           <PiggyBank size={16} color="#22c55e" />
           <span style={{ fontSize: '0.9rem', fontWeight: 'bold', color: '#22c55e' }}>Key Assumptions</span>

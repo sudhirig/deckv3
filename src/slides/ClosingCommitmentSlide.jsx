@@ -7,6 +7,7 @@ import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import CircularProgress from '../components/CircularProgress'
 import { Rocket, Target, Clock, HandshakeIcon, ChevronRight, Star, DollarSign, TrendingUp, Award, Shield } from 'lucide-react'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function ClosingCommitmentSlide() {
@@ -98,8 +99,8 @@ export default function ClosingCommitmentSlide() {
     <div style={{ 
       display: 'grid', 
       gridTemplateColumns: '1fr 1fr',
-      gap: '2rem',
-      maxWidth: '1100px',
+      gap: SPACING.lg,
+      maxWidth: pxToRem(1100),
       margin: '0 auto'
     }}>
       {/* Left side - Investment Details */}
@@ -110,21 +111,21 @@ export default function ClosingCommitmentSlide() {
       >
         <div className="glass-card responsive-padding-md" style={{
           background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1))',
-          marginBottom: '1.5rem'
+          marginBottom: SPACING.md
         }}>
-          <h3 style={{ color: '#ec4899', marginBottom: '1rem', fontSize: '1.3rem' }}>
+          <h3 style={{ color: '#ec4899', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
             Investment Opportunity
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.sm }}>
             <div>
               <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>Raise Amount</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#ec4899' }}>
+              <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ec4899' }}>
                 ${askDetails.raise}M
               </div>
             </div>
             <div>
               <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>Pre-Money</div>
-              <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#8b5cf6' }}>
+              <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#8b5cf6' }}>
                 ${askDetails.valuation}M
               </div>
             </div>
@@ -135,7 +136,7 @@ export default function ClosingCommitmentSlide() {
         <div className="glass-card responsive-padding-md" style={{
           background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1))'
         }}>
-          <h4 style={{ color: '#10b981', marginBottom: '1rem', fontSize: '1.1rem' }}>
+          <h4 style={{ color: '#10b981', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
             Strategic Deployment
           </h4>
           {useOfFunds.map((item, index) => (
@@ -144,10 +145,10 @@ export default function ClosingCommitmentSlide() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 + index * 0.1 }}
-              style={{ marginBottom: '0.75rem' }}
+              style={{ marginBottom: pxToRem(12) }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.25rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: pxToRem(4) }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: SPACING.xs }}>
                   <item.icon size={16} color={item.color} />
                   <span className="responsive-text-sm" style={{ color: '#e2e8f0' }}>
                     {item.category}
@@ -158,9 +159,9 @@ export default function ClosingCommitmentSlide() {
                 </span>
               </div>
               <div style={{ 
-                height: '4px', 
+                height: pxToRem(4), 
                 background: 'rgba(255, 255, 255, 0.1)', 
-                borderRadius: '2px',
+                borderRadius: pxToRem(2),
                 overflow: 'hidden'
               }}>
                 <motion.div
@@ -187,9 +188,9 @@ export default function ClosingCommitmentSlide() {
         {/* Investor Benefits */}
         <div className="glass-card responsive-padding-md" style={{
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
-          marginBottom: '1.5rem'
+          marginBottom: SPACING.md
         }}>
-          <h4 style={{ color: '#fbbf24', marginBottom: '1rem', fontSize: '1.1rem' }}>
+          <h4 style={{ color: '#fbbf24', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
             Why Invest Now
           </h4>
           {investorBenefits.map((benefit, index) => (
@@ -204,11 +205,11 @@ export default function ClosingCommitmentSlide() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.75rem',
-                padding: '0.75rem',
-                marginBottom: '0.5rem',
+                gap: pxToRem(12),
+                padding: pxToRem(12),
+                marginBottom: SPACING.xs,
                 background: hoveredBenefit === index ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
-                borderRadius: '8px',
+                borderRadius: pxToRem(8),
                 transition: 'all 0.3s ease'
               }}
             >
@@ -224,7 +225,7 @@ export default function ClosingCommitmentSlide() {
         <div className="glass-card responsive-padding-md" style={{
           background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1))'
         }}>
-          <h4 style={{ color: '#3b82f6', marginBottom: '1rem', fontSize: '1.1rem' }}>
+          <h4 style={{ color: '#3b82f6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
             Next Steps
           </h4>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -247,12 +248,12 @@ export default function ClosingCommitmentSlide() {
                   }}
                   transition={{ duration: 1, repeat: activeStep === index ? Infinity : 0 }}
                 >
-                  <step.icon size={24} color="#3b82f6" style={{ margin: '0 auto 0.5rem' }} />
+                  <step.icon size={24} color="#3b82f6" style={{ margin: `0 auto ${SPACING.xs}` }} />
                 </motion.div>
                 <div className="responsive-text-sm" style={{ color: '#e2e8f0', fontWeight: 'bold' }}>
                   {step.phase}
                 </div>
-                <div style={{ fontSize: '0.7rem', color: '#64748b', marginTop: '0.25rem' }}>
+                <div style={{ fontSize: TYPOGRAPHY.body, color: '#64748b', marginTop: pxToRem(4) }}>
                   {step.duration}
                 </div>
               </motion.div>

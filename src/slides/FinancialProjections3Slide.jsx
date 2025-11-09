@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { PieChart, BarChart, TrendingUp, Users, DollarSign, Target } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FinancialProjections3Slide() {
@@ -40,12 +41,12 @@ export default function FinancialProjections3Slide() {
       transition={{ delay: 0.4 }}
       style={{
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(236, 72, 153, 0.1))',
-        borderRadius: '12px',
-        padding: '1.5rem',
+        borderRadius: pxToRem(12),
+        padding: SPACING.md,
         height: '100%'
       }}
     >
-      <h3 style={{ color: '#fbbf24', marginBottom: '1.5rem', fontSize: '1.2rem' }}>
+      <h3 style={{ color: '#fbbf24', marginBottom: SPACING.md, fontSize: '1.2rem' }}>
         $5M Seed Round Allocation
       </h3>
       
@@ -55,7 +56,7 @@ export default function FinancialProjections3Slide() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 + index * 0.1 }}
-          style={{ marginBottom: '1rem' }}
+          style={{ marginBottom: SPACING.sm }}
         >
           <div style={{ 
             display: 'flex', 
@@ -70,9 +71,9 @@ export default function FinancialProjections3Slide() {
             </span>
           </div>
           <div style={{
-            height: '8px',
+            height: pxToRem(8),
             background: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '4px',
+            borderRadius: pxToRem(4),
             overflow: 'hidden'
           }}>
             <motion.div
@@ -82,7 +83,7 @@ export default function FinancialProjections3Slide() {
               style={{
                 height: '100%',
                 background: item.color,
-                borderRadius: '4px'
+                borderRadius: pxToRem(4)
               }}
             />
           </div>
@@ -91,9 +92,9 @@ export default function FinancialProjections3Slide() {
 
       {/* Total */}
       <div style={{
-        marginTop: '1.5rem',
-        paddingTop: '1rem',
-        borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+        marginTop: SPACING.md,
+        paddingTop: SPACING.sm,
+        borderTop: `${pxToRem(1)} solid rgba(255, 255, 255, 0.1)`,
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -118,12 +119,12 @@ export default function FinancialProjections3Slide() {
         transition={{ delay: 0.6 }}
         style={{
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))',
-          borderRadius: '12px',
-          padding: '1.2rem',
+          borderRadius: pxToRem(12),
+          padding: SPACING.md,
           flex: 1
         }}
       >
-        <h4 style={{ color: '#4ade80', marginBottom: '1rem', fontSize: '1.1rem' }}>
+        <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: '1.1rem' }}>
           Key Milestones
         </h4>
         {milestones.map((item, index) => (
@@ -135,8 +136,8 @@ export default function FinancialProjections3Slide() {
             style={{ 
               marginBottom: '0.8rem',
               display: 'grid',
-              gridTemplateColumns: '80px 1fr auto',
-              gap: '0.5rem',
+              gridTemplateColumns: `${pxToRem(80)} 1fr auto`,
+              gap: SPACING.xs,
               alignItems: 'center'
             }}
           >
@@ -160,11 +161,11 @@ export default function FinancialProjections3Slide() {
         transition={{ delay: 0.8 }}
         style={{
           background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1))',
-          borderRadius: '12px',
-          padding: '1.2rem'
+          borderRadius: pxToRem(12),
+          padding: SPACING.md
         }}
       >
-        <h4 style={{ color: '#60a5fa', marginBottom: '1rem', fontSize: '1.1rem' }}>
+        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.sm, fontSize: '1.1rem' }}>
           Burn Rate & Runway
         </h4>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.8rem' }}>
@@ -178,7 +179,7 @@ export default function FinancialProjections3Slide() {
                 textAlign: 'center',
                 padding: '0.75rem',
                 background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '6px'
+                borderRadius: pxToRem(6)
               }}
             >
               <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
@@ -206,10 +207,10 @@ export default function FinancialProjections3Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1rem',
-        padding: '1.5rem',
+        gap: SPACING.sm,
+        padding: SPACING.md,
         background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(168, 85, 247, 0.1))',
-        borderRadius: '12px'
+        borderRadius: pxToRem(12)
       }}
     >
       <div style={{ textAlign: 'center' }}>

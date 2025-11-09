@@ -3,12 +3,13 @@ import { ActSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import { TrendingUp, Brain, Users } from 'lucide-react'
+import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function Act1Slide() {
   // Act number element
   const actNumber = (
-    <div style={{ fontSize: '4rem', fontWeight: 900 }}>
+    <div style={{ fontSize: TYPOGRAPHY.hero, fontWeight: 900 }}>
       <GradientText gradient="from-teal-400 to-green-400">
         ACT 1
       </GradientText>
@@ -19,10 +20,10 @@ export default function Act1Slide() {
   const mainContent = (
     <>
       <p style={{
-        fontSize: '1.2rem',
+        fontSize: TYPOGRAPHY.body,
         lineHeight: '1.8',
         color: 'rgba(255, 255, 255, 0.9)',
-        maxWidth: '800px',
+        maxWidth: pxToRem(800),
         margin: '0 auto'
       }}>
         AI is revolutionizing wealth management. Stanford shows 93% of AI-managed 
@@ -35,7 +36,7 @@ export default function Act1Slide() {
 
   // Side metrics
   const sideMetrics = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.md }}>
       <div className="metric-item">
         <TrendingUp size={24} color="#14b8a6" />
         <div className="metric-value">93%</div>
@@ -65,7 +66,7 @@ export default function Act1Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '2rem',
+        gap: SPACING.lg,
         width: '100%'
       }}
     >
@@ -74,7 +75,7 @@ export default function Act1Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: '1rem' }}>AI Revolution</h3>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm }}>AI Revolution</h3>
         <p>Stanford study: 93% of AI portfolios outperform human managers</p>
       </motion.div>
       
@@ -83,7 +84,7 @@ export default function Act1Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: '1rem' }}>Tax Alpha</h3>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm }}>Tax Alpha</h3>
         <p>Daily harvesting beats annual by +1.8% consistently</p>
       </motion.div>
       
@@ -92,7 +93,7 @@ export default function Act1Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: '1rem' }}>India Gateway</h3>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm }}>India Gateway</h3>
         <p>GIFT City unlocks $5T market at 0% tax rate</p>
       </motion.div>
     </motion.div>

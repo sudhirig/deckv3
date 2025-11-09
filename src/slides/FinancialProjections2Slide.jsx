@@ -4,6 +4,7 @@ import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import CircularProgress from '../components/CircularProgress'
 import { Calculator, TrendingUp, Users, DollarSign, Repeat, Target } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FinancialProjections2Slide() {
@@ -52,20 +53,20 @@ export default function FinancialProjections2Slide() {
         transition={{ delay: 0.4 }}
         style={{
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
-          borderRadius: '12px',
-          padding: '1.5rem'
+          borderRadius: pxToRem(12),
+          padding: SPACING.md
         }}
       >
-        <h3 style={{ color: '#60a5fa', marginBottom: '1.5rem', fontSize: '1.1rem' }}>
+        <h3 style={{ color: '#60a5fa', marginBottom: SPACING.md, fontSize: '1.1rem' }}>
           Unit Economics
         </h3>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: SPACING.sm }}>
           <div style={{
             textAlign: 'center',
-            padding: '1rem',
+            padding: SPACING.sm,
             background: 'rgba(255, 255, 255, 0.03)',
-            borderRadius: '8px'
+            borderRadius: pxToRem(8)
           }}>
             <DollarSign size={20} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
             <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>CAC</div>
@@ -104,13 +105,13 @@ export default function FinancialProjections2Slide() {
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(3, 1fr)', 
-          gap: '1rem',
-          marginTop: '1rem'
+          gap: SPACING.sm,
+          marginTop: SPACING.sm
         }}>
           <div style={{
             padding: '0.75rem',
             background: 'rgba(34, 197, 94, 0.1)',
-            borderRadius: '6px',
+            borderRadius: pxToRem(6),
             textAlign: 'center'
           }}>
             <div style={{ fontSize: '0.75rem', color: '#4ade80' }}>Payback</div>
@@ -122,7 +123,7 @@ export default function FinancialProjections2Slide() {
           <div style={{
             padding: '0.75rem',
             background: 'rgba(251, 191, 36, 0.1)',
-            borderRadius: '6px',
+            borderRadius: pxToRem(6),
             textAlign: 'center'
           }}>
             <div style={{ fontSize: '0.75rem', color: '#fbbf24' }}>Churn</div>
@@ -134,7 +135,7 @@ export default function FinancialProjections2Slide() {
           <div style={{
             padding: '0.75rem',
             background: 'rgba(236, 72, 153, 0.1)',
-            borderRadius: '6px',
+            borderRadius: pxToRem(6),
             textAlign: 'center'
           }}>
             <div style={{ fontSize: '0.75rem', color: '#ec4899' }}>ARPU</div>
@@ -154,11 +155,11 @@ export default function FinancialProjections2Slide() {
           transition={{ delay: 0.5 }}
           style={{
             background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))',
-            borderRadius: '12px',
-            padding: '1rem'
+            borderRadius: pxToRem(12),
+            padding: SPACING.sm
           }}
         >
-          <h4 style={{ color: '#4ade80', marginBottom: '1rem', fontSize: '1rem' }}>
+          <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: '1rem' }}>
             Revenue Streams (Y5)
           </h4>
           {revenueStreams.map((stream, index) => (
@@ -173,9 +174,9 @@ export default function FinancialProjections2Slide() {
                 <span style={{ color: stream.color }}>${stream.amount}M</span>
               </div>
               <div style={{
-                height: '4px',
+                height: pxToRem(4),
                 background: 'rgba(255, 255, 255, 0.05)',
-                borderRadius: '2px',
+                borderRadius: pxToRem(2),
                 overflow: 'hidden'
               }}>
                 <motion.div
@@ -199,14 +200,14 @@ export default function FinancialProjections2Slide() {
           transition={{ delay: 0.7 }}
           style={{
             background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(168, 85, 247, 0.1))',
-            borderRadius: '12px',
-            padding: '1rem'
+            borderRadius: pxToRem(12),
+            padding: SPACING.sm
           }}
         >
-          <h4 style={{ color: '#a78bfa', marginBottom: '1rem', fontSize: '1rem' }}>
+          <h4 style={{ color: '#a78bfa', marginBottom: SPACING.sm, fontSize: '1rem' }}>
             Cohort Retention
           </h4>
-          <div style={{ display: 'flex', justifyContent: 'space-between', gap: '0.5rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', gap: SPACING.xs }}>
             {cohortRetention.map((data, index) => (
               <div key={data.month} style={{ textAlign: 'center' }}>
                 <div style={{ position: 'relative', marginBottom: '0.5rem' }}>

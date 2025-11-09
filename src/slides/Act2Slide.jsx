@@ -3,12 +3,13 @@ import { ActSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import { Shield, Target, Sparkles } from 'lucide-react'
+import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function Act2Slide() {
   // Act number element
   const actNumber = (
-    <div style={{ fontSize: '4rem', fontWeight: 900 }}>
+    <div style={{ fontSize: TYPOGRAPHY.hero, fontWeight: 900 }}>
       <GradientText gradient="from-green-400 to-emerald-400">
         ACT 2
       </GradientText>
@@ -19,10 +20,10 @@ export default function Act2Slide() {
   const mainContent = (
     <>
       <p style={{
-        fontSize: '1.2rem',
+        fontSize: TYPOGRAPHY.body,
         lineHeight: '1.8',
         color: 'rgba(255, 255, 255, 0.9)',
-        maxWidth: '800px',
+        maxWidth: pxToRem(800),
         margin: '0 auto'
       }}>
         Our breakthrough: 68+ specialized AI agents working 24/7, 
@@ -35,7 +36,7 @@ export default function Act2Slide() {
 
   // Side metrics
   const sideMetrics = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.md }}>
       <div className="metric-item">
         <Shield size={24} color="#22c55e" />
         <div className="metric-value">68+</div>
@@ -65,7 +66,7 @@ export default function Act2Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '2rem',
+        gap: SPACING.lg,
         width: '100%'
       }}
     >
@@ -74,7 +75,7 @@ export default function Act2Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#22c55e', marginBottom: '1rem' }}>Investment Committee</h3>
+        <h3 style={{ color: '#22c55e', marginBottom: SPACING.sm }}>Investment Committee</h3>
         <p>12-agent team including Warren Buffett AI, analyzing every decision</p>
       </motion.div>
       
@@ -83,7 +84,7 @@ export default function Act2Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#22c55e', marginBottom: '1rem' }}>Hedge Fund Team</h3>
+        <h3 style={{ color: '#22c55e', marginBottom: SPACING.sm }}>Hedge Fund Team</h3>
         <p>18-agent specialized squad executing complex strategies in real-time</p>
       </motion.div>
       
@@ -92,7 +93,7 @@ export default function Act2Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#22c55e', marginBottom: '1rem' }}>Sentiment Engine</h3>
+        <h3 style={{ color: '#22c55e', marginBottom: SPACING.sm }}>Sentiment Engine</h3>
         <p>Processing 182+ news sources with FinBERT NLP analysis continuously</p>
       </motion.div>
     </motion.div>

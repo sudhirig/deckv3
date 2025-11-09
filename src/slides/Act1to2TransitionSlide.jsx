@@ -6,6 +6,7 @@ import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import { ChevronRight, Rocket, Lock, Unlock, Target, TrendingUp, Award } from 'lucide-react'
+import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const Act1to2TransitionSlide = () => {
@@ -29,22 +30,22 @@ const Act1to2TransitionSlide = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, type: 'spring' }}
         className="act-content"
-        style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}
+        style={{ position: 'relative', zIndex: 1, maxWidth: pxToRem(1200), margin: '0 auto' }}
       >
         {/* Journey Progress */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.6 }}
-          style={{ marginBottom: '3rem' }}
+          style={{ marginBottom: SPACING.xl }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '2rem', marginBottom: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg, marginBottom: SPACING.sm }}>
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
-                width: '80px',
-                height: '80px',
+                width: pxToRem(80),
+                height: pxToRem(80),
                 borderRadius: '50%',
                 background: 'conic-gradient(from 0deg, #22c55e, #14b8a6, #22c55e)',
                 padding: '3px',
@@ -80,20 +81,20 @@ const Act1to2TransitionSlide = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.8, type: 'spring' }}
-          style={{ textAlign: 'center', marginBottom: '3rem' }}
+          style={{ textAlign: 'center', marginBottom: SPACING.xl }}
         >
-          <h1 style={{ fontSize: '4rem', fontWeight: '700', marginBottom: '1rem' }}>
+          <h1 style={{ fontSize: TYPOGRAPHY.hero, fontWeight: '700', marginBottom: SPACING.sm }}>
             <GradientText gradient="from-green-400 via-teal-400 to-cyan-400">
               The Problem is Clear
             </GradientText>
           </h1>
-          <p style={{ fontSize: '1.8rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#94a3b8' }}>
             Now, Let's Reveal the Solution
           </p>
         </motion.div>
 
         {/* What We Learned */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.xl, marginBottom: SPACING.xl }}>
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -126,9 +127,9 @@ const Act1to2TransitionSlide = () => {
             />
             
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.md }}>
                 <Lock className="w-8 h-8 text-red-400 mr-3" />
-                <h3 style={{ fontSize: '1.5rem', color: '#ef4444' }}>What We Learned</h3>
+                <h3 style={{ fontSize: SPACING.md, color: '#ef4444' }}>What We Learned</h3>
               </div>
               
               <AnimatedText delay={0.8}>
@@ -137,7 +138,7 @@ const Act1to2TransitionSlide = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.9, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                    style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.sm }}
                   >
                     <Target className="w-5 h-5 text-red-300 mr-3 flex-shrink-0" />
                     <span><strong style={{ color: '#fbbf24' }}>93%</strong> of fund managers underperform AI</span>
@@ -147,7 +148,7 @@ const Act1to2TransitionSlide = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.0, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                    style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.sm }}
                   >
                     <TrendingUp className="w-5 h-5 text-red-300 mr-3 flex-shrink-0" />
                     <span><strong style={{ color: '#fbbf24' }}>46%</strong> of HNWIs switching advisors</span>
@@ -200,9 +201,9 @@ const Act1to2TransitionSlide = () => {
             />
             
             <div style={{ position: 'relative', zIndex: 1 }}>
-              <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.md }}>
                 <Unlock className="w-8 h-8 text-green-400 mr-3" />
-                <h3 style={{ fontSize: '1.5rem', color: '#22c55e' }}>What's Next</h3>
+                <h3 style={{ fontSize: SPACING.md, color: '#22c55e' }}>What's Next</h3>
               </div>
               
               <AnimatedText delay={1.2}>
@@ -211,7 +212,7 @@ const Act1to2TransitionSlide = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.3, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                    style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.sm }}
                   >
                     <Rocket className="w-5 h-5 text-green-300 mr-3 flex-shrink-0" />
                     <span>An <strong style={{ color: '#14b8a6' }}>AI Investment Committee</strong></span>
@@ -221,7 +222,7 @@ const Act1to2TransitionSlide = () => {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 1.4, duration: 0.4 }}
-                    style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}
+                    style={{ display: 'flex', alignItems: 'center', marginBottom: SPACING.sm }}
                   >
                     <ChevronRight className="w-5 h-5 text-green-300 mr-3 flex-shrink-0" />
                     <span>Three <strong style={{ color: '#14b8a6' }}>Alpha Agents</strong> creating returns</span>
@@ -247,15 +248,15 @@ const Act1to2TransitionSlide = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.6, duration: 0.8, type: 'spring' }}
-          style={{ textAlign: 'center', marginBottom: '2rem' }}
+          style={{ textAlign: 'center', marginBottom: SPACING.lg }}
         >
           <div style={{ 
             display: 'inline-flex', 
             alignItems: 'center', 
-            gap: '3rem',
-            padding: '2rem 3rem',
+            gap: SPACING.xl,
+            padding: `${SPACING.lg} ${SPACING.xl}`,
             background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(34, 197, 94, 0.1) 100%)',
-            borderRadius: '20px',
+            borderRadius: pxToRem(20),
             border: '1px solid rgba(20, 184, 166, 0.3)'
           }}>
             <motion.div
@@ -288,16 +289,16 @@ const Act1to2TransitionSlide = () => {
           transition={{ delay: 2, duration: 0.6 }}
           style={{ 
             textAlign: 'center',
-            padding: '1.5rem',
+            padding: SPACING.md,
             background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%)',
-            borderRadius: '16px',
+            borderRadius: pxToRem(16),
             border: '1px solid rgba(251, 191, 36, 0.3)'
           }}
         >
-          <p style={{ fontSize: '1.3rem', color: '#fbbf24', fontWeight: 'bold' }}>
+          <p style={{ fontSize: pxToRem(21), color: '#fbbf24', fontWeight: 'bold' }}>
             Ready to see how AI transforms wealth management?
           </p>
-          <p style={{ fontSize: '1rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+          <p style={{ fontSize: SPACING.sm, color: '#94a3b8', marginTop: SPACING.xs }}>
             Let's explore the solution that's already managing real portfolios
           </p>
         </motion.div>

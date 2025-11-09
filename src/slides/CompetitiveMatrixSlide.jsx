@@ -3,7 +3,9 @@ import { motion } from 'framer-motion'
 import { TableLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
+import ResponsiveTable from '../components/ResponsiveTable'
 import { Check, X, Minus, TrendingUp, DollarSign, Users, Shield } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CompetitiveMatrixSlide() {
@@ -90,25 +92,17 @@ export default function CompetitiveMatrixSlide() {
 
   // Table content
   const tableContent = (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.4 }}
-      style={{
-        overflowX: 'auto',
-        width: '100%'
-      }}
-    >
+    <ResponsiveTable minWidth={pxToRem(800)}>
       <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0', fontSize: '1.1rem' }}>
         <thead>
           <tr>
             <th style={{
-              padding: '1rem',
+              padding: SPACING.sm,
               textAlign: 'left',
               fontSize: '1.1rem',
               color: '#94a3b8',
-              borderBottom: '2px solid rgba(20, 184, 166, 0.3)',
-              minWidth: '200px'
+              borderBottom: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
+              minWidth: pxToRem(200)
             }}>
               Feature
             </th>
@@ -116,9 +110,9 @@ export default function CompetitiveMatrixSlide() {
               <motion.th
                 key={competitor.name}
                 style={{
-                  padding: '1rem',
+                  padding: SPACING.sm,
                   textAlign: 'center',
-                  borderBottom: '2px solid rgba(20, 184, 166, 0.3)',
+                  borderBottom: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
                   background: competitor.name === 'Us' ? 
                     'linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(20, 184, 166, 0.15))' : 
                     hoveredColumn === competitor.name ? 
@@ -162,10 +156,10 @@ export default function CompetitiveMatrixSlide() {
               }}
             >
               <td style={{
-                padding: '1rem',
+                padding: SPACING.sm,
                 fontSize: '1rem',
                 color: '#e2e8f0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.05)'
+                borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
               }}>
                 {feature}
               </td>
@@ -173,9 +167,9 @@ export default function CompetitiveMatrixSlide() {
                 <td
                   key={competitor.name}
                   style={{
-                    padding: '1rem',
+                    padding: SPACING.sm,
                     textAlign: 'center',
-                    borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                    borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`,
                     background: competitor.name === 'Us' ? 
                       'rgba(34, 197, 94, 0.05)' : 
                       'transparent'
@@ -188,7 +182,7 @@ export default function CompetitiveMatrixSlide() {
           ))}
         </tbody>
       </table>
-    </motion.div>
+    </ResponsiveTable>
   )
 
   // Metrics - Pricing comparison
@@ -200,16 +194,16 @@ export default function CompetitiveMatrixSlide() {
       transition={{ delay: 1.5 }}
       style={{
         background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1))',
-        padding: '1.5rem',
-        borderRadius: '12px',
-        border: '1px solid rgba(34, 197, 94, 0.2)'
+        padding: SPACING.md,
+        borderRadius: pxToRem(12),
+        border: `${pxToRem(1)} solid rgba(34, 197, 94, 0.2)`
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: SPACING.sm }}>
         <DollarSign size={24} color="#4ade80" />
         <h4 style={{ color: '#4ade80', fontSize: '1.2rem' }}>Pricing Comparison</h4>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: SPACING.xs }}>
         {competitors.map(comp => (
           <div key={comp.name} style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '0.9rem', color: comp.color, fontWeight: 'bold' }}>{comp.name}</div>
@@ -226,16 +220,16 @@ export default function CompetitiveMatrixSlide() {
       transition={{ delay: 1.6 }}
       style={{
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1))',
-        padding: '1.5rem',
-        borderRadius: '12px',
-        border: '1px solid rgba(59, 130, 246, 0.2)'
+        padding: SPACING.md,
+        borderRadius: pxToRem(12),
+        border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.2)`
       }}
     >
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: SPACING.sm }}>
         <Users size={24} color="#60a5fa" />
         <h4 style={{ color: '#60a5fa', fontSize: '1.2rem' }}>Minimum Investment</h4>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: SPACING.xs }}>
         {competitors.map(comp => (
           <div key={comp.name} style={{ textAlign: 'center' }}>
             <div style={{ fontSize: '0.9rem', color: comp.color, fontWeight: 'bold' }}>{comp.name}</div>
@@ -252,9 +246,9 @@ export default function CompetitiveMatrixSlide() {
       transition={{ delay: 1.7 }}
       style={{
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
-        padding: '1.5rem',
-        borderRadius: '12px',
-        border: '1px solid rgba(251, 191, 36, 0.2)',
+        padding: SPACING.md,
+        borderRadius: pxToRem(12),
+        border: `${pxToRem(1)} solid rgba(251, 191, 36, 0.2)`,
         textAlign: 'center'
       }}
     >

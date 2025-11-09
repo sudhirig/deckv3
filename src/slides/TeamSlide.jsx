@@ -6,6 +6,7 @@ import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Linkedin, Building2, Award, Users, TrendingUp, Brain, DollarSign, Target, Check, Briefcase, GraduationCap } from 'lucide-react'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import ceoImage from '@assets/stock_images/professional_indian__b5bf24ba.jpg'
 import cfoImage from '@assets/stock_images/professional_indian__403e201d.jpg'
 import './SlideStyles.css'
@@ -75,8 +76,8 @@ export default function TeamSlide() {
       <p style={{ 
         textAlign: 'center', 
         color: '#94a3b8', 
-        fontSize: '1.2rem',
-        marginTop: '0.5rem'
+        fontSize: TYPOGRAPHY.body,
+        marginTop: SPACING.xs
       }}>
         Former Google, Goldman Sachs & Morgan Stanley Leaders Building the Future
       </p>
@@ -93,7 +94,7 @@ export default function TeamSlide() {
       onHoverEnd={() => setHoveredMember(null)}
       className="glass-card"
       style={{
-        padding: '1.5rem',
+        padding: SPACING.md,
         background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1))',
         position: 'relative'
       }}
@@ -104,61 +105,61 @@ export default function TeamSlide() {
           animate={{ opacity: 1 }}
           style={{
             position: 'absolute',
-            top: -10,
-            left: -10,
-            right: -10,
-            bottom: -10,
+            top: pxToRem(-10),
+            left: pxToRem(-10),
+            right: pxToRem(-10),
+            bottom: pxToRem(-10),
             background: 'radial-gradient(circle, rgba(139, 92, 246, 0.2), transparent)',
-            borderRadius: '20px',
+            borderRadius: pxToRem(20),
             zIndex: -1,
-            filter: 'blur(20px)'
+            filter: `blur(${pxToRem(20)})`
           }}
         />
       )}
       
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: SPACING.sm, marginBottom: SPACING.sm }}>
         <img 
           src={ceoImage} 
           alt="CEO" 
           style={{ 
-            width: '60px', 
-            height: '60px', 
-            borderRadius: '12px',
-            border: '2px solid rgba(139, 92, 246, 0.5)'
+            width: pxToRem(60), 
+            height: pxToRem(60), 
+            borderRadius: pxToRem(12),
+            border: `${pxToRem(2)} solid rgba(139, 92, 246, 0.5)`
           }} 
         />
         <div>
-          <h3 style={{ color: '#a78bfa', fontSize: '1.2rem', marginBottom: '0.25rem' }}>
+          <h3 style={{ color: '#a78bfa', fontSize: TYPOGRAPHY.body, marginBottom: pxToRem(4) }}>
             {founders[0].name}
           </h3>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+          <p style={{ color: '#94a3b8', fontSize: TYPOGRAPHY.body }}>
             {founders[0].title}
           </p>
         </div>
       </div>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <p style={{ color: '#fbbf24', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '1rem' }}>
+      <div style={{ marginBottom: SPACING.sm }}>
+        <p style={{ color: '#fbbf24', fontSize: TYPOGRAPHY.body, fontStyle: 'italic', marginBottom: SPACING.sm }}>
           "{founders[0].achievement}"
         </p>
       </div>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <h4 style={{ color: '#a78bfa', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Background</h4>
+      <div style={{ marginBottom: SPACING.sm }}>
+        <h4 style={{ color: '#a78bfa', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>Background</h4>
         {founders[0].background.map((item, i) => (
-          <div key={i} style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+          <div key={i} style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', marginBottom: pxToRem(4) }}>
             • {item}
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+      <div style={{ display: 'flex', gap: SPACING.sm, marginTop: SPACING.sm }}>
         {founders[0].companies.map((company, i) => (
           <div key={i} style={{
-            padding: '0.25rem 0.75rem',
+            padding: `${pxToRem(4)} ${pxToRem(12)}`,
             background: 'rgba(139, 92, 246, 0.2)',
-            borderRadius: '20px',
-            fontSize: '0.8rem',
+            borderRadius: pxToRem(20),
+            fontSize: TYPOGRAPHY.body,
             color: '#a78bfa'
           }}>
             {company}
@@ -175,7 +176,7 @@ export default function TeamSlide() {
       onHoverEnd={() => setHoveredMember(null)}
       className="glass-card"
       style={{
-        padding: '1.5rem',
+        padding: SPACING.md,
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
         position: 'relative'
       }}
@@ -186,61 +187,61 @@ export default function TeamSlide() {
           animate={{ opacity: 1 }}
           style={{
             position: 'absolute',
-            top: -10,
-            left: -10,
-            right: -10,
-            bottom: -10,
+            top: pxToRem(-10),
+            left: pxToRem(-10),
+            right: pxToRem(-10),
+            bottom: pxToRem(-10),
             background: 'radial-gradient(circle, rgba(59, 130, 246, 0.2), transparent)',
-            borderRadius: '20px',
+            borderRadius: pxToRem(20),
             zIndex: -1,
-            filter: 'blur(20px)'
+            filter: `blur(${pxToRem(20)})`
           }}
         />
       )}
       
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: SPACING.sm, marginBottom: SPACING.sm }}>
         <img 
           src={cfoImage} 
           alt="CFO" 
           style={{ 
-            width: '60px', 
-            height: '60px', 
-            borderRadius: '12px',
-            border: '2px solid rgba(59, 130, 246, 0.5)'
+            width: pxToRem(60), 
+            height: pxToRem(60), 
+            borderRadius: pxToRem(12),
+            border: `${pxToRem(2)} solid rgba(59, 130, 246, 0.5)`
           }} 
         />
         <div>
-          <h3 style={{ color: '#60a5fa', fontSize: '1.2rem', marginBottom: '0.25rem' }}>
+          <h3 style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.body, marginBottom: pxToRem(4) }}>
             {founders[1].name}
           </h3>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>
+          <p style={{ color: '#94a3b8', fontSize: TYPOGRAPHY.body }}>
             {founders[1].title}
           </p>
         </div>
       </div>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <p style={{ color: '#fbbf24', fontSize: '0.9rem', fontStyle: 'italic', marginBottom: '1rem' }}>
+      <div style={{ marginBottom: SPACING.sm }}>
+        <p style={{ color: '#fbbf24', fontSize: TYPOGRAPHY.body, fontStyle: 'italic', marginBottom: SPACING.sm }}>
           "{founders[1].achievement}"
         </p>
       </div>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <h4 style={{ color: '#60a5fa', fontSize: '0.9rem', marginBottom: '0.5rem' }}>Background</h4>
+      <div style={{ marginBottom: SPACING.sm }}>
+        <h4 style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>Background</h4>
         {founders[1].background.map((item, i) => (
-          <div key={i} style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+          <div key={i} style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', marginBottom: pxToRem(4) }}>
             • {item}
           </div>
         ))}
       </div>
 
-      <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
+      <div style={{ display: 'flex', gap: SPACING.sm, marginTop: SPACING.sm }}>
         {founders[1].companies.map((company, i) => (
           <div key={i} style={{
-            padding: '0.25rem 0.75rem',
+            padding: `${pxToRem(4)} ${pxToRem(12)}`,
             background: 'rgba(59, 130, 246, 0.2)',
-            borderRadius: '20px',
-            fontSize: '0.8rem',
+            borderRadius: pxToRem(20),
+            fontSize: TYPOGRAPHY.body,
             color: '#60a5fa'
           }}>
             {company}
@@ -250,8 +251,8 @@ export default function TeamSlide() {
     </motion.div>,
 
     // Column 3: Team Metrics
-    <div key="metrics" style={{ display: 'grid', gap: '1rem' }}>
-      <h3 style={{ color: '#22c55e', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
+    <div key="metrics" style={{ display: 'grid', gap: SPACING.sm }}>
+      <h3 style={{ color: '#22c55e', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
         Team Impact Metrics
       </h3>
       
@@ -263,35 +264,35 @@ export default function TeamSlide() {
           transition={{ delay: 0.8 + index * 0.1 }}
           className="glass-card"
           style={{
-            padding: '1rem',
+            padding: SPACING.sm,
             display: 'flex',
             alignItems: 'center',
-            gap: '1rem',
+            gap: SPACING.sm,
             background: 'rgba(34, 197, 94, 0.05)'
           }}
         >
           <metric.icon size={24} color="#22c55e" />
           <div style={{ flex: 1 }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#22c55e' }}>
+            <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e' }}>
               {metric.prefix}<AnimatedCounter end={metric.value} delay={0.8 + index * 0.1} />{metric.suffix}
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>{metric.label}</div>
+            <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>{metric.label}</div>
           </div>
         </motion.div>
       ))}
     </div>,
 
     // Column 4: Company Experience
-    <div key="experience" style={{ display: 'grid', gap: '1rem' }}>
-      <h3 style={{ color: '#fbbf24', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
+    <div key="experience" style={{ display: 'grid', gap: SPACING.sm }}>
+      <h3 style={{ color: '#fbbf24', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
         Elite Experience
       </h3>
       
       <motion.div
         className="glass-card"
-        style={{ padding: '1.5rem' }}
+        style={{ padding: SPACING.md }}
       >
-        <h4 style={{ color: '#fbbf24', fontSize: '0.9rem', marginBottom: '1rem' }}>
+        <h4 style={{ color: '#fbbf24', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.sm }}>
           Previous Companies
         </h4>
         {companyLogos.map((company, index) => (
@@ -303,16 +304,16 @@ export default function TeamSlide() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1rem',
-              padding: '0.75rem',
-              marginBottom: '0.5rem',
+              gap: SPACING.sm,
+              padding: pxToRem(12),
+              marginBottom: SPACING.xs,
               background: 'rgba(255, 255, 255, 0.03)',
-              borderRadius: '8px',
-              borderLeft: `3px solid ${company.color}`
+              borderRadius: pxToRem(8),
+              borderLeft: `${pxToRem(3)} solid ${company.color}`
             }}
           >
             <Building2 size={20} color={company.color} />
-            <span style={{ fontSize: '1rem', color: '#e2e8f0' }}>{company.name}</span>
+            <span style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0' }}>{company.name}</span>
           </motion.div>
         ))}
       </motion.div>
@@ -320,15 +321,15 @@ export default function TeamSlide() {
       <motion.div
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: SPACING.md,
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
         }}
       >
-        <Award size={28} color="#fbbf24" style={{ marginBottom: '0.5rem' }} />
-        <div style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#fbbf24', marginBottom: '0.5rem' }}>
+        <Award size={28} color="#fbbf24" style={{ marginBottom: SPACING.xs }} />
+        <div style={{ fontSize: TYPOGRAPHY.body, fontWeight: 'bold', color: '#fbbf24', marginBottom: SPACING.xs }}>
           Why We Win
         </div>
-        <div style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.6' }}>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', lineHeight: '1.6' }}>
           Deep domain expertise + cutting-edge AI + proven execution track record
         </div>
       </motion.div>

@@ -6,6 +6,7 @@ import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import CircularProgress from '../components/CircularProgress'
 import { GraduationCap, QrCode, TrendingUp, Award, BarChart3 } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function StanfordSlide() {
@@ -32,14 +33,14 @@ export default function StanfordSlide() {
         animate={{ scale: 1, rotate: 0 }}
         transition={{ delay: 0.3, type: 'spring' }}
         style={{
-          width: '50px',
-          height: '50px',
+          width: pxToRem(50),
+          height: pxToRem(50),
           borderRadius: '50%',
           background: 'linear-gradient(135deg, #8B0000, #DC143C)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          boxShadow: '0 0 30px rgba(139, 0, 0, 0.5)'
+          boxShadow: `0 0 ${pxToRem(30)} rgba(139, 0, 0, 0.5)`
         }}
       >
         <GraduationCap size={28} color="#fff" />
@@ -79,43 +80,43 @@ export default function StanfordSlide() {
         <h3 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '1.2rem' }}>
           Performance Comparison
         </h3>
-        <div style={{ display: 'flex', alignItems: 'flex-end', height: '180px', gap: '20px' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-end', height: pxToRem(180), maxHeight: '30vh', gap: SPACING.md }}>
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <motion.div
               style={{
-                width: '80px',
+                width: pxToRem(80),
                 background: 'linear-gradient(180deg, #64748b, #475569)',
-                borderRadius: '4px 4px 0 0',
+                borderRadius: `${pxToRem(4)} ${pxToRem(4)} 0 0`,
                 position: 'relative'
               }}
               initial={{ height: 0 }}
-              animate={{ height: '60px' }}
+              animate={{ height: pxToRem(60) }}
               transition={{ delay: 1.5, duration: 0.8 }}
             >
-              <div style={{ position: 'absolute', top: '-30px', width: '100%', textAlign: 'center', fontSize: '1.1rem', color: '#94a3b8' }}>
+              <div style={{ position: 'absolute', top: pxToRem(-30), width: '100%', textAlign: 'center', fontSize: '1.1rem', color: '#94a3b8' }}>
                 100%
               </div>
             </motion.div>
-            <span style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '8px' }}>Human Fund Managers</span>
+            <span style={{ fontSize: '0.9rem', color: '#64748b', marginTop: SPACING.xs }}>Human Fund Managers</span>
           </div>
           
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <motion.div
               style={{
-                width: '80px',
+                width: pxToRem(80),
                 background: 'linear-gradient(180deg, #14b8a6, #0d9488)',
-                borderRadius: '4px 4px 0 0',
+                borderRadius: `${pxToRem(4)} ${pxToRem(4)} 0 0`,
                 position: 'relative'
               }}
               initial={{ height: 0 }}
-              animate={{ height: '150px' }}
+              animate={{ height: pxToRem(150) }}
               transition={{ delay: 1.8, duration: 1.2 }}
             >
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2.8 }}
-                style={{ position: 'absolute', top: '-30px', width: '100%', textAlign: 'center' }}
+                style={{ position: 'absolute', top: pxToRem(-30), width: '100%', textAlign: 'center' }}
               >
                 <AnimatedCounter 
                   end={600} 
@@ -125,7 +126,7 @@ export default function StanfordSlide() {
                 />
               </motion.div>
             </motion.div>
-            <span style={{ fontSize: '0.9rem', color: '#14b8a6', marginTop: '8px' }}>AI-Powered Portfolios</span>
+            <span style={{ fontSize: '0.9rem', color: '#14b8a6', marginTop: SPACING.xs }}>AI-Powered Portfolios</span>
           </div>
         </div>
       </motion.div>
@@ -203,17 +204,17 @@ export default function StanfordSlide() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1rem',
+              gap: SPACING.sm,
               padding: '0.75rem',
               background: 'rgba(255, 255, 255, 0.03)',
-              borderRadius: '8px',
-              borderLeft: '3px solid #60a5fa'
+              borderRadius: pxToRem(8),
+              borderLeft: `${pxToRem(3)} solid #60a5fa`
             }}
           >
             <div style={{ 
-              width: '40px', 
-              height: '40px', 
-              borderRadius: '8px',
+              width: pxToRem(40), 
+              height: pxToRem(40), 
+              borderRadius: pxToRem(8),
               background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(59, 130, 246, 0.2))',
               display: 'flex',
               alignItems: 'center',
@@ -238,11 +239,11 @@ export default function StanfordSlide() {
       animate={{ opacity: 1 }}
       transition={{ delay: 3 }}
       style={{
-        marginTop: '1.5rem',
-        padding: '1rem',
+        marginTop: SPACING.md,
+        padding: SPACING.sm,
         background: 'linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(220, 20, 60, 0.05))',
-        borderRadius: '8px',
-        borderLeft: '3px solid #DC143C'
+        borderRadius: pxToRem(8),
+        borderLeft: `${pxToRem(3)} solid #DC143C`
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>

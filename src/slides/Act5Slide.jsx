@@ -3,12 +3,13 @@ import { ActSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
 import { DollarSign, TrendingUp, Clock, Users } from 'lucide-react'
+import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function Act5Slide() {
   // Act number element
   const actNumber = (
-    <div style={{ fontSize: '4rem', fontWeight: 900 }}>
+    <div style={{ fontSize: TYPOGRAPHY.hero, fontWeight: 900 }}>
       <GradientText gradient="from-amber-400 to-orange-400">
         ACT 5
       </GradientText>
@@ -19,10 +20,10 @@ export default function Act5Slide() {
   const mainContent = (
     <>
       <p style={{
-        fontSize: '1.2rem',
+        fontSize: TYPOGRAPHY.body,
         lineHeight: '1.8',
         color: 'rgba(255, 255, 255, 0.9)',
-        maxWidth: '800px',
+        maxWidth: pxToRem(800),
         margin: '0 auto'
       }}>
         We're raising $5M to capture a $5.4T serviceable market within a $112T TAM. 
@@ -35,7 +36,7 @@ export default function Act5Slide() {
 
   // Side metrics
   const sideMetrics = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+    <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.md }}>
       <div className="metric-item">
         <DollarSign size={24} color="#fbbf24" />
         <div className="metric-value">$112T</div>
@@ -65,7 +66,7 @@ export default function Act5Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '1.5rem',
+        gap: SPACING.md,
         width: '100%'
       }}
     >
@@ -74,9 +75,9 @@ export default function Act5Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Market Size</h4>
-        <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$5.4T</p>
-        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Serviceable</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Market Size</h4>
+        <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fff' }}>$5.4T</p>
+        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>Serviceable</p>
       </motion.div>
       
       <motion.div 
@@ -84,9 +85,9 @@ export default function Act5Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Target AUM</h4>
-        <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$1B</p>
-        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>36 months</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Target AUM</h4>
+        <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fff' }}>$1B</p>
+        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>36 months</p>
       </motion.div>
       
       <motion.div 
@@ -94,9 +95,9 @@ export default function Act5Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Seed Round</h4>
-        <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$5M</p>
-        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Raising now</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Seed Round</h4>
+        <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fff' }}>$5M</p>
+        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>Raising now</p>
       </motion.div>
       
       <motion.div 
@@ -104,9 +105,9 @@ export default function Act5Slide() {
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Team</h4>
-        <Users size={28} color="#fff" style={{ margin: '0.5rem 0' }} />
-        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Proven experts</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Team</h4>
+        <Users size={28} color="#fff" style={{ margin: `${SPACING.xs} 0` }} />
+        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>Proven experts</p>
       </motion.div>
     </motion.div>
   )

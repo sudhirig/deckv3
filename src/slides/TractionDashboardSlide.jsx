@@ -5,6 +5,7 @@ import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
 import { TrendingUp, Users, DollarSign, Activity, Globe, Shield, Clock, CheckCircle, Target } from 'lucide-react'
+import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function TractionDashboardSlide() {
@@ -47,11 +48,11 @@ export default function TractionDashboardSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4 }}
-        style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+        style={{ display: 'flex', alignItems: 'center', gap: SPACING.xs }}
       >
         <div style={{
-          width: '8px',
-          height: '8px',
+          width: pxToRem(8),
+          height: pxToRem(8),
           borderRadius: '50%',
           background: '#4ade80',
           animation: 'pulse 2s infinite'
@@ -154,12 +155,12 @@ export default function TractionDashboardSlide() {
               display: 'flex',
               alignItems: 'center',
               gap: '1rem',
-              padding: '1rem',
+              padding: SPACING.sm,
               background: milestone.status === 'active' 
                 ? 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
                 : 'rgba(255, 255, 255, 0.03)',
-              borderRadius: '8px',
-              borderLeft: `3px solid ${
+              borderRadius: pxToRem(8),
+              borderLeft: `${pxToRem(3)} solid ${
                 milestone.status === 'completed' ? '#22c55e' :
                 milestone.status === 'active' ? '#fbbf24' : '#64748b'
               }`
