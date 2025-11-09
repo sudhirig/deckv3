@@ -5,7 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
-import { Rocket, Globe, Cpu, TrendingUp, Bitcoin, BarChart2, Building, Sparkles } from 'lucide-react'
+import { Rocket, Globe, Cpu, TrendingUp, Bitcoin, BarChart2, Building, Sparkles, DollarSign, Award } from 'lucide-react'
 import './SlideStyles.css'
 
 const FutureModulesConceptSlide = () => {

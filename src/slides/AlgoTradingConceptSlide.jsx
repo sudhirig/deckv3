@@ -5,7 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
-import { Code2, Cpu, BarChart3, Zap, TrendingUp, Activity, GitBranch, Sparkles } from 'lucide-react'
+import { Code2, Cpu, BarChart3, Zap, TrendingUp, Activity, GitBranch, Sparkles, MessageSquare } from 'lucide-react'
 import './SlideStyles.css'
 
 const AlgoTradingConceptSlide = () => {

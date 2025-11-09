@@ -5,7 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
-import { Calculator, Shield, TrendingUp, FileText, DollarSign, BarChart2, Sparkles, Award } from 'lucide-react'
+import { Calculator, Shield, TrendingUp, FileText, DollarSign, BarChart2, Sparkles, Award, Brain } from 'lucide-react'
 import './SlideStyles.css'
 
 const CGMFFeaturesSlide = () => {

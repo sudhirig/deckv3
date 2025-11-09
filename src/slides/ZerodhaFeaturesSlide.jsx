@@ -5,7 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
-import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles } from 'lucide-react'
+import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles, MessageSquare, Brain } from 'lucide-react'
 import './SlideStyles.css'
 
 const ZerodhaFeaturesSlide = () => {
