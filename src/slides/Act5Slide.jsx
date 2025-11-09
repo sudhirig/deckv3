@@ -1,58 +1,165 @@
 import { motion } from 'framer-motion'
+import GradientText from '../components/GradientText'
 import ParticleBackground from '../components/ParticleBackground'
+import { DollarSign, TrendingUp, Clock, Users } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function Act5Slide() {
   return (
-    <div className="slide-content act-slide" style={{ position: 'relative' }}>
+    <div className="slide-content" style={{ position: 'relative', padding: '3rem 4rem' }}>
       <ParticleBackground count={50} color="#fbbf24" />
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
-        className="act-content"
-        style={{ position: 'relative', zIndex: 1 }}
-      >
-        <motion.div 
-          className="act-number"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          style={{ 
-            background: 'linear-gradient(135deg, #fbbf24, #f97316)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent'
-          }}
-        >
-          ACT 5
-        </motion.div>
-        <h1 className="act-title">The Business & The Ask</h1>
-        <p className="act-subtitle">The Investment Opportunity</p>
+      
+      {/* Full-width landscape layout */}
+      <div style={{
+        display: 'grid',
+        gridTemplateColumns: '200px 1fr 250px',
+        gap: '3rem',
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        position: 'relative',
+        zIndex: 1
+      }}>
         
+        {/* Left Column - Act Number & Progress */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{ textAlign: 'center' }}
+        >
+          <div style={{ fontSize: '4rem', fontWeight: 900 }}>
+            <GradientText gradient="from-amber-400 to-orange-400">
+              ACT 5
+            </GradientText>
+          </div>
+          <div style={{
+            width: '100%',
+            height: '200px',
+            marginTop: '2rem',
+            background: 'linear-gradient(180deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.1))',
+            borderRadius: '10px'
+          }}></div>
+        </motion.div>
+        
+        {/* Center Column - Main Content */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          style={{ 
-            marginTop: '3rem',
-            padding: '1.5rem',
-            background: 'rgba(251, 191, 36, 0.1)',
-            borderRadius: '12px',
-            border: '1px solid rgba(251, 191, 36, 0.3)'
-          }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ textAlign: 'center' }}
         >
-          <p style={{ fontSize: '1.1rem', color: '#fbbf24', marginBottom: '1rem', fontWeight: 'bold' }}>
-            The Opportunity:
+          <h1 style={{ 
+            fontSize: '3.5rem', 
+            fontWeight: 800, 
+            marginBottom: '1.5rem',
+            background: 'linear-gradient(135deg, #ffffff 0%, #fbbf24 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            The Business & The Ask
+          </h1>
+          
+          <p style={{ 
+            fontSize: '2rem', 
+            marginBottom: '2rem',
+            color: 'rgba(255, 255, 255, 0.8)'
+          }}>
+            The Investment Opportunity
           </p>
-          <div style={{ fontSize: '1rem', lineHeight: '1.8', color: '#94a3b8' }}>
-            <div style={{ marginBottom: '0.5rem' }}>• $112T TAM with $5.4T serviceable market</div>
-            <div style={{ marginBottom: '0.5rem' }}>• Path to $1B AUM in 36 months</div>
-            <div style={{ marginBottom: '0.5rem' }}>• LTV/CAC of 17.8:1 with 3.5-month payback</div>
-            <div style={{ marginBottom: '0.5rem' }}>• Expert team with proven execution</div>
+          
+          <p style={{
+            fontSize: '1.2rem',
+            lineHeight: '1.8',
+            color: 'rgba(255, 255, 255, 0.9)',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            We're raising $5M to capture a $5.4T serviceable market within a $112T TAM. 
+            With proven unit economics (17.8:1 LTV/CAC), rapid payback (3.5 months), 
+            and a clear path to $1B AUM in 36 months. Our expert team has the 
+            execution experience to deliver this generational opportunity.
+          </p>
+        </motion.div>
+        
+        {/* Right Column - Metrics */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+        >
+          <div className="metric-item">
+            <DollarSign size={24} color="#fbbf24" />
+            <div className="metric-value">$112T</div>
+            <div className="metric-label">Total TAM</div>
           </div>
-          <p style={{ fontSize: '0.95rem', color: '#c084fc', marginTop: '1rem', fontStyle: 'italic' }}>
-            Takeaway: $5M seed round to capture a generational opportunity
-          </p>
+          
+          <div className="metric-item">
+            <TrendingUp size={24} color="#fbbf24" />
+            <div className="metric-value">17.8:1</div>
+            <div className="metric-label">LTV/CAC</div>
+          </div>
+          
+          <div className="metric-item">
+            <Clock size={24} color="#fbbf24" />
+            <div className="metric-value">3.5mo</div>
+            <div className="metric-label">Payback</div>
+          </div>
+        </motion.div>
+      </div>
+      
+      {/* Bottom Opportunity Grid */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.5 }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '1.5rem',
+          marginTop: '3rem',
+          width: '100%'
+        }}
+      >
+        <motion.div 
+          className="discovery-card glass-card"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Market Size</h4>
+          <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$5.4T</p>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Serviceable</p>
+        </motion.div>
+        
+        <motion.div 
+          className="discovery-card glass-card"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Target AUM</h4>
+          <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$1B</p>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>36 months</p>
+        </motion.div>
+        
+        <motion.div 
+          className="discovery-card glass-card"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Seed Round</h4>
+          <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>$5M</p>
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Raising now</p>
+        </motion.div>
+        
+        <motion.div 
+          className="discovery-card glass-card"
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <h4 style={{ color: '#fbbf24', marginBottom: '0.5rem' }}>Team</h4>
+          <Users size={28} color="#fff" style={{ margin: '0.5rem 0' }} />
+          <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>Proven experts</p>
         </motion.div>
       </motion.div>
     </div>
