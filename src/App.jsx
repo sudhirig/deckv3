@@ -225,6 +225,49 @@ function App() {
   const [showThumbnails, setShowThumbnails] = useState(false)
   const [preloadedSlides, setPreloadedSlides] = useState(new Set([0]))
 
+  // Check if static mode is enabled (for crisp screenshots)
+  const isStaticMode = new URLSearchParams(window.location.search).get('static') === '1'
+
+  // Helper function to get current slide from hash
+  const getCurrentSlideFromHash = () => {
+    const hash = window.location.hash
+    const match = hash.match(/^#\/slide\/(\d+)$/)
+    return match ? parseInt(match[1], 10) : 0
+  }
+
+  // Helper function to navigate to a slide by updating hash
+  const navigateToSlide = (slideIndex) => {
+    const validIndex = Math.max(0, Math.min(slideIndex, slides.length - 1))
+    window.location.hash = `/slide/${validIndex}`
+  }
+
+  // Hash-based navigation: sync URL hash with slide state
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash
+      const match = hash.match(/^#\/slide\/(\d+)$/)
+      
+      if (match) {
+        const slideNum = parseInt(match[1], 10)
+        // Validate slide number is within range
+        if (slideNum >= 0 && slideNum < slides.length) {
+          setCurrentSlide(slideNum)
+          return
+        }
+      }
+      
+      // If no valid hash, set default
+      window.location.hash = '/slide/0'
+    }
+    
+    // Handle initial load
+    handleHashChange()
+    
+    // Listen for hash changes (browser back/forward)
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
   // Detect mobile devices
   useEffect(() => {
     const checkMobile = () => {
@@ -270,14 +313,14 @@ function App() {
     const handleKeyPress = (e) => {
       if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault()
-        setCurrentSlide(prev => Math.min(prev + 1, slides.length - 1))
+        navigateToSlide(getCurrentSlideFromHash() + 1)
       } else if (e.key === 'ArrowLeft') {
         e.preventDefault()
-        setCurrentSlide(prev => Math.max(prev - 1, 0))
+        navigateToSlide(getCurrentSlideFromHash() - 1)
       } else if (e.key === 'Home') {
-        setCurrentSlide(0)
+        navigateToSlide(0)
       } else if (e.key === 'End') {
-        setCurrentSlide(slides.length - 1)
+        navigateToSlide(slides.length - 1)
       } else if (e.key === 't' || e.key === 'T') {
         setShowThumbnails(prev => !prev)
       }
@@ -310,7 +353,10 @@ function App() {
     }
   }
 
-  const currentTransition = slideTransitions.zoom
+  // Use static transition (no animation) if static mode is enabled
+  const currentTransition = isStaticMode 
+    ? { initial: {}, animate: {}, exit: {}, transition: { duration: 0 } }
+    : slideTransitions.zoom
 
   return (
     <div className="presentation">
@@ -401,7 +447,7 @@ function App() {
               key={index}
               whileHover={{ scale: 1.05 }}
               onClick={() => {
-                setCurrentSlide(index)
+                navigateToSlide(index)
                 setShowThumbnails(false)
               }}
               style={{
@@ -428,7 +474,7 @@ function App() {
 
       <div className="navigation">
         <button 
-          onClick={() => setCurrentSlide(prev => Math.max(prev - 1, 0))}
+          onClick={() => navigateToSlide(currentSlide - 1)}
           disabled={currentSlide === 0}
         >
           ←
@@ -442,7 +488,7 @@ function App() {
           </span>
         </div>
         <button 
-          onClick={() => setCurrentSlide(prev => Math.min(prev + 1, slides.length - 1))}
+          onClick={() => navigateToSlide(currentSlide + 1)}
           disabled={currentSlide === slides.length - 1}
         >
           →

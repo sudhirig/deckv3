@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import AnimatedText from '../components/AnimatedText'
-import GradientText from '../components/GradientText'
+import { DataSlideLayout } from '../components/StandardLayouts'
 import PersonaCard from '../components/PersonaCard'
 import './SlideStyles.css'
 
@@ -42,51 +41,38 @@ export default function InvestorPersona1Slide() {
     valueProposition: 'AI that understands complex tech wealth, optimizes across jurisdictions, and executes 24/7'
   }
 
+  const mainVisual = (
+    <PersonaCard 
+      persona={persona}
+      variant="detailed"
+      animated={true}
+      index={0}
+    />
+  )
+
+  const keyInsights = (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8 }}
+      style={{
+        padding: '1rem',
+        background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1))',
+        borderRadius: '0.75rem',
+        textAlign: 'center'
+      }}
+    >
+      <p style={{ fontSize: '1.1rem', color: '#c084fc' }}>
+        <strong>46% of tech founders</strong> are actively looking for new wealth management solutions
+      </p>
+    </motion.div>
+  )
+
   return (
-    <div className="slide-content">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        style={{ maxWidth: '1100px', margin: '0 auto' }}
-      >
-        {/* Header */}
-        <AnimatedText delay={0.2}>
-          <h2 className="slide-title" style={{ marginBottom: '0.5rem' }}>
-            <GradientText gradient="from-purple-400 to-pink-400">
-              Investor Persona: The Tech Founder
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Understanding our primary customer segment
-          </p>
-        </AnimatedText>
-
-        {/* Persona Card */}
-        <PersonaCard 
-          persona={persona}
-          variant="detailed"
-          animated={true}
-          index={0}
-        />
-
-        {/* Bottom Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          style={{
-            marginTop: '2rem',
-            padding: '1rem',
-            background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1))',
-            borderRadius: '12px',
-            textAlign: 'center'
-          }}
-        >
-          <p style={{ fontSize: '1.1rem', color: '#c084fc' }}>
-            <strong>46% of tech founders</strong> are actively looking for new wealth management solutions
-          </p>
-        </motion.div>
-      </motion.div>
-    </div>
+    <DataSlideLayout
+      title="Investor Persona: The Tech Founder"
+      mainVisual={mainVisual}
+      keyInsights={keyInsights}
+    />
   )
 }

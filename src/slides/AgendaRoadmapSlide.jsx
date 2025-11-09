@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import AnimatedText from '../components/AnimatedText'
+import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { ChevronRight } from 'lucide-react'
 import './SlideStyles.css'
@@ -48,158 +48,111 @@ export default function AgendaRoadmapSlide() {
     }
   ]
 
-  return (
-    <div className="slide-content">
+  const cards = roadmapSteps.map((step, index) => (
+    <div key={step.number} style={{ position: 'relative' }}>
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ delay: 0.2 + index * 0.15, type: 'spring', stiffness: 200 }}
+        style={{
+          width: '5rem',
+          height: '5rem',
+          borderRadius: '50%',
+          background: `linear-gradient(135deg, ${step.color}33, ${step.color}11)`,
+          border: `0.1875rem solid ${step.color}`,
+          margin: '0 auto 1rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: '2rem',
+          fontWeight: 'bold',
+          color: step.color
+        }}
+      >
+        {step.number}
+      </motion.div>
+
+      <h3 style={{ 
+        fontSize: '1rem', 
+        fontWeight: 'bold',
+        marginBottom: '0.3rem',
+        textAlign: 'center',
+        background: `linear-gradient(135deg, ${step.gradient.split(' ')[1]}, ${step.gradient.split(' ')[3]})`,
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent'
+      }}>
+        {step.title}
+      </h3>
+
+      <p style={{ 
+        fontSize: '0.9rem', 
+        color: '#94a3b8',
+        marginBottom: '0.5rem',
+        textAlign: 'center'
+      }}>
+        {step.subtitle}
+      </p>
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="glass-card"
-        style={{ maxWidth: '1200px', margin: '0 auto' }}
+        transition={{ delay: 0.8 + index * 0.1 }}
+        style={{ fontSize: '0.8rem', color: '#64748b', textAlign: 'center' }}
       >
-        <AnimatedText delay={0.2}>
-          <h2 className="slide-title" style={{ marginBottom: '1rem' }}>
-            <GradientText gradient="from-teal-400 to-cyan-400">
-              Your Journey Through This Deck
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '3rem' }}>
-            A structured narrative from problem to opportunity
-          </p>
-        </AnimatedText>
-
-        {/* Roadmap Visual */}
-        <div style={{ position: 'relative', marginBottom: '2rem' }}>
-          {/* Connecting Line */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ delay: 0.5, duration: 1.5, ease: 'easeOut' }}
-            style={{
-              position: 'absolute',
-              top: '60px',
-              left: '10%',
-              right: '10%',
-              height: '2px',
-              background: 'linear-gradient(90deg, #ef4444, #14b8a6, #3b82f6, #a78bfa, #fbbf24)',
-              transformOrigin: 'left'
-            }}
-          />
-
-          {/* Steps */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', position: 'relative' }}>
-            {roadmapSteps.map((step, index) => (
-              <motion.div
-                key={step.number}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 + index * 0.15 }}
-                style={{ 
-                  flex: 1, 
-                  textAlign: 'center',
-                  padding: '0 0.5rem',
-                  position: 'relative'
-                }}
-              >
-                {/* Circle */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: 0.5 + index * 0.15, type: 'spring', stiffness: 200 }}
-                  style={{
-                    width: '80px',
-                    height: '80px',
-                    borderRadius: '50%',
-                    background: `linear-gradient(135deg, ${step.color}33, ${step.color}11)`,
-                    border: `3px solid ${step.color}`,
-                    margin: '0 auto 1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '2rem',
-                    fontWeight: 'bold',
-                    color: step.color
-                  }}
-                >
-                  {step.number}
-                </motion.div>
-
-                {/* Title */}
-                <h3 style={{ 
-                  fontSize: '1rem', 
-                  fontWeight: 'bold',
-                  marginBottom: '0.3rem',
-                  background: `linear-gradient(135deg, ${step.gradient.split(' ')[1]}, ${step.gradient.split(' ')[3]})`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent'
-                }}>
-                  {step.title}
-                </h3>
-
-                {/* Subtitle */}
-                <p style={{ 
-                  fontSize: '0.9rem', 
-                  color: '#94a3b8',
-                  marginBottom: '0.5rem'
-                }}>
-                  {step.subtitle}
-                </p>
-
-                {/* Details */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8 + index * 0.1 }}
-                  style={{ fontSize: '0.8rem', color: '#64748b' }}
-                >
-                  {step.details.map((detail, i) => (
-                    <div key={i} style={{ marginBottom: '0.2rem' }}>
-                      • {detail}
-                    </div>
-                  ))}
-                </motion.div>
-
-                {/* Arrow (except last) */}
-                {index < roadmapSteps.length - 1 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.2 }}
-                    style={{
-                      position: 'absolute',
-                      top: '30px',
-                      right: '-20px',
-                      color: '#64748b'
-                    }}
-                  >
-                    <ChevronRight size={20} />
-                  </motion.div>
-                )}
-              </motion.div>
-            ))}
+        {step.details.map((detail, i) => (
+          <div key={i} style={{ marginBottom: '0.2rem' }}>
+            • {detail}
           </div>
-        </div>
+        ))}
+      </motion.div>
 
-        {/* Bottom Message */}
+      {index < roadmapSteps.length - 1 && (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2 }}
-          style={{ 
-            textAlign: 'center',
-            padding: '1.5rem',
-            background: 'rgba(20, 184, 166, 0.1)',
-            borderRadius: '12px',
-            marginTop: '2rem'
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          style={{
+            position: 'absolute',
+            top: '1.875rem',
+            right: '-1.25rem',
+            color: '#64748b'
           }}
         >
-          <p style={{ fontSize: '1.1rem', color: '#14b8a6' }}>
-            <strong>28 slides</strong> • <strong>15-minute core story</strong> • <strong>Modular deep dives available</strong>
-          </p>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '0.5rem' }}>
-            We'll focus on the areas most relevant to your interests
-          </p>
+          <ChevronRight size={20} />
         </motion.div>
-      </motion.div>
+      )}
     </div>
+  ))
+
+  const summary = (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 2 }}
+      style={{ 
+        textAlign: 'center',
+        padding: '1.5rem',
+        background: 'rgba(20, 184, 166, 0.1)',
+        borderRadius: '0.75rem',
+        marginTop: '2rem'
+      }}
+    >
+      <p style={{ fontSize: '1.1rem', color: '#14b8a6' }}>
+        <strong>28 slides</strong> • <strong>15-minute core story</strong> • <strong>Modular deep dives available</strong>
+      </p>
+      <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+        We'll focus on the areas most relevant to your interests
+      </p>
+    </motion.div>
+  )
+
+  return (
+    <GridLayout 
+      title={<GradientText gradient="from-teal-400 to-cyan-400">Your Journey Through This Deck</GradientText>}
+      subtitle="A structured narrative from problem to opportunity"
+      cards={cards}
+      columns={5}
+      summary={summary}
+    />
   )
 }

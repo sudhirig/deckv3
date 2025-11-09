@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import AnimatedText from '../components/AnimatedText'
-import GradientText from '../components/GradientText'
+import { DataSlideLayout } from '../components/StandardLayouts'
 import PersonaCard from '../components/PersonaCard'
 import './SlideStyles.css'
 
@@ -42,74 +41,61 @@ export default function InvestorPersona2Slide() {
     valueProposition: 'Institutional-grade AI platform that scales personalized wealth management across generations'
   }
 
+  const mainVisual = (
+    <PersonaCard 
+      persona={persona}
+      variant="detailed"
+      animated={true}
+      index={0}
+    />
+  )
+
+  const keyInsights = (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.8 }}
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gap: '1rem'
+      }}
+    >
+      <div style={{
+        padding: '1rem',
+        background: 'rgba(251, 191, 36, 0.1)',
+        borderRadius: '0.5rem',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>$10.2T</div>
+        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Family Office AUM Globally</div>
+      </div>
+      <div style={{
+        padding: '1rem',
+        background: 'rgba(34, 197, 94, 0.1)',
+        borderRadius: '0.5rem',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>7,300+</div>
+        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Family Offices Worldwide</div>
+      </div>
+      <div style={{
+        padding: '1rem',
+        background: 'rgba(59, 130, 246, 0.1)',
+        borderRadius: '0.5rem',
+        textAlign: 'center'
+      }}>
+        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#60a5fa' }}>68%</div>
+        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Seeking AI Solutions</div>
+      </div>
+    </motion.div>
+  )
+
   return (
-    <div className="slide-content">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        style={{ maxWidth: '1100px', margin: '0 auto' }}
-      >
-        {/* Header */}
-        <AnimatedText delay={0.2}>
-          <h2 className="slide-title" style={{ marginBottom: '0.5rem' }}>
-            <GradientText gradient="from-yellow-400 to-orange-400">
-              Investor Persona: The Family Office
-            </GradientText>
-          </h2>
-          <p style={{ fontSize: '1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
-            Multi-generational wealth management complexity
-          </p>
-        </AnimatedText>
-
-        {/* Persona Card */}
-        <PersonaCard 
-          persona={persona}
-          variant="detailed"
-          animated={true}
-          index={0}
-        />
-
-        {/* Bottom Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          style={{
-            marginTop: '2rem',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '1rem'
-          }}
-        >
-          <div style={{
-            padding: '1rem',
-            background: 'rgba(251, 191, 36, 0.1)',
-            borderRadius: '8px',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>$10.2T</div>
-            <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Family Office AUM Globally</div>
-          </div>
-          <div style={{
-            padding: '1rem',
-            background: 'rgba(34, 197, 94, 0.1)',
-            borderRadius: '8px',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>7,300+</div>
-            <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Family Offices Worldwide</div>
-          </div>
-          <div style={{
-            padding: '1rem',
-            background: 'rgba(59, 130, 246, 0.1)',
-            borderRadius: '8px',
-            textAlign: 'center'
-          }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#60a5fa' }}>68%</div>
-            <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Seeking AI Solutions</div>
-          </div>
-        </motion.div>
-      </motion.div>
-    </div>
+    <DataSlideLayout
+      title="Investor Persona: The Family Office"
+      mainVisual={mainVisual}
+      keyInsights={keyInsights}
+    />
   )
 }
