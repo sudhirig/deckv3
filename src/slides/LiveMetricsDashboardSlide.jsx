@@ -6,7 +6,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
-import { Activity, TrendingUp, Users, DollarSign, Globe, Shield, Clock, CheckCircle, BarChart3, Zap } from 'lucide-react'
+import { Activity, TrendingUp, Users, DollarSign, Globe, Shield, Clock, CheckCircle, BarChart3, Zap, Award } from 'lucide-react'
 import './SlideStyles.css'
 
 const LiveMetricsDashboardSlide = () => {
@@ -96,12 +96,12 @@ const LiveMetricsDashboardSlide = () => {
           }}
         >
           {[
-            { icon: Activity, label: 'Uptime', value: 99.97, decimals: 2, suffix: '%', color: '#10b981', pulse: true, live: true },
-            { icon: Zap, label: 'Response', value: 11, suffix: 'ms', color: '#fbbf24', breathing: true },
-            { icon: Users, label: 'Active Users', value: 10247, color: '#3b82f6', pulse: true, live: true },
-            { icon: BarChart3, label: 'Daily Trades', value: 45892, color: '#a78bfa', breathing: true },
-            { icon: DollarSign, label: 'AUM', value: 2450, prefix: '₹', suffix: 'Cr', color: '#10b981', pulse: true },
-            { icon: Shield, label: 'Decisions/Day', value: 1.2, decimals: 1, suffix: 'M', color: '#06b6d4', breathing: true }
+            { icon: DollarSign, label: 'AUM Growth', value: 250, prefix: '$', suffix: 'M', color: '#10b981', pulse: true, live: true, previous: 180, growth: true },
+            { icon: Users, label: 'Client Retention', value: 97, suffix: '%', color: '#3b82f6', pulse: true, live: true },
+            { icon: Award, label: 'NPS Score', value: 72, suffix: '+', color: '#fbbf24', breathing: true },
+            { icon: Activity, label: 'Uptime', value: 99.97, decimals: 2, suffix: '%', color: '#14b8a6', pulse: true },
+            { icon: Zap, label: 'Response', value: 11, suffix: 'ms', color: '#a78bfa', breathing: true },
+            { icon: Shield, label: 'AI Agents', value: 68, suffix: '+', color: '#ef4444', breathing: true }
           ].map((item, index) => (
             <motion.div
               key={index}
