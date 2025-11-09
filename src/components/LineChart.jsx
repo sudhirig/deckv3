@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 const LineChart = ({ data, height = 150, width = '100%', animated = true, showGrid = true }) => {
   const maxValue = Math.max(...data.map(d => d.value))
   const minValue = Math.min(...data.map(d => d.value))
-  const range = maxValue - minValue
+  const range = maxValue - minValue || 1 // Prevent division by zero for flat datasets
   
   const points = data.map((item, index) => {
     const x = (index / (data.length - 1)) * 100
