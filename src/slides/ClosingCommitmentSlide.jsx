@@ -1,69 +1,127 @@
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import CinematicSlideFrame from '../components/CinematicSlideFrame'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
-import { Rocket, Target, Clock, HandshakeIcon, ChevronRight, Star } from 'lucide-react'
+import ParticleBackground from '../components/ParticleBackground'
+import CircularProgress from '../components/CircularProgress'
+import { Rocket, Target, Clock, HandshakeIcon, ChevronRight, Star, DollarSign, TrendingUp, Award, Shield } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function ClosingCommitmentSlide() {
+  const [hoveredBenefit, setHoveredBenefit] = useState(null)
+  const [pulseAnimation, setPulseAnimation] = useState(true)
+  const [activeStep, setActiveStep] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPulseAnimation(prev => !prev)
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const stepInterval = setInterval(() => {
+      setActiveStep(prev => (prev + 1) % 4)
+    }, 3000)
+    return () => clearInterval(stepInterval)
+  }, [])
+
   const askDetails = {
-    raise: '$5M',
-    valuation: '$50M',
+    raise: 5,
+    valuation: 50,
     type: 'Seed Round',
-    lead: 'Looking for Lead Investor',
-    minimum: '$500K'
+    lead: 'Lead Investor',
+    minimum: 2.5
   }
 
   const useOfFunds = [
-    { category: 'Product & AI Development', percentage: 40 },
-    { category: 'Customer Acquisition', percentage: 30 },
-    { category: 'Compliance & Operations', percentage: 15 },
-    { category: 'Working Capital', percentage: 15 }
+    { category: 'Product & AI Development', percentage: 40, color: '#8b5cf6', icon: Rocket },
+    { category: 'Customer Acquisition', percentage: 30, color: '#10b981', icon: Target },
+    { category: 'Compliance & Operations', percentage: 15, color: '#fbbf24', icon: Shield },
+    { category: 'Working Capital', percentage: 15, color: '#06b6d4', icon: DollarSign }
   ]
 
   const investorBenefits = [
-    { icon: Target, text: '100x return potential in 5 years' },
-    { icon: Clock, text: 'Early entry at $50M valuation' },
-    { icon: HandshakeIcon, text: 'Board seat for lead investor' },
-    { icon: Star, text: 'Pro-rata rights in future rounds' }
+    { icon: Target, text: '100x return potential in 5 years', color: '#ec4899' },
+    { icon: Clock, text: 'Early entry at $50M valuation', color: '#8b5cf6' },
+    { icon: HandshakeIcon, text: 'Board seat for lead investor', color: '#10b981' },
+    { icon: Star, text: 'Pro-rata rights in future rounds', color: '#fbbf24' }
   ]
 
   const nextSteps = [
-    'Deep dive session with founders',
-    'Technical due diligence',
-    'Customer reference calls',
-    'Term sheet negotiation'
+    { phase: 'Initial Meeting', duration: '1 Week', icon: HandshakeIcon },
+    { phase: 'Due Diligence', duration: '2 Weeks', icon: Shield },
+    { phase: 'Term Sheet', duration: '1 Week', icon: Award },
+    { phase: 'Closing', duration: '2 Weeks', icon: Rocket }
   ]
 
   return (
-    <CinematicSlideFrame
-      particleCount={55}
-      particleColor="#ec4899"
-      gradientColors={{
-        primary: 'rgba(236, 72, 153, 0.12)',
-        secondary: 'rgba(168, 85, 247, 0.08)'
-      }}
-      gradientPositions={{
-        primary: '25% 40%',
-        secondary: '75% 60%'
-      }}
-    >
+    <div className="slide-content" style={{ position: 'relative', overflow: 'hidden' }}>
+      {/* Premium Particle Animation */}
+      <ParticleBackground count={55} color="#ec4899" />
+      
+      {/* Animated Gradient Background */}
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        animate={{
+          background: [
+            'radial-gradient(circle at 25% 40%, rgba(236, 72, 153, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 75% 60%, rgba(168, 85, 247, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 50% 50%, rgba(236, 72, 153, 0.15) 0%, transparent 50%)',
+            'radial-gradient(circle at 25% 40%, rgba(236, 72, 153, 0.15) 0%, transparent 50%)'
+          ]
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 1
+        }}
+      />
+
+      {/* Light Sweep Animation */}
+      <motion.div
+        animate={{
+          background: 'linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent)',
+          x: ['-100%', '200%']
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          zIndex: 2,
+          pointerEvents: 'none'
+        }}
+      />
+      
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, type: 'spring' }}
-        className="glass-card"
-        style={{ maxWidth: '1100px', margin: '0 auto' }}
+        transition={{ duration: 0.8 }}
+        style={{ position: 'relative', zIndex: 3 }}
       >
         {/* Header */}
         <AnimatedText delay={0.2}>
-          <h2 className="slide-title" style={{ marginBottom: '0.5rem' }}>
+          <h1 className="slide-title" style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
             <GradientText gradient="from-purple-400 via-pink-400 to-red-400">
               Join Us in Revolutionizing Wealth Management
             </GradientText>
-          </h2>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+          </h1>
+        </AnimatedText>
+        
+        <AnimatedText delay={0.4}>
+          <p style={{ 
+            textAlign: 'center', 
+            color: '#94a3b8', 
+            fontSize: '1.2rem',
+            marginBottom: '2rem'
+          }}>
             The opportunity to define the future of AI-powered finance
           </p>
         </AnimatedText>
