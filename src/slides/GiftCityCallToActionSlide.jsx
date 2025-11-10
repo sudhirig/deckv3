@@ -16,7 +16,8 @@ export default function GiftCityCallToActionSlide() {
     currentRound: 3,
     growthTarget: 83,
     timeframe: 30,
-    targetValuation: 250
+    targetValuation: 250,
+    expectedROI: 600
   }
 
   const reasons = [
@@ -147,7 +148,7 @@ export default function GiftCityCallToActionSlide() {
             }}
           >
             <GradientText gradient="from-amber-400 to-orange-400">
-              $<AnimatedCounter end={opportunity.currentRound} duration={1500} />M
+              $<AnimatedCounter end={opportunity.currentRound || 0} duration={1500} />M
             </GradientText>
           </motion.p>
           <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Current Round</p>
@@ -171,7 +172,7 @@ export default function GiftCityCallToActionSlide() {
               marginBottom: '0.5rem'
             }}
           >
-            <AnimatedCounter end={opportunity.growthTarget} duration={2000} />x
+            <AnimatedCounter end={opportunity.growthTarget || 0} duration={2000} />x
           </motion.p>
           <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Growth Target</p>
         </motion.div>
@@ -194,7 +195,7 @@ export default function GiftCityCallToActionSlide() {
               marginBottom: '0.5rem'
             }}
           >
-            <AnimatedCounter end={opportunity.timeframe} duration={1800} />
+            <AnimatedCounter end={opportunity.timeframe || 0} duration={1800} />
           </motion.p>
           <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Months to $250M</p>
         </motion.div>

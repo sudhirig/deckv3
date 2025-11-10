@@ -75,10 +75,10 @@ export default function GiftCityRegulatoryComplianceSlide() {
   ]
 
   const trustMetrics = [
-    { value: 100, label: 'Regulatory Compliant', unit: '%', color: '#10b981' },
-    { value: 256, label: 'Encryption Standard', unit: '-bit', color: '#3b82f6' },
-    { value: 'SOC2', label: 'Type II Certified', unit: '', color: '#a855f7' },
-    { value: 'ISO 27001', label: 'Security Standard', unit: '', color: '#f59e0b' }
+    { value: 100, label: 'Regulatory Compliant', unit: '%', color: '#10b981', isNumeric: true },
+    { value: 256, label: 'Encryption Standard', unit: '-bit', color: '#3b82f6', isNumeric: true },
+    { value: 'SOC2', label: 'Type II Certified', unit: '', color: '#a855f7', isNumeric: false },
+    { value: 'ISO 27001', label: 'Security Standard', unit: '', color: '#f59e0b', isNumeric: false }
   ]
 
   const mainVisual = (
@@ -398,9 +398,9 @@ export default function GiftCityRegulatoryComplianceSlide() {
                 marginBottom: '0.25rem'
               }}
             >
-              {typeof metric.value === 'number' ? (
+              {metric.isNumeric ? (
                 <>
-                  <AnimatedCounter end={metric.value} duration={2000} />
+                  <AnimatedCounter end={metric.value || 0} duration={2000} decimals={metric.unit === '%' ? 0 : 0} />
                   {metric.unit}
                 </>
               ) : (

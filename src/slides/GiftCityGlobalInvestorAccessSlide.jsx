@@ -27,7 +27,8 @@ export default function GiftCityGlobalInvestorAccessSlide() {
       benefit: 'No withholding tax',
       icon: MapPin,
       color: '#3b82f6',
-      investors_count: 120
+      investors_count: 120,
+      gradient: 'from-blue-400 to-cyan-400'
     },
     {
       id: 'singapore',
@@ -36,7 +37,8 @@ export default function GiftCityGlobalInvestorAccessSlide() {
       benefit: 'Tax treaty benefits',
       icon: MapPin,
       color: '#10b981',
-      investors_count: 85
+      investors_count: 85,
+      gradient: 'from-green-400 to-teal-400'
     },
     {
       id: 'dubai',
@@ -45,7 +47,8 @@ export default function GiftCityGlobalInvestorAccessSlide() {
       benefit: '0% capital gains',
       icon: MapPin,
       color: '#a855f7',
-      investors_count: 45
+      investors_count: 45,
+      gradient: 'from-purple-400 to-pink-400'
     },
     {
       id: 'london',
@@ -54,7 +57,8 @@ export default function GiftCityGlobalInvestorAccessSlide() {
       benefit: 'FCA recognized',
       icon: MapPin,
       color: '#f59e0b',
-      investors_count: 65
+      investors_count: 65,
+      gradient: 'from-amber-400 to-orange-400'
     }
   ]
 
@@ -209,8 +213,8 @@ export default function GiftCityGlobalInvestorAccessSlide() {
           textAlign: 'center'
         }}
       >
-        <p style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#06b6d4' }}>
-          <AnimatedCounter end={45} duration={2000} />+ Countries
+        <p style={{ fontSize: 'clamp(1.2rem, 2vw, 1.8rem)', fontWeight: 'bold', color: '#06b6d4' }}>
+          <AnimatedCounter end={45 || 0} duration={2000} />+ Countries
         </p>
         <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
           Global Coverage

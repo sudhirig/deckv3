@@ -36,7 +36,7 @@ export default function GiftCityThreePillarPlatformSlide() {
       gradient: 'from-purple-500 to-indigo-500',
       metrics: [
         { value: 68, suffix: '+', label: 'AI Agents', icon: Zap },
-        { value: 7, label: 'Live Modules', icon: Globe },
+        { value: 7, suffix: '', label: 'Live Modules', icon: Globe },
         { value: 11, suffix: 'ms', label: 'Response Time', icon: Target }
       ],
       features: [
@@ -221,9 +221,9 @@ export default function GiftCityThreePillarPlatformSlide() {
                 color: pillar.color
               }}
             >
-              {metric.prefix}
-              <AnimatedCounter end={metric.value} duration={1500 + mi * 200} />
-              {metric.suffix}
+              {metric.prefix || ''}
+              <AnimatedCounter end={metric.value || 0} duration={1500 + mi * 200} />
+              {metric.suffix || ''}
             </motion.p>
             <p style={{ 
               fontSize: '0.65rem',

@@ -302,7 +302,7 @@ export default function GiftCityEntityStructureSlide() {
             <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
               {stat.label}
             </p>
-            <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: stat.color }}>
+            <p style={{ fontSize: 'clamp(1.2rem, 2vw, 1.5rem)', fontWeight: 'bold', color: stat.color }}>
               {stat.value}
             </p>
             <p style={{ fontSize: '0.7rem', color: '#10b981' }}>

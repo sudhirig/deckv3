@@ -114,7 +114,7 @@ export default function GiftCityTaxOptimizationSlide() {
             marginBottom: '0.5rem'
           }}>
             <GradientText gradient="from-green-400 to-yellow-400">
-              ₹<AnimatedCounter value={10} duration={2000} /> Lakh
+              ₹<AnimatedCounter end={10 || 0} duration={2000} /> Lakh
             </GradientText>
           </h3>
           <p style={{ color: '#10b981', fontSize: '1.2rem', fontWeight: 'bold' }}>

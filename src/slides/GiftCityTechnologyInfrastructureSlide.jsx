@@ -84,10 +84,10 @@ export default function GiftCityTechnologyInfrastructureSlide() {
   }
 
   const performanceMetrics = [
-    { label: 'Response Time', value: 11, unit: 'ms', color: '#fbbf24' },
-    { label: 'Uptime SLA', value: 99.99, unit: '%', color: '#10b981' },
-    { label: 'Daily Data', value: 10, unit: 'TB', color: '#3b82f6' },
-    { label: 'Operations', value: '24/7', unit: '', color: '#a855f7' }
+    { label: 'Response Time', value: 11, unit: 'ms', color: '#fbbf24', isNumeric: true },
+    { label: 'Uptime SLA', value: 99.99, unit: '%', color: '#10b981', isNumeric: true },
+    { label: 'Daily Data', value: 10, unit: 'TB', color: '#3b82f6', isNumeric: true },
+    { label: 'Operations', value: '24/7', unit: '', color: '#a855f7', isNumeric: false }
   ]
 
   const renderInfrastructureCard = (infra, index) => (
@@ -253,9 +253,9 @@ export default function GiftCityTechnologyInfrastructureSlide() {
                 marginBottom: '0.5rem'
               }}
             >
-              {typeof metric.value === 'number' ? (
+              {metric.isNumeric ? (
                 <>
-                  <AnimatedCounter end={metric.value} duration={2000} decimals={metric.unit === '%' ? 2 : 0} />
+                  <AnimatedCounter end={metric.value || 0} duration={2000} decimals={metric.unit === '%' ? 2 : 0} />
                   {metric.unit}
                 </>
               ) : (
