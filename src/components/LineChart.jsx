@@ -1,15 +1,33 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const LineChart = ({ data, height = 150, width = '100%', animated = true, showGrid = true }) => {
-  const maxValue = Math.max(...data.map(d => d.value))
-  const minValue = Math.min(...data.map(d => d.value))
-  const range = maxValue - minValue || 1 // Prevent division by zero for flat datasets
+const LineChart = ({ data = [], height = 150, width = '100%', animated = true, showGrid = true }) => {
+  const CIRCLE_RADIUS = 1.5
+  // Early return if data is invalid
+  if (!data || !Array.isArray(data) || data.length === 0) {
+    return <div style={{ height, width }} />
+  }
+
+  // Filter out invalid data points and ensure numeric values
+  const validData = data.filter(d => d && typeof d.value === 'number' && !isNaN(d.value))
   
-  const points = data.map((item, index) => {
-    const x = (index / (data.length - 1)) * 100
+  if (validData.length === 0) {
+    return <div style={{ height, width }} />
+  }
+
+  const maxValue = Math.max(...validData.map(d => d.value))
+  const minValue = Math.min(...validData.map(d => d.value))
+  const range = maxValue - minValue || 1
+  
+  const points = validData.map((item, index) => {
+    const x = validData.length > 1 ? (index / (validData.length - 1)) * 100 : 50
     const y = 100 - ((item.value - minValue) / range) * 100
-    return { x, y, ...item }
+    return { 
+      x: Number(x) || 0, 
+      y: Number(y) || 0,
+      label: item.label || '',
+      value: item.value
+    }
   })
   
   const pathData = points.reduce((acc, point, index) => {
@@ -62,7 +80,7 @@ const LineChart = ({ data, height = 150, width = '100%', animated = true, showGr
             key={index}
             cx={point.x}
             cy={point.y}
-            r="1.5"
+            r={CIRCLE_RADIUS}
             fill="#10b981"
             initial={animated ? { scale: 0 } : {}}
             animate={animated ? { scale: 1 } : {}}
@@ -72,8 +90,8 @@ const LineChart = ({ data, height = 150, width = '100%', animated = true, showGr
       </svg>
       
       <div className="absolute bottom-0 left-0 w-full flex justify-between text-xs text-gray-400">
-        {data.map((item, index) => (
-          <span key={index} className="truncate">{item.label}</span>
+        {validData.map((item, index) => (
+          <span key={index} className="truncate">{item.label || ''}</span>
         ))}
       </div>
     </div>

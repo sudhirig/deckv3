@@ -79,9 +79,9 @@ export default function AgenticAILiveSnapshotSlide() {
                 <motion.circle
                   cx={x}
                   cy={y}
-                  r="8"
+                  r={8}
                   fill="#8b5cf6"
-                  animate={{ r: pulseAnimation ? [8, 15, 8] : 8 }}
+                  animate={{ r: (pulseAnimation === true) ? [8, 15, 8] : 8 }}
                   transition={{ duration: 2, delay: i * 0.1 }}
                 />
                 <line
