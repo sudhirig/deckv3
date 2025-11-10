@@ -222,7 +222,7 @@ export default function GiftCityThreePillarPlatformSlide() {
               }}
             >
               {metric.prefix}
-              <AnimatedCounter value={metric.value} duration={1500 + mi * 200} />
+              <AnimatedCounter end={metric.value} duration={1500 + mi * 200} />
               {metric.suffix}
             </motion.p>
             <p style={{ 
