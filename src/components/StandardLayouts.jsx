@@ -4,7 +4,7 @@ import GradientText from './GradientText';
 import './StandardLayouts.css';
 
 // Shared AspectFrame wrapper that enforces 16:9 ratio
-const AspectFrame = ({ children }) => (
+export const AspectFrame = ({ children }) => (
   <div className="standard-layout-scene">
     <div className="standard-layout-container">
       {children}
@@ -408,8 +408,6 @@ export const HeroLayout = ({
     </div>
   </AspectFrame>
 );
-
-export { AspectFrame };
 
 export default {
   AspectFrame,

@@ -26,24 +26,28 @@ export default function CircularProgress({
   const parsedDelay = Number.parseFloat(delay)
   const safeDelay = (Number.isFinite(parsedDelay) && parsedDelay >= 0) ? parsedDelay : 0
   
-  // Guard against invalid size/strokeWidth relationship
-  if (safeStrokeWidth >= safeSize) {
-    console.warn('CircularProgress: strokeWidth must be less than size', { size: safeSize, strokeWidth: safeStrokeWidth })
-    return null
-  }
-  
-  // Calculate radius with explicit fallback to ensure it's never undefined
-  const calculatedRadius = (safeSize - safeStrokeWidth) / 2
-  const radius = Number.isFinite(calculatedRadius) && calculatedRadius > 0 ? calculatedRadius : 56
-  
-  // Log warning if we had to use fallback
-  if (radius === 56 && calculatedRadius !== 56) {
-    console.warn('CircularProgress: Using fallback radius', { 
-      calculatedRadius, 
+  // Guard against invalid size/strokeWidth relationship - MUST be before radius calculation
+  if (!Number.isFinite(safeSize) || !Number.isFinite(safeStrokeWidth) || safeStrokeWidth >= safeSize || safeSize <= 0 || safeStrokeWidth <= 0) {
+    console.warn('CircularProgress: Invalid size/strokeWidth configuration', { 
       size: safeSize, 
       strokeWidth: safeStrokeWidth,
       originalProps: { value, size, strokeWidth, delay }
     })
+    return null
+  }
+  
+  // Calculate radius - guaranteed to be valid due to guards above
+  const radius = (safeSize - safeStrokeWidth) / 2
+  
+  // Final safety check (should never trigger if guards above work correctly)
+  if (!Number.isFinite(radius) || radius <= 0) {
+    console.error('CircularProgress: CRITICAL - Radius calculation failed despite guards', { 
+      radius,
+      size: safeSize, 
+      strokeWidth: safeStrokeWidth,
+      originalProps: { value, size, strokeWidth, delay }
+    })
+    return null
   }
   
   const circumference = radius * 2 * Math.PI
