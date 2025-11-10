@@ -6,6 +6,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
 import { Camera, Calculator, TrendingUp, Award, PiggyBank, Shield, Target, CheckCircle, DollarSign, Percent, Brain, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CGMFLiveSnapshotSlide() {

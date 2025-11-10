@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Code2, Cpu, BarChart3, Zap, TrendingUp, Activity, GitBranch, Sparkles, MessageSquare } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const AlgoTradingConceptSlide = () => {

@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Zap, Shield, BarChart3, Code2 } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 
 const AlgoTradingFeaturesSlide = () => {
   return (

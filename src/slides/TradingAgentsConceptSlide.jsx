@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Users, Brain, Award, TrendingUp, DollarSign, BarChart2, Star, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const TradingAgentsConceptSlide = () => {
@@ -246,7 +247,7 @@ const TradingAgentsConceptSlide = () => {
           transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
-            inset: -2,
+            inset: pxToRem(-2),
             background: 'linear-gradient(45deg, #fbbf24, #a855f7, #ec4899, #fbbf24)',
             backgroundSize: '300% 300%',
             borderRadius: '1rem',

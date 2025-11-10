@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Cpu, Zap, GitBranch, Shield, Brain, Network, Sparkles, Activity } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function AgenticAIFeaturesSlide() {
@@ -186,7 +187,7 @@ export default function AgenticAIFeaturesSlide() {
           transition={{ duration: 3, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -2,
+            inset: pxToRem(-2),
             background: 'linear-gradient(90deg, #a855f7, #3b82f6, #a855f7)',
             borderRadius: '1.25rem',
             filter: 'blur(0.5rem)',
@@ -244,7 +245,7 @@ export default function AgenticAIFeaturesSlide() {
           transition={{ duration: 2, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',
@@ -333,7 +334,7 @@ export default function AgenticAIFeaturesSlide() {
           transition={{ duration: 3, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.2), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',
@@ -419,7 +420,7 @@ export default function AgenticAIFeaturesSlide() {
           transition={{ duration: 3, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',
@@ -502,7 +503,7 @@ export default function AgenticAIFeaturesSlide() {
           transition={{ duration: 2, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',

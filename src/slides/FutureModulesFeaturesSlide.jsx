@@ -4,6 +4,7 @@ import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import { DollarSign, Link, Cloud, Shield, Bitcoin, Cpu, Globe, Rocket, Sparkles, TrendingUp } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FutureModulesFeaturesSlide() {
@@ -181,7 +182,7 @@ export default function FutureModulesFeaturesSlide() {
           transition={{ duration: 3, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -2,
+            inset: pxToRem(-2),
             background: 'linear-gradient(90deg, #fbbf24, #a855f7, #fbbf24)',
             borderRadius: '1.25rem',
             filter: 'blur(0.5rem)',
@@ -244,7 +245,7 @@ export default function FutureModulesFeaturesSlide() {
           }}
           style={{
             position: 'absolute',
-            inset: -30,
+            inset: pxToRem(-30),
             background: 'conic-gradient(from 0deg, transparent, rgba(251, 191, 36, 0.2), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',
@@ -333,7 +334,7 @@ export default function FutureModulesFeaturesSlide() {
           transition={{ duration: 2, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',
@@ -418,7 +419,7 @@ export default function FutureModulesFeaturesSlide() {
           transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'linear-gradient(45deg, transparent, rgba(168, 85, 247, 0.2), transparent)',
             backgroundSize: '200% 200%',
             borderRadius: '1.5rem',
@@ -505,7 +506,7 @@ export default function FutureModulesFeaturesSlide() {
           transition={{ duration: 3, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: -20,
+            inset: pxToRem(-20),
             background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent)',
             borderRadius: '1.5rem',
             filter: 'blur(1.25rem)',

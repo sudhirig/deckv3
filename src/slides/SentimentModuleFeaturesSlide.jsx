@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Activity, MessageSquare, TrendingUp, Globe } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 
 const SentimentModuleFeaturesSlide = () => {
   return (

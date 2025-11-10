@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Brain, Users, MessageSquare, Network, Cpu, Zap, GitBranch, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const AgenticAIConceptSlide = () => {
@@ -133,7 +134,7 @@ const AgenticAIConceptSlide = () => {
                   >
                     <div style={{
                       position: 'absolute',
-                      top: -5,
+                      top: pxToRem(-5),
                       left: '50%',
                       width: '0.625rem',
                       height: '0.625rem',

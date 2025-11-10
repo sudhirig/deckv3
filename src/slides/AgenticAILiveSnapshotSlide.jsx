@@ -4,6 +4,7 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Camera, Brain, MessageSquare, Activity, Users, Cpu, Shield, Zap, Network, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function AgenticAILiveSnapshotSlide() {

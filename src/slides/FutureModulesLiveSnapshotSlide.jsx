@@ -4,6 +4,7 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Camera, Rocket, Construction, Clock, Users, Battery, Activity, Target, Sparkles, TrendingUp } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FutureModulesLiveSnapshotSlide() {

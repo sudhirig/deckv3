@@ -5,6 +5,7 @@ import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Rocket, Globe, Cpu, TrendingUp, Bitcoin, BarChart2, Building, Sparkles, DollarSign, Award } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const FutureModulesConceptSlide = () => {

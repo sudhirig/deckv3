@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Award, TrendingUp, Clock, BarChart3 } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 
 const TradingAgentsFeaturesSlide = () => {
   return (

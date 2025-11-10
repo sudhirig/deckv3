@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
+import { pxToRem } from '../utils/responsive'
 
 const AlgoTradingLiveSnapshotSlide = () => {
   const [animateMetrics, setAnimateMetrics] = useState(false)

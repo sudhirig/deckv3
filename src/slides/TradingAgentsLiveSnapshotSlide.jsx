@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Camera, Users, TrendingUp, Award } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 
 const TradingAgentsLiveSnapshotSlide = () => {
   return (

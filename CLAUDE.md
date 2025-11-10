@@ -164,30 +164,49 @@ The app uses hash-based routing:
 ## UI/UX Audit Snapshot
 
 **Full Report**: See `UI_UX_AUDIT_REPORT.md` for comprehensive findings and implementation code
+**Verified Bug Report**: Section added with 9 specific bugs, exact file paths, line numbers, and fixes
 
 **Overall UX Score**: 7.8/10
 **Date**: November 10, 2025
 **WCAG 2.1 Compliance**: Partial AA - FAIL
+**Total Bug Fix Time**: ~9.5 hours
 
 ### Critical Issues (Must Fix)
 
-1. **Accessibility Violations** - Missing ARIA labels, insufficient color contrast, no screen reader support
-   - Navigation buttons lack `aria-label` attributes
-   - No `prefers-reduced-motion` support (WCAG 2.1 SC 2.3.3 violation)
-   - Color contrast failures: `.instructions` (2.8:1, needs 4.5:1), `.tagline` (3.6:1)
-   - Thumbnail grid not keyboard accessible
+**See BUG-001 through BUG-009 in UI_UX_AUDIT_REPORT.md for detailed fixes with code examples**
 
-2. **Memory Leak in ParticleBackground** - Browser crashes after 15-20 minutes
+1. **BUG-001: ParticleBackground Memory Leak** (src/components/ParticleBackground.jsx:45-55)
+   - Browser crashes after 15-20 minutes
    - 12,690 animated elements in memory (94 slides × 3 preloaded × 45 particles)
-   - Infinite animations never cleaned up
-   - Fix: Use `AnimatePresence` and cleanup on unmount
+   - `repeat: Infinity` animations never cleaned up
 
-3. **Broken PDF Export** - Charts render blank in PDFs
-   - Animations haven't completed before print capture
-   - Fix: Add `@media print` rules to force all animations to final state
+2. **BUG-002: Missing ARIA Labels** (src/App.jsx:476-495)
+   - Navigation buttons lack `aria-label` attributes
+   - Screen reader users hear only "button" with no context
+   - Export button emoji not accessible
 
-4. **Hash Navigation Race Conditions** - URL hash conflicts with browser back/forward
-   - Fix: Use `popstate` event instead of `hashchange`
+3. **BUG-003: Thumbnail Grid Not Keyboard Accessible** (src/App.jsx:445-471)
+   - No `tabIndex` - unreachable via Tab key
+   - No `onKeyDown` - Enter/Space don't work
+   - No focus styles or `role="button"`
+
+4. **BUG-004: Color Contrast Failures** (src/App.css:93, src/slides/SlideStyles.css:83)
+   - `.instructions`: 2.8:1 ratio (needs 4.5:1) - WCAG FAIL
+   - `.tagline`: 3.6:1 ratio (needs 4.5:1) - WCAG FAIL
+   - Text unreadable for users with low vision
+
+5. **BUG-005: No prefers-reduced-motion Support** (All components)
+   - WCAG 2.1 SC 2.3.3 violation
+   - Triggers motion sickness, vestibular disorders
+   - No check for OS-level accessibility setting
+
+6. **BUG-006: Charts Render Blank in PDF** (src/components/BarChart.jsx, LineChart.jsx)
+   - Animations disabled in print mode freeze charts at initial state
+   - Print capture happens before animations complete
+
+7. **BUG-007: Hash Navigation Race Condition** (src/App.jsx:239-331)
+   - Browser back/forward buttons sometimes skip slides
+   - `navigateToSlide()` writes hash while `getCurrentSlideFromHash()` reads it
 
 ### High Priority Issues (12 identified)
 

@@ -5,6 +5,7 @@ import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, Mic, LayoutDashboard, MessageSquare, Zap, ArrowRight, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const ZerodhaConceptSlide = () => {

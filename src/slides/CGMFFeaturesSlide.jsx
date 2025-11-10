@@ -6,6 +6,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import { Calculator, Shield, TrendingUp, FileText, DollarSign, BarChart2, Sparkles, Award, Brain, Zap, Target } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CGMFFeaturesSlide() {
@@ -135,7 +136,7 @@ export default function CGMFFeaturesSlide() {
               transition={{ duration: 1, repeat: Infinity }}
               style={{
                 position: 'absolute',
-                inset: -10,
+                inset: pxToRem(-10),
                 borderRadius: '1rem',
                 border: `0.125rem solid ${stat.color}`,
                 zIndex: -1
@@ -495,7 +496,7 @@ export default function CGMFFeaturesSlide() {
         transition={{ duration: 5, repeat: Infinity }}
         style={{
           position: 'absolute',
-          inset: -20,
+          inset: pxToRem(-20),
           background: 'linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.2), transparent)',
           backgroundSize: '200% 200%',
           borderRadius: '1.5rem',
