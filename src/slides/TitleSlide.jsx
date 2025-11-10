@@ -48,10 +48,8 @@ export default function TitleSlide() {
       
       <div className="title-content" style={{ position: 'relative', zIndex: 2 }}>
         <AnimatedText delay={0.2}>
-          <h1 className="main-title">
-            <GradientText gradient="from-teal-400 via-cyan-400 to-green-400">
-              The AI-Powered Digital Family Office
-            </GradientText>
+          <h1 className="main-title" style={{color: '#fff'}}>
+            The AI-Powered Digital Family Office
           </h1>
         </AnimatedText>
         
