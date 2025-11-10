@@ -1,13 +1,118 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import GradientText from './GradientText';
 import './StandardLayouts.css';
 
-// Shared AspectFrame wrapper that enforces 16:9 ratio
+// ScalingWrapper with dynamic viewport scaling
+const ScalingWrapper = ({ children }) => {
+  const contentRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const innerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+  const [isCalculating, setIsCalculating] = useState(true);
+
+  useEffect(() => {
+    let timeoutId = null;
+    let rafId = null;
+    
+    const calculateScale = () => {
+      if (!contentRef.current || !wrapperRef.current || !innerRef.current) return;
+
+      // Get the wrapper (viewport) dimensions
+      const viewportWidth = wrapperRef.current.clientWidth;
+      const viewportHeight = wrapperRef.current.clientHeight;
+
+      // Temporarily set scale to 1 to measure true size
+      innerRef.current.style.transform = 'scale(1)';
+      
+      // Force a reflow to ensure accurate measurement
+      void innerRef.current.offsetHeight;
+      
+      // Get the natural content dimensions
+      const contentWidth = innerRef.current.scrollWidth;
+      const contentHeight = innerRef.current.scrollHeight;
+
+      if (contentWidth > 0 && contentHeight > 0 && viewportWidth > 0 && viewportHeight > 0) {
+        // Calculate scale to fit content in viewport
+        const padding = 20; // Padding from edges
+        const availableWidth = viewportWidth - padding * 2;
+        const availableHeight = viewportHeight - padding * 2;
+        
+        const scaleX = availableWidth / contentWidth;
+        const scaleY = availableHeight / contentHeight;
+        
+        // Use the smaller scale to ensure all content fits
+        let newScale = Math.min(scaleX, scaleY);
+        
+        // Limit scale to reasonable values
+        newScale = Math.min(newScale, 1); // Don't scale up
+        newScale = Math.max(newScale, 0.1); // Don't scale too small
+        
+        // Apply the scale
+        innerRef.current.style.transform = `scale(${newScale})`;
+        setScale(newScale);
+        setIsCalculating(false);
+      }
+    };
+
+    const scheduleCalculation = () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      if (rafId) cancelAnimationFrame(rafId);
+      
+      // Wait for content to render, then calculate
+      timeoutId = setTimeout(() => {
+        rafId = requestAnimationFrame(calculateScale);
+      }, 50);
+    };
+
+    // Initial calculation with delay
+    scheduleCalculation();
+    
+    // Set up resize observer
+    const resizeObserver = new ResizeObserver(scheduleCalculation);
+    if (wrapperRef.current) {
+      resizeObserver.observe(wrapperRef.current);
+    }
+    if (contentRef.current) {
+      resizeObserver.observe(contentRef.current);
+    }
+    
+    // Window resize listener
+    window.addEventListener('resize', scheduleCalculation);
+    
+    // Cleanup
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+      if (rafId) cancelAnimationFrame(rafId);
+      resizeObserver.disconnect();
+      window.removeEventListener('resize', scheduleCalculation);
+    };
+  }, [children]);
+
+  return (
+    <div ref={wrapperRef} className="scaling-wrapper" style={{ opacity: isCalculating ? 0 : 1 }}>
+      <div ref={contentRef} className="scaling-container">
+        <div 
+          ref={innerRef}
+          className="scaling-content"
+          style={{
+            transformOrigin: 'center center',
+          }}
+        >
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Shared AspectFrame wrapper - simplified CSS-only scaling
 export const AspectFrame = ({ children }) => (
   <div className="standard-layout-scene">
     <div className="standard-layout-container">
-      {children}
+      <div className="viewport-fit-wrapper">
+        {children}
+      </div>
     </div>
   </div>
 );
