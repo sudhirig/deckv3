@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import Icon from '../components/Icon'
@@ -168,23 +168,26 @@ export default function GiftCityRegulatoryComplianceSlide() {
               position: 'relative'
             }}
           >
-            {hoveredLicense === license.title && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                style={{
-                  position: 'absolute',
-                  top: '-0.5rem',
-                  left: '-0.5rem',
-                  right: '-0.5rem',
-                  bottom: '-0.5rem',
-                  background: `radial-gradient(circle, ${license.color}30, transparent)`,
-                  borderRadius: '1rem',
-                  filter: 'blur(1rem)',
-                  zIndex: -1
-                }}
+            <AnimatePresence>
+              {hoveredLicense === license.title && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  style={{
+                    position: 'absolute',
+                    top: '-0.5rem',
+                    left: '-0.5rem',
+                    right: '-0.5rem',
+                    bottom: '-0.5rem',
+                    background: `radial-gradient(circle, ${license.color}30, transparent)`,
+                    borderRadius: '1rem',
+                    filter: 'blur(1rem)',
+                    zIndex: -1
+                  }}
               />
             )}
+            </AnimatePresence>
             
             <div style={{ display: 'flex', alignItems: 'start', gap: '0.75rem' }}>
               <motion.div
