@@ -88,11 +88,13 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
    - ✅ All gradients working correctly
    - ✅ Zero console errors/warnings
    - **Slides Fixed**: ExecutiveSummarySlide (8 icons), ThreeAlphaAgentsSlide (3), UnfairAdvantagesSlide (3), LivePlatformSlide (1), GIFTSolutionSlide (1), IndiaProblemSlide (1), plus all dynamic icon arrays in AgenticAIConceptSlide, CGMFConceptSlide, CustomerJourney, ExitStrategy, etc.
-4. **Comparison Layout Spacing Fixed**:
-   - Added vertical gap between option headers and detail content (1.5-2rem responsive spacing)
-   - Headers now use flex layout with proper alignment and word-wrapping
-   - Details sections have flex: 1 for proper content distribution
-   - Fixed text overlap issues across all comparison slides
+4. **Comparison Layout Fixed (Complete)**:
+   - **Invalid HTML Structure Resolved**: Changed `<h2>` wrappers to `<div role="heading" aria-level="2">` to support complex markup (icons, flex layouts)
+   - **Column Isolation**: Fixed critical bug where right column headers bled into left column details
+   - **Vertical Spacing**: Added gap between option headers and detail content (1.5-2rem responsive)
+   - **Proper Nesting**: Headers now allow block-level children (divs, icons) without browser auto-correction
+   - **Accessibility Maintained**: ARIA attributes preserve semantic heading behavior for screen readers
+   - **Affects 5 Slides**: AlphaGapSlide, TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide, AICommitteeSlide
 5. **Final Emoji Cleanup (Complete)**:
    - Replaced ❌ emoji with XCircle icon in TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide
    - Replaced all ✓ checkmark emojis (17 instances) with Shield icon across 14 slides:

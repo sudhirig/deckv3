@@ -182,7 +182,7 @@ export const ComparisonLayout = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <h2 className="comparison-option-title">{leftOption}</h2>
+        <div className="comparison-option-title" role="heading" aria-level="2">{leftOption}</div>
         <div className="comparison-details">{leftDetails}</div>
       </motion.div>
       
@@ -201,7 +201,7 @@ export const ComparisonLayout = ({
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <h2 className="comparison-option-title">{rightOption}</h2>
+        <div className="comparison-option-title" role="heading" aria-level="2">{rightOption}</div>
         <div className="comparison-details">{rightDetails}</div>
       </motion.div>
     </div>
