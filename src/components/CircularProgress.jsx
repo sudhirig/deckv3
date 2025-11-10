@@ -9,46 +9,42 @@ export default function CircularProgress({
   label = '',
   delay = 0
 }) {
+  // EARLY VALIDATION: Convert all props to safe values immediately
+  const parsedValue = Number.parseFloat(value ?? 0)
+  const safeValue = (Number.isFinite(parsedValue) && parsedValue >= 0 && parsedValue <= 100) ? parsedValue : 0
+  
+  const parsedSize = Number.parseFloat(size ?? 120)
+  const rawSafeSize = (Number.isFinite(parsedSize) && parsedSize > 0) ? parsedSize : 120
+  
+  const parsedStrokeWidth = Number.parseFloat(strokeWidth ?? 8)
+  const rawSafeStrokeWidth = (Number.isFinite(parsedStrokeWidth) && parsedStrokeWidth > 0) ? parsedStrokeWidth : 8
+  
+  const parsedDelay = Number.parseFloat(delay ?? 0)
+  const safeDelay = (Number.isFinite(parsedDelay) && parsedDelay >= 0) ? parsedDelay : 0
+  
+  // CRITICAL: Ensure strokeWidth is never >= size to prevent invalid radius
+  const safeStrokeWidth = rawSafeStrokeWidth >= rawSafeSize ? Math.max(rawSafeSize / 3, 1) : rawSafeStrokeWidth
+  const safeSize = rawSafeSize
+  
+  // Calculate radius with absolute guarantees
+  const calculatedRadius = (safeSize - safeStrokeWidth) / 2
+  const radius = Math.max(calculatedRadius, 1) // Absolute minimum radius of 1
+  
+  // Final safety check: If radius is still invalid, bail out immediately
+  if (!Number.isFinite(radius) || radius <= 0) {
+    console.error('CircularProgress: FATAL - Cannot calculate valid radius', { 
+      radius,
+      calculatedRadius,
+      size: safeSize, 
+      strokeWidth: safeStrokeWidth,
+      originalProps: { value, size, strokeWidth }
+    })
+    return null
+  }
+  
   const [displayValue, setDisplayValue] = useState(0)
   const timerRef = useRef(null)
   const intervalRef = useRef(null)
-  
-  // Parse and validate all numeric props
-  const parsedValue = Number.parseFloat(value)
-  const safeValue = (Number.isFinite(parsedValue) && parsedValue >= 0 && parsedValue <= 100) ? parsedValue : 0
-  
-  const parsedSize = Number.parseFloat(size)
-  const safeSize = (Number.isFinite(parsedSize) && parsedSize > 0) ? parsedSize : 120
-  
-  const parsedStrokeWidth = Number.parseFloat(strokeWidth)
-  const safeStrokeWidth = (Number.isFinite(parsedStrokeWidth) && parsedStrokeWidth > 0) ? parsedStrokeWidth : 8
-  
-  const parsedDelay = Number.parseFloat(delay)
-  const safeDelay = (Number.isFinite(parsedDelay) && parsedDelay >= 0) ? parsedDelay : 0
-  
-  // Guard against invalid size/strokeWidth relationship - MUST be before radius calculation
-  if (!Number.isFinite(safeSize) || !Number.isFinite(safeStrokeWidth) || safeStrokeWidth >= safeSize || safeSize <= 0 || safeStrokeWidth <= 0) {
-    console.warn('CircularProgress: Invalid size/strokeWidth configuration', { 
-      size: safeSize, 
-      strokeWidth: safeStrokeWidth,
-      originalProps: { value, size, strokeWidth, delay }
-    })
-    return null
-  }
-  
-  // Calculate radius - guaranteed to be valid due to guards above
-  const radius = (safeSize - safeStrokeWidth) / 2
-  
-  // Final safety check (should never trigger if guards above work correctly)
-  if (!Number.isFinite(radius) || radius <= 0) {
-    console.error('CircularProgress: CRITICAL - Radius calculation failed despite guards', { 
-      radius,
-      size: safeSize, 
-      strokeWidth: safeStrokeWidth,
-      originalProps: { value, size, strokeWidth, delay }
-    })
-    return null
-  }
   
   const circumference = radius * 2 * Math.PI
   const offset = circumference - (displayValue / 100) * circumference
@@ -83,6 +79,20 @@ export default function CircularProgress({
     }
   }, [safeValue, safeDelay])
 
+  // Explicit radius for JSX to prevent ANY possibility of undefined
+  const jsxRadius = Number(radius) || 56
+  
+  // DEBUG: Log if something went wrong
+  if (!Number.isFinite(jsxRadius) || jsxRadius <= 0) {
+    console.error('CircularProgress: Invalid jsxRadius!', {
+      jsxRadius,
+      radius,
+      calculatedRadius,
+      size, strokeWidth,
+      safeSize, safeStrokeWidth
+    })
+  }
+  
   return (
     <div style={{ 
       display: 'inline-flex', 
@@ -98,7 +108,7 @@ export default function CircularProgress({
         <circle
           cx={safeSize / 2}
           cy={safeSize / 2}
-          r={radius}
+          r={jsxRadius}
           stroke="rgba(255, 255, 255, 0.1)"
           strokeWidth={safeStrokeWidth}
           fill="none"
@@ -106,7 +116,7 @@ export default function CircularProgress({
         <motion.circle
           cx={safeSize / 2}
           cy={safeSize / 2}
-          r={radius}
+          r={jsxRadius}
           stroke={color || '#14b8a6'}
           strokeWidth={safeStrokeWidth}
           fill="none"
