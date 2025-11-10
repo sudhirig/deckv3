@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
+import Icon from '../components/Icon'
 import { ChevronRight, Clock, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -28,7 +29,9 @@ export default function CustomerJourney1Slide() {
         'Identifies immediate optimizations',
         'Shows potential tax savings'
       ],
-      emotion: '😮 Amazed',
+      emotionText: 'Amazed',
+      emotionIconType: 'zap',
+      emotionIconGradient: 'from-purple-400 to-pink-400',
       metric: '$47K immediate savings identified'
     },
     {
@@ -41,7 +44,9 @@ export default function CustomerJourney1Slide() {
         'AI builds risk profile',
         'Personalized strategy created'
       ],
-      emotion: '🚀 Excited',
+      emotionText: 'Excited',
+      emotionIconType: 'rocket',
+      emotionIconGradient: 'from-orange-400 to-amber-400',
       metric: '12 accounts connected seamlessly'
     },
     {
@@ -54,7 +59,9 @@ export default function CustomerJourney1Slide() {
         'First rebalancing executed',
         'AI learns preferences'
       ],
-      emotion: '📈 Confident',
+      emotionText: 'Confident',
+      emotionIconType: 'trending',
+      emotionIconGradient: 'from-teal-400 to-green-400',
       metric: '+0.8% alpha generated'
     },
     {
@@ -67,7 +74,9 @@ export default function CustomerJourney1Slide() {
         'Alternative investments added',
         'Comprehensive reporting'
       ],
-      emotion: '💪 Empowered',
+      emotionText: 'Empowered',
+      emotionIconType: 'shield',
+      emotionIconGradient: 'from-green-400 to-emerald-400',
       metric: '+2.3% total return vs baseline'
     }
   ]
@@ -173,10 +182,10 @@ export default function CustomerJourney1Slide() {
           textAlign: 'center'
         }}>
           <div style={{ fontSize: pxToRem(24), marginBottom: pxToRem(4) }}>
-            {step.emotion.split(' ')[0]}
+            <Icon type={step.emotionIconType} size={24} variant="inline" gradient={step.emotionIconGradient} />
           </div>
           <div style={{ fontSize: pxToRem(12.8), color: '#64748b' }}>
-            {step.emotion.split(' ')[1]}
+            {step.emotionText}
           </div>
         </div>
 

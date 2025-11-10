@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import { Shield, Lock, AlertTriangle, XCircle, CheckCircle, TrendingUp, Users, Brain } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -9,7 +10,8 @@ export default function WhyIncumbentsCantRespondSlide() {
   const incumbentWeaknesses = [
     {
       category: 'Traditional Banks',
-      icon: '🏦',
+      iconType: 'building',
+      iconGradient: 'from-blue-400 to-cyan-400',
       weaknesses: [
         { issue: 'Legacy Infrastructure', severity: 'critical', detail: '30+ year old core banking systems' },
         { issue: 'Regulatory Handcuffs', severity: 'high', detail: 'Can\'t offer crypto or alternatives' },
@@ -21,7 +23,8 @@ export default function WhyIncumbentsCantRespondSlide() {
     },
     {
       category: 'Robo-Advisors',
-      icon: '🤖',
+      iconType: 'bot',
+      iconGradient: 'from-purple-400 to-pink-400',
       weaknesses: [
         { issue: 'Simple Algorithms', severity: 'high', detail: 'No true AI reasoning' },
         { issue: 'Limited Assets', severity: 'high', detail: 'ETFs only, no alternatives' },
@@ -33,7 +36,8 @@ export default function WhyIncumbentsCantRespondSlide() {
     },
     {
       category: 'Big Tech',
-      icon: '💻',
+      iconType: 'zap',
+      iconGradient: 'from-orange-400 to-amber-400',
       weaknesses: [
         { issue: 'Trust Deficit', severity: 'critical', detail: 'Privacy concerns with money' },
         { issue: 'No Finance DNA', severity: 'high', detail: 'Consumer tech ≠ wealth management' },
@@ -61,7 +65,7 @@ export default function WhyIncumbentsCantRespondSlide() {
       position: 'relative'
     }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(16), marginBottom: pxToRem(16) }}>
-        <span style={{ fontSize: pxToRem(32) }}>{incumbent.icon}</span>
+        <Icon type={incumbent.iconType} size={32} variant="inline" gradient={incumbent.iconGradient} />
         <div style={{ flex: 1 }}>
           <h3 style={{ fontSize: pxToRem(19.2), color: '#e2e8f0', marginBottom: pxToRem(4) }}>
             {incumbent.category}

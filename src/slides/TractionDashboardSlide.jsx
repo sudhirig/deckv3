@@ -4,6 +4,7 @@ import { GridLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import { TrendingUp, Users, DollarSign, Activity, Globe, Shield, Clock, CheckCircle, Target } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
@@ -69,8 +70,9 @@ export default function TractionDashboardSlide() {
   const cards = [
     // Column 1: Key Metrics
     <div key="metrics" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
-        📈 Performance Metrics
+      <h3 className="icon-label icon-heading" style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
+        <Icon type="trending" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+        Performance Metrics
       </h3>
       
       {/* AUM Card */}
@@ -133,8 +135,9 @@ export default function TractionDashboardSlide() {
 
     // Column 2: Milestones & Timeline
     <div key="timeline" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
-        🚀 Execution Timeline
+      <h3 className="icon-label icon-heading" style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
+        <Icon type="rocket" size={22} variant="inline" gradient="from-orange-400 to-amber-400" />
+        Execution Timeline
       </h3>
       
       <div className="glass-card" style={{ padding: '1.5rem' }}>

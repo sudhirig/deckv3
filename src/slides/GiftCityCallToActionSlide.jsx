@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Phone, Mail, Calendar } from 'lucide-react'
+import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
 
 const GiftCityCallToActionSlide = () => {
@@ -51,7 +52,9 @@ const GiftCityCallToActionSlide = () => {
             className="glassmorphic-card"
           >
             <div className="text-center">
-              <div className="text-3xl mb-2">🏛️</div>
+              <div className="mb-2">
+                <Icon type="building" size={32} variant="inline" gradient="from-teal-400 to-green-400" />
+              </div>
               <h3 className="text-lg text-teal-400 mb-2">Regulatory Advantage</h3>
               <p className="text-sm text-gray-400">IFSCA licensed, 0% tax for investors</p>
             </div>
@@ -64,7 +67,9 @@ const GiftCityCallToActionSlide = () => {
             className="glassmorphic-card"
           >
             <div className="text-center">
-              <div className="text-3xl mb-2">🤖</div>
+              <div className="mb-2">
+                <Icon type="bot" size={32} variant="inline" gradient="from-purple-400 to-pink-400" />
+              </div>
               <h3 className="text-lg text-teal-400 mb-2">AI Technology</h3>
               <p className="text-sm text-gray-400">68+ agents, 600% alpha advantage</p>
             </div>
@@ -77,7 +82,9 @@ const GiftCityCallToActionSlide = () => {
             className="glassmorphic-card"
           >
             <div className="text-center">
-              <div className="text-3xl mb-2">🌏</div>
+              <div className="mb-2">
+                <Icon type="globe" size={32} variant="inline" gradient="from-blue-400 to-cyan-400" />
+              </div>
               <h3 className="text-lg text-teal-400 mb-2">India Gateway</h3>
               <p className="text-sm text-gray-400">$5T market, direct access</p>
             </div>
@@ -125,7 +132,7 @@ const GiftCityCallToActionSlide = () => {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 >
-                  <div className="text-2xl">🤝</div>
+                  <Icon type="users" size={24} variant="inline" gradient="from-blue-400 to-cyan-400" />
                 </motion.div>
               </div>
               <h4 className="text-lg font-bold mb-1">3. Partnership</h4>

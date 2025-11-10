@@ -193,6 +193,24 @@
   font-weight: 600;
 }
 
+/* Icon-Label Utilities for Inline Icons */
+.icon-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  vertical-align: middle;
+}
+
+.icon-heading {
+  font-weight: 700;
+  gap: 0.5rem;
+}
+
+.icon-body {
+  gap: 0.3rem;
+  font-weight: 500;
+}
+
 .main-title {
   font-size: clamp(2.8rem, 5vw, 4rem);
   font-weight: 700;

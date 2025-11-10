@@ -106,15 +106,24 @@ export default function ExecutiveSummarySlide() {
       <h3 style={{ color: '#22c55e', fontSize: '1.2rem', marginBottom: '1rem' }}>Our Solution</h3>
       <div style={{ display: 'grid', gap: '0.8rem' }}>
         <div style={{ padding: '1rem', background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(124, 58, 237, 0.1))', borderRadius: pxToRem(12), borderLeft: `${pxToRem(3)} solid #9333ea` }}>
-          <strong style={{ color: '#c084fc', fontSize: '1rem' }}>🤖 Agentic AI</strong>
+          <strong className="icon-label icon-heading" style={{ color: '#c084fc', fontSize: '1rem' }}>
+            <Icon type="bot" size={22} variant="inline" gradient="from-purple-400 to-pink-400" />
+            Agentic AI
+          </strong>
           <p style={{ fontSize: '0.9rem', color: '#e2e8f0', marginTop: '0.3rem' }}>68+ specialized agents working 24/7 across investment, tax, and operations</p>
         </div>
         <div style={{ padding: '1rem', background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(219, 39, 119, 0.1))', borderRadius: pxToRem(12), borderLeft: `${pxToRem(3)} solid #ec4899` }}>
-          <strong style={{ color: '#f9a8d4', fontSize: '1rem' }}>🔐 Triple Lock Moat</strong>
+          <strong className="icon-label icon-heading" style={{ color: '#f9a8d4', fontSize: '1rem' }}>
+            <Icon type="lock" size={22} variant="inline" gradient="from-red-400 to-pink-400" />
+            Triple Lock Moat
+          </strong>
           <p style={{ fontSize: '0.9rem', color: '#e2e8f0', marginTop: '0.3rem' }}>Technical superiority + GIFT City exclusive + Trust via real performance</p>
         </div>
         <div style={{ padding: '1rem', background: 'linear-gradient(135deg, rgba(251, 146, 60, 0.1), rgba(249, 115, 22, 0.1))', borderRadius: pxToRem(12), borderLeft: `${pxToRem(3)} solid #fb923c` }}>
-          <strong style={{ color: '#fdba74', fontSize: '1rem' }}>🚀 100% Live</strong>
+          <strong className="icon-label icon-heading" style={{ color: '#fdba74', fontSize: '1rem' }}>
+            <Icon type="rocket" size={22} variant="inline" gradient="from-orange-400 to-amber-400" />
+            100% Live
+          </strong>
           <p style={{ fontSize: '0.9rem', color: '#e2e8f0', marginTop: '0.3rem' }}>Operational with real portfolios, $42M AUM, 27 HNW clients</p>
         </div>
       </div>
@@ -134,7 +143,10 @@ export default function ExecutiveSummarySlide() {
         marginTop: '1rem'
       }}
     >
-      <h3 style={{ color: '#fbbf24', fontSize: '1.2rem', marginBottom: '0.75rem' }}>💎 The Ask</h3>
+      <h3 className="icon-label icon-heading" style={{ color: '#fbbf24', fontSize: '1.2rem', marginBottom: '0.75rem' }}>
+        <Icon type="gem" size={22} variant="inline" gradient="from-blue-400 to-cyan-400" />
+        The Ask
+      </h3>
       <div style={{ fontSize: '1.1rem', color: '#e2e8f0', fontWeight: 'bold', marginBottom: '0.5rem' }}>
         $10M Series A
       </div>

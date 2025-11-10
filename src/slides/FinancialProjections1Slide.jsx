@@ -3,6 +3,7 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import ResponsiveTable from '../components/ResponsiveTable'
 import { TrendingUp, DollarSign, Users, Target, BarChart3, PiggyBank, Rocket } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
@@ -162,8 +163,9 @@ export default function FinancialProjections1Slide() {
   // Key insights
   const keyInsights = (
     <div style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline }}>
-        📊 Market Opportunity
+      <h3 className="icon-label icon-heading" style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline }}>
+        <Icon type="barChart" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+        Market Opportunity
       </h3>
       
       {/* Market Size Cards */}

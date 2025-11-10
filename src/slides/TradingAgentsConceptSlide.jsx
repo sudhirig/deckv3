@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Users, Brain, Award, TrendingUp, DollarSign, BarChart2, Star, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -260,10 +261,10 @@ const TradingAgentsConceptSlide = () => {
         
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {[
-            { emoji: '📊', title: 'Stock Selection', desc: 'User picks stock', color: '#3b82f6' },
-            { emoji: '🏛️', title: 'Committee Analysis', desc: '12 experts evaluate', color: '#fbbf24' },
-            { emoji: '🏢', title: 'Hedge Fund View', desc: '18 traders analyze', color: '#a855f7' },
-            { emoji: '🎯', title: 'Consensus Result', desc: 'Dual-team verdict', color: '#10b981' }
+            { iconType: 'barChart', iconGradient: 'from-blue-400 to-cyan-400', title: 'Stock Selection', desc: 'User picks stock', color: '#3b82f6' },
+            { iconType: 'building', iconGradient: 'from-orange-400 to-amber-400', title: 'Committee Analysis', desc: '12 experts evaluate', color: '#fbbf24' },
+            { iconType: 'building', iconGradient: 'from-purple-400 to-pink-400', title: 'Hedge Fund View', desc: '18 traders analyze', color: '#a855f7' },
+            { iconType: 'target', iconGradient: 'from-teal-400 to-green-400', title: 'Consensus Result', desc: 'Dual-team verdict', color: '#10b981' }
           ].map((step, index) => (
             <React.Fragment key={index}>
               <motion.div
@@ -281,9 +282,9 @@ const TradingAgentsConceptSlide = () => {
                     y: { duration: 2, repeat: Infinity, delay: index * 0.2 },
                     rotate: { duration: 3, repeat: Infinity }
                   }}
-                  style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}
+                  style={{ marginBottom: '0.5rem' }}
                 >
-                  {step.emoji}
+                  <Icon type={step.iconType} size={28} variant="inline" gradient={step.iconGradient} />
                 </motion.div>
                 <p style={{ fontSize: '0.8rem', fontWeight: '600', color: step.color }}>{step.title}</p>
                 <p style={{ fontSize: '0.65rem', color: '#94a3b8' }}>{step.desc}</p>

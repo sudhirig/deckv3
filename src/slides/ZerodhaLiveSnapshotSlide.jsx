@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
+import Icon from '../components/Icon'
 import { Camera, Activity, TrendingUp, Bot, Mic, Globe, Clock, CheckCircle, DollarSign, Percent, Headphones, Zap, Volume2 } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -234,10 +235,10 @@ export default function ZerodhaLiveSnapshotSlide() {
             border: '0.0625rem solid rgba(156, 39, 176, 0.2)'
           }}>
             {[
-              { delay: 0.8, icon: '🎤', text: '"रिलायंस के 100 शेयर खरीदो"', color: '#ff9800' },
-              { delay: 0.9, icon: '🤖', text: 'Processing Hindi command...', color: '#9c27b0' },
-              { delay: 1.0, icon: '✅', text: 'BUY 100 RELIANCE @ ₹2,456', color: '#4caf50' },
-              { delay: 1.1, icon: '⏱️', text: 'Execution: 11ms', color: '#ffc107' }
+              { delay: 0.8, iconType: 'mic', iconGradient: 'from-orange-400 to-amber-400', text: '"रिलायंस के 100 शेयर खरीदो"', color: '#ff9800' },
+              { delay: 0.9, iconType: 'bot', iconGradient: 'from-purple-400 to-pink-400', text: 'Processing Hindi command...', color: '#9c27b0' },
+              { delay: 1.0, iconType: 'shield', iconGradient: 'from-green-400 to-emerald-400', text: 'BUY 100 RELIANCE @ ₹2,456', color: '#4caf50' },
+              { delay: 1.1, iconType: 'clock', iconGradient: 'from-orange-400 to-amber-400', text: 'Execution: 11ms', color: '#ffc107' }
             ].map((cmd, index) => (
               <motion.div
                 key={index}
@@ -253,12 +254,12 @@ export default function ZerodhaLiveSnapshotSlide() {
                   gap: '0.5rem'
                 }}
               >
-                <motion.span
+                <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                 >
-                  {cmd.icon}
-                </motion.span>
+                  <Icon type={cmd.iconType} size={16} variant="inline" gradient={cmd.iconGradient} />
+                </motion.div>
                 <span>{cmd.text}</span>
               </motion.div>
             ))}

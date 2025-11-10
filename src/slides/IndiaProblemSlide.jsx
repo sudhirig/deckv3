@@ -33,8 +33,9 @@ export default function IndiaProblemSlide() {
         transition={{ delay: 0.4 }}
         style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
-          📋 Complex Red Tape
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+          <Icon type="clipboard" size={20} variant="inline" gradient="from-red-400 to-pink-400" />
+          Complex Red Tape
         </p>
         <p style={{ color: '#fca5a5' }}>Heavy FPI compliance burdens, multi-month setup process</p>
       </motion.div>
@@ -45,8 +46,9 @@ export default function IndiaProblemSlide() {
         transition={{ delay: 0.5 }}
         style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
-          💸 Crippling Tax
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+          <Icon type="dollarSign" size={20} variant="inline" gradient="from-red-400 to-pink-400" />
+          Crippling Tax
         </p>
         <p style={{ color: '#fca5a5' }}>Capital Gains Tax + STT drag performance by 30%+</p>
       </motion.div>
@@ -57,8 +59,9 @@ export default function IndiaProblemSlide() {
         transition={{ delay: 0.6 }}
         style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
-          📉 Currency Risk
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+          <Icon type="trending" size={20} variant="inline" gradient="from-teal-400 to-green-400" />
+          Currency Risk
         </p>
         <p style={{ color: '#fca5a5' }}>INR depreciation erodes returns by 3-5% annually</p>
       </motion.div>
@@ -69,8 +72,9 @@ export default function IndiaProblemSlide() {
         transition={{ delay: 0.7 }}
         style={{ padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
-          🚫 Repatriation Nightmare
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+          <Icon type="xCircle" size={20} variant="inline" gradient="from-red-400 to-pink-400" />
+          Repatriation Nightmare
         </p>
         <p style={{ color: '#fca5a5' }}>Slow, restrictive capital movement with regulatory approvals</p>
       </motion.div>
@@ -79,7 +83,10 @@ export default function IndiaProblemSlide() {
 
   // Right option - Market Reality
   const rightOption = (
-    <span style={{ color: '#fbbf24' }}>📊 Market Reality</span>
+    <span className="icon-label icon-heading" style={{ color: '#fbbf24' }}>
+      <Icon type="barChart" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+      Market Reality
+    </span>
   )
 
   const rightDetails = (

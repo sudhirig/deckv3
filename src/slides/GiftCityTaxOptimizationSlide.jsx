@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { Calculator, TrendingUp, PiggyBank, Award, Sparkles } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
@@ -35,7 +36,8 @@ export default function GiftCityTaxOptimizationSlide() {
       postTax: 70,
       fiveYearReturn: 350,
       color: '#ef4444',
-      icon: '📉'
+      iconType: 'trending',
+      iconGradient: 'from-red-400 to-pink-400'
     },
     { 
       type: 'Mutual Funds',
@@ -43,7 +45,8 @@ export default function GiftCityTaxOptimizationSlide() {
       postTax: 80,
       fiveYearReturn: 400,
       color: '#f59e0b',
-      icon: '📊'
+      iconType: 'barChart',
+      iconGradient: 'from-orange-400 to-amber-400'
     },
     { 
       type: 'GIFT City AIF',
@@ -51,7 +54,8 @@ export default function GiftCityTaxOptimizationSlide() {
       postTax: 90,
       fiveYearReturn: 450,
       color: '#10b981',
-      icon: '🚀'
+      iconType: 'rocket',
+      iconGradient: 'from-orange-400 to-amber-400'
     }
   ]
 
@@ -306,15 +310,14 @@ export default function GiftCityTaxOptimizationSlide() {
               marginBottom: '0.5rem'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <motion.span
+                <motion.div
                   animate={{ 
                     rotate: hoveredInvestment === option.type ? [0, 10, -10, 0] : 0
                   }}
                   transition={{ duration: 0.5 }}
-                  style={{ fontSize: '1.5rem' }}
                 >
-                  {option.icon}
-                </motion.span>
+                  <Icon type={option.iconType} size={24} variant="inline" gradient={option.iconGradient} />
+                </motion.div>
                 <span style={{ color: '#e2e8f0', fontWeight: 'bold' }}>
                   {option.type}
                 </span>

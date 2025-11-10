@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { ComparisonLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
@@ -69,14 +70,20 @@ export default function TaxAlphaDailySlide() {
         
         <div style={{ display: 'grid', gap: '1.5rem', marginBottom: '2rem' }}>
           <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.2)', borderRadius: pxToRem(8) }}>
-            <strong style={{ color: '#5eead4', fontSize: '1.1rem' }}>📊 Daily Scanning</strong>
+            <strong className="icon-label icon-heading" style={{ color: '#5eead4', fontSize: '1.1rem' }}>
+              <Icon type="barChart" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+              Daily Scanning
+            </strong>
             <p style={{ fontSize: '1rem', color: '#e2e8f0', marginTop: '0.5rem' }}>
               Every market day • Wash-sale aware • 2-4x more savings
             </p>
           </div>
           
           <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.2)', borderRadius: pxToRem(8) }}>
-            <strong style={{ color: '#5eead4', fontSize: '1.1rem' }}>🎯 Smart Offsetting</strong>
+            <strong className="icon-label icon-heading" style={{ color: '#5eead4', fontSize: '1.1rem' }}>
+              <Icon type="target" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+              Smart Offsetting
+            </strong>
             <p style={{ fontSize: '1rem', color: '#e2e8f0', marginTop: '0.5rem' }}>
               Short-term gains (37% tax) first → Then long-term (20%)
             </p>

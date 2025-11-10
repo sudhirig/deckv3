@@ -4,6 +4,7 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, DollarSign, Rocket, Target, Users, Award, Building2, ChevronRight } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
@@ -35,9 +36,9 @@ export default function FundingSlide() {
   ]
 
   const investors = [
-    { name: 'Angel Syndicate', amount: 0.5, logo: '👥' },
-    { name: 'Family Offices', amount: 0.75, logo: '🏛️' },
-    { name: 'Strategic Partner', amount: 0.25, logo: '🤝' }
+    { name: 'Angel Syndicate', amount: 0.5, iconType: 'users', iconGradient: 'from-blue-400 to-cyan-400' },
+    { name: 'Family Offices', amount: 0.75, iconType: 'building', iconGradient: 'from-orange-400 to-amber-400' },
+    { name: 'Strategic Partner', amount: 0.25, iconType: 'handshake', iconGradient: 'from-teal-400 to-green-400' }
   ]
 
   // Title
@@ -177,7 +178,7 @@ export default function FundingSlide() {
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12) }}>
-              <span style={{ fontSize: TYPOGRAPHY.subheadline }}>{investor.logo}</span>
+              <Icon type={investor.iconType} size={20} variant="inline" gradient={investor.iconGradient} />
               <span className="responsive-text-sm" style={{ color: '#e2e8f0' }}>{investor.name}</span>
             </div>
             <span style={{ color: '#10b981', fontWeight: 'bold' }}>${investor.amount}M</span>

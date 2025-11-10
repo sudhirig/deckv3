@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { TableLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import { TrendingUp, DollarSign, Clock, Award, ChevronRight } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
@@ -76,8 +77,9 @@ export default function CaseStudy1Slide() {
           {/* Challenge & Solution */}
           <div>
             <div style={{ marginBottom: SPACING.sm }}>
-              <h4 style={{ color: '#ef4444', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
-                🔴 THE CHALLENGE
+              <h4 className="icon-label icon-heading" style={{ color: '#ef4444', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
+                <Icon type="circle" size={18} variant="inline" gradient="from-red-400 to-pink-400" />
+                THE CHALLENGE
               </h4>
               <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', lineHeight: 1.5 }}>
                 After selling his second startup, Raj had $8.5M scattered across 12 accounts, 
@@ -86,8 +88,9 @@ export default function CaseStudy1Slide() {
               </div>
             </div>
             <div>
-              <h4 style={{ color: '#4ade80', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
-                ✅ THE SOLUTION
+              <h4 className="icon-label icon-heading" style={{ color: '#4ade80', fontSize: TYPOGRAPHY.body, marginBottom: SPACING.xs }}>
+                <Icon type="shield" size={18} variant="inline" gradient="from-green-400 to-emerald-400" />
+                THE SOLUTION
               </h4>
               <div style={{ fontSize: TYPOGRAPHY.body, color: '#e2e8f0', lineHeight: 1.5 }}>
                 Our AI consolidated his portfolio, implemented daily tax harvesting, 

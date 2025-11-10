@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { Camera, Brain, MessageSquare, Activity, Users, Cpu, Shield, Zap, Network, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -157,10 +158,10 @@ export default function AgenticAILiveSnapshotSlide() {
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
           {[
-            { count: '12', label: 'Investment Committee', color: '#fbbf24', icon: '🏛️' },
-            { count: '18', label: 'Hedge Fund Team', color: '#10b981', icon: '📈' },
-            { count: '9', label: 'Risk Management', color: '#ef4444', icon: '🛡️' },
-            { count: '20+', label: 'Operations', color: '#60a5fa', icon: '⚡' }
+            { count: '12', label: 'Investment Committee', color: '#fbbf24', iconType: 'building', iconGradient: 'from-orange-400 to-amber-400' },
+            { count: '18', label: 'Hedge Fund Team', color: '#10b981', iconType: 'trending', iconGradient: 'from-teal-400 to-green-400' },
+            { count: '9', label: 'Risk Management', color: '#ef4444', iconType: 'shield', iconGradient: 'from-green-400 to-emerald-400' },
+            { count: '20+', label: 'Operations', color: '#60a5fa', iconType: 'zap', iconGradient: 'from-orange-400 to-amber-400' }
           ].map((group, index) => (
             <motion.div
               key={index}
@@ -177,13 +178,12 @@ export default function AgenticAILiveSnapshotSlide() {
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <motion.span
+                <motion.div
                   animate={{ scale: agentActivity[index] ? [1, 1.3, 1] : 1 }}
                   transition={{ duration: 0.5 }}
-                  style={{ fontSize: '1.2rem' }}
                 >
-                  {group.icon}
-                </motion.span>
+                  <Icon type={group.iconType} size={20} variant="inline" gradient={group.iconGradient} />
+                </motion.div>
                 <div>
                   <motion.div
                     animate={{ color: agentActivity[index] ? group.color : '#94a3b8' }}

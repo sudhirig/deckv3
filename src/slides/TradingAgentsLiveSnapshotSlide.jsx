@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import { Camera, Users, TrendingUp, Award } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 
@@ -33,7 +34,10 @@ const TradingAgentsLiveSnapshotSlide = () => {
             
             <div className="grid grid-cols-2 gap-2">
               <div className="bg-gray-900/50 rounded p-2">
-                <h4 className="text-gold-400 mb-1">🏛️ Investment Committee</h4>
+                <h4 className="icon-label icon-heading text-gold-400 mb-1">
+                  <Icon type="building" size={18} variant="inline" gradient="from-orange-400 to-amber-400" />
+                  Investment Committee
+                </h4>
                 <div className="space-y-1">
                   <div className="text-blue-400">Warren Buffett: BUY</div>
                   <p className="text-gray-300 ml-2">Strong moat, undervalued at 18x P/E</p>
@@ -55,7 +59,10 @@ const TradingAgentsLiveSnapshotSlide = () => {
               </div>
               
               <div className="bg-gray-900/50 rounded p-2">
-                <h4 className="text-purple-400 mb-1">🏢 Hedge Fund Team</h4>
+                <h4 className="icon-label icon-heading text-purple-400 mb-1">
+                  <Icon type="building" size={18} variant="inline" gradient="from-purple-400 to-pink-400" />
+                  Hedge Fund Team
+                </h4>
                 <div className="space-y-1">
                   <div className="text-pink-400">Cathie Wood: BUY</div>
                   <p className="text-gray-300 ml-2">Digital services disruption play</p>

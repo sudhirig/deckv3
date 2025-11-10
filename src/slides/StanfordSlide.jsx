@@ -4,6 +4,7 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedCounter from '../components/AnimatedCounter'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import CircularProgress from '../components/CircularProgress'
 import { GraduationCap, QrCode, TrendingUp, Award, BarChart3 } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
@@ -143,8 +144,9 @@ export default function StanfordSlide() {
         className="glass-card"
         style={{ padding: '1.5rem' }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
-          📊 Stanford Research Findings
+        <h3 className="icon-label icon-heading" style={{ color: '#14b8a6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
+          <Icon type="barChart" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+          Stanford Research Findings
         </h3>
         <ul style={{ fontSize: TYPOGRAPHY.body, lineHeight: '1.8', color: '#e2e8f0' }}>
           <li>• 93% of AI-managed portfolios beat human managers</li>

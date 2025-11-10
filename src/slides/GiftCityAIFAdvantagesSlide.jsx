@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
+import Icon from '../components/Icon'
 import { DollarSign, Shield, Globe, Zap, CheckCircle2 } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
@@ -274,15 +275,14 @@ export default function GiftCityAIFAdvantagesSlide() {
             gap: '0.5rem'
           }}
         >
-          <motion.span
+          <motion.div
             animate={{ 
               rotate: hoveredCard === advantage.id ? [0, 180, 360] : 0
             }}
             transition={{ duration: 1, delay: i * 0.1 }}
-            style={{ color: advantage.color }}
           >
-            ⚡
-          </motion.span>
+            <Icon type="zap" size={16} variant="inline" gradient="from-orange-400 to-amber-400" />
+          </motion.div>
           <div>
             <p style={{ color: '#e2e8f0', fontWeight: 'bold', fontSize: '0.9rem' }}>
               {capability.feature}

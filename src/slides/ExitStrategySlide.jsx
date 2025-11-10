@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, Building2, Users, Target, DollarSign, Calendar, Rocket, Award, Sparkles } from 'lucide-react'
 import './SlideStyles.css'
@@ -77,12 +78,12 @@ export default function ExitStrategySlide() {
   ]
 
   const acquirers = [
-    { name: 'JP Morgan', rationale: 'Digital wealth expansion', logo: '🏦' },
-    { name: 'BlackRock', rationale: 'Aladdin ecosystem', logo: '⚫' },
-    { name: 'Charles Schwab', rationale: 'Next-gen platform', logo: '🔵' },
-    { name: 'Goldman Sachs', rationale: 'Marcus enhancement', logo: '🏛️' },
-    { name: 'Morgan Stanley', rationale: 'E*TRADE synergies', logo: '🏢' },
-    { name: 'Fidelity', rationale: 'Digital transformation', logo: '🟢' }
+    { name: 'JP Morgan', rationale: 'Digital wealth expansion', iconType: 'building', iconGradient: 'from-blue-400 to-cyan-400' },
+    { name: 'BlackRock', rationale: 'Aladdin ecosystem', iconType: 'circle', iconGradient: 'from-purple-400 to-pink-400' },
+    { name: 'Charles Schwab', rationale: 'Next-gen platform', iconType: 'circle', iconGradient: 'from-blue-400 to-cyan-400' },
+    { name: 'Goldman Sachs', rationale: 'Marcus enhancement', iconType: 'building', iconGradient: 'from-orange-400 to-amber-400' },
+    { name: 'Morgan Stanley', rationale: 'E*TRADE synergies', iconType: 'building', iconGradient: 'from-purple-400 to-pink-400' },
+    { name: 'Fidelity', rationale: 'Digital transformation', iconType: 'circle', iconGradient: 'from-teal-400 to-green-400' }
   ]
 
   const cards = exitOptions.map((option, index) => (
@@ -276,9 +277,9 @@ export default function ExitStrategySlide() {
                   y: pulseAnimation ? [0, pxToRem(-5), 0] : 0
                 }}
                 transition={{ duration: 2, delay: index * 0.2 }}
-                style={{ fontSize: TYPOGRAPHY.subheadline, marginBottom: pxToRem(8) }}
+                style={{ marginBottom: pxToRem(8) }}
               >
-                {acq.logo}
+                <Icon type={acq.iconType} size={24} variant="inline" gradient={acq.iconGradient} />
               </motion.div>
               <p style={{ fontSize: pxToRem(14.4), color: '#e2e8f0', marginBottom: pxToRem(4) }}>
                 {acq.name}

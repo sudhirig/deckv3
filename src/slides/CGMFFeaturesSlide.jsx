@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
+import Icon from '../components/Icon'
 import { Calculator, Shield, TrendingUp, FileText, DollarSign, BarChart2, Sparkles, Award, Brain, Zap, Target } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
@@ -324,11 +325,11 @@ export default function CGMFFeaturesSlide() {
       </div>
       
       {[
-        { emoji: '📉', scenario: 'Market Crash', impact: '-40% scenario', color: '#ef4444' },
-        { emoji: '📈', scenario: 'Bull Run', impact: '+30% projection', color: '#10b981' },
-        { emoji: '💹', scenario: 'Sector Rotation', impact: 'Impact analysis', color: '#f59e0b' },
-        { emoji: '🌍', scenario: 'Global Crisis', impact: 'Full simulation', color: '#3b82f6' },
-        { emoji: '💱', scenario: 'Currency Risk', impact: 'FX exposure', color: '#a855f7' }
+        { iconType: 'trending', iconGradient: 'from-red-400 to-pink-400', scenario: 'Market Crash', impact: '-40% scenario', color: '#ef4444' },
+        { iconType: 'trending', iconGradient: 'from-teal-400 to-green-400', scenario: 'Bull Run', impact: '+30% projection', color: '#10b981' },
+        { iconType: 'barChart', iconGradient: 'from-orange-400 to-amber-400', scenario: 'Sector Rotation', impact: 'Impact analysis', color: '#f59e0b' },
+        { iconType: 'globe', iconGradient: 'from-blue-400 to-cyan-400', scenario: 'Global Crisis', impact: 'Full simulation', color: '#3b82f6' },
+        { iconType: 'dollar', iconGradient: 'from-purple-400 to-pink-400', scenario: 'Currency Risk', impact: 'FX exposure', color: '#a855f7' }
       ].map((test, index) => (
         <motion.div
           key={index}
@@ -351,13 +352,13 @@ export default function CGMFFeaturesSlide() {
             transition: 'all 0.3s ease'
           }}
         >
-          <motion.span
+          <motion.div
             animate={{ rotate: [0, 10, -10, 0] }}
             transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-            style={{ fontSize: '1.2rem', marginRight: '0.75rem' }}
+            style={{ marginRight: '0.75rem' }}
           >
-            {test.emoji}
-          </motion.span>
+            <Icon type={test.iconType} size={20} variant="inline" gradient={test.iconGradient} />
+          </motion.div>
           <div style={{ flex: 1 }}>
             <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>{test.scenario}: </span>
             <span style={{ fontSize: '0.8rem', color: test.color, fontWeight: 'bold' }}>

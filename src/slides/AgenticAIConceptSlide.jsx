@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Brain, Users, MessageSquare, Network, Cpu, Zap, GitBranch, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -304,10 +305,10 @@ const AgenticAIConceptSlide = () => {
         
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           {[
-            { emoji: '👤', label: 'User Request', color: '#94a3b8' },
-            { emoji: '🤖', label: '9 Agents Activate', color: '#a855f7' },
-            { emoji: '🔄', label: 'Parallel Analysis', color: '#3b82f6' },
-            { emoji: '✨', label: 'Consensus Result', color: '#10b981' }
+            { iconType: 'user', iconGradient: 'from-blue-400 to-cyan-400', label: 'User Request', color: '#94a3b8' },
+            { iconType: 'bot', iconGradient: 'from-purple-400 to-pink-400', label: '9 Agents Activate', color: '#a855f7' },
+            { iconType: 'refresh', iconGradient: 'from-blue-400 to-cyan-400', label: 'Parallel Analysis', color: '#3b82f6' },
+            { iconType: 'sparkles', iconGradient: 'from-teal-400 to-green-400', label: 'Consensus Result', color: '#10b981' }
           ].map((step, index) => (
             <React.Fragment key={index}>
               <motion.div
@@ -319,9 +320,9 @@ const AgenticAIConceptSlide = () => {
                 <motion.div
                   animate={{ y: [-3, 3, -3] }}
                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
-                  style={{ fontSize: '2rem', marginBottom: '0.5rem' }}
+                  style={{ marginBottom: '0.5rem' }}
                 >
-                  {step.emoji}
+                  <Icon type={step.iconType} size={28} variant="inline" gradient={step.iconGradient} />
                 </motion.div>
                 <p style={{ fontSize: '0.8rem', color: step.color }}>{step.label}</p>
               </motion.div>

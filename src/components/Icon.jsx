@@ -19,7 +19,10 @@ import {
   Bot,
   Rocket,
   Gem,
-  Trophy
+  Trophy,
+  Circle,
+  Clipboard,
+  XCircle
 } from 'lucide-react'
 
 const iconMap = {
@@ -36,6 +39,7 @@ const iconMap = {
   target: Target,
   users: Users,
   dollar: DollarSign,
+  dollarSign: DollarSign,
   barChart: BarChart3,
   pieChart: PieChart,
   wallet: Wallet,
@@ -44,19 +48,25 @@ const iconMap = {
   rocket: Rocket,
   gem: Gem,
   diamond: Gem,
-  trophy: Trophy
+  trophy: Trophy,
+  circle: Circle,
+  clipboard: Clipboard,
+  xCircle: XCircle
 }
 
 export default function Icon({ 
   type, 
   size = 48, 
   gradient = 'from-teal-400 to-green-400',
+  variant = 'badge',
+  strokeColor = null,
   animate = true,
   delay = 0,
   className = ''
 }) {
   const IconComponent = iconMap[type] || Lock
 
+  // Gradient to SVG URL mapping
   const gradients = {
     'from-teal-400 to-green-400': 'url(#gradient-teal)',
     'from-blue-400 to-cyan-400': 'url(#gradient-blue)',
@@ -66,7 +76,19 @@ export default function Icon({
     'from-green-400 to-emerald-400': 'url(#gradient-green)'
   }
 
+  // Gradient to stroke color mapping for inline variant
+  const strokeColors = {
+    'from-teal-400 to-green-400': '#2dd4bf',
+    'from-blue-400 to-cyan-400': '#60a5fa',
+    'from-purple-400 to-pink-400': '#d8b4fe',
+    'from-orange-400 to-amber-400': '#fb923c',
+    'from-yellow-400 to-orange-400': '#fbbf24',
+    'from-red-400 to-pink-400': '#fda4af',
+    'from-green-400 to-emerald-400': '#4ade80'
+  }
+
   const fill = gradients[gradient] || gradients['from-teal-400 to-green-400']
+  const stroke = strokeColor || strokeColors[gradient] || strokeColors['from-teal-400 to-green-400']
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, rotate: -20 },
@@ -83,6 +105,24 @@ export default function Icon({
     }
   }
 
+  // Inline variant - bare icon with color
+  if (variant === 'inline') {
+    return (
+      <IconComponent 
+        size={size} 
+        color={stroke}
+        strokeWidth={2}
+        className={className}
+        style={{
+          display: 'inline-block',
+          verticalAlign: 'middle',
+          flexShrink: 0
+        }}
+      />
+    )
+  }
+
+  // Badge variant - gradient with padding
   return (
     <>
       <svg width="0" height="0" style={{ position: 'absolute' }}>

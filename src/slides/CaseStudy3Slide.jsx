@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
+import Icon from '../components/Icon'
 import { TrendingUp, Award } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -77,8 +78,9 @@ export default function CaseStudy3Slide() {
               borderRadius: pxToRem(8),
               marginBottom: pxToRem(16)
             }}>
-              <h4 style={{ color: '#ef4444', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
-                🔴 STUCK WITH TRADITIONAL WEALTH MANAGEMENT
+              <h4 className="icon-label icon-heading" style={{ color: '#ef4444', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
+                <Icon type="circle" size={18} variant="inline" gradient="from-red-400 to-pink-400" />
+                STUCK WITH TRADITIONAL WEALTH MANAGEMENT
               </h4>
               <p style={{ fontSize: pxToRem(12.8), color: '#94a3b8', lineHeight: 1.5 }}>
                 JP Morgan Private Bank charging 1.5% fees for cookie-cutter 60/40 portfolio. 
@@ -91,8 +93,9 @@ export default function CaseStudy3Slide() {
               background: 'rgba(34, 197, 94, 0.05)',
               borderRadius: pxToRem(8)
             }}>
-              <h4 style={{ color: '#4ade80', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
-                ✅ AI-POWERED TRANSFORMATION
+              <h4 className="icon-label icon-heading" style={{ color: '#4ade80', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
+                <Icon type="shield" size={18} variant="inline" gradient="from-green-400 to-emerald-400" />
+                AI-POWERED TRANSFORMATION
               </h4>
               <p style={{ fontSize: pxToRem(12.8), color: '#e2e8f0', lineHeight: 1.5 }}>
                 Migrated to our platform in 48 hours. Immediate access to institutional alternatives. 

@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Users, Brain, Target, PiggyBank, TrendingUp, Shield, BarChart2, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -125,15 +126,15 @@ const CGMFConceptSlide = () => {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem' }}>
             {[
-              { emoji: '🎯', name: 'Goal Analyzer', desc: 'Understands objectives', color: '#a855f7' },
-              { emoji: '📊', name: 'Risk Profiler', desc: 'Assesses tolerance', color: '#3b82f6' },
-              { emoji: '🔍', name: 'Fund Scanner', desc: '16,766 funds analyzed', color: '#10b981' },
-              { emoji: '💰', name: 'Tax Optimizer', desc: '₹1.55L annual savings', color: '#f59e0b' },
-              { emoji: '⚖️', name: 'Rebalancer', desc: 'Portfolio optimization', color: '#14b8a6' },
-              { emoji: '🛡️', name: 'Stress Tester', desc: 'Scenario analysis', color: '#fbbf24' },
-              { emoji: '📈', name: 'Performance Tracker', desc: 'Real-time monitoring', color: '#ef4444' },
-              { emoji: '🔄', name: 'Exit Strategist', desc: 'Timing optimization', color: '#8b5cf6' },
-              { emoji: '📝', name: 'Report Generator', desc: 'Insights & analytics', color: '#94a3b8' }
+              { iconType: 'target', iconGradient: 'from-purple-400 to-pink-400', name: 'Goal Analyzer', desc: 'Understands objectives', color: '#a855f7' },
+              { iconType: 'barChart', iconGradient: 'from-blue-400 to-cyan-400', name: 'Risk Profiler', desc: 'Assesses tolerance', color: '#3b82f6' },
+              { iconType: 'search', iconGradient: 'from-teal-400 to-green-400', name: 'Fund Scanner', desc: '16,766 funds analyzed', color: '#10b981' },
+              { iconType: 'dollarSign', iconGradient: 'from-orange-400 to-amber-400', name: 'Tax Optimizer', desc: '₹1.55L annual savings', color: '#f59e0b' },
+              { iconType: 'scale', iconGradient: 'from-teal-400 to-green-400', name: 'Rebalancer', desc: 'Portfolio optimization', color: '#14b8a6' },
+              { iconType: 'shield', iconGradient: 'from-green-400 to-emerald-400', name: 'Stress Tester', desc: 'Scenario analysis', color: '#fbbf24' },
+              { iconType: 'trending', iconGradient: 'from-teal-400 to-green-400', name: 'Performance Tracker', desc: 'Real-time monitoring', color: '#ef4444' },
+              { iconType: 'refresh', iconGradient: 'from-purple-400 to-pink-400', name: 'Exit Strategist', desc: 'Timing optimization', color: '#8b5cf6' },
+              { iconType: 'fileText', iconGradient: 'from-blue-400 to-cyan-400', name: 'Report Generator', desc: 'Insights & analytics', color: '#94a3b8' }
             ].map((agent, index) => (
               <motion.div
                 key={index}
@@ -153,9 +154,9 @@ const CGMFConceptSlide = () => {
                 <motion.div
                   animate={{ y: [-2, 2, -2] }}
                   transition={{ duration: 2 + index * 0.2, repeat: Infinity }}
-                  style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}
+                  style={{ marginBottom: '0.5rem' }}
                 >
-                  {agent.emoji}
+                  <Icon type={agent.iconType} size={28} variant="inline" gradient={agent.iconGradient} />
                 </motion.div>
                 <p style={{ fontSize: '0.8rem', fontWeight: '600', color: agent.color }}>{agent.name}</p>
                 <p style={{ fontSize: '0.65rem', color: '#94a3b8' }}>{agent.desc}</p>
