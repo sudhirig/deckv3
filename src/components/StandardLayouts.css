@@ -136,7 +136,7 @@
 
 /* Data Presentation Layout */
 .data-layout {
-  gap: clamp(0.75rem, 1.5vh, 2rem);
+  gap: clamp(0.75rem, 1.5vh, 1.5rem);
 }
 
 .data-header {

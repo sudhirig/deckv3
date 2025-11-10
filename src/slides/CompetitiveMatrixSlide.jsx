@@ -70,9 +70,9 @@ export default function CompetitiveMatrixSlide() {
   ]
 
   const getIcon = (value) => {
-    if (value === true) return <Check size={20} style={{ color: '#4ade80' }} />
-    if (value === false) return <X size={20} style={{ color: '#ef4444' }} />
-    return <Minus size={20} style={{ color: '#fbbf24' }} />
+    if (value === true) return <Check size={18} style={{ color: '#4ade80' }} />
+    if (value === false) return <X size={18} style={{ color: '#ef4444' }} />
+    return <Minus size={18} style={{ color: '#fbbf24' }} />
   }
 
   // Title
@@ -94,16 +94,16 @@ export default function CompetitiveMatrixSlide() {
   // Table content
   const tableContent = (
     <ResponsiveTable minWidth={pxToRem(800)}>
-      <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0', fontSize: '1.1rem' }}>
+      <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0', fontSize: '0.95rem' }}>
         <thead>
           <tr>
             <th style={{
-              padding: SPACING.sm,
+              padding: pxToRem(12),
               textAlign: 'left',
-              fontSize: '1.1rem',
+              fontSize: '1rem',
               color: '#94a3b8',
               borderBottom: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
-              minWidth: pxToRem(200)
+              minWidth: pxToRem(180)
             }}>
               Feature
             </th>
@@ -111,7 +111,7 @@ export default function CompetitiveMatrixSlide() {
               <motion.th
                 key={competitor.name}
                 style={{
-                  padding: SPACING.sm,
+                  padding: pxToRem(12),
                   textAlign: 'center',
                   borderBottom: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
                   background: competitor.name === 'Us' ? 
@@ -129,14 +129,14 @@ export default function CompetitiveMatrixSlide() {
                 } : {}}
               >
                 <div style={{ 
-                  fontSize: '1.2rem', 
+                  fontSize: '1.05rem', 
                   color: competitor.color,
                   fontWeight: 'bold',
-                  marginBottom: '0.5rem'
+                  marginBottom: '0.35rem'
                 }}>
                   {competitor.name}
                 </div>
-                <div style={{ fontSize: '0.9rem', color: '#64748b' }}>
+                <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
                   {competitor.type}
                 </div>
               </motion.th>
@@ -157,8 +157,8 @@ export default function CompetitiveMatrixSlide() {
               }}
             >
               <td style={{
-                padding: SPACING.sm,
-                fontSize: '1rem',
+                padding: pxToRem(12),
+                fontSize: '0.9rem',
                 color: '#e2e8f0',
                 borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
               }}>
@@ -168,7 +168,7 @@ export default function CompetitiveMatrixSlide() {
                 <td
                   key={competitor.name}
                   style={{
-                    padding: SPACING.sm,
+                    padding: pxToRem(10),
                     textAlign: 'center',
                     borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`,
                     background: competitor.name === 'Us' ? 
