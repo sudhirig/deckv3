@@ -417,18 +417,102 @@ function App() {
           animate={{ scaleX: (currentSlide + 1) / slides.length }}
           transition={{ duration: 0.3 }}
         />
+        
+        {/* Progress Label - Left side */}
         <div style={{
           position: 'absolute',
           top: '8px',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          left: '20px',
           fontSize: '0.8rem',
           color: '#94a3b8',
-          background: 'rgba(0, 0, 0, 0.8)',
-          padding: '2px 8px',
-          borderRadius: '4px'
+          background: 'rgba(0, 0, 0, 0.6)',
+          backdropFilter: 'blur(8px)',
+          padding: '4px 12px',
+          borderRadius: '6px',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
         }}>
           {getSlideSection(currentSlide)} • {getActProgress(currentSlide)}% Complete
+        </div>
+
+        {/* Navigation Controls - Right side (translucent) */}
+        <div style={{
+          position: 'absolute',
+          top: '8px',
+          right: '20px',
+          display: 'flex',
+          gap: '8px',
+          alignItems: 'center',
+          background: 'rgba(0, 0, 0, 0.4)',
+          backdropFilter: 'blur(12px)',
+          padding: '6px 10px',
+          borderRadius: '8px',
+          border: '1px solid rgba(255, 255, 255, 0.1)'
+        }}>
+          <button 
+            onClick={() => navigateToSlide(currentSlide - 1)}
+            disabled={currentSlide === 0}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: currentSlide === 0 ? '#4b5563' : '#14b8a6',
+              cursor: currentSlide === 0 ? 'not-allowed' : 'pointer',
+              fontSize: '1.2rem',
+              padding: '4px 8px',
+              transition: 'all 0.2s'
+            }}
+          >
+            ←
+          </button>
+          
+          <div style={{ 
+            fontSize: '0.75rem', 
+            color: '#94a3b8',
+            minWidth: '50px',
+            textAlign: 'center'
+          }}>
+            {currentSlide + 1} / {slides.length}
+          </div>
+          
+          <button 
+            onClick={() => navigateToSlide(currentSlide + 1)}
+            disabled={currentSlide === slides.length - 1}
+            style={{
+              background: 'transparent',
+              border: 'none',
+              color: currentSlide === slides.length - 1 ? '#4b5563' : '#14b8a6',
+              cursor: currentSlide === slides.length - 1 ? 'not-allowed' : 'pointer',
+              fontSize: '1.2rem',
+              padding: '4px 8px',
+              transition: 'all 0.2s'
+            }}
+          >
+            →
+          </button>
+          
+          <div style={{ 
+            width: '1px', 
+            height: '20px', 
+            background: 'rgba(255, 255, 255, 0.2)',
+            margin: '0 4px'
+          }}></div>
+          
+          <button
+            onClick={() => window.print()}
+            style={{
+              background: 'rgba(20, 184, 166, 0.15)',
+              border: '1px solid rgba(20, 184, 166, 0.3)',
+              color: '#5eead4',
+              cursor: 'pointer',
+              fontSize: '0.7rem',
+              padding: '4px 10px',
+              borderRadius: '4px',
+              fontWeight: '500',
+              transition: 'all 0.2s',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            📄 Export PDF
+          </button>
         </div>
       </div>
 
@@ -484,36 +568,6 @@ function App() {
           ))}
         </motion.div>
       )}
-
-      <div className="navigation">
-        <button 
-          onClick={() => navigateToSlide(currentSlide - 1)}
-          disabled={currentSlide === 0}
-        >
-          ←
-        </button>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
-          <span style={{ fontSize: '0.8rem', color: '#14b8a6', fontWeight: 'bold' }}>
-            {getSlideSection(currentSlide)}
-          </span>
-          <span className="slide-counter">
-            {currentSlide + 1} / {slides.length}
-          </span>
-        </div>
-        <button 
-          onClick={() => navigateToSlide(currentSlide + 1)}
-          disabled={currentSlide === slides.length - 1}
-        >
-          →
-        </button>
-        <button 
-          className="export-button"
-          onClick={() => window.print()}
-          title="Export to PDF (Ctrl/Cmd + P)"
-        >
-          📄 Export PDF
-        </button>
-      </div>
     </div>
   )
 }
