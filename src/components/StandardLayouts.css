@@ -14,17 +14,17 @@
 }
 
 .standard-layout-container {
-  width: 100%;
-  height: 100%;
-  max-width: min(177.78vh, 100vw); /* 16:9 ratio based on height */
-  max-height: min(56.25vw, 100vh); /* 16:9 ratio based on width */
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   padding: clamp(1.5rem, 2.5vh, 3rem);
-  margin: 0 auto;
+  margin: 0;
   box-sizing: border-box;
   gap: clamp(1rem, 2vh, 2rem);
   overflow: hidden;
+  /* Content scaling for different screen sizes */
+  font-size: clamp(14px, 1.5vw, 20px);
 }
 
 /* Common Layout Base Styles */

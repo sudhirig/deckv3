@@ -76,9 +76,10 @@ export default function AgenticAIFeaturesSlide() {
             cy="50%"
             r={3}
             fill="#a855f7"
+            initial={{ r: 3, opacity: 0.3 }}
             animate={{
-              r: (networkPulse === true) ? [3, 8, 3] : 3,
-              opacity: (networkPulse === true) ? [0.3, 1, 0.3] : 0.3
+              r: networkPulse ? [3, 8, 3] : 3,
+              opacity: networkPulse ? [0.3, 1, 0.3] : 0.3
             }}
             transition={{
               duration: 2,

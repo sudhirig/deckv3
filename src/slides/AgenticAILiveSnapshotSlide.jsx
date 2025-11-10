@@ -80,7 +80,8 @@ export default function AgenticAILiveSnapshotSlide() {
                   cy={y}
                   r={8}
                   fill="#8b5cf6"
-                  animate={{ r: (pulseAnimation === true) ? [8, 15, 8] : 8 }}
+                  initial={{ r: 8 }}
+                  animate={{ r: pulseAnimation ? [8, 15, 8] : 8 }}
                   transition={{ duration: 2, delay: i * 0.1 }}
                 />
                 <line
