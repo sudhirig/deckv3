@@ -88,13 +88,15 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
    - ✅ All gradients working correctly
    - ✅ Zero console errors/warnings
    - **Slides Fixed**: ExecutiveSummarySlide (8 icons), ThreeAlphaAgentsSlide (3), UnfairAdvantagesSlide (3), LivePlatformSlide (1), GIFTSolutionSlide (1), IndiaProblemSlide (1), plus all dynamic icon arrays in AgenticAIConceptSlide, CGMFConceptSlide, CustomerJourney, ExitStrategy, etc.
-4. **Comparison Layout Fixed (Complete)**:
-   - **Invalid HTML Structure Resolved**: Changed `<h2>` wrappers to `<div role="heading" aria-level="2">` to support complex markup (icons, flex layouts)
-   - **Column Isolation**: Fixed critical bug where right column headers bled into left column details
-   - **Vertical Spacing**: Added gap between option headers and detail content (1.5-2rem responsive)
-   - **Proper Nesting**: Headers now allow block-level children (divs, icons) without browser auto-correction
-   - **Accessibility Maintained**: ARIA attributes preserve semantic heading behavior for screen readers
-   - **Affects 5 Slides**: AlphaGapSlide, TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide, AICommitteeSlide
+4. **DualPaneComparison Component - Complete Rebuild**:
+   - **Created New Component**: Built `DualPaneComparison` from scratch to replace broken ComparisonLayout
+   - **CSS Grid Layout**: Uses `grid-template-rows: auto auto minmax(0, 1fr) auto` for proper space allocation
+   - **Four-Section Structure**: Title → Subtitle → Comparison Columns → Summary (all visible without clipping)
+   - **Column Isolation**: Clean flex-based layout with explicit left/right panes and centered VS badge
+   - **Viewport Fit**: Changed from `height: 100%` to `max-height: 100%` to prevent overflow
+   - **No Scrolling**: All content (including summary text) fits within 16:9 AspectFrame viewport
+   - **5 Slides Rebuilt**: AlphaGapSlide, TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide, AICommitteeSlide
+   - **Old Component Removed**: ComparisonLayout completely deleted from codebase
 5. **Final Emoji Cleanup (Complete)**:
    - Replaced ❌ emoji with XCircle icon in TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide
    - Replaced all ✓ checkmark emojis (17 instances) with Shield icon across 14 slides:
