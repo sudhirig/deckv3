@@ -85,7 +85,8 @@ export default function AgendaRoadmapSlide({ onNavigate }) {
           fontSize: TYPOGRAPHY.subheadline,
           fontWeight: 'bold',
           color: step.color,
-          cursor: onNavigate ? 'pointer' : 'default'
+          cursor: onNavigate ? 'pointer' : 'default',
+          boxShadow: '0 0px 0px rgba(0, 0, 0, 0)'
         }}
       >
         {step.number}
