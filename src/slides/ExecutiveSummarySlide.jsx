@@ -48,7 +48,7 @@ export default function ExecutiveSummarySlide() {
           transition={{ delay: 0.6 }}
           style={{ textAlign: 'center', padding: '1rem', background: 'rgba(59, 130, 246, 0.2)', borderRadius: pxToRem(12) }}
         >
-          <Icon type="trophy" size={24} gradient="from-blue-400 to-cyan-400" />
+          <Icon type="trophy" size={32} gradient="from-blue-400 to-cyan-400" variant="inline" />
           <AnimatedCounter end={93} duration={2} delay={0.8} suffix="%" style={{ fontSize: '1.6rem' }} />
           <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.3rem' }}>AI Outperformance</p>
           <p style={{ fontSize: '0.8rem', color: '#60a5fa' }}>Stanford Study</p>
@@ -61,7 +61,7 @@ export default function ExecutiveSummarySlide() {
           transition={{ delay: 0.7 }}
           style={{ textAlign: 'center', padding: '1rem', background: 'rgba(34, 197, 94, 0.2)', borderRadius: pxToRem(12) }}
         >
-          <Icon type="trending" size={24} gradient="from-green-400 to-emerald-400" />
+          <Icon type="trending" size={32} gradient="from-green-400 to-emerald-400" variant="inline" />
           <p style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#4ade80' }}>$5T</p>
           <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.3rem' }}>India Gateway TAM</p>
           <p style={{ fontSize: '0.8rem', color: '#86efac' }}>GIFT City Access</p>
@@ -74,7 +74,7 @@ export default function ExecutiveSummarySlide() {
           transition={{ delay: 0.8 }}
           style={{ textAlign: 'center', padding: '1rem', background: 'rgba(20, 184, 166, 0.2)', borderRadius: pxToRem(12) }}
         >
-          <Icon type="users" size={24} gradient="from-teal-400 to-green-400" />
+          <Icon type="users" size={32} gradient="from-teal-400 to-green-400" variant="inline" />
           <AnimatedCounter end={46} duration={2} delay={1} suffix="%" style={{ fontSize: '1.6rem' }} />
           <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.3rem' }}>Switching Advisors</p>
           <p style={{ fontSize: '0.8rem', color: '#5eead4' }}>Next 24 months</p>
@@ -87,7 +87,7 @@ export default function ExecutiveSummarySlide() {
           transition={{ delay: 0.9 }}
           style={{ textAlign: 'center', padding: '1rem', background: 'rgba(251, 191, 36, 0.2)', borderRadius: pxToRem(12) }}
         >
-          <Icon type="barChart" size={24} gradient="from-yellow-400 to-orange-400" />
+          <Icon type="barChart" size={32} gradient="from-yellow-400 to-orange-400" variant="inline" />
           <p style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#fbbf24' }}>+1.8%</p>
           <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.3rem' }}>Tax Alpha Daily</p>
           <p style={{ fontSize: '0.8rem', color: '#fde047' }}>vs Annual TLH</p>

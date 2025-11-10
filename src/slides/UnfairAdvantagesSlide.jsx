@@ -31,7 +31,7 @@ export default function UnfairAdvantagesSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="lock" size={36} gradient="from-blue-400 to-cyan-400" delay={0.2} />
+        <Icon type="lock" size={36} gradient="from-blue-400 to-cyan-400" delay={0.2} variant="inline" />
       </div>
       <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#60a5fa', textAlign: 'center', marginBottom: '1.5rem' }}>
         Technical Moat
@@ -65,7 +65,7 @@ export default function UnfairAdvantagesSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="scale" size={36} gradient="from-green-400 to-emerald-400" delay={0.4} />
+        <Icon type="scale" size={36} gradient="from-green-400 to-emerald-400" delay={0.4} variant="inline" />
       </div>
       <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4ade80', textAlign: 'center', marginBottom: '1.5rem' }}>
         Regulatory Moat
@@ -99,7 +99,7 @@ export default function UnfairAdvantagesSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="shield" size={36} gradient="from-teal-400 to-green-400" delay={0.6} />
+        <Icon type="shield" size={36} gradient="from-teal-400 to-green-400" delay={0.6} variant="inline" />
       </div>
       <h3 style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#5eead4', textAlign: 'center', marginBottom: '1.5rem' }}>
         Trust Moat

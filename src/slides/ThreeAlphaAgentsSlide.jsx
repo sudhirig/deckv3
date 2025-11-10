@@ -32,7 +32,7 @@ export default function ThreeAlphaAgentsSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="barChart" size={40} gradient="from-teal-400 to-green-400" delay={0.2} />
+        <Icon type="barChart" size={40} gradient="from-teal-400 to-green-400" delay={0.2} variant="inline" />
       </div>
       <h3 style={{ color: '#14b8a6', fontSize: '1.3rem', marginBottom: '1rem', textAlign: 'center' }}>
         Tax Alpha Agent
@@ -62,7 +62,7 @@ export default function ThreeAlphaAgentsSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="building" size={40} gradient="from-blue-400 to-cyan-400" delay={0.4} />
+        <Icon type="building" size={40} gradient="from-blue-400 to-cyan-400" delay={0.4} variant="inline" />
       </div>
       <h3 style={{ color: '#60a5fa', fontSize: '1.3rem', marginBottom: '1rem', textAlign: 'center' }}>
         Alternative Asset Agent
@@ -92,7 +92,7 @@ export default function ThreeAlphaAgentsSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="globe" size={40} gradient="from-purple-400 to-pink-400" delay={0.6} />
+        <Icon type="globe" size={40} gradient="from-purple-400 to-pink-400" delay={0.6} variant="inline" />
       </div>
       <h3 style={{ color: '#a78bfa', fontSize: '1.3rem', marginBottom: '1rem', textAlign: 'center' }}>
         India Gateway Agent

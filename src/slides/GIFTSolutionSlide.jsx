@@ -78,7 +78,7 @@ export default function GIFTSolutionSlide() {
           border: `${pxToRem(2)} solid rgba(34, 197, 94, 0.3)` 
         }}
       >
-        <Icon type="unlock" size={40} gradient="from-green-400 to-emerald-400" delay={0.3} />
+        <Icon type="unlock" size={40} gradient="from-green-400 to-emerald-400" delay={0.3} variant="inline" />
         <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem', marginTop: '1rem' }}>+300bps</p>
         <p style={{ fontSize: '1rem', color: '#e2e8f0' }}>in returns (JPMorgan Research)</p>
       </motion.div>

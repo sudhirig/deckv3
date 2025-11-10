@@ -120,7 +120,7 @@ export default function LivePlatformSlide() {
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
-        <Icon type="barChart" size={48} gradient="from-teal-400 to-green-400" delay={0.3} />
+        <Icon type="barChart" size={48} gradient="from-teal-400 to-green-400" delay={0.3} variant="inline" />
       </div>
       <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#22c55e', marginBottom: '0.5rem' }}>
         100% OPERATIONAL TODAY

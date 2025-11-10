@@ -72,12 +72,13 @@ export default function Icon({
     'from-blue-400 to-cyan-400': 'url(#gradient-blue)',
     'from-purple-400 to-pink-400': 'url(#gradient-purple)',
     'from-orange-400 to-amber-400': 'url(#gradient-orange)',
+    'from-yellow-400 to-orange-400': 'url(#gradient-yellow)',
     'from-red-400 to-pink-400': 'url(#gradient-red)',
     'from-green-400 to-emerald-400': 'url(#gradient-green)'
   }
 
-  // Gradient to stroke color mapping for inline variant
-  const strokeColors = {
+  // Gradient to color mapping (used for both inline and badge variants)
+  const colors = {
     'from-teal-400 to-green-400': '#2dd4bf',
     'from-blue-400 to-cyan-400': '#60a5fa',
     'from-purple-400 to-pink-400': '#d8b4fe',
@@ -87,8 +88,7 @@ export default function Icon({
     'from-green-400 to-emerald-400': '#4ade80'
   }
 
-  const fill = gradients[gradient] || gradients['from-teal-400 to-green-400']
-  const stroke = strokeColor || strokeColors[gradient] || strokeColors['from-teal-400 to-green-400']
+  const iconColor = strokeColor || colors[gradient] || colors['from-teal-400 to-green-400']
 
   const iconVariants = {
     hidden: { opacity: 0, scale: 0.5, rotate: -20 },
@@ -110,7 +110,7 @@ export default function Icon({
     return (
       <IconComponent 
         size={size} 
-        color={stroke}
+        color={iconColor}
         strokeWidth={2}
         className={className}
         style={{
@@ -147,6 +147,11 @@ export default function Icon({
             <stop offset="100%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
           </linearGradient>
           
+          <linearGradient id="gradient-yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style={{ stopColor: '#fbbf24', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#fb923c', stopOpacity: 1 }} />
+          </linearGradient>
+          
           <linearGradient id="gradient-red" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style={{ stopColor: '#f87171', stopOpacity: 1 }} />
             <stop offset="100%" style={{ stopColor: '#f472b6', stopOpacity: 1 }} />
@@ -176,10 +181,10 @@ export default function Icon({
       >
         <IconComponent 
           size={size} 
-          stroke={fill}
-          strokeWidth={1.5}
+          color={iconColor}
+          strokeWidth={2}
           style={{
-            filter: 'drop-shadow(0 2px 8px rgba(20, 184, 166, 0.3))'
+            filter: `drop-shadow(0 2px 8px ${iconColor}40)`
           }}
         />
       </motion.div>

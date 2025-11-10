@@ -97,7 +97,7 @@ export default function IndiaProblemSlide() {
         transition={{ delay: 0.8, type: 'spring' }}
         style={{ textAlign: 'center', marginBottom: '3rem' }}
       >
-        <Icon type="lock" size={80} gradient="from-red-400 to-pink-400" delay={0.3} />
+        <Icon type="lock" size={80} gradient="from-red-400 to-pink-400" delay={0.3} variant="inline" />
       </motion.div>
       
       <motion.div
