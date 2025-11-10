@@ -514,14 +514,6 @@ function App() {
           📄 Export PDF
         </button>
       </div>
-
-      <div className="instructions">
-        Use ← → arrow keys or click to navigate • Press T for thumbnails • Ctrl/Cmd + P to export PDF
-        <br />
-        <span style={{ fontSize: '0.9em', opacity: 0.7 }}>
-          💾 Recommended filename: AI-Digital-Family-Office-Deck_2025-11-05.pdf
-        </span>
-      </div>
     </div>
   )
 }

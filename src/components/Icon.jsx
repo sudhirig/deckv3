@@ -15,7 +15,11 @@ import {
   DollarSign,
   BarChart3,
   PieChart,
-  Wallet
+  Wallet,
+  Bot,
+  Rocket,
+  Gem,
+  Trophy
 } from 'lucide-react'
 
 const iconMap = {
@@ -34,7 +38,13 @@ const iconMap = {
   dollar: DollarSign,
   barChart: BarChart3,
   pieChart: PieChart,
-  wallet: Wallet
+  wallet: Wallet,
+  bot: Bot,
+  robot: Bot,
+  rocket: Rocket,
+  gem: Gem,
+  diamond: Gem,
+  trophy: Trophy
 }
 
 export default function Icon({ 
