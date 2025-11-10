@@ -10,6 +10,11 @@ export default function ActDropdown({ currentSlide, onNavigate }) {
   const dropdownRef = useRef(null)
 
   const currentAct = getActBySlide(currentSlide)
+  
+  // Safety check - if currentAct is undefined, don't render
+  if (!currentAct || !currentAct.shortName) {
+    return null
+  }
 
   // Close dropdown when clicking outside
   useEffect(() => {
