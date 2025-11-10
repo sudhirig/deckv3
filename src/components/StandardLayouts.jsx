@@ -155,7 +155,8 @@ export const DataSlideLayout = ({
 
 // Template 3: Comparison Layout - Side by side with VS
 export const ComparisonLayout = ({ 
-  title, 
+  title,
+  subtitle,
   leftOption, 
   rightOption, 
   leftDetails, 
@@ -174,6 +175,17 @@ export const ComparisonLayout = ({
     >
       <GradientText>{title}</GradientText>
     </motion.h1>
+    
+    {subtitle && (
+      <motion.div 
+        className="comparison-subtitle"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
+        {subtitle}
+      </motion.div>
+    )}
     
     <div className="comparison-grid">
       <motion.div 

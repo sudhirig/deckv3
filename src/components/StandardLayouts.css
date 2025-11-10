@@ -203,9 +203,17 @@
 .comparison-title {
   text-align: center;
   font-size: clamp(2.5rem, 5vw, 4rem);
-  margin: 0 0 clamp(1rem, 2vh, 2rem);
+  margin: 0;
   flex-shrink: 0;
   line-height: 1.2;
+}
+
+.comparison-subtitle {
+  text-align: center;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: #94a3b8;
+  margin: clamp(0.5rem, 1vh, 1rem) 0 clamp(1rem, 2vh, 2rem);
+  flex-shrink: 0;
 }
 
 .comparison-grid {
