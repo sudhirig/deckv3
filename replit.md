@@ -1,7 +1,7 @@
 # AI-Powered Digital Family Office - React Presentation
 
 ## Overview
-This project is a 94-slide React presentation showcasing an AI-powered digital family office platform designed for high-net-worth investors. The platform features a comprehensive Product Appendix with 7 operational modules containing 68+ AI agents including dual-team analysis (30 experts: 12-agent Investment Committee + 18-agent Hedge Fund with legendary investor AIs), sentiment intelligence from 182+ news sources with FinBERT processing, Zerodha voice trading in 3 languages (11ms latency), CGMF mutual fund advisory managing 16,766 authentic funds with ₹1.55L annual tax savings examples, algo trading laboratory with 122+ indicators, and real-time market mood tracking via heat maps. Every chapter includes complete step-by-step workflows with exact timing (seconds vs hours), "What You Get" sections, visual aids, and 100% real data demonstrations.
+This project is an 86-slide React presentation showcasing an AI-powered digital family office platform designed for high-net-worth investors. The platform features a comprehensive Product Appendix with 7 operational modules containing 68+ AI agents including dual-team analysis (30 experts: 12-agent Investment Committee + 18-agent Hedge Fund with legendary investor AIs), sentiment intelligence from 182+ news sources with FinBERT processing, Zerodha voice trading in 3 languages (11ms latency), CGMF mutual fund advisory managing 16,766 authentic funds with ₹1.55L annual tax savings examples, algo trading laboratory with 122+ indicators, and real-time market mood tracking via heat maps. Every chapter includes complete step-by-step workflows with exact timing (seconds vs hours), "What You Get" sections, visual aids, and 100% real data demonstrations.
 
 ## User Preferences
 - Ultra-modern graphics and world-class design
@@ -51,9 +51,9 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
 - **Usage Pattern**: `<Icon type="bot" size={32} variant="inline" gradient="from-purple-400 to-pink-400" />`
 
 ### Slide Organization
-- **Total Slides**: 94 slides organized by Acts
+- **Total Slides**: 86 slides organized by Acts (streamlined by removing Act transition slides)
 - **Navigation**: Arrow keys, keyboard shortcuts, and on-screen buttons
-- **Transitions**: Zoom effect with Framer Motion (0.4s ease)
+- **Transitions**: Zoom effect with Framer Motion (0.4s ease) - cinematic fade between Acts
 - **Progress Bar**: Visual indicator with gradient styling
 
 ### Recent Optimizations
@@ -97,7 +97,15 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
    - **No Scrolling**: All content (including summary text) fits within 16:9 AspectFrame viewport
    - **5 Slides Rebuilt**: AlphaGapSlide, TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide, AICommitteeSlide
    - **Old Component Removed**: ComparisonLayout completely deleted from codebase
-5. **Final Emoji Cleanup (Complete)**:
+5. **Act Transition Slides Removed (Complete)**:
+   - **Cleaner Flow**: Removed all 5 Act transition slides for professional cinematic pacing
+   - **Slides Removed**: Act1to2, Act2to3, Act3to4, Act4to5, Act5toAppendix transitions
+   - **New Flow**: Direct fade from Act 1 → Act 2 → Act 3 → Act 4 → Act 5 → Act 6 (GIFT City) → Product Appendix
+   - **Total Count**: 86 slides (streamlined presentation)
+   - **User Experience**: Faster, more professional presentation without content-heavy transitions
+   - **Act Openers**: Each Act opener slide serves as elegant chapter marker
+   - **Updated Metadata**: Recalibrated Act boundaries and progress indicators in App.jsx
+6. **Final Emoji Cleanup (Complete)**:
    - Replaced ❌ emoji with XCircle icon in TaxAlphaDailySlide, IndiaProblemSlide, GIFTSolutionSlide
    - Replaced all ✓ checkmark emojis (17 instances) with Shield icon across 14 slides:
      - TaxAlphaDailySlide, GIFTSolutionSlide (comparison headers)

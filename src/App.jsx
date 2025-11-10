@@ -57,12 +57,6 @@ import CaseStudy3Slide from './slides/CaseStudy3Slide'
 import PartnershipStrategy1Slide from './slides/PartnershipStrategy1Slide'
 import PartnershipStrategy2Slide from './slides/PartnershipStrategy2Slide'
 import ClosingCommitmentSlide from './slides/ClosingCommitmentSlide'
-// Act Transition Slides
-import Act1to2TransitionSlide from './slides/Act1to2TransitionSlide'
-import Act2to3TransitionSlide from './slides/Act2to3TransitionSlide'
-import Act3to4TransitionSlide from './slides/Act3to4TransitionSlide'
-import Act4to5TransitionSlide from './slides/Act4to5TransitionSlide'
-import Act5toAppendixTransitionSlide from './slides/Act5toAppendixTransitionSlide'
 // GIFT City Act 6 Slides
 import GiftCityIntroSlide from './slides/GiftCityIntroSlide'
 import GiftCityEntityStructureSlide from './slides/GiftCityEntityStructureSlide'
@@ -113,12 +107,10 @@ const slides = [
   { component: StanfordSlide, title: 'AI is the New Alpha' },
   { component: MarketSwitchingSlide, title: 'Market Switching Now' },
   { component: AlphaGapSlide, title: 'The Three Failures' },
-  { component: Act1to2TransitionSlide, title: 'Transition: Problem → Solution' },
   { component: Act2Slide, title: 'Act 2: The Solution' },
   { component: IntroducingSlide, title: 'Introducing AI Family Office' },
   { component: AICommitteeSlide, title: 'AI Investment Committee' },
   { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },
-  { component: Act2to3TransitionSlide, title: 'Transition: Solution → Deep Dive' },
   { component: Act3Slide, title: 'Act 3: The Deep Dive' },
   { component: IndiaProblemSlide, title: 'India: $5T Market Locked' },
   { component: GIFTSolutionSlide, title: 'GIFT City AI Gateway' },
@@ -126,7 +118,6 @@ const slides = [
   { component: TaxAlphaDailySlide, title: 'Tax Alpha: Daily vs Annual' },
   { component: AlternativeAIDDSlide, title: 'Alternative Asset AI DD' },
   { component: AgentArchitectureSlide, title: 'Swarm of 20+ Agents' },
-  { component: Act3to4TransitionSlide, title: 'Transition: Deep Dive → Proof' },
   { component: Act4Slide, title: 'Act 4: The Proof' },
   { component: RealJourneysSlide, title: 'Real Journeys, Real Alpha' },
   { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
@@ -134,7 +125,6 @@ const slides = [
   { component: WhyWeWinSlide, title: 'Why We Win' },
   { component: WhyIncumbentsCantRespondSlide, title: 'Why Incumbents Can\'t Respond' },
   { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
-  { component: Act4to5TransitionSlide, title: 'Transition: Proof → Business' },
   { component: Act5Slide, title: 'Act 5: The Business' },
   { component: OpportunitySlide, title: 'Market Opportunity' },
   { component: InvestorPersona1Slide, title: 'Investor Persona: Tech Founder' },
@@ -175,9 +165,6 @@ const slides = [
   { component: GiftCityRegulatoryComplianceSlide, title: 'Full Regulatory Compliance' },
   { component: GiftCityTechnologyInfrastructureSlide, title: 'GIFT City Tech Infrastructure' },
   { component: GiftCityCallToActionSlide, title: 'Join Us in GIFT City' },
-  
-  // Transition to Product Appendix
-  { component: Act5toAppendixTransitionSlide, title: 'Ready to Deep Dive?' },
   
   // Product Appendix - Chapter 1: Zerodha
   { component: ZerodhaConceptSlide, title: 'Chapter 1: Zerodha Trading Intelligence' },
@@ -298,25 +285,27 @@ function App() {
 
   // Get current section/act based on slide number
   const getSlideSection = (slideIndex) => {
-    if (slideIndex <= 3) return 'Opening'
-    if (slideIndex >= 4 && slideIndex <= 7) return 'Act 1: Problem'
-    if (slideIndex >= 8 && slideIndex <= 12) return 'Act 2: Solution'
-    if (slideIndex >= 13 && slideIndex <= 27) return 'Act 3: Deep Dive'
-    if (slideIndex >= 28 && slideIndex <= 36) return 'Act 4: Proof'
-    if (slideIndex >= 37 && slideIndex <= 58) return 'Act 5: Business'
-    if (slideIndex >= 59 && slideIndex <= 75) return 'Opportunity'
-    if (slideIndex >= 76) return 'Appendix'
+    if (slideIndex <= 2) return 'Opening'
+    if (slideIndex >= 3 && slideIndex <= 6) return 'Act 1: Problem'
+    if (slideIndex >= 7 && slideIndex <= 10) return 'Act 2: Solution'
+    if (slideIndex >= 11 && slideIndex <= 17) return 'Act 3: Deep Dive'
+    if (slideIndex >= 18 && slideIndex <= 24) return 'Act 4: Proof'
+    if (slideIndex >= 25 && slideIndex <= 52) return 'Act 5: Business'
+    if (slideIndex >= 53 && slideIndex <= 62) return 'Act 6: GIFT City'
+    if (slideIndex >= 63 && slideIndex <= 84) return 'Product Appendix'
+    if (slideIndex >= 85) return 'Final Appendix'
     return ''
   }
 
   // Get act progress percentage
   const getActProgress = (slideIndex) => {
-    if (slideIndex <= 7) return 20
-    if (slideIndex <= 12) return 40
-    if (slideIndex <= 27) return 60
-    if (slideIndex <= 36) return 80
-    if (slideIndex <= 75) return 90
-    return 100
+    if (slideIndex <= 6) return 20   // End of Act 1
+    if (slideIndex <= 10) return 40  // End of Act 2
+    if (slideIndex <= 17) return 60  // End of Act 3
+    if (slideIndex <= 24) return 80  // End of Act 4
+    if (slideIndex <= 62) return 90  // End of Act 6 (GIFT City)
+    if (slideIndex <= 84) return 95  // End of Product Appendix
+    return 100                       // Final Appendix
   }
 
   useEffect(() => {
