@@ -29,7 +29,7 @@ const Act3to4TransitionSlide = () => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, type: 'spring' }}
         className="act-content"
-        style={{ position: 'relative', zIndex: 1, maxWidth: pxToRem(1200), margin: '0 auto' }}
+        style={{ position: 'relative', zIndex: 1, width: '100%', padding: '0 2rem' }}
       >
         {/* Journey Progress */}
         <motion.div
