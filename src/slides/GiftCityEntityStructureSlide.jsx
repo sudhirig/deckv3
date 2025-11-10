@@ -135,12 +135,12 @@ export default function GiftCityEntityStructureSlide() {
         {/* Flow Arrow 1 */}
         <motion.div
           initial={{ height: 0 }}
-          animate={{ height: '2.5rem' }}
+          animate={{ height: pxToRem(40) }}
           transition={{ delay: 0.7, duration: 0.5 }}
           style={{
-            width: '0.125rem',
+            width: pxToRem(2),
             background: 'linear-gradient(180deg, #8b5cf6, #06b6d4)',
-            margin: '0 auto 1rem',
+            margin: `0 auto ${pxToRem(16)}`,
             position: 'relative'
           }}
         >
@@ -215,21 +215,21 @@ export default function GiftCityEntityStructureSlide() {
         {/* Flow Arrow 2 */}
         <motion.div
           initial={{ height: 0 }}
-          animate={{ height: '2.5rem' }}
+          animate={{ height: pxToRem(40) }}
           transition={{ delay: 1.2, duration: 0.5 }}
           style={{
-            width: '0.125rem',
+            width: pxToRem(2),
             background: 'linear-gradient(180deg, #06b6d4, #10b981)',
-            margin: '0 auto 1rem',
+            margin: `0 auto ${pxToRem(16)}`,
             position: 'relative'
           }}
         >
           <motion.div
-            animate={{ y: [0, 0.625, 0] }}
+            animate={{ y: [0, pxToRem(10), 0] }}
             transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
             style={{
               position: 'absolute',
-              bottom: -0.375,
+              bottom: pxToRem(-6),
               left: '50%',
               transform: 'translateX(-50%)'
             }}

@@ -1,22 +1,36 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Icon from '../components/Icon'
-import { Camera, TrendingUp, Activity, BarChart3, DollarSign, Percent, Clock, CheckCircle } from 'lucide-react'
+import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
+import { 
+  Camera, 
+  TrendingUp, 
+  Activity, 
+  BarChart3, 
+  DollarSign, 
+  Percent, 
+  Clock, 
+  CheckCircle,
+  Zap,
+  Code2,
+  Bot
+} from 'lucide-react'
+import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
 
-const AlgoTradingLiveSnapshotSlide = () => {
+export default function AlgoTradingLiveSnapshotSlide() {
   const [animateMetrics, setAnimateMetrics] = useState(false)
+  const [selectedStrategy, setSelectedStrategy] = useState(0)
   
   useEffect(() => {
     const timer = setTimeout(() => setAnimateMetrics(true), 500)
     return () => clearTimeout(timer)
   }, [])
   
-  // Sample data for charts
   const performanceData = [
     { label: 'Jan', value: 100, displayValue: '100' },
     { label: 'Feb', value: 112, displayValue: '112' },
@@ -33,156 +47,399 @@ const AlgoTradingLiveSnapshotSlide = () => {
     { label: 'MACD', value: 71, displayValue: '71%' }
   ]
   
-  return (
-    <div className="slide-container">
-      <div className="glassmorphic-card large">
+  const mainVisual = (
+    <div style={{ maxHeight: '80vh', overflow: 'hidden' }}>
+      {/* Live Platform Header */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: pxToRem(12),
+          marginBottom: pxToRem(16),
+          padding: pxToRem(12),
+          background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(12)
+        }}
+      >
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="gradient-text text-4xl mb-2">Algo Trading Laboratory</h1>
-          <div className="flex items-center justify-center mb-4">
-            <Camera className="w-5 h-5 text-red-500 mr-2 animate-pulse" />
-            <p className="text-sm text-gray-400">Live Platform Dashboard</p>
-          </div>
-        </motion.div>
-
-        {/* Top Metrics Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="grid grid-cols-6 gap-2 mb-4"
-        >
-          <div className="glassmorphic-card p-2 text-center">
-            <DollarSign className="w-4 h-4 text-green-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-green-400">
-              +<AnimatedCounter end={147} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Total Return</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <TrendingUp className="w-4 h-4 text-blue-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-blue-400">
-              <AnimatedCounter end={1.92} decimals={2} duration={1500} />
-            </div>
-            <p className="text-xs text-gray-400">Sharpe Ratio</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <Percent className="w-4 h-4 text-purple-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-purple-400">
-              <AnimatedCounter end={68} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Win Rate</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <Activity className="w-4 h-4 text-teal-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-teal-400">
-              <AnimatedCounter end={122} duration={1500} />+
-            </div>
-            <p className="text-xs text-gray-400">Indicators</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <Clock className="w-4 h-4 text-yellow-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-yellow-400">
-              <AnimatedCounter end={24} duration={1500} />ms
-            </div>
-            <p className="text-xs text-gray-400">Execution</p>
-          </div>
-          <div className="glassmorphic-card p-2 text-center">
-            <CheckCircle className="w-4 h-4 text-green-400 mx-auto mb-1" />
-            <div className="text-lg font-bold text-green-400">
-              <AnimatedCounter end={100} duration={1500} />%
-            </div>
-            <p className="text-xs text-gray-400">Uptime</p>
-          </div>
-        </motion.div>
-
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-2 gap-4">
-          {/* Left Side - Performance Chart */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.6 }}
-            className="glassmorphic-card"
-          >
-            <h3 className="text-lg text-purple-400 mb-3 flex items-center">
-              <BarChart3 className="w-5 h-5 mr-2" />
-              Portfolio Performance
-            </h3>
-            <LineChart data={performanceData} height={120} animated={animateMetrics} />
-            <div className="mt-3 grid grid-cols-2 gap-2 text-xs">
-              <div className="flex justify-between">
-                <span className="text-gray-400">Annual Return:</span>
-                <span className="text-green-400 font-bold">19.8%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-400">Max Drawdown:</span>
-                <span className="text-yellow-400 font-bold">-12.4%</span>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right Side - Strategy Performance */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="glassmorphic-card"
-          >
-            <h3 className="text-lg text-teal-400 mb-3 flex items-center">
-              <Activity className="w-5 h-5 mr-2" />
-              Strategy Win Rates
-            </h3>
-            <BarChart data={strategyData} height={120} colorScheme="gradient" animated={animateMetrics} />
-            <div className="mt-3 text-xs text-center text-gray-400">
-              Average Win Rate: <span className="text-teal-400 font-bold">69%</span>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Bottom Section - Natural Language to Code */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="glassmorphic-card mt-4 bg-gradient-to-r from-purple-900/20 to-blue-900/20"
-        >
-          <h3 className="text-sm text-purple-400 mb-2">Natural Language Strategy Builder</h3>
-          <div className="grid grid-cols-2 gap-3">
-            <div>
-              <p className="text-xs text-gray-400 mb-1">Input:</p>
-              <div className="bg-black/50 p-2 rounded text-xs font-mono text-blue-300">
-                "Buy when RSI &lt; 30 and above 200-day moving average"
-              </div>
-            </div>
-            <div>
-              <p className="text-xs text-gray-400 mb-1">AI Generated Code:</p>
-              <div className="bg-black/50 p-2 rounded text-xs font-mono text-green-400">
-                if indicators.rsi &lt; 30 and price &gt; indicators.sma_200:<br />
-                &nbsp;&nbsp;execute_trade('BUY', position_size=0.02)
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Footer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.4 }}
-          className="text-center mt-2"
-        >
-          <p className="text-xs text-gray-500" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
-            Live Platform: <span className="text-teal-400">app.voraventures.ai/algo-lab</span> | 
-            <span className="text-green-400 ml-2" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={14} /> No coding required</span>
+          animate={{ 
+            scale: [1, 1.5, 1],
+            opacity: [1, 0.5, 1]
+          }}
+          transition={{ duration: 1, repeat: Infinity }}
+          style={{
+            width: pxToRem(10),
+            height: pxToRem(10),
+            background: '#ef4444',
+            borderRadius: '50%'
+          }}
+        />
+        <Camera size={20} color="#ef4444" />
+        <span style={{ color: '#ef4444', fontWeight: 'bold', fontSize: pxToRem(14) }}>
+          LIVE ALGO LAB
+        </span>
+      </motion.div>
+      
+      {/* Top Metrics Grid */}
+      <motion.div
+        initial={{ opacity: 0, y: pxToRem(-20) }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: pxToRem(12),
+          marginBottom: pxToRem(16)
+        }}
+      >
+        <div style={{
+          padding: pxToRem(12),
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          textAlign: 'center'
+        }}>
+          <DollarSign size={18} color="#10b981" style={{ marginBottom: pxToRem(4) }} />
+          <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#10b981', margin: 0 }}>
+            +<AnimatedCounter end={147 || 0} duration={1500} />%
           </p>
-        </motion.div>
-      </div>
+          <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Total Return</p>
+        </div>
+        
+        <div style={{
+          padding: pxToRem(12),
+          background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          textAlign: 'center'
+        }}>
+          <TrendingUp size={18} color="#3b82f6" style={{ marginBottom: pxToRem(4) }} />
+          <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#3b82f6', margin: 0 }}>
+            <AnimatedCounter end={1.92 || 0} decimals={2} duration={1500} />
+          </p>
+          <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Sharpe Ratio</p>
+        </div>
+        
+        <div style={{
+          padding: pxToRem(12),
+          background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          textAlign: 'center'
+        }}>
+          <Percent size={18} color="#a855f7" style={{ marginBottom: pxToRem(4) }} />
+          <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#a855f7', margin: 0 }}>
+            <AnimatedCounter end={68 || 0} duration={1500} />%
+          </p>
+          <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Win Rate</p>
+        </div>
+      </motion.div>
+      
+      {/* Performance Chart */}
+      <motion.div
+        initial={{ opacity: 0, x: pxToRem(-20) }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.7 }}
+        style={{
+          padding: pxToRem(16),
+          background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(12),
+          marginBottom: pxToRem(16)
+        }}
+      >
+        <h4 style={{ 
+          fontSize: pxToRem(16),
+          color: '#a855f7',
+          marginBottom: pxToRem(12),
+          display: 'flex',
+          alignItems: 'center',
+          gap: pxToRem(8)
+        }}>
+          <BarChart3 size={18} />
+          Portfolio Performance
+        </h4>
+        <div style={{ height: pxToRem(120) }}>
+          <LineChart data={performanceData} height={120} animated={animateMetrics} />
+        </div>
+        <div style={{ 
+          display: 'flex',
+          justifyContent: 'space-around',
+          marginTop: pxToRem(12)
+        }}>
+          <div>
+            <span style={{ fontSize: pxToRem(11), color: '#94a3b8' }}>Annual Return: </span>
+            <span style={{ fontSize: pxToRem(12), color: '#10b981', fontWeight: 'bold' }}>19.8%</span>
+          </div>
+          <div>
+            <span style={{ fontSize: pxToRem(11), color: '#94a3b8' }}>Max Drawdown: </span>
+            <span style={{ fontSize: pxToRem(12), color: '#fbbf24', fontWeight: 'bold' }}>-12.4%</span>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Natural Language Strategy Builder */}
+      <motion.div
+        initial={{ opacity: 0, y: pxToRem(20) }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.9 }}
+        style={{
+          padding: pxToRem(16),
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(20, 184, 166, 0.15))',
+          borderRadius: pxToRem(12),
+          border: '1px solid rgba(16, 185, 129, 0.3)'
+        }}
+      >
+        <h4 style={{ 
+          fontSize: pxToRem(14),
+          color: '#10b981',
+          marginBottom: pxToRem(12),
+          display: 'flex',
+          alignItems: 'center',
+          gap: pxToRem(8)
+        }}>
+          <Code2 size={16} />
+          Natural Language Strategy Builder
+        </h4>
+        
+        <div style={{ 
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gap: pxToRem(12)
+        }}>
+          <div>
+            <p style={{ fontSize: pxToRem(11), color: '#94a3b8', marginBottom: pxToRem(4) }}>
+              Input:
+            </p>
+            <div style={{
+              padding: pxToRem(8),
+              background: 'rgba(0, 0, 0, 0.5)',
+              borderRadius: pxToRem(6),
+              fontFamily: 'monospace',
+              fontSize: pxToRem(12),
+              color: '#3b82f6'
+            }}>
+              "Buy when RSI &lt; 30 and price above 200-day MA"
+            </div>
+          </div>
+          
+          <div>
+            <p style={{ fontSize: pxToRem(11), color: '#94a3b8', marginBottom: pxToRem(4) }}>
+              AI Generated Code:
+            </p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.1 }}
+              style={{
+                padding: pxToRem(8),
+                background: 'rgba(0, 0, 0, 0.5)',
+                borderRadius: pxToRem(6),
+                fontFamily: 'monospace',
+                fontSize: pxToRem(11),
+                color: '#10b981'
+              }}
+            >
+              if indicators.rsi &lt; 30 and price &gt; indicators.sma_200:<br/>
+              &nbsp;&nbsp;execute_trade('BUY', position_size=0.02)
+            </motion.div>
+          </div>
+        </div>
+      </motion.div>
     </div>
   )
+  
+  const keyInsights = (
+    <div style={{
+      padding: pxToRem(20),
+      background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.05))',
+      borderRadius: pxToRem(16),
+      border: '2px solid rgba(251, 191, 36, 0.3)',
+      maxHeight: '80vh',
+      overflow: 'hidden'
+    }}>
+      <h3 style={{ 
+        fontSize: pxToRem(20),
+        color: '#fbbf24',
+        marginBottom: pxToRem(16),
+        display: 'flex',
+        alignItems: 'center',
+        gap: pxToRem(8)
+      }}>
+        <Activity size={20} />
+        Strategy Performance
+      </h3>
+      
+      {/* Strategy Win Rates */}
+      <div style={{ marginBottom: pxToRem(16) }}>
+        <BarChart data={strategyData} height={100} colorScheme="gradient" animated={animateMetrics} />
+        <p style={{ 
+          fontSize: pxToRem(12),
+          color: '#94a3b8',
+          textAlign: 'center',
+          marginTop: pxToRem(8)
+        }}>
+          Average Win Rate: <span style={{ color: '#fbbf24', fontWeight: 'bold' }}>69%</span>
+        </p>
+      </div>
+      
+      {/* Key metrics */}
+      <div style={{ 
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: pxToRem(12),
+        marginBottom: pxToRem(12)
+      }}>
+        <div style={{
+          padding: pxToRem(10),
+          background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          textAlign: 'center'
+        }}>
+          <Activity size={16} color="#14b8a6" style={{ marginBottom: pxToRem(4) }} />
+          <p style={{ fontSize: pxToRem(18), fontWeight: 'bold', color: '#14b8a6', margin: 0 }}>
+            <AnimatedCounter end={122 || 0} duration={1500} />+
+          </p>
+          <p style={{ fontSize: pxToRem(9), color: '#94a3b8' }}>Indicators</p>
+        </div>
+        
+        <div style={{
+          padding: pxToRem(10),
+          background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          textAlign: 'center'
+        }}>
+          <Clock size={16} color="#fbbf24" style={{ marginBottom: pxToRem(4) }} />
+          <p style={{ fontSize: pxToRem(18), fontWeight: 'bold', color: '#fbbf24', margin: 0 }}>
+            <AnimatedCounter end={24 || 0} duration={1500} />ms
+          </p>
+          <p style={{ fontSize: pxToRem(9), color: '#94a3b8' }}>Execution</p>
+        </div>
+      </div>
+      
+      {/* Status indicators */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.3 }}
+        style={{
+          padding: pxToRem(12),
+          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: pxToRem(8)
+        }}
+      >
+        <CheckCircle size={16} color="#10b981" />
+        <span style={{ fontSize: pxToRem(12), color: '#e2e8f0' }}>
+          System Status:{' '}
+          <span style={{ color: '#10b981', fontWeight: 'bold' }}>
+            <AnimatedCounter end={100 || 0} duration={1500} />% Uptime
+          </span>
+        </span>
+      </motion.div>
+      
+      {/* Bot status */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        style={{
+          marginTop: pxToRem(12),
+          padding: pxToRem(12),
+          background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(0, 0, 0, 0.3))',
+          borderRadius: pxToRem(8),
+          textAlign: 'center'
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: pxToRem(8) }}>
+          <Bot size={16} color="#a855f7" />
+          <span style={{ fontSize: pxToRem(12), color: '#e2e8f0' }}>
+            No coding required
+          </span>
+        </div>
+      </motion.div>
+    </div>
+  )
+  
+  const supportingData = (
+    <motion.div
+      initial={{ opacity: 0, y: pxToRem(30) }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 1.7 }}
+      style={{
+        marginTop: pxToRem(20),
+        padding: pxToRem(16),
+        background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(251, 191, 36, 0.1))',
+        borderRadius: pxToRem(16),
+        border: '2px solid rgba(168, 85, 247, 0.3)',
+        textAlign: 'center'
+      }}
+    >
+      <p style={{ fontSize: pxToRem(14), color: '#94a3b8', marginBottom: pxToRem(4) }}>
+        Live Platform
+      </p>
+      <p style={{ fontSize: pxToRem(16), color: '#a855f7', fontWeight: 'bold' }}>
+        app.voraventures.ai/algo-lab
+      </p>
+    </motion.div>
+  )
+  
+  return (
+    <DataSlideLayout
+      title={
+        <>
+          <GradientText gradient="from-purple-400 via-blue-400 to-yellow-400">
+            Algo Trading Laboratory
+          </GradientText>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            style={{ 
+              textAlign: 'center', 
+              color: '#94a3b8', 
+              fontSize: pxToRem(16),
+              marginTop: pxToRem(8)
+            }}
+          >
+            Live Platform Dashboard - No Code Required
+          </motion.p>
+        </>
+      }
+      mainVisual={mainVisual}
+      keyInsights={keyInsights}
+      supportingData={supportingData}
+      particles={
+        <>
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              animate={{
+                x: [0, Math.cos(i * 45) * 20, 0],
+                y: [0, Math.sin(i * 45) * 20, 0],
+                opacity: [0, 0.3, 0]
+              }}
+              transition={{
+                duration: 4 + Math.random() * 2,
+                repeat: Infinity,
+                delay: i * 0.5
+              }}
+              style={{
+                position: 'absolute',
+                left: `${20 + (i % 4) * 20}%`,
+                top: `${30 + Math.floor(i / 4) * 30}%`,
+                fontSize: pxToRem(16),
+                color: i % 2 === 0 ? '#a855f7' : '#fbbf24'
+              }}
+            >
+              <Zap size={12} />
+            </motion.div>
+          ))}
+        </>
+      }
+    />
+  )
 }
-
-export default AlgoTradingLiveSnapshotSlide

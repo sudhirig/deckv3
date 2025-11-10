@@ -23,27 +23,29 @@ export const ActSlideLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="act-layout">
+    <div className="act-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
         {particles}
-        <div className="act-grid">
-      <div className="act-left">
+        <div className="act-grid" style={{ flexWrap: 'wrap', overflow: 'hidden' }}>
+      <div className="act-left" style={{ overflow: 'hidden' }}>
         <motion.div 
           className="act-number"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}
         >
           {actNumber}
         </motion.div>
         <div className="act-progress-indicator" />
       </div>
       
-      <div className="act-center">
+      <div className="act-center" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
         <motion.h1 
           className="act-title"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
         >
           <GradientText>{title}</GradientText>
         </motion.h1>
@@ -53,6 +55,7 @@ export const ActSlideLayout = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ fontSize: 'clamp(1.1rem, 2vw, 1.6rem)' }}
           >
             {subtitle}
           </motion.h2>
@@ -62,12 +65,13 @@ export const ActSlideLayout = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          style={{ maxHeight: 'calc(88vh - 12rem)', overflow: 'auto' }}
         >
           {mainContent}
         </motion.div>
       </div>
       
-      <div className="act-right">
+      <div className="act-right" style={{ maxHeight: '88vh', overflow: 'auto' }}>
         <motion.div 
           className="act-metrics"
           initial={{ opacity: 0, x: 50 }}
@@ -85,6 +89,7 @@ export const ActSlideLayout = ({
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
+        style={{ maxHeight: '10vh', overflow: 'auto' }}
       >
         {bottomPoints}
       </motion.div>
@@ -103,25 +108,27 @@ export const DataSlideLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="data-layout">
+    <div className="data-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
     {particles}
     <motion.div 
       className="data-header"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
+      style={{ flexShrink: 0 }}
     >
-      <h1 className="data-title">
+      <h1 className="data-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)' }}>
         <GradientText>{title}</GradientText>
       </h1>
     </motion.div>
     
-    <div className="data-grid">
+    <div className="data-grid" style={{ flexWrap: 'wrap', maxHeight: 'calc(88vh - 8rem)', overflow: 'hidden' }}>
       <motion.div 
         className="data-visual"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        style={{ maxHeight: '100%', overflow: 'hidden' }}
       >
         {mainVisual}
       </motion.div>
@@ -131,10 +138,11 @@ export const DataSlideLayout = ({
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
+        style={{ maxHeight: '100%', overflow: 'auto' }}
       >
         {keyInsights}
         {supportingData && (
-          <div className="data-supporting">{supportingData}</div>
+          <div className="data-supporting" style={{ maxWidth: '100%' }}>{supportingData}</div>
         )}
       </motion.div>
     </div>
@@ -145,6 +153,7 @@ export const DataSlideLayout = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
+        style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
       >
         {citation}
       </motion.div>
@@ -165,13 +174,14 @@ export const ComparisonLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="comparison-layout">
+    <div className="comparison-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
     {particles}
     <motion.h1 
       className="comparison-title"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
+      style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)', flexShrink: 0 }}
     >
       <GradientText>{title}</GradientText>
     </motion.h1>
@@ -182,20 +192,22 @@ export const ComparisonLayout = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)', flexShrink: 0 }}
       >
         {subtitle}
       </motion.div>
     )}
     
-    <div className="comparison-grid">
+    <div className="comparison-grid" style={{ flexWrap: 'wrap', maxHeight: 'calc(88vh - 10rem)', overflow: 'hidden' }}>
       <motion.div 
-        className="comparison-left"
+        className="comparison-left glass-card"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        style={{ maxWidth: '45%', maxHeight: '100%', overflow: 'auto' }}
       >
-        <div className="comparison-option-title" role="heading" aria-level="2">{leftOption}</div>
-        <div className="comparison-details">{leftDetails}</div>
+        <div className="comparison-option-title" role="heading" aria-level="2" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)' }}>{leftOption}</div>
+        <div className="comparison-details" style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>{leftDetails}</div>
       </motion.div>
       
       <motion.div 
@@ -203,18 +215,20 @@ export const ComparisonLayout = ({
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.3, type: "spring" }}
+        style={{ flexShrink: 0 }}
       >
-        <span className="vs-text">VS</span>
+        <span className="vs-text" style={{ fontSize: 'clamp(1.2rem, 3vw, 2rem)' }}>VS</span>
       </motion.div>
       
       <motion.div 
-        className="comparison-right"
+        className="comparison-right glass-card"
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        style={{ maxWidth: '45%', maxHeight: '100%', overflow: 'auto' }}
       >
-        <div className="comparison-option-title" role="heading" aria-level="2">{rightOption}</div>
-        <div className="comparison-details">{rightDetails}</div>
+        <div className="comparison-option-title" role="heading" aria-level="2" style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.8rem)' }}>{rightOption}</div>
+        <div className="comparison-details" style={{ fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>{rightDetails}</div>
       </motion.div>
     </div>
     
@@ -224,6 +238,7 @@ export const ComparisonLayout = ({
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.4 }}
+        style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', maxHeight: '10vh', overflow: 'auto', flexShrink: 0 }}
       >
         {summary}
       </motion.div>
@@ -242,23 +257,29 @@ export const GridLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="grid-layout">
+    <div className="grid-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
     {particles}
     <motion.div 
       className="grid-header"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
+      style={{ flexShrink: 0 }}
     >
-      <h1 className="grid-title">
+      <h1 className="grid-title" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}>
         <GradientText>{title}</GradientText>
       </h1>
-      {subtitle && <div className="grid-subtitle">{subtitle}</div>}
+      {subtitle && <div className="grid-subtitle" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}>{subtitle}</div>}
     </motion.div>
     
     <div 
       className="grid-cards"
-      style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+      style={{ 
+        gridTemplateColumns: `repeat(${columns}, 1fr)`,
+        maxHeight: 'calc(88vh - 10rem)',
+        overflow: 'auto',
+        flexWrap: 'wrap'
+      }}
     >
       {cards.map((card, index) => (
         <motion.div 
@@ -273,6 +294,7 @@ export const GridLayout = ({
             stiffness: 100
           }}
           whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+          style={{ maxWidth: '90%', overflow: 'hidden' }}
         >
           {card}
         </motion.div>
@@ -285,6 +307,7 @@ export const GridLayout = ({
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.5 }}
+        style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', flexShrink: 0 }}
       >
         {summary}
       </motion.div>
@@ -303,18 +326,19 @@ export const TableLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="table-layout">
+    <div className="table-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
     {particles}
     <motion.div 
       className="table-header"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
+      style={{ flexShrink: 0 }}
     >
-      <h1 className="table-title">
+      <h1 className="table-title" style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}>
         <GradientText>{title}</GradientText>
       </h1>
-      {subtitle && <div className="table-subtitle">{subtitle}</div>}
+      {subtitle && <div className="table-subtitle" style={{ fontSize: 'clamp(1.1rem, 2vw, 1.5rem)' }}>{subtitle}</div>}
     </motion.div>
     
     <motion.div 
@@ -322,12 +346,13 @@ export const TableLayout = ({
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
+      style={{ maxHeight: 'calc(88vh - 12rem)', overflow: 'auto' }}
     >
       {tableContent}
     </motion.div>
     
     {metrics && (
-      <div className="table-metrics">
+      <div className="table-metrics" style={{ flexWrap: 'wrap', flexShrink: 0 }}>
         {metrics.map((metric, index) => (
           <motion.div 
             key={index}
@@ -335,6 +360,7 @@ export const TableLayout = ({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+            style={{ maxWidth: '30%', overflow: 'hidden' }}
           >
             {metric}
           </motion.div>
@@ -348,6 +374,7 @@ export const TableLayout = ({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.5 }}
+        style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
       >
         {notes}
       </motion.div>
@@ -366,20 +393,21 @@ export const HeroLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="hero-layout">
+    <div className="hero-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
     {particles}
     {backgroundVisual && (
-      <div className="hero-background">
+      <div className="hero-background" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
         {backgroundVisual}
       </div>
     )}
     
-    <div className="hero-content">
+    <div className="hero-content" style={{ maxHeight: '88vh', overflow: 'auto', display: 'flex', flexDirection: 'column', flexWrap: 'wrap' }}>
       <motion.h1 
         className="hero-title"
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: "spring" }}
+        style={{ fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)', flexShrink: 0 }}
       >
         {title}
       </motion.h1>
@@ -390,6 +418,7 @@ export const HeroLayout = ({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', flexShrink: 0, maxWidth: '85%' }}
         >
           {subtitle}
         </motion.div>
@@ -401,6 +430,7 @@ export const HeroLayout = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.3 }}
+          style={{ maxWidth: '90%', maxHeight: 'calc(88vh - 15rem)', overflow: 'auto', flexWrap: 'wrap' }}
         >
           {overlayContent}
         </motion.div>
@@ -412,6 +442,7 @@ export const HeroLayout = ({
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          style={{ flexShrink: 0 }}
         >
           {ctaButton}
         </motion.div>
