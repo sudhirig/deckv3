@@ -22,7 +22,12 @@ import {
   Trophy,
   Circle,
   Clipboard,
-  XCircle
+  XCircle,
+  RefreshCcw,
+  Sparkles,
+  Search,
+  FileText,
+  Handshake
 } from 'lucide-react'
 
 const iconMap = {
@@ -38,6 +43,7 @@ const iconMap = {
   zap: Zap,
   target: Target,
   users: Users,
+  user: Users,
   dollar: DollarSign,
   dollarSign: DollarSign,
   barChart: BarChart3,
@@ -51,7 +57,12 @@ const iconMap = {
   trophy: Trophy,
   circle: Circle,
   clipboard: Clipboard,
-  xCircle: XCircle
+  xCircle: XCircle,
+  refresh: RefreshCcw,
+  sparkles: Sparkles,
+  search: Search,
+  fileText: FileText,
+  handshake: Handshake
 }
 
 export default function Icon({ 
