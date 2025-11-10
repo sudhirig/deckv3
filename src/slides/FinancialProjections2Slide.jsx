@@ -4,7 +4,7 @@ import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import CircularProgress from '../components/CircularProgress'
 import { Calculator, TrendingUp, Users, DollarSign, Repeat, Target } from 'lucide-react'
-import { pxToRem, SPACING } from '../utils/responsive'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FinancialProjections2Slide() {
@@ -57,7 +57,7 @@ export default function FinancialProjections2Slide() {
           padding: SPACING.md
         }}
       >
-        <h3 style={{ color: '#60a5fa', marginBottom: SPACING.md, fontSize: '1.1rem' }}>
+        <h3 style={{ color: '#60a5fa', marginBottom: SPACING.md, fontSize: TYPOGRAPHY.subheadline }}>
           Unit Economics
         </h3>
         
@@ -70,7 +70,7 @@ export default function FinancialProjections2Slide() {
           }}>
             <DollarSign size={20} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
             <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>CAC</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+            <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#e2e8f0' }}>
               ${unitEconomics.cac.toLocaleString()}
             </div>
           </div>
@@ -83,7 +83,7 @@ export default function FinancialProjections2Slide() {
           }}>
             <TrendingUp size={20} style={{ color: '#fbbf24', margin: '0 auto 0.5rem' }} />
             <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>LTV</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#e2e8f0' }}>
+            <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#e2e8f0' }}>
               ${unitEconomics.ltv.toLocaleString()}
             </div>
           </div>
@@ -96,7 +96,7 @@ export default function FinancialProjections2Slide() {
           }}>
             <Calculator size={20} style={{ color: '#c084fc', margin: '0 auto 0.5rem' }} />
             <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>LTV/CAC</div>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>
+            <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#4ade80' }}>
               {unitEconomics.ratio}:1
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function FinancialProjections2Slide() {
             padding: SPACING.sm
           }}
         >
-          <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: '1rem' }}>
+          <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
             Revenue Streams (Y5)
           </h4>
           {revenueStreams.map((stream, index) => (
@@ -204,7 +204,7 @@ export default function FinancialProjections2Slide() {
             padding: SPACING.sm
           }}
         >
-          <h4 style={{ color: '#a78bfa', marginBottom: SPACING.sm, fontSize: '1rem' }}>
+          <h4 style={{ color: '#a78bfa', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
             Cohort Retention
           </h4>
           <div style={{ display: 'flex', justifyContent: 'space-between', gap: SPACING.xs }}>
@@ -235,7 +235,7 @@ export default function FinancialProjections2Slide() {
       background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.1))',
       textAlign: 'center'
     }}>
-      <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>17.8:1</div>
+      <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#4ade80' }}>17.8:1</div>
       <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>LTV/CAC Ratio</div>
     </div>,
     
@@ -244,7 +244,7 @@ export default function FinancialProjections2Slide() {
       background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.1))',
       textAlign: 'center'
     }}>
-      <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}>3.5mo</div>
+      <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24' }}>3.5mo</div>
       <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Payback Period</div>
     </div>,
     
@@ -253,7 +253,7 @@ export default function FinancialProjections2Slide() {
       background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(168, 85, 247, 0.1))',
       textAlign: 'center'
     }}>
-      <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#a78bfa' }}>94%</div>
+      <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa' }}>94%</div>
       <div style={{ fontSize: '0.9rem', color: '#94a3b8' }}>12M Retention</div>
     </div>
   ]

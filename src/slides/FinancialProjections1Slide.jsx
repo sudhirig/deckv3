@@ -5,7 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
 import ResponsiveTable from '../components/ResponsiveTable'
 import { TrendingUp, DollarSign, Users, Target, BarChart3, PiggyBank, Rocket } from 'lucide-react'
-import { pxToRem, SPACING } from '../utils/responsive'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FinancialProjections1Slide() {
@@ -32,7 +32,7 @@ export default function FinancialProjections1Slide() {
       <GradientText gradient="from-green-400 to-emerald-400">
         Financial Projections: Path to $5B AUM
       </GradientText>
-      <p style={{ fontSize: '1.1rem', color: '#94a3b8', textAlign: 'center', marginTop: '0.5rem' }}>
+      <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', textAlign: 'center', marginTop: SPACING.xs }}>
         Conservative projections with massive upside potential
       </p>
     </>
@@ -51,7 +51,7 @@ export default function FinancialProjections1Slide() {
         width: '100%'
       }}
     >
-      <h3 style={{ color: '#60a5fa', marginBottom: '1.5rem', fontSize: '1.2rem' }}>
+      <h3 style={{ color: '#60a5fa', marginBottom: SPACING.md, fontSize: TYPOGRAPHY.subheadline }}>
         5-Year AUM Growth Trajectory
       </h3>
       
@@ -162,7 +162,7 @@ export default function FinancialProjections1Slide() {
   // Key insights
   const keyInsights = (
     <div style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#22c55e', fontSize: '1.2rem' }}>
+      <h3 style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline }}>
         📊 Market Opportunity
       </h3>
       
@@ -187,7 +187,7 @@ export default function FinancialProjections1Slide() {
                 {metric.label}
               </div>
             </div>
-            <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+            <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#e2e8f0', marginBottom: SPACING.xs }}>
               {metric.value}
             </div>
             <div style={{ fontSize: '0.85rem', color: '#64748b' }}>

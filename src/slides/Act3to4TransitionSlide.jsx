@@ -43,7 +43,8 @@ const Act3to4TransitionSlide = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg, marginBottom: SPACING.sm }}>
             <motion.div
-              animate={{ rotate: 360 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
                 width: pxToRem(80),
@@ -65,15 +66,15 @@ const Act3to4TransitionSlide = () => {
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#a855f7' }}>
+                <span style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a855f7' }}>
                   <AnimatedCounter end={60} duration={1500} />%
                 </span>
               </div>
             </motion.div>
             
             <div>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>JOURNEY PROGRESS</p>
-              <h2 style={{ fontSize: '1.8rem', color: '#fff', fontWeight: '600' }}>Act 3 → Act 4</h2>
+              <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginBottom: SPACING.xs }}>JOURNEY PROGRESS</p>
+              <h2 style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fff', fontWeight: '600' }}>Act 3 → Act 4</h2>
             </div>
           </div>
         </motion.div>
@@ -123,7 +124,7 @@ const Act3to4TransitionSlide = () => {
             <Rocket className="w-20 h-20 text-purple-400" />
           </motion.div>
           
-          <h2 style={{ fontSize: pxToRem(40), marginBottom: SPACING.sm }}>
+          <h2 style={{ fontSize: TYPOGRAPHY.hero, marginBottom: SPACING.sm }}>
             <GradientText gradient="from-purple-400 to-pink-400">
               Ready to Scale
             </GradientText>
@@ -326,10 +327,10 @@ const Act3to4TransitionSlide = () => {
           >
             <ArrowUpRight className="w-12 h-12 text-yellow-400 mx-auto mb-2" />
           </motion.div>
-          <p style={{ fontSize: pxToRem(21), color: '#fbbf24', fontWeight: 'bold' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fbbf24', fontWeight: 'bold' }}>
             Platform Proven. Market Validated. Team Ready.
           </p>
-          <p style={{ fontSize: SPACING.sm, color: '#94a3b8', marginTop: SPACING.xs }}>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginTop: SPACING.xs }}>
             Let's meet the team making this $5T opportunity real
           </p>
         </motion.div>

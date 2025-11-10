@@ -43,7 +43,8 @@ const Act2to3TransitionSlide = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg, marginBottom: SPACING.sm }}>
             <motion.div
-              animate={{ rotate: 360 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
                 width: pxToRem(80),
@@ -65,15 +66,15 @@ const Act2to3TransitionSlide = () => {
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#3b82f6' }}>
+                <span style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#3b82f6' }}>
                   <AnimatedCounter end={40} duration={1500} />%
                 </span>
               </div>
             </motion.div>
             
             <div>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>JOURNEY PROGRESS</p>
-              <h2 style={{ fontSize: '1.8rem', color: '#fff', fontWeight: '600' }}>Act 2 → Act 3</h2>
+              <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginBottom: SPACING.xs }}>JOURNEY PROGRESS</p>
+              <h2 style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fff', fontWeight: '600' }}>Act 2 → Act 3</h2>
             </div>
           </div>
         </motion.div>
@@ -122,10 +123,10 @@ const Act2to3TransitionSlide = () => {
             <Sparkles className="w-16 h-16 text-blue-400" />
           </motion.div>
           
-          <h2 style={{ fontSize: pxToRem(40), color: '#60a5fa', marginBottom: SPACING.sm }}>
+          <h2 style={{ fontSize: TYPOGRAPHY.hero, color: '#60a5fa', marginBottom: SPACING.sm }}>
             68+ AI Agents Working 24/7
           </h2>
-          <p style={{ fontSize: pxToRem(19), color: '#94a3b8' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#94a3b8' }}>
             Let's see them in action
           </p>
         </motion.div>
@@ -342,10 +343,10 @@ const Act2to3TransitionSlide = () => {
             border: '1px solid rgba(139, 92, 246, 0.3)'
           }}
         >
-          <p style={{ fontSize: pxToRem(21), color: '#8b5cf6', fontWeight: 'bold' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#8b5cf6', fontWeight: 'bold' }}>
             Platform is 100% operational. Ready to see the deep dive?
           </p>
-          <p style={{ fontSize: SPACING.sm, color: '#94a3b8', marginTop: SPACING.xs }}>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginTop: SPACING.xs }}>
             Let's explore our three defensible moats and live platform demos
           </p>
         </motion.div>

@@ -43,7 +43,8 @@ const Act4to5TransitionSlide = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg, marginBottom: SPACING.sm }}>
             <motion.div
-              animate={{ rotate: 360 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
                 width: pxToRem(80),
@@ -65,15 +66,15 @@ const Act4to5TransitionSlide = () => {
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#fbbf24' }}>
+                <span style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24' }}>
                   <AnimatedCounter end={80} duration={1500} />%
                 </span>
               </div>
             </motion.div>
             
             <div>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>JOURNEY PROGRESS</p>
-              <h2 style={{ fontSize: '1.8rem', color: '#fff', fontWeight: '600' }}>Act 4 → Act 5</h2>
+              <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginBottom: SPACING.xs }}>JOURNEY PROGRESS</p>
+              <h2 style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fff', fontWeight: '600' }}>Act 4 → Act 5</h2>
             </div>
           </div>
         </motion.div>
@@ -122,12 +123,12 @@ const Act4to5TransitionSlide = () => {
             <Gem className="w-24 h-24 text-yellow-400" />
           </motion.div>
           
-          <h2 style={{ fontSize: pxToRem(40), marginBottom: SPACING.xs }}>
+          <h2 style={{ fontSize: TYPOGRAPHY.hero, marginBottom: SPACING.xs }}>
             <GradientText gradient="from-yellow-400 to-orange-400">
               $5 Trillion Opportunity
             </GradientText>
           </h2>
-          <p style={{ fontSize: pxToRem(19), color: '#94a3b8' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#94a3b8' }}>
             Ready to lead this transformation together
           </p>
         </motion.div>
@@ -380,10 +381,10 @@ const Act4to5TransitionSlide = () => {
           >
             <Gem className="w-12 h-12 text-purple-400 mx-auto mb-2" />
           </motion.div>
-          <p style={{ fontSize: pxToRem(21), color: '#a855f7', fontWeight: 'bold' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#a855f7', fontWeight: 'bold' }}>
             The moment is now. The team is ready. The platform is live.
           </p>
-          <p style={{ fontSize: SPACING.sm, color: '#94a3b8', marginTop: SPACING.xs }}>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginTop: SPACING.xs }}>
             Let's discuss how we build the future of wealth management together
           </p>
         </motion.div>

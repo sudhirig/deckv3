@@ -43,7 +43,8 @@ const Act1to2TransitionSlide = () => {
         >
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: SPACING.lg, marginBottom: SPACING.sm }}>
             <motion.div
-              animate={{ rotate: 360 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
                 width: pxToRem(80),
@@ -65,15 +66,15 @@ const Act1to2TransitionSlide = () => {
                 alignItems: 'center',
                 justifyContent: 'center'
               }}>
-                <span style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#22c55e' }}>
+                <span style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e' }}>
                   <AnimatedCounter end={20} duration={1500} />%
                 </span>
               </div>
             </motion.div>
             
             <div>
-              <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>JOURNEY PROGRESS</p>
-              <h2 style={{ fontSize: '1.8rem', color: '#fff', fontWeight: '600' }}>Act 1 → Act 2</h2>
+              <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginBottom: SPACING.xs }}>JOURNEY PROGRESS</p>
+              <h2 style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fff', fontWeight: '600' }}>Act 1 → Act 2</h2>
             </div>
           </div>
         </motion.div>
@@ -135,7 +136,7 @@ const Act1to2TransitionSlide = () => {
               </div>
               
               <AnimatedText delay={0.8}>
-                <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#f8f9fa' }}>
+                <div style={{ fontSize: TYPOGRAPHY.body, lineHeight: '1.8', color: '#f8f9fa' }}>
                   <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -209,7 +210,7 @@ const Act1to2TransitionSlide = () => {
               </div>
               
               <AnimatedText delay={1.2}>
-                <div style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#f8f9fa' }}>
+                <div style={{ fontSize: TYPOGRAPHY.body, lineHeight: '1.8', color: '#f8f9fa' }}>
                   <motion.div 
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -297,10 +298,10 @@ const Act1to2TransitionSlide = () => {
             border: '1px solid rgba(251, 191, 36, 0.3)'
           }}
         >
-          <p style={{ fontSize: pxToRem(21), color: '#fbbf24', fontWeight: 'bold' }}>
+          <p style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fbbf24', fontWeight: 'bold' }}>
             Ready to see how AI transforms wealth management?
           </p>
-          <p style={{ fontSize: SPACING.sm, color: '#94a3b8', marginTop: SPACING.xs }}>
+          <p style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8', marginTop: SPACING.xs }}>
             Let's explore the solution that's already managing real portfolios
           </p>
         </motion.div>

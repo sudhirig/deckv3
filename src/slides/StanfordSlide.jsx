@@ -6,7 +6,7 @@ import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import CircularProgress from '../components/CircularProgress'
 import { GraduationCap, QrCode, TrendingUp, Award, BarChart3 } from 'lucide-react'
-import { pxToRem, SPACING } from '../utils/responsive'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function StanfordSlide() {
@@ -77,7 +77,7 @@ export default function StanfordSlide() {
         transition={{ delay: 1.2 }}
         style={{ flex: 1 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '1.2rem' }}>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
           Performance Comparison
         </h3>
         <div style={{ display: 'flex', alignItems: 'flex-end', height: pxToRem(180), maxHeight: '30vh', gap: SPACING.md }}>
@@ -143,10 +143,10 @@ export default function StanfordSlide() {
         className="glass-card"
         style={{ padding: '1.5rem' }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: '1rem', fontSize: '1.2rem' }}>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
           📊 Stanford Research Findings
         </h3>
-        <ul style={{ fontSize: '1rem', lineHeight: '1.8', color: '#e2e8f0' }}>
+        <ul style={{ fontSize: TYPOGRAPHY.body, lineHeight: '1.8', color: '#e2e8f0' }}>
           <li>• 93% of AI-managed portfolios beat human managers</li>
           <li>• Average outperformance: <span style={{ color: '#14b8a6', fontWeight: 'bold' }}>+5.4% annually</span></li>
           <li>• 6x improvement in risk-adjusted returns</li>

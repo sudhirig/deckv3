@@ -5,7 +5,7 @@ import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
 import { TrendingUp, Users, DollarSign, Activity, Globe, Shield, Clock, CheckCircle, Target } from 'lucide-react'
-import { pxToRem, SPACING } from '../utils/responsive'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function TractionDashboardSlide() {
@@ -69,7 +69,7 @@ export default function TractionDashboardSlide() {
   const cards = [
     // Column 1: Key Metrics
     <div key="metrics" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#22c55e', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
         📈 Performance Metrics
       </h3>
       
@@ -86,10 +86,10 @@ export default function TractionDashboardSlide() {
           <DollarSign size={28} color="#22c55e" />
           <span style={{ color: '#22c55e', fontSize: '0.9rem' }}>+23.4%</span>
         </div>
-        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#22c55e', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e', marginBottom: SPACING.xs }}>
           {formatNumber(liveMetrics.aum)}
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Assets Under Management</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Assets Under Management</div>
       </motion.div>
 
       {/* Active Clients */}
@@ -105,10 +105,10 @@ export default function TractionDashboardSlide() {
           <Users size={28} color="#60a5fa" />
           <span style={{ color: '#60a5fa', fontSize: '0.9rem' }}>+7 this month</span>
         </div>
-        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#60a5fa', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#60a5fa', marginBottom: SPACING.xs }}>
           {liveMetrics.clients}
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Active HNW Clients</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Active HNW Clients</div>
       </motion.div>
 
       {/* Daily Volume */}
@@ -124,16 +124,16 @@ export default function TractionDashboardSlide() {
           <Activity size={28} color="#a78bfa" />
           <span style={{ color: '#4ade80', fontSize: '0.9rem' }}>LIVE</span>
         </div>
-        <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#a78bfa', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa', marginBottom: SPACING.xs }}>
           {formatNumber(liveMetrics.dailyVolume)}
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Daily Trade Volume</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Daily Trade Volume</div>
       </motion.div>
     </div>,
 
     // Column 2: Milestones & Timeline
     <div key="timeline" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#60a5fa', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
         🚀 Execution Timeline
       </h3>
       
@@ -185,7 +185,7 @@ export default function TractionDashboardSlide() {
 
     // Column 3: Growth Metrics & Achievements
     <div key="growth" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#a78bfa', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
+      <h3 style={{ color: '#a78bfa', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
         🏆 Key Achievements
       </h3>
       
@@ -199,10 +199,10 @@ export default function TractionDashboardSlide() {
         }}
       >
         <TrendingUp size={28} color="#fbbf24" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24', marginBottom: SPACING.xs }}>
           312%
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Monthly Growth Rate</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Monthly Growth Rate</div>
       </motion.div>
 
       {/* Global Coverage */}
@@ -215,10 +215,10 @@ export default function TractionDashboardSlide() {
         }}
       >
         <Globe size={28} color="#14b8a6" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#14b8a6', marginBottom: SPACING.xs }}>
           12 Markets
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Global Coverage</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Global Coverage</div>
       </motion.div>
 
       {/* Success Rate */}
@@ -231,10 +231,10 @@ export default function TractionDashboardSlide() {
         }}
       >
         <Shield size={28} color="#ef4444" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ef4444', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ef4444', marginBottom: SPACING.xs }}>
           99.97%
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Platform Uptime</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Platform Uptime</div>
       </motion.div>
 
       {/* Active Sessions */}
@@ -247,10 +247,10 @@ export default function TractionDashboardSlide() {
         }}
       >
         <Activity size={28} color="#ec4899" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#ec4899', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ec4899', marginBottom: SPACING.xs }}>
           {liveMetrics.activeSessions}
         </div>
-        <div style={{ fontSize: '1rem', color: '#94a3b8' }}>Active Sessions Now</div>
+        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Active Sessions Now</div>
       </motion.div>
     </div>
   ]

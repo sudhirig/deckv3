@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { PieChart, BarChart, TrendingUp, Users, DollarSign, Target } from 'lucide-react'
-import { pxToRem, SPACING } from '../utils/responsive'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function FinancialProjections3Slide() {
@@ -46,7 +46,7 @@ export default function FinancialProjections3Slide() {
         height: '100%'
       }}
     >
-      <h3 style={{ color: '#fbbf24', marginBottom: SPACING.md, fontSize: '1.2rem' }}>
+      <h3 style={{ color: '#fbbf24', marginBottom: SPACING.md, fontSize: TYPOGRAPHY.subheadline }}>
         $5M Seed Round Allocation
       </h3>
       
@@ -124,7 +124,7 @@ export default function FinancialProjections3Slide() {
           flex: 1
         }}
       >
-        <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: '1.1rem' }}>
+        <h4 style={{ color: '#4ade80', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
           Key Milestones
         </h4>
         {milestones.map((item, index) => (
@@ -165,7 +165,7 @@ export default function FinancialProjections3Slide() {
           padding: SPACING.md
         }}
       >
-        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.sm, fontSize: '1.1rem' }}>
+        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
           Burn Rate & Runway
         </h4>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '0.8rem' }}>
@@ -185,7 +185,7 @@ export default function FinancialProjections3Slide() {
               <div style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
                 {item.month}
               </div>
-              <div style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#60a5fa' }}>
+              <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#60a5fa' }}>
                 ${item.burn}K
               </div>
               <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
@@ -215,17 +215,17 @@ export default function FinancialProjections3Slide() {
     >
       <div style={{ textAlign: 'center' }}>
         <Target size={24} color="#a78bfa" style={{ margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#a78bfa' }}>Q4 2025</div>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa' }}>Q4 2025</div>
         <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Break-even</div>
       </div>
       <div style={{ textAlign: 'center' }}>
         <DollarSign size={24} color="#4ade80" style={{ margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>$1B</div>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#4ade80' }}>$1B</div>
         <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Y3 Target AUM</div>
       </div>
       <div style={{ textAlign: 'center' }}>
         <Users size={24} color="#fbbf24" style={{ margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>500</div>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24' }}>500</div>
         <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Y3 Clients</div>
       </div>
     </motion.div>
