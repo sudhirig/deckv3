@@ -53,6 +53,7 @@ const FutureModulesConceptSlide = () => {
         </motion.div>
         
         <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: [0, 1, 0], scaleX: [0, 1, 0] }}
           transition={{ duration: 10, repeat: Infinity }}
           style={{
@@ -132,6 +133,7 @@ const FutureModulesConceptSlide = () => {
                   </motion.div>
                   <span style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>{item.market}</span>
                   <motion.span
+                    initial={{ opacity: 0.5 }}
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                     style={{ marginLeft: 'auto', color: item.color }}
@@ -298,6 +300,7 @@ const FutureModulesConceptSlide = () => {
                 </span>
                 
                 <motion.div
+                  initial={{ scale: 1, opacity: 0.5 }}
                   animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
                   style={{

@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Globe, Brain, MessageSquare, Activity, TrendingUp, BarChart2, Newspaper, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const SentimentModuleConceptSlide = () => {
@@ -32,7 +33,7 @@ const SentimentModuleConceptSlide = () => {
 
   const overlayContent = (
     <motion.div
-      initial={{ opacity: 0, y: 3.125 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, type: 'spring' }}
       className="glass-card"
@@ -103,7 +104,7 @@ const SentimentModuleConceptSlide = () => {
             position: 'absolute',
             top: '50%',
             left: 0,
-            height: '2px',
+            height: pxToRem(2),
             width: '6.25rem',
             background: 'linear-gradient(90deg, transparent, #3b82f6, transparent)',
             zIndex: 0

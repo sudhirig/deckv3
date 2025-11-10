@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ComparisonLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GIFTSolutionSlide() {
@@ -19,19 +20,19 @@ export default function GIFTSolutionSlide() {
 
   const leftDetails = (
     <div style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-      <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+      <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(8) }}>
         <p style={{ fontWeight: 'bold', color: '#fca5a5' }}>Complex Setup</p>
         <p style={{ color: '#e2e8f0' }}>Multi-month FPI registration process</p>
       </div>
-      <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+      <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(8) }}>
         <p style={{ fontWeight: 'bold', color: '#fca5a5' }}>Heavy Tax Burden</p>
         <p style={{ color: '#e2e8f0' }}>Capital Gains Tax + STT drags returns</p>
       </div>
-      <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+      <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(8) }}>
         <p style={{ fontWeight: 'bold', color: '#fca5a5' }}>Currency Risk</p>
         <p style={{ color: '#e2e8f0' }}>INR depreciation erodes gains</p>
       </div>
-      <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '8px' }}>
+      <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(8) }}>
         <p style={{ fontWeight: 'bold', color: '#fca5a5' }}>Restricted Movement</p>
         <p style={{ color: '#e2e8f0' }}>Slow, complex repatriation process</p>
       </div>
@@ -46,19 +47,19 @@ export default function GIFTSolutionSlide() {
   const rightDetails = (
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <div style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
-        <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: '8px' }}>
+        <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontWeight: 'bold', color: '#5eead4' }}>Direct Access via IFSC</p>
           <p style={{ color: '#e2e8f0' }}>Streamlined setup for foreign investors</p>
         </div>
-        <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: '8px' }}>
+        <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontWeight: 'bold', color: '#5eead4' }}>0% Capital Gains Tax</p>
           <p style={{ color: '#e2e8f0' }}>No CGT, no STT - keep all your gains</p>
         </div>
-        <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: '8px' }}>
+        <div style={{ marginBottom: '1.5rem', padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontWeight: 'bold', color: '#5eead4' }}>USD-Based Trading</p>
           <p style={{ color: '#e2e8f0' }}>Eliminate currency risk entirely</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontWeight: 'bold', color: '#5eead4' }}>Free Capital Movement</p>
           <p style={{ color: '#e2e8f0' }}>Instant repatriation, no restrictions</p>
         </div>
@@ -73,8 +74,8 @@ export default function GIFTSolutionSlide() {
           marginTop: '1.5rem', 
           padding: '1.5rem', 
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(20, 184, 166, 0.15))', 
-          borderRadius: '12px', 
-          border: '2px solid rgba(34, 197, 94, 0.3)' 
+          borderRadius: pxToRem(12), 
+          border: `${pxToRem(2)} solid rgba(34, 197, 94, 0.3)` 
         }}
       >
         <Icon type="unlock" size={40} gradient="from-green-400 to-emerald-400" delay={0.3} />
@@ -93,9 +94,9 @@ export default function GIFTSolutionSlide() {
       style={{
         padding: '1.5rem',
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.1))',
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         textAlign: 'center',
-        border: '2px solid rgba(251, 191, 36, 0.3)'
+        border: `${pxToRem(2)} solid rgba(251, 191, 36, 0.3)`
       }}
     >
       <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#fbbf24' }}>

@@ -3,6 +3,7 @@ import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { Check, ArrowRight } from 'lucide-react'
 import Icon from '../components/Icon'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function LivePlatformSlide() {
@@ -26,7 +27,7 @@ export default function LivePlatformSlide() {
       style={{ 
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.1))', 
         padding: '1.5rem',
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         height: '100%'
       }}
     >
@@ -59,7 +60,7 @@ export default function LivePlatformSlide() {
       style={{ 
         background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(124, 58, 237, 0.1))', 
         padding: '1.5rem',
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         height: '100%'
       }}
     >
@@ -82,7 +83,7 @@ export default function LivePlatformSlide() {
       style={{ 
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.1))', 
         padding: '1.5rem',
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         height: '100%'
       }}
     >
@@ -114,8 +115,8 @@ export default function LivePlatformSlide() {
         textAlign: 'center', 
         background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(20, 184, 166, 0.15))', 
         padding: '2rem', 
-        borderRadius: '16px',
-        border: '2px solid rgba(34, 197, 94, 0.3)'
+        borderRadius: pxToRem(16),
+        border: `${pxToRem(2)} solid rgba(34, 197, 94, 0.3)`
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>

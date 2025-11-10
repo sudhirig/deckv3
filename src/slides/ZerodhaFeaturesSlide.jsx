@@ -171,6 +171,7 @@ export default function ZerodhaFeaturesSlide() {
       
       {hoveredFeature === 'voice' && (
         <motion.div
+          initial={{ opacity: 0.2 }}
           animate={{ opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 2, repeat: Infinity }}
           style={{
@@ -278,6 +279,7 @@ export default function ZerodhaFeaturesSlide() {
       
       {hoveredFeature === 'dashboard' && (
         <motion.div
+          initial={{ opacity: 0.2 }}
           animate={{ opacity: [0.2, 0.4, 0.2] }}
           transition={{ duration: 2, repeat: Infinity }}
           style={{
@@ -465,6 +467,7 @@ export default function ZerodhaFeaturesSlide() {
       {hoveredFeature === 'speed' && (
         <>
           <motion.div
+            initial={{ opacity: 0.2 }}
             animate={{ opacity: [0.2, 0.4, 0.2] }}
             transition={{ duration: 2, repeat: Infinity }}
             style={{

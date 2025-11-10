@@ -7,6 +7,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import { Rocket, Target, Trophy, TrendingUp, Users, Globe, DollarSign, Star } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const GiftCityGrowthStagesSlide = () => {
@@ -73,7 +74,7 @@ const GiftCityGrowthStagesSlide = () => {
   const renderStageCard = (stage, index) => (
     <div style={{
       background: `linear-gradient(135deg, ${stage.color}10 0%, ${stage.color}05 100%)`,
-      border: `${index === 2 ? '2px' : '1px'} solid ${stage.color}${index === 2 ? '40' : '30'}`,
+      border: `${index === 2 ? pxToRem(2) : pxToRem(1)} solid ${stage.color}${index === 2 ? '40' : '30'}`,
       borderRadius: '1rem',
       padding: '1.25rem',
       position: 'relative',
@@ -238,7 +239,7 @@ const GiftCityGrowthStagesSlide = () => {
           height: '1.25rem',
           borderRadius: '50%',
           background: '#3b82f6',
-          border: '3px solid #0a0a0a'
+          border: `${pxToRem(3)} solid #0a0a0a`
         }}
       />
       <motion.div
@@ -254,7 +255,7 @@ const GiftCityGrowthStagesSlide = () => {
           height: '1.25rem',
           borderRadius: '50%',
           background: '#10b981',
-          border: '3px solid #0a0a0a'
+          border: `${pxToRem(3)} solid #0a0a0a`
         }}
       />
       <motion.div
@@ -270,7 +271,7 @@ const GiftCityGrowthStagesSlide = () => {
           height: '1.25rem',
           borderRadius: '50%',
           background: '#f59e0b',
-          border: '3px solid #0a0a0a'
+          border: `${pxToRem(3)} solid #0a0a0a`
         }}
       />
     </motion.div>
@@ -284,7 +285,7 @@ const GiftCityGrowthStagesSlide = () => {
       style={{
         padding: '1.5rem',
         background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(236, 72, 153, 0.05) 100%)',
-        border: '1px solid rgba(168, 85, 247, 0.3)',
+        border: `${pxToRem(1)} solid rgba(168, 85, 247, 0.3)`,
         borderRadius: '1rem',
         textAlign: 'center'
       }}

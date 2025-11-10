@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { TrendingUp, DollarSign, PiggyBank, BarChart3 } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function ValueCreationSlide() {
@@ -17,8 +18,8 @@ export default function ValueCreationSlide() {
     <div style={{ 
       background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(34, 197, 94, 0.1))', 
       padding: '2.5rem', 
-      borderRadius: '16px', 
-      border: '2px solid rgba(20, 184, 166, 0.3)'
+      borderRadius: pxToRem(16), 
+      border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`
     }}>
       <h3 style={{ fontSize: '1.8rem', color: '#14b8a6', textAlign: 'center', marginBottom: '2rem' }}>
         Example: $10M Portfolio
@@ -36,7 +37,7 @@ export default function ValueCreationSlide() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: '8px' }}
+              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: pxToRem(8) }}
             >
               <span>Tax Alpha (1.8%)</span>
               <span style={{ color: '#22c55e', fontWeight: 'bold', fontSize: '1.3rem' }}>$180,000</span>
@@ -45,7 +46,7 @@ export default function ValueCreationSlide() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
-              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: '8px' }}
+              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: pxToRem(8) }}
             >
               <span>Alternative Access (3%)</span>
               <span style={{ color: '#22c55e', fontWeight: 'bold', fontSize: '1.3rem' }}>$300,000</span>
@@ -54,7 +55,7 @@ export default function ValueCreationSlide() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
-              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: '8px' }}
+              style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem', padding: '0.75rem', background: 'rgba(34, 197, 94, 0.1)', borderRadius: pxToRem(8) }}
             >
               <span>GIFT City Savings</span>
               <span style={{ color: '#22c55e', fontWeight: 'bold', fontSize: '1.3rem' }}>$120,000</span>
@@ -69,7 +70,7 @@ export default function ValueCreationSlide() {
                 paddingTop: '1.5rem',
                 background: 'rgba(34, 197, 94, 0.15)',
                 padding: '1.5rem',
-                borderRadius: '8px'
+                borderRadius: pxToRem(8)
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.5rem' }}>
@@ -96,7 +97,7 @@ export default function ValueCreationSlide() {
               marginBottom: '2rem',
               padding: '0.75rem',
               background: 'rgba(251, 191, 36, 0.1)',
-              borderRadius: '8px'
+              borderRadius: pxToRem(8)
             }}
           >
             <span style={{ fontSize: '1.2rem' }}>Annual Fee (0.75%)</span>
@@ -116,7 +117,7 @@ export default function ValueCreationSlide() {
       style={{ 
         padding: '2.5rem', 
         background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(16, 185, 129, 0.15))', 
-        borderRadius: '16px', 
+        borderRadius: pxToRem(16), 
         textAlign: 'center',
         border: '2px solid rgba(34, 197, 94, 0.3)'
       }}
@@ -147,8 +148,8 @@ export default function ValueCreationSlide() {
       <div style={{ 
         padding: '1.5rem', 
         background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(124, 58, 237, 0.1))', 
-        borderRadius: '12px',
-        borderLeft: '3px solid #9333ea'
+        borderRadius: pxToRem(12),
+        borderLeft: `${pxToRem(3)} solid #9333ea`
       }}>
         <PiggyBank size={24} color="#a78bfa" style={{ marginBottom: '0.5rem' }} />
         <h4 style={{ color: '#a78bfa', fontSize: '1.2rem', marginBottom: '0.5rem' }}>Client Retention Driver</h4>
@@ -160,7 +161,7 @@ export default function ValueCreationSlide() {
       <div style={{ 
         padding: '1.5rem', 
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))', 
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         borderLeft: '3px solid #fbbf24'
       }}>
         <TrendingUp size={24} color="#fbbf24" style={{ marginBottom: '0.5rem' }} />

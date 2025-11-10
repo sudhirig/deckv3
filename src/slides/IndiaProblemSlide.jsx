@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ComparisonLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function IndiaProblemSlide() {
@@ -30,7 +31,7 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4 }}
-        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '12px' }}
+        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
         <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
           📋 Complex Red Tape
@@ -42,7 +43,7 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
-        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '12px' }}
+        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
         <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
           💸 Crippling Tax
@@ -54,7 +55,7 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.6 }}
-        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '12px' }}
+        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
         <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
           📉 Currency Risk
@@ -66,7 +67,7 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.7 }}
-        style={{ padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: '12px' }}
+        style={{ padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
         <p style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
           🚫 Repatriation Nightmare
@@ -99,7 +100,7 @@ export default function IndiaProblemSlide() {
         style={{
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.1))',
           padding: '2rem',
-          borderRadius: '12px',
+          borderRadius: pxToRem(12),
           textAlign: 'center'
         }}
       >
@@ -137,7 +138,7 @@ export default function IndiaProblemSlide() {
         textAlign: 'center',
         padding: '1.5rem',
         background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 191, 36, 0.1))',
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         marginTop: '2rem'
       }}
     >

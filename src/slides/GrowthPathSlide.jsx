@@ -4,6 +4,7 @@ import GradientText from '../components/GradientText'
 import ProgressBar from '../components/ProgressBar'
 import InteractiveCard from '../components/InteractiveCard'
 import { ArrowRight } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GrowthPathSlide() {
@@ -19,7 +20,7 @@ export default function GrowthPathSlide() {
     <div style={{ 
       background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(34, 197, 94, 0.05))', 
       padding: '2rem', 
-      borderRadius: '12px',
+      borderRadius: pxToRem(12),
       height: '100%'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
@@ -49,11 +50,11 @@ export default function GrowthPathSlide() {
       <div style={{ marginTop: '3rem' }}>
         <h4 style={{ color: '#14b8a6', marginBottom: '1.5rem', fontSize: '1.2rem' }}>Growth Drivers</h4>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-          <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1rem', borderRadius: '8px' }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1rem', borderRadius: pxToRem(8) }}>
             <p style={{ color: '#60a5fa', fontWeight: 'bold', marginBottom: '0.5rem' }}>Client Acquisition</p>
             <p style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>50 → 250 → 1,000 HNW clients</p>
           </div>
-          <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1rem', borderRadius: '8px' }}>
+          <div style={{ background: 'rgba(255, 255, 255, 0.05)', padding: '1rem', borderRadius: pxToRem(8) }}>
             <p style={{ color: '#fbbf24', fontWeight: 'bold', marginBottom: '0.5rem' }}>Average AUM</p>
             <p style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>$1M → $1M → $1M per client</p>
           </div>

@@ -152,6 +152,7 @@ const AlgoTradingConceptSlide = () => {
           }}
         >
           <motion.div
+            initial={{ opacity: 0.05 }}
             animate={{ opacity: [0.05, 0.1, 0.05] }}
             transition={{ duration: 3, repeat: Infinity }}
             style={{
@@ -204,6 +205,7 @@ const AlgoTradingConceptSlide = () => {
                   }}
                 >
                   <motion.span
+                    initial={{ opacity: 0.5 }}
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
                     style={{ color: '#a855f7', marginRight: '0.5rem' }}

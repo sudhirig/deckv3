@@ -136,17 +136,18 @@ const LiveMetricsDashboardSlide = () => {
               </motion.div>
               {item.live && (
                 <motion.div
+                  initial={{ opacity: 1 }}
                   animate={{ opacity: [1, 0.4, 1] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                   style={{
                     position: 'absolute',
-                    top: -0.3125,
-                    right: -0.3125,
-                    width: '0.5rem',
-                    height: '0.5rem',
+                    top: pxToRem(-5),
+                    right: pxToRem(-5),
+                    width: pxToRem(8),
+                    height: pxToRem(8),
                     borderRadius: '50%',
                     background: '#10b981',
-                    boxShadow: '0 0 0.625rem #10b981'
+                    boxShadow: `0 0 ${pxToRem(10)} #10b981`
                   }}
                 />
               )}

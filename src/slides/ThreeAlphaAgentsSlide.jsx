@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function ThreeAlphaAgentsSlide() {
@@ -25,8 +26,8 @@ export default function ThreeAlphaAgentsSlide() {
       style={{ 
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.1))', 
         padding: '1.5rem', 
-        borderRadius: '12px',
-        borderLeft: '4px solid #14b8a6',
+        borderRadius: pxToRem(12),
+        borderLeft: `${pxToRem(4)} solid #14b8a6`,
         height: '100%'
       }}
     >
@@ -42,7 +43,7 @@ export default function ThreeAlphaAgentsSlide() {
       <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '1rem' }}>
         +1.8% annual return recovery
       </p>
-      <p style={{ fontSize: '1rem', color: '#fbbf24', fontWeight: 'bold', padding: '0.75rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '8px' }}>
+      <p style={{ fontSize: '1rem', color: '#fbbf24', fontWeight: 'bold', padding: '0.75rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: pxToRem(8) }}>
         Competitive Edge: Wealthfront does monthly. We do daily.
       </p>
     </motion.div>,
@@ -55,8 +56,8 @@ export default function ThreeAlphaAgentsSlide() {
       style={{ 
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(96, 165, 250, 0.1))', 
         padding: '1.5rem', 
-        borderRadius: '12px',
-        borderLeft: '4px solid #3b82f6',
+        borderRadius: pxToRem(12),
+        borderLeft: `${pxToRem(4)} solid #3b82f6`,
         height: '100%'
       }}
     >
@@ -72,7 +73,7 @@ export default function ThreeAlphaAgentsSlide() {
       <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '1rem' }}>
         16,000+ funds analyzed
       </p>
-      <p style={{ fontSize: '1rem', color: '#fbbf24', fontWeight: 'bold', padding: '0.75rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '8px' }}>
+      <p style={{ fontSize: '1rem', color: '#fbbf24', fontWeight: 'bold', padding: '0.75rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: pxToRem(8) }}>
         Unlock: +300-500bps potential alpha
       </p>
     </motion.div>,
@@ -85,8 +86,8 @@ export default function ThreeAlphaAgentsSlide() {
       style={{ 
         background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(236, 72, 153, 0.1))', 
         padding: '1.5rem', 
-        borderRadius: '12px',
-        borderLeft: '4px solid #9333ea',
+        borderRadius: pxToRem(12),
+        borderLeft: `${pxToRem(4)} solid #9333ea`,
         height: '100%'
       }}
     >
@@ -102,7 +103,7 @@ export default function ThreeAlphaAgentsSlide() {
       <p style={{ fontSize: '1.1rem', color: '#94a3b8', marginBottom: '1rem' }}>
         0% tax, USD-based
       </p>
-      <p style={{ fontSize: '1rem', color: '#fbbf24', fontWeight: 'bold', padding: '0.75rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: '8px' }}>
+      <p style={{ fontSize: '1rem', color: '#fbbf24', fontWeight: 'bold', padding: '0.75rem', background: 'rgba(251, 191, 36, 0.1)', borderRadius: pxToRem(8) }}>
         Unique: Only AI platform with automated GIFT City access
       </p>
     </motion.div>
@@ -121,8 +122,8 @@ export default function ThreeAlphaAgentsSlide() {
         fontWeight: 'bold',
         padding: '1.5rem',
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(34, 197, 94, 0.15))',
-        borderRadius: '12px',
-        border: '2px solid rgba(20, 184, 166, 0.3)'
+        borderRadius: pxToRem(12),
+        border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`
       }}
     >
       Each agent creates measurable alpha. Together, they're unstoppable.

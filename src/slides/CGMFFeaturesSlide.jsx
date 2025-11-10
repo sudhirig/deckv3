@@ -130,6 +130,7 @@ export default function CGMFFeaturesSlide() {
         >
           {hoveredCard === index && (
             <motion.div
+              initial={{ scale: 1, opacity: 0.5 }}
               animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 1, repeat: Infinity }}
               style={{

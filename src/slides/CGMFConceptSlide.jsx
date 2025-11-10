@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Users, Brain, Target, PiggyBank, TrendingUp, Shield, BarChart2, Sparkles } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const CGMFConceptSlide = () => {
@@ -32,7 +33,7 @@ const CGMFConceptSlide = () => {
 
   const overlayContent = (
     <motion.div
-      initial={{ opacity: 0, y: 3.125 }}
+      initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, type: 'spring' }}
       className="glass-card"
@@ -187,7 +188,7 @@ const CGMFConceptSlide = () => {
             position: 'absolute',
             top: '50%',
             left: 0,
-            height: '2px',
+            height: pxToRem(2),
             background: 'linear-gradient(90deg, #3b82f6, #10b981, #a855f7, #14b8a6)',
             zIndex: 0
           }}
@@ -233,6 +234,7 @@ const CGMFConceptSlide = () => {
               >
                 <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>{item.step}</span>
                 <motion.div
+                  initial={{ scale: 1, opacity: 0.5 }}
                   animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0, 0.5] }}
                   transition={{ duration: 2, repeat: Infinity }}
                   style={{

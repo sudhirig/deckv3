@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { X, Check, TrendingUp, Shield } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function WhyWeWinSlide() {
@@ -24,9 +25,9 @@ export default function WhyWeWinSlide() {
       style={{ 
         height: '100%',
         padding: '2rem', 
-        border: '3px solid #ef4444', 
+        border: `${pxToRem(3)} solid #ef4444`, 
         background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(248, 113, 113, 0.1))', 
-        borderRadius: '12px'
+        borderRadius: pxToRem(12)
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -51,9 +52,9 @@ export default function WhyWeWinSlide() {
       style={{ 
         height: '100%',
         padding: '2rem', 
-        border: '3px solid #f97316', 
+        border: `${pxToRem(3)} solid #f97316`, 
         background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(251, 146, 60, 0.1))', 
-        borderRadius: '12px'
+        borderRadius: pxToRem(12)
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -78,9 +79,9 @@ export default function WhyWeWinSlide() {
       style={{ 
         height: '100%',
         padding: '2rem', 
-        border: '3px solid #3b82f6', 
+        border: `${pxToRem(3)} solid #3b82f6`, 
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(96, 165, 250, 0.1))', 
-        borderRadius: '12px'
+        borderRadius: pxToRem(12)
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
@@ -105,9 +106,9 @@ export default function WhyWeWinSlide() {
       style={{ 
         height: '100%',
         padding: '2rem', 
-        border: '3px solid #22c55e', 
+        border: `${pxToRem(3)} solid #22c55e`, 
         background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.3), rgba(16, 185, 129, 0.2))', 
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         boxShadow: '0 0 30px rgba(34, 197, 94, 0.3)'
       }}
     >
@@ -138,8 +139,8 @@ export default function WhyWeWinSlide() {
         textAlign: 'center', 
         padding: '2rem', 
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(34, 197, 94, 0.15))', 
-        borderRadius: '12px', 
-        border: '2px solid rgba(20, 184, 166, 0.3)',
+        borderRadius: pxToRem(12), 
+        border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
         marginTop: '2rem'
       }}
     >

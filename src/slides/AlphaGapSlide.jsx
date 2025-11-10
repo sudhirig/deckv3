@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { ComparisonLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { X, Check } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function AlphaGapSlide() {
@@ -24,17 +25,17 @@ export default function AlphaGapSlide() {
   )
 
   const leftDetails = (
-    <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '2rem', borderRadius: '12px', height: '100%' }}>
+    <div style={{ background: 'rgba(239, 68, 68, 0.1)', padding: '2rem', borderRadius: pxToRem(12), height: '100%' }}>
       <div style={{ marginBottom: '2rem', fontSize: '1.2rem', lineHeight: '1.8' }}>
-        <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.15)', borderRadius: '8px', marginBottom: '1rem' }}>
+        <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.15)', borderRadius: pxToRem(8), marginBottom: '1rem' }}>
           <strong style={{ color: '#fca5a5', fontSize: '1.3rem' }}>Tax:</strong>
           <p style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Reactive, annual-only TLH</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.15)', borderRadius: '8px', marginBottom: '1rem' }}>
+        <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.15)', borderRadius: pxToRem(8), marginBottom: '1rem' }}>
           <strong style={{ color: '#fca5a5', fontSize: '1.3rem' }}>Alternatives:</strong>
           <p style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Gatekept by minimums</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.15)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(239, 68, 68, 0.15)', borderRadius: pxToRem(8) }}>
           <strong style={{ color: '#fca5a5', fontSize: '1.3rem' }}>India:</strong>
           <p style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Too complex, too slow</p>
         </div>
@@ -51,17 +52,17 @@ export default function AlphaGapSlide() {
   )
 
   const rightDetails = (
-    <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '2rem', borderRadius: '12px', height: '100%' }}>
+    <div style={{ background: 'rgba(20, 184, 166, 0.1)', padding: '2rem', borderRadius: pxToRem(12), height: '100%' }}>
       <div style={{ marginBottom: '2rem', fontSize: '1.2rem', lineHeight: '1.8' }}>
-        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.15)', borderRadius: '8px', marginBottom: '1rem' }}>
+        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.15)', borderRadius: pxToRem(8), marginBottom: '1rem' }}>
           <strong style={{ color: '#5eead4', fontSize: '1.3rem' }}>Tax:</strong>
           <p style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Proactive, daily optimization</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.15)', borderRadius: '8px', marginBottom: '1rem' }}>
+        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.15)', borderRadius: pxToRem(8), marginBottom: '1rem' }}>
           <strong style={{ color: '#5eead4', fontSize: '1.3rem' }}>Alternatives:</strong>
           <p style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Curated, accessible</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.15)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(20, 184, 166, 0.15)', borderRadius: pxToRem(8) }}>
           <strong style={{ color: '#5eead4', fontSize: '1.3rem' }}>India:</strong>
           <p style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Simple, tax-efficient access</p>
         </div>
@@ -82,7 +83,7 @@ export default function AlphaGapSlide() {
         fontWeight: 'bold',
         padding: '2rem',
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(34, 197, 94, 0.1))',
-        borderRadius: '12px'
+        borderRadius: pxToRem(12)
       }}
     >
       Traditional advisors can't scale these solutions. AI can.

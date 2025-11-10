@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { ArrowRight, TrendingUp, DollarSign, PiggyBank } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function RealJourneysSlide() {
@@ -17,9 +18,9 @@ export default function RealJourneysSlide() {
     <div style={{ 
       background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.1))', 
       padding: '2rem', 
-      borderRadius: '16px',
+      borderRadius: pxToRem(16),
       height: '100%',
-      border: '2px solid rgba(20, 184, 166, 0.2)'
+      border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.2)`
     }}>
       <h3 style={{ color: '#14b8a6', marginBottom: '1.5rem', fontSize: '1.4rem' }}>
         The Journey: Tech Founder's Portfolio Transformation
@@ -143,8 +144,8 @@ export default function RealJourneysSlide() {
         textAlign: 'center', 
         padding: '1.5rem', 
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(34, 197, 94, 0.15))', 
-        borderRadius: '12px',
-        border: '2px solid rgba(20, 184, 166, 0.3)'
+        borderRadius: pxToRem(12),
+        border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`
       }}
     >
       <p style={{ fontSize: '1.4rem', fontStyle: 'italic', color: '#14b8a6', marginBottom: '1rem' }}>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { Users, Brain, Clock, TrendingUp } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function IntroducingSlide() {
@@ -33,8 +34,8 @@ export default function IntroducingSlide() {
           style={{ 
             background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.1))', 
             padding: '1.5rem', 
-            borderRadius: '12px',
-            borderLeft: '3px solid #14b8a6'
+            borderRadius: pxToRem(12),
+            borderLeft: `${pxToRem(3)} solid #14b8a6`
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
@@ -59,8 +60,8 @@ export default function IntroducingSlide() {
           style={{ 
             background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(124, 58, 237, 0.1))', 
             padding: '1.5rem', 
-            borderRadius: '12px',
-            borderLeft: '3px solid #9333ea'
+            borderRadius: pxToRem(12),
+            borderLeft: `${pxToRem(3)} solid #9333ea`
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
@@ -87,8 +88,8 @@ export default function IntroducingSlide() {
       style={{ height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}
     >
       <div className="glass-card" style={{ 
-        border: '3px solid #14b8a6', 
-        borderRadius: '16px', 
+        border: `${pxToRem(3)} solid #14b8a6`, 
+        borderRadius: pxToRem(16), 
         padding: '2rem', 
         background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(20, 184, 166, 0.1))',
         textAlign: 'center'
@@ -128,7 +129,7 @@ export default function IntroducingSlide() {
         gap: '2rem',
         padding: '1.5rem',
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
-        borderRadius: '12px'
+        borderRadius: pxToRem(12)
       }}
     >
       <TrendingUp size={32} color="#fbbf24" />

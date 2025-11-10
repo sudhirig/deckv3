@@ -5,6 +5,7 @@ import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { CheckCircle, TrendingUp, Users, Shield, Award, Sparkles, Activity } from 'lucide-react'
+import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function Act4Slide() {
@@ -34,7 +35,7 @@ export default function Act4Slide() {
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
-        style={{ position: 'absolute', top: -10, right: -10 }}
+        style={{ position: 'absolute', top: pxToRem(-10), right: pxToRem(-10) }}
       >
         <Sparkles size={24} color="#a78bfa" />
       </motion.div>
@@ -75,7 +76,7 @@ export default function Act4Slide() {
         background: hoveredItem === 'traction' 
           ? 'linear-gradient(135deg, rgba(167, 139, 250, 0.25), rgba(196, 181, 253, 0.15))'
           : 'linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(196, 181, 253, 0.1))',
-        borderLeft: '4px solid #a78bfa',
+        borderLeft: `${pxToRem(4)} solid #a78bfa`,
         transition: 'all 0.3s ease'
       }}
     >
@@ -85,25 +86,25 @@ export default function Act4Slide() {
       </div>
       
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#c4b5fd', marginBottom: '0.5rem' }}>
             $42M
           </p>
           <p style={{ fontSize: '1rem', color: '#e9d5ff' }}>Assets Under Management</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#c4b5fd', marginBottom: '0.5rem' }}>
             27
           </p>
           <p style={{ fontSize: '1rem', color: '#e9d5ff' }}>HNW Clients Live</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#c4b5fd', marginBottom: '0.5rem' }}>
             99.97%
           </p>
           <p style={{ fontSize: '1rem', color: '#e9d5ff' }}>Platform Uptime</p>
         </div>
-        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: '8px' }}>
+        <div style={{ padding: '1rem', background: 'rgba(167, 139, 250, 0.1)', borderRadius: pxToRem(8) }}>
           <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#c4b5fd', marginBottom: '0.5rem' }}>
             312%
           </p>
@@ -124,7 +125,7 @@ export default function Act4Slide() {
         background: hoveredItem === 'proof' 
           ? 'linear-gradient(135deg, rgba(34, 197, 94, 0.25), rgba(16, 185, 129, 0.15))'
           : 'linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.1))',
-        borderLeft: '4px solid #22c55e',
+        borderLeft: `${pxToRem(4)} solid #22c55e`,
         transition: 'all 0.3s ease'
       }}
     >
@@ -161,7 +162,7 @@ export default function Act4Slide() {
         background: hoveredItem === 'market' 
           ? 'linear-gradient(135deg, rgba(251, 191, 36, 0.25), rgba(249, 115, 22, 0.15))'
           : 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.1))',
-        borderLeft: '4px solid #fbbf24',
+        borderLeft: `${pxToRem(4)} solid #fbbf24`,
         transition: 'all 0.3s ease'
       }}
     >
@@ -190,7 +191,7 @@ export default function Act4Slide() {
           marginTop: '1.5rem',
           padding: '1rem',
           background: 'rgba(251, 191, 36, 0.2)',
-          borderRadius: '8px',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}
       >
@@ -213,9 +214,9 @@ export default function Act4Slide() {
       style={{
         padding: '2rem',
         background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(196, 181, 253, 0.1))',
-        borderRadius: '12px',
+        borderRadius: pxToRem(12),
         textAlign: 'center',
-        border: '2px solid rgba(167, 139, 250, 0.3)'
+        border: `${pxToRem(2)} solid rgba(167, 139, 250, 0.3)`
       }}
     >
       <Shield size={40} color="#a78bfa" style={{ marginBottom: '1rem' }} />
