@@ -732,12 +732,11 @@
   gap: 4rem;
 }
 
-/* Responsive Container - Flex container with proper constraints */
+/* Responsive Container - Full-width container */
 .responsive-container {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: clamp(1rem, 2vw, 1.5rem);
   gap: clamp(1rem, 2vw, 1.5rem);
@@ -749,7 +748,6 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   padding: clamp(1rem, 2vw, 1.5rem);
   gap: clamp(1rem, 2vw, 1.5rem);
