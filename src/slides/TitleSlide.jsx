@@ -3,15 +3,15 @@ import { motion } from 'framer-motion'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import { AspectFrame } from '../components/StandardLayouts'
-import { Shield, Award, Lock, CheckCircle } from 'lucide-react'
-import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
+import { Shield, Award, Lock } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function TitleSlide() {
   const moats = [
-    { text: 'Agentic AI', delay: 0.8, description: '68+ AI Agents Working 24/7' },
-    { text: 'Tax Alpha', delay: 1.2, description: '₹1.55L Annual Savings' },
-    { text: 'Alternative Access', delay: 1.6, description: 'GIFT City Exclusive Gateway' }
+    { text: 'Agentic AI', description: '68+ AI Agents Working 24/7' },
+    { text: 'Tax Alpha', description: '₹1.55L Annual Savings' },
+    { text: 'Alternative Access', description: 'GIFT City Exclusive Gateway' }
   ]
 
   const trustBadges = [
@@ -24,161 +24,95 @@ export default function TitleSlide() {
 
   return (
     <AspectFrame>
-      <div className="title-slide" style={{ position: 'relative', overflow: 'hidden' }}>
-      {/* Animated Gradient Background */}
-      <motion.div
-        animate={{
-          background: [
-            'radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',
-            'radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)'
-          ]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          zIndex: 1
-        }}
-      />
-      
-      <div className="title-grid-container" style={{ position: 'relative', zIndex: 2 }}>
-        {/* Left Column: Hero Text */}
-        <div className="title-hero-column">
-          <AnimatedText delay={0.2}>
-            <h1 className="main-title">
+      <div className="title-slide-container">
+        {/* Animated Gradient Background */}
+        <motion.div
+          animate={{
+            background: [
+              'radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',
+              'radial-gradient(circle at 50% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)'
+            ]
+          }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
+          className="title-slide-background"
+        />
+        
+        <div className="title-slide-content">
+          {/* Main Title */}
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="title-main-section"
+          >
+            <h1 className="title-main">
               <GradientText gradient="from-teal-400 via-cyan-400 to-green-400">
                 The AI-Powered Digital Family Office
               </GradientText>
             </h1>
-          </AnimatedText>
-          
-          <AnimatedText delay={0.4}>
-            <p className="subtitle" style={{ marginBottom: pxToRem(24) }}>
+            
+            <p className="title-subtitle">
               Institutional-Grade Wealth Management<br />
               For the Next Generation
             </p>
-          </AnimatedText>
-
-          <AnimatedText delay={3.8}>
-            <p className="date">November 2025</p>
-          </AnimatedText>
-        </div>
-        
-        {/* Right Column: Supporting Content */}
-        <div className="title-supporting-column">
-          {/* Sequential Moat Reveal */}
-          <div style={{ marginBottom: pxToRem(16) }}>
+          </motion.div>
+          
+          {/* Three Moats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="title-moats-section"
+          >
             {moats.map((moat, index) => (
               <motion.div
                 key={moat.text}
-                initial={{ opacity: 0, x: -50, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ 
-                  delay: moat.delay, 
-                  duration: 0.6,
-                  type: 'spring',
-                  stiffness: 100
-                }}
-                style={{ 
-                  marginBottom: pxToRem(10),
-                  textAlign: 'left'
-                }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.8 + index * 0.2, duration: 0.6 }}
+                whileHover={{ scale: 1.05 }}
+                className="title-moat-card"
               >
-                <motion.div
-                  whileHover={{ scale: 1.03 }}
-                  style={{
-                    padding: `${pxToRem(10)} ${pxToRem(16)}`,
-                    background: 'rgba(255, 255, 255, 0.03)',
-                    backdropFilter: `blur(${pxToRem(10)})`,
-                    borderRadius: pxToRem(10),
-                    border: '1px solid rgba(20, 184, 166, 0.3)'
-                  }}
-                >
-                  <span style={{ 
-                    fontSize: pxToRem(20), 
-                    fontWeight: 'bold',
-                    color: '#14b8a6',
-                    marginRight: pxToRem(10)
-                  }}>
-                    {index + 1}.
-                  </span>
-                  <span style={{ 
-                    fontSize: pxToRem(18), 
-                    color: '#fff',
-                    marginRight: pxToRem(10)
-                  }}>
-                    {moat.text}
-                  </span>
-                  <span style={{ 
-                    fontSize: pxToRem(13), 
-                    color: '#94a3b8'
-                  }}>
-                    {moat.description}
-                  </span>
-                </motion.div>
+                <span className="title-moat-number">{index + 1}.</span>
+                <span className="title-moat-text">{moat.text}</span>
+                <span className="title-moat-desc">{moat.description}</span>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
           
-          <AnimatedText delay={2.0}>
-            <p className="tagline" style={{ fontSize: pxToRem(13), marginBottom: pxToRem(16) }}>
-              The entire pitch in one line: Our three "alpha" moats
-            </p>
-          </AnimatedText>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 0.8 }}
+            className="title-tagline"
+          >
+            The entire pitch in one line: Our three "alpha" moats
+          </motion.p>
           
           {/* Trust Badges */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.4, duration: 0.6 }}
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              gap: pxToRem(12),
-              marginBottom: pxToRem(12)
-            }}
+            transition={{ delay: 2.2, duration: 0.6 }}
+            className="title-badges-section"
           >
             {trustBadges.map((badge, index) => (
               <motion.div
                 key={badge.label}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2.6 + index * 0.1, duration: 0.4 }}
-                whileHover={{ scale: 1.08, y: -3 }}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  padding: pxToRem(8),
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  borderRadius: pxToRem(8),
-                  border: '1px solid rgba(20, 184, 166, 0.2)',
-                  flex: '1'
-                }}
+                transition={{ delay: 2.4 + index * 0.1, duration: 0.4 }}
+                whileHover={{ scale: 1.1, y: -3 }}
+                className="title-badge"
               >
                 {React.createElement(badge.icon, { 
                   size: 24, 
-                  color: '#14b8a6',
-                  style: { marginBottom: pxToRem(4) }
+                  color: '#14b8a6'
                 })}
-                <span style={{ 
-                  fontSize: pxToRem(12), 
-                  fontWeight: 'bold', 
-                  color: '#fff' 
-                }}>
-                  {badge.label}
-                </span>
-                <span style={{ 
-                  fontSize: pxToRem(10), 
-                  color: '#94a3b8' 
-                }}>
-                  {badge.subtext}
-                </span>
+                <span className="title-badge-label">{badge.label}</span>
+                <span className="title-badge-subtext">{badge.subtext}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -187,48 +121,38 @@ export default function TitleSlide() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 3.0, duration: 0.8 }}
+            transition={{ delay: 2.8, duration: 0.8 }}
+            className="title-media-section"
           >
-            <p style={{ 
-              fontSize: pxToRem(11), 
-              color: '#94a3b8', 
-              marginBottom: pxToRem(8),
-              textTransform: 'uppercase',
-              letterSpacing: pxToRem(1.5)
-            }}>
-              As Featured In
-            </p>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              gap: pxToRem(12),
-              alignItems: 'center',
-              flexWrap: 'wrap'
-            }}>
+            <p className="title-media-label">As Featured In</p>
+            <div className="title-media-logos">
               {mediaLogos.map((logo, index) => (
-                <motion.div
+                <motion.span
                   key={logo}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 0.7, x: 0 }}
                   whileHover={{ opacity: 1, scale: 1.1 }}
-                  transition={{ delay: 3.2 + index * 0.1, duration: 0.4 }}
-                  style={{
-                    fontSize: pxToRem(14),
-                    fontWeight: '600',
-                    color: '#64748b',
-                    fontFamily: 'system-ui, -apple-system, sans-serif'
-                  }}
+                  transition={{ delay: 3.0 + index * 0.1, duration: 0.4 }}
+                  className="title-media-logo"
                 >
                   {logo}
-                </motion.div>
+                </motion.span>
               ))}
             </div>
           </motion.div>
+          
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 3.6, duration: 0.8 }}
+            className="title-date"
+          >
+            November 2025
+          </motion.p>
         </div>
+        
+        <div className="tech-background"></div>
       </div>
-      
-      <div className="tech-background"></div>
-    </div>
     </AspectFrame>
   )
 }
