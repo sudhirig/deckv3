@@ -69,9 +69,9 @@ export default function TractionDashboardSlide() {
   // Grid cards for 3-column layout
   const cards = [
     // Column 1: Key Metrics
-    <div key="metrics" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 className="icon-label icon-heading" style={{ color: '#22c55e', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
-        <Icon type="trending" size={22} variant="inline" gradient="from-teal-400 to-green-400" />
+    <div key="metrics" style={{ display: 'grid', gap: pxToRem(16) }}>
+      <h3 className="icon-label icon-heading" style={{ color: '#22c55e', fontSize: TYPOGRAPHY.caption, marginBottom: pxToRem(8) }}>
+        <Icon type="trending" size={20} variant="inline" gradient="from-teal-400 to-green-400" />
         Performance Metrics
       </h3>
       
@@ -80,18 +80,18 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-          <DollarSign size={28} color="#22c55e" />
-          <span style={{ color: '#22c55e', fontSize: '0.9rem' }}>+23.4%</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
+          <DollarSign size={24} color="#22c55e" />
+          <span style={{ color: '#22c55e', fontSize: pxToRem(14) }}>+23.4%</span>
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e', marginBottom: SPACING.xs }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e', marginBottom: pxToRem(4) }}>
           {formatNumber(liveMetrics.aum)}
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Assets Under Management</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Assets Under Management</div>
       </motion.div>
 
       {/* Active Clients */}
@@ -99,18 +99,18 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1))'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-          <Users size={28} color="#60a5fa" />
-          <span style={{ color: '#60a5fa', fontSize: '0.9rem' }}>+7 this month</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
+          <Users size={24} color="#60a5fa" />
+          <span style={{ color: '#60a5fa', fontSize: pxToRem(14) }}>+7 this month</span>
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#60a5fa', marginBottom: SPACING.xs }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#60a5fa', marginBottom: pxToRem(4) }}>
           {liveMetrics.clients}
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Active HNW Clients</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Active HNW Clients</div>
       </motion.div>
 
       {/* Daily Volume */}
@@ -118,36 +118,34 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(196, 181, 253, 0.1))'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-          <Activity size={28} color="#a78bfa" />
-          <span style={{ color: '#4ade80', fontSize: '0.9rem' }}>LIVE</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
+          <Activity size={24} color="#a78bfa" />
+          <span style={{ color: '#4ade80', fontSize: pxToRem(14) }}>LIVE</span>
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa', marginBottom: SPACING.xs }}>
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa', marginBottom: pxToRem(4) }}>
           {formatNumber(liveMetrics.dailyVolume)}
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Daily Trade Volume</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Daily Trade Volume</div>
       </motion.div>
     </div>,
 
     // Column 2: Milestones & Timeline
-    <div key="timeline" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 className="icon-label icon-heading" style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
-        <Icon type="rocket" size={22} variant="inline" gradient="from-orange-400 to-amber-400" />
+    <div key="timeline" style={{ display: 'grid', gap: pxToRem(16) }}>
+      <h3 className="icon-label icon-heading" style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.caption, marginBottom: pxToRem(8) }}>
+        <Icon type="rocket" size={20} variant="inline" gradient="from-orange-400 to-amber-400" />
         Execution Timeline
       </h3>
       
-      <div className="glass-card" style={{ padding: '1.5rem' }}>
+      <div className="glass-card" style={{ padding: pxToRem(16), display: 'grid', gap: pxToRem(10) }}>
         {[
           { date: 'Sep 2024', event: 'First Client Onboarded', status: 'completed', icon: CheckCircle },
           { date: 'Oct 2024', event: 'Zerodha Integration Live', status: 'completed', icon: CheckCircle },
           { date: 'Nov 2024', event: 'GIFT City License', status: 'active', icon: Target },
-          { date: 'Dec 2024', event: '$50M AUM Target', status: 'upcoming', icon: Clock },
-          { date: 'Q1 2025', event: 'US Market Entry', status: 'upcoming', icon: Clock },
-          { date: 'Q2 2025', event: 'Series A Raise', status: 'upcoming', icon: Clock }
+          { date: 'Dec 2024', event: '$50M AUM Target', status: 'upcoming', icon: Clock }
         ].map((milestone, index) => (
           <motion.div
             key={milestone.date}
@@ -157,8 +155,8 @@ export default function TractionDashboardSlide() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '1rem',
-              padding: SPACING.sm,
+              gap: pxToRem(12),
+              padding: pxToRem(10),
               background: milestone.status === 'active' 
                 ? 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
                 : 'rgba(255, 255, 255, 0.03)',
@@ -169,15 +167,15 @@ export default function TractionDashboardSlide() {
               }`
             }}
           >
-            <milestone.icon size={20} color={
+            <milestone.icon size={18} color={
               milestone.status === 'completed' ? '#22c55e' :
               milestone.status === 'active' ? '#fbbf24' : '#64748b'
             } />
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+              <div style={{ fontSize: pxToRem(13), color: '#94a3b8', marginBottom: pxToRem(2) }}>
                 {milestone.date}
               </div>
-              <div style={{ fontSize: '1rem', fontWeight: milestone.status === 'active' ? 'bold' : 'normal', color: '#e2e8f0' }}>
+              <div style={{ fontSize: pxToRem(15), fontWeight: milestone.status === 'active' ? 'bold' : 'normal', color: '#e2e8f0' }}>
                 {milestone.event}
               </div>
             </div>
@@ -187,9 +185,10 @@ export default function TractionDashboardSlide() {
     </div>,
 
     // Column 3: Growth Metrics & Achievements
-    <div key="growth" style={{ display: 'grid', gap: '1.5rem' }}>
-      <h3 style={{ color: '#a78bfa', fontSize: TYPOGRAPHY.subheadline, marginBottom: SPACING.xs }}>
-        🏆 Key Achievements
+    <div key="growth" style={{ display: 'grid', gap: pxToRem(16) }}>
+      <h3 style={{ color: '#a78bfa', fontSize: TYPOGRAPHY.caption, marginBottom: pxToRem(8) }}>
+        <Icon type="trophy" size={20} variant="inline" gradient="from-yellow-400 to-orange-400" />
+        Key Achievements
       </h3>
       
       {/* Growth Rate */}
@@ -197,15 +196,15 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
         }}
       >
-        <TrendingUp size={28} color="#fbbf24" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24', marginBottom: SPACING.xs }}>
+        <TrendingUp size={24} color="#fbbf24" style={{ marginBottom: pxToRem(8) }} />
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24', marginBottom: pxToRem(4) }}>
           312%
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Monthly Growth Rate</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Monthly Growth Rate</div>
       </motion.div>
 
       {/* Global Coverage */}
@@ -213,15 +212,15 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(13, 148, 136, 0.1))'
         }}
       >
-        <Globe size={28} color="#14b8a6" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#14b8a6', marginBottom: SPACING.xs }}>
+        <Globe size={24} color="#14b8a6" style={{ marginBottom: pxToRem(8) }} />
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#14b8a6', marginBottom: pxToRem(4) }}>
           12 Markets
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Global Coverage</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Global Coverage</div>
       </motion.div>
 
       {/* Success Rate */}
@@ -229,31 +228,15 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.1))'
         }}
       >
-        <Shield size={28} color="#ef4444" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ef4444', marginBottom: SPACING.xs }}>
+        <Shield size={24} color="#ef4444" style={{ marginBottom: pxToRem(8) }} />
+        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ef4444', marginBottom: pxToRem(4) }}>
           99.97%
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Platform Uptime</div>
-      </motion.div>
-
-      {/* Active Sessions */}
-      <motion.div
-        whileHover={{ scale: 1.02 }}
-        className="glass-card"
-        style={{
-          padding: '1.5rem',
-          background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(244, 114, 182, 0.1))'
-        }}
-      >
-        <Activity size={28} color="#ec4899" style={{ marginBottom: '1rem' }} />
-        <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ec4899', marginBottom: SPACING.xs }}>
-          {liveMetrics.activeSessions}
-        </div>
-        <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>Active Sessions Now</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Platform Uptime</div>
       </motion.div>
     </div>
   ]
