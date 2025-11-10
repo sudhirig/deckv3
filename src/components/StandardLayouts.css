@@ -236,6 +236,8 @@
   border-radius: 16px;
   border: 2px solid rgba(255, 255, 255, 0.1);
   min-height: 0;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .comparison-vs {
@@ -261,8 +263,19 @@
   margin: 0;
   text-align: center;
   flex-shrink: 0;
-  max-width: 100%;
-  word-wrap: break-word;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.comparison-option-title > * {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: clamp(0.4rem, 1vw, 0.8rem) !important;
+  width: 100%;
+  min-width: 0;
 }
 
 .comparison-details {
