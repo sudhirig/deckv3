@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ComparisonLayout } from '../components/StandardLayouts'
+import DualPaneComparison from '../components/DualPaneComparison'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
@@ -156,12 +156,12 @@ export default function TaxAlphaDailySlide() {
   )
 
   return (
-    <ComparisonLayout
+    <DualPaneComparison
       title={title}
-      leftOption={leftOption}
-      leftDetails={leftDetails}
-      rightOption={rightOption}
-      rightDetails={rightDetails}
+      leftHeader={leftOption}
+      leftContent={leftDetails}
+      rightHeader={rightOption}
+      rightContent={rightDetails}
       summary={summary}
     />
   )

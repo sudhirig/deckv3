@@ -1,0 +1,89 @@
+/* DualPaneComparison - Clean two-column layout */
+
+.dual-pane-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: clamp(2rem, 3vh, 3rem) clamp(2rem, 3vw, 4rem);
+  gap: clamp(1.5rem, 2.5vh, 2.5rem);
+}
+
+.dual-pane-title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.dual-pane-subtitle {
+  text-align: center;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  color: #94a3b8;
+  margin: 0;
+}
+
+.dual-pane-comparison {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(1.5rem, 2.5vw, 2.5rem);
+  flex: 1;
+  min-height: 0;
+}
+
+.dual-pane-left,
+.dual-pane-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 1.5vh, 1.5rem);
+  padding: clamp(1.5rem, 2vw, 2rem);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  min-width: 0;
+}
+
+.dual-pane-header {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.dual-pane-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.dual-pane-vs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(70px, 10vw, 100px);
+  height: clamp(70px, 10vw, 100px);
+  align-self: center;
+}
+
+.vs-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  border-radius: 50%;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: bold;
+  color: white;
+}
+
+.dual-pane-summary {
+  text-align: center;
+  padding: clamp(1.5rem, 2vh, 2rem);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  flex-shrink: 0;
+}

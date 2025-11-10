@@ -1,4 +1,4 @@
-import { ComparisonLayout } from '../components/StandardLayouts'
+import DualPaneComparison from '../components/DualPaneComparison'
 import GradientText from '../components/GradientText'
 import './SlideStyles.css'
 import { pxToRem } from '../utils/responsive'
@@ -35,7 +35,7 @@ export default function AICommitteeSlide() {
   )
 
   return (
-    <ComparisonLayout
+    <DualPaneComparison
       title={
         <>
           <GradientText gradient="from-teal-400 to-cyan-400">Not a Chatbot. An AI Investment Committee.</GradientText>
@@ -44,10 +44,10 @@ export default function AICommitteeSlide() {
           </p>
         </>
       }
-      leftOption={<span style={{ color: '#ef4444', fontSize: pxToRem(24) }}>The Old Model</span>}
-      rightOption={<span style={{ color: '#14b8a6', fontSize: pxToRem(24) }}>Our Model</span>}
-      leftDetails={leftDetails}
-      rightDetails={rightDetails}
+      leftHeader={<span style={{ color: '#ef4444', fontSize: pxToRem(24) }}>The Old Model</span>}
+      rightHeader={<span style={{ color: '#14b8a6', fontSize: pxToRem(24) }}>Our Model</span>}
+      leftContent={leftDetails}
+      rightContent={rightDetails}
       summary={summary}
     />
   )

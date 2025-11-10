@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ComparisonLayout } from '../components/StandardLayouts'
+import DualPaneComparison from '../components/DualPaneComparison'
 import GradientText from '../components/GradientText'
 import { X, Check } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -96,13 +96,13 @@ export default function AlphaGapSlide() {
   )
 
   return (
-    <ComparisonLayout
+    <DualPaneComparison
       title={title}
       subtitle={subtitle}
-      leftOption={leftOption}
-      leftDetails={leftDetails}
-      rightOption={rightOption}
-      rightDetails={rightDetails}
+      leftHeader={leftOption}
+      leftContent={leftDetails}
+      rightHeader={rightOption}
+      rightContent={rightDetails}
       summary={summary}
     />
   )
