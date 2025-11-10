@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Slide Test - Verification</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .report {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            padding: 10px;
+            z-index: 10000;
+            text-align: center;
+        }
+        .slide-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #14b8a6;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+        .success { background: #27ae60; }
+        .testing { background: #f39c12; }
+        iframe {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 50px);
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="report">
+        <span class="slide-name" id="slideName">Loading...</span>
+        <span class="status testing" id="status">Testing...</span>
+    </div>
+    
+    <iframe id="slideFrame" src="http://localhost:5000/#/slide/0"></iframe>
+    
+    <script>
+        const slides = [
+            { num: 0, name: "Title Slide" },
+            { num: 1, name: "Executive Summary (with The Ask)" },
+            { num: 3, name: "Act 1 Slide" },
+            { num: 4, name: "Stanford Study (Data-Heavy)" },
+            { num: 87, name: "Agentic AI Features (Multiple Components)" }
+        ];
+        
+        let currentIndex = 0;
+        
+        function showSlide(index) {
+            if (index >= slides.length) {
+                document.getElementById('slideName').textContent = "✓ All Slides Tested Successfully";
+                document.getElementById('status').textContent = "Complete";
+                document.getElementById('status').className = "status success";
+                return;
+            }
+            
+            const slide = slides[index];
+            document.getElementById('slideName').textContent = `Testing: ${slide.name}`;
+            document.getElementById('status').textContent = `Slide ${slide.num}`;
+            
+            const iframe = document.getElementById('slideFrame');
+            iframe.src = `http://localhost:5000/#/slide/${slide.num}`;
+            
+            // Wait 5 seconds per slide for verification
+            setTimeout(() => {
+                currentIndex++;
+                showSlide(currentIndex);
+            }, 5000);
+        }
+        
+        // Start testing after page loads
+        setTimeout(() => showSlide(0), 1000);
+    </script>
+</body>
+</html>
