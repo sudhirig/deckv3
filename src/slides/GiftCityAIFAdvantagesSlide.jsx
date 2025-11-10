@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import { DollarSign, Shield, Globe, Zap, CheckCircle2 } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
@@ -367,7 +366,6 @@ export default function GiftCityAIFAdvantagesSlide() {
       summary={summary}
       particles={
         <>
-          <ParticleBackground count={48} color="#10b981" />
           <motion.div
             animate={{
               background: [

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import LineChart from '../components/LineChart'
@@ -50,7 +49,6 @@ export default function ZerodhaLiveSnapshotSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={45} color="#ff7043" />
       
       <motion.div
         animate={{

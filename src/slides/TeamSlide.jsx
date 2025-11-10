@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
-import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Linkedin, Building2, Award, Users, TrendingUp, Brain, DollarSign, Target, Check, Briefcase, GraduationCap } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
@@ -341,7 +340,6 @@ export default function TeamSlide() {
       title={title}
       columns={4}
       cards={cards}
-      particles={<ParticleBackground count={45} color="#8b5cf6" />}
     />
   )
 }

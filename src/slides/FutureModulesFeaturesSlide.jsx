@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import { DollarSign, Link, Cloud, Shield, Bitcoin, Cpu, Globe, Rocket, Sparkles, TrendingUp } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
@@ -37,7 +36,6 @@ export default function FutureModulesFeaturesSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={50} color="#fbbf24" />
       
       <motion.div
         animate={{

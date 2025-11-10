@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
@@ -16,8 +15,6 @@ const CGMFConceptSlide = () => {
   )
 
   const subtitle = "9 AI Agents Managing 16,766 Funds"
-
-  const particles = <ParticleBackground count={50} color="#14b8a6" />
 
   const backgroundVisual = (
     <div style={{
@@ -260,7 +257,6 @@ const CGMFConceptSlide = () => {
     <HeroLayout
       title={title}
       subtitle={subtitle}
-      particles={particles}
       backgroundVisual={backgroundVisual}
       overlayContent={overlayContent}
     />

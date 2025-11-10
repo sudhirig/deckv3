@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
@@ -16,8 +15,6 @@ const TradingAgentsConceptSlide = () => {
   )
 
   const subtitle = "30 Legendary Investors in Your Pocket"
-
-  const particles = <ParticleBackground count={50} color="#fbbf24" />
 
   const backgroundVisual = (
     <div style={{
@@ -347,7 +344,6 @@ const TradingAgentsConceptSlide = () => {
     <HeroLayout
       title={title}
       subtitle={subtitle}
-      particles={particles}
       backgroundVisual={backgroundVisual}
       overlayContent={overlayContent}
     />

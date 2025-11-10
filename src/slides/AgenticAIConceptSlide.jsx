@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
@@ -16,8 +15,6 @@ const AgenticAIConceptSlide = () => {
   )
 
   const subtitle = "Multi-Agent Collaboration Architecture"
-
-  const particles = <ParticleBackground count={50} color="#a855f7" />
 
   const backgroundVisual = (
     <div style={{
@@ -349,7 +346,6 @@ const AgenticAIConceptSlide = () => {
     <HeroLayout
       title={title}
       subtitle={subtitle}
-      particles={particles}
       backgroundVisual={backgroundVisual}
       overlayContent={overlayContent}
     />

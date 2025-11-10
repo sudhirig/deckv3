@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
@@ -53,7 +52,6 @@ export default function CGMFLiveSnapshotSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={45} color="#4caf50" />
       
       <motion.div
         animate={{

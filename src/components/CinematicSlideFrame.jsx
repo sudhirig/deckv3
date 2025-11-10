@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from './ParticleBackground'
 
 const CinematicSlideFrame = ({ 
   children, 
@@ -18,7 +17,6 @@ const CinematicSlideFrame = ({
   return (
     <div className="slide-content" style={{ position: 'relative' }}>
       {/* Particle Background */}
-      <ParticleBackground count={particleCount} color={particleColor} />
       
       {/* Deep Space Gradient Background */}
       <div style={{

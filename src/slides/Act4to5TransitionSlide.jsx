@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
@@ -14,8 +13,6 @@ const Act4to5TransitionSlide = () => {
   return (
     <AspectFrame>
       <div className="act-slide" style={{ position: 'relative' }}>
-      <ParticleBackground count={60} color="#fbbf24" />
-      
       {/* Deep Space Gradient Background */}
       <div style={{
         position: 'absolute',

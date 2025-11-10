@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Camera, Brain, MessageSquare, Activity, Users, Cpu, Shield, Zap, Network, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -34,7 +33,6 @@ export default function AgenticAILiveSnapshotSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={50} color="#8b5cf6" />
       
       <motion.div
         animate={{

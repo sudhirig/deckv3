@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Camera, Rocket, Construction, Clock, Users, Battery, Activity, Target, Sparkles, TrendingUp } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -50,7 +49,6 @@ export default function FutureModulesLiveSnapshotSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={50} color="#06b6d4" />
       
       <motion.div
         animate={{

@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { HeroLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Rocket, Globe, Cpu, TrendingUp, Bitcoin, BarChart2, Building, Sparkles, DollarSign, Award } from 'lucide-react'
@@ -323,7 +322,6 @@ const FutureModulesConceptSlide = () => {
     </>
   )
 
-  const particles = <ParticleBackground count={50} color="#8b5cf6" />
 
   return (
     <HeroLayout 
@@ -331,7 +329,6 @@ const FutureModulesConceptSlide = () => {
       subtitle="Expansion Roadmap 2025-2027"
       backgroundVisual={backgroundVisual}
       overlayContent={overlayContent}
-      particles={particles}
     />
   )
 }

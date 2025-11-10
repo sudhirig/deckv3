@@ -4,7 +4,6 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
-import ParticleBackground from '../components/ParticleBackground'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, DollarSign, Rocket, Target, Users, Award, Building2, ChevronRight } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
@@ -51,7 +50,6 @@ export default function FundingSlide() {
   // Main visual - Funding Metrics
   const mainVisual = (
     <div style={{ position: 'relative' }}>
-      <ParticleBackground count={30} color="#8b5cf6" />
       
       <div className="responsive-grid-4" style={{ marginBottom: SPACING.lg }}>
         {fundingMetrics.map((metric, index) => (

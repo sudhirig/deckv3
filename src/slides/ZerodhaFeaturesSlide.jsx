@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles, MessageSquare, Brain, Volume2, Zap } from 'lucide-react'
@@ -38,7 +37,6 @@ export default function ZerodhaFeaturesSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={50} color="#fb923c" />
       
       <motion.div
         animate={{

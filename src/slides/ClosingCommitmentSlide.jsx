@@ -4,7 +4,6 @@ import { HeroLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
-import ParticleBackground from '../components/ParticleBackground'
 import CircularProgress from '../components/CircularProgress'
 import { Rocket, Target, Clock, HandshakeIcon, ChevronRight, Star, DollarSign, TrendingUp, Award, Shield } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
@@ -71,7 +70,6 @@ export default function ClosingCommitmentSlide() {
   // Background
   const backgroundContent = (
     <>
-      <ParticleBackground count={50} color="#ec4899" />
       <motion.div
         animate={{
           background: [

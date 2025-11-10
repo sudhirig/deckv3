@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Calculator, TrendingUp, PiggyBank, Award, Sparkles } from 'lucide-react'
@@ -474,7 +473,6 @@ export default function GiftCityTaxOptimizationSlide() {
 
   const particles = (
     <>
-      <ParticleBackground count={50} color="#10b981" />
       
       {/* Money Particle Rain Effect */}
       {[...Array(20)].map((_, i) => (

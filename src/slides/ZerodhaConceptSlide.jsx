@@ -1,7 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { HeroLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, Mic, LayoutDashboard, MessageSquare, Zap, ArrowRight, Sparkles } from 'lucide-react'
@@ -321,15 +320,12 @@ const ZerodhaConceptSlide = () => {
     </>
   )
 
-  const particles = <ParticleBackground count={45} color="#f97316" />
-
   return (
     <HeroLayout 
       title={<GradientText gradient="from-orange-400 via-amber-400 to-yellow-400">Chapter 1: Zerodha Trading Intelligence</GradientText>}
       subtitle="AI Layer Over Your Existing Broker"
       backgroundVisual={backgroundVisual}
       overlayContent={overlayContent}
-      particles={particles}
     />
   )
 }

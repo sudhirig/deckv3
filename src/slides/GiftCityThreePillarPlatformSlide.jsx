@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, TrendingUp, Shield, Zap, Globe, Users, Target, DollarSign, Award, PiggyBank } from 'lucide-react'
@@ -414,8 +413,6 @@ export default function GiftCityThreePillarPlatformSlide() {
       summary={summary}
       particles={
         <>
-          <ParticleBackground count={50} color="#8b5cf6" />
-          
           {/* Multi-layer Animated Gradient */}
           <motion.div
             animate={{

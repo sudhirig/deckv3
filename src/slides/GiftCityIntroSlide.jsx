@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
@@ -307,18 +306,15 @@ const GiftCityIntroSlide = () => {
       columns={2}
       summary={summary}
       particles={
-        <>
-          <ParticleBackground count={50} color="#06b6d4" />
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            background: 'radial-gradient(circle at 30% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 70%), radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 60%)',
-            zIndex: 0
-          }} />
-        </>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          background: 'radial-gradient(circle at 30% 50%, rgba(6, 182, 212, 0.12) 0%, transparent 70%), radial-gradient(circle at 70% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 50%), radial-gradient(circle at 50% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 60%)',
+          zIndex: 0
+        }} />
       }
     />
   )

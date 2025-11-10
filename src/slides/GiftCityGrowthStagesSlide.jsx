@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
@@ -319,7 +318,6 @@ const GiftCityGrowthStagesSlide = () => {
       summary={summary}
       particles={
         <>
-          <ParticleBackground count={50} color="#f59e0b" />
           <div style={{
             position: 'absolute',
             top: 0,

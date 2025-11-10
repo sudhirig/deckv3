@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { ActSlideLayout } from '../components/StandardLayouts'
 import { Microscope, Code, Brain, Zap, Database, Shield, Layers, Activity, ChevronRight, Sparkles, Rocket } from 'lucide-react'
@@ -38,8 +37,6 @@ export default function Act5toAppendixTransitionSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={60} color="#14b8a6" />
-      
       <motion.div
         animate={{
           background: [

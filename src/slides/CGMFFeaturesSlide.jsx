@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
@@ -39,7 +38,6 @@ export default function CGMFFeaturesSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={45} color="#10b981" />
       
       <motion.div
         animate={{

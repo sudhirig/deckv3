@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
@@ -455,7 +454,6 @@ export default function GiftCityEntityStructureSlide() {
 
   const particles = (
     <>
-      <ParticleBackground count={50} color="#06b6d4" />
       <motion.div
         animate={{
           background: [

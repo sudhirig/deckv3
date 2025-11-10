@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
@@ -340,7 +339,6 @@ export default function ExitStrategySlide() {
     </>
   )
 
-  const particles = <ParticleBackground count={50} color="#8b5cf6" />
 
   return (
     <GridLayout 
@@ -357,7 +355,6 @@ export default function ExitStrategySlide() {
       cards={cards}
       columns={3}
       summary={summary}
-      particles={particles}
     />
   )
 }

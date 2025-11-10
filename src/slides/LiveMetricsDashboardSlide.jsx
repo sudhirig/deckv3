@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
@@ -409,7 +408,6 @@ const LiveMetricsDashboardSlide = () => {
     </>
   )
 
-  const particles = <ParticleBackground count={50} color="#06b6d4" />
 
   return (
     <DataSlideLayout
@@ -440,7 +438,6 @@ const LiveMetricsDashboardSlide = () => {
       mainVisual={mainVisual}
       keyInsights={keyInsights}
       supportingData={supportingData}
-      particles={particles}
     />
   )
 }

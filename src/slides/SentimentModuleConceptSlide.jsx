@@ -1,6 +1,5 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
@@ -16,8 +15,6 @@ const SentimentModuleConceptSlide = () => {
   )
 
   const subtitle = "182+ News Sources, 500+ Stocks, Real-time Analysis"
-
-  const particles = <ParticleBackground count={50} color="#3b82f6" />
 
   const backgroundVisual = (
     <div style={{
@@ -358,7 +355,6 @@ const SentimentModuleConceptSlide = () => {
     <HeroLayout
       title={title}
       subtitle={subtitle}
-      particles={particles}
       backgroundVisual={backgroundVisual}
       overlayContent={overlayContent}
     />

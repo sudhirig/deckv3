@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ActSlideLayout } from '../components/StandardLayouts'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { CheckCircle, TrendingUp, Users, Shield, Award, Sparkles, Activity } from 'lucide-react'
@@ -236,8 +235,6 @@ export default function Act4Slide() {
       progressInfo={progressInfo}
       contentBlocks={contentBlocks}
       cta={cta}
-      particleCount={50}
-      particleColor="#a78bfa"
     />
   )
 }

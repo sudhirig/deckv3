@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { ActSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
-import ParticleBackground from '../components/ParticleBackground'
 import { Shield, Target, Sparkles } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -107,7 +106,6 @@ export default function Act2Slide() {
       mainContent={mainContent}
       sideMetrics={sideMetrics}
       bottomPoints={bottomPoints}
-      particles={<ParticleBackground count={50} color="#22c55e" />}
     />
   )
 }

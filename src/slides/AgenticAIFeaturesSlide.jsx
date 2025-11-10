@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Cpu, Zap, GitBranch, Shield, Brain, Network, Sparkles, Activity } from 'lucide-react'
@@ -38,7 +37,6 @@ export default function AgenticAIFeaturesSlide() {
   
   const particles = (
     <>
-      <ParticleBackground count={50} color="#a855f7" />
       
       <motion.div
         animate={{
