@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
+import Icon from '../components/Icon'
 import { AlertTriangle, Shield, CheckCircle, Activity } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -161,9 +162,8 @@ export default function RiskMitigation1Slide() {
           >
             <span style={{
               position: 'absolute',
-              left: 0,
-              color: '#4ade80'
-            }}>✓</span>
+              left: 0
+            }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={12} /></span>
             {item}
           </div>
         ))}

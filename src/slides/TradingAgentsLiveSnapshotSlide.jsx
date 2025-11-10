@@ -125,9 +125,9 @@ const TradingAgentsLiveSnapshotSlide = () => {
           transition={{ delay: 0.5, duration: 0.4 }}
           className="text-center mt-2"
         >
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
             Live Platform: <span className="text-teal-400">app.voraventures.ai/trading-agents</span> | 
-            <span className="text-green-400 ml-2">✓ 87% Historical Accuracy</span>
+            <span className="text-green-400 ml-2" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={14} /> 87% Historical Accuracy</span>
           </p>
         </motion.div>
       </div>

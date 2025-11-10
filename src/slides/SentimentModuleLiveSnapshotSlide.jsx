@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import { Camera, Activity, TrendingUp, MessageSquare } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 
@@ -178,9 +179,9 @@ const SentimentModuleLiveSnapshotSlide = () => {
           transition={{ delay: 0.5, duration: 0.4 }}
           className="text-center mt-2"
         >
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
             Live Platform: <span className="text-teal-400">app.voraventures.ai/sentiment</span> | 
-            <span className="text-green-400 ml-2">✓ Real-time market mood</span>
+            <span className="text-green-400 ml-2" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={14} /> Real-time market mood</span>
           </p>
         </motion.div>
       </div>

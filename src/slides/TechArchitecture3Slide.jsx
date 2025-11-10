@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
+import Icon from '../components/Icon'
 import { Lock, Shield, Key, Eye, CheckCircle, FileText } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -142,9 +143,8 @@ export default function TechArchitecture3Slide() {
         >
           <span style={{
             position: 'absolute',
-            left: 0,
-            color: layer.status === 'certified' ? '#4ade80' : '#fbbf24'
-          }}>✓</span>
+            left: 0
+          }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={12} /></span>
           {measure}
         </div>
       ))}

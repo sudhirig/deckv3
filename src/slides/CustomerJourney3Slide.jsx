@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
+import Icon from '../components/Icon'
 import { Heart, Star, MessageSquare, Gift, TrendingUp, Users } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
@@ -97,9 +98,8 @@ export default function CustomerJourney3Slide() {
           >
             <span style={{ 
               position: 'absolute', 
-              left: 0,
-              color: tier.color
-            }}>✓</span>
+              left: 0
+            }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={12} /></span>
             {benefit}
           </div>
         ))}

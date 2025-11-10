@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import { Camera, TrendingUp, Activity, BarChart3, DollarSign, Percent, Clock, CheckCircle } from 'lucide-react'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
@@ -174,9 +175,9 @@ const AlgoTradingLiveSnapshotSlide = () => {
           transition={{ delay: 1.2, duration: 0.4 }}
           className="text-center mt-2"
         >
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-gray-500" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
             Live Platform: <span className="text-teal-400">app.voraventures.ai/algo-lab</span> | 
-            <span className="text-green-400 ml-2">✓ No coding required</span>
+            <span className="text-green-400 ml-2" style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={14} /> No coding required</span>
           </p>
         </motion.div>
       </div>

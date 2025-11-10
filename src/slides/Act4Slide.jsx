@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { ActSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { CheckCircle, TrendingUp, Users, Shield, Award, Sparkles, Activity } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import './SlideStyles.css'
@@ -134,17 +135,21 @@ export default function Act4Slide() {
       </div>
       
       <ul style={{ fontSize: '1.2rem', lineHeight: '2', color: '#e2e8f0' }}>
-        <li style={{ marginBottom: '1rem' }}>
-          <strong style={{ color: '#86efac' }}>✓ Stanford Study:</strong> 93% of AI funds outperform human managers
+        <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+          <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={20} />
+          <span><strong style={{ color: '#86efac' }}>Stanford Study:</strong> 93% of AI funds outperform human managers</span>
         </li>
-        <li style={{ marginBottom: '1rem' }}>
-          <strong style={{ color: '#86efac' }}>✓ Live Trading:</strong> Zerodha integration processing 1000+ trades daily
+        <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+          <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={20} />
+          <span><strong style={{ color: '#86efac' }}>Live Trading:</strong> Zerodha integration processing 1000+ trades daily</span>
         </li>
-        <li style={{ marginBottom: '1rem' }}>
-          <strong style={{ color: '#86efac' }}>✓ Tax Alpha:</strong> ₹1.55L saved per ₹1Cr portfolio annually
+        <li style={{ marginBottom: '1rem', display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+          <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={20} />
+          <span><strong style={{ color: '#86efac' }}>Tax Alpha:</strong> ₹1.55L saved per ₹1Cr portfolio annually</span>
         </li>
-        <li>
-          <strong style={{ color: '#86efac' }}>✓ Client Success:</strong> 97% retention rate, 4.8★ satisfaction
+        <li style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+          <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={20} />
+          <span><strong style={{ color: '#86efac' }}>Client Success:</strong> 97% retention rate, 4.8★ satisfaction</span>
         </li>
       </ul>
     </motion.div>,

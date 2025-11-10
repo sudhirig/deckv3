@@ -4,6 +4,7 @@ import { TableLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import ResponsiveTable from '../components/ResponsiveTable'
+import Icon from '../components/Icon'
 import { Check, X, Minus, TrendingUp, DollarSign, Users, Shield } from 'lucide-react'
 import { pxToRem, SPACING } from '../utils/responsive'
 import './SlideStyles.css'
@@ -254,8 +255,8 @@ export default function CompetitiveMatrixSlide() {
     >
       <Shield size={32} color="#fbbf24" style={{ marginBottom: '0.5rem' }} />
       <h4 style={{ color: '#fbbf24', fontSize: '1.3rem', marginBottom: '0.5rem' }}>Our Advantage</h4>
-      <p style={{ fontSize: '1.1rem', color: '#e2e8f0' }}>
-        10/10 features ✓ • Lowest fees for full service • Optimal minimum ($1M)
+      <p style={{ fontSize: '1.1rem', color: '#e2e8f0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+        10/10 features <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={20} /> • Lowest fees for full service • Optimal minimum ($1M)
       </p>
     </motion.div>
   ]

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
+import Icon from '../components/Icon'
 import { Building2, Globe, Shield, Zap, TrendingUp, Award, ArrowRight } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
@@ -84,9 +85,9 @@ const GiftCityIntroSlide = () => {
                     <motion.span
                       animate={{ scale: [1, 1.2, 1] }}
                       transition={{ duration: 2, repeat: Infinity, delay: i * 0.3 }}
-                      style={{ color: card.color, marginRight: '0.75rem', fontSize: '1.2rem' }}
+                      style={{ marginRight: '0.75rem', display: 'inline-flex' }}
                     >
-                      ✓
+                      <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={18} />
                     </motion.span>
                     <span style={{ color: '#e2e8f0' }}>{item}</span>
                   </motion.li>

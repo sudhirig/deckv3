@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import Icon from '../components/Icon'
 import { Globe2, Users, MapPin, Briefcase } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 
@@ -117,7 +118,7 @@ const GiftCityGlobalInvestorAccessSlide = () => {
             
             <div className="space-y-3">
               <div className="flex items-start">
-                <span className="text-green-400 mr-2 mt-1">✓</span>
+                <span className="mr-2 mt-1"><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={16} /></span>
                 <div>
                   <p className="font-semibold text-sm">India Exposure</p>
                   <p className="text-xs text-gray-400">Direct access to fastest growing major economy</p>
@@ -125,7 +126,7 @@ const GiftCityGlobalInvestorAccessSlide = () => {
               </div>
               
               <div className="flex items-start">
-                <span className="text-green-400 mr-2 mt-1">✓</span>
+                <span className="mr-2 mt-1"><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={16} /></span>
                 <div>
                   <p className="font-semibold text-sm">Tax Efficiency</p>
                   <p className="text-xs text-gray-400">0% capital gains, no STT</p>
@@ -133,7 +134,7 @@ const GiftCityGlobalInvestorAccessSlide = () => {
               </div>
               
               <div className="flex items-start">
-                <span className="text-green-400 mr-2 mt-1">✓</span>
+                <span className="mr-2 mt-1"><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={16} /></span>
                 <div>
                   <p className="font-semibold text-sm">AI Alpha</p>
                   <p className="text-xs text-gray-400">600% advantage through 68+ agents</p>
@@ -141,7 +142,7 @@ const GiftCityGlobalInvestorAccessSlide = () => {
               </div>
               
               <div className="flex items-start">
-                <span className="text-green-400 mr-2 mt-1">✓</span>
+                <span className="mr-2 mt-1"><Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={16} /></span>
                 <div>
                   <p className="font-semibold text-sm">USD Denominated</p>
                   <p className="text-xs text-gray-400">Natural hedge, no FX risk</p>

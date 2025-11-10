@@ -4,6 +4,7 @@ import GradientText from '../components/GradientText'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
+import Icon from '../components/Icon'
 import { AspectFrame } from '../components/StandardLayouts'
 import { Gem, TrendingUp, Users, Target, Rocket, DollarSign, Briefcase, Handshake } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
@@ -188,7 +189,7 @@ const Act4to5TransitionSlide = () => {
                       transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                       style={{ marginLeft: 'auto' }}
                     >
-                      <span style={{ color: '#fbbf24', fontSize: pxToRem(19) }}>✓</span>
+                      <Icon type="shield" variant="inline" gradient="from-teal-400 to-green-400" size={18} />
                     </motion.div>
                   </motion.div>
                 ))}
