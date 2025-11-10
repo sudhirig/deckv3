@@ -519,6 +519,7 @@ export default function SentimentModuleFeaturesSlide() {
           {[...Array(12)].map((_, i) => (
             <motion.div
               key={i}
+              initial={{ x: 0, y: 0, opacity: 0 }}
               animate={{
                 y: [0, Math.sin(i * 30) * 20, 0],
                 x: [0, Math.cos(i * 30) * 20, 0],

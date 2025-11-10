@@ -66,6 +66,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         }}
       >
         <motion.div
+          initial={{ scale: 1, opacity: 1 }}
           animate={{ 
             scale: [1, 1.5, 1],
             opacity: [1, 0.5, 1]
@@ -417,6 +418,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
           {[...Array(8)].map((_, i) => (
             <motion.div
               key={i}
+              initial={{ x: 0, y: 0, opacity: 0 }}
               animate={{
                 x: [0, Math.cos(i * 45) * 20, 0],
                 y: [0, Math.sin(i * 45) * 20, 0],

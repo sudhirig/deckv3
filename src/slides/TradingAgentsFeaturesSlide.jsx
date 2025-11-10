@@ -408,6 +408,7 @@ export default function TradingAgentsFeaturesSlide() {
             }}
           >
             <motion.div
+              initial={{ scale: 1, opacity: 0.5 }}
               animate={{ 
                 scale: [1, 1.2, 1],
                 opacity: [0.5, 1, 0.5]

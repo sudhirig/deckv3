@@ -41,6 +41,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
         }}
       >
         <motion.div
+          initial={{ scale: 1, opacity: 1 }}
           animate={{ 
             scale: [1, 1.5, 1],
             opacity: [1, 0.5, 1]
@@ -479,6 +480,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
           {[...Array(10)].map((_, i) => (
             <motion.div
               key={i}
+              initial={{ y: 0, opacity: 0 }}
               animate={{
                 y: [0, -20, 0],
                 opacity: [0, 0.3, 0]
