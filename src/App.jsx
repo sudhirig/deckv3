@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
+import SlideViewport from './components/SlideViewport'
 import TitleSlide from './slides/TitleSlide'
 import ExecutiveSummarySlide from './slides/ExecutiveSummarySlide'
 import AgendaRoadmapSlide from './slides/AgendaRoadmapSlide'
@@ -384,15 +385,17 @@ function App() {
 
       {/* Screen view: Current slide only */}
       <div className="screen-only-slides">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSlide}
-            {...currentTransition}
-            className="slide"
-          >
-            <CurrentSlideComponent />
-          </motion.div>
-        </AnimatePresence>
+        <SlideViewport>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              {...currentTransition}
+              className="slide"
+            >
+              <CurrentSlideComponent />
+            </motion.div>
+          </AnimatePresence>
+        </SlideViewport>
       </div>
 
       {/* Progress Bar */}
