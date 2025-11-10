@@ -15,7 +15,10 @@ export default function GIFTSolutionSlide() {
 
   // Left option - Old Route
   const leftOption = (
-    <span style={{ color: '#ef4444' }}>❌ Traditional FPI Route</span>
+    <span className="icon-label icon-heading" style={{ color: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <Icon type="xCircle" size={24} variant="inline" gradient="from-red-400 to-pink-400" />
+      Traditional FPI Route
+    </span>
   )
 
   const leftDetails = (
@@ -41,7 +44,10 @@ export default function GIFTSolutionSlide() {
 
   // Right option - GIFT City Solution
   const rightOption = (
-    <span style={{ color: '#14b8a6' }}>✓ GIFT City Solution</span>
+    <span className="icon-label icon-heading" style={{ color: '#14b8a6', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <Icon type="shield" size={24} variant="inline" gradient="from-teal-400 to-green-400" />
+      GIFT City Solution
+    </span>
   )
 
   const rightDetails = (

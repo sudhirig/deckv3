@@ -22,7 +22,10 @@ export default function IndiaProblemSlide() {
 
   // Left option - The Old FPI Route
   const leftOption = (
-    <span style={{ color: '#ef4444' }}>❌ The Old FPI Route</span>
+    <span className="icon-label icon-heading" style={{ color: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <Icon type="xCircle" size={24} variant="inline" gradient="from-red-400 to-pink-400" />
+      The Old FPI Route
+    </span>
   )
 
   const leftDetails = (

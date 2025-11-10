@@ -15,7 +15,10 @@ export default function TaxAlphaDailySlide() {
 
   // Left option - What Others Can't Do
   const leftOption = (
-    <span style={{ color: '#ef4444' }}>❌ The Traditional Problem</span>
+    <span className="icon-label icon-heading" style={{ color: '#ef4444', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <Icon type="xCircle" size={24} variant="inline" gradient="from-red-400 to-pink-400" />
+      The Traditional Problem
+    </span>
   )
 
   const leftDetails = (
@@ -58,7 +61,10 @@ export default function TaxAlphaDailySlide() {
 
   // Right option - Our Daily TLH
   const rightOption = (
-    <span style={{ color: '#14b8a6' }}>✓ Our AI-Powered Solution</span>
+    <span className="icon-label icon-heading" style={{ color: '#14b8a6', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+      <Icon type="shield" size={24} variant="inline" gradient="from-teal-400 to-green-400" />
+      Our AI-Powered Solution
+    </span>
   )
 
   const rightDetails = (
