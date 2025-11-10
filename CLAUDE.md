@@ -175,6 +175,21 @@ The app uses hash-based routing:
 **Date**: November 10, 2025
 **Total Time**: ~13 hours (layout 3-4h + accessibility 9.5h)
 
+### Git Branching Strategy
+
+**Single feature branch** for all fixes:
+- **`main`** - Stable presentation (Replit default)
+- **`fix/ui-ux-improvements`** - All fixes happen here (Phase 1 + 2)
+
+**How to use**:
+```bash
+# Test fixes: git checkout fix/ui-ux-improvements && npm run dev
+# Back to stable: git checkout main && npm run dev
+# Merge when ready: git checkout main && git merge fix/ui-ux-improvements
+```
+
+**Key**: Branches are bookmarks, not separate folders. Same location, Git swaps files.
+
 ### Phase 1: Layout & Overflow Fixes (3-4 hours) ⭐ **DO THIS FIRST**
 
 **Critical**: Text getting cut off, slides don't fit 16:9 aspect ratio

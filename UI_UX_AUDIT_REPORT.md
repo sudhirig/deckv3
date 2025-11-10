@@ -452,46 +452,100 @@ After completing all 5 layout fixes, verify:
 
 ---
 
+## 🌿 Git Branching Workflow
+
+**IMPORTANT**: All fixes will be made on a **single feature branch** to keep `main` stable.
+
+### Branch Strategy
+
+- **`main`** - Stable, working presentation (your daily driver)
+- **`fix/ui-ux-improvements`** - Feature branch for ALL fixes (Phase 1 + Phase 2)
+
+### How It Works in Replit
+
+**Branches are NOT separate folders** - they're bookmarks in the same project:
+- Same location: `/home/runner/workspace/`
+- Same files - Git swaps them when you switch branches
+- All stored in `.git/` folder
+
+### Setup (One-time)
+
+```bash
+# Create the feature branch (Claude or you can do this)
+git checkout -b fix/ui-ux-improvements
+
+# Verify you're on the branch
+git branch
+# Should show: * fix/ui-ux-improvements
+```
+
+### Daily Workflow
+
+```bash
+# To test Claude's fixes:
+git checkout fix/ui-ux-improvements
+npm run dev
+# Replit runs the fix branch
+
+# To go back to stable code:
+git checkout main
+npm run dev
+# Replit runs original code
+
+# When happy with fixes, merge:
+git checkout main
+git merge fix/ui-ux-improvements
+git push origin main
+```
+
+**See STATUS.md for complete branching guide**
+
+---
+
 ## Phase 1 Implementation Order
 
 ### Quick Start Guide
 
 ```bash
-# Step 1: Create branch (5 min)
-git checkout -b fix/layout-overflow-critical
+# Step 1: Switch to fix branch (if not already)
+git checkout fix/ui-ux-improvements
+
+# Step 2: Backup files (optional)
 cp src/App.css src/App.css.backup
 cp src/components/StandardLayouts.css src/components/StandardLayouts.css.backup
 
-# Step 2: Fix BUG-L01 - Allow scroll (30 min)
+# Step 3: Fix BUG-L01 - Allow scroll (30 min)
 # Edit src/App.css line 26
 # Change: overflow: hidden
 # To: overflow-y: auto; overflow-x: hidden;
 # Add scrollbar styling
 npm run dev  # Test all 94 slides
 
-# Step 3: Fix BUG-L02 - Reduce padding (30 min)
+# Step 4: Fix BUG-L02 - Reduce padding (30 min)
 # Edit src/components/StandardLayouts.css
 # Reduce padding by 30%, gaps by 40%
 npm run dev  # Test
 
-# Step 4: Fix BUG-L03 - Reduce fonts (45 min)
+# Step 5: Fix BUG-L03 - Reduce fonts (45 min)
 # Edit src/components/StandardLayouts.css lines 439-456
 # Reduce all font sizes by 20%
 npm run dev  # Test
 
-# Step 5: Fix BUG-L04 - Grid overflows (30 min)
+# Step 6: Fix BUG-L04 - Grid overflows (30 min)
 # Edit src/components/StandardLayouts.css
 # Add overflow-y: auto and max-height to grids
 npm run dev  # Test
 
-# Step 6: Fix BUG-L05 - Content reduction (1 hour)
+# Step 7: Fix BUG-L05 - Content reduction (1 hour)
 # Edit src/slides/ExecutiveSummarySlide.jsx
 # Edit src/slides/TitleSlide.jsx
 # Reduce padding and font sizes
 npm run dev  # Final test of all 94 slides
 
-# Step 7: Merge (15 min)
-git merge to main
+# Step 8: When satisfied, merge to main
+git checkout main
+git merge fix/ui-ux-improvements
+git push origin main
 ```
 
 ---
