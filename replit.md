@@ -65,7 +65,7 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
 5. Achieved zero console errors/warnings
 6. Production build: 882KB bundle size
 
-**November 10, 2025:**
+**November 10, 2025 (Morning):**
 1. **Navigation Redesign**: 
    - Moved navigation controls from bottom footer to top-right corner (translucent glassmorphic design)
    - Navigation no longer takes vertical space - slides can now be properly centered
@@ -114,6 +114,26 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
      - TechArchitecture3Slide, RiskMitigation1Slide, Act4Slide (4 instances)
      - GiftCityIntroSlide, Act4to5TransitionSlide, TradingAgentsLiveSnapshotSlide
    - **100% Emoji-Free**: All 94 slides verified with zero emojis (grep confirmed)
+
+**November 10, 2025 (Afternoon):**
+7. **Interactive Navigation Features (Complete)**:
+   - **Clickable Agenda Cards**: All 5 Act cards on AgendaRoadmapSlide (slide 2) now clickable
+     - Framer Motion hover animations (lift + glow effect)
+     - Direct navigation to Act opener slides (3, 7, 18, 25, 25)
+     - Smooth tap animations with scale effects
+   - **Act Dropdown Navigation**: Compact glassmorphic dropdown in top-left header
+     - Displays current Act with colored pill indicator
+     - Click to reveal dropdown menu with all 8 sections
+     - Active Act highlighted with gradient background + colored border
+     - Click outside to close functionality
+     - Smooth animations (150-200ms ease transitions)
+     - Hidden in print/PDF mode
+   - **Centralized ACTS Config**: Single source of truth (src/config/acts.js)
+     - 8 sections: Opening, Acts 1-6, Product Appendix
+     - Each with id, name, shortName, startSlide, color, gradient
+     - Helper functions: getActBySlide(), getActById()
+     - Full documentation with schema and extension instructions
+   - **Consistent UX**: Both features use hash-based navigation, maintain glassmorphic aesthetic
 
 ## Development Guidelines
 

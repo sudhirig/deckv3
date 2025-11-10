@@ -5,7 +5,7 @@ import { ChevronRight } from 'lucide-react'
 import './SlideStyles.css'
 import { pxToRem, TYPOGRAPHY } from '../utils/responsive'
 
-export default function AgendaRoadmapSlide() {
+export default function AgendaRoadmapSlide({ onNavigate }) {
   const roadmapSteps = [
     {
       number: '1',
@@ -13,7 +13,8 @@ export default function AgendaRoadmapSlide() {
       subtitle: 'Why Now?',
       details: ['AI disruption', '46% switching', 'Alpha gap'],
       color: '#ef4444',
-      gradient: 'from-red-400 to-orange-400'
+      gradient: 'from-red-400 to-orange-400',
+      targetSlide: 3
     },
     {
       number: '2',
@@ -21,7 +22,8 @@ export default function AgendaRoadmapSlide() {
       subtitle: 'Our AI Family Office',
       details: ['Agentic AI', 'Three alpha agents', 'Live platform'],
       color: '#14b8a6',
-      gradient: 'from-teal-400 to-green-400'
+      gradient: 'from-teal-400 to-green-400',
+      targetSlide: 7
     },
     {
       number: '3',
@@ -29,7 +31,8 @@ export default function AgendaRoadmapSlide() {
       subtitle: 'Validation & Traction',
       details: ['Real clients', '100% operational', 'Competitive moats'],
       color: '#3b82f6',
-      gradient: 'from-blue-400 to-cyan-400'
+      gradient: 'from-blue-400 to-cyan-400',
+      targetSlide: 18
     },
     {
       number: '4',
@@ -37,7 +40,8 @@ export default function AgendaRoadmapSlide() {
       subtitle: 'Path to $1B',
       details: ['$112T TAM', 'Unit economics', 'Expert team'],
       color: '#a78bfa',
-      gradient: 'from-purple-400 to-pink-400'
+      gradient: 'from-purple-400 to-pink-400',
+      targetSlide: 25
     },
     {
       number: '5',
@@ -45,16 +49,29 @@ export default function AgendaRoadmapSlide() {
       subtitle: '$5M Seed Round',
       details: ['18-month runway', 'Scale to 1B AUM', 'Market window'],
       color: '#fbbf24',
-      gradient: 'from-yellow-400 to-orange-400'
+      gradient: 'from-yellow-400 to-orange-400',
+      targetSlide: 25
     }
   ]
 
   const cards = roadmapSteps.map((step, index) => (
-    <div key={step.number} style={{ position: 'relative' }}>
+    <motion.div 
+      key={step.number} 
+      style={{ position: 'relative' }}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.2 }}
+    >
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.2 + index * 0.15, type: 'spring', stiffness: 200 }}
+        whileHover={{ 
+          scale: 1.05,
+          boxShadow: `0 8px 30px ${step.color}44`,
+          cursor: 'pointer'
+        }}
+        whileTap={{ scale: 0.95 }}
+        onClick={() => onNavigate && onNavigate(step.targetSlide)}
         style={{
           width: pxToRem(80),
           height: pxToRem(80),
@@ -67,7 +84,8 @@ export default function AgendaRoadmapSlide() {
           justifyContent: 'center',
           fontSize: TYPOGRAPHY.subheadline,
           fontWeight: 'bold',
-          color: step.color
+          color: step.color,
+          cursor: onNavigate ? 'pointer' : 'default'
         }}
       >
         {step.number}
@@ -122,7 +140,7 @@ export default function AgendaRoadmapSlide() {
           <ChevronRight size={20} />
         </motion.div>
       )}
-    </div>
+    </motion.div>
   ))
 
   const summary = (

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
 import SlideViewport from './components/SlideViewport'
+import ActDropdown from './components/ActDropdown'
 import TitleSlide from './slides/TitleSlide'
 import ExecutiveSummarySlide from './slides/ExecutiveSummarySlide'
 import AgendaRoadmapSlide from './slides/AgendaRoadmapSlide'
@@ -357,6 +358,11 @@ function App() {
 
   // Get the current slide component dynamically
   const CurrentSlideComponent = slides[currentSlide]?.component || slides[0].component
+  
+  // Props to pass to slides that need navigation
+  const slideProps = {
+    onNavigate: navigateToSlide
+  }
 
   return (
     <div className="presentation">
@@ -366,7 +372,7 @@ function App() {
           const SlideComponent = slide.component
           return (
             <div key={index} className="slide print-slide">
-              <SlideComponent />
+              <SlideComponent {...slideProps} />
             </div>
           )
         })}
@@ -381,7 +387,7 @@ function App() {
               {...currentTransition}
               className="slide"
             >
-              <CurrentSlideComponent />
+              <CurrentSlideComponent {...slideProps} />
             </motion.div>
           </AnimatePresence>
         </SlideViewport>
@@ -407,20 +413,31 @@ function App() {
           transition={{ duration: 0.3 }}
         />
         
-        {/* Progress Label - Left side */}
+        {/* Progress Label and Act Navigation - Left side */}
         <div style={{
           position: 'absolute',
           top: '8px',
           left: '20px',
-          fontSize: '0.8rem',
-          color: '#94a3b8',
-          background: 'rgba(0, 0, 0, 0.6)',
-          backdropFilter: 'blur(8px)',
-          padding: '4px 12px',
-          borderRadius: '6px',
-          border: '1px solid rgba(255, 255, 255, 0.1)'
+          display: 'flex',
+          gap: '12px',
+          alignItems: 'center'
         }}>
-          {getSlideSection(currentSlide)} • {getActProgress(currentSlide)}% Complete
+          <div style={{
+            fontSize: '0.8rem',
+            color: '#94a3b8',
+            background: 'rgba(0, 0, 0, 0.6)',
+            backdropFilter: 'blur(8px)',
+            padding: '4px 12px',
+            borderRadius: '6px',
+            border: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            {getSlideSection(currentSlide)} • {getActProgress(currentSlide)}% Complete
+          </div>
+
+          <ActDropdown 
+            currentSlide={currentSlide}
+            onNavigate={navigateToSlide}
+          />
         </div>
 
         {/* Navigation Controls - Right side (translucent) */}

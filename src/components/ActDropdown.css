@@ -1,0 +1,98 @@
+.act-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.act-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.4rem, 0.6vw, 0.6rem);
+  padding: clamp(0.4rem, 0.6vw, 0.6rem) clamp(0.8rem, 1.2vw, 1.2rem);
+  border-radius: clamp(0.4rem, 0.6vw, 0.6rem);
+  border: 1px solid;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.act-dropdown-trigger:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.act-dropdown-label {
+  font-weight: 600;
+}
+
+.act-dropdown-menu {
+  position: absolute;
+  top: calc(100% + clamp(0.4rem, 0.6vw, 0.6rem));
+  left: 0;
+  min-width: clamp(200px, 20vw, 280px);
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(0.6rem, 0.9vw, 0.9rem);
+  padding: clamp(0.4rem, 0.6vw, 0.6rem);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.act-dropdown-item {
+  width: 100%;
+  padding: clamp(0.6rem, 0.9vw, 0.9rem) clamp(0.8rem, 1.2vw, 1.2rem);
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  border-radius: clamp(0.4rem, 0.6vw, 0.6rem);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+  margin-bottom: clamp(0.2rem, 0.3vw, 0.3rem);
+}
+
+.act-dropdown-item:last-child {
+  margin-bottom: 0;
+}
+
+.act-dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.act-dropdown-item.active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.act-dropdown-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(0.6rem, 0.9vw, 0.9rem);
+}
+
+.act-dropdown-item-name {
+  font-size: clamp(0.75rem, 1.1vw, 0.875rem);
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.act-dropdown-item-indicator {
+  width: clamp(0.4rem, 0.6vw, 0.6rem);
+  height: clamp(0.4rem, 0.6vw, 0.6rem);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Print/PDF mode - hide dropdown */
+@media print {
+  .act-dropdown {
+    display: none;
+  }
+}
