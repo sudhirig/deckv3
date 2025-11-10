@@ -3,116 +3,71 @@ import { motion } from 'framer-motion';
 import GradientText from './GradientText';
 import './StandardLayouts.css';
 
-// ScalingWrapper with dynamic viewport scaling
+// ScalingWrapper with dynamic viewport scaling - simplified for reliability
 const ScalingWrapper = ({ children }) => {
-  const contentRef = useRef(null);
   const wrapperRef = useRef(null);
-  const innerRef = useRef(null);
-  const [scale, setScale] = useState(1);
-  const [isCalculating, setIsCalculating] = useState(true);
+  const contentRef = useRef(null);
 
   useEffect(() => {
-    let timeoutId = null;
-    let rafId = null;
-    
     const calculateScale = () => {
-      if (!contentRef.current || !wrapperRef.current || !innerRef.current) return;
+      if (!wrapperRef.current || !contentRef.current) return;
 
-      // Get the wrapper (viewport) dimensions
-      const viewportWidth = wrapperRef.current.clientWidth;
-      const viewportHeight = wrapperRef.current.clientHeight;
+      // Get viewport dimensions
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
 
-      // Temporarily set scale to 1 to measure true size
-      innerRef.current.style.transform = 'scale(1)';
+      // Fixed content dimensions (16:9 at 1920x1080)
+      const baseWidth = 1920;
+      const baseHeight = 1080;
+
+      // Calculate scale to fit content in viewport
+      const padding = 40;
+      const availableWidth = viewportWidth - padding;
+      const availableHeight = viewportHeight - padding;
       
-      // Force a reflow to ensure accurate measurement
-      void innerRef.current.offsetHeight;
+      const scaleX = availableWidth / baseWidth;
+      const scaleY = availableHeight / baseHeight;
       
-      // Get the natural content dimensions
-      const contentWidth = innerRef.current.scrollWidth;
-      const contentHeight = innerRef.current.scrollHeight;
-
-      if (contentWidth > 0 && contentHeight > 0 && viewportWidth > 0 && viewportHeight > 0) {
-        // Calculate scale to fit content in viewport
-        const padding = 20; // Padding from edges
-        const availableWidth = viewportWidth - padding * 2;
-        const availableHeight = viewportHeight - padding * 2;
-        
-        const scaleX = availableWidth / contentWidth;
-        const scaleY = availableHeight / contentHeight;
-        
-        // Use the smaller scale to ensure all content fits
-        let newScale = Math.min(scaleX, scaleY);
-        
-        // Limit scale to reasonable values
-        newScale = Math.min(newScale, 1); // Don't scale up
-        newScale = Math.max(newScale, 0.1); // Don't scale too small
-        
-        // Apply the scale
-        innerRef.current.style.transform = `scale(${newScale})`;
-        setScale(newScale);
-        setIsCalculating(false);
+      // Use the smaller scale to ensure all content fits
+      const scale = Math.min(scaleX, scaleY);
+      
+      // Apply the scale
+      if (contentRef.current) {
+        contentRef.current.style.transform = `translate(-50%, -50%) scale(${scale})`;
       }
     };
 
-    const scheduleCalculation = () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      if (rafId) cancelAnimationFrame(rafId);
-      
-      // Wait for content to render, then calculate
-      timeoutId = setTimeout(() => {
-        rafId = requestAnimationFrame(calculateScale);
-      }, 50);
-    };
-
-    // Initial calculation with delay
-    scheduleCalculation();
+    // Initial calculation after a short delay
+    const timer = setTimeout(calculateScale, 50);
     
-    // Set up resize observer
-    const resizeObserver = new ResizeObserver(scheduleCalculation);
-    if (wrapperRef.current) {
-      resizeObserver.observe(wrapperRef.current);
-    }
-    if (contentRef.current) {
-      resizeObserver.observe(contentRef.current);
-    }
+    // Recalculate on resize
+    window.addEventListener('resize', calculateScale);
     
-    // Window resize listener
-    window.addEventListener('resize', scheduleCalculation);
-    
-    // Cleanup
     return () => {
-      if (timeoutId) clearTimeout(timeoutId);
-      if (rafId) cancelAnimationFrame(rafId);
-      resizeObserver.disconnect();
-      window.removeEventListener('resize', scheduleCalculation);
+      clearTimeout(timer);
+      window.removeEventListener('resize', calculateScale);
     };
-  }, [children]);
+  }, []);
 
   return (
-    <div ref={wrapperRef} className="scaling-wrapper" style={{ opacity: isCalculating ? 0 : 1 }}>
-      <div ref={contentRef} className="scaling-container">
-        <div 
-          ref={innerRef}
-          className="scaling-content"
-          style={{
-            transformOrigin: 'center center',
-          }}
-        >
-          {children}
-        </div>
+    <div ref={wrapperRef} className="scaling-wrapper">
+      <div 
+        ref={contentRef}
+        className="scaling-content"
+      >
+        {children}
       </div>
     </div>
   );
 };
 
-// Shared AspectFrame wrapper - simplified CSS-only scaling
+// Shared AspectFrame wrapper - uses ScalingWrapper for proper content scaling
 export const AspectFrame = ({ children }) => (
   <div className="standard-layout-scene">
     <div className="standard-layout-container">
-      <div className="viewport-fit-wrapper">
+      <ScalingWrapper>
         {children}
-      </div>
+      </ScalingWrapper>
     </div>
   </div>
 );
