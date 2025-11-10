@@ -1,23 +1,23 @@
 /* StandardLayouts.css - Responsive 16:9 Templates with Flex Layout */
 
-/* Core Wrapper that enforces 16:9 aspect ratio */
+/* Core Wrapper - full viewport display */
 .standard-layout-scene {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex: 1;
-  min-height: 0;
-  width: 100%;
   align-items: center;
   justify-content: center;
-  padding: 0;
   overflow: hidden;
 }
 
 .standard-layout-container {
-  flex: 1;
-  min-height: 0;
   width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
+  max-width: min(177.78vh, 100vw); /* 16:9 ratio based on height */
+  max-height: min(56.25vw, 100vh); /* 16:9 ratio based on width */
   display: flex;
   flex-direction: column;
   padding: clamp(1.5rem, 2.5vh, 3rem);
