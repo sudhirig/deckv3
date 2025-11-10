@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import GradientText from './GradientText';
 import './StandardLayouts.css';
 
-// ScalingWrapper with dynamic viewport scaling - simplified for reliability
+// ScalingWrapper with dynamic viewport scaling - fixed with transform-origin
 const ScalingWrapper = ({ children }) => {
   const wrapperRef = useRef(null);
   const contentRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const calculateScale = () => {
@@ -31,20 +32,30 @@ const ScalingWrapper = ({ children }) => {
       // Use the smaller scale to ensure all content fits
       const scale = Math.min(scaleX, scaleY);
       
-      // Apply the scale
+      // Calculate centered position
+      const scaledWidth = baseWidth * scale;
+      const scaledHeight = baseHeight * scale;
+      const leftOffset = (viewportWidth - scaledWidth) / 2;
+      const topOffset = (viewportHeight - scaledHeight) / 2;
+      
+      // Apply the scale and position
       if (contentRef.current) {
-        contentRef.current.style.transform = `translate(-50%, -50%) scale(${scale})`;
+        contentRef.current.style.transform = `scale(${scale})`;
+        contentRef.current.style.left = `${leftOffset}px`;
+        contentRef.current.style.top = `${topOffset}px`;
       }
+      
+      // Mark as ready after positioning
+      setIsReady(true);
     };
 
-    // Initial calculation after a short delay
-    const timer = setTimeout(calculateScale, 50);
+    // Calculate immediately
+    calculateScale();
     
     // Recalculate on resize
     window.addEventListener('resize', calculateScale);
     
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('resize', calculateScale);
     };
   }, []);
@@ -54,6 +65,17 @@ const ScalingWrapper = ({ children }) => {
       <div 
         ref={contentRef}
         className="scaling-content"
+        style={{ 
+          transform: 'scale(1)',
+          transformOrigin: 'top left',
+          position: 'absolute',
+          width: '1920px',
+          height: '1080px',
+          left: '0',
+          top: '0',
+          opacity: isReady ? 1 : 0,
+          transition: 'opacity 0.2s ease'
+        }}
       >
         {children}
       </div>

@@ -245,19 +245,28 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash
-      const match = hash.match(/^#\/slide\/(\d+)$/)
+      console.log('Current hash:', hash) // Debug log
+      
+      // Handle both #/slide/N and #slide/N formats
+      const match = hash.match(/#\/?slide\/(\d+)/)
       
       if (match) {
         const slideNum = parseInt(match[1], 10)
         // Validate slide number is within range
         if (slideNum >= 0 && slideNum < slides.length) {
+          console.log('Setting slide to:', slideNum) // Debug log
           setCurrentSlide(slideNum)
           return
         }
       }
       
-      // If no valid hash, set default
-      window.location.hash = '/slide/0'
+      // If no hash or invalid hash, only set default if we're on the root
+      if (!hash || hash === '#' || hash === '#/') {
+        console.log('No hash, setting to slide 0') // Debug log
+        setCurrentSlide(0)
+        window.location.hash = '/slide/0'
+      }
+      // Otherwise keep current slide
     }
     
     // Handle initial load
@@ -330,8 +339,6 @@ function App() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [])
 
-  const CurrentSlideComponent = slides[currentSlide].component
-
   const slideTransitions = {
     fade: {
       initial: { opacity: 0 },
@@ -357,6 +364,9 @@ function App() {
   const currentTransition = isStaticMode 
     ? { initial: {}, animate: {}, exit: {}, transition: { duration: 0 } }
     : slideTransitions.zoom
+
+  // Get the current slide component dynamically
+  const CurrentSlideComponent = slides[currentSlide]?.component || slides[0].component
 
   return (
     <div className="presentation">
