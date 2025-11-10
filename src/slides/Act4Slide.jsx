@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { ActSlideLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
+import AnimatedCounter from '../components/AnimatedCounter'
 import Icon from '../components/Icon'
-import { CheckCircle, TrendingUp, Award, Shield } from 'lucide-react'
+import { TrendingUp, Users, DollarSign, Award, Shield, Target, Zap, CheckCircle } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
@@ -16,52 +17,179 @@ export default function Act4Slide() {
   )
 
   const title = "Proof of Traction"
+  const subtitle = "Live Platform Operating at Scale"
 
   const mainContent = (
-    <>
-      <p style={{
-        fontSize: TYPOGRAPHY.body,
-        lineHeight: '1.8',
-        color: 'rgba(255, 255, 255, 0.9)',
-        maxWidth: pxToRem(800),
-        margin: '0 auto'
-      }}>
-        We're not just building—we're already operating. $42M in assets under management,
-        27 high-net-worth clients live on the platform, 99.97% uptime, and 312% monthly growth.
-        Stanford validates our AI approach, Zerodha powers real trading, and clients save
-        ₹1.55L annually per crore. The market timing is perfect: 46% of HNW investors
-        are switching advisors right now.
-      </p>
-    </>
+    <div style={{ display: 'grid', gap: SPACING.lg }}>
+      {/* Hero Metrics Row - The "Live Traction Dashboard" */}
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: SPACING.md,
+          marginBottom: SPACING.sm
+        }}
+      >
+        {/* $42M AUM Hero */}
+        <motion.div
+          whileHover={{ scale: 1.05, y: -5 }}
+          className="glass-card"
+          style={{
+            padding: SPACING.lg,
+            background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(139, 92, 246, 0.15))',
+            border: `${pxToRem(2)} solid rgba(167, 139, 250, 0.3)`,
+            boxShadow: '0 8px 32px rgba(167, 139, 250, 0.15)',
+            textAlign: 'center'
+          }}
+        >
+          <DollarSign size={32} color="#a78bfa" style={{ margin: '0 auto', marginBottom: SPACING.sm }} />
+          <div style={{ 
+            fontSize: TYPOGRAPHY.headline, 
+            fontWeight: 900, 
+            color: '#c4b5fd',
+            marginBottom: SPACING.xs 
+          }}>
+            $<AnimatedCounter end={42} duration={1.5} />M
+          </div>
+          <div style={{ fontSize: TYPOGRAPHY.caption, color: 'rgba(255, 255, 255, 0.7)' }}>
+            Assets Live
+          </div>
+          <div style={{ 
+            fontSize: TYPOGRAPHY.footnote, 
+            color: '#22c55e', 
+            marginTop: SPACING.xs,
+            fontWeight: 600 
+          }}>
+            +312% MoM
+          </div>
+        </motion.div>
+
+        {/* 27 Clients */}
+        <motion.div
+          whileHover={{ scale: 1.05, y: -5 }}
+          className="glass-card"
+          style={{
+            padding: SPACING.lg,
+            background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(219, 39, 119, 0.15))',
+            border: `${pxToRem(2)} solid rgba(236, 72, 153, 0.3)`,
+            boxShadow: '0 8px 32px rgba(236, 72, 153, 0.15)',
+            textAlign: 'center'
+          }}
+        >
+          <Users size={32} color="#ec4899" style={{ margin: '0 auto', marginBottom: SPACING.sm }} />
+          <div style={{ 
+            fontSize: TYPOGRAPHY.headline, 
+            fontWeight: 900, 
+            color: '#f9a8d4',
+            marginBottom: SPACING.xs 
+          }}>
+            <AnimatedCounter end={27} duration={1.5} />
+          </div>
+          <div style={{ fontSize: TYPOGRAPHY.caption, color: 'rgba(255, 255, 255, 0.7)' }}>
+            HNW Clients
+          </div>
+          <div style={{ 
+            fontSize: TYPOGRAPHY.footnote, 
+            color: '#22c55e', 
+            marginTop: SPACING.xs,
+            fontWeight: 600 
+          }}>
+            97% Retention
+          </div>
+        </motion.div>
+
+        {/* 99.97% Uptime */}
+        <motion.div
+          whileHover={{ scale: 1.05, y: -5 }}
+          className="glass-card"
+          style={{
+            padding: SPACING.lg,
+            background: 'linear-gradient(135deg, rgba(192, 132, 252, 0.2), rgba(168, 85, 247, 0.15))',
+            border: `${pxToRem(2)} solid rgba(192, 132, 252, 0.3)`,
+            boxShadow: '0 8px 32px rgba(192, 132, 252, 0.15)',
+            textAlign: 'center'
+          }}
+        >
+          <Shield size={32} color="#c084fc" style={{ margin: '0 auto', marginBottom: SPACING.sm }} />
+          <div style={{ 
+            fontSize: TYPOGRAPHY.headline, 
+            fontWeight: 900, 
+            color: '#e9d5ff',
+            marginBottom: SPACING.xs 
+          }}>
+            <AnimatedCounter end={99.97} decimals={2} duration={1.5} />%
+          </div>
+          <div style={{ fontSize: TYPOGRAPHY.caption, color: 'rgba(255, 255, 255, 0.7)' }}>
+            Uptime
+          </div>
+          <div style={{ 
+            fontSize: TYPOGRAPHY.footnote, 
+            color: '#22c55e', 
+            marginTop: SPACING.xs,
+            fontWeight: 600 
+          }}>
+            4.8★ Rating
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Validation Narrative */}
+      <motion.p 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        style={{
+          fontSize: TYPOGRAPHY.body,
+          lineHeight: '1.8',
+          color: 'rgba(255, 255, 255, 0.85)',
+          maxWidth: pxToRem(900),
+          margin: '0 auto',
+          textAlign: 'center'
+        }}
+      >
+        We're not pitching a prototype—this platform is <strong style={{ color: '#c4b5fd' }}>live and operating</strong>. 
+        Stanford validates our AI edge (93% outperformance), Zerodha powers real trading (1000+ daily trades), 
+        and clients save ₹1.55L/₹1Cr annually. The market timing is perfect: <strong style={{ color: '#f9a8d4' }}>46% of HNW investors 
+        are actively switching advisors</strong> right now.
+      </motion.p>
+    </div>
   )
 
   const sideMetrics = (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.md }}>
-      <div className="metric-item">
-        <CheckCircle size={24} color="#a78bfa" />
-        <div className="metric-value">$42M</div>
-        <div className="metric-label">Assets Live</div>
-      </div>
-      
+    <motion.div 
+      style={{ display: 'flex', flexDirection: 'column', gap: SPACING.md }}
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, staggerChildren: 0.1 }}
+    >
       <div className="metric-item">
         <Award size={24} color="#a78bfa" />
-        <div className="metric-value">27</div>
-        <div className="metric-label">HNW Clients</div>
+        <div className="metric-value">$42M</div>
+        <div className="metric-label">Live AUM</div>
       </div>
       
       <div className="metric-item">
-        <TrendingUp size={24} color="#a78bfa" />
+        <TrendingUp size={24} color="#ec4899" />
         <div className="metric-value">312%</div>
-        <div className="metric-label">Monthly Growth</div>
+        <div className="metric-label">MoM Growth</div>
       </div>
-    </div>
+      
+      <div className="metric-item">
+        <Target size={24} color="#c084fc" />
+        <div className="metric-value">1000+</div>
+        <div className="metric-label">Daily Trades</div>
+      </div>
+    </motion.div>
   )
 
   const bottomPoints = (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
+      transition={{ duration: 0.8, delay: 0.7 }}
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
@@ -69,103 +197,142 @@ export default function Act4Slide() {
         width: '100%'
       }}
     >
+      {/* Real Operating Data */}
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="glass-card"
+        whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 300 }}
         style={{
           padding: SPACING.lg,
-          background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(196, 181, 253, 0.1))',
-          borderLeft: `${pxToRem(4)} solid #a78bfa`
+          background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(139, 92, 246, 0.1))',
+          border: `${pxToRem(2)} solid rgba(167, 139, 250, 0.2)`,
+          borderRadius: pxToRem(16),
+          boxShadow: '0 8px 24px rgba(167, 139, 250, 0.1)'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.sm }}>
-          <Icon type="shield" size={28} variant="inline" gradient="from-purple-400 to-pink-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.md }}>
+          <Icon type="shield" size={32} variant="badge" gradient="from-purple-400 to-pink-400" />
           <h3 style={{ 
             fontSize: TYPOGRAPHY.subheadline, 
-            color: '#a78bfa',
-            margin: 0 
+            color: '#c4b5fd',
+            margin: 0,
+            fontWeight: 700
           }}>
-            Real Traction
+            Real Operating Data
           </h3>
         </div>
-        <p style={{ 
+        <div style={{ 
           fontSize: TYPOGRAPHY.caption,
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.6'
+          lineHeight: '1.7',
+          display: 'grid',
+          gap: SPACING.xs
         }}>
-          <strong style={{ color: '#c4b5fd' }}>99.97% uptime</strong> with live clients
-          <br />
-          <strong style={{ color: '#c4b5fd' }}>97% retention</strong> rate
-          <br />
-          <strong style={{ color: '#c4b5fd' }}>4.8★</strong> client satisfaction
-        </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>99.97% uptime</strong> with live clients</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>97% retention</strong> rate achieved</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>4.8★</strong> average client rating</span>
+          </div>
+        </div>
       </motion.div>
 
+      {/* Tech Validation */}
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="glass-card"
+        whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 300 }}
         style={{
           padding: SPACING.lg,
-          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.1))',
-          borderLeft: `${pxToRem(4)} solid #22c55e`
+          background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(219, 39, 119, 0.1))',
+          border: `${pxToRem(2)} solid rgba(236, 72, 153, 0.2)`,
+          borderRadius: pxToRem(16),
+          boxShadow: '0 8px 24px rgba(236, 72, 153, 0.1)'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.sm }}>
-          <Icon type="shield" size={28} variant="inline" gradient="from-green-400 to-emerald-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.md }}>
+          <Icon type="zap" size={32} variant="badge" gradient="from-pink-400 to-rose-400" />
           <h3 style={{ 
             fontSize: TYPOGRAPHY.subheadline, 
-            color: '#22c55e',
-            margin: 0 
+            color: '#f9a8d4',
+            margin: 0,
+            fontWeight: 700
           }}>
             Tech Validation
           </h3>
         </div>
-        <p style={{ 
+        <div style={{ 
           fontSize: TYPOGRAPHY.caption,
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.6'
+          lineHeight: '1.7',
+          display: 'grid',
+          gap: SPACING.xs
         }}>
-          <strong style={{ color: '#86efac' }}>Stanford Study:</strong> 93% AI outperformance
-          <br />
-          <strong style={{ color: '#86efac' }}>Live Trading:</strong> 1000+ trades daily
-          <br />
-          <strong style={{ color: '#86efac' }}>Tax Alpha:</strong> ₹1.55L saved/₹1Cr
-        </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#fbcfe8' }}>Stanford:</strong> 93% AI outperformance</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#fbcfe8' }}>Zerodha:</strong> 1000+ trades daily</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#fbcfe8' }}>Tax Alpha:</strong> ₹1.55L saved/₹1Cr</span>
+          </div>
+        </div>
       </motion.div>
 
+      {/* Market Timing */}
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="glass-card"
+        whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 300 }}
         style={{
           padding: SPACING.lg,
-          background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.1))',
-          borderLeft: `${pxToRem(4)} solid #fbbf24`
+          background: 'linear-gradient(135deg, rgba(192, 132, 252, 0.15), rgba(168, 85, 247, 0.1))',
+          border: `${pxToRem(2)} solid rgba(192, 132, 252, 0.2)`,
+          borderRadius: pxToRem(16),
+          boxShadow: '0 8px 24px rgba(192, 132, 252, 0.1)'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.sm }}>
-          <Icon type="trending-up" size={28} variant="inline" gradient="from-yellow-400 to-orange-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.md }}>
+          <Icon type="trending-up" size={32} variant="badge" gradient="from-purple-400 to-violet-400" />
           <h3 style={{ 
             fontSize: TYPOGRAPHY.subheadline, 
-            color: '#fbbf24',
-            margin: 0 
+            color: '#e9d5ff',
+            margin: 0,
+            fontWeight: 700
           }}>
-            Market Timing
+            Perfect Timing
           </h3>
         </div>
-        <p style={{ 
+        <div style={{ 
           fontSize: TYPOGRAPHY.caption,
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.6'
+          lineHeight: '1.7',
+          display: 'grid',
+          gap: SPACING.xs
         }}>
-          <strong style={{ color: '#fde047' }}>46%</strong> HNW investors switching
-          <br />
-          <strong style={{ color: '#fde047' }}>$124T</strong> wealth transfer active
-          <br />
-          <strong style={{ color: '#fde047' }}>$5T</strong> India GIFT opportunity
-        </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>46%</strong> HNW investors switching</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>$124T</strong> wealth transfer wave</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>$5T</strong> India GIFT unlocked</span>
+          </div>
+        </div>
       </motion.div>
     </motion.div>
   )
@@ -174,6 +341,7 @@ export default function Act4Slide() {
     <ActSlideLayout
       actNumber={actNumber}
       title={title}
+      subtitle={subtitle}
       mainContent={mainContent}
       sideMetrics={sideMetrics}
       bottomPoints={bottomPoints}
