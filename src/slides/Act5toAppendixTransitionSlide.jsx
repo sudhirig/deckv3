@@ -4,6 +4,7 @@ import ParticleBackground from '../components/ParticleBackground'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { ActSlideLayout } from '../components/StandardLayouts'
 import { Microscope, Code, Brain, Zap, Database, Shield, Layers, Activity, ChevronRight, Sparkles, Rocket } from 'lucide-react'
+import { pxToRem, TYPOGRAPHY } from '../utils/responsive'
 
 export default function Act5toAppendixTransitionSlide() {
   const [hoveredModule, setHoveredModule] = useState(null)
@@ -69,10 +70,10 @@ export default function Act5toAppendixTransitionSlide() {
           position: 'absolute',
           top: 0,
           left: 0,
-          width: '12.5rem',
+          width: pxToRem(200),
           height: '100%',
           background: 'linear-gradient(90deg, transparent, rgba(20, 184, 166, 0.3), transparent)',
-          filter: 'blur(1.875rem)',
+          filter: `blur(${pxToRem(30)})`,
           zIndex: 2
         }}
       />
@@ -82,32 +83,32 @@ export default function Act5toAppendixTransitionSlide() {
   const mainContent = (
     <>
       <motion.div
-        initial={{ opacity: 0, y: -30 }}
+        initial={{ opacity: 0, y: pxToRem(-30) }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        style={{ textAlign: 'center', marginBottom: '3rem' }}
+        style={{ textAlign: 'center', marginBottom: pxToRem(48) }}
       >
         <motion.div
           style={{ 
             display: 'inline-flex',
             alignItems: 'center',
             justifyContent: 'center',
-            marginBottom: '1.5rem'
+            marginBottom: pxToRem(24)
           }}
         >
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
             style={{
-              width: '7.5rem',
-              height: '7.5rem',
+              width: pxToRem(120),
+              height: pxToRem(120),
               borderRadius: '50%',
               background: 'conic-gradient(from 0deg, #14b8a6, #8b5cf6, #fb923c, #14b8a6)',
-              padding: '0.25rem',
+              padding: pxToRem(4),
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 0 3.75rem rgba(20, 184, 166, 0.5)'
+              boxShadow: `0 0 ${pxToRem(60)} rgba(20, 184, 166, 0.5)`
             }}
           >
             <motion.div
@@ -128,7 +129,7 @@ export default function Act5toAppendixTransitionSlide() {
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
                 style={{ 
-                  fontSize: '2.5rem',
+                  fontSize: TYPOGRAPHY.subheadline,
                   fontWeight: 'bold',
                   background: 'linear-gradient(135deg, #14b8a6, #8b5cf6)',
                   backgroundClip: 'text',
@@ -138,7 +139,7 @@ export default function Act5toAppendixTransitionSlide() {
               >
                 <AnimatedCounter value={100} duration={1500} />%
               </motion.div>
-              <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>COMPLETE</p>
+              <p style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>COMPLETE</p>
             </motion.div>
           </motion.div>
         </motion.div>
@@ -147,16 +148,16 @@ export default function Act5toAppendixTransitionSlide() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          style={{ fontSize: '1rem', color: '#94a3b8', marginBottom: '0.5rem' }}
+          style={{ fontSize: pxToRem(16), color: '#94a3b8', marginBottom: pxToRem(8) }}
         >
           JOURNEY COMPLETE
         </motion.p>
         
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: pxToRem(20) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          style={{ fontSize: '2rem', color: '#fff', fontWeight: '600' }}
+          style={{ fontSize: TYPOGRAPHY.subheadline, color: '#fff', fontWeight: '600' }}
         >
           Act 5 → Product Appendix
         </motion.h2>
@@ -169,8 +170,8 @@ export default function Act5toAppendixTransitionSlide() {
         style={{ 
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1.5rem',
-          marginBottom: '2.5rem'
+          gap: pxToRem(24),
+          marginBottom: pxToRem(40)
         }}
       >
         {[
@@ -201,20 +202,20 @@ export default function Act5toAppendixTransitionSlide() {
         ].map((item, index) => (
           <motion.div
             key={index}
-            initial={{ opacity: 0, y: 30, rotateY: -20 }}
+            initial={{ opacity: 0, y: pxToRem(30), rotateY: -20 }}
             animate={{ opacity: 1, y: 0, rotateY: 0 }}
             transition={{ delay: 1.0 + index * 0.15, type: 'spring' }}
             whileHover={{ 
               scale: 1.05,
-              y: -10,
-              boxShadow: `0 1.25rem 3.75rem ${item.color}40`
+              y: pxToRem(-10),
+              boxShadow: `0 ${pxToRem(20)} ${pxToRem(60)} ${item.color}40`
             }}
             style={{
-              padding: '2rem',
+              padding: pxToRem(32),
               background: `linear-gradient(135deg, ${item.color}15, rgba(255, 255, 255, 0.02))`,
-              backdropFilter: 'blur(1.25rem)',
-              borderRadius: '1.25rem',
-              border: `2px solid ${item.color}30`,
+              backdropFilter: `blur(${pxToRem(20)})`,
+              borderRadius: pxToRem(20),
+              border: `${pxToRem(2)} solid ${item.color}30`,
               position: 'relative',
               overflow: 'visible',
               textAlign: 'center',
@@ -236,7 +237,7 @@ export default function Act5toAppendixTransitionSlide() {
                 height: '150%',
                 borderRadius: '50%',
                 background: `radial-gradient(circle, ${item.color}20, transparent)`,
-                filter: 'blur(1.875rem)',
+                filter: `blur(${pxToRem(30)})`,
                 zIndex: -1
               }}
             />
@@ -249,22 +250,22 @@ export default function Act5toAppendixTransitionSlide() {
                 top: '50%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '12.5rem',
-                height: '12.5rem',
+                width: pxToRem(200),
+                height: pxToRem(200),
                 background: `conic-gradient(from 0deg, ${item.color}10, transparent, ${item.color}10)`,
                 borderRadius: '50%',
-                filter: 'blur(1.25rem)',
+                filter: `blur(${pxToRem(20)})`,
                 zIndex: -1
               }}
             />
             
             <motion.div
               animate={{ 
-                y: pulseAnimation ? [0, -5, 0] : 0,
+                y: pulseAnimation ? [0, pxToRem(-5), 0] : 0,
                 rotate: pulseAnimation ? [0, 5, -5, 0] : 0
               }}
               transition={{ duration: 2 }}
-              style={{ marginBottom: '1rem' }}
+              style={{ marginBottom: pxToRem(16) }}
             >
               <item.icon size={40} color={item.color} />
             </motion.div>
@@ -273,9 +274,9 @@ export default function Act5toAppendixTransitionSlide() {
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               style={{ 
-                fontSize: '2.5rem',
+                fontSize: TYPOGRAPHY.subheadline,
                 fontWeight: 'bold',
-                marginBottom: '0.75rem',
+                marginBottom: pxToRem(12),
                 background: `linear-gradient(135deg, ${item.color}, ${item.color}80)`,
                 backgroundClip: 'text',
                 WebkitBackgroundClip: 'text',
@@ -285,10 +286,10 @@ export default function Act5toAppendixTransitionSlide() {
               {item.count}
             </motion.div>
             
-            <h4 style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '0.5rem' }}>
+            <h4 style={{ fontSize: pxToRem(19.2), color: '#e2e8f0', marginBottom: pxToRem(8) }}>
               {item.title}
             </h4>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
+            <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8' }}>
               {item.desc}
             </p>
           </motion.div>
@@ -300,15 +301,15 @@ export default function Act5toAppendixTransitionSlide() {
   const bottomPoints = (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: pxToRem(30) }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4 }}
-        style={{ marginBottom: '2.5rem' }}
+        style={{ marginBottom: pxToRem(40) }}
       >
         <h4 style={{ 
-          fontSize: '1.3rem',
+          fontSize: pxToRem(20.8),
           color: '#94a3b8',
-          marginBottom: '1.5rem',
+          marginBottom: pxToRem(24),
           textAlign: 'center'
         }}>
           What's in the Appendix:
@@ -317,19 +318,19 @@ export default function Act5toAppendixTransitionSlide() {
         <div style={{ 
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '1rem',
-          maxWidth: '56.25rem',
+          gap: pxToRem(16),
+          maxWidth: pxToRem(900),
           margin: '0 auto'
         }}>
           {modules.map((module, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? pxToRem(-30) : pxToRem(30) }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1.6 + index * 0.08 }}
               whileHover={{ 
                 scale: 1.05,
-                x: index % 2 === 0 ? 10 : -10,
+                x: index % 2 === 0 ? pxToRem(10) : pxToRem(-10),
                 backgroundColor: `${module.color}10`
               }}
               onHoverStart={() => setHoveredModule(index)}
@@ -337,12 +338,12 @@ export default function Act5toAppendixTransitionSlide() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '1rem',
-                padding: '1rem',
+                gap: pxToRem(16),
+                padding: pxToRem(16),
                 background: 'rgba(255, 255, 255, 0.02)',
-                backdropFilter: 'blur(0.625rem)',
-                borderRadius: '0.75rem',
-                border: `1px solid ${module.color}20`,
+                backdropFilter: `blur(${pxToRem(10)})`,
+                borderRadius: pxToRem(12),
+                border: `${pxToRem(1)} solid ${module.color}20`,
                 position: 'relative',
                 overflow: 'hidden',
                 cursor: 'pointer',
@@ -358,9 +359,9 @@ export default function Act5toAppendixTransitionSlide() {
                     position: 'absolute',
                     bottom: 0,
                     left: 0,
-                    height: '3px',
+                    height: pxToRem(3),
                     background: `linear-gradient(90deg, ${module.color}, ${module.color}60)`,
-                    boxShadow: `0 0 0.9375rem ${module.color}50`
+                    boxShadow: `0 0 ${pxToRem(15)} ${module.color}50`
                   }}
                 />
               )}
@@ -372,9 +373,9 @@ export default function Act5toAppendixTransitionSlide() {
                 }}
                 transition={{ duration: 0.5 }}
                 style={{
-                  padding: '0.75rem',
+                  padding: pxToRem(12),
                   background: `linear-gradient(135deg, ${module.color}20, ${module.color}10)`,
-                  borderRadius: '0.625rem',
+                  borderRadius: pxToRem(10),
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
@@ -387,7 +388,7 @@ export default function Act5toAppendixTransitionSlide() {
                 <span style={{ 
                   color: module.color,
                   fontWeight: 'bold',
-                  marginRight: '0.5rem'
+                  marginRight: pxToRem(8)
                 }}>
                   {index + 1}.
                 </span>
@@ -398,7 +399,7 @@ export default function Act5toAppendixTransitionSlide() {
               
               {hoveredModule === index && (
                 <motion.div
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: pxToRem(20) }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -411,7 +412,7 @@ export default function Act5toAppendixTransitionSlide() {
       </motion.div>
       
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: pxToRem(20) }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.2 }}
       >
@@ -419,9 +420,9 @@ export default function Act5toAppendixTransitionSlide() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: '0.75rem'
+          marginBottom: pxToRem(12)
         }}>
-          <span style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
+          <span style={{ fontSize: pxToRem(14.4), color: '#94a3b8' }}>
             Journey Progress
           </span>
           <motion.span
@@ -429,16 +430,16 @@ export default function Act5toAppendixTransitionSlide() {
               color: pulseAnimation ? '#14b8a6' : '#8b5cf6'
             }}
             transition={{ duration: 2 }}
-            style={{ fontSize: '0.9rem', fontWeight: 'bold' }}
+            style={{ fontSize: pxToRem(14.4), fontWeight: 'bold' }}
           >
             100% - Technical Deep Dive
           </motion.span>
         </div>
         
         <div style={{ 
-          height: '0.75rem',
+          height: pxToRem(12),
           background: 'rgba(255, 255, 255, 0.05)',
-          borderRadius: '0.375rem',
+          borderRadius: pxToRem(6),
           overflow: 'hidden',
           position: 'relative'
         }}>
@@ -449,7 +450,7 @@ export default function Act5toAppendixTransitionSlide() {
             style={{
               height: '100%',
               background: 'linear-gradient(90deg, #14b8a6, #8b5cf6, #fb923c)',
-              boxShadow: '0 0 1.875rem rgba(20, 184, 166, 0.5)',
+              boxShadow: `0 0 ${pxToRem(30)} rgba(20, 184, 166, 0.5)`,
               position: 'relative'
             }}
           >
@@ -466,10 +467,10 @@ export default function Act5toAppendixTransitionSlide() {
                 position: 'absolute',
                 top: 0,
                 left: 0,
-                width: '3.125rem',
+                width: pxToRem(50),
                 height: '100%',
                 background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)',
-                filter: 'blur(0.3125rem)'
+                filter: `blur(${pxToRem(5)})`
               }}
             />
           </motion.div>
@@ -488,11 +489,11 @@ export default function Act5toAppendixTransitionSlide() {
                 left: `${(i + 1) * 14}%`,
                 top: '50%',
                 transform: 'translate(-50%, -50%)',
-                width: '0.5rem',
-                height: '0.5rem',
+                width: pxToRem(8),
+                height: pxToRem(8),
                 borderRadius: '50%',
                 background: progressStep > i ? '#fff' : 'rgba(255, 255, 255, 0.3)',
-                boxShadow: progressStep === i ? '0 0 1.25rem #fff' : 'none'
+                boxShadow: progressStep === i ? `0 0 ${pxToRem(20)} #fff` : 'none'
               }}
             />
           ))}
@@ -504,7 +505,7 @@ export default function Act5toAppendixTransitionSlide() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 2.8, type: 'spring' }}
         style={{
-          marginTop: '2.5rem',
+          marginTop: pxToRem(40),
           textAlign: 'center'
         }}
       >
@@ -512,22 +513,22 @@ export default function Act5toAppendixTransitionSlide() {
           animate={{ 
             scale: pulseAnimation ? [1, 1.05, 1] : 1,
             boxShadow: pulseAnimation 
-              ? ['0 0 1.875rem rgba(20, 184, 166, 0.3)', '0 0 3.125rem rgba(20, 184, 166, 0.5)', '0 0 1.875rem rgba(20, 184, 166, 0.3)']
-              : '0 0 1.875rem rgba(20, 184, 166, 0.3)'
+              ? [`0 0 ${pxToRem(30)} rgba(20, 184, 166, 0.3)`, `0 0 ${pxToRem(50)} rgba(20, 184, 166, 0.5)`, `0 0 ${pxToRem(30)} rgba(20, 184, 166, 0.3)`]
+              : `0 0 ${pxToRem(30)} rgba(20, 184, 166, 0.3)`
           }}
           transition={{ duration: 2 }}
           style={{
-            padding: '1rem 2.5rem',
-            fontSize: '1.1rem',
+            padding: `${pxToRem(16)} ${pxToRem(40)}`,
+            fontSize: pxToRem(17.6),
             fontWeight: 'bold',
             color: '#fff',
             background: 'linear-gradient(135deg, #14b8a6, #8b5cf6)',
             border: 'none',
-            borderRadius: '3.125rem',
+            borderRadius: pxToRem(50),
             cursor: 'pointer',
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '0.75rem'
+            gap: pxToRem(12)
           }}
         >
           <Rocket size={20} />

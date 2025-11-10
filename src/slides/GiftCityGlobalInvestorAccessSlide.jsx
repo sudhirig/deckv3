@@ -1,13 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Globe2, Users, MapPin, Briefcase } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 
 const GiftCityGlobalInvestorAccessSlide = () => {
   return (
     <div className="slide-container">
       <div className="glassmorphic-card large">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: pxToRem(-20) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -57,7 +58,7 @@ const GiftCityGlobalInvestorAccessSlide = () => {
         <div className="grid grid-cols-2 gap-6">
           {/* Investor Types */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: pxToRem(-20) }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.6 }}
             className="glassmorphic-card"
@@ -104,7 +105,7 @@ const GiftCityGlobalInvestorAccessSlide = () => {
 
           {/* Investment Benefits */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: pxToRem(20) }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
             className="glassmorphic-card"

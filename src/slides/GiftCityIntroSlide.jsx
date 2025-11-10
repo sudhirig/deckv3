@@ -6,6 +6,7 @@ import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Building2, Globe, Shield, Zap, TrendingUp, Award, ArrowRight } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 const GiftCityIntroSlide = () => {
@@ -76,7 +77,7 @@ const GiftCityIntroSlide = () => {
                 {card.items.map((item, i) => (
                   <motion.li
                     key={i}
-                    initial={{ opacity: 0, x: -1.25 }}
+                    initial={{ opacity: 0, x: pxToRem(-20) }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.9 + i * 0.1 }}
                     style={{ display: 'flex', alignItems: 'flex-start', marginBottom: '1rem' }}
@@ -135,7 +136,7 @@ const GiftCityIntroSlide = () => {
             {card.benefits.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -1.25 }}
+                initial={{ opacity: 0, x: pxToRem(-20) }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 1.3 + i * 0.1 }}
                 style={{
@@ -217,7 +218,7 @@ const GiftCityIntroSlide = () => {
 
   const summary = (
     <motion.div
-      initial={{ opacity: 0, y: 1.25 }}
+      initial={{ opacity: 0, y: pxToRem(20) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.7, duration: 0.6 }}
       className="glass-card"
@@ -236,7 +237,7 @@ const GiftCityIntroSlide = () => {
         transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
         style={{
           position: 'absolute',
-          inset: -0.125,
+          inset: pxToRem(-2),
           background: 'linear-gradient(45deg, #06b6d4, #10b981, #a855f7, #06b6d4)',
           backgroundSize: '300% 300%',
           borderRadius: '1rem',

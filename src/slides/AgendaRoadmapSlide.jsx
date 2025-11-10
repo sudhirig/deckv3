@@ -3,6 +3,7 @@ import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { ChevronRight } from 'lucide-react'
 import './SlideStyles.css'
+import { pxToRem, TYPOGRAPHY } from '../utils/responsive'
 
 export default function AgendaRoadmapSlide() {
   const roadmapSteps = [
@@ -55,16 +56,16 @@ export default function AgendaRoadmapSlide() {
         animate={{ scale: 1 }}
         transition={{ delay: 0.2 + index * 0.15, type: 'spring', stiffness: 200 }}
         style={{
-          width: '5rem',
-          height: '5rem',
+          width: pxToRem(80),
+          height: pxToRem(80),
           borderRadius: '50%',
           background: `linear-gradient(135deg, ${step.color}33, ${step.color}11)`,
-          border: `0.1875rem solid ${step.color}`,
-          margin: '0 auto 1rem',
+          border: `${pxToRem(3)} solid ${step.color}`,
+          margin: `0 auto ${pxToRem(16)}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: '2rem',
+          fontSize: TYPOGRAPHY.subheadline,
           fontWeight: 'bold',
           color: step.color
         }}
@@ -73,9 +74,9 @@ export default function AgendaRoadmapSlide() {
       </motion.div>
 
       <h3 style={{ 
-        fontSize: '1rem', 
+        fontSize: pxToRem(16), 
         fontWeight: 'bold',
-        marginBottom: '0.3rem',
+        marginBottom: pxToRem(4.8),
         textAlign: 'center',
         background: `linear-gradient(135deg, ${step.gradient.split(' ')[1]}, ${step.gradient.split(' ')[3]})`,
         WebkitBackgroundClip: 'text',
@@ -85,9 +86,9 @@ export default function AgendaRoadmapSlide() {
       </h3>
 
       <p style={{ 
-        fontSize: '0.9rem', 
+        fontSize: pxToRem(14.4), 
         color: '#94a3b8',
-        marginBottom: '0.5rem',
+        marginBottom: pxToRem(8),
         textAlign: 'center'
       }}>
         {step.subtitle}
@@ -97,10 +98,10 @@ export default function AgendaRoadmapSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 + index * 0.1 }}
-        style={{ fontSize: '0.8rem', color: '#64748b', textAlign: 'center' }}
+        style={{ fontSize: pxToRem(12.8), color: '#64748b', textAlign: 'center' }}
       >
         {step.details.map((detail, i) => (
-          <div key={i} style={{ marginBottom: '0.2rem' }}>
+          <div key={i} style={{ marginBottom: pxToRem(3.2) }}>
             • {detail}
           </div>
         ))}
@@ -113,8 +114,8 @@ export default function AgendaRoadmapSlide() {
           transition={{ delay: 1.2 }}
           style={{
             position: 'absolute',
-            top: '1.875rem',
-            right: '-1.25rem',
+            top: pxToRem(30),
+            right: pxToRem(-20),
             color: '#64748b'
           }}
         >
@@ -126,21 +127,21 @@ export default function AgendaRoadmapSlide() {
 
   const summary = (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: pxToRem(20) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 2 }}
       style={{ 
         textAlign: 'center',
-        padding: '1.5rem',
+        padding: pxToRem(24),
         background: 'rgba(20, 184, 166, 0.1)',
-        borderRadius: '0.75rem',
-        marginTop: '2rem'
+        borderRadius: pxToRem(12),
+        marginTop: pxToRem(32)
       }}
     >
-      <p style={{ fontSize: '1.1rem', color: '#14b8a6' }}>
+      <p style={{ fontSize: pxToRem(17.6), color: '#14b8a6' }}>
         <strong>28 slides</strong> • <strong>15-minute core story</strong> • <strong>Modular deep dives available</strong>
       </p>
-      <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+      <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginTop: pxToRem(8) }}>
         We'll focus on the areas most relevant to your interests
       </p>
     </motion.div>

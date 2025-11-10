@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import { AlertTriangle, Shield, CheckCircle, Activity } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function RiskMitigation1Slide() {
@@ -85,9 +86,9 @@ export default function RiskMitigation1Slide() {
       transition={{ delay: 0.3 + index * 0.15 }}
       style={{
         background: `linear-gradient(135deg, ${risk.color}15, transparent)`,
-        borderRadius: '0.75rem',
-        padding: '1.5rem',
-        border: `1px solid ${risk.color}33`,
+        borderRadius: pxToRem(12),
+        padding: pxToRem(24),
+        border: `${pxToRem(1)} solid ${risk.color}33`,
         height: '100%'
       }}
     >
@@ -95,41 +96,41 @@ export default function RiskMitigation1Slide() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginBottom: '1rem'
+        marginBottom: pxToRem(16)
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
           <AlertTriangle size={20} style={{ color: risk.color }} />
-          <h3 style={{ color: risk.color, fontSize: '1.1rem', margin: 0 }}>
+          <h3 style={{ color: risk.color, fontSize: pxToRem(17.6), margin: 0 }}>
             {risk.category}
           </h3>
         </div>
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '0.25rem',
-          padding: '0.25rem 0.75rem',
+          gap: pxToRem(4),
+          padding: `${pxToRem(4)} ${pxToRem(12)}`,
           background: `${risk.color}22`,
-          borderRadius: '0.75rem'
+          borderRadius: pxToRem(12)
         }}>
           {getRiskIcon(risk.level)}
-          <span style={{ fontSize: '0.8rem', color: risk.color }}>
+          <span style={{ fontSize: pxToRem(12.8), color: risk.color }}>
             {risk.level}
           </span>
         </div>
       </div>
 
-      <div style={{ marginBottom: '1rem' }}>
-        <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '0.5rem' }}>
+      <div style={{ marginBottom: pxToRem(16) }}>
+        <div style={{ fontSize: pxToRem(12.8), color: '#64748b', marginBottom: pxToRem(8) }}>
           KEY RISKS
         </div>
         {risk.risks.map((item, i) => (
           <div
             key={i}
             style={{
-              fontSize: '0.85rem',
+              fontSize: pxToRem(13.6),
               color: '#94a3b8',
-              marginBottom: '0.25rem',
-              paddingLeft: '1rem',
+              marginBottom: pxToRem(4),
+              paddingLeft: pxToRem(16),
               position: 'relative'
             }}
           >
@@ -144,17 +145,17 @@ export default function RiskMitigation1Slide() {
       </div>
 
       <div>
-        <div style={{ fontSize: '0.8rem', color: '#64748b', marginBottom: '0.5rem' }}>
+        <div style={{ fontSize: pxToRem(12.8), color: '#64748b', marginBottom: pxToRem(8) }}>
           MITIGATION STRATEGIES
         </div>
         {risk.mitigations.map((item, i) => (
           <div
             key={i}
             style={{
-              fontSize: '0.85rem',
+              fontSize: pxToRem(13.6),
               color: '#e2e8f0',
-              marginBottom: '0.25rem',
-              paddingLeft: '1rem',
+              marginBottom: pxToRem(4),
+              paddingLeft: pxToRem(16),
               position: 'relative'
             }}
           >
@@ -172,42 +173,42 @@ export default function RiskMitigation1Slide() {
 
   const summary = (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: pxToRem(20) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1 }}
       style={{
         background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1))',
-        borderRadius: '0.75rem',
-        padding: '1.5rem',
+        borderRadius: pxToRem(12),
+        padding: pxToRem(24),
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1.5rem'
+        gap: pxToRem(24)
       }}
     >
       <div style={{ textAlign: 'center' }}>
-        <Shield size={30} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>
+        <Shield size={30} style={{ color: '#4ade80', margin: `0 auto ${pxToRem(8)}` }} />
+        <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#4ade80' }}>
           Low
         </div>
-        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+        <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>
           Overall Risk Rating
         </div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <Activity size={30} style={{ color: '#60a5fa', margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#60a5fa' }}>
+        <Activity size={30} style={{ color: '#60a5fa', margin: `0 auto ${pxToRem(8)}` }} />
+        <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#60a5fa' }}>
           16
         </div>
-        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+        <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>
           Mitigation Strategies
         </div>
       </div>
       <div style={{ textAlign: 'center' }}>
-        <CheckCircle size={30} style={{ color: '#14b8a6', margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#14b8a6' }}>
+        <CheckCircle size={30} style={{ color: '#14b8a6', margin: `0 auto ${pxToRem(8)}` }} />
+        <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#14b8a6' }}>
           95%
         </div>
-        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+        <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>
           Risk Coverage
         </div>
       </div>

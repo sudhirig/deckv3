@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { MessageCircle, Bot, FileCheck, TrendingUp, Award, Users } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CustomerJourney2Slide() {
@@ -48,17 +49,17 @@ export default function CustomerJourney2Slide() {
   ]
 
   const mainVisual = (
-    <div style={{ position: 'relative', paddingBottom: '2rem' }}>
+    <div style={{ position: 'relative', paddingBottom: pxToRem(32) }}>
       <motion.div
         initial={{ scaleY: 0 }}
         animate={{ scaleY: 1 }}
         transition={{ delay: 0.4, duration: 1 }}
         style={{
           position: 'absolute',
-          left: '3.125rem',
-          top: '1.25rem',
-          bottom: '1.25rem',
-          width: '0.1875rem',
+          left: pxToRem(50),
+          top: pxToRem(20),
+          bottom: pxToRem(20),
+          width: pxToRem(3),
           background: 'linear-gradient(180deg, #60a5fa, #c084fc, #4ade80, #fbbf24)',
           transformOrigin: 'top'
         }}
@@ -72,34 +73,34 @@ export default function CustomerJourney2Slide() {
           transition={{ delay: 0.5 + index * 0.2 }}
           style={{
             display: 'grid',
-            gridTemplateColumns: '6.25rem 1fr',
-            gap: '2rem',
-            marginBottom: '2rem'
+            gridTemplateColumns: `${pxToRem(100)} 1fr`,
+            gap: pxToRem(32),
+            marginBottom: pxToRem(32)
           }}
         >
           <div style={{ position: 'relative' }}>
             <div style={{
               position: 'absolute',
-              left: '2.1875rem',
-              top: '0.5rem',
-              width: '1.875rem',
-              height: '1.875rem',
+              left: pxToRem(35),
+              top: pxToRem(8),
+              width: pxToRem(30),
+              height: pxToRem(30),
               borderRadius: '50%',
               background: '#0f172a',
-              border: '0.1875rem solid #60a5fa',
+              border: `${pxToRem(3)} solid #60a5fa`,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '0.8rem',
+              fontSize: pxToRem(12.8),
               fontWeight: 'bold',
               color: '#60a5fa'
             }}>
               {index + 1}
             </div>
             <div style={{
-              marginTop: '2.5rem',
+              marginTop: pxToRem(40),
               textAlign: 'center',
-              fontSize: '0.9rem',
+              fontSize: pxToRem(14.4),
               color: '#94a3b8'
             }}>
               {point.month}
@@ -108,31 +109,31 @@ export default function CustomerJourney2Slide() {
 
           <div style={{
             background: 'rgba(59, 130, 246, 0.05)',
-            borderRadius: '0.75rem',
-            padding: '1.5rem',
-            border: '0.0625rem solid rgba(59, 130, 246, 0.2)'
+            borderRadius: pxToRem(12),
+            padding: pxToRem(24),
+            border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.2)`
           }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: pxToRem(16), marginBottom: pxToRem(16) }}>
               {point.interactions.map((interaction, i) => (
                 <div
                   key={i}
                   style={{
-                    padding: '0.75rem',
+                    padding: pxToRem(12),
                     background: 'rgba(255, 255, 255, 0.03)',
-                    borderRadius: '0.5rem'
+                    borderRadius: pxToRem(8)
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8), marginBottom: pxToRem(8) }}>
                     {i === 0 && <MessageCircle size={16} style={{ color: '#60a5fa' }} />}
                     {i === 1 && <Bot size={16} style={{ color: '#c084fc' }} />}
                     {i === 2 && <FileCheck size={16} style={{ color: '#4ade80' }} />}
-                    <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{interaction.type}</span>
+                    <span style={{ fontSize: pxToRem(13.6), color: '#e2e8f0' }}>{interaction.type}</span>
                   </div>
-                  <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.25rem' }}>
+                  <div style={{ fontSize: pxToRem(12), color: '#64748b', marginBottom: pxToRem(4) }}>
                     {interaction.frequency}
                   </div>
                   <div style={{ 
-                    fontSize: '0.8rem', 
+                    fontSize: pxToRem(12.8), 
                     color: '#4ade80',
                     fontWeight: '600'
                   }}>
@@ -146,19 +147,19 @@ export default function CustomerJourney2Slide() {
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              padding: '0.75rem',
+              padding: pxToRem(12),
               background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1))',
-              borderRadius: '0.5rem'
+              borderRadius: pxToRem(8)
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
                 <Award size={20} style={{ color: '#fbbf24' }} />
                 <div>
-                  <div style={{ fontSize: '0.9rem', color: '#e2e8f0' }}>{point.milestone}</div>
-                  <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Key Achievement</div>
+                  <div style={{ fontSize: pxToRem(14.4), color: '#e2e8f0' }}>{point.milestone}</div>
+                  <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Key Achievement</div>
                 </div>
               </div>
               <div style={{
-                fontSize: '1.1rem',
+                fontSize: pxToRem(17.6),
                 fontWeight: 'bold',
                 color: '#4ade80'
               }}>
@@ -178,28 +179,28 @@ export default function CustomerJourney2Slide() {
       transition={{ delay: 1.5 }}
       style={{
         background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1))',
-        borderRadius: '0.75rem',
-        padding: '1.5rem',
+        borderRadius: pxToRem(12),
+        padding: pxToRem(24),
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1.5rem',
+        gap: pxToRem(24),
         textAlign: 'center'
       }}
     >
       <div>
-        <TrendingUp size={24} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#4ade80' }}>94%</div>
-        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>12-Month Retention</div>
+        <TrendingUp size={24} style={{ color: '#4ade80', margin: `0 auto ${pxToRem(8)}` }} />
+        <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#4ade80' }}>94%</div>
+        <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>12-Month Retention</div>
       </div>
       <div>
-        <Users size={24} style={{ color: '#60a5fa', margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#60a5fa' }}>2.7x</div>
-        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Account Growth</div>
+        <Users size={24} style={{ color: '#60a5fa', margin: `0 auto ${pxToRem(8)}` }} />
+        <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#60a5fa' }}>2.7x</div>
+        <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>Account Growth</div>
       </div>
       <div>
-        <Award size={24} style={{ color: '#fbbf24', margin: '0 auto 0.5rem' }} />
-        <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#fbbf24' }}>$3.2M</div>
-        <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>Avg Client LTV</div>
+        <Award size={24} style={{ color: '#fbbf24', margin: `0 auto ${pxToRem(8)}` }} />
+        <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#fbbf24' }}>$3.2M</div>
+        <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>Avg Client LTV</div>
       </div>
     </motion.div>
   )

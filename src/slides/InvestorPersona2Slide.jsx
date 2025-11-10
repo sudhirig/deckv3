@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import PersonaCard from '../components/PersonaCard'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function InvestorPersona2Slide() {
@@ -58,35 +59,35 @@ export default function InvestorPersona2Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '1rem'
+        gap: pxToRem(16)
       }}
     >
       <div style={{
-        padding: '1rem',
+        padding: pxToRem(16),
         background: 'rgba(251, 191, 36, 0.1)',
-        borderRadius: '0.5rem',
+        borderRadius: pxToRem(8),
         textAlign: 'center'
       }}>
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fbbf24' }}>$10.2T</div>
-        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Family Office AUM Globally</div>
+        <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fbbf24' }}>$10.2T</div>
+        <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Family Office AUM Globally</div>
       </div>
       <div style={{
-        padding: '1rem',
+        padding: pxToRem(16),
         background: 'rgba(34, 197, 94, 0.1)',
-        borderRadius: '0.5rem',
+        borderRadius: pxToRem(8),
         textAlign: 'center'
       }}>
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>7,300+</div>
-        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Family Offices Worldwide</div>
+        <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#4ade80' }}>7,300+</div>
+        <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Family Offices Worldwide</div>
       </div>
       <div style={{
-        padding: '1rem',
+        padding: pxToRem(16),
         background: 'rgba(59, 130, 246, 0.1)',
-        borderRadius: '0.5rem',
+        borderRadius: pxToRem(8),
         textAlign: 'center'
       }}>
-        <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#60a5fa' }}>68%</div>
-        <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Seeking AI Solutions</div>
+        <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#60a5fa' }}>68%</div>
+        <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Seeking AI Solutions</div>
       </div>
     </motion.div>
   )

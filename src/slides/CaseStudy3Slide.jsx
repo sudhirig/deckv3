@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { TrendingUp, Award } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CaseStudy3Slide() {
@@ -28,7 +29,7 @@ export default function CaseStudy3Slide() {
 
   const mainVisual = (
     <div>
-      <p style={{ fontSize: '1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+      <p style={{ fontSize: pxToRem(16), color: '#94a3b8', textAlign: 'center', marginBottom: pxToRem(32) }}>
         From traditional banking to AI-powered sophistication
       </p>
 
@@ -38,62 +39,62 @@ export default function CaseStudy3Slide() {
         transition={{ delay: 0.3 }}
         style={{
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1))',
-          borderRadius: '0.75rem',
-          padding: '1.5rem',
-          marginBottom: '2rem'
+          borderRadius: pxToRem(12),
+          padding: pxToRem(24),
+          marginBottom: pxToRem(32)
         }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: pxToRem(32) }}>
           <div style={{ textAlign: 'center' }}>
             <div style={{
-              width: '6.25rem',
-              height: '6.25rem',
+              width: pxToRem(100),
+              height: pxToRem(100),
               borderRadius: '50%',
               background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '2.5rem',
+              fontSize: pxToRem(40),
               fontWeight: 'bold',
               color: '#0f172a',
-              margin: '0 auto 1rem'
+              margin: `0 auto ${pxToRem(16)}`
             }}>
               DR
             </div>
-            <h3 style={{ color: '#e2e8f0', marginBottom: '0.5rem' }}>David Richardson</h3>
-            <div style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+            <h3 style={{ color: '#e2e8f0', marginBottom: pxToRem(8) }}>David Richardson</h3>
+            <div style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginBottom: pxToRem(4) }}>
               Fortune 500 CFO
             </div>
-            <div style={{ fontSize: '0.85rem', color: '#64748b' }}>
+            <div style={{ fontSize: pxToRem(13.6), color: '#64748b' }}>
               Net Worth: $45M | Age: 55
             </div>
           </div>
 
           <div>
             <div style={{
-              padding: '1rem',
+              padding: pxToRem(16),
               background: 'rgba(239, 68, 68, 0.05)',
-              borderRadius: '0.5rem',
-              marginBottom: '1rem'
+              borderRadius: pxToRem(8),
+              marginBottom: pxToRem(16)
             }}>
-              <h4 style={{ color: '#ef4444', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <h4 style={{ color: '#ef4444', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
                 🔴 STUCK WITH TRADITIONAL WEALTH MANAGEMENT
               </h4>
-              <p style={{ fontSize: '0.8rem', color: '#94a3b8', lineHeight: 1.5 }}>
+              <p style={{ fontSize: pxToRem(12.8), color: '#94a3b8', lineHeight: 1.5 }}>
                 JP Morgan Private Bank charging 1.5% fees for cookie-cutter 60/40 portfolio. 
                 No access to alternatives. Quarterly reviews always outdated. Complex RSU and 
                 option exercises handled poorly, resulting in $200K+ unnecessary tax bills.
               </p>
             </div>
             <div style={{
-              padding: '1rem',
+              padding: pxToRem(16),
               background: 'rgba(34, 197, 94, 0.05)',
-              borderRadius: '0.5rem'
+              borderRadius: pxToRem(8)
             }}>
-              <h4 style={{ color: '#4ade80', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <h4 style={{ color: '#4ade80', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
                 ✅ AI-POWERED TRANSFORMATION
               </h4>
-              <p style={{ fontSize: '0.8rem', color: '#e2e8f0', lineHeight: 1.5 }}>
+              <p style={{ fontSize: pxToRem(12.8), color: '#e2e8f0', lineHeight: 1.5 }}>
                 Migrated to our platform in 48 hours. Immediate access to institutional alternatives. 
                 AI optimizes RSU vesting and option exercises in real-time. Daily tax harvesting 
                 and rebalancing. Now outperforming private bank by 2x with 83% lower fees.
@@ -103,36 +104,36 @@ export default function CaseStudy3Slide() {
         </div>
       </motion.div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: pxToRem(32) }}>
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.6 }}
           style={{
             background: 'rgba(239, 68, 68, 0.05)',
-            borderRadius: '0.75rem',
-            padding: '1.5rem'
+            borderRadius: pxToRem(12),
+            padding: pxToRem(24)
           }}
         >
-          <h4 style={{ color: '#ef4444', marginBottom: '1rem', fontSize: '1rem' }}>
+          <h4 style={{ color: '#ef4444', marginBottom: pxToRem(16), fontSize: pxToRem(16) }}>
             Before: Traditional 60/40
           </h4>
           {portfolio.before.map((item, index) => (
-            <div key={item.asset} style={{ marginBottom: '0.75rem' }}>
+            <div key={item.asset} style={{ marginBottom: pxToRem(12) }}>
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                marginBottom: '0.25rem'
+                marginBottom: pxToRem(4)
               }}>
-                <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{item.asset}</span>
-                <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+                <span style={{ fontSize: pxToRem(13.6), color: '#e2e8f0' }}>{item.asset}</span>
+                <span style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>
                   {item.allocation}% | {item.return}% return
                 </span>
               </div>
               <div style={{
-                height: '0.375rem',
+                height: pxToRem(6),
                 background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '0.1875rem',
+                borderRadius: pxToRem(3),
                 overflow: 'hidden'
               }}>
                 <motion.div
@@ -142,21 +143,21 @@ export default function CaseStudy3Slide() {
                   style={{
                     height: '100%',
                     background: '#ef4444',
-                    borderRadius: '0.1875rem'
+                    borderRadius: pxToRem(3)
                   }}
                 />
               </div>
             </div>
           ))}
           <div style={{
-            marginTop: '1rem',
-            padding: '0.75rem',
+            marginTop: pxToRem(16),
+            padding: pxToRem(12),
             background: 'rgba(255, 255, 255, 0.03)',
-            borderRadius: '0.375rem',
+            borderRadius: pxToRem(6),
             textAlign: 'center'
           }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#ef4444' }}>8.8%</div>
-            <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Annual Return</div>
+            <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#ef4444' }}>8.8%</div>
+            <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Annual Return</div>
           </div>
         </motion.div>
 
@@ -166,29 +167,29 @@ export default function CaseStudy3Slide() {
           transition={{ delay: 0.8 }}
           style={{
             background: 'rgba(34, 197, 94, 0.05)',
-            borderRadius: '0.75rem',
-            padding: '1.5rem'
+            borderRadius: pxToRem(12),
+            padding: pxToRem(24)
           }}
         >
-          <h4 style={{ color: '#4ade80', marginBottom: '1rem', fontSize: '1rem' }}>
+          <h4 style={{ color: '#4ade80', marginBottom: pxToRem(16), fontSize: pxToRem(16) }}>
             After: AI-Optimized Institutional
           </h4>
           {portfolio.after.map((item, index) => (
-            <div key={item.asset} style={{ marginBottom: '0.75rem' }}>
+            <div key={item.asset} style={{ marginBottom: pxToRem(12) }}>
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                marginBottom: '0.25rem'
+                marginBottom: pxToRem(4)
               }}>
-                <span style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>{item.asset}</span>
-                <span style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+                <span style={{ fontSize: pxToRem(13.6), color: '#e2e8f0' }}>{item.asset}</span>
+                <span style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>
                   {item.allocation}% | {item.return}% return
                 </span>
               </div>
               <div style={{
-                height: '0.375rem',
+                height: pxToRem(6),
                 background: 'rgba(255, 255, 255, 0.1)',
-                borderRadius: '0.1875rem',
+                borderRadius: pxToRem(3),
                 overflow: 'hidden'
               }}>
                 <motion.div
@@ -198,21 +199,21 @@ export default function CaseStudy3Slide() {
                   style={{
                     height: '100%',
                     background: '#4ade80',
-                    borderRadius: '0.1875rem'
+                    borderRadius: pxToRem(3)
                   }}
                 />
               </div>
             </div>
           ))}
           <div style={{
-            marginTop: '1rem',
-            padding: '0.75rem',
+            marginTop: pxToRem(16),
+            padding: pxToRem(12),
             background: 'rgba(255, 255, 255, 0.03)',
-            borderRadius: '0.375rem',
+            borderRadius: pxToRem(6),
             textAlign: 'center'
           }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4ade80' }}>17.4%</div>
-            <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Annual Return</div>
+            <div style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#4ade80' }}>17.4%</div>
+            <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Annual Return</div>
           </div>
         </motion.div>
       </div>
@@ -227,14 +228,14 @@ export default function CaseStudy3Slide() {
         transition={{ delay: 1.4 }}
         style={{
           background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.05), rgba(236, 72, 153, 0.05))',
-          borderRadius: '0.75rem',
-          padding: '1.5rem'
+          borderRadius: pxToRem(12),
+          padding: pxToRem(24)
         }}
       >
-        <h4 style={{ color: '#c084fc', marginBottom: '1rem', fontSize: '1rem' }}>
+        <h4 style={{ color: '#c084fc', marginBottom: pxToRem(16), fontSize: pxToRem(16) }}>
           Performance Transformation
         </h4>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: pxToRem(16) }}>
           {keyMetrics.map((metric, index) => (
             <motion.div
               key={metric.label}
@@ -243,24 +244,24 @@ export default function CaseStudy3Slide() {
               transition={{ delay: 1.5 + index * 0.1 }}
               style={{
                 textAlign: 'center',
-                padding: '1rem',
+                padding: pxToRem(16),
                 background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '0.5rem'
+                borderRadius: pxToRem(8)
               }}
             >
-              <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8', marginBottom: pxToRem(8) }}>
                 {metric.label}
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                <span style={{ fontSize: '0.9rem', color: '#ef4444', textDecoration: 'line-through' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: pxToRem(8), marginBottom: pxToRem(8) }}>
+                <span style={{ fontSize: pxToRem(14.4), color: '#ef4444', textDecoration: 'line-through' }}>
                   {metric.before}
                 </span>
                 <TrendingUp size={16} style={{ color: '#4ade80' }} />
-                <span style={{ fontSize: '1.1rem', color: '#4ade80', fontWeight: 'bold' }}>
+                <span style={{ fontSize: pxToRem(17.6), color: '#4ade80', fontWeight: 'bold' }}>
                   {metric.after}
                 </span>
               </div>
-              <div style={{ fontSize: '0.85rem', color: '#60a5fa', fontWeight: 'bold' }}>
+              <div style={{ fontSize: pxToRem(13.6), color: '#60a5fa', fontWeight: 'bold' }}>
                 {metric.improvement}
               </div>
             </motion.div>
@@ -277,27 +278,27 @@ export default function CaseStudy3Slide() {
       transition={{ delay: 1.9 }}
       style={{
         background: 'linear-gradient(90deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1))',
-        borderRadius: '0.75rem',
-        padding: '1.5rem',
-        borderLeft: '0.25rem solid #4ade80',
+        borderRadius: pxToRem(12),
+        padding: pxToRem(24),
+        borderLeft: `${pxToRem(4)} solid #4ade80`,
         textAlign: 'center'
       }}
     >
       <Award size={30} style={{
         color: '#4ade80',
-        margin: '0 auto 0.5rem',
+        margin: `0 auto ${pxToRem(8)}`,
         opacity: 0.5
       }} />
       <p style={{
-        fontSize: '1.1rem',
+        fontSize: pxToRem(17.6),
         fontStyle: 'italic',
         color: '#e2e8f0',
-        marginBottom: '0.75rem'
+        marginBottom: pxToRem(12)
       }}>
         "I'm getting institutional-quality management at a fraction of the cost. 
         My only regret is not switching sooner—I've left millions on the table with traditional advisors."
       </p>
-      <div style={{ fontSize: '0.9rem', color: '#4ade80', fontWeight: '600' }}>
+      <div style={{ fontSize: pxToRem(14.4), color: '#4ade80', fontWeight: '600' }}>
         — David Richardson, 14 months after switching
       </div>
     </motion.div>

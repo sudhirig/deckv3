@@ -7,6 +7,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, Building2, Users, Target, DollarSign, Calendar, Rocket, Award, Sparkles } from 'lucide-react'
 import './SlideStyles.css'
+import { pxToRem, TYPOGRAPHY } from '../utils/responsive'
 
 export default function ExitStrategySlide() {
   const [hoveredOption, setHoveredOption] = useState(null)
@@ -88,18 +89,18 @@ export default function ExitStrategySlide() {
   const cards = exitOptions.map((option, index) => (
     <motion.div
       key={option.type}
-      initial={{ opacity: 0, y: 30, scale: 0.9 }}
+      initial={{ opacity: 0, y: pxToRem(30), scale: 0.9 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
       transition={{ delay: 0.4 + index * 0.15, type: 'spring' }}
-      whileHover={{ scale: 1.05, y: -0.625 }}
+      whileHover={{ scale: 1.05, y: pxToRem(-10) }}
       onHoverStart={() => setHoveredOption(index)}
       onHoverEnd={() => setHoveredOption(null)}
       style={{
-        padding: '1.5rem',
+        padding: pxToRem(24),
         background: `linear-gradient(135deg, ${option.color}15, rgba(255, 255, 255, 0.02))`,
-        backdropFilter: 'blur(0.9375rem)',
-        borderRadius: '1rem',
-        border: `0.125rem solid ${option.color}30`,
+        backdropFilter: `blur(${pxToRem(15)})`,
+        borderRadius: pxToRem(16),
+        border: `${pxToRem(2)} solid ${option.color}30`,
         cursor: 'pointer',
         position: 'relative',
         overflow: 'visible',
@@ -116,17 +117,17 @@ export default function ExitStrategySlide() {
           transition={{ duration: 2, repeat: Infinity }}
           style={{
             position: 'absolute',
-            inset: '-1.25rem',
+            inset: pxToRem(-20),
             background: `radial-gradient(circle, ${option.color}30, transparent)`,
-            borderRadius: '1.25rem',
-            filter: 'blur(0.9375rem)',
+            borderRadius: pxToRem(20),
+            filter: `blur(${pxToRem(15)})`,
             zIndex: -1
           }}
         />
       )}
       
-      <div style={{ marginBottom: '1rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+      <div style={{ marginBottom: pxToRem(16) }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8), marginBottom: pxToRem(8) }}>
           <motion.div
             animate={{ 
               rotate: selectedOption === index ? 360 : 0,
@@ -136,51 +137,51 @@ export default function ExitStrategySlide() {
           >
             <option.icon size={24} color={option.color} />
           </motion.div>
-          <h3 style={{ fontSize: '1.3rem', color: option.color, fontWeight: 'bold' }}>
+          <h3 style={{ fontSize: pxToRem(20.8), color: option.color, fontWeight: 'bold' }}>
             {option.type}
           </h3>
         </div>
-        <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>{option.timeline}</p>
+        <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8' }}>{option.timeline}</p>
       </div>
       
       <motion.div
         animate={{ scale: selectedOption === index ? [1, 1.05, 1] : 1 }}
         transition={{ duration: 2 }}
         style={{ 
-          fontSize: '1.8rem',
+          fontSize: pxToRem(28.8),
           fontWeight: 'bold',
           color: option.color,
-          marginBottom: '1rem'
+          marginBottom: pxToRem(16)
         }}
       >
         {option.valuation}
       </motion.div>
       
-      <div style={{ marginBottom: '1rem' }}>
+      <div style={{ marginBottom: pxToRem(16) }}>
         <CircularProgress 
           value={option.probability}
           size={80}
           strokeWidth={8}
           color={option.color}
         />
-        <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.5rem', textAlign: 'center' }}>
+        <p style={{ fontSize: pxToRem(13.6), color: '#94a3b8', marginTop: pxToRem(8), textAlign: 'center' }}>
           Probability
         </p>
       </div>
       
-      <div style={{ marginBottom: '1rem' }}>
-        <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Requirements:</p>
+      <div style={{ marginBottom: pxToRem(16) }}>
+        <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginBottom: pxToRem(8) }}>Requirements:</p>
         <ul style={{ listStyle: 'none', padding: 0 }}>
           {option.requirements.map((req, idx) => (
             <motion.li
               key={idx}
-              initial={{ opacity: 0, x: -0.625 }}
+              initial={{ opacity: 0, x: pxToRem(-10) }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 1 + idx * 0.1 }}
               style={{ 
-                fontSize: '0.8rem',
+                fontSize: pxToRem(12.8),
                 color: '#e2e8f0',
-                marginBottom: '0.25rem',
+                marginBottom: pxToRem(4),
                 display: 'flex',
                 alignItems: 'center'
               }}
@@ -188,7 +189,7 @@ export default function ExitStrategySlide() {
               <motion.span
                 animate={{ scale: pulseAnimation ? [1, 1.5, 1] : 1 }}
                 transition={{ duration: 1, delay: idx * 0.2 }}
-                style={{ color: option.color, marginRight: '0.5rem' }}
+                style={{ color: option.color, marginRight: pxToRem(8) }}
               >
                 •
               </motion.span>
@@ -199,18 +200,18 @@ export default function ExitStrategySlide() {
       </div>
       
       <div>
-        <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Comparables:</p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+        <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginBottom: pxToRem(8) }}>Comparables:</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: pxToRem(4) }}>
           {option.comparables.map((comp, idx) => (
             <motion.div
               key={idx}
-              whileHover={{ x: 0.3125 }}
+              whileHover={{ x: pxToRem(5) }}
               style={{ 
-                fontSize: '0.8rem',
+                fontSize: pxToRem(12.8),
                 color: '#e2e8f0',
-                padding: '0.25rem 0.5rem',
+                padding: `${pxToRem(4)} ${pxToRem(8)}`,
                 background: 'rgba(255, 255, 255, 0.05)',
-                borderRadius: '0.25rem'
+                borderRadius: pxToRem(4)
               }}
             >
               {comp}
@@ -224,24 +225,24 @@ export default function ExitStrategySlide() {
   const summary = (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: pxToRem(20) }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4 }}
         style={{
-          padding: '1.5rem',
+          padding: pxToRem(24),
           background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(255, 255, 255, 0.02))',
-          backdropFilter: 'blur(0.625rem)',
-          borderRadius: '1rem',
-          border: '0.125rem solid rgba(16, 185, 129, 0.3)',
-          marginBottom: '1.5rem'
+          backdropFilter: `blur(${pxToRem(10)})`,
+          borderRadius: pxToRem(16),
+          border: `${pxToRem(2)} solid rgba(16, 185, 129, 0.3)`,
+          marginBottom: pxToRem(24)
         }}
       >
         <h3 style={{ 
-          fontSize: '1.2rem',
-          marginBottom: '1rem',
+          fontSize: pxToRem(19.2),
+          marginBottom: pxToRem(16),
           display: 'flex',
           alignItems: 'center',
-          gap: '0.5rem'
+          gap: pxToRem(8)
         }}>
           <motion.div
             animate={{ rotate: 360 }}
@@ -254,36 +255,36 @@ export default function ExitStrategySlide() {
           </GradientText>
         </h3>
         
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6, 1fr)', gap: pxToRem(16) }}>
           {acquirers.map((acq, index) => (
             <motion.div
               key={acq.name}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.6 + index * 0.1, type: 'spring' }}
-              whileHover={{ scale: 1.1, y: -0.3125 }}
+              whileHover={{ scale: 1.1, y: pxToRem(-5) }}
               style={{
                 textAlign: 'center',
-                padding: '1rem',
+                padding: pxToRem(16),
                 background: 'rgba(255, 255, 255, 0.05)',
-                borderRadius: '0.75rem',
-                border: '0.0625rem solid rgba(255, 255, 255, 0.1)',
+                borderRadius: pxToRem(12),
+                border: `${pxToRem(1)} solid rgba(255, 255, 255, 0.1)`,
                 cursor: 'pointer'
               }}
             >
               <motion.div
                 animate={{ 
-                  y: pulseAnimation ? [0, -0.3125, 0] : 0
+                  y: pulseAnimation ? [0, pxToRem(-5), 0] : 0
                 }}
                 transition={{ duration: 2, delay: index * 0.2 }}
-                style={{ fontSize: '2rem', marginBottom: '0.5rem' }}
+                style={{ fontSize: TYPOGRAPHY.subheadline, marginBottom: pxToRem(8) }}
               >
                 {acq.logo}
               </motion.div>
-              <p style={{ fontSize: '0.9rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+              <p style={{ fontSize: pxToRem(14.4), color: '#e2e8f0', marginBottom: pxToRem(4) }}>
                 {acq.name}
               </p>
-              <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+              <p style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>
                 {acq.rationale}
               </p>
             </motion.div>
@@ -297,39 +298,39 @@ export default function ExitStrategySlide() {
         transition={{ delay: 2.2 }}
         style={{
           textAlign: 'center',
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(255, 255, 255, 0.02))',
-          borderRadius: '0.75rem',
-          border: '0.0625rem solid rgba(251, 191, 36, 0.3)'
+          borderRadius: pxToRem(12),
+          border: `${pxToRem(1)} solid rgba(251, 191, 36, 0.3)`
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: pxToRem(48), alignItems: 'center' }}>
           <div>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Target Return</p>
+            <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginBottom: pxToRem(4) }}>Target Return</p>
             <motion.div
               animate={{ scale: pulseAnimation ? [1, 1.1, 1] : 1 }}
               transition={{ duration: 2 }}
-              style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}
+              style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24' }}
             >
               <AnimatedCounter value={20} duration={1500} />x-<AnimatedCounter value={50} duration={1500} />x
             </motion.div>
           </div>
           <div>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>Target Timeline</p>
+            <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginBottom: pxToRem(4) }}>Target Timeline</p>
             <motion.div
               animate={{ color: pulseAnimation ? '#10b981' : '#4ade80' }}
               transition={{ duration: 1 }}
-              style={{ fontSize: '2rem', fontWeight: 'bold' }}
+              style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold' }}
             >
               3-7 Years
             </motion.div>
           </div>
           <div>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.25rem' }}>IRR Target</p>
+            <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginBottom: pxToRem(4) }}>IRR Target</p>
             <motion.div
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
-              style={{ fontSize: '2rem', fontWeight: 'bold', color: '#8b5cf6' }}
+              style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#8b5cf6' }}
             >
               <AnimatedCounter value={75} duration={1500} />%+
             </motion.div>

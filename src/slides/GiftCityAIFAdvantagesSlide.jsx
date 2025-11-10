@@ -4,6 +4,7 @@ import ParticleBackground from '../components/ParticleBackground'
 import GradientText from '../components/GradientText'
 import { DollarSign, Shield, Globe, Zap, CheckCircle2 } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GiftCityAIFAdvantagesSlide() {
@@ -78,10 +79,10 @@ export default function GiftCityAIFAdvantagesSlide() {
 
   const renderAdvantageCard = (advantage, index) => (
     <motion.div
-      initial={{ opacity: 0, x: index % 2 === 0 ? -1.875 : 1.875, rotateY: index % 2 === 0 ? -15 : 15 }}
+      initial={{ opacity: 0, x: index % 2 === 0 ? pxToRem(-30) : pxToRem(30), rotateY: index % 2 === 0 ? -15 : 15 }}
       animate={{ opacity: 1, x: 0, rotateY: 0 }}
       transition={{ delay: 0.4 + index * 0.1, type: 'spring' }}
-      whileHover={{ scale: 1.03, y: -0.3125 }}
+      whileHover={{ scale: 1.03, y: pxToRem(-5) }}
       onHoverStart={() => setHoveredCard(advantage.id)}
       onHoverEnd={() => setHoveredCard(null)}
       style={{
@@ -132,7 +133,7 @@ export default function GiftCityAIFAdvantagesSlide() {
       {advantage.metrics && advantage.metrics.map((metric, i) => (
         <motion.div
           key={metric.label}
-          initial={{ opacity: 0, x: -1.25 }}
+          initial={{ opacity: 0, x: pxToRem(-20) }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.6 + index * 0.1 + i * 0.1 }}
           style={{
@@ -186,7 +187,7 @@ export default function GiftCityAIFAdvantagesSlide() {
       {advantage.features && advantage.features.map((feature, i) => (
         <motion.div
           key={feature.title}
-          initial={{ opacity: 0, y: 0.625 }}
+          initial={{ opacity: 0, y: pxToRem(10) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7 + index * 0.1 + i * 0.1 }}
           style={{
@@ -264,7 +265,7 @@ export default function GiftCityAIFAdvantagesSlide() {
       {advantage.capabilities && advantage.capabilities.map((capability, i) => (
         <motion.div
           key={capability.feature}
-          initial={{ opacity: 0, x: 1.25 }}
+          initial={{ opacity: 0, x: pxToRem(20) }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.9 + index * 0.1 + i * 0.1 }}
           style={{
@@ -298,7 +299,7 @@ export default function GiftCityAIFAdvantagesSlide() {
 
   const summary = (
     <motion.div
-      initial={{ opacity: 0, y: 1.875 }}
+      initial={{ opacity: 0, y: pxToRem(30) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.2 }}
       style={{

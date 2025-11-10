@@ -17,6 +17,7 @@ import {
   Star
 } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GiftCityEntityStructureSlide() {
@@ -98,7 +99,7 @@ export default function GiftCityEntityStructureSlide() {
       >
         {/* Global LPs */}
         <motion.div
-          initial={{ opacity: 0, y: -1.25 }}
+          initial={{ opacity: 0, y: pxToRem(-20) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
           style={{
@@ -145,11 +146,11 @@ export default function GiftCityEntityStructureSlide() {
           }}
         >
           <motion.div
-            animate={{ y: [0, 0.625, 0] }}
+            animate={{ y: [0, pxToRem(10), 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
             style={{
               position: 'absolute',
-              bottom: -0.375,
+              bottom: pxToRem(-6),
               left: '50%',
               transform: 'translateX(-50%)'
             }}
@@ -240,7 +241,7 @@ export default function GiftCityEntityStructureSlide() {
 
         {/* India Market */}
         <motion.div
-          initial={{ opacity: 0, y: 1.25 }}
+          initial={{ opacity: 0, y: pxToRem(20) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4 }}
           style={{
@@ -272,7 +273,7 @@ export default function GiftCityEntityStructureSlide() {
 
       {/* Summary Stats */}
       <motion.div
-        initial={{ opacity: 0, y: 1.25 }}
+        initial={{ opacity: 0, y: pxToRem(20) }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.6 }}
         style={{
@@ -336,10 +337,10 @@ export default function GiftCityEntityStructureSlide() {
       {benefits.map((benefit, index) => (
         <motion.div
           key={benefit.title}
-          initial={{ opacity: 0, x: 1.25 }}
+          initial={{ opacity: 0, x: pxToRem(20) }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8 + index * 0.15 }}
-          whileHover={{ scale: 1.02, x: 0.3125 }}
+          whileHover={{ scale: 1.02, x: pxToRem(5) }}
           onHoverStart={() => setHoveredBenefit(benefit.title)}
           onHoverEnd={() => setHoveredBenefit(null)}
           style={{
@@ -411,7 +412,7 @@ export default function GiftCityEntityStructureSlide() {
 
   const supportingData = (
     <motion.div
-      initial={{ opacity: 0, y: 1.875 }}
+      initial={{ opacity: 0, y: pxToRem(30) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.8 }}
       style={{

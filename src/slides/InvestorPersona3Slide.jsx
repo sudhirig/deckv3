@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import PersonaCard from '../components/PersonaCard'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function InvestorPersona3Slide() {
@@ -56,20 +57,20 @@ export default function InvestorPersona3Slide() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 0.8 }}
       style={{
-        padding: '1.5rem',
+        padding: pxToRem(24),
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15))',
-        borderRadius: '0.75rem',
-        border: '0.0625rem solid rgba(59, 130, 246, 0.3)',
+        borderRadius: pxToRem(12),
+        border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.3)`,
         textAlign: 'center'
       }}
     >
-      <p style={{ fontSize: '1.2rem', color: '#60a5fa', marginBottom: '0.5rem' }}>
+      <p style={{ fontSize: pxToRem(19.2), color: '#60a5fa', marginBottom: pxToRem(8) }}>
         Market Opportunity
       </p>
-      <p style={{ fontSize: '1rem', color: '#e2e8f0' }}>
+      <p style={{ fontSize: pxToRem(16), color: '#e2e8f0' }}>
         <strong>2.8 million executives</strong> in the US alone with <strong>$10M+ net worth</strong>
       </p>
-      <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '0.5rem' }}>
+      <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8', marginTop: pxToRem(8) }}>
         Average fees saved: <strong>$450K/year</strong> | Better returns: <strong>+3.2% annually</strong>
       </p>
     </motion.div>

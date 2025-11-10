@@ -123,7 +123,7 @@ const GiftCityGrowthStagesSlide = () => {
         {stage.metrics.map((item, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, x: -1.25 }}
+            initial={{ opacity: 0, x: pxToRem(-20) }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7 + index * 0.2 + i * 0.1 }}
             style={{
@@ -279,7 +279,7 @@ const GiftCityGrowthStagesSlide = () => {
 
   const summary = (
     <motion.div
-      initial={{ opacity: 0, y: 1.25 }}
+      initial={{ opacity: 0, y: pxToRem(20) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.8, duration: 0.6 }}
       style={{

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { Users, Globe, Shield, Building, Heart } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CaseStudy2Slide() {
@@ -47,7 +48,7 @@ export default function CaseStudy2Slide() {
 
   const mainVisual = (
     <div>
-      <p style={{ fontSize: '1rem', color: '#94a3b8', textAlign: 'center', marginBottom: '2rem' }}>
+      <p style={{ fontSize: pxToRem(16), color: '#94a3b8', textAlign: 'center', marginBottom: pxToRem(32) }}>
         Simplifying complexity for a $180M global portfolio
       </p>
       
@@ -57,30 +58,30 @@ export default function CaseStudy2Slide() {
         transition={{ delay: 0.3 }}
         style={{
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(236, 72, 153, 0.1))',
-          borderRadius: '0.75rem',
-          padding: '1.5rem'
+          borderRadius: pxToRem(12),
+          padding: pxToRem(24)
         }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: pxToRem(32) }}>
           <div>
-            <h3 style={{ color: '#fbbf24', marginBottom: '1rem' }}>
+            <h3 style={{ color: '#fbbf24', marginBottom: pxToRem(16) }}>
               The Chen Family Office
             </h3>
-            <div style={{ marginBottom: '1rem' }}>
-              <h4 style={{ color: '#ef4444', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+            <div style={{ marginBottom: pxToRem(16) }}>
+              <h4 style={{ color: '#ef4444', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
                 THE COMPLEXITY CHALLENGE
               </h4>
-              <p style={{ fontSize: '0.85rem', color: '#94a3b8', lineHeight: 1.5 }}>
+              <p style={{ fontSize: pxToRem(13.6), color: '#94a3b8', lineHeight: 1.5 }}>
                 Managing $180M across 3 generations, 5 countries, and 8 different advisory firms. 
                 Each family member had different risk profiles, goals, and tax situations. 
                 Quarterly reporting alone took 2 weeks and cost $50K.
               </p>
             </div>
             <div>
-              <h4 style={{ color: '#4ade80', fontSize: '0.9rem', marginBottom: '0.5rem' }}>
+              <h4 style={{ color: '#4ade80', fontSize: pxToRem(14.4), marginBottom: pxToRem(8) }}>
                 THE AI SOLUTION
               </h4>
-              <p style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: 1.5 }}>
+              <p style={{ fontSize: pxToRem(13.6), color: '#e2e8f0', lineHeight: 1.5 }}>
                 Unified platform with personalized AI agents for each family member, 
                 automated cross-border tax optimization, and real-time consolidated reporting 
                 across all entities and jurisdictions.
@@ -89,7 +90,7 @@ export default function CaseStudy2Slide() {
           </div>
 
           <div>
-            <h4 style={{ color: '#fbbf24', fontSize: '0.9rem', marginBottom: '0.75rem' }}>
+            <h4 style={{ color: '#fbbf24', fontSize: pxToRem(14.4), marginBottom: pxToRem(12) }}>
               Family Structure
             </h4>
             {familyMembers.map((member, index) => (
@@ -98,17 +99,17 @@ export default function CaseStudy2Slide() {
                 style={{
                   display: 'flex',
                   justifyContent: 'space-between',
-                  padding: '0.5rem',
+                  padding: pxToRem(8),
                   background: 'rgba(255, 255, 255, 0.03)',
-                  borderRadius: '0.375rem',
-                  marginBottom: '0.5rem'
+                  borderRadius: pxToRem(6),
+                  marginBottom: pxToRem(8)
                 }}
               >
                 <div>
-                  <div style={{ fontSize: '0.8rem', color: '#e2e8f0' }}>{member.name}</div>
-                  <div style={{ fontSize: '0.7rem', color: '#64748b' }}>{member.role}</div>
+                  <div style={{ fontSize: pxToRem(12.8), color: '#e2e8f0' }}>{member.name}</div>
+                  <div style={{ fontSize: pxToRem(11.2), color: '#64748b' }}>{member.role}</div>
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#fbbf24', fontWeight: '600' }}>
+                <div style={{ fontSize: pxToRem(12.8), color: '#fbbf24', fontWeight: '600' }}>
                   {member.assets}
                 </div>
               </div>
@@ -127,12 +128,12 @@ export default function CaseStudy2Slide() {
         transition={{ delay: 0.6 }}
         style={{
           background: 'rgba(147, 51, 234, 0.05)',
-          borderRadius: '0.75rem',
-          padding: '1.5rem',
-          marginBottom: '2rem'
+          borderRadius: pxToRem(12),
+          padding: pxToRem(24),
+          marginBottom: pxToRem(32)
         }}
       >
-        <h3 style={{ color: '#c084fc', marginBottom: '1rem', fontSize: '1.1rem' }}>
+        <h3 style={{ color: '#c084fc', marginBottom: pxToRem(16), fontSize: pxToRem(17.6) }}>
           Transformation Metrics
         </h3>
         <div style={{ overflow: 'auto' }}>
@@ -140,38 +141,38 @@ export default function CaseStudy2Slide() {
             <thead>
               <tr>
                 <th style={{
-                  padding: '0.75rem',
+                  padding: pxToRem(12),
                   textAlign: 'left',
-                  fontSize: '0.85rem',
+                  fontSize: pxToRem(13.6),
                   color: '#c084fc',
-                  borderBottom: '0.125rem solid rgba(147, 51, 234, 0.2)'
+                  borderBottom: `${pxToRem(2)} solid rgba(147, 51, 234, 0.2)`
                 }}>
                   Metric
                 </th>
                 <th style={{
-                  padding: '0.75rem',
+                  padding: pxToRem(12),
                   textAlign: 'center',
-                  fontSize: '0.85rem',
+                  fontSize: pxToRem(13.6),
                   color: '#ef4444',
-                  borderBottom: '0.125rem solid rgba(147, 51, 234, 0.2)'
+                  borderBottom: `${pxToRem(2)} solid rgba(147, 51, 234, 0.2)`
                 }}>
                   Before
                 </th>
                 <th style={{
-                  padding: '0.75rem',
+                  padding: pxToRem(12),
                   textAlign: 'center',
-                  fontSize: '0.85rem',
+                  fontSize: pxToRem(13.6),
                   color: '#4ade80',
-                  borderBottom: '0.125rem solid rgba(147, 51, 234, 0.2)'
+                  borderBottom: `${pxToRem(2)} solid rgba(147, 51, 234, 0.2)`
                 }}>
                   After
                 </th>
                 <th style={{
-                  padding: '0.75rem',
+                  padding: pxToRem(12),
                   textAlign: 'center',
-                  fontSize: '0.85rem',
+                  fontSize: pxToRem(13.6),
                   color: '#60a5fa',
-                  borderBottom: '0.125rem solid rgba(147, 51, 234, 0.2)'
+                  borderBottom: `${pxToRem(2)} solid rgba(147, 51, 234, 0.2)`
                 }}>
                   Improvement
                 </th>
@@ -186,39 +187,39 @@ export default function CaseStudy2Slide() {
                   transition={{ delay: 0.7 + index * 0.1 }}
                 >
                   <td style={{
-                    padding: '0.75rem',
-                    fontSize: '0.85rem',
+                    padding: pxToRem(12),
+                    fontSize: pxToRem(13.6),
                     color: '#e2e8f0',
-                    borderBottom: '0.0625rem solid rgba(255, 255, 255, 0.05)'
+                    borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
                   }}>
                     {item.metric}
                   </td>
                   <td style={{
-                    padding: '0.75rem',
+                    padding: pxToRem(12),
                     textAlign: 'center',
-                    fontSize: '0.85rem',
+                    fontSize: pxToRem(13.6),
                     color: '#ef4444',
-                    borderBottom: '0.0625rem solid rgba(255, 255, 255, 0.05)'
+                    borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
                   }}>
                     {item.before}
                   </td>
                   <td style={{
-                    padding: '0.75rem',
+                    padding: pxToRem(12),
                     textAlign: 'center',
-                    fontSize: '0.85rem',
+                    fontSize: pxToRem(13.6),
                     color: '#4ade80',
                     fontWeight: 'bold',
-                    borderBottom: '0.0625rem solid rgba(255, 255, 255, 0.05)'
+                    borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
                   }}>
                     {item.after}
                   </td>
                   <td style={{
-                    padding: '0.75rem',
+                    padding: pxToRem(12),
                     textAlign: 'center',
-                    fontSize: '0.85rem',
+                    fontSize: pxToRem(13.6),
                     color: '#60a5fa',
                     fontWeight: 'bold',
-                    borderBottom: '0.0625rem solid rgba(255, 255, 255, 0.05)'
+                    borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
                   }}>
                     {item.improvement}
                   </td>
@@ -239,8 +240,8 @@ export default function CaseStudy2Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '1rem',
-        marginTop: '1.5rem'
+        gap: pxToRem(16),
+        marginTop: pxToRem(24)
       }}
     >
       {achievements.map((achievement, index) => (
@@ -251,16 +252,16 @@ export default function CaseStudy2Slide() {
           transition={{ delay: 1.2 + index * 0.1 }}
           style={{
             background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.1))',
-            borderRadius: '0.75rem',
-            padding: '1rem',
+            borderRadius: pxToRem(12),
+            padding: pxToRem(16),
             textAlign: 'center'
           }}
         >
-          <achievement.icon size={24} style={{ color: '#14b8a6', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+          <achievement.icon size={24} style={{ color: '#14b8a6', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8', marginBottom: pxToRem(4) }}>
             {achievement.label}
           </div>
-          <div style={{ fontSize: '0.95rem', color: '#14b8a6', fontWeight: 'bold' }}>
+          <div style={{ fontSize: pxToRem(15.2), color: '#14b8a6', fontWeight: 'bold' }}>
             {achievement.value}
           </div>
         </motion.div>
@@ -275,9 +276,9 @@ export default function CaseStudy2Slide() {
       transition={{ delay: 1.6 }}
       style={{
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(147, 51, 234, 0.05))',
-        borderRadius: '0.75rem',
-        padding: '1.5rem',
-        borderLeft: '0.25rem solid #60a5fa'
+        borderRadius: pxToRem(12),
+        padding: pxToRem(24),
+        borderLeft: `${pxToRem(4)} solid #60a5fa`
       }}
     >
       <Users size={30} style={{
@@ -286,17 +287,17 @@ export default function CaseStudy2Slide() {
         opacity: 0.3
       }} />
       <p style={{
-        fontSize: '1.05rem',
+        fontSize: pxToRem(16.8),
         fontStyle: 'italic',
         color: '#e2e8f0',
-        marginBottom: '1rem',
+        marginBottom: pxToRem(16),
         lineHeight: 1.6
       }}>
         "We finally have one unified view of our entire family's wealth. The AI understands each 
         family member's needs while optimizing for the collective. It's eliminated conflicts and 
         given us back precious family time. This is the future of family offices."
       </p>
-      <div style={{ fontSize: '0.9rem', color: '#60a5fa', fontWeight: '600' }}>
+      <div style={{ fontSize: pxToRem(14.4), color: '#60a5fa', fontWeight: '600' }}>
         — Sarah Chen-Williams, Family Office Principal
       </div>
     </motion.div>

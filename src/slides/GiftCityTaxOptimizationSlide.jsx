@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Calculator, TrendingUp, PiggyBank, Award, Sparkles } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GiftCityTaxOptimizationSlide() {
@@ -265,10 +266,10 @@ export default function GiftCityTaxOptimizationSlide() {
       {investmentOptions.map((option, index) => (
         <motion.div
           key={option.type}
-          initial={{ opacity: 0, y: 1.25 }}
+          initial={{ opacity: 0, y: pxToRem(20) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9 + index * 0.15 }}
-          whileHover={{ scale: 1.02, x: 0.3125 }}
+          whileHover={{ scale: 1.02, x: pxToRem(5) }}
           onHoverStart={() => setHoveredInvestment(option.type)}
           onHoverEnd={() => setHoveredInvestment(null)}
           style={{
@@ -358,7 +359,7 @@ export default function GiftCityTaxOptimizationSlide() {
               <motion.div
                 animate={{ 
                   scale: hoveredInvestment === option.type ? 1.1 : 1,
-                  y: hoveredInvestment === option.type ? -0.125 : 0
+                  y: hoveredInvestment === option.type ? pxToRem(-2) : 0
                 }}
                 style={{ 
                   padding: '0.5rem',
@@ -409,7 +410,7 @@ export default function GiftCityTaxOptimizationSlide() {
 
   const supportingData = (
     <motion.div
-      initial={{ opacity: 0, y: 1.875 }}
+      initial={{ opacity: 0, y: pxToRem(30) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.6 }}
       style={{

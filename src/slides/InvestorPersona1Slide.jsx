@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import PersonaCard from '../components/PersonaCard'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function InvestorPersona1Slide() {
@@ -56,13 +57,13 @@ export default function InvestorPersona1Slide() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.8 }}
       style={{
-        padding: '1rem',
+        padding: pxToRem(16),
         background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(236, 72, 153, 0.1))',
-        borderRadius: '0.75rem',
+        borderRadius: pxToRem(12),
         textAlign: 'center'
       }}
     >
-      <p style={{ fontSize: '1.1rem', color: '#c084fc' }}>
+      <p style={{ fontSize: pxToRem(17.6), color: '#c084fc' }}>
         <strong>46% of tech founders</strong> are actively looking for new wealth management solutions
       </p>
     </motion.div>

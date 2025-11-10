@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import { Shield, Lock, Eye, Server, AlertCircle, CheckCircle2 } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function RiskMitigation2Slide() {
@@ -70,20 +71,20 @@ export default function RiskMitigation2Slide() {
       transition={{ delay: 1 + index * 0.1 }}
       style={{
         textAlign: 'center',
-        padding: '1rem',
+        padding: pxToRem(16),
         background: 'rgba(255, 255, 255, 0.03)',
-        borderRadius: '0.5rem',
+        borderRadius: pxToRem(8),
         height: '100%'
       }}
     >
-      <Shield size={24} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
-      <div style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+      <Shield size={24} style={{ color: '#4ade80', margin: `0 auto ${pxToRem(8)}` }} />
+      <div style={{ fontSize: pxToRem(13.6), color: '#e2e8f0', marginBottom: pxToRem(4) }}>
         {item.type}
       </div>
-      <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4ade80' }}>
+      <div style={{ fontSize: pxToRem(20.8), fontWeight: 'bold', color: '#4ade80' }}>
         {item.coverage}
       </div>
-      <div style={{ fontSize: '0.7rem', color: '#64748b' }}>
+      <div style={{ fontSize: pxToRem(11.2), color: '#64748b' }}>
         {item.provider}
       </div>
     </motion.div>
@@ -91,73 +92,73 @@ export default function RiskMitigation2Slide() {
 
   const summary = (
     <>
-      <div style={{ marginBottom: '2rem' }}>
-        <h3 style={{ color: '#60a5fa', marginBottom: '1rem', fontSize: '1.1rem', marginTop: 0 }}>
+      <div style={{ marginBottom: pxToRem(32) }}>
+        <h3 style={{ color: '#60a5fa', marginBottom: pxToRem(16), fontSize: pxToRem(17.6), marginTop: 0 }}>
           Contingency Plans
         </h3>
         {contingencyPlans.map((plan, index) => (
           <motion.div
             key={plan.scenario}
-            initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+            initial={{ opacity: 0, x: index % 2 === 0 ? pxToRem(-30) : pxToRem(30) }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 + index * 0.15 }}
             style={{
               background: 'rgba(59, 130, 246, 0.05)',
-              borderRadius: '0.75rem',
-              padding: '1.25rem',
-              marginBottom: '1rem',
-              border: '1px solid rgba(59, 130, 246, 0.2)'
+              borderRadius: pxToRem(12),
+              padding: pxToRem(20),
+              marginBottom: pxToRem(16),
+              border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.2)`
             }}
           >
             <div style={{
               display: 'grid',
               gridTemplateColumns: '2fr 3fr 1fr',
-              gap: '1.5rem',
+              gap: pxToRem(24),
               alignItems: 'start'
             }}>
               <div>
-                <h4 style={{ color: '#60a5fa', marginBottom: '0.5rem', marginTop: 0 }}>
+                <h4 style={{ color: '#60a5fa', marginBottom: pxToRem(8), marginTop: 0 }}>
                   {plan.scenario}
                 </h4>
-                <div style={{ display: 'flex', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                <div style={{ display: 'flex', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
                   <div style={{
-                    padding: '0.25rem 0.5rem',
+                    padding: `${pxToRem(4)} ${pxToRem(8)}`,
                     background: plan.probability === 'Low' ? 'rgba(34, 197, 94, 0.2)' : 'rgba(251, 191, 36, 0.2)',
-                    borderRadius: '0.25rem',
-                    fontSize: '0.7rem',
+                    borderRadius: pxToRem(4),
+                    fontSize: pxToRem(11.2),
                     color: plan.probability === 'Low' ? '#4ade80' : '#fbbf24'
                   }}>
                     P: {plan.probability}
                   </div>
                   <div style={{
-                    padding: '0.25rem 0.5rem',
+                    padding: `${pxToRem(4)} ${pxToRem(8)}`,
                     background: plan.impact === 'High' ? 'rgba(239, 68, 68, 0.2)' : plan.impact === 'Medium' ? 'rgba(251, 191, 36, 0.2)' : 'rgba(34, 197, 94, 0.2)',
-                    borderRadius: '0.25rem',
-                    fontSize: '0.7rem',
+                    borderRadius: pxToRem(4),
+                    fontSize: pxToRem(11.2),
                     color: plan.impact === 'High' ? '#ef4444' : plan.impact === 'Medium' ? '#fbbf24' : '#4ade80'
                   }}>
                     I: {plan.impact}
                   </div>
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                <div style={{ fontSize: pxToRem(12.8), color: '#64748b' }}>
                   Recovery: <span style={{ color: '#4ade80', fontWeight: '600' }}>{plan.recovery}</span>
                 </div>
               </div>
 
               <div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b', marginBottom: '0.5rem' }}>
+                <div style={{ fontSize: pxToRem(12), color: '#64748b', marginBottom: pxToRem(8) }}>
                   ACTION PLAN
                 </div>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: pxToRem(8) }}>
                   {plan.plan.map((action, i) => (
                     <div
                       key={i}
                       style={{
-                        fontSize: '0.75rem',
+                        fontSize: pxToRem(12),
                         color: '#e2e8f0',
-                        padding: '0.25rem 0.5rem',
+                        padding: `${pxToRem(4)} ${pxToRem(8)}`,
                         background: 'rgba(255, 255, 255, 0.05)',
-                        borderRadius: '0.25rem'
+                        borderRadius: pxToRem(4)
                       }}
                     >
                       {action}
@@ -167,8 +168,8 @@ export default function RiskMitigation2Slide() {
               </div>
 
               <div style={{ textAlign: 'center' }}>
-                <CheckCircle2 size={24} style={{ color: '#4ade80', margin: '0 auto 0.25rem' }} />
-                <div style={{ fontSize: '0.75rem', color: '#4ade80' }}>
+                <CheckCircle2 size={24} style={{ color: '#4ade80', margin: `0 auto ${pxToRem(4)}` }} />
+                <div style={{ fontSize: pxToRem(12), color: '#4ade80' }}>
                   Plan Ready
                 </div>
               </div>
@@ -184,48 +185,48 @@ export default function RiskMitigation2Slide() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '1rem'
+          gap: pxToRem(16)
         }}
       >
         <div style={{
           textAlign: 'center',
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(147, 51, 234, 0.1)',
-          borderRadius: '0.5rem'
+          borderRadius: pxToRem(8)
         }}>
-          <Lock size={20} style={{ color: '#c084fc', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#c084fc' }}>100%</div>
-          <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Scenarios Covered</div>
+          <Lock size={20} style={{ color: '#c084fc', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(20.8), fontWeight: 'bold', color: '#c084fc' }}>100%</div>
+          <div style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>Scenarios Covered</div>
         </div>
         <div style={{
           textAlign: 'center',
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(251, 191, 36, 0.1)',
-          borderRadius: '0.5rem'
+          borderRadius: pxToRem(8)
         }}>
-          <Eye size={20} style={{ color: '#fbbf24', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#fbbf24' }}>24/7</div>
-          <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Monitoring</div>
+          <Eye size={20} style={{ color: '#fbbf24', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(20.8), fontWeight: 'bold', color: '#fbbf24' }}>24/7</div>
+          <div style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>Monitoring</div>
         </div>
         <div style={{
           textAlign: 'center',
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(59, 130, 246, 0.1)',
-          borderRadius: '0.5rem'
+          borderRadius: pxToRem(8)
         }}>
-          <Server size={20} style={{ color: '#60a5fa', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#60a5fa' }}>3</div>
-          <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Backup Sites</div>
+          <Server size={20} style={{ color: '#60a5fa', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(20.8), fontWeight: 'bold', color: '#60a5fa' }}>3</div>
+          <div style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>Backup Sites</div>
         </div>
         <div style={{
           textAlign: 'center',
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(34, 197, 94, 0.1)',
-          borderRadius: '0.5rem'
+          borderRadius: pxToRem(8)
         }}>
-          <AlertCircle size={20} style={{ color: '#4ade80', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4ade80' }}>$90M</div>
-          <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>Total Coverage</div>
+          <AlertCircle size={20} style={{ color: '#4ade80', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(20.8), fontWeight: 'bold', color: '#4ade80' }}>$90M</div>
+          <div style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>Total Coverage</div>
         </div>
       </motion.div>
     </>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import './SlideStyles.css'
+import { pxToRem, TYPOGRAPHY } from '../utils/responsive'
 
 export default function AppendixSlide() {
   const appendixItems = [
@@ -15,38 +16,38 @@ export default function AppendixSlide() {
   ]
 
   const cards = appendixItems.map((item, index) => (
-    <div key={index} style={{ textAlign: 'center', padding: '1.5rem' }}>
+    <div key={index} style={{ textAlign: 'center', padding: pxToRem(24) }}>
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.2 + index * 0.1, type: 'spring' }}
         style={{
-          width: '3rem',
-          height: '3rem',
+          width: pxToRem(48),
+          height: pxToRem(48),
           borderRadius: '50%',
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(20, 184, 166, 0.1))',
-          border: '0.125rem solid rgba(20, 184, 166, 0.3)',
-          margin: '0 auto 1rem',
+          border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
+          margin: `0 auto ${pxToRem(16)}`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: '1.5rem',
+          fontSize: pxToRem(24),
           fontWeight: 'bold',
           color: '#14b8a6'
         }}
       >
         {index + 1}
       </motion.div>
-      <p style={{ fontSize: '1.1rem', color: '#94a3b8', lineHeight: '1.6' }}>
+      <p style={{ fontSize: pxToRem(17.6), color: '#94a3b8', lineHeight: '1.6' }}>
         {item}
       </p>
     </div>
   ))
 
   const summary = (
-    <div style={{ marginTop: '2.5rem', padding: '2rem', background: 'rgba(20, 184, 166, 0.1)', borderRadius: '1rem', border: '0.125rem solid rgba(20, 184, 166, 0.3)' }}>
-      <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', marginBottom: '1rem' }}>Thank You</p>
-      <p style={{ fontSize: '1.3rem', color: '#e2e8f0' }}>Questions & Discussion</p>
+    <div style={{ marginTop: pxToRem(40), padding: pxToRem(32), background: 'rgba(20, 184, 166, 0.1)', borderRadius: pxToRem(16), border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)` }}>
+      <p style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#14b8a6', marginBottom: pxToRem(16) }}>Thank You</p>
+      <p style={{ fontSize: pxToRem(20.8), color: '#e2e8f0' }}>Questions & Discussion</p>
     </div>
   )
 

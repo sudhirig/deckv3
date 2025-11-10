@@ -163,80 +163,53 @@ The app uses hash-based routing:
 
 ## UI/UX Audit Snapshot
 
-**Full Report**: See `UI_UX_AUDIT_REPORT.md` for comprehensive findings and implementation code
-**Verified Bug Report**: Section added with 9 specific bugs, exact file paths, line numbers, and fixes
+**⚠️ PRIORITY**: Layout fixes MUST be completed first before accessibility work
+**Critical Issue**: Text getting cut off due to overflow problems - **FIX THIS FIRST!**
+
+**Single Source of Truth**:
+- **UI_UX_AUDIT_REPORT.md** ⭐ **Complete implementation guide**
+  - Phase 1: Layout fixes (3-4 hours) - START HERE
+  - Phase 2: Accessibility (9.5 hours) - Do after Phase 1
+- **STATUS.md** - Quick navigation and current priorities
+
+**Date**: November 10, 2025
+**Total Time**: ~13 hours (layout 3-4h + accessibility 9.5h)
+
+### Phase 1: Layout & Overflow Fixes (3-4 hours) ⭐ **DO THIS FIRST**
+
+**Critical**: Text getting cut off, slides don't fit 16:9 aspect ratio
+
+- **BUG-L01**: Text getting cut off (App.css:26) - Allow vertical scroll (30 min)
+- **BUG-L02**: Reduce padding/gaps (StandardLayouts.css) - More content space (30 min)
+- **BUG-L03**: Font sizes too large (StandardLayouts.css:439-456) - Scale down 20% (45 min)
+- **BUG-L04**: Grid overflows (StandardLayouts.css) - Fix grid constraints (30 min)
+- **BUG-L05**: Content reduction on dense slides (1 hour)
+
+### Phase 2: Accessibility & Performance (9.5 hours) - Do AFTER Phase 1
+
+- BUG-004: Color contrast fixes (15 min)
+- BUG-002: ARIA labels on navigation (30 min)
+- BUG-003: Keyboard accessible thumbnails (1h)
+- BUG-005: prefers-reduced-motion support (2h)
+- BUG-001: ParticleBackground memory leak (2h)
+- BUG-006: Charts blank in PDF exports (1h)
+- BUG-007: Hash navigation race condition (1.5h)
+- BUG-008: Error boundaries (1h)
+- BUG-009: Progress bar ARIA attributes (20 min)
+
+### Quick Reference
+
+**For complete details on all bugs, implementation steps, code examples, and testing procedures:**
+→ See `UI_UX_AUDIT_REPORT.md`
+
+**For current status and quick start guide:**
+→ See `STATUS.md`
+
+### Audit Summary
 
 **Overall UX Score**: 7.8/10
-**Date**: November 10, 2025
-**WCAG 2.1 Compliance**: Partial AA - FAIL
-**Total Bug Fix Time**: ~9.5 hours
 
-### Critical Issues (Must Fix)
-
-**See BUG-001 through BUG-009 in UI_UX_AUDIT_REPORT.md for detailed fixes with code examples**
-
-1. **BUG-001: ParticleBackground Memory Leak** (src/components/ParticleBackground.jsx:45-55)
-   - Browser crashes after 15-20 minutes
-   - 12,690 animated elements in memory (94 slides × 3 preloaded × 45 particles)
-   - `repeat: Infinity` animations never cleaned up
-
-2. **BUG-002: Missing ARIA Labels** (src/App.jsx:476-495)
-   - Navigation buttons lack `aria-label` attributes
-   - Screen reader users hear only "button" with no context
-   - Export button emoji not accessible
-
-3. **BUG-003: Thumbnail Grid Not Keyboard Accessible** (src/App.jsx:445-471)
-   - No `tabIndex` - unreachable via Tab key
-   - No `onKeyDown` - Enter/Space don't work
-   - No focus styles or `role="button"`
-
-4. **BUG-004: Color Contrast Failures** (src/App.css:93, src/slides/SlideStyles.css:83)
-   - `.instructions`: 2.8:1 ratio (needs 4.5:1) - WCAG FAIL
-   - `.tagline`: 3.6:1 ratio (needs 4.5:1) - WCAG FAIL
-   - Text unreadable for users with low vision
-
-5. **BUG-005: No prefers-reduced-motion Support** (All components)
-   - WCAG 2.1 SC 2.3.3 violation
-   - Triggers motion sickness, vestibular disorders
-   - No check for OS-level accessibility setting
-
-6. **BUG-006: Charts Render Blank in PDF** (src/components/BarChart.jsx, LineChart.jsx)
-   - Animations disabled in print mode freeze charts at initial state
-   - Print capture happens before animations complete
-
-7. **BUG-007: Hash Navigation Race Condition** (src/App.jsx:239-331)
-   - Browser back/forward buttons sometimes skip slides
-   - `navigateToSlide()` writes hash while `getCurrentSlideFromHash()` reads it
-
-### High Priority Issues (12 identified)
-
-- No loading states during slide transitions
-- Thumbnail grid lacks search/filter by act
-- No keyboard shortcut help overlay (users don't discover T key)
-- Typography scale inconsistent (mixing px, rem, clamp)
-- Mobile gestures not implemented (swipe to navigate)
-- No error boundaries for component failures
-- Analytics/tracking not implemented
-- Missing meta tags and favicon
-- No offline/PWA support
-- Particle animations cause motion sickness for some users
-- No visual feedback for disabled navigation buttons
-- Export workflow requires technical knowledge (not user-friendly)
-
-### Quick Wins (9 identified, 1-30 min each)
-
-1. ESC key closes thumbnail grid (5 min)
-2. Click slide counter to open thumbnails (5 min)
-3. Add favicon and meta tags (20 min)
-4. Auto-hide instructions after 10s (15 min)
-5. Visual disabled state for nav buttons (10 min)
-6. Add keyboard shortcut help overlay (30 min)
-7. Loading spinner during build (15 min)
-8. Add slide title to document.title (10 min)
-9. Gradient overlay on first/last slide indicators (15 min)
-
-### Strengths
-
+**Strengths**:
 - Modern glassmorphism aesthetic with consistent design system
 - Well-structured component architecture
 - Excellent responsive utility system (SPACING, TYPOGRAPHY, pxToRem)
@@ -245,16 +218,6 @@ The app uses hash-based routing:
 - Mobile particle optimization (50% reduction)
 - Print/PDF export implementation
 
-### Industry Comparison
-
-**vs. Apple Keynote**: Missing presenter notes, slide timings, transitions preview
-**vs. Pitch.com**: No collaborative features, version history, or templates
-**vs. Google Slides**: Better animations, but lacks accessibility and real-time collaboration
-
-### Recommended Implementation Phases
-
-- **Phase 1** (18 hours): Fix critical accessibility and memory issues
-- **Phase 2** (37 hours): Enhanced UX (loading states, thumbnails, typography)
-- **Phase 3** (46 hours): Performance optimization, offline mode, analytics
-
-See `UI_UX_AUDIT_REPORT.md` for detailed code examples and verification steps.
+**Critical Issues**: 9 bugs identified (BUG-L01 through BUG-L05 for layout, BUG-001 through BUG-009 for accessibility)
+**Audit Date**: November 10, 2025
+**Next Steps**: Start with UI_UX_AUDIT_REPORT.md Phase 1

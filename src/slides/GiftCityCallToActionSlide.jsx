@@ -1,13 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Phone, Mail, Calendar } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 
 const GiftCityCallToActionSlide = () => {
   return (
     <div className="slide-container">
       <div className="glassmorphic-card large">
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: pxToRem(-20) }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
@@ -44,7 +45,7 @@ const GiftCityCallToActionSlide = () => {
         {/* Three Reasons */}
         <div className="grid grid-cols-3 gap-4 mb-6">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: pxToRem(20) }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
             className="glassmorphic-card"
@@ -57,7 +58,7 @@ const GiftCityCallToActionSlide = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: pxToRem(20) }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.5 }}
             className="glassmorphic-card"
@@ -70,7 +71,7 @@ const GiftCityCallToActionSlide = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: pxToRem(20) }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.5 }}
             className="glassmorphic-card"

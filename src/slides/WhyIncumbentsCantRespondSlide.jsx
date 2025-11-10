@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
 import { Shield, Lock, AlertTriangle, XCircle, CheckCircle, TrendingUp, Users, Brain } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function WhyIncumbentsCantRespondSlide() {
@@ -54,33 +55,33 @@ export default function WhyIncumbentsCantRespondSlide() {
   const cards = incumbentWeaknesses.map((incumbent, index) => (
     <div key={incumbent.category} style={{
       background: 'rgba(239, 68, 68, 0.05)',
-      borderRadius: '0.75rem',
-      padding: '1.5rem',
-      border: '0.0625rem solid rgba(239, 68, 68, 0.2)',
+      borderRadius: pxToRem(12),
+      padding: pxToRem(24),
+      border: `${pxToRem(1)} solid rgba(239, 68, 68, 0.2)`,
       position: 'relative'
     }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-        <span style={{ fontSize: '2rem' }}>{incumbent.icon}</span>
+      <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(16), marginBottom: pxToRem(16) }}>
+        <span style={{ fontSize: pxToRem(32) }}>{incumbent.icon}</span>
         <div style={{ flex: 1 }}>
-          <h3 style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+          <h3 style={{ fontSize: pxToRem(19.2), color: '#e2e8f0', marginBottom: pxToRem(4) }}>
             {incumbent.category}
           </h3>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center',
-            gap: '0.5rem'
+            gap: pxToRem(8)
           }}>
             {!incumbent.canCatch ? (
               <>
                 <XCircle size={14} style={{ color: '#ef4444' }} />
-                <span style={{ fontSize: '0.8rem', color: '#ef4444' }}>
+                <span style={{ fontSize: pxToRem(12.8), color: '#ef4444' }}>
                   Can't catch up
                 </span>
               </>
             ) : (
               <>
                 <AlertTriangle size={14} style={{ color: '#fbbf24' }} />
-                <span style={{ fontSize: '0.8rem', color: '#fbbf24' }}>
+                <span style={{ fontSize: pxToRem(12.8), color: '#fbbf24' }}>
                   Potential threat
                 </span>
               </>
@@ -89,34 +90,34 @@ export default function WhyIncumbentsCantRespondSlide() {
         </div>
       </div>
 
-      <div style={{ marginBottom: '1rem' }}>
+      <div style={{ marginBottom: pxToRem(16) }}>
         {incumbent.weaknesses.map((weakness, i) => (
           <motion.div
             key={weakness.issue}
-            initial={{ opacity: 0, x: -0.625 }}
+            initial={{ opacity: 0, x: pxToRem(-10) }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5 + index * 0.15 + i * 0.05 }}
             style={{
               display: 'flex',
               alignItems: 'flex-start',
-              gap: '0.5rem',
-              marginBottom: '0.75rem'
+              gap: pxToRem(8),
+              marginBottom: pxToRem(12)
             }}
           >
             <div style={{
-              width: '0.25rem',
-              height: '0.25rem',
+              width: pxToRem(4),
+              height: pxToRem(4),
               borderRadius: '50%',
               background: weakness.severity === 'critical' ? '#ef4444' : 
                          weakness.severity === 'high' ? '#f97316' : '#fbbf24',
-              marginTop: '0.5rem',
+              marginTop: pxToRem(8),
               flexShrink: 0
             }} />
             <div style={{ flex: 1 }}>
-              <div style={{ fontSize: '0.9rem', color: '#e2e8f0', marginBottom: '0.1rem' }}>
+              <div style={{ fontSize: pxToRem(14.4), color: '#e2e8f0', marginBottom: pxToRem(1.6) }}>
                 {weakness.issue}
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+              <div style={{ fontSize: pxToRem(12), color: '#64748b' }}>
                 {weakness.detail}
               </div>
             </div>
@@ -125,15 +126,15 @@ export default function WhyIncumbentsCantRespondSlide() {
       </div>
 
       <div style={{
-        borderTop: '0.0625rem solid rgba(255, 255, 255, 0.1)',
-        paddingTop: '0.75rem',
+        borderTop: `${pxToRem(1)} solid rgba(255, 255, 255, 0.1)`,
+        paddingTop: pxToRem(12),
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center'
       }}>
-        <span style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Time to match:</span>
+        <span style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Time to match:</span>
         <span style={{ 
-          fontSize: '0.9rem', 
+          fontSize: pxToRem(14.4), 
           fontWeight: 'bold',
           color: '#ef4444'
         }}>
@@ -151,16 +152,16 @@ export default function WhyIncumbentsCantRespondSlide() {
         transition={{ delay: 0.8 }}
         style={{
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1))',
-          borderRadius: '1rem',
-          padding: '2rem',
-          border: '0.125rem solid rgba(34, 197, 94, 0.3)',
-          marginBottom: '2rem'
+          borderRadius: pxToRem(16),
+          padding: pxToRem(32),
+          border: `${pxToRem(2)} solid rgba(34, 197, 94, 0.3)`,
+          marginBottom: pxToRem(32)
         }}
       >
         <h3 style={{ 
-          fontSize: '1.3rem', 
+          fontSize: pxToRem(20.8), 
           color: '#4ade80',
-          marginBottom: '1.5rem',
+          marginBottom: pxToRem(24),
           textAlign: 'center'
         }}>
           Our Unassailable Position
@@ -169,34 +170,34 @@ export default function WhyIncumbentsCantRespondSlide() {
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(4, 1fr)', 
-          gap: '1rem'
+          gap: pxToRem(16)
         }}>
           {ourAdvantages.map((advantage, index) => (
             <motion.div
               key={advantage.label}
-              initial={{ opacity: 0, y: 1.25 }}
+              initial={{ opacity: 0, y: pxToRem(20) }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 + index * 0.1 }}
               style={{
                 textAlign: 'center',
-                padding: '1rem',
+                padding: pxToRem(16),
                 background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '0.5rem'
+                borderRadius: pxToRem(8)
               }}
             >
               <CheckCircle size={24} style={{ 
                 color: advantage.color, 
-                margin: '0 auto 0.5rem' 
+                margin: `0 auto ${pxToRem(8)}` 
               }} />
               <div style={{ 
-                fontSize: '1.5rem', 
+                fontSize: pxToRem(24), 
                 fontWeight: 'bold',
                 color: advantage.color,
-                marginBottom: '0.5rem'
+                marginBottom: pxToRem(8)
               }}>
                 {advantage.value}
               </div>
-              <div style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
+              <div style={{ fontSize: pxToRem(13.6), color: '#94a3b8' }}>
                 {advantage.label}
               </div>
             </motion.div>
@@ -210,32 +211,32 @@ export default function WhyIncumbentsCantRespondSlide() {
         transition={{ delay: 1.2 }}
         style={{
           position: 'relative',
-          padding: '1.5rem',
+          padding: pxToRem(24),
           background: 'rgba(147, 51, 234, 0.05)',
-          borderRadius: '0.75rem',
-          border: '0.0625rem solid rgba(147, 51, 234, 0.2)'
+          borderRadius: pxToRem(12),
+          border: `${pxToRem(1)} solid rgba(147, 51, 234, 0.2)`
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
-            <h4 style={{ color: '#c084fc', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
+            <h4 style={{ color: '#c084fc', fontSize: pxToRem(17.6), marginBottom: pxToRem(8) }}>
               The Window of Opportunity
             </h4>
-            <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>
+            <p style={{ fontSize: pxToRem(14.4), color: '#94a3b8' }}>
               We have an 18-24 month window before any incumbent could theoretically respond
             </p>
           </div>
           <div style={{ textAlign: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
               <TrendingUp size={20} style={{ color: '#4ade80' }} />
-              <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>
+              <span style={{ fontSize: pxToRem(32), fontWeight: 'bold', color: '#4ade80' }}>
                 18
               </span>
-              <span style={{ fontSize: '1rem', color: '#94a3b8' }}>
+              <span style={{ fontSize: pxToRem(16), color: '#94a3b8' }}>
                 months
               </span>
             </div>
-            <p style={{ fontSize: '0.8rem', color: '#64748b', marginTop: '0.25rem' }}>
+            <p style={{ fontSize: pxToRem(12.8), color: '#64748b', marginTop: pxToRem(4) }}>
               First-mover advantage
             </p>
           </div>
@@ -248,13 +249,13 @@ export default function WhyIncumbentsCantRespondSlide() {
         transition={{ delay: 1.4 }}
         style={{ 
           textAlign: 'center',
-          marginTop: '2rem',
-          padding: '1rem',
+          marginTop: pxToRem(32),
+          padding: pxToRem(16),
           background: 'linear-gradient(90deg, rgba(251, 191, 36, 0.1), rgba(236, 72, 153, 0.1))',
-          borderRadius: '0.5rem'
+          borderRadius: pxToRem(8)
         }}
       >
-        <p style={{ fontSize: '1.1rem', color: '#fbbf24', fontWeight: '600' }}>
+        <p style={{ fontSize: pxToRem(17.6), color: '#fbbf24', fontWeight: '600' }}>
           "By the time they realize they need to respond, we'll own the category"
         </p>
       </motion.div>

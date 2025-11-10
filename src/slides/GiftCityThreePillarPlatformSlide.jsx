@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, TrendingUp, Shield, Zap, Globe, Users, Target, DollarSign, Award, PiggyBank } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GiftCityThreePillarPlatformSlide() {
@@ -241,7 +242,7 @@ export default function GiftCityThreePillarPlatformSlide() {
         {pillar.features.map((feature, fi) => (
           <motion.div
             key={feature}
-            initial={{ opacity: 0, x: -1.25 }}
+            initial={{ opacity: 0, x: pxToRem(-20) }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 1.0 + index * 0.2 + fi * 0.1 }}
             style={{
@@ -295,7 +296,7 @@ export default function GiftCityThreePillarPlatformSlide() {
 
   const summary = (
     <motion.div
-      initial={{ opacity: 0, y: 1.875 }}
+      initial={{ opacity: 0, y: pxToRem(30) }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.8 }}
       style={{

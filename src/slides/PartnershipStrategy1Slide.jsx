@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import { Handshake, Building2, Globe, Users, Zap, Shield } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function PartnershipStrategy1Slide() {
@@ -66,22 +67,22 @@ export default function PartnershipStrategy1Slide() {
       transition={{ delay: 0.3 + catIndex * 0.15 }}
       style={{
         background: `linear-gradient(135deg, ${category.color}15, transparent)`,
-        borderRadius: '0.75rem',
-        padding: '1.25rem',
-        border: `1px solid ${category.color}33`,
+        borderRadius: pxToRem(12),
+        padding: pxToRem(20),
+        border: `${pxToRem(1)} solid ${category.color}33`,
         height: '100%'
       }}
     >
       <div style={{
         display: 'flex',
         alignItems: 'center',
-        gap: '0.75rem',
-        marginBottom: '1rem'
+        gap: pxToRem(12),
+        marginBottom: pxToRem(16)
       }}>
         <div style={{
-          width: '2.5rem',
-          height: '2.5rem',
-          borderRadius: '0.5rem',
+          width: pxToRem(40),
+          height: pxToRem(40),
+          borderRadius: pxToRem(8),
           background: `${category.color}22`,
           display: 'flex',
           alignItems: 'center',
@@ -89,7 +90,7 @@ export default function PartnershipStrategy1Slide() {
         }}>
           <category.icon size={20} style={{ color: category.color }} />
         </div>
-        <h3 style={{ color: category.color, fontSize: '1rem', margin: 0 }}>
+        <h3 style={{ color: category.color, fontSize: pxToRem(16), margin: 0 }}>
           {category.category}
         </h3>
       </div>
@@ -101,27 +102,27 @@ export default function PartnershipStrategy1Slide() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            padding: '0.5rem 0.75rem',
+            padding: `${pxToRem(8)} ${pxToRem(12)}`,
             background: 'rgba(255, 255, 255, 0.03)',
-            borderRadius: '0.375rem',
-            marginBottom: '0.5rem'
+            borderRadius: pxToRem(6),
+            marginBottom: pxToRem(8)
           }}
         >
           <div>
-            <div style={{ fontSize: '0.85rem', color: '#e2e8f0', fontWeight: '500' }}>
+            <div style={{ fontSize: pxToRem(13.6), color: '#e2e8f0', fontWeight: '500' }}>
               {partner.name}
             </div>
-            <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+            <div style={{ fontSize: pxToRem(12), color: '#64748b' }}>
               {partner.role}
             </div>
           </div>
           <div style={{
-            padding: '0.125rem 0.5rem',
+            padding: `${pxToRem(2)} ${pxToRem(8)}`,
             background: partner.status === 'Active' ? 'rgba(34, 197, 94, 0.2)' :
                       partner.status === 'In Progress' ? 'rgba(251, 191, 36, 0.2)' :
                       'rgba(147, 51, 234, 0.2)',
-            borderRadius: '0.25rem',
-            fontSize: '0.7rem',
+            borderRadius: pxToRem(4),
+            fontSize: pxToRem(11.2),
             color: partner.status === 'Active' ? '#4ade80' :
                    partner.status === 'In Progress' ? '#fbbf24' : '#c084fc'
           }}>
@@ -135,20 +136,20 @@ export default function PartnershipStrategy1Slide() {
   const summary = (
     <>
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: pxToRem(20) }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9 }}
         style={{
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(20, 184, 166, 0.1))',
-          borderRadius: '0.75rem',
-          padding: '1.5rem',
-          marginBottom: '1.5rem'
+          borderRadius: pxToRem(12),
+          padding: pxToRem(24),
+          marginBottom: pxToRem(24)
         }}
       >
-        <h3 style={{ color: '#4ade80', marginBottom: '1rem', fontSize: '1.1rem', textAlign: 'center', marginTop: 0 }}>
+        <h3 style={{ color: '#4ade80', marginBottom: pxToRem(16), fontSize: pxToRem(17.6), textAlign: 'center', marginTop: 0 }}>
           Partnership Impact
         </h3>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: pxToRem(16) }}>
           {partnershipValue.map((item, index) => (
             <motion.div
               key={item.metric}
@@ -157,18 +158,18 @@ export default function PartnershipStrategy1Slide() {
               transition={{ delay: 1 + index * 0.1 }}
               style={{
                 textAlign: 'center',
-                padding: '1rem',
+                padding: pxToRem(16),
                 background: 'rgba(255, 255, 255, 0.03)',
-                borderRadius: '0.5rem'
+                borderRadius: pxToRem(8)
               }}
             >
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4ade80' }}>
+              <div style={{ fontSize: pxToRem(32), fontWeight: 'bold', color: '#4ade80' }}>
                 {item.value}
               </div>
-              <div style={{ fontSize: '0.85rem', color: '#e2e8f0', marginBottom: '0.25rem' }}>
+              <div style={{ fontSize: pxToRem(13.6), color: '#e2e8f0', marginBottom: pxToRem(4) }}>
                 {item.label}
               </div>
-              <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+              <div style={{ fontSize: pxToRem(12), color: '#64748b' }}>
                 {item.metric}
               </div>
             </motion.div>
@@ -183,38 +184,38 @@ export default function PartnershipStrategy1Slide() {
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '1rem'
+          gap: pxToRem(16)
         }}
       >
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(147, 51, 234, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <Handshake size={24} style={{ color: '#c084fc', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>Zero-Touch Integration</div>
-          <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Seamless connectivity</div>
+          <Handshake size={24} style={{ color: '#c084fc', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(13.6), color: '#e2e8f0' }}>Zero-Touch Integration</div>
+          <div style={{ fontSize: pxToRem(12), color: '#64748b' }}>Seamless connectivity</div>
         </div>
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(59, 130, 246, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <Shield size={24} style={{ color: '#60a5fa', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>Enterprise Grade</div>
-          <div style={{ fontSize: '0.75rem', color: '#64748b' }}>Bank-level security</div>
+          <Shield size={24} style={{ color: '#60a5fa', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(13.6), color: '#e2e8f0' }}>Enterprise Grade</div>
+          <div style={{ fontSize: pxToRem(12), color: '#64748b' }}>Bank-level security</div>
         </div>
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(251, 191, 36, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <Globe size={24} style={{ color: '#fbbf24', margin: '0 auto 0.5rem' }} />
-          <div style={{ fontSize: '0.85rem', color: '#e2e8f0' }}>Global Coverage</div>
-          <div style={{ fontSize: '0.75rem', color: '#64748b' }}>150+ countries</div>
+          <Globe size={24} style={{ color: '#fbbf24', margin: `0 auto ${pxToRem(8)}` }} />
+          <div style={{ fontSize: pxToRem(13.6), color: '#e2e8f0' }}>Global Coverage</div>
+          <div style={{ fontSize: pxToRem(12), color: '#64748b' }}>150+ countries</div>
         </div>
       </motion.div>
     </>

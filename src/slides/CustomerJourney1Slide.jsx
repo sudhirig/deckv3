@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import { ChevronRight, Clock, Sparkles, TrendingUp, Shield, Zap } from 'lucide-react'
+import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function CustomerJourney1Slide() {
@@ -78,16 +79,16 @@ export default function CustomerJourney1Slide() {
           background: activeStep === index 
             ? `linear-gradient(135deg, ${step.color}25, ${step.color}10)`
             : `linear-gradient(135deg, ${step.color}15, transparent)`,
-          border: `0.0625rem solid ${step.color}33`,
-          borderRadius: '0.75rem',
-          padding: '1.5rem',
+          border: `${pxToRem(1)} solid ${step.color}33`,
+          borderRadius: pxToRem(12),
+          padding: pxToRem(24),
           height: '100%',
           position: 'relative',
           overflow: 'hidden'
         }}
         animate={activeStep === index ? {
           scale: [1, 1.02, 1],
-          boxShadow: [`0 0 0 ${step.color}00`, `0 0 1.25rem ${step.color}55`, `0 0 0 ${step.color}00`]
+          boxShadow: [`0 0 0 ${step.color}00`, `0 0 ${pxToRem(20)} ${step.color}55`, `0 0 0 ${step.color}00`]
         } : {}}
         transition={{ duration: 0.6 }}
       >
@@ -111,12 +112,12 @@ export default function CustomerJourney1Slide() {
         <div style={{ 
           display: 'flex', 
           alignItems: 'center',
-          marginBottom: '1rem',
-          gap: '0.5rem'
+          marginBottom: pxToRem(16),
+          gap: pxToRem(8)
         }}>
           <div style={{
-            width: '3.125rem',
-            height: '3.125rem',
+            width: pxToRem(50),
+            height: pxToRem(50),
             borderRadius: '50%',
             background: `${step.color}22`,
             display: 'flex',
@@ -126,14 +127,14 @@ export default function CustomerJourney1Slide() {
             <step.icon size={24} style={{ color: step.color }} />
           </div>
           <div>
-            <h4 style={{ color: step.color, marginBottom: '0.25rem', fontSize: '1rem' }}>
+            <h4 style={{ color: step.color, marginBottom: pxToRem(4), fontSize: pxToRem(16) }}>
               {step.phase}
             </h4>
             <div style={{ 
               display: 'flex', 
               alignItems: 'center',
-              gap: '0.25rem',
-              fontSize: '0.8rem',
+              gap: pxToRem(4),
+              fontSize: pxToRem(12.8),
               color: '#64748b'
             }}>
               <Clock size={12} />
@@ -142,15 +143,15 @@ export default function CustomerJourney1Slide() {
           </div>
         </div>
 
-        <div style={{ marginBottom: '1rem' }}>
+        <div style={{ marginBottom: pxToRem(16) }}>
           {step.actions.map((action, i) => (
             <div
               key={i}
               style={{
-                fontSize: '0.85rem',
+                fontSize: pxToRem(13.6),
                 color: '#94a3b8',
-                marginBottom: '0.25rem',
-                paddingLeft: '1rem',
+                marginBottom: pxToRem(4),
+                paddingLeft: pxToRem(16),
                 position: 'relative'
               }}
             >
@@ -165,24 +166,24 @@ export default function CustomerJourney1Slide() {
         </div>
 
         <div style={{
-          padding: '0.5rem',
+          padding: pxToRem(8),
           background: 'rgba(255, 255, 255, 0.05)',
-          borderRadius: '0.375rem',
-          marginBottom: '0.75rem',
+          borderRadius: pxToRem(6),
+          marginBottom: pxToRem(12),
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '1.5rem', marginBottom: '0.25rem' }}>
+          <div style={{ fontSize: pxToRem(24), marginBottom: pxToRem(4) }}>
             {step.emotion.split(' ')[0]}
           </div>
-          <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+          <div style={{ fontSize: pxToRem(12.8), color: '#64748b' }}>
             {step.emotion.split(' ')[1]}
           </div>
         </div>
 
         <div style={{
-          borderTop: '0.0625rem solid rgba(255, 255, 255, 0.1)',
-          paddingTop: '0.75rem',
-          fontSize: '0.9rem',
+          borderTop: `${pxToRem(1)} solid rgba(255, 255, 255, 0.1)`,
+          paddingTop: pxToRem(12),
+          fontSize: pxToRem(14.4),
           color: '#4ade80',
           fontWeight: '600',
           textAlign: 'center'
@@ -198,8 +199,8 @@ export default function CustomerJourney1Slide() {
           transition={{ delay: 0.8 + index * 0.1 }}
           style={{
             position: 'absolute',
-            top: '4.375rem',
-            right: '-1.5625rem',
+            top: pxToRem(70),
+            right: pxToRem(-25),
             color: '#64748b',
             zIndex: 1
           }}
@@ -217,53 +218,53 @@ export default function CustomerJourney1Slide() {
         animate={{ scaleX: 1 }}
         transition={{ delay: 0.5, duration: 1.5 }}
         style={{
-          height: '0.1875rem',
+          height: pxToRem(3),
           background: 'linear-gradient(90deg, #c084fc, #60a5fa, #4ade80, #fbbf24)',
           transformOrigin: 'left',
-          marginBottom: '2rem'
+          marginBottom: pxToRem(32)
         }}
       />
       
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '1rem'
+        gap: pxToRem(16)
       }}>
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(147, 51, 234, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#c084fc' }}>96%</div>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Complete Onboarding</div>
+          <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#c084fc' }}>96%</div>
+          <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Complete Onboarding</div>
         </div>
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(59, 130, 246, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#60a5fa' }}>4.9/5</div>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Satisfaction Score</div>
+          <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#60a5fa' }}>4.9/5</div>
+          <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Satisfaction Score</div>
         </div>
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(34, 197, 94, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#4ade80' }}>18min</div>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Avg Setup Time</div>
+          <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#4ade80' }}>18min</div>
+          <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>Avg Setup Time</div>
         </div>
         <div style={{
-          padding: '1rem',
+          padding: pxToRem(16),
           background: 'rgba(251, 191, 36, 0.1)',
-          borderRadius: '0.5rem',
+          borderRadius: pxToRem(8),
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '1.8rem', fontWeight: 'bold', color: '#fbbf24' }}>73</div>
-          <div style={{ fontSize: '0.8rem', color: '#94a3b8' }}>NPS Score</div>
+          <div style={{ fontSize: pxToRem(28.8), fontWeight: 'bold', color: '#fbbf24' }}>73</div>
+          <div style={{ fontSize: pxToRem(12.8), color: '#94a3b8' }}>NPS Score</div>
         </div>
       </div>
     </>
