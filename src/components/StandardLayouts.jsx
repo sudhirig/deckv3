@@ -3,93 +3,11 @@ import { motion } from 'framer-motion';
 import GradientText from './GradientText';
 import './StandardLayouts.css';
 
-// ScalingWrapper with dynamic viewport scaling - fixed with transform-origin
-const ScalingWrapper = ({ children }) => {
-  const wrapperRef = useRef(null);
-  const contentRef = useRef(null);
-  const [isReady, setIsReady] = useState(false);
-
-  useEffect(() => {
-    const calculateScale = () => {
-      if (!wrapperRef.current || !contentRef.current) return;
-
-      // Get viewport dimensions
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-
-      // Fixed content dimensions (16:9 at 1920x1080)
-      const baseWidth = 1920;
-      const baseHeight = 1080;
-
-      // Calculate scale to fit content in viewport
-      const padding = 40;
-      const availableWidth = viewportWidth - padding;
-      const availableHeight = viewportHeight - padding;
-      
-      const scaleX = availableWidth / baseWidth;
-      const scaleY = availableHeight / baseHeight;
-      
-      // Use the smaller scale to ensure all content fits
-      const scale = Math.min(scaleX, scaleY);
-      
-      // Calculate centered position
-      const scaledWidth = baseWidth * scale;
-      const scaledHeight = baseHeight * scale;
-      const leftOffset = (viewportWidth - scaledWidth) / 2;
-      const topOffset = (viewportHeight - scaledHeight) / 2;
-      
-      // Apply the scale and position
-      if (contentRef.current) {
-        contentRef.current.style.transform = `scale(${scale})`;
-        contentRef.current.style.left = `${leftOffset}px`;
-        contentRef.current.style.top = `${topOffset}px`;
-      }
-      
-      // Mark as ready after positioning
-      setIsReady(true);
-    };
-
-    // Calculate immediately
-    calculateScale();
-    
-    // Recalculate on resize
-    window.addEventListener('resize', calculateScale);
-    
-    return () => {
-      window.removeEventListener('resize', calculateScale);
-    };
-  }, []);
-
-  return (
-    <div ref={wrapperRef} className="scaling-wrapper">
-      <div 
-        ref={contentRef}
-        className="scaling-content"
-        style={{ 
-          transform: 'scale(1)',
-          transformOrigin: 'top left',
-          position: 'absolute',
-          width: '1920px',
-          height: '1080px',
-          left: '0',
-          top: '0',
-          opacity: isReady ? 1 : 0,
-          transition: 'opacity 0.2s ease'
-        }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-};
-
-// Shared AspectFrame wrapper - uses ScalingWrapper for proper content scaling
+// Shared AspectFrame wrapper - simple container for presentation slides
 export const AspectFrame = ({ children }) => (
   <div className="standard-layout-scene">
     <div className="standard-layout-container">
-      <ScalingWrapper>
-        {children}
-      </ScalingWrapper>
+      {children}
     </div>
   </div>
 );
