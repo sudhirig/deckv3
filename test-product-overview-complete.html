@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Overview Slide Test - Final Version</title>
+</head>
+<body style="margin: 0; padding: 0;">
+    <h1 style="text-align: center; padding: 20px; background: #1a1a2e; color: white; margin: 0;">
+        Product Overview Slide - All Elements Added
+    </h1>
+    <iframe 
+        src="http://localhost:5000/#/slide/63" 
+        style="width: 100%; height: calc(100vh - 80px); border: none;"
+    ></iframe>
+    
+    <script>
+        // Auto-refresh to slide 63 every 5 seconds
+        setInterval(() => {
+            const iframe = document.querySelector('iframe');
+            iframe.src = 'http://localhost:5000/#/slide/63';
+        }, 5000);
+    </script>
+</body>
+</html>

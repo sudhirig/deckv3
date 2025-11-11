@@ -1,8 +1,36 @@
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
+
+// Animated counter component
+function AnimatedCounter({ value, suffix = '', prefix = '', color }) {
+  const count = useMotionValue(0)
+  const rounded = useTransform(count, Math.round)
+  const [displayValue, setDisplayValue] = useState(0)
+
+  useEffect(() => {
+    const numValue = parseFloat(value.toString().replace(/[^0-9.]/g, ''))
+    const animation = animate(count, numValue, { duration: 2 })
+    
+    const unsubscribe = rounded.onChange((v) => {
+      setDisplayValue(v)
+    })
+
+    return () => {
+      animation.stop()
+      unsubscribe()
+    }
+  }, [value, count, rounded])
+
+  return (
+    <div style={{ fontSize: 'clamp(1.4rem, 1.8vw, 1.8rem)', fontWeight: 'bold', color }}>
+      {prefix}{displayValue}{suffix}
+    </div>
+  )
+}
 
 export default function ProductOverviewSlide() {
   // Calculate radial positions for modules (7 modules in a circle)
@@ -68,7 +96,7 @@ export default function ProductOverviewSlide() {
       color: '#a78bfa',
       bgGradient: 'rgba(168, 85, 247, 0.12), rgba(139, 92, 246, 0.08)',
       border: 'rgba(168, 85, 247, 0.25)',
-      metrics: ['Real-time', '5 sources', 'Predictive'],
+      metrics: ['182+ sources', 'FinBERT', 'Heat maps'],
       status: 'LIVE',
       statusColor: '#4ade80'
     },
@@ -79,7 +107,7 @@ export default function ProductOverviewSlide() {
       color: '#5eead4',
       bgGradient: 'rgba(20, 184, 166, 0.12), rgba(34, 197, 94, 0.08)',
       border: 'rgba(20, 184, 166, 0.25)',
-      metrics: ['Deep DD', 'Auto reports', 'Insights'],
+      metrics: ['InvITs/REITs', 'PDF analysis', '+300bps'],
       status: 'LIVE',
       statusColor: '#4ade80'
     },
@@ -90,7 +118,7 @@ export default function ProductOverviewSlide() {
       color: '#fbbf24',
       bgGradient: 'rgba(251, 191, 36, 0.12), rgba(249, 115, 22, 0.08)',
       border: 'rgba(251, 191, 36, 0.25)',
-      metrics: ['3.2% alpha', 'Daily harvest', 'Auto-switch'],
+      metrics: ['+1.8% alpha', 'Daily harvest', 'Auto-switch'],
       status: "Q2'25",
       statusColor: '#fbbf24'
     }
@@ -128,10 +156,24 @@ export default function ProductOverviewSlide() {
         </h1>
         <p style={{ 
           fontSize: 'clamp(1rem, 1.5vw, 1.3rem)',
-          color: '#94a3b8'
+          color: '#94a3b8',
+          marginBottom: pxToRem(4)
         }}>
           7 Operational Modules • 68+ AI Agents • 100% Live Today
         </p>
+        <motion.p 
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          style={{ 
+            fontSize: 'clamp(1.1rem, 1.6vw, 1.4rem)',
+            color: '#e9d5ff',
+            fontWeight: 600,
+            letterSpacing: '0.5px'
+          }}
+        >
+          Everything You Need. One Platform. Infinite Alpha.
+        </motion.p>
       </motion.div>
 
       {/* Main Content Area with Radial Layout */}
@@ -386,27 +428,27 @@ export default function ProductOverviewSlide() {
             border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.3)`
           }}>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(1.4rem, 1.8vw, 1.8rem)', fontWeight: 'bold', color: '#60a5fa' }}>$10M</div>
+              <AnimatedCounter value={10} prefix="$" suffix="M" color="#60a5fa" />
               <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>AUM</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(1.4rem, 1.8vw, 1.8rem)', fontWeight: 'bold', color: '#4ade80' }}>5+</div>
+              <AnimatedCounter value={5} suffix="+" color="#4ade80" />
               <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>Clients</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(1.4rem, 1.8vw, 1.8rem)', fontWeight: 'bold', color: '#fbbf24' }}>25%</div>
+              <AnimatedCounter value={25} suffix="%" color="#fbbf24" />
               <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>Outperformance</div>
             </div>
             <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(1.4rem, 1.8vw, 1.8rem)', fontWeight: 'bold', color: '#4ade80' }}>100%</div>
+              <AnimatedCounter value={100} suffix="%" color="#4ade80" />
               <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>Live</div>
             </div>
           </div>
 
-          {/* Bottom Row: Moats and Tech Stack */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 'clamp(1rem, 1.5vw, 1.5rem)' }}>
-            {/* Moat Badges */}
-            <div style={{ display: 'flex', gap: 'clamp(0.8rem, 1vw, 1rem)' }}>
+          {/* Bottom Rows: Moats, Broker Integration, and Tech Stack */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.8rem, 1vh, 1rem)' }}>
+            {/* Moat Badges Row */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(0.8rem, 1vw, 1rem)' }}>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 style={{
@@ -454,14 +496,98 @@ export default function ProductOverviewSlide() {
                 <Icon type="shield" size={20} variant="inline" gradient="from-teal-400 to-green-400" />
                 <span style={{ fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', color: '#5eead4', fontWeight: 600 }}>Trust</span>
               </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                style={{
+                  padding: 'clamp(0.5rem, 0.7vw, 0.7rem) clamp(1rem, 1.3vw, 1.3rem)',
+                  background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1))',
+                  border: `${pxToRem(1)} solid rgba(168, 85, 247, 0.3)`,
+                  borderRadius: pxToRem(8),
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 'clamp(0.5rem, 0.6vw, 0.6rem)'
+                }}
+              >
+                <Icon type="sparkles" size={20} variant="inline" gradient="from-purple-400 to-pink-400" />
+                <span style={{ fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', color: '#a78bfa', fontWeight: 600 }}>Patents Pending</span>
+              </motion.div>
             </div>
             
-            {/* Tech Stack */}
+            {/* Broker Integration Timeline Row */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              style={{ 
+                padding: 'clamp(0.7rem, 0.9vw, 0.9rem) clamp(1.5rem, 2vw, 2rem)',
+                background: 'linear-gradient(90deg, rgba(249, 115, 22, 0.1), rgba(251, 191, 36, 0.1))',
+                borderRadius: pxToRem(10),
+                border: `${pxToRem(1)} solid rgba(249, 115, 22, 0.2)`,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 'clamp(0.5rem, 0.8vw, 0.8rem)'
+              }}
+            >
+              <span style={{ 
+                fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)',
+                color: '#fbbf24',
+                fontWeight: 600
+              }}>
+                Broker APIs:
+              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.8rem, 1.2vw, 1.2rem)' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '0.5rem',
+                  padding: 'clamp(0.3rem, 0.4vw, 0.4rem) clamp(0.7rem, 0.9vw, 0.9rem)',
+                  background: 'rgba(34, 197, 94, 0.15)',
+                  borderRadius: pxToRem(6),
+                  border: `${pxToRem(1)} solid rgba(34, 197, 94, 0.3)`
+                }}>
+                  <span style={{ color: '#4ade80', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', fontWeight: 600 }}>
+                    Zerodha
+                  </span>
+                  <span style={{ color: '#4ade80', fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)' }}>✅</span>
+                </div>
+                <span style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>|</span>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '0.3rem'
+                }}>
+                  <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>
+                    IBKR
+                  </span>
+                  <span style={{ color: '#fbbf24', fontSize: 'clamp(0.8rem, 0.95vw, 0.95rem)', fontStyle: 'italic' }}>
+                    (Q1'25)
+                  </span>
+                </div>
+                <span style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>|</span>
+                <div style={{ 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  gap: '0.3rem'
+                }}>
+                  <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>
+                    Alpaca
+                  </span>
+                  <span style={{ color: '#fbbf24', fontSize: 'clamp(0.8rem, 0.95vw, 0.95rem)', fontStyle: 'italic' }}>
+                    (Q2'25)
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Tech Stack Row */}
             <div style={{ 
               fontSize: 'clamp(0.85rem, 1.05vw, 1.05rem)',
               color: 'rgba(255, 255, 255, 0.6)',
               display: 'flex',
               alignItems: 'center',
+              justifyContent: 'center',
               gap: 'clamp(0.5rem, 0.7vw, 0.7rem)'
             }}>
               <span>Powered by:</span>
