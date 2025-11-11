@@ -33,7 +33,7 @@ const AgenticAIConceptSlide = () => {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,6 @@ const AgenticAIConceptSlide = () => {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(16)} ${pxToRem(32)}`,
-          maxHeight: '15vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -62,10 +61,9 @@ const AgenticAIConceptSlide = () => {
         </p>
       </motion.div>
       
-      {/* Main Content - constrained height */}
+      {/* Main Content */}
       <div style={{
         flex: 1,
-        maxHeight: '85vh',
         padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
         zIndex: 1,
@@ -84,8 +82,7 @@ const AgenticAIConceptSlide = () => {
             border: `${pxToRem(1)} solid rgba(168, 85, 247, 0.3)`,
             position: 'relative',
             overflow: 'hidden',
-            padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-            maxHeight: '35vh'
+            padding: 'clamp(0.75rem, 1.5vw, 1.25rem)'
           }}
         >
           <svg style={{

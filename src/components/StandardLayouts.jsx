@@ -23,7 +23,7 @@ export const ActSlideLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="act-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
+    <div className="act-layout" style={{ overflow: 'hidden' }}>
         {particles}
         <div className="act-grid" style={{ flexWrap: 'wrap', overflow: 'hidden' }}>
       <div className="act-left" style={{ overflow: 'hidden' }}>
@@ -39,7 +39,7 @@ export const ActSlideLayout = ({
         <div className="act-progress-indicator" />
       </div>
       
-      <div className="act-center" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
+      <div className="act-center" style={{ overflow: 'hidden' }}>
         <motion.h1 
           className="act-title"
           initial={{ opacity: 0, y: -30 }}
@@ -68,13 +68,13 @@ export const ActSlideLayout = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          style={{ maxHeight: 'calc(88vh - 12rem)', overflow: 'auto' }}
+          style={{ overflow: 'auto' }}
         >
           {mainContent}
         </motion.div>
       </div>
       
-      <div className="act-right" style={{ maxHeight: '88vh', overflow: 'auto' }}>
+      <div className="act-right" style={{ overflow: 'auto' }}>
         <motion.div 
           className="act-metrics"
           initial={{ opacity: 0, x: 50 }}
@@ -94,7 +94,7 @@ export const ActSlideLayout = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          style={{ maxHeight: '10vh', overflow: 'auto' }}
+          style={{ overflow: 'auto' }}
         >
           {bottomPoints}
         </motion.div>
@@ -114,7 +114,7 @@ export const DataSlideLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="data-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
+    <div className="data-layout" style={{ overflow: 'hidden' }}>
     {particles}
     <motion.div 
       className="data-header"
@@ -128,13 +128,13 @@ export const DataSlideLayout = ({
       </h1>
     </motion.div>
     
-    <div className="data-grid" style={{ flexWrap: 'wrap', maxHeight: 'calc(88vh - 8rem)', overflow: 'hidden' }}>
+    <div className="data-grid" style={{ flexWrap: 'wrap', overflow: 'hidden' }}>
       <motion.div 
         className="data-visual"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ maxHeight: '100%', overflow: 'hidden' }}
+        style={{ overflow: 'hidden' }}
       >
         {mainVisual}
       </motion.div>
@@ -144,7 +144,7 @@ export const DataSlideLayout = ({
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        style={{ maxHeight: '100%', overflow: 'auto' }}
+        style={{ overflow: 'auto' }}
       >
         {keyInsights}
         {supportingData && (

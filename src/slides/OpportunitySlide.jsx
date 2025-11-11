@@ -32,7 +32,7 @@ export default function OpportunitySlide() {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,6 @@ export default function OpportunitySlide() {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(24)} ${pxToRem(32)}`,
-          maxHeight: '20vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -61,10 +60,9 @@ export default function OpportunitySlide() {
         </p>
       </motion.div>
       
-      {/* Main Visual Content - Three circles with constrained sizes */}
+      {/* Main Visual Content - Three circles */}
       <div style={{
         flex: 1,
-        maxHeight: '55vh',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -211,13 +209,12 @@ export default function OpportunitySlide() {
         </div>
       </div>
       
-      {/* Bottom CTA Section - constrained height */}
+      {/* Bottom CTA Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.2 }}
         style={{
-          maxHeight: '25vh',
           padding: `${pxToRem(16)} ${pxToRem(32)} ${pxToRem(24)}`,
           position: 'relative',
           zIndex: 1,

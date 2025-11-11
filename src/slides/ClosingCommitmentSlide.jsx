@@ -88,7 +88,7 @@ export default function ClosingCommitmentSlide() {
         }}
       />
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -96,7 +96,6 @@ export default function ClosingCommitmentSlide() {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(20)} ${pxToRem(32)}`,
-          maxHeight: '18vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -117,10 +116,9 @@ export default function ClosingCommitmentSlide() {
         </p>
       </motion.div>
       
-      {/* Main Content Grid - constrained height */}
+      {/* Main Content Grid */}
       <div style={{
         flex: 1,
-        maxHeight: '82vh',
         padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
         zIndex: 1,
@@ -134,8 +132,7 @@ export default function ClosingCommitmentSlide() {
           maxWidth: pxToRem(1100),
           margin: '0 auto',
           width: '100%',
-          height: '100%',
-          maxHeight: '70vh'
+          height: '100%'
         }}>
           {/* Left side - Investment Details */}
           <motion.div
@@ -145,16 +142,13 @@ export default function ClosingCommitmentSlide() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 'clamp(0.75rem, 1.5vw, 1rem)',
-              maxHeight: '100%',
-              overflow: 'hidden'
+              gap: 'clamp(0.75rem, 1.5vw, 1rem)'
             }}
           >
             {/* Investment Opportunity */}
             <div className="glass-card" style={{
               background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1))',
-              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-              maxHeight: '35%'
+              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)'
             }}>
               <h3 style={{ 
                 color: '#ec4899', 
@@ -197,9 +191,7 @@ export default function ClosingCommitmentSlide() {
             <div className="glass-card" style={{
               background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1))',
               padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-              flex: 1,
-              maxHeight: '65%',
-              overflow: 'auto'
+              flex: 1
             }}>
               <h4 style={{ 
                 color: '#10b981', 
@@ -272,17 +264,13 @@ export default function ClosingCommitmentSlide() {
             style={{
               display: 'flex',
               flexDirection: 'column',
-              gap: 'clamp(0.75rem, 1.5vw, 1rem)',
-              maxHeight: '100%',
-              overflow: 'hidden'
+              gap: 'clamp(0.75rem, 1.5vw, 1rem)'
             }}
           >
             {/* Investor Benefits */}
             <div className="glass-card" style={{
               background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
-              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-              maxHeight: '45%',
-              overflow: 'auto'
+              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)'
             }}>
               <h4 style={{ 
                 color: '#fbbf24', 
@@ -327,7 +315,6 @@ export default function ClosingCommitmentSlide() {
               background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1))',
               padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
               flex: 1,
-              maxHeight: '55%',
               display: 'flex',
               flexDirection: 'column'
             }}>

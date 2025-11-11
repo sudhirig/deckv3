@@ -33,7 +33,7 @@ const TradingAgentsConceptSlide = () => {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,6 @@ const TradingAgentsConceptSlide = () => {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(16)} ${pxToRem(32)}`,
-          maxHeight: '15vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -62,10 +61,9 @@ const TradingAgentsConceptSlide = () => {
         </p>
       </motion.div>
       
-      {/* Main Content - constrained height */}
+      {/* Main Content */}
       <div style={{
         flex: 1,
-        maxHeight: '85vh',
         padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
         zIndex: 1,
@@ -82,8 +80,7 @@ const TradingAgentsConceptSlide = () => {
             marginBottom: pxToRem(16),
             padding: 'clamp(0.5rem, 1vw, 0.75rem)',
             background: 'radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%)',
-            borderRadius: pxToRem(12),
-            maxHeight: '20vh'
+            borderRadius: pxToRem(12)
           }}
         >
           <motion.div
@@ -141,9 +138,7 @@ const TradingAgentsConceptSlide = () => {
           display: 'grid', 
           gridTemplateColumns: '1fr 1fr', 
           gap: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-          flex: 1,
-          maxHeight: '60vh',
-          overflow: 'hidden'
+          flex: 1
         }}>
           {/* Investment Committee Card */}
           <motion.div

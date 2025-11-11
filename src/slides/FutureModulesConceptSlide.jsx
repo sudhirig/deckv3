@@ -31,7 +31,7 @@ const FutureModulesConceptSlide = () => {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -39,7 +39,6 @@ const FutureModulesConceptSlide = () => {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(16)} ${pxToRem(32)}`,
-          maxHeight: '15vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -60,10 +59,9 @@ const FutureModulesConceptSlide = () => {
         </p>
       </motion.div>
       
-      {/* Main Content - constrained height */}
+      {/* Main Content */}
       <div style={{
         flex: 1,
-        maxHeight: '85vh',
         padding: `0 ${pxToRem(32)}`,
         position: 'relative',
         zIndex: 1,
@@ -123,9 +121,7 @@ const FutureModulesConceptSlide = () => {
           display: 'grid', 
           gridTemplateColumns: '1fr 1fr', 
           gap: 'clamp(0.75rem, 1.5vw, 1.25rem)',
-          flex: 1,
-          maxHeight: 'calc(70vh - 80px)',
-          overflow: 'hidden'
+          flex: 1
         }}>
           {/* Global Markets Card */}
           <motion.div

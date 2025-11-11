@@ -128,7 +128,6 @@ export default function GiftCityIntroSlide() {
         gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: SPACING.lg,
         width: '100%',
-        maxHeight: '30vh',
         overflow: 'auto'
       }}
     >
@@ -136,7 +135,7 @@ export default function GiftCityIntroSlide() {
         className="discovery-card glass-card"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
-        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
+        style={{ minHeight: 'auto', overflow: 'hidden' }}
       >
         <Icon type="building" size="2rem" variant="badge" gradient="from-cyan-400 to-blue-400" />
         <h3 style={{ color: '#06b6d4', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
@@ -151,7 +150,7 @@ export default function GiftCityIntroSlide() {
         className="discovery-card glass-card"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
-        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
+        style={{ minHeight: 'auto', overflow: 'hidden' }}
       >
         <Icon type="shield" size="2rem" variant="badge" gradient="from-green-400 to-emerald-400" />
         <h3 style={{ color: '#10b981', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
@@ -166,7 +165,7 @@ export default function GiftCityIntroSlide() {
         className="discovery-card glass-card"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
-        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
+        style={{ minHeight: 'auto', overflow: 'hidden' }}
       >
         <Icon type="globe" size="2rem" variant="badge" gradient="from-purple-400 to-pink-400" />
         <h3 style={{ color: '#a855f7', marginBottom: SPACING.sm, marginTop: SPACING.md }}>

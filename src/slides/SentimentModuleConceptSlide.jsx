@@ -32,7 +32,7 @@ const SentimentModuleConceptSlide = () => {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,6 @@ const SentimentModuleConceptSlide = () => {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(16)} ${pxToRem(32)}`,
-          maxHeight: '15vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -61,10 +60,9 @@ const SentimentModuleConceptSlide = () => {
         </p>
       </motion.div>
       
-      {/* Main Content - constrained height */}
+      {/* Main Content */}
       <div style={{
         flex: 1,
-        maxHeight: '85vh',
         padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
         zIndex: 1,
@@ -80,8 +78,7 @@ const SentimentModuleConceptSlide = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
-            gap: 'clamp(0.5rem, 1vw, 0.75rem)',
-            maxHeight: '15vh'
+            gap: 'clamp(0.5rem, 1vw, 0.75rem)'
           }}
         >
           {[
@@ -138,8 +135,7 @@ const SentimentModuleConceptSlide = () => {
             position: 'relative',
             overflow: 'hidden',
             display: 'flex',
-            flexDirection: 'column',
-            maxHeight: '65vh'
+            flexDirection: 'column'
           }}
         >
           <motion.div

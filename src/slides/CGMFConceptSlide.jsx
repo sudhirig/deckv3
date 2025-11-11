@@ -33,7 +33,7 @@ const CGMFConceptSlide = () => {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -41,7 +41,6 @@ const CGMFConceptSlide = () => {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(16)} ${pxToRem(32)}`,
-          maxHeight: '15vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -62,10 +61,9 @@ const CGMFConceptSlide = () => {
         </p>
       </motion.div>
       
-      {/* Main Content - constrained height */}
+      {/* Main Content */}
       <div style={{
         flex: 1,
-        maxHeight: '85vh',
         padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
         zIndex: 1,
@@ -81,8 +79,7 @@ const CGMFConceptSlide = () => {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 'clamp(0.5rem, 1vw, 0.75rem)',
-            maxHeight: '15vh'
+            gap: 'clamp(0.5rem, 1vw, 0.75rem)'
           }}
         >
           {[
@@ -146,8 +143,7 @@ const CGMFConceptSlide = () => {
             overflow: 'hidden',
             padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
             display: 'flex',
-            flexDirection: 'column',
-            maxHeight: '65vh'
+            flexDirection: 'column'
           }}
         >
           <motion.div

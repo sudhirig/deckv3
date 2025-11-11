@@ -82,7 +82,7 @@ export default function GiftCityEntityStructureSlide() {
   ]
 
   const mainVisual = (
-    <div style={{ maxHeight: '88vh', overflow: 'auto' }}>
+    <div style={{ overflow: 'auto' }}>
       {/* Entity Flow Diagram */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}

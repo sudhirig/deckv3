@@ -32,7 +32,7 @@ const AlgoTradingConceptSlide = () => {
     }}>
       {backgroundVisual}
       
-      {/* Header Section - constrained height */}
+      {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,6 @@ const AlgoTradingConceptSlide = () => {
         style={{
           textAlign: 'center',
           padding: `${pxToRem(16)} ${pxToRem(32)}`,
-          maxHeight: '15vh',
           position: 'relative',
           zIndex: 1
         }}
@@ -61,10 +60,9 @@ const AlgoTradingConceptSlide = () => {
         </p>
       </motion.div>
       
-      {/* Main Content - constrained height */}
+      {/* Main Content */}
       <div style={{
         flex: 1,
-        maxHeight: '85vh',
         padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
         zIndex: 1,
@@ -83,8 +81,7 @@ const AlgoTradingConceptSlide = () => {
             background: 'linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(99, 102, 241, 0.05) 100%)',
             border: `${pxToRem(1)} solid rgba(6, 182, 212, 0.3)`,
             position: 'relative',
-            overflow: 'hidden',
-            maxHeight: '35vh'
+            overflow: 'hidden'
           }}
         >
           <motion.div
