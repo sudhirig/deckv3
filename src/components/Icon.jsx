@@ -27,7 +27,17 @@ import {
   Sparkles,
   Search,
   FileText,
-  Handshake
+  Handshake,
+  Edit,
+  Edit3,
+  CornerUpLeft,
+  CornerUpRight,
+  Grid,
+  Save,
+  Trash2,
+  Download,
+  Upload,
+  HelpCircle
 } from 'lucide-react'
 
 const iconMap = {
@@ -59,14 +69,26 @@ const iconMap = {
   clipboard: Clipboard,
   xCircle: XCircle,
   refresh: RefreshCcw,
+  refreshCw: RefreshCcw,
   sparkles: Sparkles,
   search: Search,
   fileText: FileText,
-  handshake: Handshake
+  handshake: Handshake,
+  edit: Edit,
+  edit3: Edit3,
+  cornerUpLeft: CornerUpLeft,
+  cornerUpRight: CornerUpRight,
+  grid: Grid,
+  save: Save,
+  trash2: Trash2,
+  download: Download,
+  upload: Upload,
+  helpCircle: HelpCircle
 }
 
 export default function Icon({ 
-  type, 
+  type,
+  icon, // Also accept 'icon' prop from EditModeBar
   size = 48, 
   gradient = 'from-teal-400 to-green-400',
   variant = 'badge',
@@ -75,7 +97,9 @@ export default function Icon({
   delay = 0,
   className = ''
 }) {
-  const IconComponent = iconMap[type] || Lock
+  // Accept either 'type' or 'icon' prop
+  const iconType = type || icon
+  const IconComponent = iconMap[iconType] || Lock
 
   // Gradient to SVG URL mapping
   const gradients = {
