@@ -111,6 +111,7 @@ const slides = [
   { component: AlphaGapSlide, title: 'The Three Failures' },
   { component: Act2Slide, title: 'Act 2: The Solution' },
   { component: IntroducingSlide, title: 'Introducing AI Family Office' },
+  { component: ProductOverviewSlide, title: 'Complete AI Family Office Suite' },
   { component: AICommitteeSlide, title: 'AI Investment Committee' },
   { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },
   { component: Act3Slide, title: 'Act 3: The Deep Dive' },
@@ -205,7 +206,6 @@ const slides = [
   
   // Supporting Enhancement Slides
   { component: LiveMetricsDashboardSlide, title: 'Live Platform Metrics' },
-  { component: ProductOverviewSlide, title: 'Complete AI Family Office Suite' },
   
   { component: AppendixSlide, title: 'Appendix' }
 ]

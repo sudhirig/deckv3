@@ -52,6 +52,7 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
 
 ### Slide Organization
 - **Total Slides**: 86 slides organized by Acts (streamlined by removing Act transition slides)
+- **ProductOverviewSlide Position**: Now at slide 10 (moved from slide 86) - appears after "Introducing AI Family Office"
 - **Navigation**: Arrow keys, keyboard shortcuts, and on-screen buttons
 - **Transitions**: Zoom effect with Framer Motion (0.4s ease) - cinematic fade between Acts
 - **Progress Bar**: Visual indicator with gradient styling
@@ -158,6 +159,10 @@ As of November 2024, the presentation uses a **SlideViewport** component that en
      - Live status indicators (green=operational, amber=pending)
      - Glassmorphic cards with hover effects
      - Tech stack and broker API timeline at bottom
+   - **Phase 4 - Repositioned in Presentation Flow**:
+     - **New Position**: Moved to slide 10 (from slide 86) - now appears immediately after "Introducing AI Family Office"
+     - **Strategic Placement**: Provides comprehensive platform overview early in the pitch
+     - **Narrative Flow**: Introduces all 7 modules before diving into specific agent details
 
 ## Development Guidelines
 
