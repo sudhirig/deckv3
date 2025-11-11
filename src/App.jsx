@@ -211,20 +211,24 @@ const slides = [
 ]
 
 function App() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const [showThumbnails, setShowThumbnails] = useState(false)
-  const [preloadedSlides, setPreloadedSlides] = useState(new Set([0]))
-
-  // Check if static mode is enabled (for crisp screenshots)
-  const isStaticMode = new URLSearchParams(window.location.search).get('static') === '1'
-
-  // Helper function to get current slide from hash
+  // Helper function to get current slide from hash (moved up to use in initial state)
   const getCurrentSlideFromHash = () => {
     const hash = window.location.hash
     const match = hash.match(/^#\/slide\/(\d+)$/)
-    return match ? parseInt(match[1], 10) : 0
+    const slideIndex = match ? parseInt(match[1], 10) : 0
+    // Validate slide index is within range
+    return slideIndex >= 0 && slideIndex < slides.length ? slideIndex : 0
   }
+  
+  // Initialize currentSlide from hash to respect direct navigation
+  const [currentSlide, setCurrentSlide] = useState(getCurrentSlideFromHash())
+  const [isMobile, setIsMobile] = useState(false)
+  const [showThumbnails, setShowThumbnails] = useState(false)
+  const [preloadedSlides, setPreloadedSlides] = useState(new Set([getCurrentSlideFromHash()]))
+  
+
+  // Check if static mode is enabled (for crisp screenshots)
+  const isStaticMode = new URLSearchParams(window.location.search).get('static') === '1'
 
   // Helper function to navigate to a slide by updating hash
   const navigateToSlide = (slideIndex) => {

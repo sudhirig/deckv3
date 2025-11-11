@@ -37,7 +37,7 @@ export default function ProductOverviewSlide() {
   // Using trigonometry for even distribution
   const numberOfModules = 7
   const angleOffset = -Math.PI / 2 // Start from top
-  const radius = 35 // Percentage radius from center
+  const radius = 28 // Percentage radius from center - reduced to fit viewport
   
   const modulePositions = Array.from({ length: numberOfModules }, (_, index) => {
     const angle = angleOffset + (2 * Math.PI * index) / numberOfModules
@@ -195,7 +195,10 @@ export default function ProductOverviewSlide() {
         <div style={{
           position: 'relative',
           flex: 1,
-          minHeight: '450px'
+          minHeight: '400px',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          width: '100%'
         }}>
           {/* Connection Lines SVG */}
           <svg style={{
@@ -351,7 +354,7 @@ export default function ProductOverviewSlide() {
                 style={{
                   position: 'absolute',
                   ...position,
-                  width: '165px',
+                  width: '150px',
                   zIndex: 2
                 }}
               >
