@@ -81,7 +81,7 @@ const CGMFConceptSlide = () => {
               transition={{ duration: 2, repeat: Infinity }}
               style={{ fontSize: '1.8rem', fontWeight: 'bold', color: stat.color }}
             >
-              {stat.prefix}<AnimatedCounter end={stat.value} duration={2000} decimals={stat.value < 10 ? 2 : 0} />
+              {stat.prefix}<AnimatedCounter end={stat.value} duration={2} decimals={stat.value < 10 ? 2 : 0} />
             </motion.div>
             <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{stat.label}</p>
           </motion.div>

@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import { Cpu, Zap, GitBranch, Shield, Brain, Network, Sparkles, Activity } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function AgenticAIFeaturesSlide() {
@@ -303,7 +304,7 @@ export default function AgenticAIFeaturesSlide() {
             transition={{ duration: 1, delay: index * 0.2 }}
             style={{ color: type.color, fontWeight: 'bold' }}
           >
-            <AnimatedCounter value={type.count} duration={1000} />
+            <AnimatedCounter end={toFiniteNumber(type.count)} duration={2} />
           </motion.span>
         </motion.div>
       ))}

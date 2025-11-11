@@ -8,6 +8,7 @@ import BarChart from '../components/BarChart'
 import Icon from '../components/Icon'
 import { Camera, Activity, TrendingUp, Bot, Mic, Globe, Clock, CheckCircle, DollarSign, Percent, Headphones, Zap, Volume2 } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function ZerodhaLiveSnapshotSlide() {
@@ -150,7 +151,7 @@ export default function ZerodhaLiveSnapshotSlide() {
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
               style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}
             >
-              {item.prefix}<AnimatedCounter value={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
+              {item.prefix}<AnimatedCounter end={toFiniteNumber(item.value)} decimals={item.decimals || 0} duration={2} />{item.suffix}
             </motion.div>
             <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
           </motion.div>

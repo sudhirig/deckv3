@@ -172,7 +172,7 @@ const AlgoTradingConceptSlide = () => {
             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
               <Cpu className="w-7 h-7 text-purple-400 mr-3" />
               <h3 style={{ fontSize: '1.2rem', color: '#a855f7' }}>
-                <AnimatedCounter end={122} duration={2000} />+ Indicators
+                <AnimatedCounter end={122} duration={2} />+ Indicators
               </h3>
               <motion.div
                 animate={{ rotate: 360 }}
@@ -327,7 +327,7 @@ const AlgoTradingConceptSlide = () => {
                 transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
                 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: perf.color }}
               >
-                <AnimatedCounter end={perf.value} duration={2000} decimals={perf.metric === 'Sharpe' ? 1 : 0} />{perf.unit}
+                <AnimatedCounter end={perf.value} duration={2} decimals={perf.metric === 'Sharpe' ? 1 : 0} />{perf.unit}
               </motion.div>
               <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>{perf.metric}</p>
             </motion.div>

@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import Icon from '../components/Icon'
 import { Camera, Brain, MessageSquare, Activity, Users, Cpu, Shield, Zap, Network, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function AgenticAILiveSnapshotSlide() {
@@ -483,7 +484,7 @@ export default function AgenticAILiveSnapshotSlide() {
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               style={{ fontSize: '1.5rem', fontWeight: 'bold', color: metric.color, marginTop: '0.5rem' }}
             >
-              <AnimatedCounter value={metric.value} decimals={metric.value < 100 ? 1 : 0} duration={1500} />
+              <AnimatedCounter end={toFiniteNumber(metric.value)} decimals={toFiniteNumber(metric.value) < 100 ? 1 : 0} duration={2} />
               {metric.unit}
             </motion.div>
             <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{metric.label}</p>

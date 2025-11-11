@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import { Calculator, TrendingUp, PiggyBank, Award, Sparkles } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function GiftCityTaxOptimizationSlide() {
@@ -374,7 +375,7 @@ export default function GiftCityTaxOptimizationSlide() {
                   fontWeight: 'bold',
                   color: option.color
                 }}>
-                  ₹<AnimatedCounter value={option.fiveYearReturn} duration={2000} />L
+                  ₹<AnimatedCounter end={toFiniteNumber(option.fiveYearReturn)} duration={2} />L
                 </p>
                 <p style={{ fontSize: '0.65rem', color: '#64748b' }}>
                   5Y Returns

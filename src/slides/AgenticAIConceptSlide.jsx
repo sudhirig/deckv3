@@ -280,7 +280,7 @@ const AgenticAIConceptSlide = () => {
               }}
             >
               <p style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: '600' }}>
-                Total Time: <AnimatedCounter end={11} duration={1000} />s
+                Total Time: <AnimatedCounter end={11} duration={2} />s
               </p>
             </motion.div>
           </div>

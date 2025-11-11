@@ -7,6 +7,7 @@ import Icon from '../components/Icon'
 import { Calculator, Shield, TrendingUp, FileText, DollarSign, BarChart2, Sparkles, Award, Brain, Zap, Target } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function CGMFFeaturesSlide() {
@@ -160,7 +161,7 @@ export default function CGMFFeaturesSlide() {
             transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
             style={{ fontSize: '1.3rem', fontWeight: 'bold', color: stat.color }}
           >
-            {stat.prefix}<AnimatedCounter value={stat.value} duration={1500} decimals={stat.value < 10 ? 2 : 0} />{stat.unit}
+            {stat.prefix}<AnimatedCounter end={toFiniteNumber(stat.value)} duration={2} decimals={toFiniteNumber(stat.value) < 10 ? 2 : 0} />{stat.unit}
           </motion.div>
           <p style={{ fontSize: '0.65rem', color: '#94a3b8' }}>{stat.label}</p>
         </motion.div>
@@ -450,7 +451,7 @@ export default function CGMFFeaturesSlide() {
                   color: score.color
                 }}
               >
-                {score.value}%
+                {toFiniteNumber(score.value)}%
               </motion.span>
             </div>
           </div>
@@ -462,7 +463,7 @@ export default function CGMFFeaturesSlide() {
           }}>
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: `${score.value}%` }}
+              animate={{ width: `${toFiniteNumber(score.value)}%` }}
               transition={{ delay: 1.2 + index * 0.1, duration: 1 }}
               style={{
                 height: '100%',
@@ -561,7 +562,7 @@ export default function CGMFFeaturesSlide() {
                 color: hub.color
               }}
             >
-              <AnimatedCounter value={hub.value} duration={1500} />{hub.unit}
+              <AnimatedCounter end={toFiniteNumber(hub.value)} duration={2} />{hub.unit}
             </motion.p>
             <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>
               {hub.label}

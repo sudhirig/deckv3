@@ -6,6 +6,7 @@ import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
 import { Camera, Calculator, TrendingUp, Award, PiggyBank, Shield, Target, CheckCircle, DollarSign, Percent, Brain, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function CGMFLiveSnapshotSlide() {
@@ -175,7 +176,7 @@ export default function CGMFLiveSnapshotSlide() {
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}
             >
-              {item.prefix}<AnimatedCounter value={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
+              {item.prefix}<AnimatedCounter end={toFiniteNumber(item.value)} decimals={item.decimals || 0} duration={2} />{item.suffix}
             </motion.div>
             <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
           </motion.div>

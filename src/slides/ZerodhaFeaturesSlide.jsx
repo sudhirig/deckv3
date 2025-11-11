@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles, MessageSquare, Brain, Volume2, Zap } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function ZerodhaFeaturesSlide() {
@@ -113,7 +114,7 @@ export default function ZerodhaFeaturesSlide() {
             transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
             style={{ fontSize: '1.8rem', fontWeight: 'bold', color: metric.color }}
           >
-            <AnimatedCounter value={metric.value} duration={1500} />{metric.unit}
+            <AnimatedCounter end={toFiniteNumber(metric.value)} duration={2} />{metric.unit}
           </motion.div>
           <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{metric.label}</p>
         </motion.div>
@@ -543,7 +544,7 @@ export default function ZerodhaFeaturesSlide() {
               border: `0.0625rem solid ${stat.color}30`
             }}
           >
-            <motion.p
+            <motion.div
               animate={{ 
                 scale: hoveredFeature === 'speed' ? [1, 1.1, 1] : 1
               }}
@@ -554,8 +555,12 @@ export default function ZerodhaFeaturesSlide() {
                 color: stat.color
               }}
             >
-              {stat.value}{stat.unit}
-            </motion.p>
+              <AnimatedCounter 
+                end={toFiniteNumber(stat.value)} 
+                duration={1500} 
+                decimals={stat.label === 'Uptime' ? 1 : 0}
+              />{stat.unit}
+            </motion.div>
             <p style={{ fontSize: '0.7rem', color: '#94a3b8' }}>
               {stat.label}
             </p>

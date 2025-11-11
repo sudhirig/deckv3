@@ -4,6 +4,7 @@ import { DataSlideLayout } from '../components/StandardLayouts'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Camera, Rocket, Construction, Clock, Users, Battery, Activity, Target, Sparkles, TrendingUp } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function FutureModulesLiveSnapshotSlide() {
@@ -165,7 +166,7 @@ export default function FutureModulesLiveSnapshotSlide() {
             transition={{ duration: 2, repeat: Infinity }}
             style={{ color: '#94a3b8' }}
           >
-            Active Projects: 5 | Beta Testers: <AnimatedCounter value={betaUsers} duration={500} />
+            Active Projects: 5 | Beta Testers: <AnimatedCounter end={toFiniteNumber(betaUsers)} duration={2} />
           </motion.div>
         </div>
         
@@ -522,7 +523,7 @@ export default function FutureModulesLiveSnapshotSlide() {
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               style={{ fontSize: '1.5rem', fontWeight: 'bold', color: stat.color, marginTop: '0.5rem' }}
             >
-              {typeof stat.value === 'number' ? <AnimatedCounter value={stat.value} duration={1000} /> : stat.value}
+              {typeof stat.value === 'number' ? <AnimatedCounter end={toFiniteNumber(stat.value)} duration={2} /> : stat.value}
             </motion.p>
             <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{stat.label}</p>
           </motion.div>
