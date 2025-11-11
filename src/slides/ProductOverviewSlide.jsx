@@ -17,7 +17,7 @@ function AnimatedCounter({ value, suffix = '', prefix = '', color }) {
     const numValue = parseFloat(value.toString().replace(/[^0-9.]/g, ''))
     const animation = animate(count, numValue, { duration: 2 })
     
-    const unsubscribe = rounded.onChange((v) => {
+    const unsubscribe = rounded.on("change", (v) => {
       setDisplayValue(v)
     })
 
