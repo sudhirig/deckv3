@@ -110,6 +110,10 @@ export default function ExitStrategySlide() {
     >
       {hoveredOption === index && (
         <motion.div
+          initial={{
+            opacity: 0.2,
+            scale: 0.98
+          }}
           animate={{ 
             opacity: [0.2, 0.4, 0.2],
             scale: [0.98, 1.02, 0.98]

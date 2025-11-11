@@ -168,6 +168,10 @@ const TradingAgentsConceptSlide = () => {
           }}
         >
           <motion.div
+            initial={{ 
+              scale: 1,
+              opacity: 0.1
+            }}
             animate={{ 
               scale: [1, 1.3, 1],
               opacity: [0.1, 0.2, 0.1]

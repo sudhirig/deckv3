@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import GradientText from './GradientText';
 import './StandardLayouts.css';
 
@@ -49,17 +49,20 @@ export const ActSlideLayout = ({
         >
           <GradientText>{title}</GradientText>
         </motion.h1>
-        {subtitle && (
-          <motion.h2 
-            className="act-subtitle"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ fontSize: 'clamp(1.1rem, 2vw, 1.6rem)' }}
-          >
-            {subtitle}
-          </motion.h2>
-        )}
+        <AnimatePresence>
+          {subtitle && (
+            <motion.h2 
+              className="act-subtitle"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              style={{ fontSize: 'clamp(1.1rem, 2vw, 1.6rem)' }}
+            >
+              {subtitle}
+            </motion.h2>
+          )}
+        </AnimatePresence>
         <motion.div 
           className="act-main-content"
           initial={{ opacity: 0 }}
@@ -83,17 +86,20 @@ export const ActSlideLayout = ({
       </div>
     </div>
     
-    {bottomPoints && (
-      <motion.div 
-        className="act-bottom-points"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        style={{ maxHeight: '10vh', overflow: 'auto' }}
-      >
-        {bottomPoints}
-      </motion.div>
-    )}
+    <AnimatePresence>
+      {bottomPoints && (
+        <motion.div 
+          className="act-bottom-points"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          style={{ maxHeight: '10vh', overflow: 'auto' }}
+        >
+          {bottomPoints}
+        </motion.div>
+      )}
+    </AnimatePresence>
     </div>
   </AspectFrame>
 );
@@ -147,17 +153,20 @@ export const DataSlideLayout = ({
       </motion.div>
     </div>
     
-    {citation && (
-      <motion.div 
-        className="data-citation"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
-      >
-        {citation}
-      </motion.div>
-    )}
+    <AnimatePresence>
+      {citation && (
+        <motion.div 
+          className="data-citation"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
+        >
+          {citation}
+        </motion.div>
+      )}
+    </AnimatePresence>
     </div>
   </AspectFrame>
 );
@@ -186,17 +195,20 @@ export const ComparisonLayout = ({
       <GradientText>{title}</GradientText>
     </motion.h1>
     
-    {subtitle && (
-      <motion.div 
-        className="comparison-subtitle"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)', flexShrink: 0 }}
-      >
-        {subtitle}
-      </motion.div>
-    )}
+    <AnimatePresence>
+      {subtitle && (
+        <motion.div 
+          className="comparison-subtitle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ fontSize: 'clamp(1rem, 1.8vw, 1.3rem)', flexShrink: 0 }}
+        >
+          {subtitle}
+        </motion.div>
+      )}
+    </AnimatePresence>
     
     <div className="comparison-grid" style={{ flexWrap: 'wrap', maxHeight: 'calc(88vh - 10rem)', overflow: 'hidden' }}>
       <motion.div 
@@ -232,17 +244,20 @@ export const ComparisonLayout = ({
       </motion.div>
     </div>
     
-    {summary && (
-      <motion.div 
-        className="comparison-summary"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', maxHeight: '10vh', overflow: 'auto', flexShrink: 0 }}
-      >
-        {summary}
-      </motion.div>
-    )}
+    <AnimatePresence>
+      {summary && (
+        <motion.div 
+          className="comparison-summary"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', maxHeight: '10vh', overflow: 'auto', flexShrink: 0 }}
+        >
+          {summary}
+        </motion.div>
+      )}
+    </AnimatePresence>
     </div>
   </AspectFrame>
 );
@@ -301,17 +316,20 @@ export const GridLayout = ({
       ))}
     </div>
     
-    {summary && (
-      <motion.div 
-        className="grid-summary"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', flexShrink: 0 }}
-      >
-        {summary}
-      </motion.div>
-    )}
+    <AnimatePresence>
+      {summary && (
+        <motion.div 
+          className="grid-summary"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{ fontSize: 'clamp(0.9rem, 1.4vw, 1.1rem)', flexShrink: 0 }}
+        >
+          {summary}
+        </motion.div>
+      )}
+    </AnimatePresence>
     </div>
   </AspectFrame>
 );
@@ -368,17 +386,20 @@ export const TableLayout = ({
       </div>
     )}
     
-    {notes && (
-      <motion.div 
-        className="table-notes"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.5 }}
-        style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
-      >
-        {notes}
-      </motion.div>
-    )}
+    <AnimatePresence>
+      {notes && (
+        <motion.div 
+          className="table-notes"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
+          style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
+        >
+          {notes}
+        </motion.div>
+      )}
+    </AnimatePresence>
     </div>
   </AspectFrame>
 );
@@ -412,41 +433,50 @@ export const HeroLayout = ({
         {title}
       </motion.h1>
       
-      {subtitle && (
-        <motion.div 
-          className="hero-subtitle"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', flexShrink: 0, maxWidth: '85%' }}
-        >
-          {subtitle}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {subtitle && (
+          <motion.div 
+            className="hero-subtitle"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ fontSize: 'clamp(1.3rem, 2.5vw, 1.9rem)', flexShrink: 0, maxWidth: '85%' }}
+          >
+            {subtitle}
+          </motion.div>
+        )}
+      </AnimatePresence>
       
-      {overlayContent && (
-        <motion.div 
-          className="hero-overlay-content"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          style={{ maxWidth: '90%', maxHeight: 'calc(88vh - 15rem)', overflow: 'auto', flexWrap: 'wrap' }}
-        >
-          {overlayContent}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {overlayContent && (
+          <motion.div 
+            className="hero-overlay-content"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ maxWidth: '90%', maxHeight: 'calc(88vh - 15rem)', overflow: 'auto', flexWrap: 'wrap' }}
+          >
+            {overlayContent}
+          </motion.div>
+        )}
+      </AnimatePresence>
       
-      {ctaButton && (
-        <motion.div 
-          className="hero-cta"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          style={{ flexShrink: 0 }}
-        >
-          {ctaButton}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {ctaButton && (
+          <motion.div 
+            className="hero-cta"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            style={{ flexShrink: 0 }}
+          >
+            {ctaButton}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
     </div>
   </AspectFrame>

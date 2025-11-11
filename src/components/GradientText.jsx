@@ -29,7 +29,8 @@ export default function GradientText({
   return (
     <motion.span
       className={className}
-      style={{...gradientStyle, opacity: 0}}
+      style={gradientStyle}
+      initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
     >

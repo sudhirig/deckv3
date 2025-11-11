@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import { DollarSign, Link, Cloud, Shield, Bitcoin, Cpu, Globe, Rocket, Sparkles, TrendingUp } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
@@ -325,21 +325,24 @@ export default function FutureModulesFeaturesSlide() {
         overflow: 'visible'
       }}
     >
-      {hoveredCard === 'cross' && (
-        <motion.div
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          style={{
-            position: 'absolute',
-            inset: pxToRem(-20),
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
-            borderRadius: '1.5rem',
-            filter: 'blur(1.25rem)',
-            zIndex: -1
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {hoveredCard === 'cross' && (
+          <motion.div
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'absolute',
+              inset: pxToRem(-20),
+              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
+              borderRadius: '1.5rem',
+              filter: 'blur(1.25rem)',
+              zIndex: -1
+            }}
+          />
+        )}
+      </AnimatePresence>
       
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
         <Link size={32} color="#3b82f6" />

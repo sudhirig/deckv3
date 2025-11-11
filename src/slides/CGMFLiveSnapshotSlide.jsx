@@ -199,6 +199,10 @@ export default function CGMFLiveSnapshotSlide() {
           }}
         >
           <motion.div
+            initial={{
+              scale: 1,
+              opacity: 0.1
+            }}
             animate={{ 
               scale: [1, 1.2, 1],
               opacity: [0.1, 0.2, 0.1]
@@ -480,6 +484,9 @@ export default function CGMFLiveSnapshotSlide() {
         }}
       >
         <motion.div
+          initial={{
+            opacity: 0.2
+          }}
           animate={{
             opacity: [0.2, 0.4, 0.2]
           }}

@@ -27,6 +27,9 @@ export default function TitleSlide() {
       <div className="title-slide-container">
         {/* Animated Gradient Background */}
         <motion.div
+          initial={{
+            background: 'radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)'
+          }}
           animate={{
             background: [
               'radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.2) 0%, transparent 50%)',

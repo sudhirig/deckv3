@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Mic, LayoutDashboard, Bot, Clock, Globe, Shield, TrendingUp, Sparkles, MessageSquare, Brain, Volume2, Zap } from 'lucide-react'
@@ -168,24 +168,27 @@ export default function ZerodhaFeaturesSlide() {
         ))}
       </div>
       
-      {hoveredFeature === 'voice' && (
-        <motion.div
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          style={{
-            position: 'absolute',
-            top: '-1.25rem',
-            left: '-1.25rem',
-            right: '-1.25rem',
-            bottom: '-1.25rem',
-            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.3), transparent)',
-            borderRadius: '1.5rem',
-            filter: 'blur(1.25rem)',
-            zIndex: -1
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {hoveredFeature === 'voice' && (
+          <motion.div
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'absolute',
+              top: '-1.25rem',
+              left: '-1.25rem',
+              right: '-1.25rem',
+              bottom: '-1.25rem',
+              background: 'radial-gradient(circle, rgba(249, 115, 22, 0.3), transparent)',
+              borderRadius: '1.5rem',
+              filter: 'blur(1.25rem)',
+              zIndex: -1
+            }}
+          />
+        )}
+      </AnimatePresence>
       
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
         <motion.div
@@ -276,24 +279,27 @@ export default function ZerodhaFeaturesSlide() {
         }}
       />
       
-      {hoveredFeature === 'dashboard' && (
-        <motion.div
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          style={{
-            position: 'absolute',
-            top: '-1.25rem',
-            left: '-1.25rem',
-            right: '-1.25rem',
-            bottom: '-1.25rem',
-            background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
-            borderRadius: '1.5rem',
-            filter: 'blur(1.25rem)',
-            zIndex: -1
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {hoveredFeature === 'dashboard' && (
+          <motion.div
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'absolute',
+              top: '-1.25rem',
+              left: '-1.25rem',
+              right: '-1.25rem',
+              bottom: '-1.25rem',
+              background: 'radial-gradient(circle, rgba(59, 130, 246, 0.3), transparent)',
+              borderRadius: '1.5rem',
+              filter: 'blur(1.25rem)',
+              zIndex: -1
+            }}
+          />
+        )}
+      </AnimatePresence>
       
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
         <motion.div
@@ -463,42 +469,47 @@ export default function ZerodhaFeaturesSlide() {
         overflow: 'visible'
       }}
     >
-      {hoveredFeature === 'speed' && (
-        <>
-          <motion.div
-            initial={{ opacity: 0.2 }}
-            animate={{ opacity: [0.2, 0.4, 0.2] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            style={{
-              position: 'absolute',
-              top: '-1.25rem',
-              left: '-1.25rem',
-              right: '-1.25rem',
-              bottom: '-1.25rem',
-              background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent)',
-              borderRadius: '1.5rem',
-              filter: 'blur(1.25rem)',
-              zIndex: -1
-            }}
-          />
-          <motion.div
-            animate={{ 
-              opacity: [0, 1, 0],
-              y: ['-100%', '200%']
-            }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            style={{
-              position: 'absolute',
-              left: '50%',
-              width: '0.125rem',
-              height: '6.25rem',
-              background: 'linear-gradient(to bottom, transparent, #10b981, transparent)',
-              filter: 'blur(0.125rem)',
-              zIndex: -1
-            }}
-          />
-        </>
-      )}
+      <AnimatePresence>
+        {hoveredFeature === 'speed' && (
+          <>
+            <motion.div
+              initial={{ opacity: 0.2 }}
+              animate={{ opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: 'absolute',
+                top: '-1.25rem',
+                left: '-1.25rem',
+                right: '-1.25rem',
+                bottom: '-1.25rem',
+                background: 'radial-gradient(circle, rgba(16, 185, 129, 0.3), transparent)',
+                borderRadius: '1.5rem',
+                filter: 'blur(1.25rem)',
+                zIndex: -1
+              }}
+            />
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ 
+                opacity: [0, 1, 0],
+                y: ['-100%', '200%']
+              }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              exit={{ opacity: 0 }}
+              style={{
+                position: 'absolute',
+                left: '50%',
+                width: '0.125rem',
+                height: '6.25rem',
+                background: 'linear-gradient(to bottom, transparent, #10b981, transparent)',
+                filter: 'blur(0.125rem)',
+                zIndex: -1
+              }}
+            />
+          </>
+        )}
+      </AnimatePresence>
       
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
         <Clock size={32} color="#10b981" />

@@ -51,6 +51,9 @@ export default function FutureModulesLiveSnapshotSlide() {
     <>
       
       <motion.div
+        initial={{
+          background: 'radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)'
+        }}
         animate={{
           background: [
             'radial-gradient(circle at 30% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 60%)',
@@ -73,6 +76,10 @@ export default function FutureModulesLiveSnapshotSlide() {
       {[...Array(7)].map((_, i) => (
         <motion.div
           key={i}
+          initial={{
+            opacity: 0.2,
+            scale: 1
+          }}
           animate={{
             opacity: [0.2, 0.8, 0.2],
             scale: [1, 1.5, 1]

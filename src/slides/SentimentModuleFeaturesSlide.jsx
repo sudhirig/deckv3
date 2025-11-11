@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import Icon from '../components/Icon'
@@ -120,20 +120,23 @@ export default function SentimentModuleFeaturesSlide() {
           })}
         </div>
         
-        {activeHeatZone && (
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            style={{
-              fontSize: pxToRem(12),
-              color: '#94a3b8',
-              textAlign: 'center',
-              marginTop: pxToRem(12)
-            }}
-          >
-            {activeHeatZone} sector sentiment analysis
-          </motion.p>
-        )}
+        <AnimatePresence>
+          {activeHeatZone && (
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              style={{
+                fontSize: pxToRem(12),
+                color: '#94a3b8',
+                textAlign: 'center',
+                marginTop: pxToRem(12)
+              }}
+            >
+              {activeHeatZone} sector sentiment analysis
+            </motion.p>
+          )}
+        </AnimatePresence>
       </motion.div>
       
       {/* Features */}

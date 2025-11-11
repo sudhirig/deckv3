@@ -204,6 +204,10 @@ export default function CGMFFeaturesSlide() {
       </motion.div>
       
       <motion.div
+        initial={{
+          scale: 1,
+          opacity: 0.1
+        }}
         animate={{ 
           scale: [1, 1.2, 1],
           opacity: [0.1, 0.2, 0.1]
@@ -488,6 +492,10 @@ export default function CGMFFeaturesSlide() {
       }}
     >
       <motion.div
+        initial={{
+          backgroundPosition: '0% 0%',
+          opacity: 0.1
+        }}
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%'],
           opacity: [0.1, 0.2, 0.1]

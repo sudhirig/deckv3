@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Cpu, Zap, GitBranch, Shield, Brain, Network, Sparkles, Activity } from 'lucide-react'
@@ -237,21 +237,24 @@ export default function AgenticAIFeaturesSlide() {
         overflow: 'visible'
       }}
     >
-      {hoveredCard === 'agents' && (
-        <motion.div
-          initial={{ opacity: 0.2 }}
-          animate={{ opacity: [0.2, 0.4, 0.2] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          style={{
-            position: 'absolute',
-            inset: pxToRem(-20),
-            background: 'radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent)',
-            borderRadius: '1.5rem',
-            filter: 'blur(1.25rem)',
-            zIndex: -1
-          }}
-        />
-      )}
+      <AnimatePresence>
+        {hoveredCard === 'agents' && (
+          <motion.div
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: [0.2, 0.4, 0.2] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'absolute',
+              inset: pxToRem(-20),
+              background: 'radial-gradient(circle, rgba(168, 85, 247, 0.3), transparent)',
+              borderRadius: '1.5rem',
+              filter: 'blur(1.25rem)',
+              zIndex: -1
+            }}
+          />
+        )}
+      </AnimatePresence>
       
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1.5rem' }}>
         <motion.div
