@@ -167,12 +167,30 @@ export default function AgendaRoadmapSlide({ onNavigate }) {
   )
 
   return (
-    <GridLayout 
-      title={<GradientText gradient="from-teal-400 to-cyan-400">Your Journey Through This Deck</GradientText>}
-      subtitle="A structured narrative from problem to opportunity"
-      cards={cards}
-      columns={5}
-      summary={summary}
-    />
+    <div style={{ 
+      height: '100%', 
+      display: 'flex', 
+      flexDirection: 'column'
+    }}>
+      <style>{`
+        .agenda-roadmap-slide .grid-cards {
+          align-content: center !important;
+        }
+        .agenda-roadmap-slide .grid-layout {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+      `}</style>
+      <div className="agenda-roadmap-slide" style={{ height: '100%' }}>
+        <GridLayout 
+          title={<GradientText gradient="from-teal-400 to-cyan-400">Your Journey Through This Deck</GradientText>}
+          subtitle="A structured narrative from problem to opportunity"
+          cards={cards}
+          columns={5}
+          summary={summary}
+        />
+      </div>
+    </div>
   )
 }
