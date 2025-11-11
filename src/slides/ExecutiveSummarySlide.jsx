@@ -176,8 +176,7 @@ export default function ExecutiveSummarySlide() {
     <div style={{ 
       height: '100%', 
       display: 'flex', 
-      flexDirection: 'column',
-      '& .data-grid': { alignItems: 'center' }
+      flexDirection: 'column'
     }}>
       <style>{`
         .executive-summary-slide .data-grid {
