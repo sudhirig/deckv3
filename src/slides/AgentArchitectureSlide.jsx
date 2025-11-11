@@ -458,16 +458,35 @@ export default function AgentArchitectureSlide() {
   )
 
   return (
-    <GridLayout
-      title={
-        <GradientText gradient="from-teal-400 to-cyan-400">
-          Our "Brain": A Swarm of 20+ Specialized Agents
-        </GradientText>
-      }
-      subtitle="Multi-Agent Investment Intelligence System"
-      cards={cards}
-      columns={3}
-      summary={summary}
-    />
+    <div style={{ 
+      height: '100%', 
+      display: 'flex', 
+      flexDirection: 'column'
+    }}>
+      <style>{`
+        .agent-architecture-slide .grid-cards {
+          align-content: center !important;
+          max-height: 60vh;
+        }
+        .agent-architecture-slide .grid-layout {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+      `}</style>
+      <div className="agent-architecture-slide" style={{ height: '100%' }}>
+        <GridLayout
+          title={
+            <GradientText gradient="from-teal-400 to-cyan-400">
+              Our "Brain": A Swarm of 20+ Specialized Agents
+            </GradientText>
+          }
+          subtitle="Multi-Agent Investment Intelligence System"
+          cards={cards}
+          columns={3}
+          summary={summary}
+        />
+      </div>
+    </div>
   )
 }
