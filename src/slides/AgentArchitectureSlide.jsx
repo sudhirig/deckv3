@@ -152,9 +152,9 @@ export default function AgentArchitectureSlide() {
       gridColumn: 'span 2',
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
-      gridTemplateRows: 'repeat(2, 1fr)',
-      gap: pxToRem(12),
-      overflow: 'hidden'
+      gridTemplateRows: 'repeat(2, auto)',
+      gap: pxToRem(10),
+      alignContent: 'start'
     }}>
       {/* Strategist Agents */}
       <motion.div
@@ -164,53 +164,48 @@ export default function AgentArchitectureSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
         style={{
-          padding: pxToRem(12),
+          padding: pxToRem(10),
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(13, 148, 136, 0.1))',
           border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(20, 184, 166, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          minHeight: 0,
-          overflow: 'hidden'
+          gap: pxToRem(4),
+          minHeight: 'fit-content'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: pxToRem(8),
-            marginBottom: pxToRem(6)
+            gap: pxToRem(6),
+            marginBottom: pxToRem(4)
           }}>
-            <Icon type="users" size={28} variant="badge" gradient="from-teal-400 to-cyan-400" />
-            <div style={{ overflow: 'hidden' }}>
-              <h3 style={{ 
-                fontSize: pxToRem(13),
-                color: '#14b8a6',
-                margin: 0,
-                fontWeight: 700,
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                overflow: 'hidden'
-              }}>
-                Strategist Agents
-              </h3>
-            </div>
+            <Icon type="users" size={24} variant="badge" gradient="from-teal-400 to-cyan-400" />
+            <h3 style={{ 
+              fontSize: pxToRem(12),
+              color: '#14b8a6',
+              margin: 0,
+              fontWeight: 700
+            }}>
+              Strategist Agents
+            </h3>
           </div>
           <p style={{ 
-            fontSize: pxToRem(10),
+            fontSize: pxToRem(9),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.4',
-            marginBottom: pxToRem(4)
+            lineHeight: '1.3',
+            margin: 0
           }}>
             Legendary investor philosophies
           </p>
         </div>
         <div style={{ 
-          fontSize: pxToRem(9),
+          fontSize: pxToRem(8),
           color: '#5eead4',
-          fontWeight: 600
+          fontWeight: 600,
+          marginTop: 'auto'
         }}>
           Buffett • Graham • Lynch
         </div>
@@ -224,53 +219,48 @@ export default function AgentArchitectureSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         style={{
-          padding: pxToRem(12),
+          padding: pxToRem(10),
           background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(126, 34, 206, 0.1))',
           border: `${pxToRem(2)} solid rgba(147, 51, 234, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(147, 51, 234, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          minHeight: 0,
-          overflow: 'hidden'
+          gap: pxToRem(4),
+          minHeight: 'fit-content'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: pxToRem(8),
-            marginBottom: pxToRem(6)
+            gap: pxToRem(6),
+            marginBottom: pxToRem(4)
           }}>
-            <Icon type="bar-chart" size={28} variant="badge" gradient="from-purple-400 to-violet-400" />
-            <div style={{ overflow: 'hidden' }}>
-              <h3 style={{ 
-                fontSize: pxToRem(13),
-                color: '#a78bfa',
-                margin: 0,
-                fontWeight: 700,
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                overflow: 'hidden'
-              }}>
-                Analyst Agents
-              </h3>
-            </div>
+            <Icon type="bar-chart" size={24} variant="badge" gradient="from-purple-400 to-violet-400" />
+            <h3 style={{ 
+              fontSize: pxToRem(12),
+              color: '#a78bfa',
+              margin: 0,
+              fontWeight: 700
+            }}>
+              Analyst Agents
+            </h3>
           </div>
           <p style={{ 
-            fontSize: pxToRem(10),
+            fontSize: pxToRem(9),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.4',
-            marginBottom: pxToRem(4)
+            lineHeight: '1.3',
+            margin: 0
           }}>
             Real-time market intelligence
           </p>
         </div>
         <div style={{ 
-          fontSize: pxToRem(9),
+          fontSize: pxToRem(8),
           color: '#c4b5fd',
-          fontWeight: 600
+          fontWeight: 600,
+          marginTop: 'auto'
         }}>
           News • Sentiment • Technical
         </div>
@@ -284,53 +274,48 @@ export default function AgentArchitectureSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
         style={{
-          padding: pxToRem(12),
+          padding: pxToRem(10),
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.1))',
           border: `${pxToRem(2)} solid rgba(251, 191, 36, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(251, 191, 36, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          minHeight: 0,
-          overflow: 'hidden'
+          gap: pxToRem(4),
+          minHeight: 'fit-content'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: pxToRem(8),
-            marginBottom: pxToRem(6)
+            gap: pxToRem(6),
+            marginBottom: pxToRem(4)
           }}>
-            <Icon type="pie-chart" size={28} variant="badge" gradient="from-amber-400 to-yellow-400" />
-            <div style={{ overflow: 'hidden' }}>
-              <h3 style={{ 
-                fontSize: pxToRem(13),
-                color: '#fbbf24',
-                margin: 0,
-                fontWeight: 700,
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                overflow: 'hidden'
-              }}>
-                Portfolio Agents
-              </h3>
-            </div>
+            <Icon type="pie-chart" size={24} variant="badge" gradient="from-amber-400 to-yellow-400" />
+            <h3 style={{ 
+              fontSize: pxToRem(12),
+              color: '#fbbf24',
+              margin: 0,
+              fontWeight: 700
+            }}>
+              Portfolio Agents
+            </h3>
           </div>
           <p style={{ 
-            fontSize: pxToRem(10),
+            fontSize: pxToRem(9),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.4',
-            marginBottom: pxToRem(4)
+            lineHeight: '1.3',
+            margin: 0
           }}>
             Continuous optimization engine
           </p>
         </div>
         <div style={{ 
-          fontSize: pxToRem(9),
+          fontSize: pxToRem(8),
           color: '#fde047',
-          fontWeight: 600
+          fontWeight: 600,
+          marginTop: 'auto'
         }}>
           Risk • Rebalancing • Execution
         </div>
@@ -344,53 +329,48 @@ export default function AgentArchitectureSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
         style={{
-          padding: pxToRem(12),
+          padding: pxToRem(10),
           background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(219, 39, 119, 0.1))',
           border: `${pxToRem(2)} solid rgba(236, 72, 153, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(236, 72, 153, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
-          minHeight: 0,
-          overflow: 'hidden'
+          gap: pxToRem(4),
+          minHeight: 'fit-content'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: pxToRem(8),
-            marginBottom: pxToRem(6)
+            gap: pxToRem(6),
+            marginBottom: pxToRem(4)
           }}>
-            <Icon type="sparkles" size={28} variant="badge" gradient="from-pink-400 to-rose-400" />
-            <div style={{ overflow: 'hidden' }}>
-              <h3 style={{ 
-                fontSize: pxToRem(13),
-                color: '#ec4899',
-                margin: 0,
-                fontWeight: 700,
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                overflow: 'hidden'
-              }}>
-                Specialized Agents
-              </h3>
-            </div>
+            <Icon type="sparkles" size={24} variant="badge" gradient="from-pink-400 to-rose-400" />
+            <h3 style={{ 
+              fontSize: pxToRem(12),
+              color: '#ec4899',
+              margin: 0,
+              fontWeight: 700
+            }}>
+              Specialized Agents
+            </h3>
           </div>
           <p style={{ 
-            fontSize: pxToRem(10),
+            fontSize: pxToRem(9),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.4',
-            marginBottom: pxToRem(4)
+            lineHeight: '1.3',
+            margin: 0
           }}>
             Domain-specific intelligence
           </p>
         </div>
         <div style={{ 
-          fontSize: pxToRem(9),
+          fontSize: pxToRem(8),
           color: '#f9a8d4',
-          fontWeight: 600
+          fontWeight: 600,
+          marginTop: 'auto'
         }}>
           Tax • Alternatives • India
         </div>
