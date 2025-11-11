@@ -138,52 +138,50 @@ export default function GiftCityGlobalInvestorAccessSlide() {
       
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-        gap: '1rem',
-        maxHeight: '40vh',
-        overflow: 'auto'
+        gridTemplateColumns: 'repeat(2, 1fr)',
+        gap: '0.6rem'
       }}>
         {regions.map((region, index) => (
           <motion.div
             key={region.id}
-            initial={{ opacity: 0, y: pxToRem(20) }}
+            initial={{ opacity: 0, y: pxToRem(10) }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 + index * 0.1 }}
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             onHoverStart={() => setHoveredRegion(region.id)}
             onHoverEnd={() => setHoveredRegion(null)}
             style={{
-              padding: '0.75rem',
+              padding: '0.5rem',
               background: hoveredRegion === region.id 
                 ? `linear-gradient(135deg, ${region.color}20, rgba(0, 0, 0, 0.3))`
                 : 'rgba(0, 0, 0, 0.2)',
-              borderRadius: '0.75rem',
+              borderRadius: '0.5rem',
               border: `1px solid ${region.color}40`,
               cursor: 'pointer'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.3rem' }}>
               <motion.div
                 animate={{ 
-                  y: activeAnimation === index ? [0, -5, 0] : 0,
-                  scale: activeAnimation === index ? 1.2 : 1
+                  y: activeAnimation === index ? [0, -3, 0] : 0,
+                  scale: activeAnimation === index ? 1.1 : 1
                 }}
                 transition={{ duration: 0.5 }}
               >
-                <region.icon style={{ width: '1.25rem', height: '1.25rem' }} color={region.color} />
+                <region.icon style={{ width: '1rem', height: '1rem' }} color={region.color} />
               </motion.div>
               <span style={{ 
-                fontSize: '1rem',
+                fontSize: '0.85rem',
                 fontWeight: 'bold',
                 color: region.color
               }}>
                 {region.name}
               </span>
             </div>
-            <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '0.25rem' }}>
+            <p style={{ fontSize: '0.65rem', color: '#94a3b8', marginBottom: '0.15rem' }}>
               {region.investors}
             </p>
-            <p style={{ fontSize: '0.7rem', color: '#10b981' }}>
+            <p style={{ fontSize: '0.6rem', color: '#10b981' }}>
               {region.benefit}
             </p>
             {hoveredRegion === region.id && (
@@ -191,10 +189,10 @@ export default function GiftCityGlobalInvestorAccessSlide() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 style={{ 
-                  fontSize: '0.9rem',
+                  fontSize: '0.75rem',
                   color: region.color,
                   fontWeight: 'bold',
-                  marginTop: '0.5rem'
+                  marginTop: '0.3rem'
                 }}
               >
                 {region.investors_count}+ Investors

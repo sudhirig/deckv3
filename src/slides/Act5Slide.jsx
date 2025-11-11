@@ -65,48 +65,48 @@ export default function Act5Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: SPACING.md,
+        gap: pxToRem(8),
         width: '100%'
       }}
     >
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Market Size</h4>
-        <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fff' }}>$5.4T</p>
-        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>Serviceable</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Market Size</h4>
+        <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.3rem)', fontWeight: 'bold', color: '#fff', margin: 0 }}>$5.4T</p>
+        <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: 'rgba(255,255,255,0.6)', margin: 0 }}>Serviceable</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Target AUM</h4>
-        <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fff' }}>$1B</p>
-        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>36 months</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Target AUM</h4>
+        <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.3rem)', fontWeight: 'bold', color: '#fff', margin: 0 }}>$1B</p>
+        <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: 'rgba(255,255,255,0.6)', margin: 0 }}>36 months</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Seed Round</h4>
-        <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fff' }}>$5M</p>
-        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>Raising now</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Seed Round</h4>
+        <p style={{ fontSize: 'clamp(1rem, 1.5vw, 1.3rem)', fontWeight: 'bold', color: '#fff', margin: 0 }}>$5M</p>
+        <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: 'rgba(255,255,255,0.6)', margin: 0 }}>Raising now</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h4 style={{ color: '#fbbf24', marginBottom: SPACING.xs }}>Team</h4>
-        <Users size={28} color="#fff" style={{ margin: `${SPACING.xs} 0` }} />
-        <p style={{ fontSize: pxToRem(13.6), color: 'rgba(255,255,255,0.6)' }}>Proven experts</p>
+        <h4 style={{ color: '#fbbf24', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Team</h4>
+        <Users size={20} color="#fff" style={{ margin: `${pxToRem(4)} 0` }} />
+        <p style={{ fontSize: 'clamp(0.65rem, 0.9vw, 0.75rem)', color: 'rgba(255,255,255,0.6)', margin: 0 }}>Proven experts</p>
       </motion.div>
     </motion.div>
   )

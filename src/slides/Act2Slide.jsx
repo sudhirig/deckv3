@@ -65,35 +65,35 @@ export default function Act2Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: SPACING.lg,
+        gap: pxToRem(12),
         width: '100%'
       }}
     >
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#22c55e', marginBottom: SPACING.sm }}>Investment Committee</h3>
-        <p>12-agent team including Warren Buffett AI, analyzing every decision</p>
+        <h3 style={{ color: '#22c55e', marginBottom: pxToRem(4), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>Investment Committee</h3>
+        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', margin: 0 }}>12-agent team with Warren Buffett AI analyzing decisions</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#22c55e', marginBottom: SPACING.sm }}>Hedge Fund Team</h3>
-        <p>18-agent specialized squad executing complex strategies in real-time</p>
+        <h3 style={{ color: '#22c55e', marginBottom: pxToRem(4), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>Hedge Fund Team</h3>
+        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', margin: 0 }}>18-agent squad executing complex strategies real-time</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card"
-        whileHover={{ scale: 1.05 }}
+        className="discovery-card glass-card compact-card"
+        whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#22c55e', marginBottom: SPACING.sm }}>Sentiment Engine</h3>
-        <p>Processing 182+ news sources with FinBERT NLP analysis continuously</p>
+        <h3 style={{ color: '#22c55e', marginBottom: pxToRem(4), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>Sentiment Engine</h3>
+        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', margin: 0 }}>Processing 182+ news sources with FinBERT NLP</p>
       </motion.div>
     </motion.div>
   )
