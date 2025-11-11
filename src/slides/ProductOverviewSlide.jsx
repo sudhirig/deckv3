@@ -78,7 +78,7 @@ export default function ProductOverviewSlide() {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <Icon type="bot" size={42} variant="inline" gradient="from-purple-400 to-blue-400" />
+              <Icon type="bot" size={32} variant="inline" gradient="from-purple-400 to-blue-400" />
               <h3 style={{ 
                 fontSize: 'clamp(1.2rem, 1.8vw, 1.6rem)',
                 color: '#a78bfa',
@@ -129,10 +129,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="zap" size={32} variant="inline" gradient="from-orange-400 to-amber-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#fb923c', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#fb923c', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 Voice Trading
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • 11ms latency<br/>
                 • 3 languages<br/>
                 • Zerodha API
@@ -157,10 +157,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="trending" size={32} variant="inline" gradient="from-green-400 to-emerald-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#4ade80', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#4ade80', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 CGMF Advisory
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • 16,766 funds<br/>
                 • 43 AMCs<br/>
                 • AI picks
@@ -185,10 +185,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="globe" size={32} variant="inline" gradient="from-pink-400 to-rose-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#ec4899', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#ec4899', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 GIFT City
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • $5T TAM<br/>
                 • Tax-free<br/>
                 • Moat
@@ -213,10 +213,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="barChart" size={32} variant="inline" gradient="from-blue-400 to-cyan-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#60a5fa', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#60a5fa', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 Algo Lab
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • 122 signals<br/>
                 • Backtest<br/>
                 • Risk mgmt
@@ -241,10 +241,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="search" size={32} variant="inline" gradient="from-purple-400 to-pink-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#a78bfa', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#a78bfa', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 Sentiment Intel
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • Real-time<br/>
                 • 5 sources<br/>
                 • Predictive
@@ -269,10 +269,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="fileText" size={32} variant="inline" gradient="from-teal-400 to-green-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#5eead4', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#5eead4', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 AI Research
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • Deep DD<br/>
                 • Auto reports<br/>
                 • Insights
@@ -297,10 +297,10 @@ export default function ProductOverviewSlide() {
               justifyContent: 'center'
             }}>
               <Icon type="wallet" size={32} variant="inline" gradient="from-yellow-400 to-orange-400" />
-              <h4 style={{ fontSize: 'clamp(1.1rem, 1.5vw, 1.5rem)', color: '#fbbf24', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
+              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#fbbf24', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
                 Tax Alpha
               </h4>
-              <div style={{ fontSize: 'clamp(0.85rem, 1.1vw, 1.15rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
+              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
                 • 3.2% alpha<br/>
                 • Daily harvest<br/>
                 • Auto-switch
