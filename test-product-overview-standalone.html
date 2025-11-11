@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Link to Product Overview Slide</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui;
+            background: #0f1629;
+            color: white;
+        }
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 10px 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        button {
+            padding: 8px 16px;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2563eb;
+        }
+        #status {
+            color: #4ade80;
+            margin-left: 20px;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <button onclick="navigateToSlide(85)">Go to Slide 85 (ProductOverview)</button>
+        <button onclick="navigateToSlide(0)">Go to Slide 0 (Title)</button>
+        <button onclick="navigateToSlide(75)">Go to Slide 75 (Trading Agents)</button>
+        <button onclick="navigateToSlide(86)">Go to Slide 86 (Appendix)</button>
+        <span id="status">Status: Ready</span>
+    </div>
+    
+    <iframe id="slideFrame" src="http://localhost:5000/#/slide/85?static=1"></iframe>
+    
+    <script>
+        const iframe = document.getElementById('slideFrame');
+        const status = document.getElementById('status');
+        
+        function navigateToSlide(num) {
+            status.textContent = `Navigating to slide ${num}...`;
+            iframe.src = `http://localhost:5000/#/slide/${num}?static=1`;
+            
+            setTimeout(() => {
+                status.textContent = `Showing slide ${num}`;
+            }, 1000);
+        }
+        
+        // Force navigation to slide 85 on load
+        window.addEventListener('load', () => {
+            status.textContent = 'Loading slide 85...';
+            setTimeout(() => {
+                navigateToSlide(85);
+            }, 1500);
+        });
+    </script>
+</body>
+</html>

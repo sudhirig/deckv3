@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigate to Slide 85</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui;
+        }
+        #info {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+        button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <h3>Slide Navigation</h3>
+        <button onclick="goToSlide(85)">Go to Slide 85 (ProductOverview)</button>
+        <button onclick="goToSlide(0)">Go to Slide 0 (Title)</button>
+        <button onclick="goToSlide(75)">Go to Slide 75 (Trading Agents)</button>
+        <p>Current: <span id="current">Loading...</span></p>
+    </div>
+    <iframe src="http://localhost:5000/?static=1" id="slideFrame"></iframe>
+    
+    <script>
+        const iframe = document.getElementById('slideFrame');
+        const currentSpan = document.getElementById('current');
+        
+        function goToSlide(slideNum) {
+            iframe.src = `http://localhost:5000/#/slide/${slideNum}?static=1`;
+            currentSpan.textContent = `Slide ${slideNum}`;
+        }
+        
+        // Auto-navigate to slide 85 after 3 seconds
+        setTimeout(() => {
+            goToSlide(85);
+        }, 3000);
+        
+        // Update current slide display
+        iframe.onload = function() {
+            try {
+                const hash = iframe.contentWindow.location.hash;
+                if (hash) {
+                    const match = hash.match(/slide\/(\d+)/);
+                    if (match) {
+                        currentSpan.textContent = `Slide ${match[1]}`;
+                    }
+                }
+            } catch(e) {
+                // Cross-origin restrictions may prevent this
+            }
+        }
+    </script>
+</body>
+</html>
