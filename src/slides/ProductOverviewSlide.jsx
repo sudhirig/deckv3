@@ -34,15 +34,22 @@ function AnimatedCounter({ value, suffix = '', prefix = '', color }) {
 
 export default function ProductOverviewSlide() {
   // Calculate radial positions for modules (7 modules in a circle)
-  const modulePositions = [
-    { top: '8%', left: '50%', transform: 'translateX(-50%)' }, // Top center - Voice Trading
-    { top: '25%', right: '12%', transform: 'none' }, // Top right - CGMF
-    { top: '50%', right: '5%', transform: 'translateY(-50%)' }, // Right - GIFT City
-    { bottom: '35%', right: '12%', transform: 'none' }, // Bottom right - Algo Lab
-    { bottom: '18%', left: '50%', transform: 'translateX(-50%)' }, // Bottom center - Sentiment
-    { bottom: '35%', left: '12%', transform: 'none' }, // Bottom left - AI Research
-    { top: '50%', left: '5%', transform: 'translateY(-50%)' }, // Left - Tax Alpha
-  ]
+  // Using trigonometry for even distribution
+  const numberOfModules = 7
+  const angleOffset = -Math.PI / 2 // Start from top
+  const radius = 35 // Percentage radius from center
+  
+  const modulePositions = Array.from({ length: numberOfModules }, (_, index) => {
+    const angle = angleOffset + (2 * Math.PI * index) / numberOfModules
+    const x = 50 + radius * Math.cos(angle) // Center at 50%
+    const y = 50 + radius * Math.sin(angle) // Center at 50%
+    
+    return {
+      left: `${x}%`,
+      top: `${y}%`,
+      transform: 'translate(-50%, -50%)' // Center the module at calculated point
+    }
+  })
 
   const modules = [
     {
@@ -212,8 +219,8 @@ export default function ProductOverviewSlide() {
                 key={index}
                 x1="50%"
                 y1="50%"
-                x2={pos.left || (pos.right ? `calc(100% - ${pos.right})` : '50%')}
-                y2={pos.top || (pos.bottom ? `calc(100% - ${pos.bottom})` : '50%')}
+                x2={pos.left}
+                y2={pos.top}
                 stroke="url(#lineGradient)"
                 strokeWidth="1"
                 strokeDasharray="5,5"
@@ -344,7 +351,7 @@ export default function ProductOverviewSlide() {
                 style={{
                   position: 'absolute',
                   ...position,
-                  width: '180px',
+                  width: '165px',
                   zIndex: 2
                 }}
               >
