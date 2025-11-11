@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
 import SlideViewport from './components/SlideViewport'
 import ActDropdown from './components/ActDropdown'
+import ExportDashboard from './components/ExportDashboard'
 import TitleSlide from './slides/TitleSlide'
 import ExecutiveSummarySlide from './slides/ExecutiveSummarySlide'
 import AgendaRoadmapSlide from './slides/AgendaRoadmapSlide'
@@ -225,6 +226,7 @@ function App() {
   const [isMobile, setIsMobile] = useState(false)
   const [showThumbnails, setShowThumbnails] = useState(false)
   const [preloadedSlides, setPreloadedSlides] = useState(new Set([getCurrentSlideFromHash()]))
+  const [showExportDashboard, setShowExportDashboard] = useState(false)
   
 
   // Check if static mode is enabled (for crisp screenshots)
@@ -525,6 +527,24 @@ function App() {
           >
             📄 Export PDF
           </button>
+          
+          <button
+            onClick={() => setShowExportDashboard(true)}
+            style={{
+              background: 'rgba(168, 85, 247, 0.15)',
+              border: '1px solid rgba(168, 85, 247, 0.3)',
+              color: '#c4b5fd',
+              cursor: 'pointer',
+              fontSize: '0.7rem',
+              padding: '4px 10px',
+              borderRadius: '4px',
+              fontWeight: '500',
+              transition: 'all 0.2s',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            ⚡ Export Options
+          </button>
         </div>
       </div>
 
@@ -580,6 +600,15 @@ function App() {
           ))}
         </motion.div>
       )}
+      
+      {/* Export Dashboard Modal */}
+      <ExportDashboard
+        isOpen={showExportDashboard}
+        onClose={() => setShowExportDashboard(false)}
+        slides={slides}
+        currentSlide={currentSlide}
+        navigateToSlide={navigateToSlide}
+      />
     </div>
   )
 }
