@@ -82,7 +82,7 @@ export default function GiftCityEntityStructureSlide() {
   ]
 
   const mainVisual = (
-    <div>
+    <div style={{ maxHeight: '88vh', overflow: 'auto' }}>
       {/* Entity Flow Diagram */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
@@ -126,10 +126,10 @@ export default function GiftCityEntityStructureSlide() {
               marginBottom: '1rem'
             }}
           >
-            <Users size={36} color="#8b5cf6" />
+            <Users style={{ width: '2.25rem', height: '2.25rem' }} color="#8b5cf6" />
           </motion.div>
-          <h3 style={{ color: '#a78bfa', fontSize: '1.2rem' }}>Global LPs</h3>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Limited Partners</p>
+          <h3 style={{ color: '#a78bfa', fontSize: 'clamp(1rem, 1.5vw, 1.2rem)' }}>Global LPs</h3>
+          <p style={{ color: '#94a3b8', fontSize: 'clamp(0.75rem, 1.2vw, 0.9rem)' }}>Limited Partners</p>
         </motion.div>
 
         {/* Flow Arrow 1 */}
@@ -154,7 +154,7 @@ export default function GiftCityEntityStructureSlide() {
               transform: 'translateX(-50%)'
             }}
           >
-            <ArrowRight size={16} color="#06b6d4" style={{ transform: 'rotate(90deg)' }} />
+            <ArrowRight style={{ width: '1rem', height: '1rem', transform: 'rotate(90deg)' }} color="#06b6d4" />
           </motion.div>
         </motion.div>
 
@@ -177,18 +177,18 @@ export default function GiftCityEntityStructureSlide() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.75rem' }}>
-            <Building size={32} color="#06b6d4" />
+            <Building style={{ width: '2rem', height: '2rem' }} color="#06b6d4" />
             <div style={{ flex: 1 }}>
-              <h3 style={{ color: '#06b6d4', fontSize: '1.3rem', marginBottom: '0.25rem' }}>
+              <h3 style={{ color: '#06b6d4', fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', marginBottom: '0.25rem' }}>
                 Vora Ventures Category III AIF
               </h3>
-              <p style={{ color: '#14b8a6', fontSize: '0.9rem' }}>GIFT City IFSC</p>
+              <p style={{ color: '#14b8a6', fontSize: 'clamp(0.75rem, 1.2vw, 0.9rem)' }}>GIFT City IFSC</p>
             </div>
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
             >
-              <Star size={24} color="#fbbf24" />
+              <Star style={{ width: '1.5rem', height: '1.5rem' }} color="#fbbf24" />
             </motion.div>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>

@@ -108,7 +108,7 @@ export default function GiftCityRegulatoryComplianceSlide() {
             borderRadius: '50%'
           }}
         >
-          <Shield size={64} color="#10b981" />
+          <Shield style={{ width: '4rem', height: '4rem' }} color="#10b981" />
           <motion.div
             animate={{ 
               scale: [1, 1.5, 1],
@@ -147,9 +147,11 @@ export default function GiftCityRegulatoryComplianceSlide() {
       {/* Licenses Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
         gap: '1rem',
-        marginBottom: '1.5rem'
+        marginBottom: '1.5rem',
+        maxHeight: '40vh',
+        overflow: 'auto'
       }}>
         {licenses.map((license, index) => (
           <motion.div

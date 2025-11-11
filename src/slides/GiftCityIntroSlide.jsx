@@ -33,7 +33,7 @@ export default function GiftCityIntroSlide() {
           marginBottom: SPACING.xl
         }}
       >
-        <Building2 size={64} color="#06b6d4" />
+        <Building2 style={{ width: '4rem', height: '4rem' }} color="#06b6d4" />
       </motion.div>
       
       <motion.h3
@@ -88,7 +88,7 @@ export default function GiftCityIntroSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.7 }}
       >
-        <DollarSign size={24} color="#10b981" />
+        <DollarSign style={{ width: '1.5rem', height: '1.5rem' }} color="#10b981" />
         <div className="metric-value">0%</div>
         <div className="metric-label">Capital Gains Tax</div>
       </motion.div>
@@ -99,7 +99,7 @@ export default function GiftCityIntroSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.8 }}
       >
-        <Globe size={24} color="#06b6d4" />
+        <Globe style={{ width: '1.5rem', height: '1.5rem' }} color="#06b6d4" />
         <div className="metric-value">100%</div>
         <div className="metric-label">Foreign Ownership</div>
       </motion.div>
@@ -110,7 +110,7 @@ export default function GiftCityIntroSlide() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.9 }}
       >
-        <TrendingUp size={24} color="#a855f7" />
+        <TrendingUp style={{ width: '1.5rem', height: '1.5rem' }} color="#a855f7" />
         <div className="metric-value">72%</div>
         <div className="metric-label">Cost Advantage</div>
       </motion.div>
@@ -125,17 +125,20 @@ export default function GiftCityIntroSlide() {
       transition={{ duration: 0.8, delay: 1.0 }}
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: SPACING.lg,
-        width: '100%'
+        width: '100%',
+        maxHeight: '30vh',
+        overflow: 'auto'
       }}
     >
       <motion.div 
         className="discovery-card glass-card"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
+        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
       >
-        <Icon type="building" size={32} variant="badge" gradient="from-cyan-400 to-blue-400" />
+        <Icon type="building" size="2rem" variant="badge" gradient="from-cyan-400 to-blue-400" />
         <h3 style={{ color: '#06b6d4', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
           IFSCA Licensed
         </h3>
@@ -148,8 +151,9 @@ export default function GiftCityIntroSlide() {
         className="discovery-card glass-card"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
+        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
       >
-        <Icon type="shield" size={32} variant="badge" gradient="from-green-400 to-emerald-400" />
+        <Icon type="shield" size="2rem" variant="badge" gradient="from-green-400 to-emerald-400" />
         <h3 style={{ color: '#10b981', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
           Tax Efficiency
         </h3>
@@ -162,8 +166,9 @@ export default function GiftCityIntroSlide() {
         className="discovery-card glass-card"
         whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
+        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
       >
-        <Icon type="globe" size={32} variant="badge" gradient="from-purple-400 to-pink-400" />
+        <Icon type="globe" size="2rem" variant="badge" gradient="from-purple-400 to-pink-400" />
         <h3 style={{ color: '#a855f7', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
           Global Access
         </h3>

@@ -114,7 +114,7 @@ export default function GiftCityCallToActionSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6 }}
         style={{
-          fontSize: '2rem',
+          fontSize: 'clamp(1.5rem, 3vw, 2rem)',
           marginBottom: '2rem'
         }}
       >
@@ -125,9 +125,11 @@ export default function GiftCityCallToActionSlide() {
       
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
         gap: '2rem',
-        marginBottom: '1.5rem'
+        marginBottom: '1.5rem',
+        maxHeight: '40vh',
+        overflow: 'auto'
       }}>
         <motion.div
           initial={{ opacity: 0, scale: 0 }}

@@ -54,7 +54,7 @@ export default function AlgoTradingFeaturesSlide() {
           }}
           transition={{ duration: 4, repeat: Infinity }}
         >
-          <Code2 size={32} color="#a855f7" />
+          <Code2 style={{ width: '2rem', height: '2rem' }} color="#a855f7" />
         </motion.div>
         <h3 style={{ fontSize: pxToRem(28), margin: 0 }}>
           <GradientText gradient="from-purple-400 to-pink-400">
@@ -130,7 +130,7 @@ export default function AlgoTradingFeaturesSlide() {
               }}
               transition={{ duration: 0.5 }}
             >
-              <feature.icon size={16} color={feature.color} />
+              <feature.icon style={{ width: '1rem', height: '1rem' }} color={feature.color} />
             </motion.div>
             <span style={{ 
               fontSize: pxToRem(13),

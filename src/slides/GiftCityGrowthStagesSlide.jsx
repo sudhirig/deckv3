@@ -105,15 +105,15 @@ const GiftCityGrowthStagesSlide = () => {
           justifyContent: 'center',
           marginRight: '1rem'
         }}>
-          <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff' }}>{stage.id}</span>
+          <span style={{ fontSize: 'clamp(1.2rem, 2vw, 1.5rem)', fontWeight: 'bold', color: '#fff' }}>{stage.id}</span>
         </div>
-        <stage.icon className="w-7 h-7" style={{ color: stage.color }} />
+        <stage.icon style={{ width: '1.75rem', height: '1.75rem', color: stage.color }} />
       </motion.div>
       
-      <h3 style={{ fontSize: '1.3rem', color: stage.color, marginBottom: '0.5rem' }}>
+      <h3 style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', color: stage.color, marginBottom: '0.5rem' }}>
         {stage.title}
       </h3>
-      <p style={{ fontSize: '0.875rem', color: '#94a3b8', marginBottom: '1rem' }}>
+      <p style={{ fontSize: 'clamp(0.75rem, 1.2vw, 0.875rem)', color: '#94a3b8', marginBottom: '1rem' }}>
         {stage.subtitle}
       </p>
       

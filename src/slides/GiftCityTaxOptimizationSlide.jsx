@@ -98,7 +98,7 @@ export default function GiftCityTaxOptimizationSlide() {
               color: '#fbbf24'
             }}
           >
-            <Sparkles size={20} />
+            <Sparkles style={{ width: '1.25rem', height: '1.25rem' }} />
           </motion.div>
         ))}
         
@@ -110,7 +110,7 @@ export default function GiftCityTaxOptimizationSlide() {
           transition={{ duration: 2 }}
         >
           <h3 style={{ 
-            fontSize: '3rem',
+            fontSize: 'clamp(2rem, 4vw, 3rem)',
             fontWeight: 'bold',
             marginBottom: '0.5rem'
           }}>
@@ -118,10 +118,10 @@ export default function GiftCityTaxOptimizationSlide() {
               ₹<AnimatedCounter end={10 || 0} duration={2000} /> Lakh
             </GradientText>
           </h3>
-          <p style={{ color: '#10b981', fontSize: '1.2rem', fontWeight: 'bold' }}>
+          <p style={{ color: '#10b981', fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', fontWeight: 'bold' }}>
             5-Year Tax Savings
           </p>
-          <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+          <p style={{ color: '#94a3b8', fontSize: 'clamp(0.75rem, 1.2vw, 0.9rem)', marginTop: '0.5rem' }}>
             Through GIFT City optimization
           </p>
         </motion.div>
@@ -143,7 +143,7 @@ export default function GiftCityTaxOptimizationSlide() {
           alignItems: 'center',
           gap: '0.5rem'
         }}>
-          <Calculator size={24} />
+          <Calculator style={{ width: '1.5rem', height: '1.5rem' }} />
           Tax Rate Comparison
         </h3>
         

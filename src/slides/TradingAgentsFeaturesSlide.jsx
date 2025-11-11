@@ -50,7 +50,7 @@ export default function TradingAgentsFeaturesSlide() {
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         >
-          <Users size={32} color="#fbbf24" />
+          <Users style={{ width: '2rem', height: '2rem' }} color="#fbbf24" />
         </motion.div>
         <h3 style={{ fontSize: pxToRem(28), margin: 0 }}>
           <GradientText gradient="from-amber-400 to-orange-400">
@@ -161,7 +161,7 @@ export default function TradingAgentsFeaturesSlide() {
           }}
           transition={{ duration: 3, repeat: Infinity }}
         >
-          <TrendingUp size={28} color="#10b981" />
+          <TrendingUp style={{ width: '1.75rem', height: '1.75rem' }} color="#10b981" />
         </motion.div>
         <h3 style={{ fontSize: pxToRem(28), margin: 0 }}>
           <GradientText gradient="from-green-400 to-emerald-400">

@@ -158,18 +158,18 @@ export default function GiftCityThreePillarPlatformSlide() {
               justifyContent: 'center'
             }}
           >
-            <pillar.icon size={28} color="#fff" />
+            <pillar.icon style={{ width: '1.75rem', height: '1.75rem' }} color="#fff" />
           </motion.div>
           <div>
             <h3 style={{ 
-              fontSize: '1.1rem',
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
               fontWeight: 'bold',
               color: pillar.color
             }}>
               Pillar {pillar.id}
             </h3>
             <p style={{ 
-              fontSize: '0.75rem',
+              fontSize: 'clamp(0.65rem, 1vw, 0.75rem)',
               color: '#64748b'
             }}>
               {pillar.highlight}

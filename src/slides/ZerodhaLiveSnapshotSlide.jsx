@@ -101,7 +101,7 @@ export default function ZerodhaLiveSnapshotSlide() {
         transition={{ delay: 0.4 }}
         style={{ 
           display: 'grid',
-          gridTemplateColumns: 'repeat(6, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
           gap: '1rem',
           marginBottom: '2rem'
         }}
@@ -143,7 +143,7 @@ export default function ZerodhaLiveSnapshotSlide() {
               transition={{ duration: 2 }}
               style={{ marginBottom: '0.5rem' }}
             >
-              <item.icon size={24} color={item.color} />
+              <item.icon style={{ width: '1.5rem', height: '1.5rem' }} color={item.color} />
             </motion.div>
             
             <motion.div
@@ -196,7 +196,7 @@ export default function ZerodhaLiveSnapshotSlide() {
           
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
             <h3 style={{ fontSize: '1.2rem', color: '#9c27b0', display: 'flex', alignItems: 'center' }}>
-              <Bot size={24} style={{ marginRight: '0.5rem' }} />
+              <Bot style={{ width: '1.5rem', height: '1.5rem', marginRight: '0.5rem' }} />
               ARIA Voice Assistant
             </h3>
             <motion.div

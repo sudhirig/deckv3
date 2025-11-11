@@ -118,9 +118,9 @@ export default function GiftCityTechnologyInfrastructureSlide() {
             borderRadius: '0.75rem'
           }}
         >
-          <infra.icon size={28} color="#fff" />
+          <infra.icon style={{ width: '1.75rem', height: '1.75rem' }} color="#fff" />
         </motion.div>
-        <h3 style={{ fontSize: '1.3rem', color: infra.color }}>
+        <h3 style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', color: infra.color }}>
           {infra.title}
         </h3>
       </div>
@@ -156,7 +156,7 @@ export default function GiftCityTechnologyInfrastructureSlide() {
               }}
               transition={{ duration: 0.5 }}
             >
-              <feature.icon size={20} color={infra.color} />
+              <feature.icon style={{ width: '1.25rem', height: '1.25rem' }} color={infra.color} />
             </motion.div>
             <div>
               <p style={{ 

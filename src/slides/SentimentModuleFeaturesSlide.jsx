@@ -54,7 +54,7 @@ export default function SentimentModuleFeaturesSlide() {
           }}
           transition={{ duration: 3, repeat: Infinity }}
         >
-          <Activity size={32} color="#ef4444" />
+          <Activity style={{ width: '2rem', height: '2rem' }} color="#ef4444" />
         </motion.div>
         <h3 style={{ fontSize: pxToRem(28), margin: 0 }}>
           <GradientText gradient="from-red-400 to-orange-400">
@@ -167,7 +167,7 @@ export default function SentimentModuleFeaturesSlide() {
               borderLeft: `2px solid #ef4444`
             }}
           >
-            <feature.icon size={14} color="#ef4444" />
+            <feature.icon style={{ width: '0.875rem', height: '0.875rem' }} color="#ef4444" />
             <span style={{ fontSize: pxToRem(12), color: '#e2e8f0' }}>
               {feature.label}
             </span>

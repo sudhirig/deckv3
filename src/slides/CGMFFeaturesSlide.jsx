@@ -96,7 +96,7 @@ export default function CGMFFeaturesSlide() {
       transition={{ delay: 0.3 }}
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(5, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
         gap: '0.75rem',
         marginBottom: '2rem'
       }}
@@ -153,7 +153,7 @@ export default function CGMFFeaturesSlide() {
             onHoverStart={() => setHoveredCard(index)}
             onHoverEnd={() => setHoveredCard(null)}
           >
-            <stat.icon size={20} color={stat.color} />
+            <stat.icon style={{ width: '1.25rem', height: '1.25rem' }} color={stat.color} />
           </motion.div>
           
           <motion.div

@@ -68,7 +68,7 @@ export default function ZerodhaFeaturesSlide() {
       transition={{ delay: 0.4 }}
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
         gap: '1rem',
         marginBottom: '2rem',
         maxWidth: '56.25rem',
@@ -106,7 +106,7 @@ export default function ZerodhaFeaturesSlide() {
             transition={{ duration: 1 }}
             style={{ marginBottom: '0.5rem' }}
           >
-            <metric.icon size={24} color={metric.color} />
+            <metric.icon style={{ width: '1.5rem', height: '1.5rem' }} color={metric.color} />
           </motion.div>
           
           <motion.div
@@ -196,9 +196,9 @@ export default function ZerodhaFeaturesSlide() {
           animate={{ rotate: pulseAnimation ? 360 : 0 }}
           transition={{ duration: 2 }}
         >
-          <Mic size={32} color="#f97316" />
+          <Mic style={{ width: '2rem', height: '2rem' }} color="#f97316" />
         </motion.div>
-        <h3 style={{ fontSize: '1.4rem', color: '#f97316', marginLeft: '1rem' }}>
+        <h3 style={{ fontSize: 'clamp(1.2rem, 2vw, 1.4rem)', color: '#f97316', marginLeft: '1rem' }}>
           Voice Trading 3.0
         </h3>
       </div>

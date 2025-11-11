@@ -145,9 +145,9 @@ export default function AgenticAIFeaturesSlide() {
             animate={{ rotate: 360 }}
             transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
           >
-            <Network size={24} color="#a855f7" />
+            <Network style={{ width: '1.5rem', height: '1.5rem' }} color="#a855f7" />
           </motion.div>
-          <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#a855f7' }}>
+          <span style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', fontWeight: 'bold', color: '#a855f7' }}>
             68+ AI Agents Active
           </span>
           <motion.div

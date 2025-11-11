@@ -138,9 +138,9 @@ export default function FutureModulesFeaturesSlide() {
             animate={{ rotate: 360 }}
             transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
           >
-            <Rocket size={24} color="#fbbf24" />
+            <Rocket style={{ width: '1.5rem', height: '1.5rem' }} color="#fbbf24" />
           </motion.div>
-          <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#fbbf24' }}>
+          <span style={{ fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', fontWeight: 'bold', color: '#fbbf24' }}>
             Q2-Q4 2025 Roadmap
           </span>
           <motion.div

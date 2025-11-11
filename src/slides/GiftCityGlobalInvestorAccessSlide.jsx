@@ -122,12 +122,12 @@ export default function GiftCityGlobalInvestorAccessSlide() {
           animate={{ rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
         >
-          <Globe2 size={48} color="#3b82f6" />
+          <Globe2 style={{ width: '3rem', height: '3rem' }} color="#3b82f6" />
         </motion.div>
       </div>
       
       <h3 style={{ 
-        fontSize: '1.3rem',
+        fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)',
         color: '#3b82f6',
         textAlign: 'center',
         marginBottom: '1.5rem'
@@ -137,8 +137,10 @@ export default function GiftCityGlobalInvestorAccessSlide() {
       
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(2, 1fr)',
-        gap: '1rem'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+        gap: '1rem',
+        maxHeight: '40vh',
+        overflow: 'auto'
       }}>
         {regions.map((region, index) => (
           <motion.div
@@ -167,7 +169,7 @@ export default function GiftCityGlobalInvestorAccessSlide() {
                 }}
                 transition={{ duration: 0.5 }}
               >
-                <region.icon size={20} color={region.color} />
+                <region.icon style={{ width: '1.25rem', height: '1.25rem' }} color={region.color} />
               </motion.div>
               <span style={{ 
                 fontSize: '1rem',

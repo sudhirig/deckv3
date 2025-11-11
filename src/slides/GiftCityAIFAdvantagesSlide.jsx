@@ -124,9 +124,9 @@ export default function GiftCityAIFAdvantagesSlide() {
           }}
           transition={{ duration: advantage.id === 'tax' || advantage.id === 'market' ? 2 : 0.5 }}
         >
-          <advantage.icon size={28} color={advantage.color} />
+          <advantage.icon style={{ width: '1.75rem', height: '1.75rem' }} color={advantage.color} />
         </motion.div>
-        <h3 style={{ fontSize: '1.3rem', color: advantage.color }}>{advantage.title}</h3>
+        <h3 style={{ fontSize: 'clamp(1.1rem, 1.8vw, 1.3rem)', color: advantage.color }}>{advantage.title}</h3>
       </div>
       
       {/* Tax Efficiency Metrics */}
