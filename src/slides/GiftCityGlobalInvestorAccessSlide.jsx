@@ -140,7 +140,6 @@ export default function GiftCityGlobalInvestorAccessSlide() {
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
         gap: '1rem',
-        maxHeight: '40vh',
         overflow: 'auto'
       }}>
         {regions.map((region, index) => (

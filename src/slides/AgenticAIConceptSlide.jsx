@@ -214,7 +214,6 @@ const AgenticAIConceptSlide = () => {
           gridTemplateColumns: '1fr 1fr', 
           gap: 'clamp(0.75rem, 1.5vw, 1.25rem)',
           flex: 1,
-          maxHeight: '45vh',
           overflow: 'hidden'
         }}>
           {/* Agent Communication Card */}

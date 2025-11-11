@@ -241,8 +241,7 @@ const CGMFConceptSlide = () => {
             background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.05))',
             border: `${pxToRem(1)} solid rgba(251, 191, 36, 0.3)`,
             padding: 'clamp(0.5rem, 1vw, 0.75rem)',
-            textAlign: 'center',
-            maxHeight: '10vh'
+            textAlign: 'center'
           }}
         >
           <motion.div
