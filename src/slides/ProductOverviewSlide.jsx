@@ -2,6 +2,8 @@ import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
 import { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
+import EditableWrapper from '../components/EditableWrapper'
+import { useEditMode } from '../contexts/EditModeContext'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
@@ -199,34 +201,57 @@ export default function ProductOverviewSlide() {
           zIndex: 10
         }}
       >
-        <h1 style={{ 
-          fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
-          marginBottom: pxToRem(8)
-        }}>
-          <GradientText gradient="from-purple-400 via-blue-400 to-cyan-400">
-            The Complete AI Family Office Suite
-          </GradientText>
-        </h1>
-        <p style={{ 
-          fontSize: 'clamp(1rem, 1.5vw, 1.3rem)',
-          color: '#94a3b8',
-          marginBottom: pxToRem(4)
-        }}>
-          7 Operational Modules • 68+ AI Agents • 100% Live Today
-        </p>
-        <motion.p 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          style={{ 
-            fontSize: 'clamp(1.1rem, 1.6vw, 1.4rem)',
-            color: '#e9d5ff',
-            fontWeight: 600,
-            letterSpacing: '0.5px'
-          }}
+        <EditableWrapper
+          slideId="product-overview"
+          elementId="main-title"
+          type="text"
+          isDraggable={false}
         >
-          Everything You Need. One Platform. Infinite Alpha.
-        </motion.p>
+          <h1 style={{ 
+            fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+            marginBottom: pxToRem(8)
+          }}>
+            <GradientText gradient="from-purple-400 via-blue-400 to-cyan-400">
+              The Complete AI Family Office Suite
+            </GradientText>
+          </h1>
+        </EditableWrapper>
+        
+        <EditableWrapper
+          slideId="product-overview"
+          elementId="subtitle"
+          type="text"
+          isDraggable={false}
+        >
+          <p style={{ 
+            fontSize: 'clamp(1rem, 1.5vw, 1.3rem)',
+            color: '#94a3b8',
+            marginBottom: pxToRem(4)
+          }}>
+            7 Operational Modules • 68+ AI Agents • 100% Live Today
+          </p>
+        </EditableWrapper>
+        
+        <EditableWrapper
+          slideId="product-overview"
+          elementId="tagline"
+          type="text"
+          isDraggable={false}
+        >
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ 
+              fontSize: 'clamp(1.1rem, 1.6vw, 1.4rem)',
+              color: '#e9d5ff',
+              fontWeight: 600,
+              letterSpacing: '0.5px'
+            }}
+          >
+            Everything You Need. One Platform. Infinite Alpha.
+          </motion.p>
+        </EditableWrapper>
       </motion.div>
 
       {/* Main Content Area with Radial Layout */}

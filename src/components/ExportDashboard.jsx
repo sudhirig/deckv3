@@ -47,29 +47,39 @@ export default function ExportDashboard({
     setExportType('pdf')
     setExportStatus('Preparing PDF export...')
     
-    // Add print-specific class to body
+    // Add print-specific class to body for better control
     document.body.classList.add('printing-mode')
     
-    // Add slide footers
-    const slideElements = document.querySelectorAll('.slide-viewport-container')
-    slideElements.forEach((slide, index) => {
-      const footer = document.createElement('div')
-      footer.className = 'slide-footer print-only'
-      footer.innerHTML = `
-        <span class="slide-footer-title">AI-Powered Family Office Platform</span>
-        <span class="slide-footer-number">Slide ${index + 1} of ${slides.length}</span>
-      `
-      slide.appendChild(footer)
+    // Add slide footers to the print-only slides
+    const printSlides = document.querySelectorAll('.print-slide')
+    printSlides.forEach((slide, index) => {
+      // Check if footer already exists
+      if (!slide.querySelector('.slide-footer')) {
+        const footer = document.createElement('div')
+        footer.className = 'slide-footer'
+        footer.innerHTML = `
+          <span class="slide-footer-title">AI-Powered Family Office Platform</span>
+          <span class="slide-footer-number">Slide ${index + 1} of ${slides.length}</span>
+        `
+        slide.appendChild(footer)
+      }
     })
     
+    // Small delay to ensure DOM updates
     setTimeout(() => {
       window.print()
       
-      // Clean up after print
-      document.body.classList.remove('printing-mode')
-      document.querySelectorAll('.slide-footer.print-only').forEach(el => el.remove())
-      setExportStatus('')
-      setExportType(null)
+      // Clean up after print dialog closes
+      setTimeout(() => {
+        document.body.classList.remove('printing-mode')
+        // Remove footers after printing
+        document.querySelectorAll('.print-slide .slide-footer').forEach(el => el.remove())
+        setExportStatus('PDF export complete!')
+        setTimeout(() => {
+          setExportStatus('')
+          setExportType(null)
+        }, 2000)
+      }, 100)
     }, 500)
   }
 

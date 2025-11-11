@@ -4,6 +4,8 @@ import './App.css'
 import SlideViewport from './components/SlideViewport'
 import ActDropdown from './components/ActDropdown'
 import ExportDashboard from './components/ExportDashboard'
+import { EditModeProvider } from './contexts/EditModeContext'
+import EditModeBar from './components/EditModeBar'
 import TitleSlide from './slides/TitleSlide'
 import ExecutiveSummarySlide from './slides/ExecutiveSummarySlide'
 import AgendaRoadmapSlide from './slides/AgendaRoadmapSlide'
@@ -373,7 +375,8 @@ function App() {
   }
 
   return (
-    <div className="presentation">
+    <EditModeProvider>
+      <div className="presentation">
       {/* Print view: All slides rendered */}
       <div className="print-only-slides">
         {slides.map((slide, index) => {
@@ -609,7 +612,11 @@ function App() {
         currentSlide={currentSlide}
         navigateToSlide={navigateToSlide}
       />
+      
+      {/* Edit Mode Bar */}
+      <EditModeBar />
     </div>
+    </EditModeProvider>
   )
 }
 
