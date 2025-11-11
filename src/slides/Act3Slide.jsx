@@ -65,48 +65,48 @@ export default function Act3Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: pxToRem(8),
+        gap: SPACING.md,
         width: '100%'
       }}
     >
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <Globe size={16} color="#60a5fa" style={{ marginBottom: pxToRem(4) }} />
-        <h4 style={{ color: '#60a5fa', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>India Gateway</h4>
-        <p style={{ fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)', margin: 0 }}>$5T market via GIFT City</p>
+        <Globe size={20} color="#60a5fa" style={{ marginBottom: SPACING.xs }} />
+        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.xs, fontSize: pxToRem(17.6) }}>India Gateway</h4>
+        <p style={{ fontSize: pxToRem(14.4) }}>$5T market via GIFT City (0% tax)</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <Calculator size={16} color="#60a5fa" style={{ marginBottom: pxToRem(4) }} />
-        <h4 style={{ color: '#60a5fa', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Tax Alpha</h4>
-        <p style={{ fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)', margin: 0 }}>Daily harvesting +1.8%</p>
+        <Calculator size={20} color="#60a5fa" style={{ marginBottom: SPACING.xs }} />
+        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.xs, fontSize: pxToRem(17.6) }}>Tax Alpha</h4>
+        <p style={{ fontSize: pxToRem(14.4) }}>Daily harvesting beats annual by +1.8%</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <Database size={16} color="#60a5fa" style={{ marginBottom: pxToRem(4) }} />
-        <h4 style={{ color: '#60a5fa', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Alternative Assets</h4>
-        <p style={{ fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)', margin: 0 }}>AI analyzes 16K+ funds</p>
+        <Database size={20} color="#60a5fa" style={{ marginBottom: SPACING.xs }} />
+        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.xs, fontSize: pxToRem(17.6) }}>Alternative Assets</h4>
+        <p style={{ fontSize: pxToRem(14.4) }}>AI analyzes 16,000+ funds</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <Database size={16} color="#60a5fa" style={{ marginBottom: pxToRem(4) }} />
-        <h4 style={{ color: '#60a5fa', marginBottom: pxToRem(4), fontSize: 'clamp(0.8rem, 1.2vw, 1rem)' }}>Architecture</h4>
-        <p style={{ fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)', margin: 0 }}>20+ specialized agents</p>
+        <Database size={20} color="#60a5fa" style={{ marginBottom: SPACING.xs }} />
+        <h4 style={{ color: '#60a5fa', marginBottom: SPACING.xs, fontSize: pxToRem(17.6) }}>Architecture</h4>
+        <p style={{ fontSize: pxToRem(14.4) }}>20+ specialized agents in swarm config</p>
       </motion.div>
     </motion.div>
   )

@@ -23,27 +23,29 @@ export const ActSlideLayout = ({
   particles 
 }) => (
   <AspectFrame>
-    <div className="act-layout">
+    <div className="act-layout" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
         {particles}
-        <div className="act-grid">
-      <div className="act-left">
+        <div className="act-grid" style={{ flexWrap: 'wrap', overflow: 'hidden' }}>
+      <div className="act-left" style={{ overflow: 'hidden' }}>
         <motion.div 
           className="act-number"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}
         >
           {actNumber}
         </motion.div>
         <div className="act-progress-indicator" />
       </div>
       
-      <div className="act-center">
+      <div className="act-center" style={{ maxHeight: '88vh', overflow: 'hidden' }}>
         <motion.h1 
           className="act-title"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ fontSize: 'clamp(2rem, 4.5vw, 3.5rem)' }}
         >
           <GradientText>{title}</GradientText>
         </motion.h1>
@@ -55,6 +57,7 @@ export const ActSlideLayout = ({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
+              style={{ fontSize: 'clamp(1.1rem, 2vw, 1.6rem)' }}
             >
               {subtitle}
             </motion.h2>
@@ -65,12 +68,13 @@ export const ActSlideLayout = ({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
+          style={{ maxHeight: 'calc(88vh - 12rem)', overflow: 'auto' }}
         >
           {mainContent}
         </motion.div>
       </div>
       
-      <div className="act-right">
+      <div className="act-right" style={{ maxHeight: '88vh', overflow: 'auto' }}>
         <motion.div 
           className="act-metrics"
           initial={{ opacity: 0, x: 50 }}
@@ -90,6 +94,7 @@ export const ActSlideLayout = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
+          style={{ maxHeight: '10vh', overflow: 'auto' }}
         >
           {bottomPoints}
         </motion.div>

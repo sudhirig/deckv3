@@ -204,17 +204,17 @@ export default function Act4Slide() {
         whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 300 }}
         style={{
-          padding: pxToRem(12),
+          padding: SPACING.lg,
           background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(139, 92, 246, 0.1))',
-          border: `${pxToRem(1)} solid rgba(167, 139, 250, 0.2)`,
-          borderRadius: pxToRem(12),
-          boxShadow: '0 4px 12px rgba(167, 139, 250, 0.1)'
+          border: `${pxToRem(2)} solid rgba(167, 139, 250, 0.2)`,
+          borderRadius: pxToRem(16),
+          boxShadow: '0 8px 24px rgba(167, 139, 250, 0.1)'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8), marginBottom: pxToRem(8) }}>
-          <Icon type="shield" size={24} variant="badge" gradient="from-purple-400 to-pink-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.md }}>
+          <Icon type="shield" size={32} variant="badge" gradient="from-purple-400 to-pink-400" />
           <h3 style={{ 
-            fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)', 
+            fontSize: TYPOGRAPHY.subheadline, 
             color: '#c4b5fd',
             margin: 0,
             fontWeight: 700
@@ -223,23 +223,23 @@ export default function Act4Slide() {
           </h3>
         </div>
         <div style={{ 
-          fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)',
+          fontSize: TYPOGRAPHY.caption,
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.4',
+          lineHeight: '1.7',
           display: 'grid',
-          gap: pxToRem(4)
+          gap: SPACING.xs
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#e9d5ff' }}>99.97%</strong> uptime</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>99.97% uptime</strong> with live clients</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#e9d5ff' }}>97%</strong> retention</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>97% retention</strong> rate achieved</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#e9d5ff' }}>4.8★</strong> rating</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>4.8★</strong> average client rating</span>
           </div>
         </div>
       </motion.div>
@@ -250,17 +250,17 @@ export default function Act4Slide() {
         whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 300 }}
         style={{
-          padding: pxToRem(12),
+          padding: SPACING.lg,
           background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(219, 39, 119, 0.1))',
-          border: `${pxToRem(1)} solid rgba(236, 72, 153, 0.2)`,
-          borderRadius: pxToRem(12),
-          boxShadow: '0 4px 12px rgba(236, 72, 153, 0.1)'
+          border: `${pxToRem(2)} solid rgba(236, 72, 153, 0.2)`,
+          borderRadius: pxToRem(16),
+          boxShadow: '0 8px 24px rgba(236, 72, 153, 0.1)'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8), marginBottom: pxToRem(8) }}>
-          <Icon type="zap" size={24} variant="badge" gradient="from-pink-400 to-rose-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.md }}>
+          <Icon type="zap" size={32} variant="badge" gradient="from-pink-400 to-rose-400" />
           <h3 style={{ 
-            fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)', 
+            fontSize: TYPOGRAPHY.subheadline, 
             color: '#f9a8d4',
             margin: 0,
             fontWeight: 700
@@ -269,23 +269,23 @@ export default function Act4Slide() {
           </h3>
         </div>
         <div style={{ 
-          fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)',
+          fontSize: TYPOGRAPHY.caption,
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.4',
+          lineHeight: '1.7',
           display: 'grid',
-          gap: pxToRem(4)
+          gap: SPACING.xs
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#fbcfe8' }}>Stanford:</strong> 93% AI edge</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#fbcfe8' }}>Stanford:</strong> 93% AI outperformance</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#fbcfe8' }}>Zerodha:</strong> 1000+ trades</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#fbcfe8' }}>Zerodha:</strong> 1000+ trades daily</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#fbcfe8' }}>Tax:</strong> ₹1.55L saved</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#fbcfe8' }}>Tax Alpha:</strong> ₹1.55L saved/₹1Cr</span>
           </div>
         </div>
       </motion.div>
@@ -296,17 +296,17 @@ export default function Act4Slide() {
         whileHover={{ scale: 1.05, y: -5 }}
         transition={{ type: "spring", stiffness: 300 }}
         style={{
-          padding: pxToRem(12),
+          padding: SPACING.lg,
           background: 'linear-gradient(135deg, rgba(192, 132, 252, 0.15), rgba(168, 85, 247, 0.1))',
-          border: `${pxToRem(1)} solid rgba(192, 132, 252, 0.2)`,
-          borderRadius: pxToRem(12),
-          boxShadow: '0 4px 12px rgba(192, 132, 252, 0.1)'
+          border: `${pxToRem(2)} solid rgba(192, 132, 252, 0.2)`,
+          borderRadius: pxToRem(16),
+          boxShadow: '0 8px 24px rgba(192, 132, 252, 0.1)'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8), marginBottom: pxToRem(8) }}>
-          <Icon type="trending-up" size={24} variant="badge" gradient="from-purple-400 to-violet-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: SPACING.md }}>
+          <Icon type="trending-up" size={32} variant="badge" gradient="from-purple-400 to-violet-400" />
           <h3 style={{ 
-            fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)', 
+            fontSize: TYPOGRAPHY.subheadline, 
             color: '#e9d5ff',
             margin: 0,
             fontWeight: 700
@@ -315,23 +315,23 @@ export default function Act4Slide() {
           </h3>
         </div>
         <div style={{ 
-          fontSize: 'clamp(0.65rem, 0.95vw, 0.8rem)',
+          fontSize: TYPOGRAPHY.caption,
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.4',
+          lineHeight: '1.7',
           display: 'grid',
-          gap: pxToRem(4)
+          gap: SPACING.xs
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#e9d5ff' }}>46%</strong> HNW switching</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>46%</strong> HNW investors switching</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#e9d5ff' }}>$124T</strong> wealth transfer</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>$124T</strong> wealth transfer wave</span>
           </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(4) }}>
-            <CheckCircle size={12} color="#22c55e" />
-            <span><strong style={{ color: '#e9d5ff' }}>$5T</strong> India GIFT</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8) }}>
+            <CheckCircle size={16} color="#22c55e" />
+            <span><strong style={{ color: '#e9d5ff' }}>$5T</strong> India GIFT unlocked</span>
           </div>
         </div>
       </motion.div>

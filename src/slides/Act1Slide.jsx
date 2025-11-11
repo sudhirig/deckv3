@@ -65,35 +65,35 @@ export default function Act1Slide() {
       style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: pxToRem(12),
+        gap: SPACING.lg,
         width: '100%'
       }}
     >
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: pxToRem(4), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>AI Revolution</h3>
-        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', margin: 0 }}>Stanford: 93% of AI portfolios outperform human managers</p>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm }}>AI Revolution</h3>
+        <p>Stanford study: 93% of AI portfolios outperform human managers</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: pxToRem(4), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>Tax Alpha</h3>
-        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', margin: 0 }}>Daily harvesting beats annual by +1.8%</p>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm }}>Tax Alpha</h3>
+        <p>Daily harvesting beats annual by +1.8% consistently</p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
-        <h3 style={{ color: '#14b8a6', marginBottom: pxToRem(4), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>India Gateway</h3>
-        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', margin: 0 }}>GIFT City unlocks $5T market at 0% tax</p>
+        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm }}>India Gateway</h3>
+        <p>GIFT City unlocks $5T market at 0% tax rate</p>
       </motion.div>
     </motion.div>
   )

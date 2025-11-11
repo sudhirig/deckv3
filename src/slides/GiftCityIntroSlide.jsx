@@ -125,49 +125,54 @@ export default function GiftCityIntroSlide() {
       transition={{ duration: 0.8, delay: 1.0 }}
       style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: pxToRem(12),
-        width: '100%'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+        gap: SPACING.lg,
+        width: '100%',
+        maxHeight: '30vh',
+        overflow: 'auto'
       }}
     >
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
+        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
       >
-        <Icon type="building" size="1.5rem" variant="badge" gradient="from-cyan-400 to-blue-400" />
-        <h3 style={{ color: '#06b6d4', marginBottom: pxToRem(4), marginTop: pxToRem(8), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>
+        <Icon type="building" size="2rem" variant="badge" gradient="from-cyan-400 to-blue-400" />
+        <h3 style={{ color: '#06b6d4', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
           IFSCA Licensed
         </h3>
-        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', color: 'rgba(255, 255, 255, 0.8)', margin: 0 }}>
+        <p style={{ fontSize: TYPOGRAPHY.small, color: 'rgba(255, 255, 255, 0.8)' }}>
           India's premier International Financial Services Centre
         </p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
+        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
       >
-        <Icon type="shield" size="1.5rem" variant="badge" gradient="from-green-400 to-emerald-400" />
-        <h3 style={{ color: '#10b981', marginBottom: pxToRem(4), marginTop: pxToRem(8), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>
+        <Icon type="shield" size="2rem" variant="badge" gradient="from-green-400 to-emerald-400" />
+        <h3 style={{ color: '#10b981', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
           Tax Efficiency
         </h3>
-        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', color: 'rgba(255, 255, 255, 0.8)', margin: 0 }}>
-          0% GST, 10% corporate tax vs 30% mainland
+        <p style={{ fontSize: TYPOGRAPHY.small, color: 'rgba(255, 255, 255, 0.8)' }}>
+          0% GST on services, 10% corporate tax vs 30% mainland
         </p>
       </motion.div>
       
       <motion.div 
-        className="discovery-card glass-card compact-card"
-        whileHover={{ scale: 1.02 }}
+        className="discovery-card glass-card"
+        whileHover={{ scale: 1.05 }}
         transition={{ type: "spring", stiffness: 300 }}
+        style={{ minHeight: 'auto', maxHeight: '100%', overflow: 'hidden' }}
       >
-        <Icon type="globe" size="1.5rem" variant="badge" gradient="from-purple-400 to-pink-400" />
-        <h3 style={{ color: '#a855f7', marginBottom: pxToRem(4), marginTop: pxToRem(8), fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)' }}>
+        <Icon type="globe" size="2rem" variant="badge" gradient="from-purple-400 to-pink-400" />
+        <h3 style={{ color: '#a855f7', marginBottom: SPACING.sm, marginTop: SPACING.md }}>
           Global Access
         </h3>
-        <p style={{ fontSize: 'clamp(0.7rem, 1vw, 0.85rem)', color: 'rgba(255, 255, 255, 0.8)', margin: 0 }}>
+        <p style={{ fontSize: TYPOGRAPHY.small, color: 'rgba(255, 255, 255, 0.8)' }}>
           45+ countries, 24/7 operations, USD denominated
         </p>
       </motion.div>
