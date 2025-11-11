@@ -7,6 +7,7 @@ import GradientText from '../components/GradientText'
 import CircularProgress from '../components/CircularProgress'
 import { Rocket, Target, Clock, HandshakeIcon, ChevronRight, Star, DollarSign, TrendingUp, Award, Shield } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function ClosingCommitmentSlide() {

@@ -7,6 +7,7 @@ import Icon from '../components/Icon'
 import ResponsiveTable from '../components/ResponsiveTable'
 import { TrendingUp, DollarSign, Users, Target, BarChart3, PiggyBank, Rocket } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function FinancialProjections1Slide() {

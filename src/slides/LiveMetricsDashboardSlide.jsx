@@ -8,6 +8,7 @@ import LineChart from '../components/LineChart'
 import BarChart from '../components/BarChart'
 import { Activity, TrendingUp, Users, DollarSign, Globe, Shield, Clock, CheckCircle, BarChart3, Zap, Award } from 'lucide-react'
 import { pxToRem, SPACING } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 const LiveMetricsDashboardSlide = () => {
@@ -162,7 +163,7 @@ const LiveMetricsDashboardSlide = () => {
                   delay: 0.5
                 } : {}}
               >
-                {item.prefix}<AnimatedCounter end={item.value} decimals={item.decimals || 0} duration={1500} />{item.suffix}
+                {item.prefix}<AnimatedCounter end={toFiniteNumber(item.value)} decimals={item.decimals || 0} duration={1.5} />{item.suffix}
               </motion.div>
               <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{item.label}</p>
             </div>

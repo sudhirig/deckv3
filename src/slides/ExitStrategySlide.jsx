@@ -8,6 +8,7 @@ import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, Building2, Users, Target, DollarSign, Calendar, Rocket, Award, Sparkles } from 'lucide-react'
 import './SlideStyles.css'
 import { pxToRem, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function ExitStrategySlide() {
   const [hoveredOption, setHoveredOption] = useState(null)
@@ -316,7 +317,7 @@ export default function ExitStrategySlide() {
               transition={{ duration: 2 }}
               style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24' }}
             >
-              <AnimatedCounter value={20} duration={1500} />x-<AnimatedCounter value={50} duration={1500} />x
+              <AnimatedCounter end={toFiniteNumber(20)} duration={1.5} />x-<AnimatedCounter end={toFiniteNumber(50)} duration={1.5} />x
             </motion.div>
           </div>
           <div>
@@ -336,7 +337,7 @@ export default function ExitStrategySlide() {
               transition={{ duration: 3, repeat: Infinity }}
               style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#8b5cf6' }}
             >
-              <AnimatedCounter value={75} duration={1500} />%+
+              <AnimatedCounter end={toFiniteNumber(75)} duration={1.5} />%+
             </motion.div>
           </div>
         </div>

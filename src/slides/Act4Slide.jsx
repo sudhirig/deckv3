@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import Icon from '../components/Icon'
 import { TrendingUp, Users, DollarSign, Award, Shield, Target, Zap, CheckCircle } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function Act4Slide() {
@@ -52,7 +53,7 @@ export default function Act4Slide() {
             color: '#c4b5fd',
             marginBottom: SPACING.xs 
           }}>
-            $<AnimatedCounter end={42} duration={1.5} />M
+            $<AnimatedCounter end={toFiniteNumber(42)} duration={1.5} />M
           </div>
           <div style={{ fontSize: TYPOGRAPHY.caption, color: 'rgba(255, 255, 255, 0.7)' }}>
             Assets Live
@@ -86,7 +87,7 @@ export default function Act4Slide() {
             color: '#f9a8d4',
             marginBottom: SPACING.xs 
           }}>
-            <AnimatedCounter end={27} duration={1.5} />
+            <AnimatedCounter end={toFiniteNumber(27)} duration={1.5} />
           </div>
           <div style={{ fontSize: TYPOGRAPHY.caption, color: 'rgba(255, 255, 255, 0.7)' }}>
             HNW Clients
@@ -120,7 +121,7 @@ export default function Act4Slide() {
             color: '#e9d5ff',
             marginBottom: SPACING.xs 
           }}>
-            <AnimatedCounter end={99.97} decimals={2} duration={1.5} />%
+            <AnimatedCounter end={toFiniteNumber(99.97)} decimals={2} duration={1.5} />%
           </div>
           <div style={{ fontSize: TYPOGRAPHY.caption, color: 'rgba(255, 255, 255, 0.7)' }}>
             Uptime

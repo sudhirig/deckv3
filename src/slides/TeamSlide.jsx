@@ -6,6 +6,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Linkedin, Building2, Award, Users, TrendingUp, Brain, DollarSign, Target, Check, Briefcase, GraduationCap } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import ceoImage from '@assets/stock_images/professional_indian__b5bf24ba.jpg'
 import cfoImage from '@assets/stock_images/professional_indian__403e201d.jpg'
 import './SlideStyles.css'
@@ -273,7 +274,7 @@ export default function TeamSlide() {
           <metric.icon size={24} color="#22c55e" />
           <div style={{ flex: 1 }}>
             <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e' }}>
-              {metric.prefix}<AnimatedCounter end={metric.value} delay={0.8 + index * 0.1} />{metric.suffix}
+              {metric.prefix}<AnimatedCounter end={toFiniteNumber(metric.value)} delay={0.8 + index * 0.1} duration={2} />{metric.suffix}
             </div>
             <div style={{ fontSize: TYPOGRAPHY.body, color: '#94a3b8' }}>{metric.label}</div>
           </div>

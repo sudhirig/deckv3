@@ -7,6 +7,7 @@ import PulsingBadge from '../components/PulsingBadge'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function MarketSwitchingSlide() {
@@ -57,7 +58,7 @@ export default function MarketSwitchingSlide() {
           style={{ borderLeft: `${pxToRem(4)} solid #f97316`, padding: SPACING.md, textAlign: 'center' }}
         >
           <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fb923c', marginBottom: SPACING.xs }}>
-            <AnimatedCounter end={39} suffix="%" duration={1.5} decimals={0} />
+            <AnimatedCounter end={toFiniteNumber(39)} suffix="%" duration={1.5} decimals={0} />
           </div>
           <div style={{ fontSize: pxToRem(16), color: '#e2e8f0' }}>Already switched (last 3 years)</div>
         </motion.div>

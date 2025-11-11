@@ -8,6 +8,7 @@ import Icon from '../components/Icon'
 import CircularProgress from '../components/CircularProgress'
 import { GraduationCap, QrCode, TrendingUp, Award, BarChart3 } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function StanfordSlide() {
@@ -120,10 +121,11 @@ export default function StanfordSlide() {
                 style={{ position: 'absolute', top: pxToRem(-30), width: '100%', textAlign: 'center' }}
               >
                 <AnimatedCounter 
-                  end={600} 
+                  end={toFiniteNumber(600)} 
                   suffix="%" 
                   style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#14b8a6' }}
                   delay={2.8}
+                  duration={2}
                 />
               </motion.div>
             </motion.div>

@@ -4,6 +4,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function OpportunitySlide() {

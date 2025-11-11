@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function ExecutiveSummarySlide() {
@@ -49,7 +50,7 @@ export default function ExecutiveSummarySlide() {
           style={{ textAlign: 'center', padding: '1rem', background: 'rgba(59, 130, 246, 0.2)', borderRadius: pxToRem(12) }}
         >
           <Icon type="trophy" size={32} gradient="from-blue-400 to-cyan-400" variant="inline" />
-          <AnimatedCounter end={93} duration={2} delay={0.8} suffix="%" style={{ fontSize: '1.6rem' }} />
+          <AnimatedCounter end={toFiniteNumber(93)} duration={2} delay={0.8} suffix="%" style={{ fontSize: '1.6rem' }} />
           <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.3rem' }}>AI Outperformance</p>
           <p style={{ fontSize: '0.8rem', color: '#60a5fa' }}>Stanford Study</p>
         </motion.div>
@@ -75,7 +76,7 @@ export default function ExecutiveSummarySlide() {
           style={{ textAlign: 'center', padding: '1rem', background: 'rgba(20, 184, 166, 0.2)', borderRadius: pxToRem(12) }}
         >
           <Icon type="users" size={32} gradient="from-teal-400 to-green-400" variant="inline" />
-          <AnimatedCounter end={46} duration={2} delay={1} suffix="%" style={{ fontSize: '1.6rem' }} />
+          <AnimatedCounter end={toFiniteNumber(46)} duration={2} delay={1} suffix="%" style={{ fontSize: '1.6rem' }} />
           <p style={{ fontSize: '0.85rem', color: '#94a3b8', marginTop: '0.3rem' }}>Switching Advisors</p>
           <p style={{ fontSize: '0.8rem', color: '#5eead4' }}>Next 24 months</p>
         </motion.div>

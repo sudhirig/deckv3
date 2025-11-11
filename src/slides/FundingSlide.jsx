@@ -8,6 +8,7 @@ import Icon from '../components/Icon'
 import CircularProgress from '../components/CircularProgress'
 import { TrendingUp, DollarSign, Rocket, Target, Users, Award, Building2, ChevronRight } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function FundingSlide() {
@@ -95,10 +96,11 @@ export default function FundingSlide() {
             </div>
             <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: metric.color }}>
               <AnimatedCounter 
-                value={metric.value} 
+                end={toFiniteNumber(metric.value)} 
                 prefix={metric.prefix} 
                 suffix={metric.suffix}
                 delay={0.5 + index * 0.1}
+                duration={2}
               />
             </div>
           </motion.div>
