@@ -173,11 +173,31 @@ export default function ExecutiveSummarySlide() {
   )
 
   return (
-    <DataSlideLayout
-      title={title}
-      mainVisual={mainVisual}
-      keyInsights={keyInsights}
-      supportingData={supportingData}
-    />
+    <div style={{ 
+      height: '100%', 
+      display: 'flex', 
+      flexDirection: 'column',
+      '& .data-grid': { alignItems: 'center' }
+    }}>
+      <style>{`
+        .executive-summary-slide .data-grid {
+          align-items: center !important;
+        }
+        .executive-summary-slide .data-visual,
+        .executive-summary-slide .data-insights {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+      `}</style>
+      <div className="executive-summary-slide" style={{ height: '100%' }}>
+        <DataSlideLayout
+          title={title}
+          mainVisual={mainVisual}
+          keyInsights={keyInsights}
+          supportingData={supportingData}
+        />
+      </div>
+    </div>
   )
 }
