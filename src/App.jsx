@@ -20,7 +20,7 @@ import GIFTSolutionSlide from './slides/GIFTSolutionSlide'
 import AIGatewaySlide from './slides/AIGatewaySlide'
 import TaxAlphaDailySlide from './slides/TaxAlphaDailySlide'
 import AlternativeAIDDSlide from './slides/AlternativeAIDDSlide'
-import AgentArchitectureSlide from './slides/AgentArchitectureSlide'
+import AgentArchitectureSlideNew from './slides/AgentArchitectureSlideNew'
 import Act4Slide from './slides/Act4Slide'
 import RealJourneysSlide from './slides/RealJourneysSlide'
 import LivePlatformSlide from './slides/LivePlatformSlide'
@@ -118,7 +118,7 @@ const slides = [
   { component: AIGatewaySlide, title: 'AI Makes It Simple' },
   { component: TaxAlphaDailySlide, title: 'Tax Alpha: Daily vs Annual' },
   { component: AlternativeAIDDSlide, title: 'Alternative Asset AI DD' },
-  { component: AgentArchitectureSlide, title: 'Swarm of 20+ Agents' },
+  { component: AgentArchitectureSlideNew, title: 'Swarm of 20+ Agents' },
   { component: Act4Slide, title: 'Act 4: The Proof' },
   { component: RealJourneysSlide, title: 'Real Journeys, Real Alpha' },
   { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
