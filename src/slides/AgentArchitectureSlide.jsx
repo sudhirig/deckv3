@@ -13,7 +13,8 @@ export default function AgentArchitectureSlide() {
       gridColumn: 'span 1',
       display: 'flex',
       flexDirection: 'column',
-      gap: SPACING.lg
+      gap: pxToRem(12),
+      overflow: 'hidden'
     }}>
       {/* Broker-Agnostic Header */}
       <motion.div
@@ -22,32 +23,34 @@ export default function AgentArchitectureSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         style={{
-          padding: SPACING.lg,
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(249, 115, 22, 0.1))',
           border: `${pxToRem(2)} solid rgba(251, 191, 36, 0.3)`,
           borderRadius: pxToRem(16),
-          boxShadow: '0 8px 32px rgba(251, 191, 36, 0.15)'
+          boxShadow: '0 8px 32px rgba(251, 191, 36, 0.15)',
+          minHeight: 'auto'
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', gap: SPACING.sm, marginBottom: SPACING.sm }}>
-          <Icon type="unlock" size={28} variant="inline" gradient="from-yellow-400 to-orange-400" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(8), marginBottom: pxToRem(8), flexWrap: 'wrap' }}>
+          <Icon type="unlock" size={24} variant="inline" gradient="from-yellow-400 to-orange-400" />
           <h3 style={{ 
-            fontSize: TYPOGRAPHY.subheadline, 
+            fontSize: pxToRem(15), 
             color: '#fbbf24',
             margin: 0,
             fontWeight: 700,
-            letterSpacing: '0.5px'
+            letterSpacing: '0.3px',
+            whiteSpace: 'nowrap'
           }}>
             NOT A BROKERAGE
           </h3>
         </div>
         <div style={{ 
-          fontSize: TYPOGRAPHY.caption,
+          fontSize: pxToRem(11),
           color: 'rgba(255, 255, 255, 0.8)',
-          lineHeight: '1.6'
+          lineHeight: '1.5'
         }}>
-          <p style={{ margin: `${SPACING.xs} 0` }}>• Pure AI intelligence layer</p>
-          <p style={{ margin: `${SPACING.xs} 0` }}>• Broker-agnostic architecture</p>
+          <p style={{ margin: `${pxToRem(2)} 0` }}>• Pure AI intelligence layer</p>
+          <p style={{ margin: `${pxToRem(2)} 0` }}>• Broker-agnostic architecture</p>
         </div>
       </motion.div>
 
@@ -58,13 +61,14 @@ export default function AgentArchitectureSlide() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         style={{
-          padding: SPACING.xl,
+          padding: pxToRem(16),
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(13, 148, 136, 0.15))',
           border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.4)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 0 40px rgba(20, 184, 166, 0.25)',
           textAlign: 'center',
-          position: 'relative'
+          position: 'relative',
+          minHeight: 'auto'
         }}
       >
         <motion.div
@@ -84,17 +88,17 @@ export default function AgentArchitectureSlide() {
             opacity: 1
           }}
         />
-        <Network size={48} color="#14b8a6" style={{ margin: '0 auto', marginBottom: SPACING.md }} />
+        <Network size={36} color="#14b8a6" style={{ margin: '0 auto', marginBottom: pxToRem(8) }} />
         <h3 style={{ 
-          fontSize: TYPOGRAPHY.subheadline,
+          fontSize: pxToRem(14),
           color: '#14b8a6',
           fontWeight: 700,
-          marginBottom: SPACING.xs
+          marginBottom: pxToRem(4)
         }}>
           AI PLATFORM CORE
         </h3>
         <p style={{ 
-          fontSize: TYPOGRAPHY.caption,
+          fontSize: pxToRem(11),
           color: 'rgba(255, 255, 255, 0.7)'
         }}>
           Multi-Agent Orchestration
@@ -149,56 +153,62 @@ export default function AgentArchitectureSlide() {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
       gridTemplateRows: 'repeat(2, 1fr)',
-      gap: SPACING.lg
+      gap: pxToRem(12),
+      overflow: 'hidden'
     }}>
       {/* Strategist Agents */}
       <motion.div
         className="glass-card"
-        whileHover={{ scale: 1.05, y: -5 }}
+        whileHover={{ scale: 1.03, y: -3 }}
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
         style={{
-          padding: SPACING.lg,
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(13, 148, 136, 0.1))',
           border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(20, 184, 166, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          minHeight: 0,
+          overflow: 'hidden'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: SPACING.md,
-            marginBottom: SPACING.md
+            gap: pxToRem(8),
+            marginBottom: pxToRem(6)
           }}>
-            <Icon type="users" size={36} variant="badge" gradient="from-teal-400 to-cyan-400" />
-            <div>
+            <Icon type="users" size={28} variant="badge" gradient="from-teal-400 to-cyan-400" />
+            <div style={{ overflow: 'hidden' }}>
               <h3 style={{ 
-                fontSize: TYPOGRAPHY.subheadline,
+                fontSize: pxToRem(13),
                 color: '#14b8a6',
                 margin: 0,
-                fontWeight: 700
+                fontWeight: 700,
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden'
               }}>
                 Strategist Agents
               </h3>
             </div>
           </div>
           <p style={{ 
-            fontSize: TYPOGRAPHY.caption,
+            fontSize: pxToRem(10),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.6',
-            marginBottom: SPACING.sm
+            lineHeight: '1.4',
+            marginBottom: pxToRem(4)
           }}>
             Legendary investor philosophies
           </p>
         </div>
         <div style={{ 
-          fontSize: TYPOGRAPHY.footnote,
+          fontSize: pxToRem(9),
           color: '#5eead4',
           fontWeight: 600
         }}>
@@ -209,51 +219,56 @@ export default function AgentArchitectureSlide() {
       {/* Analyst Agents */}
       <motion.div
         className="glass-card"
-        whileHover={{ scale: 1.05, y: -5 }}
+        whileHover={{ scale: 1.03, y: -3 }}
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
         style={{
-          padding: SPACING.lg,
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(126, 34, 206, 0.1))',
           border: `${pxToRem(2)} solid rgba(147, 51, 234, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(147, 51, 234, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          minHeight: 0,
+          overflow: 'hidden'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: SPACING.md,
-            marginBottom: SPACING.md
+            gap: pxToRem(8),
+            marginBottom: pxToRem(6)
           }}>
-            <Icon type="bar-chart" size={36} variant="badge" gradient="from-purple-400 to-violet-400" />
-            <div>
+            <Icon type="bar-chart" size={28} variant="badge" gradient="from-purple-400 to-violet-400" />
+            <div style={{ overflow: 'hidden' }}>
               <h3 style={{ 
-                fontSize: TYPOGRAPHY.subheadline,
+                fontSize: pxToRem(13),
                 color: '#a78bfa',
                 margin: 0,
-                fontWeight: 700
+                fontWeight: 700,
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden'
               }}>
                 Analyst Agents
               </h3>
             </div>
           </div>
           <p style={{ 
-            fontSize: TYPOGRAPHY.caption,
+            fontSize: pxToRem(10),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.6',
-            marginBottom: SPACING.sm
+            lineHeight: '1.4',
+            marginBottom: pxToRem(4)
           }}>
             Real-time market intelligence
           </p>
         </div>
         <div style={{ 
-          fontSize: TYPOGRAPHY.footnote,
+          fontSize: pxToRem(9),
           color: '#c4b5fd',
           fontWeight: 600
         }}>
@@ -264,51 +279,56 @@ export default function AgentArchitectureSlide() {
       {/* Portfolio Agents */}
       <motion.div
         className="glass-card"
-        whileHover={{ scale: 1.05, y: -5 }}
+        whileHover={{ scale: 1.03, y: -3 }}
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
         style={{
-          padding: SPACING.lg,
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(245, 158, 11, 0.1))',
           border: `${pxToRem(2)} solid rgba(251, 191, 36, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(251, 191, 36, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          minHeight: 0,
+          overflow: 'hidden'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: SPACING.md,
-            marginBottom: SPACING.md
+            gap: pxToRem(8),
+            marginBottom: pxToRem(6)
           }}>
-            <Icon type="pie-chart" size={36} variant="badge" gradient="from-amber-400 to-yellow-400" />
-            <div>
+            <Icon type="pie-chart" size={28} variant="badge" gradient="from-amber-400 to-yellow-400" />
+            <div style={{ overflow: 'hidden' }}>
               <h3 style={{ 
-                fontSize: TYPOGRAPHY.subheadline,
+                fontSize: pxToRem(13),
                 color: '#fbbf24',
                 margin: 0,
-                fontWeight: 700
+                fontWeight: 700,
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden'
               }}>
                 Portfolio Agents
               </h3>
             </div>
           </div>
           <p style={{ 
-            fontSize: TYPOGRAPHY.caption,
+            fontSize: pxToRem(10),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.6',
-            marginBottom: SPACING.sm
+            lineHeight: '1.4',
+            marginBottom: pxToRem(4)
           }}>
             Continuous optimization engine
           </p>
         </div>
         <div style={{ 
-          fontSize: TYPOGRAPHY.footnote,
+          fontSize: pxToRem(9),
           color: '#fde047',
           fontWeight: 600
         }}>
@@ -319,51 +339,56 @@ export default function AgentArchitectureSlide() {
       {/* Specialized Agents */}
       <motion.div
         className="glass-card"
-        whileHover={{ scale: 1.05, y: -5 }}
+        whileHover={{ scale: 1.03, y: -3 }}
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
         style={{
-          padding: SPACING.lg,
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(219, 39, 119, 0.1))',
           border: `${pxToRem(2)} solid rgba(236, 72, 153, 0.3)`,
           borderRadius: pxToRem(16),
           boxShadow: '0 8px 24px rgba(236, 72, 153, 0.15)',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between'
+          justifyContent: 'space-between',
+          minHeight: 0,
+          overflow: 'hidden'
         }}
       >
         <div>
           <div style={{ 
             display: 'flex', 
             alignItems: 'center', 
-            gap: SPACING.md,
-            marginBottom: SPACING.md
+            gap: pxToRem(8),
+            marginBottom: pxToRem(6)
           }}>
-            <Icon type="sparkles" size={36} variant="badge" gradient="from-pink-400 to-rose-400" />
-            <div>
+            <Icon type="sparkles" size={28} variant="badge" gradient="from-pink-400 to-rose-400" />
+            <div style={{ overflow: 'hidden' }}>
               <h3 style={{ 
-                fontSize: TYPOGRAPHY.subheadline,
+                fontSize: pxToRem(13),
                 color: '#ec4899',
                 margin: 0,
-                fontWeight: 700
+                fontWeight: 700,
+                whiteSpace: 'nowrap',
+                textOverflow: 'ellipsis',
+                overflow: 'hidden'
               }}>
                 Specialized Agents
               </h3>
             </div>
           </div>
           <p style={{ 
-            fontSize: TYPOGRAPHY.caption,
+            fontSize: pxToRem(10),
             color: 'rgba(255, 255, 255, 0.75)',
-            lineHeight: '1.6',
-            marginBottom: SPACING.sm
+            lineHeight: '1.4',
+            marginBottom: pxToRem(4)
           }}>
             Domain-specific intelligence
           </p>
         </div>
         <div style={{ 
-          fontSize: TYPOGRAPHY.footnote,
+          fontSize: pxToRem(9),
           color: '#f9a8d4',
           fontWeight: 600
         }}>
