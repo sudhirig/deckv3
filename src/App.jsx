@@ -99,6 +99,7 @@ import SentimentModuleFeaturesSlide from './slides/SentimentModuleFeaturesSlide'
 import SentimentModuleLiveSnapshotSlide from './slides/SentimentModuleLiveSnapshotSlide'
 // Supporting Enhancement Slides
 import LiveMetricsDashboardSlide from './slides/LiveMetricsDashboardSlide'
+import ProductOverviewSlide from './slides/ProductOverviewSlide'
 
 const slides = [
   { component: TitleSlide, title: 'Title' },
@@ -204,6 +205,7 @@ const slides = [
   
   // Supporting Enhancement Slides
   { component: LiveMetricsDashboardSlide, title: 'Live Platform Metrics' },
+  { component: ProductOverviewSlide, title: 'Complete AI Family Office Suite' },
   
   { component: AppendixSlide, title: 'Appendix' }
 ]
