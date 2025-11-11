@@ -37,7 +37,7 @@ export default function ProductOverviewSlide() {
   // Using trigonometry for even distribution
   const numberOfModules = 7
   const angleOffset = -Math.PI / 2 // Start from top
-  const radius = 28 // Percentage radius from center - reduced to fit viewport
+  const radius = 38 // Increased radius for better spacing and less clutter
   
   const modulePositions = Array.from({ length: numberOfModules }, (_, index) => {
     const angle = angleOffset + (2 * Math.PI * index) / numberOfModules
@@ -200,7 +200,7 @@ export default function ProductOverviewSlide() {
           margin: '0 auto',
           width: '100%'
         }}>
-          {/* Connection Lines SVG */}
+          {/* Connection Lines SVG with Animated Arrows */}
           <svg style={{
             position: 'absolute',
             top: 0,
@@ -212,33 +212,40 @@ export default function ProductOverviewSlide() {
           }}>
             <defs>
               <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(147, 51, 234, 0.3)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.3)" />
+                <stop offset="0%" stopColor="rgba(147, 51, 234, 0.4)" />
+                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.4)" />
               </linearGradient>
+              {/* Arrowhead marker */}
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto" fill="url(#lineGradient)">
+                <polygon points="0 0, 10 3.5, 0 7" fill="rgba(147, 51, 234, 0.6)" />
+              </marker>
             </defs>
-            {/* Lines will be drawn from center to each module */}
+            {/* Animated arrow lines from center to each module */}
             {modulePositions.map((pos, index) => (
-              <motion.line
-                key={index}
-                x1="50%"
-                y1="50%"
-                x2={pos.left}
-                y2={pos.top}
-                stroke="url(#lineGradient)"
-                strokeWidth="1"
-                strokeDasharray="5,5"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.3 }}
-                transition={{ duration: 1.5, delay: 0.5 + index * 0.1 }}
-              >
-                <animate
-                  attributeName="stroke-dashoffset"
-                  from="0"
-                  to="10"
-                  dur="1s"
-                  repeatCount="indefinite"
-                />
-              </motion.line>
+              <g key={index}>
+                <motion.line
+                  x1="50%"
+                  y1="50%"
+                  x2={pos.left}
+                  y2={pos.top}
+                  stroke="url(#lineGradient)"
+                  strokeWidth="2"
+                  strokeDasharray="8,4"
+                  markerEnd="url(#arrowhead)"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 0.85, opacity: 0.5 }}
+                  transition={{ duration: 1.5, delay: 0.5 + index * 0.1 }}
+                >
+                  <animate
+                    attributeName="stroke-dashoffset"
+                    from="0"
+                    to="12"
+                    dur="1.5s"
+                    repeatCount="indefinite"
+                  />
+                </motion.line>
+              </g>
             ))}
           </svg>
 
@@ -354,7 +361,7 @@ export default function ProductOverviewSlide() {
                 style={{
                   position: 'absolute',
                   ...position,
-                  width: '150px',
+                  width: '140px',
                   zIndex: 2
                 }}
               >
