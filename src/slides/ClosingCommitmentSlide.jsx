@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { HeroLayout } from '../components/StandardLayouts'
 import AnimatedText from '../components/AnimatedText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import GradientText from '../components/GradientText'
@@ -58,19 +57,17 @@ export default function ClosingCommitmentSlide() {
     { phase: 'Closing', duration: '2 Weeks', icon: Rocket }
   ]
 
-  // Title
-  const title = (
-    <GradientText gradient="from-purple-400 via-pink-400 to-red-400">
-      Join Us in Revolutionizing Wealth Management
-    </GradientText>
-  )
-
-  // Subtitle
-  const subtitle = "The opportunity to define the future of AI-powered finance"
-
-  // Background
-  const backgroundContent = (
-    <>
+  return (
+    <div style={{
+      width: '100%',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      background: 'linear-gradient(135deg, #1a1c3d 0%, #0f1629 100%)',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      {/* Background animation */}
       <motion.div
         animate={{
           background: [
@@ -90,185 +87,305 @@ export default function ClosingCommitmentSlide() {
           zIndex: 0
         }}
       />
-    </>
-  )
-
-  // Overlay content
-  const overlayContent = (
-    <div style={{ 
-      display: 'grid', 
-      gridTemplateColumns: '1fr 1fr',
-      gap: SPACING.lg,
-      maxWidth: pxToRem(1100),
-      margin: '0 auto'
-    }}>
-      {/* Left side - Investment Details */}
+      
+      {/* Header Section - constrained height */}
       <motion.div
-        initial={{ opacity: 0, x: -30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.5 }}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{
+          textAlign: 'center',
+          padding: `${pxToRem(20)} ${pxToRem(32)}`,
+          maxHeight: '18vh',
+          position: 'relative',
+          zIndex: 1
+        }}
       >
-        <div className="glass-card responsive-padding-md" style={{
-          background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1))',
-          marginBottom: SPACING.md
+        <h1 style={{ 
+          fontSize: 'clamp(1.8rem, 3.5vw, 2.8rem)',
+          marginBottom: pxToRem(6)
         }}>
-          <h3 style={{ color: '#ec4899', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
-            Investment Opportunity
-          </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: SPACING.sm }}>
-            <div>
-              <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>Raise Amount</div>
-              <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ec4899' }}>
-                ${askDetails.raise}M
-              </div>
-            </div>
-            <div>
-              <div className="responsive-text-sm" style={{ color: '#94a3b8' }}>Pre-Money</div>
-              <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#8b5cf6' }}>
-                ${askDetails.valuation}M
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Use of Funds */}
-        <div className="glass-card responsive-padding-md" style={{
-          background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1))'
+          <GradientText gradient="from-purple-400 via-pink-400 to-red-400">
+            Join Us in Revolutionizing Wealth Management
+          </GradientText>
+        </h1>
+        <p style={{ 
+          fontSize: 'clamp(0.9rem, 1.3vw, 1.1rem)',
+          color: '#94a3b8'
         }}>
-          <h4 style={{ color: '#10b981', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
-            Strategic Deployment
-          </h4>
-          {useOfFunds.map((item, index) => (
-            <motion.div
-              key={item.category}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.6 + index * 0.1 }}
-              style={{ marginBottom: pxToRem(12) }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: pxToRem(4) }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: SPACING.xs }}>
-                  <item.icon size={16} color={item.color} />
-                  <span className="responsive-text-sm" style={{ color: '#e2e8f0' }}>
-                    {item.category}
-                  </span>
-                </div>
-                <span style={{ color: item.color, fontWeight: 'bold' }}>
-                  {item.percentage}%
-                </span>
-              </div>
-              <div style={{ 
-                height: pxToRem(4), 
-                background: 'rgba(255, 255, 255, 0.1)', 
-                borderRadius: pxToRem(2),
-                overflow: 'hidden'
+          The opportunity to define the future of AI-powered finance
+        </p>
+      </motion.div>
+      
+      {/* Main Content Grid - constrained height */}
+      <div style={{
+        flex: 1,
+        maxHeight: '82vh',
+        padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
+        position: 'relative',
+        zIndex: 1,
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: '1fr 1fr',
+          gap: 'clamp(1rem, 2vw, 2rem)',
+          maxWidth: pxToRem(1100),
+          margin: '0 auto',
+          width: '100%',
+          height: '100%',
+          maxHeight: '70vh'
+        }}>
+          {/* Left side - Investment Details */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'clamp(0.75rem, 1.5vw, 1rem)',
+              maxHeight: '100%',
+              overflow: 'hidden'
+            }}
+          >
+            {/* Investment Opportunity */}
+            <div className="glass-card" style={{
+              background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.1))',
+              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+              maxHeight: '35%'
+            }}>
+              <h3 style={{ 
+                color: '#ec4899', 
+                marginBottom: pxToRem(8), 
+                fontSize: 'clamp(1.1rem, 1.8vw, 1.4rem)' 
               }}>
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${item.percentage}%` }}
-                  transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
-                  style={{
-                    height: '100%',
-                    background: item.color
-                  }}
-                />
+                Investment Opportunity
+              </h3>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: pxToRem(12) }}>
+                <div>
+                  <div style={{ 
+                    color: '#94a3b8',
+                    fontSize: 'clamp(0.7rem, 1vw, 0.85rem)'
+                  }}>Raise Amount</div>
+                  <div style={{ 
+                    fontSize: 'clamp(1.3rem, 2vw, 1.6rem)', 
+                    fontWeight: 'bold', 
+                    color: '#ec4899' 
+                  }}>
+                    ${askDetails.raise}M
+                  </div>
+                </div>
+                <div>
+                  <div style={{ 
+                    color: '#94a3b8',
+                    fontSize: 'clamp(0.7rem, 1vw, 0.85rem)'
+                  }}>Pre-Money</div>
+                  <div style={{ 
+                    fontSize: 'clamp(1.3rem, 2vw, 1.6rem)', 
+                    fontWeight: 'bold', 
+                    color: '#8b5cf6' 
+                  }}>
+                    ${askDetails.valuation}M
+                  </div>
+                </div>
               </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+            </div>
 
-      {/* Right side - Benefits & Next Steps */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 0.7 }}
-      >
-        {/* Investor Benefits */}
-        <div className="glass-card responsive-padding-md" style={{
-          background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
-          marginBottom: SPACING.md
-        }}>
-          <h4 style={{ color: '#fbbf24', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
-            Why Invest Now
-          </h4>
-          {investorBenefits.map((benefit, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.8 + index * 0.1 }}
-              whileHover={{ x: 5 }}
-              onMouseEnter={() => setHoveredBenefit(index)}
-              onMouseLeave={() => setHoveredBenefit(null)}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: pxToRem(12),
-                padding: pxToRem(12),
-                marginBottom: SPACING.xs,
-                background: hoveredBenefit === index ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
-                borderRadius: pxToRem(8),
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <benefit.icon size={20} color={benefit.color} />
-              <span className="responsive-text-sm" style={{ color: '#e2e8f0' }}>
-                {benefit.text}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Next Steps Timeline */}
-        <div className="glass-card responsive-padding-md" style={{
-          background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1))'
-        }}>
-          <h4 style={{ color: '#3b82f6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.body }}>
-            Next Steps
-          </h4>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            {nextSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1 + index * 0.1 }}
-                style={{
-                  textAlign: 'center',
-                  opacity: activeStep === index ? 1 : 0.5,
-                  transform: activeStep === index ? 'scale(1.1)' : 'scale(1)',
-                  transition: 'all 0.3s ease'
-                }}
-              >
+            {/* Use of Funds */}
+            <div className="glass-card" style={{
+              background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(6, 182, 212, 0.1))',
+              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+              flex: 1,
+              maxHeight: '65%',
+              overflow: 'auto'
+            }}>
+              <h4 style={{ 
+                color: '#10b981', 
+                marginBottom: pxToRem(8), 
+                fontSize: 'clamp(0.95rem, 1.4vw, 1.15rem)' 
+              }}>
+                Strategic Deployment
+              </h4>
+              {useOfFunds.map((item, index) => (
                 <motion.div
-                  animate={{ 
-                    scale: activeStep === index ? [1, 1.2, 1] : 1
-                  }}
-                  transition={{ duration: 1, repeat: activeStep === index ? Infinity : 0 }}
+                  key={item.category}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 + index * 0.1 }}
+                  style={{ marginBottom: pxToRem(10) }}
                 >
-                  <step.icon size={24} color="#3b82f6" style={{ margin: `0 auto ${SPACING.xs}` }} />
+                  <div style={{ 
+                    display: 'flex', 
+                    justifyContent: 'space-between', 
+                    marginBottom: pxToRem(3),
+                    alignItems: 'center'
+                  }}>
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: pxToRem(6)
+                    }}>
+                      <item.icon size={14} color={item.color} />
+                      <span style={{ 
+                        color: '#e2e8f0',
+                        fontSize: 'clamp(0.7rem, 1vw, 0.85rem)'
+                      }}>
+                        {item.category}
+                      </span>
+                    </div>
+                    <span style={{ 
+                      color: item.color, 
+                      fontWeight: 'bold',
+                      fontSize: 'clamp(0.7rem, 1vw, 0.85rem)'
+                    }}>
+                      {item.percentage}%
+                    </span>
+                  </div>
+                  <div style={{ 
+                    height: pxToRem(3), 
+                    background: 'rgba(255, 255, 255, 0.1)', 
+                    borderRadius: pxToRem(2),
+                    overflow: 'hidden'
+                  }}>
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{ width: `${item.percentage}%` }}
+                      transition={{ delay: 0.7 + index * 0.1, duration: 0.5 }}
+                      style={{
+                        height: '100%',
+                        background: item.color
+                      }}
+                    />
+                  </div>
                 </motion.div>
-                <div className="responsive-text-sm" style={{ color: '#e2e8f0', fontWeight: 'bold' }}>
-                  {step.phase}
-                </div>
-                <div style={{ fontSize: TYPOGRAPHY.body, color: '#64748b', marginTop: pxToRem(4) }}>
-                  {step.duration}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  )
+              ))}
+            </div>
+          </motion.div>
 
-  return (
-    <HeroLayout
-      title={title}
-      subtitle={subtitle}
-      backgroundContent={backgroundContent}
-      overlayContent={overlayContent}
-    />
+          {/* Right side - Benefits & Next Steps */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.7 }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 'clamp(0.75rem, 1.5vw, 1rem)',
+              maxHeight: '100%',
+              overflow: 'hidden'
+            }}
+          >
+            {/* Investor Benefits */}
+            <div className="glass-card" style={{
+              background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))',
+              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+              maxHeight: '45%',
+              overflow: 'auto'
+            }}>
+              <h4 style={{ 
+                color: '#fbbf24', 
+                marginBottom: pxToRem(8), 
+                fontSize: 'clamp(0.95rem, 1.4vw, 1.15rem)' 
+              }}>
+                Why Invest Now
+              </h4>
+              {investorBenefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.8 + index * 0.1 }}
+                  whileHover={{ x: 5 }}
+                  onMouseEnter={() => setHoveredBenefit(index)}
+                  onMouseLeave={() => setHoveredBenefit(null)}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: pxToRem(10),
+                    padding: 'clamp(0.5rem, 1vw, 0.75rem)',
+                    marginBottom: pxToRem(6),
+                    background: hoveredBenefit === index ? 'rgba(255, 255, 255, 0.05)' : 'transparent',
+                    borderRadius: pxToRem(6),
+                    transition: 'all 0.3s ease'
+                  }}
+                >
+                  <benefit.icon size={16} color={benefit.color} />
+                  <span style={{ 
+                    color: '#e2e8f0',
+                    fontSize: 'clamp(0.7rem, 1vw, 0.85rem)'
+                  }}>
+                    {benefit.text}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Next Steps Timeline */}
+            <div className="glass-card" style={{
+              background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.1), rgba(59, 130, 246, 0.1))',
+              padding: 'clamp(0.75rem, 1.5vw, 1.25rem)',
+              flex: 1,
+              maxHeight: '55%',
+              display: 'flex',
+              flexDirection: 'column'
+            }}>
+              <h4 style={{ 
+                color: '#3b82f6', 
+                marginBottom: pxToRem(8), 
+                fontSize: 'clamp(0.95rem, 1.4vw, 1.15rem)' 
+              }}>
+                Next Steps
+              </h4>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center',
+                flex: 1
+              }}>
+                {nextSteps.map((step, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1 + index * 0.1 }}
+                    style={{
+                      textAlign: 'center',
+                      opacity: activeStep === index ? 1 : 0.5,
+                      transform: activeStep === index ? 'scale(1.05)' : 'scale(1)',
+                      transition: 'all 0.3s ease'
+                    }}
+                  >
+                    <motion.div
+                      animate={{ 
+                        scale: activeStep === index ? [1, 1.15, 1] : 1
+                      }}
+                      transition={{ duration: 1, repeat: activeStep === index ? Infinity : 0 }}
+                    >
+                      <step.icon size={20} color="#3b82f6" style={{ margin: `0 auto ${pxToRem(4)}` }} />
+                    </motion.div>
+                    <div style={{ 
+                      color: '#e2e8f0', 
+                      fontWeight: 'bold',
+                      fontSize: 'clamp(0.7rem, 1vw, 0.85rem)'
+                    }}>
+                      {step.phase}
+                    </div>
+                    <div style={{ 
+                      fontSize: 'clamp(0.6rem, 0.9vw, 0.75rem)', 
+                      color: '#64748b', 
+                      marginTop: pxToRem(2) 
+                    }}>
+                      {step.duration}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </div>
   )
 }
