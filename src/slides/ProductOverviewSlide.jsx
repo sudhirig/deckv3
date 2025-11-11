@@ -5,6 +5,97 @@ import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function ProductOverviewSlide() {
+  // Calculate radial positions for modules (7 modules in a circle)
+  const modulePositions = [
+    { top: '8%', left: '50%', transform: 'translateX(-50%)' }, // Top center - Voice Trading
+    { top: '25%', right: '12%', transform: 'none' }, // Top right - CGMF
+    { top: '50%', right: '5%', transform: 'translateY(-50%)' }, // Right - GIFT City
+    { bottom: '35%', right: '12%', transform: 'none' }, // Bottom right - Algo Lab
+    { bottom: '18%', left: '50%', transform: 'translateX(-50%)' }, // Bottom center - Sentiment
+    { bottom: '35%', left: '12%', transform: 'none' }, // Bottom left - AI Research
+    { top: '50%', left: '5%', transform: 'translateY(-50%)' }, // Left - Tax Alpha
+  ]
+
+  const modules = [
+    {
+      title: 'Voice Trading',
+      icon: 'zap',
+      gradient: 'from-orange-400 to-amber-400',
+      color: '#fb923c',
+      bgGradient: 'rgba(249, 115, 22, 0.12), rgba(251, 191, 36, 0.08)',
+      border: 'rgba(249, 115, 22, 0.25)',
+      metrics: ['11ms latency', '3 languages', 'Zerodha API'],
+      status: 'LIVE',
+      statusColor: '#4ade80'
+    },
+    {
+      title: 'CGMF Advisory',
+      icon: 'trending',
+      gradient: 'from-green-400 to-emerald-400',
+      color: '#4ade80',
+      bgGradient: 'rgba(34, 197, 94, 0.12), rgba(20, 184, 166, 0.08)',
+      border: 'rgba(34, 197, 94, 0.25)',
+      metrics: ['16,766 funds', '43 AMCs', 'AI picks'],
+      status: 'LIVE',
+      statusColor: '#4ade80'
+    },
+    {
+      title: 'GIFT City',
+      icon: 'globe',
+      gradient: 'from-pink-400 to-rose-400',
+      color: '#ec4899',
+      bgGradient: 'rgba(236, 72, 153, 0.12), rgba(219, 39, 119, 0.08)',
+      border: 'rgba(236, 72, 153, 0.25)',
+      metrics: ['$5T TAM', 'Tax-free', 'Moat'],
+      status: "Q1'25",
+      statusColor: '#fbbf24'
+    },
+    {
+      title: 'Algo Lab',
+      icon: 'barChart',
+      gradient: 'from-blue-400 to-cyan-400',
+      color: '#60a5fa',
+      bgGradient: 'rgba(59, 130, 246, 0.12), rgba(96, 165, 250, 0.08)',
+      border: 'rgba(59, 130, 246, 0.25)',
+      metrics: ['122 signals', 'Backtest', 'Risk mgmt'],
+      status: 'LIVE',
+      statusColor: '#4ade80'
+    },
+    {
+      title: 'Sentiment Intel',
+      icon: 'search',
+      gradient: 'from-purple-400 to-pink-400',
+      color: '#a78bfa',
+      bgGradient: 'rgba(168, 85, 247, 0.12), rgba(139, 92, 246, 0.08)',
+      border: 'rgba(168, 85, 247, 0.25)',
+      metrics: ['Real-time', '5 sources', 'Predictive'],
+      status: 'LIVE',
+      statusColor: '#4ade80'
+    },
+    {
+      title: 'AI Research',
+      icon: 'fileText',
+      gradient: 'from-teal-400 to-green-400',
+      color: '#5eead4',
+      bgGradient: 'rgba(20, 184, 166, 0.12), rgba(34, 197, 94, 0.08)',
+      border: 'rgba(20, 184, 166, 0.25)',
+      metrics: ['Deep DD', 'Auto reports', 'Insights'],
+      status: 'LIVE',
+      statusColor: '#4ade80'
+    },
+    {
+      title: 'Tax Alpha',
+      icon: 'wallet',
+      gradient: 'from-yellow-400 to-orange-400',
+      color: '#fbbf24',
+      bgGradient: 'rgba(251, 191, 36, 0.12), rgba(249, 115, 22, 0.08)',
+      border: 'rgba(251, 191, 36, 0.25)',
+      metrics: ['3.2% alpha', 'Daily harvest', 'Auto-switch'],
+      status: "Q2'25",
+      statusColor: '#fbbf24'
+    }
+  ]
+
   return (
     <div style={{
       width: '100%',
@@ -22,9 +113,9 @@ export default function ProductOverviewSlide() {
         transition={{ duration: 0.8 }}
         style={{
           textAlign: 'center',
-          padding: `${pxToRem(20)} ${pxToRem(32)} ${pxToRem(16)}`,
+          padding: `${pxToRem(20)} ${pxToRem(32)} ${pxToRem(12)}`,
           position: 'relative',
-          zIndex: 1
+          zIndex: 10
         }}
       >
         <h1 style={{ 
@@ -43,274 +134,233 @@ export default function ProductOverviewSlide() {
         </p>
       </motion.div>
 
-      {/* Main Content Area */}
+      {/* Main Content Area with Radial Layout */}
       <div style={{
         flex: 1,
-        padding: `0 ${pxToRem(32)} ${pxToRem(24)}`,
         position: 'relative',
-        zIndex: 1,
+        padding: `0 ${pxToRem(32)}`,
         display: 'flex',
-        flexDirection: 'column',
-        gap: 'clamp(1.5rem, 2.5vh, 2rem)'
+        flexDirection: 'column'
       }}>
-        {/* Cards Grid */}
+        {/* Radial Module Container */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: 'clamp(1rem, 1.5vw, 1.5rem)',
+          position: 'relative',
           flex: 1,
-          alignContent: 'stretch'
+          minHeight: '450px'
         }}>
-          {/* 30-Agent Command Center (spanning 2 columns) */}
+          {/* Connection Lines SVG */}
+          <svg style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            pointerEvents: 'none',
+            zIndex: 1
+          }}>
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(147, 51, 234, 0.3)" />
+                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.3)" />
+              </linearGradient>
+            </defs>
+            {/* Lines will be drawn from center to each module */}
+            {modulePositions.map((pos, index) => (
+              <motion.line
+                key={index}
+                x1="50%"
+                y1="50%"
+                x2={pos.left || (pos.right ? `calc(100% - ${pos.right})` : '50%')}
+                y2={pos.top || (pos.bottom ? `calc(100% - ${pos.bottom})` : '50%')}
+                stroke="url(#lineGradient)"
+                strokeWidth="1"
+                strokeDasharray="5,5"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 0.3 }}
+                transition={{ duration: 1.5, delay: 0.5 + index * 0.1 }}
+              >
+                <animate
+                  attributeName="stroke-dashoffset"
+                  from="0"
+                  to="10"
+                  dur="1s"
+                  repeatCount="indefinite"
+                />
+              </motion.line>
+            ))}
+          </svg>
+
+          {/* Central AI Command Center */}
           <motion.div
-            style={{ gridColumn: 'span 2' }}
-            whileHover={{ scale: 1.02 }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, type: "spring" }}
+            whileHover={{ scale: 1.05 }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              zIndex: 5
+            }}
           >
             <div style={{ 
+              width: '240px',
+              height: '240px',
               padding: 'clamp(1.5rem, 2vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.15), rgba(59, 130, 246, 0.1))',
-              border: `${pxToRem(2)} solid rgba(147, 51, 234, 0.3)`,
-              borderRadius: pxToRem(16),
-              boxShadow: '0 4px 16px rgba(147, 51, 234, 0.2)',
-              height: '100%',
+              background: 'radial-gradient(circle at center, rgba(147, 51, 234, 0.25), rgba(59, 130, 246, 0.15))',
+              border: `${pxToRem(3)} solid rgba(147, 51, 234, 0.5)`,
+              borderRadius: '50%',
+              boxShadow: '0 0 40px rgba(147, 51, 234, 0.4), inset 0 0 20px rgba(147, 51, 234, 0.2)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              position: 'relative'
             }}>
-              <Icon type="bot" size={32} variant="inline" gradient="from-purple-400 to-blue-400" />
+              {/* Pulsing ring animation */}
+              <div style={{
+                position: 'absolute',
+                top: '-3px',
+                left: '-3px',
+                right: '-3px',
+                bottom: '-3px',
+                borderRadius: '50%',
+                border: '2px solid rgba(147, 51, 234, 0.5)',
+                animation: 'pulseRing 2s infinite'
+              }} />
+              
+              <Icon type="bot" size={40} variant="inline" gradient="from-purple-400 to-blue-400" />
               <h3 style={{ 
-                fontSize: 'clamp(1.2rem, 1.8vw, 1.6rem)',
-                color: '#a78bfa',
-                margin: '1rem 0 0.6rem',
+                fontSize: 'clamp(1rem, 1.3vw, 1.3rem)',
+                color: '#e9d5ff',
+                margin: '0.8rem 0 0.4rem',
                 fontWeight: 700,
-                textAlign: 'center'
+                textAlign: 'center',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
               }}>
-                30-Agent Command Center
+                AI Command Center
               </h3>
+              <div style={{
+                fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)',
+                color: '#c4b5fd',
+                textAlign: 'center',
+                fontWeight: 600,
+                marginBottom: '0.5rem'
+              }}>
+                The AI Brain
+              </div>
               <p style={{ 
-                fontSize: 'clamp(0.9rem, 1.2vw, 1.15rem)',
-                color: 'rgba(255, 255, 255, 0.8)',
+                fontSize: 'clamp(0.8rem, 1vw, 1rem)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 textAlign: 'center',
                 margin: 0,
-                lineHeight: '1.6'
+                lineHeight: '1.5'
               }}>
-                12 Investment Committee<br/>
+                30 Specialized Agents<br/>
+                12-Member Committee<br/>
                 18 Hedge Fund Team
               </p>
               <div style={{
+                fontSize: 'clamp(0.7rem, 0.85vw, 0.85rem)',
+                color: '#a78bfa',
+                marginTop: '0.8rem',
+                fontWeight: 600
+              }}>
+                Orchestrating 24/7
+              </div>
+              <div style={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: '0.4rem',
-                marginTop: '1rem'
+                gap: '0.3rem',
+                marginTop: '0.5rem'
               }}>
                 <div style={{
                   width: '10px',
                   height: '10px',
                   borderRadius: '50%',
                   background: '#4ade80',
-                  animation: 'pulse 2s infinite'
+                  animation: 'pulse 2s infinite',
+                  boxShadow: '0 0 10px #4ade80'
                 }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.9rem, 1.1vw, 1.05rem)', fontWeight: 600 }}>LIVE</span>
+                <span style={{ color: '#4ade80', fontSize: 'clamp(0.8rem, 1vw, 1rem)', fontWeight: 600 }}>LIVE</span>
               </div>
             </div>
           </motion.div>
-          
-          {/* Module 1: Voice Trading */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(251, 191, 36, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(249, 115, 22, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="zap" size={32} variant="inline" gradient="from-orange-400 to-amber-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#fb923c', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                Voice Trading
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • 11ms latency<br/>
-                • 3 languages<br/>
-                • Zerodha API
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80' }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>LIVE</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Module 2: CGMF Mutual Funds */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(20, 184, 166, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(34, 197, 94, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="trending" size={32} variant="inline" gradient="from-green-400 to-emerald-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#4ade80', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                CGMF Advisory
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • 16,766 funds<br/>
-                • 43 AMCs<br/>
-                • AI picks
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80' }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>LIVE</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Module 3: GIFT City Gateway */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(236, 72, 153, 0.12), rgba(219, 39, 119, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(236, 72, 153, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="globe" size={32} variant="inline" gradient="from-pink-400 to-rose-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#ec4899', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                GIFT City
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • $5T TAM<br/>
-                • Tax-free<br/>
-                • Moat
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fbbf24' }} />
-                <span style={{ color: '#fbbf24', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>Q1'25</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Module 4: Algo Trading */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(96, 165, 250, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(59, 130, 246, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="barChart" size={32} variant="inline" gradient="from-blue-400 to-cyan-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#60a5fa', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                Algo Lab
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • 122 signals<br/>
-                • Backtest<br/>
-                • Risk mgmt
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80' }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>LIVE</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Module 5: Sentiment Intelligence */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.12), rgba(139, 92, 246, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(168, 85, 247, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="search" size={32} variant="inline" gradient="from-purple-400 to-pink-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#a78bfa', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                Sentiment Intel
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • Real-time<br/>
-                • 5 sources<br/>
-                • Predictive
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80' }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>LIVE</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Module 6: AI DD & Research */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.12), rgba(34, 197, 94, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(20, 184, 166, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="fileText" size={32} variant="inline" gradient="from-teal-400 to-green-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#5eead4', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                AI Research
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • Deep DD<br/>
-                • Auto reports<br/>
-                • Insights
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#4ade80' }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>LIVE</span>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Module 7: Tax Optimization */}
-          <motion.div whileHover={{ scale: 1.02 }}>
-            <div style={{ 
-              padding: 'clamp(1.2rem, 1.8vw, 2rem)',
-              background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.12), rgba(249, 115, 22, 0.08))',
-              border: `${pxToRem(1.5)} solid rgba(251, 191, 36, 0.25)`,
-              borderRadius: pxToRem(12),
-              height: '100%',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center'
-            }}>
-              <Icon type="wallet" size={32} variant="inline" gradient="from-yellow-400 to-orange-400" />
-              <h4 style={{ fontSize: 'clamp(1.2rem, 1.5vw, 1.5rem)', color: '#fbbf24', margin: '1rem 0 0.8rem', fontWeight: 700 }}>
-                Tax Alpha
-              </h4>
-              <div style={{ fontSize: 'clamp(0.95rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>
-                • 3.2% alpha<br/>
-                • Daily harvest<br/>
-                • Auto-switch
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '1rem' }}>
-                <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fbbf24' }} />
-                <span style={{ color: '#fbbf24', fontSize: 'clamp(0.85rem, 1vw, 1rem)' }}>Q2'25</span>
-              </div>
-            </div>
-          </motion.div>
+
+          {/* Radially Positioned Module Cards */}
+          {modules.map((module, index) => {
+            const position = modulePositions[index]
+            return (
+              <motion.div
+                key={index}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
+                whileHover={{ scale: 1.05, zIndex: 10 }}
+                style={{
+                  position: 'absolute',
+                  ...position,
+                  width: '180px',
+                  zIndex: 2
+                }}
+              >
+                <div style={{
+                  padding: 'clamp(1rem, 1.3vw, 1.3rem)',
+                  background: `linear-gradient(135deg, ${module.bgGradient})`,
+                  border: `${pxToRem(1.5)} solid ${module.border}`,
+                  borderRadius: pxToRem(12),
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center'
+                }}>
+                  <Icon type={module.icon} size={28} variant="inline" gradient={module.gradient} />
+                  <h4 style={{ 
+                    fontSize: 'clamp(1rem, 1.2vw, 1.2rem)', 
+                    color: module.color, 
+                    margin: '0.6rem 0 0.5rem', 
+                    fontWeight: 700,
+                    textAlign: 'center'
+                  }}>
+                    {module.title}
+                  </h4>
+                  <div style={{ 
+                    fontSize: 'clamp(0.8rem, 0.95vw, 0.95rem)', 
+                    color: 'rgba(255, 255, 255, 0.8)', 
+                    lineHeight: '1.5',
+                    textAlign: 'center'
+                  }}>
+                    {module.metrics.map((metric, i) => (
+                      <div key={i}>• {metric}</div>
+                    ))}
+                  </div>
+                  <div style={{ 
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    gap: '0.3rem', 
+                    marginTop: '0.6rem' 
+                  }}>
+                    <div style={{ 
+                      width: '7px', 
+                      height: '7px', 
+                      borderRadius: '50%', 
+                      background: module.statusColor 
+                    }} />
+                    <span style={{ 
+                      color: module.statusColor, 
+                      fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)',
+                      fontWeight: 600 
+                    }}>
+                      {module.status}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            )
+          })}
         </div>
 
         {/* Summary Section */}
@@ -321,7 +371,8 @@ export default function ProductOverviewSlide() {
           style={{ 
             display: 'flex',
             flexDirection: 'column',
-            gap: 'clamp(1rem, 1.5vh, 1.5rem)'
+            gap: 'clamp(1rem, 1.5vh, 1.5rem)',
+            marginTop: 'clamp(1rem, 1.5vh, 1.5rem)'
           }}
         >
           {/* Metrics Bar */}
