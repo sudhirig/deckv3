@@ -322,12 +322,289 @@ const ZerodhaConceptSlide = () => {
   )
 
   return (
-    <HeroLayout 
-      title={<GradientText gradient="from-orange-400 via-amber-400 to-yellow-400">Chapter 1: Zerodha Trading Intelligence</GradientText>}
-      subtitle="AI Layer Over Your Existing Broker"
-      backgroundVisual={backgroundVisual}
-      overlayContent={overlayContent}
-    />
+    <div style={{
+      width: '100%',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      background: 'linear-gradient(135deg, #1a1c3d 0%, #0f1629 100%)',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      {backgroundVisual}
+      
+      {/* Header Section */}
+      <div style={{
+        padding: '2rem 3rem 1rem',
+        textAlign: 'center',
+        flexShrink: 0,
+        zIndex: 10
+      }}>
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{ 
+            fontSize: 'clamp(2rem, 4vw, 3rem)', 
+            marginBottom: '0.5rem'
+          }}
+        >
+          <GradientText gradient="from-orange-400 via-amber-400 to-yellow-400">
+            Chapter 1: Zerodha Trading Intelligence
+          </GradientText>
+        </motion.h1>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ 
+            fontSize: 'clamp(1rem, 1.5vw, 1.2rem)',
+            color: '#94a3b8'
+          }}
+        >
+          AI Layer Over Your Existing Broker
+        </motion.p>
+      </div>
+
+      {/* Main Content Grid */}
+      <div style={{
+        flex: 1,
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr auto',
+        gap: '1rem',
+        padding: '0 3rem 2rem',
+        maxHeight: 'calc(100vh - 10rem)',
+        overflow: 'hidden',
+        zIndex: 10
+      }}>
+        {/* Top Section - Brain Icon */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.8, type: 'spring' }}
+          style={{
+            textAlign: 'center',
+            padding: '1rem',
+            background: 'radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, transparent 70%)',
+            borderRadius: '1.25rem',
+            maxHeight: '25vh',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          <motion.div
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            style={{
+              display: 'inline-block',
+              padding: 'clamp(1rem, 2vw, 1.5rem)',
+              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(251, 191, 36, 0.1) 100%)',
+              borderRadius: '50%'
+            }}
+          >
+            <Brain style={{ 
+              width: 'clamp(3rem, 5vw, 4rem)', 
+              height: 'clamp(3rem, 5vw, 4rem)', 
+              color: '#f97316' 
+            }} />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            style={{ marginTop: '0.5rem' }}
+          >
+            <h3 style={{ fontSize: 'clamp(1.2rem, 2vw, 1.8rem)' }}>
+              <GradientText gradient="from-orange-400 to-yellow-400">
+                <AnimatedCounter end={toFiniteNumber(11)} duration={2} />ms Latency
+              </GradientText>
+            </h3>
+            <p style={{ color: '#94a3b8', fontSize: 'clamp(0.8rem, 1vw, 0.9rem)' }}>
+              Voice to Trade Execution
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Middle Section - Cards Grid */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+          gap: '1rem',
+          overflow: 'hidden',
+          alignItems: 'start'
+        }}>
+          {/* ARIA Framework Card */}
+          <motion.div
+            initial={{ opacity: 0, x: -3.125 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%)',
+              border: '0.0625rem solid rgba(168, 85, 247, 0.3)',
+              position: 'relative',
+              padding: '1rem',
+              maxHeight: '35vh',
+              overflow: 'auto'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}>
+              <Brain style={{ width: '1.5rem', height: '1.5rem', color: '#a855f7', marginRight: '0.5rem' }} />
+              <h3 style={{ fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', fontWeight: 'bold' }}>
+                <GradientText gradient="from-purple-400 to-violet-400">ARIA Framework</GradientText>
+              </h3>
+            </div>
+            <div style={{ fontSize: 'clamp(0.75rem, 1vw, 0.9rem)' }}>
+              {[
+                { letter: 'A', title: 'Analyze', desc: 'Market conditions' },
+                { letter: 'R', title: 'Recommend', desc: 'Optimal trades' },
+                { letter: 'I', title: 'Implement', desc: 'Execute orders' },
+                { letter: 'A', title: 'Assess', desc: 'Performance metrics' }
+              ].map((item, index) => (
+                <div key={index} style={{ 
+                  display: 'flex', 
+                  marginBottom: '0.5rem',
+                  alignItems: 'center'
+                }}>
+                  <span style={{ 
+                    color: '#a855f7', 
+                    fontWeight: 'bold', 
+                    marginRight: '0.5rem',
+                    minWidth: '1.2rem'
+                  }}>{item.letter}</span>
+                  <div>
+                    <span style={{ fontWeight: '600', color: '#e2e8f0' }}>{item.title}: </span>
+                    <span style={{ color: '#94a3b8' }}>{item.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* ELIVATE System Card */}
+          <motion.div
+            initial={{ opacity: 0, x: 3.125 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="glass-card"
+            style={{
+              background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)',
+              border: '0.0625rem solid rgba(20, 184, 166, 0.3)',
+              position: 'relative',
+              padding: '1rem',
+              maxHeight: '35vh',
+              overflow: 'auto'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '0.75rem' }}>
+              <MessageSquare style={{ width: '1.5rem', height: '1.5rem', color: '#14b8a6', marginRight: '0.5rem' }} />
+              <h3 style={{ fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', fontWeight: 'bold' }}>
+                <GradientText gradient="from-teal-400 to-cyan-400">ELIVATE System</GradientText>
+              </h3>
+            </div>
+            <div style={{ fontSize: 'clamp(0.75rem, 1vw, 0.9rem)' }}>
+              {[
+                { letter: 'E', title: 'Engage', desc: 'Natural conversation' },
+                { letter: 'L', title: 'Listen', desc: 'Understand intent' },
+                { letter: 'I', title: 'Integrate', desc: 'Connect to Zerodha' },
+                { letter: 'V', title: 'Validate', desc: 'Risk checks' }
+              ].map((item, index) => (
+                <div key={index} style={{ 
+                  display: 'flex', 
+                  marginBottom: '0.5rem',
+                  alignItems: 'center'
+                }}>
+                  <span style={{ 
+                    color: '#14b8a6', 
+                    fontWeight: 'bold', 
+                    marginRight: '0.5rem',
+                    minWidth: '1.2rem'
+                  }}>{item.letter}</span>
+                  <div>
+                    <span style={{ fontWeight: '600', color: '#e2e8f0' }}>{item.title}: </span>
+                    <span style={{ color: '#94a3b8' }}>{item.desc}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Bottom Section - Workflow */}
+        <motion.div
+          initial={{ opacity: 0, y: 1.25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.1, duration: 0.6 }}
+          className="glass-card"
+          style={{
+            padding: '1rem',
+            background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(20, 184, 166, 0.05) 100%)',
+            border: '0.0625rem solid rgba(249, 115, 22, 0.3)',
+            maxHeight: '20vh',
+            overflow: 'hidden'
+          }}
+        >
+          <h4 style={{ 
+            fontSize: 'clamp(1rem, 1.3vw, 1.2rem)', 
+            textAlign: 'center', 
+            marginBottom: '1rem', 
+            color: '#e2e8f0' 
+          }}>
+            Seamless Trading Workflow
+          </h4>
+          
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-around',
+            flexWrap: 'wrap'
+          }}>
+            {[
+              { icon: Mic, label: 'Voice', color: '#f97316' },
+              { icon: Brain, label: 'AI', color: '#a855f7' },
+              { icon: LayoutDashboard, label: 'Dashboard', color: '#14b8a6' },
+              { icon: Zap, label: '11ms', color: '#fbbf24' }
+            ].map((item, index) => (
+              <React.Fragment key={index}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 1.3 + index * 0.1, type: 'spring' }}
+                  style={{ 
+                    textAlign: 'center',
+                    padding: '0.25rem',
+                    minWidth: '60px'
+                  }}
+                >
+                  <item.icon style={{ 
+                    width: 'clamp(1.5rem, 2vw, 2rem)', 
+                    height: 'clamp(1.5rem, 2vw, 2rem)',
+                    color: item.color 
+                  }} />
+                  <p style={{ 
+                    fontSize: 'clamp(0.7rem, 0.9vw, 0.85rem)', 
+                    color: '#e2e8f0',
+                    marginTop: '0.25rem'
+                  }}>{item.label}</p>
+                </motion.div>
+                
+                {index < 3 && (
+                  <motion.span
+                    animate={{ x: [0, 0.625, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    style={{ color: '#94a3b8', fontSize: 'clamp(1rem, 1.5vw, 1.2rem)' }}
+                  >
+                    →
+                  </motion.span>
+                )}
+              </React.Fragment>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </div>
   )
 }
 
