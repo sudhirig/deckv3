@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useTransform, animate } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
@@ -33,23 +33,69 @@ function AnimatedCounter({ value, suffix = '', prefix = '', color }) {
 }
 
 export default function ProductOverviewSlide() {
-  // Calculate radial positions for modules (7 modules in a circle)
-  // Using trigonometry for even distribution
-  const numberOfModules = 7
-  const angleOffset = -Math.PI / 2 // Start from top
-  const radius = 38 // Increased radius for better spacing and less clutter
+  const containerRef = useRef(null)
+  const [modulePositions, setModulePositions] = useState([])
+  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 })
   
-  const modulePositions = Array.from({ length: numberOfModules }, (_, index) => {
-    const angle = angleOffset + (2 * Math.PI * index) / numberOfModules
-    const x = 50 + radius * Math.cos(angle) // Center at 50%
-    const y = 50 + radius * Math.sin(angle) // Center at 50%
+  // Calculate absolute pixel positions based on container size
+  const calculatePositions = () => {
+    if (!containerRef.current) return
     
-    return {
-      left: `${x}%`,
-      top: `${y}%`,
-      transform: 'translate(-50%, -50%)' // Center the module at calculated point
+    const rect = containerRef.current.getBoundingClientRect()
+    const containerWidth = rect.width
+    const containerHeight = rect.height
+    const centerX = containerWidth / 2
+    const centerY = containerHeight / 2
+    
+    // Module dimensions
+    const moduleWidth = 140
+    const moduleHeight = 120 // Approximate height
+    
+    // Calculate radius - ensure modules fit within container
+    const maxRadius = Math.min(containerWidth, containerHeight) / 2
+    const moduleRadius = Math.max(moduleWidth, moduleHeight) / 2
+    const circleRadius = maxRadius - moduleRadius - 20 // 20px padding from edges
+    
+    // Generate positions for 7 modules
+    const numberOfModules = 7
+    const angleOffset = -Math.PI / 2 // Start from top
+    
+    const positions = Array.from({ length: numberOfModules }, (_, index) => {
+      const angle = angleOffset + (2 * Math.PI * index) / numberOfModules
+      const x = centerX + circleRadius * Math.cos(angle)
+      const y = centerY + circleRadius * Math.sin(angle)
+      
+      return {
+        // Absolute pixel positioning without transform
+        left: x - moduleWidth / 2,
+        top: y - moduleHeight / 2,
+        // For SVG lines - exact center points
+        centerX: x,
+        centerY: y
+      }
+    })
+    
+    setModulePositions(positions)
+    setContainerSize({ width: containerWidth, height: containerHeight })
+  }
+  
+  // Calculate positions on mount and resize
+  useLayoutEffect(() => {
+    // Initial calculation with small delay to ensure container is rendered
+    const timer = setTimeout(() => {
+      calculatePositions()
+    }, 100)
+    
+    const handleResize = () => {
+      calculatePositions()
     }
-  })
+    
+    window.addEventListener('resize', handleResize)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   const modules = [
     {
@@ -192,14 +238,16 @@ export default function ProductOverviewSlide() {
         flexDirection: 'column'
       }}>
         {/* Radial Module Container */}
-        <div style={{
-          position: 'relative',
-          flex: 1,
-          minHeight: '400px',
-          maxWidth: '1200px',
-          margin: '0 auto',
-          width: '100%'
-        }}>
+        <div 
+          ref={containerRef}
+          style={{
+            position: 'relative',
+            flex: 1,
+            minHeight: '500px',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            width: '100%'
+          }}>
           {/* Connection Lines SVG with Animated Arrows */}
           <svg style={{
             position: 'absolute',
@@ -222,13 +270,13 @@ export default function ProductOverviewSlide() {
               </marker>
             </defs>
             {/* Animated arrow lines from center to each module */}
-            {modulePositions.map((pos, index) => (
+            {modulePositions.length > 0 && modulePositions.map((pos, index) => (
               <g key={index}>
                 <motion.line
-                  x1="50%"
-                  y1="50%"
-                  x2={pos.left}
-                  y2={pos.top}
+                  x1={containerSize.width / 2}
+                  y1={containerSize.height / 2}
+                  x2={pos.centerX}
+                  y2={pos.centerY}
                   stroke="url(#lineGradient)"
                   strokeWidth="2"
                   strokeDasharray="8,4"
@@ -349,8 +397,10 @@ export default function ProductOverviewSlide() {
           </motion.div>
 
           {/* Radially Positioned Module Cards */}
-          {modules.map((module, index) => {
+          {modulePositions.length > 0 && modules.map((module, index) => {
             const position = modulePositions[index]
+            if (!position) return null
+            
             return (
               <motion.div
                 key={index}
@@ -360,7 +410,8 @@ export default function ProductOverviewSlide() {
                 whileHover={{ scale: 1.05, zIndex: 10 }}
                 style={{
                   position: 'absolute',
-                  ...position,
+                  left: `${position.left}px`,
+                  top: `${position.top}px`,
                   width: '140px',
                   zIndex: 2
                 }}
