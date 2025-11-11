@@ -283,7 +283,7 @@ export default function CGMFLiveSnapshotSlide() {
                   transition={{ duration: 1 }}
                   style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
                 >
-                  ₹<AnimatedCounter value={1.5} decimals={1} duration={1500} />L
+                  ₹<AnimatedCounter end={toFiniteNumber(1.5)} decimals={1} duration={1.5} />L
                 </motion.div>
               </motion.div>
               <motion.div
@@ -299,7 +299,7 @@ export default function CGMFLiveSnapshotSlide() {
                   transition={{ duration: 1 }}
                   style={{ fontSize: '1.5rem', fontWeight: 'bold' }}
                 >
-                  ₹<AnimatedCounter value={1.55} decimals={2} duration={1500} />L
+                  ₹<AnimatedCounter end={toFiniteNumber(1.55)} decimals={2} duration={1.5} />L
                 </motion.div>
               </motion.div>
             </div>
