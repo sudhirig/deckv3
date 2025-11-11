@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import { Server, Cpu, Zap, Cloud, Database, Globe, Wifi, HardDrive } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function GiftCityTechnologyInfrastructureSlide() {
@@ -255,7 +256,7 @@ export default function GiftCityTechnologyInfrastructureSlide() {
             >
               {metric.isNumeric ? (
                 <>
-                  <AnimatedCounter end={metric.value || 0} duration={2000} decimals={metric.unit === '%' ? 2 : 0} />
+                  <AnimatedCounter end={toFiniteNumber(metric.value)} duration={2} decimals={metric.unit === '%' ? 2 : 0} />
                   {metric.unit}
                 </>
               ) : (

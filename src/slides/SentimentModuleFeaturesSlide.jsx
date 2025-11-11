@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function SentimentModuleFeaturesSlide() {
   const [hoveredFeature, setHoveredFeature] = useState(null)
@@ -351,7 +352,7 @@ export default function SentimentModuleFeaturesSlide() {
             fontWeight: 'bold',
             color: signal.color
           }}>
-            <AnimatedCounter end={signal.value || 0} duration={1500} />
+            <AnimatedCounter end={toFiniteNumber(signal.value)} duration={1.5} />
           </span>
         </motion.div>
       ))}
@@ -402,7 +403,7 @@ export default function SentimentModuleFeaturesSlide() {
           color: '#a855f7',
           margin: `${pxToRem(8)} 0`
         }}>
-          <AnimatedCounter end={182 || 0} duration={2000} />+
+          <AnimatedCounter end={toFiniteNumber(182)} duration={2} />+
         </p>
         <p style={{ fontSize: pxToRem(12), color: '#94a3b8' }}>
           News Sources

@@ -557,7 +557,7 @@ export default function ZerodhaFeaturesSlide() {
             >
               <AnimatedCounter 
                 end={toFiniteNumber(stat.value)} 
-                duration={1500} 
+                duration={1.5} 
                 decimals={stat.label === 'Uptime' ? 1 : 0}
               />{stat.unit}
             </motion.div>

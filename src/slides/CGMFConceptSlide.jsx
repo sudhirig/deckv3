@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Users, Brain, Target, PiggyBank, TrendingUp, Shield, BarChart2, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 const CGMFConceptSlide = () => {
@@ -81,7 +82,7 @@ const CGMFConceptSlide = () => {
               transition={{ duration: 2, repeat: Infinity }}
               style={{ fontSize: '1.8rem', fontWeight: 'bold', color: stat.color }}
             >
-              {stat.prefix}<AnimatedCounter end={stat.value} duration={2} decimals={stat.value < 10 ? 2 : 0} />
+              {stat.prefix}<AnimatedCounter end={toFiniteNumber(stat.value)} duration={2} decimals={stat.value < 10 ? 2 : 0} />
             </motion.div>
             <p style={{ fontSize: '0.75rem', color: '#94a3b8' }}>{stat.label}</p>
           </motion.div>

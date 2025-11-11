@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function TradingAgentsFeaturesSlide() {
   const [activePanel, setActivePanel] = useState(null)
@@ -104,7 +105,7 @@ export default function TradingAgentsFeaturesSlide() {
               fontWeight: 'bold',
               color: style.color
             }}>
-              <AnimatedCounter end={style.count || 0} duration={1500} />
+              <AnimatedCounter end={toFiniteNumber(style.count)} duration={1.5} />
             </span>
           </motion.div>
         ))}
@@ -188,7 +189,7 @@ export default function TradingAgentsFeaturesSlide() {
             color: '#10b981',
             margin: 0
           }}>
-            +<AnimatedCounter end={28.5 || 0} decimals={1} duration={1500} />%
+            +<AnimatedCounter end={toFiniteNumber(28.5)} decimals={1} duration={1.5} />%
           </p>
           <p style={{ fontSize: pxToRem(12), color: '#94a3b8', margin: 0 }}>
             Avg Annual Return
@@ -208,7 +209,7 @@ export default function TradingAgentsFeaturesSlide() {
             color: '#3b82f6',
             margin: 0
           }}>
-            <AnimatedCounter end={2.1 || 0} decimals={1} duration={1500} />
+            <AnimatedCounter end={toFiniteNumber(2.1)} decimals={1} duration={1.5} />
           </p>
           <p style={{ fontSize: pxToRem(12), color: '#94a3b8', margin: 0 }}>
             Sharpe Ratio
@@ -228,7 +229,7 @@ export default function TradingAgentsFeaturesSlide() {
             color: '#14b8a6',
             margin: 0
           }}>
-            <AnimatedCounter end={87 || 0} duration={1500} />%
+            <AnimatedCounter end={toFiniteNumber(87)} duration={1.5} />%
           </p>
           <p style={{ fontSize: pxToRem(12), color: '#94a3b8', margin: 0 }}>
             Win Rate
@@ -248,7 +249,7 @@ export default function TradingAgentsFeaturesSlide() {
             color: '#a855f7',
             margin: 0
           }}>
-            +<AnimatedCounter end={15.2 || 0} decimals={1} duration={1500} />%
+            +<AnimatedCounter end={toFiniteNumber(15.2)} decimals={1} duration={1.5} />%
           </p>
           <p style={{ fontSize: pxToRem(12), color: '#94a3b8', margin: 0 }}>
             Alpha Generated
@@ -306,7 +307,7 @@ export default function TradingAgentsFeaturesSlide() {
             margin: `${pxToRem(12)} 0 ${pxToRem(4)}`
           }}
         >
-          <AnimatedCounter end={35 || 0} duration={1500} />s
+          <AnimatedCounter end={toFiniteNumber(35)} duration={1.5} />s
         </motion.p>
         <p style={{ fontSize: pxToRem(14), color: '#94a3b8', margin: 0 }}>
           Complete Analysis

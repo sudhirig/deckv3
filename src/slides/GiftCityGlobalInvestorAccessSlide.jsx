@@ -6,6 +6,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import { Globe2, Users, MapPin, Briefcase, TrendingUp } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function GiftCityGlobalInvestorAccessSlide() {
@@ -216,7 +217,7 @@ export default function GiftCityGlobalInvestorAccessSlide() {
         }}
       >
         <p style={{ fontSize: 'clamp(1.2rem, 2vw, 1.8rem)', fontWeight: 'bold', color: '#06b6d4' }}>
-          <AnimatedCounter end={45 || 0} duration={2000} />+ Countries
+          <AnimatedCounter end={toFiniteNumber(45)} duration={2} />+ Countries
         </p>
         <p style={{ fontSize: '0.85rem', color: '#94a3b8' }}>
           Global Coverage
@@ -306,7 +307,7 @@ export default function GiftCityGlobalInvestorAccessSlide() {
         }}
       >
         <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#14b8a6' }}>
-          <AnimatedCounter end={1000} duration={2500} />+ Investors
+          <AnimatedCounter end={toFiniteNumber(1000)} duration={2.5} />+ Investors
         </p>
         <p style={{ fontSize: '0.75rem', color: '#64748b' }}>
           Expected by 2026

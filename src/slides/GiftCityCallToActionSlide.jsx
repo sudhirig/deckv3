@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import { ArrowRight, Phone, Mail, Calendar, Rocket, TrendingUp } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function GiftCityCallToActionSlide() {
@@ -150,7 +151,7 @@ export default function GiftCityCallToActionSlide() {
             }}
           >
             <GradientText gradient="from-amber-400 to-orange-400">
-              $<AnimatedCounter end={opportunity.currentRound || 0} duration={1500} />M
+              $<AnimatedCounter end={toFiniteNumber(opportunity.currentRound)} duration={1.5} />M
             </GradientText>
           </motion.p>
           <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Current Round</p>
@@ -174,7 +175,7 @@ export default function GiftCityCallToActionSlide() {
               marginBottom: '0.5rem'
             }}
           >
-            <AnimatedCounter end={opportunity.growthTarget || 0} duration={2000} />x
+            <AnimatedCounter end={toFiniteNumber(opportunity.growthTarget)} duration={2} />x
           </motion.p>
           <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Growth Target</p>
         </motion.div>
@@ -197,7 +198,7 @@ export default function GiftCityCallToActionSlide() {
               marginBottom: '0.5rem'
             }}
           >
-            <AnimatedCounter end={opportunity.timeframe || 0} duration={1800} />
+            <AnimatedCounter end={toFiniteNumber(opportunity.timeframe)} duration={1.8} />
           </motion.p>
           <p style={{ fontSize: '0.9rem', color: '#94a3b8' }}>Months to $250M</p>
         </motion.div>

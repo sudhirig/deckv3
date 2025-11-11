@@ -7,6 +7,7 @@ import CircularProgress from '../components/CircularProgress'
 import { Shield, CheckCircle, Award, FileCheck, Lock } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function GiftCityRegulatoryComplianceSlide() {
@@ -402,7 +403,7 @@ export default function GiftCityRegulatoryComplianceSlide() {
             >
               {metric.isNumeric ? (
                 <>
-                  <AnimatedCounter end={metric.value || 0} duration={2000} decimals={metric.unit === '%' ? 0 : 0} />
+                  <AnimatedCounter end={toFiniteNumber(metric.value)} duration={2} decimals={metric.unit === '%' ? 0 : 0} />
                   {metric.unit}
                 </>
               ) : (

@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Brain, Users, MessageSquare, Network, Cpu, Zap, GitBranch, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 const AgenticAIConceptSlide = () => {
@@ -280,7 +281,7 @@ const AgenticAIConceptSlide = () => {
               }}
             >
               <p style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: '600' }}>
-                Total Time: <AnimatedCounter end={11} duration={2} />s
+                Total Time: <AnimatedCounter end={toFiniteNumber(11)} duration={2} />s
               </p>
             </motion.div>
           </div>

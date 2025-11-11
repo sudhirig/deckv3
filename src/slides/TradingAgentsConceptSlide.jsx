@@ -6,6 +6,7 @@ import Icon from '../components/Icon'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Users, Brain, Award, TrendingUp, DollarSign, BarChart2, Star, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 const TradingAgentsConceptSlide = () => {
@@ -67,7 +68,7 @@ const TradingAgentsConceptSlide = () => {
               transition={{ duration: 2, repeat: Infinity }}
               style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}
             >
-              <AnimatedCounter end={12} duration={2} />
+              <AnimatedCounter end={toFiniteNumber(12)} duration={2} />
             </motion.div>
             <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Investment Committee</p>
           </div>
@@ -78,7 +79,7 @@ const TradingAgentsConceptSlide = () => {
               transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
               style={{ fontSize: '2rem', fontWeight: 'bold', color: '#a855f7' }}
             >
-              <AnimatedCounter end={18} duration={2} />
+              <AnimatedCounter end={toFiniteNumber(18)} duration={2} />
             </motion.div>
             <p style={{ fontSize: '0.8rem', color: '#94a3b8' }}>Hedge Fund Team</p>
           </div>

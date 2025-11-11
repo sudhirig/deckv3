@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, TrendingUp, Shield, Zap, Globe, Users, Target, DollarSign, Award, PiggyBank } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 export default function GiftCityThreePillarPlatformSlide() {
@@ -222,7 +223,7 @@ export default function GiftCityThreePillarPlatformSlide() {
               }}
             >
               {metric.prefix || ''}
-              <AnimatedCounter end={metric.value || 0} duration={1500 + mi * 200} />
+              <AnimatedCounter end={toFiniteNumber(metric.value)} duration={1.5 + mi * 0.2} />
               {metric.suffix || ''}
             </motion.p>
             <p style={{ 

@@ -5,6 +5,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import { HeroLayout } from '../components/StandardLayouts'
 import { Globe, Brain, MessageSquare, Activity, TrendingUp, BarChart2, Newspaper, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 const SentimentModuleConceptSlide = () => {
@@ -73,7 +74,7 @@ const SentimentModuleConceptSlide = () => {
               transition={{ duration: 2, repeat: Infinity, delay: index * 0.3 }}
               style={{ fontSize: '1.3rem', fontWeight: 'bold', color: stat.color }}
             >
-              <AnimatedCounter end={stat.value} duration={2} decimals={stat.value < 100 ? 1 : 0} />{stat.unit}
+              <AnimatedCounter end={toFiniteNumber(stat.value)} duration={2} decimals={stat.value < 100 ? 1 : 0} />{stat.unit}
             </motion.div>
             <p style={{ fontSize: '0.65rem', color: '#94a3b8' }}>{stat.label}</p>
           </motion.div>

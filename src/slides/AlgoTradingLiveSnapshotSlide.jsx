@@ -21,6 +21,7 @@ import {
 } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function AlgoTradingLiveSnapshotSlide() {
   const [animateMetrics, setAnimateMetrics] = useState(false)
@@ -105,7 +106,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         }}>
           <DollarSign size={18} color="#10b981" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#10b981', margin: 0 }}>
-            +<AnimatedCounter end={147 || 0} duration={1500} />%
+            +<AnimatedCounter end={toFiniteNumber(147)} duration={1.5} />%
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Total Return</p>
         </div>
@@ -118,7 +119,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         }}>
           <TrendingUp size={18} color="#3b82f6" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#3b82f6', margin: 0 }}>
-            <AnimatedCounter end={1.92 || 0} decimals={2} duration={1500} />
+            <AnimatedCounter end={toFiniteNumber(1.92)} decimals={2} duration={1.5} />
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Sharpe Ratio</p>
         </div>
@@ -131,7 +132,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         }}>
           <Percent size={18} color="#a855f7" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#a855f7', margin: 0 }}>
-            <AnimatedCounter end={68 || 0} duration={1500} />%
+            <AnimatedCounter end={toFiniteNumber(68)} duration={1.5} />%
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Win Rate</p>
         </div>
@@ -299,7 +300,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         }}>
           <Activity size={16} color="#14b8a6" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(18), fontWeight: 'bold', color: '#14b8a6', margin: 0 }}>
-            <AnimatedCounter end={122 || 0} duration={1500} />+
+            <AnimatedCounter end={toFiniteNumber(122)} duration={1.5} />+
           </p>
           <p style={{ fontSize: pxToRem(9), color: '#94a3b8' }}>Indicators</p>
         </div>
@@ -312,7 +313,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         }}>
           <Clock size={16} color="#fbbf24" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(18), fontWeight: 'bold', color: '#fbbf24', margin: 0 }}>
-            <AnimatedCounter end={24 || 0} duration={1500} />ms
+            <AnimatedCounter end={toFiniteNumber(24)} duration={1.5} />ms
           </p>
           <p style={{ fontSize: pxToRem(9), color: '#94a3b8' }}>Execution</p>
         </div>
@@ -337,7 +338,7 @@ export default function AlgoTradingLiveSnapshotSlide() {
         <span style={{ fontSize: pxToRem(12), color: '#e2e8f0' }}>
           System Status:{' '}
           <span style={{ color: '#10b981', fontWeight: 'bold' }}>
-            <AnimatedCounter end={100 || 0} duration={1500} />% Uptime
+            <AnimatedCounter end={toFiniteNumber(100)} duration={1.5} />% Uptime
           </span>
         </span>
       </motion.div>

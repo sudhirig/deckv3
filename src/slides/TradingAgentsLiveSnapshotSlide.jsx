@@ -18,6 +18,7 @@ import {
 } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function TradingAgentsLiveSnapshotSlide() {
   const [activeInvestor, setActiveInvestor] = useState(null)
@@ -84,10 +85,10 @@ export default function TradingAgentsLiveSnapshotSlide() {
         </div>
         <div style={{ textAlign: 'right' }}>
           <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#10b981', margin: 0 }}>
-            ₹<AnimatedCounter end={2456.75 || 0} decimals={2} duration={1000} />
+            ₹<AnimatedCounter end={toFiniteNumber(2456.75)} decimals={2} duration={1} />
           </p>
           <p style={{ fontSize: pxToRem(12), color: '#10b981' }}>
-            +<AnimatedCounter end={1.2 || 0} decimals={1} duration={1000} />%
+            +<AnimatedCounter end={toFiniteNumber(1.2)} decimals={1} duration={1} />%
           </p>
         </div>
       </motion.div>
@@ -293,19 +294,19 @@ export default function TradingAgentsLiveSnapshotSlide() {
         }}>
           <div>
             <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#10b981', margin: 0 }}>
-              <AnimatedCounter end={79 || 0} duration={1500} />%
+              <AnimatedCounter end={toFiniteNumber(79)} duration={1.5} />%
             </p>
             <p style={{ fontSize: pxToRem(11), color: '#94a3b8' }}>Confidence</p>
           </div>
           <div>
             <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#3b82f6', margin: 0 }}>
-              ₹<AnimatedCounter end={2850 || 0} duration={1500} />
+              ₹<AnimatedCounter end={toFiniteNumber(2850)} duration={1.5} />
             </p>
             <p style={{ fontSize: pxToRem(11), color: '#94a3b8' }}>Target</p>
           </div>
           <div>
             <p style={{ fontSize: pxToRem(20), fontWeight: 'bold', color: '#14b8a6', margin: 0 }}>
-              +<AnimatedCounter end={16 || 0} duration={1500} />%
+              +<AnimatedCounter end={toFiniteNumber(16)} duration={1.5} />%
             </p>
             <p style={{ fontSize: pxToRem(11), color: '#94a3b8' }}>Upside</p>
           </div>
@@ -349,7 +350,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
           textAlign: 'center'
         }}>
           <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#10b981', margin: 0 }}>
-            <AnimatedCounter end={22 || 0} duration={1000} />
+            <AnimatedCounter end={toFiniteNumber(22)} duration={1} />
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Buy Votes</p>
         </div>
@@ -360,7 +361,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
           textAlign: 'center'
         }}>
           <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#fbbf24', margin: 0 }}>
-            <AnimatedCounter end={8 || 0} duration={1000} />
+            <AnimatedCounter end={toFiniteNumber(8)} duration={1} />
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Hold Votes</p>
         </div>
@@ -371,7 +372,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
           textAlign: 'center'
         }}>
           <p style={{ fontSize: pxToRem(24), fontWeight: 'bold', color: '#ef4444', margin: 0 }}>
-            <AnimatedCounter end={0 || 0} duration={1000} />
+            <AnimatedCounter end={toFiniteNumber(0)} duration={1} />
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Sell Votes</p>
         </div>
@@ -396,7 +397,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
         <span style={{ fontSize: pxToRem(14), color: '#e2e8f0' }}>
           Total Analysis Time:{' '}
           <span style={{ color: '#14b8a6', fontWeight: 'bold' }}>
-            <AnimatedCounter end={35 || 0} duration={1500} />s
+            <AnimatedCounter end={toFiniteNumber(35)} duration={1.5} />s
           </span>
         </span>
       </motion.div>
@@ -419,7 +420,7 @@ export default function TradingAgentsLiveSnapshotSlide() {
           <span style={{ fontSize: pxToRem(14), color: '#e2e8f0' }}>
             Historical Accuracy:{' '}
             <span style={{ color: '#a855f7', fontWeight: 'bold' }}>
-              <AnimatedCounter end={87 || 0} duration={1500} />%
+              <AnimatedCounter end={toFiniteNumber(87)} duration={1.5} />%
             </span>
           </span>
         </div>

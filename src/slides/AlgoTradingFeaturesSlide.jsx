@@ -20,6 +20,7 @@ import {
 } from 'lucide-react'
 import { GridLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function AlgoTradingFeaturesSlide() {
   const [hoveredFeature, setHoveredFeature] = useState(null)
@@ -201,7 +202,7 @@ export default function AlgoTradingFeaturesSlide() {
             color: '#10b981',
             margin: 0
           }}>
-            <AnimatedCounter end={10 || 0} duration={1500} /> Years
+            <AnimatedCounter end={toFiniteNumber(10)} duration={1.5} /> Years
           </p>
           <p style={{ fontSize: pxToRem(11), color: '#94a3b8', margin: 0 }}>
             Historical Data
@@ -220,7 +221,7 @@ export default function AlgoTradingFeaturesSlide() {
             color: '#14b8a6',
             margin: 0
           }}>
-            <AnimatedCounter end={98 || 0} duration={1500} />%
+            <AnimatedCounter end={toFiniteNumber(98)} duration={1.5} />%
           </p>
           <p style={{ fontSize: pxToRem(11), color: '#94a3b8', margin: 0 }}>
             Accuracy
@@ -450,7 +451,7 @@ export default function AlgoTradingFeaturesSlide() {
           color: '#fbbf24',
           margin: 0
         }}>
-          <AnimatedCounter end={24 || 0} duration={1500} />ms
+          <AnimatedCounter end={toFiniteNumber(24)} duration={1.5} />ms
         </p>
         <p style={{ fontSize: pxToRem(11), color: '#94a3b8', margin: 0 }}>
           Execution Speed

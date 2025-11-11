@@ -17,6 +17,7 @@ import {
 } from 'lucide-react'
 import { DataSlideLayout } from '../components/StandardLayouts'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 
 export default function SentimentModuleLiveSnapshotSlide() {
   const [hoveredStock, setHoveredStock] = useState(null)
@@ -83,7 +84,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
           SENTIMENT HEAT MAP
         </span>
         <span style={{ color: '#94a3b8', fontSize: pxToRem(11) }}>
-          Last Update: <AnimatedCounter end={2 || 0} duration={1000} />s ago
+          Last Update: <AnimatedCounter end={toFiniteNumber(2)} duration={1} />s ago
         </span>
       </motion.div>
       
@@ -266,7 +267,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
         }}>
           <CheckCircle size={16} color="#10b981" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(22), fontWeight: 'bold', color: '#10b981', margin: 0 }}>
-            <AnimatedCounter end={62 || 0} duration={1000} />%
+            <AnimatedCounter end={toFiniteNumber(62)} duration={1} />%
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Bullish</p>
         </div>
@@ -279,7 +280,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
         }}>
           <AlertCircle size={16} color="#fbbf24" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(22), fontWeight: 'bold', color: '#fbbf24', margin: 0 }}>
-            <AnimatedCounter end={15 || 0} duration={1000} />%
+            <AnimatedCounter end={toFiniteNumber(15)} duration={1} />%
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Neutral</p>
         </div>
@@ -292,7 +293,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
         }}>
           <XCircle size={16} color="#ef4444" style={{ marginBottom: pxToRem(4) }} />
           <p style={{ fontSize: pxToRem(22), fontWeight: 'bold', color: '#ef4444', margin: 0 }}>
-            <AnimatedCounter end={23 || 0} duration={1000} />%
+            <AnimatedCounter end={toFiniteNumber(23)} duration={1} />%
           </p>
           <p style={{ fontSize: pxToRem(10), color: '#94a3b8' }}>Bearish</p>
         </div>
@@ -320,7 +321,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
             Articles/Day
           </span>
           <span style={{ fontSize: pxToRem(14), fontWeight: 'bold', color: '#a855f7' }}>
-            <AnimatedCounter end={50 || 0} duration={1500} />K
+            <AnimatedCounter end={toFiniteNumber(50)} duration={1.5} />K
           </span>
         </div>
         <div style={{ 
@@ -332,7 +333,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
             Sources Analyzed
           </span>
           <span style={{ fontSize: pxToRem(14), fontWeight: 'bold', color: '#a855f7' }}>
-            <AnimatedCounter end={182 || 0} duration={1500} />
+            <AnimatedCounter end={toFiniteNumber(182)} duration={1.5} />
           </span>
         </div>
       </motion.div>
@@ -356,7 +357,7 @@ export default function SentimentModuleLiveSnapshotSlide() {
         <span style={{ fontSize: pxToRem(12), color: '#e2e8f0' }}>
           Refresh Rate:{' '}
           <span style={{ color: '#14b8a6', fontWeight: 'bold' }}>
-            <AnimatedCounter end={2 || 0} duration={1000} /> sec
+            <AnimatedCounter end={toFiniteNumber(2)} duration={1} /> sec
           </span>
         </span>
       </motion.div>

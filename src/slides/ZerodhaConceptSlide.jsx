@@ -5,6 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { Brain, Mic, LayoutDashboard, MessageSquare, Zap, ArrowRight, Sparkles } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
+import { toFiniteNumber } from '../utils/number'
 import './SlideStyles.css'
 
 const ZerodhaConceptSlide = () => {
@@ -57,7 +58,7 @@ const ZerodhaConceptSlide = () => {
         >
           <h3 style={{ fontSize: '1.8rem' }}>
             <GradientText gradient="from-orange-400 to-yellow-400">
-              <AnimatedCounter end={11} duration={2} />ms Latency
+              <AnimatedCounter end={toFiniteNumber(11)} duration={2} />ms Latency
             </GradientText>
           </h3>
           <p style={{ color: '#94a3b8' }}>Voice to Trade Execution</p>
