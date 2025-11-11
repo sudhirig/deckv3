@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direct Slide Viewer</title>
+    <style>
+        body { margin: 0; padding: 0; overflow: hidden; }
+        iframe { width: 100vw; height: 100vh; border: none; }
+        .controls {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+        button {
+            margin: 0 5px;
+            padding: 5px 10px;
+            background: #0099ff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <span id="slideInfo">Loading...</span>
+        <button onclick="previousSlide()">Previous</button>
+        <button onclick="nextSlide()">Next</button>
+        <button onclick="goToSlide(157)">Go to 157</button>
+    </div>
+    <iframe id="presentation" src=""></iframe>
+    
+    <script>
+        const slideMap = {
+            54: 157, 55: 158, 56: 159, 57: 160, 58: 161,
+            59: 162, 60: 163, 61: 164, 62: 165, 63: 166,
+            64: 170, 65: 171, 66: 172,
+            67: 175, 68: 176, 69: 177,
+            70: 180, 71: 181, 72: 182,
+            73: 185, 74: 186, 75: 187,
+            76: 190, 77: 191, 78: 192,
+            79: 195, 80: 196, 81: 197,
+            82: 200, 83: 201, 84: 202,
+            85: 205, 86: 206
+        };
+        
+        let currentUserSlide = 54;
+        const iframe = document.getElementById('presentation');
+        const slideInfo = document.getElementById('slideInfo');
+        
+        function goToSlide(actualIndex) {
+            iframe.src = `http://localhost:5000/#/slide/${actualIndex}`;
+            // Find user slide number
+            for (const [user, actual] of Object.entries(slideMap)) {
+                if (actual === actualIndex) {
+                    currentUserSlide = parseInt(user);
+                    slideInfo.textContent = `Slide ${currentUserSlide} (Index: ${actualIndex})`;
+                    break;
+                }
+            }
+        }
+        
+        function nextSlide() {
+            if (currentUserSlide < 86) {
+                currentUserSlide++;
+                goToSlide(slideMap[currentUserSlide]);
+            }
+        }
+        
+        function previousSlide() {
+            if (currentUserSlide > 54) {
+                currentUserSlide--;
+                goToSlide(slideMap[currentUserSlide]);
+            }
+        }
+        
+        // Get slide from URL param or start at 54
+        const params = new URLSearchParams(window.location.search);
+        const startSlide = parseInt(params.get('slide') || '54');
+        
+        if (slideMap[startSlide]) {
+            currentUserSlide = startSlide;
+            goToSlide(slideMap[startSlide]);
+        } else {
+            goToSlide(157); // Default to first GIFT City slide
+        }
+    </script>
+</body>
+</html>

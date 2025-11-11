@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Capture Tool</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #000;
+            color: #0f0;
+        }
+        iframe {
+            width: 1920px;
+            height: 1080px;
+            border: 2px solid #0f0;
+            display: block;
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background: #0f0;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #0a0;
+        }
+        #status {
+            margin: 20px 0;
+            padding: 10px;
+            background: #111;
+            border: 1px solid #0f0;
+        }
+        .slide-info {
+            margin: 10px 0;
+            padding: 10px;
+            background: #111;
+            border-left: 3px solid #0f0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slide Capture Tool</h1>
+    
+    <div id="status">Ready to capture slides...</div>
+    
+    <div id="controls">
+        <button onclick="navigateToSlide(157)">Go to Slide 157 (GIFT City Intro)</button>
+        <button onclick="captureAllSlides()">Capture All Slides</button>
+        <button onclick="getCurrentSlide()">Get Current Slide</button>
+    </div>
+    
+    <div id="slide-info"></div>
+    
+    <iframe id="presentation" src="http://localhost:5000/#/slide/157"></iframe>
+    
+    <script>
+        const iframe = document.getElementById('presentation');
+        const status = document.getElementById('status');
+        const slideInfo = document.getElementById('slide-info');
+        
+        // Mapping of user slide numbers to actual indices
+        const slideMapping = {
+            // GIFT City Slides (54-63 in user's numbering)
+            54: { index: 157, name: 'GIFT City Intro' },
+            55: { index: 158, name: 'GIFT City Entity Structure' },
+            56: { index: 159, name: 'GIFT City Three Pillar Platform' },
+            57: { index: 160, name: 'GIFT City AIF Advantages' },
+            58: { index: 161, name: 'GIFT City Tax Optimization' },
+            59: { index: 162, name: 'GIFT City Growth Stages' },
+            60: { index: 163, name: 'GIFT City Global Investor Access' },
+            61: { index: 164, name: 'GIFT City Regulatory Compliance' },
+            62: { index: 165, name: 'GIFT City Technology Infrastructure' },
+            63: { index: 166, name: 'GIFT City Call to Action' },
+            // Zerodha Slides (64-66)
+            64: { index: 170, name: 'Zerodha Concept' },
+            65: { index: 171, name: 'Zerodha Features' },
+            66: { index: 172, name: 'Zerodha Live Snapshot' },
+            // CGMF Slides (67-69)
+            67: { index: 175, name: 'CGMF Concept' },
+            68: { index: 176, name: 'CGMF Features' },
+            69: { index: 177, name: 'CGMF Live Snapshot' },
+            // AgenticAI Slides (70-72)
+            70: { index: 180, name: 'AgenticAI Concept' },
+            71: { index: 181, name: 'AgenticAI Features' },
+            72: { index: 182, name: 'AgenticAI Live Snapshot' },
+            // FutureModules Slides (73-75)
+            73: { index: 185, name: 'FutureModules Concept' },
+            74: { index: 186, name: 'FutureModules Features' },
+            75: { index: 187, name: 'FutureModules Pipeline' },
+            // TradingAgents Slides (76-78)
+            76: { index: 190, name: 'TradingAgents Concept' },
+            77: { index: 191, name: 'TradingAgents Features' },
+            78: { index: 192, name: 'TradingAgents Live Analysis' },
+            // AlgoTrading Slides (79-81)
+            79: { index: 195, name: 'AlgoTrading Concept' },
+            80: { index: 196, name: 'AlgoTrading Features' },
+            81: { index: 197, name: 'AlgoTrading Live Snapshot' },
+            // SentimentModule Slides (82-84)
+            82: { index: 200, name: 'SentimentModule Concept' },
+            83: { index: 201, name: 'SentimentModule Features' },
+            84: { index: 202, name: 'SentimentModule Live Snapshot' },
+            // Supporting Slides (85-86)
+            85: { index: 205, name: 'Live Platform Metrics' },
+            86: { index: 206, name: 'Appendix' }
+        };
+        
+        function navigateToSlide(slideIndex) {
+            iframe.src = `http://localhost:5000/#/slide/${slideIndex}`;
+            status.textContent = `Navigated to slide ${slideIndex}`;
+        }
+        
+        function getCurrentSlide() {
+            try {
+                const iframeUrl = iframe.contentWindow.location.hash;
+                const match = iframeUrl.match(/#\/slide\/(\d+)/);
+                if (match) {
+                    const slideNum = match[1];
+                    status.textContent = `Current slide: ${slideNum}`;
+                    // Find user slide number
+                    for (const [userNum, data] of Object.entries(slideMapping)) {
+                        if (data.index == slideNum) {
+                            slideInfo.innerHTML = `
+                                <div class="slide-info">
+                                    <strong>User Slide #${userNum}</strong><br>
+                                    Actual Index: ${data.index}<br>
+                                    Name: ${data.name}
+                                </div>
+                            `;
+                            break;
+                        }
+                    }
+                }
+            } catch (e) {
+                status.textContent = 'Cannot access iframe content (cross-origin)';
+            }
+        }
+        
+        async function captureAllSlides() {
+            status.textContent = 'Starting slide capture...';
+            const results = [];
+            
+            for (const [userNum, data] of Object.entries(slideMapping)) {
+                status.textContent = `Capturing slide ${userNum} (${data.name})...`;
+                navigateToSlide(data.index);
+                
+                // Wait for slide to load
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                // Log the slide for capture
+                console.log(`Ready to capture: Slide ${userNum} (Index ${data.index}): ${data.name}`);
+                results.push({
+                    userSlide: userNum,
+                    actualIndex: data.index,
+                    name: data.name,
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Small delay between slides
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+            
+            status.textContent = 'All slides navigated. Ready for screenshots.';
+            console.log('Capture complete:', results);
+            
+            // Display results
+            slideInfo.innerHTML = '<h3>Slides Ready for Capture:</h3>' + 
+                results.map(r => `
+                    <div class="slide-info">
+                        Slide ${r.userSlide}: ${r.name} (Index ${r.actualIndex})
+                    </div>
+                `).join('');
+        }
+        
+        // Auto-start capture on load with query parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('auto') === 'true') {
+            setTimeout(() => captureAllSlides(), 1000);
+        }
+    </script>
+</body>
+</html>
