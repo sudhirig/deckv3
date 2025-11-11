@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scroll Test</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module">
+        setTimeout(() => {
+            window.location.hash = '#/slide/85';
+            setTimeout(() => {
+                // Scroll to bottom to see if content exists
+                window.scrollTo(0, document.body.scrollHeight);
+                
+                // Count modules
+                const modules = ['Voice Trading', 'CGMF Advisory', 'GIFT City', 'Algo Lab', 'Sentiment AI', 'Tax Optimizer', 'Alt Assets'];
+                const found = [];
+                document.querySelectorAll('h4').forEach(el => {
+                    const text = el.textContent.trim();
+                    if (modules.some(m => text.includes(m))) {
+                        found.push(text);
+                    }
+                });
+                
+                console.log('=== MODULE CHECK ===');
+                console.log('Found', found.length, 'of 7 modules:', found.join(', '));
+                
+                // Check metrics bar
+                const hasMetrics = document.body.textContent.includes('$10M') && 
+                                  document.body.textContent.includes('AUM');
+                console.log('Metrics bar present:', hasMetrics ? 'YES' : 'NO');
+                
+                // Check tech stack
+                const hasTechStack = document.body.textContent.includes('LangGraph') && 
+                                    document.body.textContent.includes('FastAPI');
+                console.log('Tech stack present:', hasTechStack ? 'YES' : 'NO');
+            }, 2000);
+        }, 1000);
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

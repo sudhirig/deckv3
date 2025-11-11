@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test ProductOverviewSlide - Slide 85</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      // Wait for app to load, then navigate to slide 85
+      setTimeout(() => {
+        window.location.hash = '#/slide/85';
+        console.log('Navigating to slide 85 (ProductOverviewSlide)');
+        
+        // Check if slide loaded correctly
+        setTimeout(() => {
+          const slideContent = document.querySelector('#root');
+          if (slideContent) {
+            console.log('Slide content loaded');
+            // Count visible modules
+            const modules = document.querySelectorAll('.glass-card');
+            console.log('Number of glass-card elements:', modules.length);
+          }
+        }, 2000);
+      }, 1000);
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
