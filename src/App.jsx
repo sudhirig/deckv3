@@ -233,6 +233,16 @@ function AppContent() {
   // Use EditModeContext
   const { isEditMode, setIsEditMode } = useEditMode()
 
+  // Debug logging for Edit Mode state
+  useEffect(() => {
+    console.log('Edit Mode State:', isEditMode)
+  }, [isEditMode])
+
+  // Debug logging for Export Dashboard state
+  useEffect(() => {
+    console.log('Export Dashboard State:', showExportDashboard)
+  }, [showExportDashboard])
+
   // Check if static mode is enabled (for crisp screenshots)
   const isStaticMode = new URLSearchParams(window.location.search).get('static') === '1'
 
@@ -515,7 +525,11 @@ function AppContent() {
           }}></div>
           
           <button
-            onClick={() => setIsEditMode(!isEditMode)}
+            onClick={() => {
+              console.log('Edit Mode button clicked! Current state:', isEditMode)
+              setIsEditMode(!isEditMode)
+              console.log('Setting Edit Mode to:', !isEditMode)
+            }}
             style={{
               background: isEditMode ? 'rgba(34, 197, 94, 0.2)' : 'rgba(59, 130, 246, 0.15)',
               border: `1px solid ${isEditMode ? 'rgba(34, 197, 94, 0.4)' : 'rgba(59, 130, 246, 0.3)'}`,
@@ -551,7 +565,11 @@ function AppContent() {
           </button>
           
           <button
-            onClick={() => setShowExportDashboard(true)}
+            onClick={() => {
+              console.log('Export Options button clicked! Current state:', showExportDashboard)
+              setShowExportDashboard(true)
+              console.log('Setting Export Dashboard to: true')
+            }}
             style={{
               background: 'rgba(168, 85, 247, 0.15)',
               border: '1px solid rgba(168, 85, 247, 0.3)',
