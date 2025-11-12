@@ -7,8 +7,8 @@ import './SlideStyles.css'
 
 export default function ARIAFundManagerSlide() {
   const title = (
-    <GradientText gradient="from-green-400 to-emerald-400">
-      ARIA Powers the India Gateway Fund
+    <GradientText gradient="from-indigo-400 to-purple-400">
+      ARIA Powers the Vora AIF
     </GradientText>
   )
 

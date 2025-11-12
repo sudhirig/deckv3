@@ -35,6 +35,9 @@ export default function B2B2CDistributionSlide() {
           <p style={{ fontSize: '1rem', color: '#94a3b8' }}>
             The Vora/Ascendum KPS Flywheel
           </p>
+          <p style={{ fontSize: '0.9rem', color: '#5eead4', marginTop: '0.25rem', fontStyle: 'italic' }}>
+            "Our credible, low-CAC beachhead for B2C vision"
+          </p>
         </motion.div>
 
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
