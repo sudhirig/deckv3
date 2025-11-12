@@ -1,6 +1,6 @@
-# AI-Powered Digital Family Office - Investor Presentation
+# ARIA - The Virtuoso Intelligence for Global Wealth
 
-A world-class **94-slide** investor presentation showcasing an AI-powered digital family office platform for high-net-worth investors. Features investment-grade "god slide" UI/UX with particle effects, animated gradients, and cinematic transitions.
+A world-class **42-slide** investor presentation for ARIA, the AI Risk & Investment Advisor targeting the $5 Trillion US-India investment corridor. Features professional UI/UX with animated gradients, glassmorphism effects, and smooth transitions.
 
 ## 🎨 Features
 
@@ -50,17 +50,14 @@ The presentation includes print-optimized CSS that automatically:
 - Enables page breaks between slides
 - Maintains full styling and gradients
 
-## 🎯 Presentation Structure (94 Slides)
+## 🎯 Presentation Structure (42 Slides)
 
-### Core Narrative Arc
-- **Opening (1-3)**: Title, Executive Summary, Agenda
-- **Act 1: Problem (4-7)**: Market failures driving 39% investor switching
-- **Act 2: Solution (8-12)**: AI Investment Committee with 3 alpha moats
-- **Act 3: Deep Dive (13-27)**: Technology architecture & competitive advantages
-- **Act 4: Proof (28-36)**: Traction with 127+ users, 18.5% alpha
-- **Act 5: Business (37-58)**: Team, financials, $20M Series A ask
-- **Opportunity (59-75)**: Exit paths, Gift City moat, market analysis
-- **Appendix (76-94)**: 7 product modules with live demonstrations
+### Core Narrative Arc - 5 Acts
+- **Act 1: The Opening (1-8)**: Title, Executive Summary, Problem, Market Opportunity
+- **Act 2: The ARIA Strategy (9-14)**: Introducing ARIA, Wedge & Expand, B2B2C Distribution
+- **Act 3: Unfair Advantages (15-22)**: India Gateway Fund, ARIA Fund Manager, Digital Family Office OS
+- **Act 4: Validation (23-29)**: Live Platform, Traction Metrics, Tech Architecture
+- **Act 5: The Business (30-42)**: Go-to-Market, Financials, Team, $5M Seed Round Ask
 
 ## 🛠️ Technical Stack
 
@@ -87,10 +84,11 @@ All slide components are in the `src/slides/` directory. Each slide is a React c
 
 ## 🎨 Design System
 
-- **Primary Colors**: Teal (#14b8a6), Green (#10b981)
-- **Accent Colors**: Orange, Purple, Blue
-- **Typography**: System fonts, optimized for readability
-- **Effects**: Glassmorphism, gradients, shadows
+- **Primary Brand Color**: Electric Teal (#14b8a6) - ARIA signature
+- **Backgrounds**: Midnight Blue/Black (#0D163A)
+- **Accent Colors**: Purple, Blue, Orange, Green
+- **Typography**: Inter font, bold caps headers
+- **Effects**: Glassmorphism, gradients, subtle animations
 
 ## 📦 Commands
 
@@ -101,15 +99,24 @@ npm run build      # Build for production
 npm run preview    # Preview production build
 ```
 
-## 🌟 Highlights
+## 🌟 Key Highlights
 
-This presentation deck showcases:
-- **Agentic AI**: Multi-agent investment committee
-- **Tax Alpha**: Daily tax-loss harvesting (+1.8% annual alpha)
-- **Alternative Access**: 16,000+ funds with AI due diligence
-- **GIFT City Gateway**: 0% tax India access (+300bps returns)
-- **Live Platform**: 100% operational with real broker integration
+This presentation showcases ARIA's unique positioning:
+- **Wedge & Expand Strategy**: 3-phase growth from India Gateway to Global AI Advisor
+- **B2B2C Distribution**: Low-CAC launch via 1,000+ CPAs through Ascendum KPS
+- **Vora Partnership**: Exclusive backing and GIFT City AIF access
+- **Digital Family Office OS**: $1M/year functions for $10K/year
+- **Live Prototype**: Working platform integrated with Zerodha Kite API
+
+## 📚 Documentation
+
+Complete documentation is available in the `docs/` folder:
+- [Quick Start Guide](./docs/QUICK_START_GUIDE.md)
+- [Final Audit Report](./docs/FINAL_DECK_AUDIT_COMPLETE.md)
+- [All Documentation](./docs/index.md)
 
 ---
+
+**ARIA - The Virtuoso Intelligence for Global Wealth**
 
 Built with React, Vite, and Framer Motion
