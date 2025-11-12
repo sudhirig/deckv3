@@ -13,7 +13,7 @@ export default function IntroducingARIASlide() {
   )
 
   const mainVisual = (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', height: '100%' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', height: '100%', alignItems: 'center' }}>
       {/* Left: The Virtuoso */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -25,18 +25,18 @@ export default function IntroducingARIASlide() {
           justifyContent: 'center',
           alignItems: 'center',
           background: 'radial-gradient(circle at center, rgba(20, 184, 166, 0.1), transparent)',
-          borderRadius: pxToRem(16),
-          padding: '2rem'
+          borderRadius: pxToRem(12),
+          padding: '1.5rem'
         }}
       >
-        <Music size={64} color="#14b8a6" />
-        <h2 style={{ color: '#14b8a6', fontSize: '2rem', marginBottom: '1rem', textAlign: 'center' }}>
+        <Music size={48} color="#14b8a6" />
+        <h2 style={{ color: '#14b8a6', fontSize: '1.5rem', marginBottom: '0.75rem', textAlign: 'center' }}>
           The Virtuoso Intelligence
         </h2>
-        <p style={{ fontSize: '1.2rem', color: '#e2e8f0', textAlign: 'center', lineHeight: '1.8' }}>
+        <p style={{ fontSize: '1rem', color: '#e2e8f0', textAlign: 'center', lineHeight: '1.6' }}>
           ARIA is the <strong style={{ color: '#5eead4' }}>orchestrator</strong> of your wealth.
         </p>
-        <p style={{ fontSize: '1.1rem', color: '#94a3b8', textAlign: 'center', marginTop: '1rem' }}>
+        <p style={{ fontSize: '0.95rem', color: '#94a3b8', textAlign: 'center', marginTop: '0.75rem' }}>
           She's not a chatbot. She is a team of executors that brings harmony to chaos.
         </p>
       </motion.div>
@@ -51,29 +51,29 @@ export default function IntroducingARIASlide() {
           flexDirection: 'column',
           justifyContent: 'center',
           background: 'linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(124, 58, 237, 0.05))',
-          borderRadius: pxToRem(16),
-          padding: '2rem'
+          borderRadius: pxToRem(12),
+          padding: '1.5rem'
         }}
       >
-        <h2 style={{ color: '#a78bfa', fontSize: '1.8rem', marginBottom: '2rem' }}>
+        <h2 style={{ color: '#a78bfa', fontSize: '1.4rem', marginBottom: '1.5rem' }}>
           AI Risk & Investment Advisor
         </h2>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#14b8a6', width: '3rem' }}>A</span>
-            <span style={{ fontSize: '1.3rem', color: '#e2e8f0' }}>Artificial Intelligence</span>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', width: '2.5rem' }}>A</span>
+            <span style={{ fontSize: '1.1rem', color: '#e2e8f0' }}>Artificial Intelligence</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#14b8a6', width: '3rem' }}>R</span>
-            <span style={{ fontSize: '1.3rem', color: '#e2e8f0' }}>Risk Management</span>
+            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', width: '2.5rem' }}>R</span>
+            <span style={{ fontSize: '1.1rem', color: '#e2e8f0' }}>Risk Management</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#14b8a6', width: '3rem' }}>I</span>
-            <span style={{ fontSize: '1.3rem', color: '#e2e8f0' }}>Investment</span>
+            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', width: '2.5rem' }}>I</span>
+            <span style={{ fontSize: '1.1rem', color: '#e2e8f0' }}>Investment</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#14b8a6', width: '3rem' }}>A</span>
-            <span style={{ fontSize: '1.3rem', color: '#e2e8f0' }}>Advisor</span>
+            <span style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6', width: '2.5rem' }}>A</span>
+            <span style={{ fontSize: '1.1rem', color: '#e2e8f0' }}>Advisor</span>
           </div>
         </div>
       </motion.div>
@@ -87,17 +87,17 @@ export default function IntroducingARIASlide() {
       transition={{ delay: 1.2 }}
       style={{
         background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(6, 182, 212, 0.1))',
-        borderRadius: pxToRem(16),
-        padding: '2rem',
+        borderRadius: pxToRem(12),
+        padding: '1.5rem',
         border: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
         textAlign: 'center'
       }}
     >
       <Network size={40} color="#14b8a6" style={{ marginBottom: '1rem' }} />
-      <p style={{ fontSize: '1.3rem', color: '#14b8a6', fontWeight: 'bold' }}>
+      <p style={{ fontSize: '1.2rem', color: '#14b8a6', fontWeight: 'bold' }}>
         Powered by Multi-Agent Architecture
       </p>
-      <p style={{ fontSize: '1.1rem', color: '#e2e8f0', marginTop: '1rem' }}>
+      <p style={{ fontSize: '1rem', color: '#e2e8f0', marginTop: '0.75rem' }}>
         20+ specialized AI agents working in concert
       </p>
     </motion.div>

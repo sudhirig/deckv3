@@ -45,7 +45,7 @@ export default function WedgeExpandSlide() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        padding: '2.5rem',
+        padding: '1.5rem',
         background: 'radial-gradient(ellipse at center, rgba(20, 184, 166, 0.05), transparent)'
       }}>
         {/* Title */}
@@ -54,12 +54,12 @@ export default function WedgeExpandSlide() {
           animate={{ opacity: 1, y: 0 }}
           style={{ textAlign: 'center', marginBottom: '1rem' }}
         >
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 900, marginBottom: '0.5rem' }}>
+          <h1 style={{ fontSize: '2rem', fontWeight: 900, marginBottom: '0.5rem' }}>
             <GradientText gradient="from-teal-400 via-cyan-400 to-purple-400">
               Our "Wedge & Expand" Strategy
             </GradientText>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: '1rem', color: '#94a3b8' }}>
             The 3-Phase Path to Dominating AI Wealth Management
           </p>
         </motion.div>
@@ -69,7 +69,7 @@ export default function WedgeExpandSlide() {
           flex: 1,
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '2rem',
+          gap: '1.5rem',
           alignItems: 'center'
         }}>
           {phases.map((phase, index) => {
@@ -85,33 +85,33 @@ export default function WedgeExpandSlide() {
                   background: `linear-gradient(135deg, ${phase.color}15, ${phase.color}05)`,
                   border: `${pxToRem(2)} solid ${phase.color}40`,
                   borderRadius: pxToRem(16),
-                  padding: '1.5rem',
+                  padding: '1.25rem',
                   height: '100%'
                 }}
               >
                 <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
-                  <Icon size={48} color={phase.color} />
+                  <Icon size={40} color={phase.color} />
                 </div>
-                <h3 style={{ color: phase.color, fontSize: '1.8rem', fontWeight: 'bold' }}>
+                <h3 style={{ color: phase.color, fontSize: '1.4rem', fontWeight: 'bold' }}>
                   PHASE {phase.phase}: {phase.name}
                 </h3>
-                <p style={{ color: '#64748b', fontSize: '0.9rem', marginBottom: '1rem' }}>
+                <p style={{ color: '#64748b', fontSize: '0.85rem', marginBottom: '0.75rem' }}>
                   {phase.subtitle}
                 </p>
                 <div style={{
                   background: 'rgba(255, 255, 255, 0.05)',
                   borderRadius: pxToRem(8),
-                  padding: '1rem',
-                  marginBottom: '1rem'
+                  padding: '0.75rem',
+                  marginBottom: '0.75rem'
                 }}>
-                  <p style={{ color: '#e2e8f0', fontSize: '1.1rem', fontWeight: 'bold' }}>
+                  <p style={{ color: '#e2e8f0', fontSize: '1rem', fontWeight: 'bold' }}>
                     {phase.product}
                   </p>
-                  <p style={{ color: '#94a3b8', fontSize: '0.9rem', marginTop: '0.5rem' }}>
+                  <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginTop: '0.4rem' }}>
                     {phase.detail}
                   </p>
                 </div>
-                <p style={{ color: phase.color, fontSize: '0.95rem', fontWeight: 'bold' }}>
+                <p style={{ color: phase.color, fontSize: '0.9rem', fontWeight: 'bold' }}>
                   Target: {phase.target}
                 </p>
               </motion.div>

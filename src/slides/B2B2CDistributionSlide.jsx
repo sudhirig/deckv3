@@ -20,25 +20,25 @@ export default function B2B2CDistributionSlide() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        padding: '2.5rem'
+        padding: '1.5rem'
       }}>
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ textAlign: 'center', marginBottom: '2rem' }}
+          style={{ textAlign: 'center', marginBottom: '1.5rem' }}
         >
-          <h1 style={{ fontSize: '2.5rem', fontWeight: 900 }}>
+          <h1 style={{ fontSize: '2rem', fontWeight: 900 }}>
             <GradientText gradient="from-blue-400 to-purple-400">
               Our B2B2C Distribution Moat
             </GradientText>
           </h1>
-          <p style={{ fontSize: '1.2rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: '1rem', color: '#94a3b8' }}>
             The Vora/Ascendum KPS Flywheel
           </p>
         </motion.div>
 
         <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.75rem' }}>
             {flywheel.map((item, index) => {
               const Icon = item.icon
               return (
@@ -49,20 +49,20 @@ export default function B2B2CDistributionSlide() {
                     transition={{ delay: 0.3 + index * 0.2 }}
                     whileHover={{ scale: 1.1 }}
                     style={{
-                      width: '200px',
-                      padding: '1rem',
+                      width: '180px',
+                      padding: '0.75rem',
                       background: `linear-gradient(135deg, ${item.color}20, ${item.color}10)`,
                       border: `2px solid ${item.color}`,
                       borderRadius: pxToRem(12),
                       textAlign: 'center'
                     }}
                   >
-                    {Icon ? <Icon size={32} color={item.color} /> : 
-                     <span style={{ fontSize: '2rem', fontWeight: 'bold', color: item.color }}>ARIA</span>}
-                    <p style={{ color: '#e2e8f0', fontSize: '1rem', fontWeight: 'bold', marginTop: '0.5rem' }}>
+                    {Icon ? <Icon size={28} color={item.color} /> : 
+                     <span style={{ fontSize: '1.5rem', fontWeight: 'bold', color: item.color }}>ARIA</span>}
+                    <p style={{ color: '#e2e8f0', fontSize: '0.95rem', fontWeight: 'bold', marginTop: '0.3rem' }}>
                       {item.name}
                     </p>
-                    <p style={{ color: '#64748b', fontSize: '0.8rem' }}>
+                    <p style={{ color: '#64748b', fontSize: '0.75rem' }}>
                       {item.detail}
                     </p>
                   </motion.div>
@@ -86,7 +86,7 @@ export default function B2B2CDistributionSlide() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5 }}
-          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '2rem' }}
+          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem', marginTop: '1.5rem' }}
         >
           <div style={{
             background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(20, 184, 166, 0.05))',
@@ -94,9 +94,9 @@ export default function B2B2CDistributionSlide() {
             padding: '1rem',
             textAlign: 'center'
           }}>
-            <p style={{ color: '#10b981', fontSize: '2rem', fontWeight: 'bold' }}>$1,500</p>
-            <p style={{ color: '#e2e8f0' }}>CAC via B2B2C</p>
-            <p style={{ color: '#64748b', fontSize: '0.8rem' }}>vs $5,000 B2C</p>
+            <p style={{ color: '#10b981', fontSize: '1.5rem', fontWeight: 'bold' }}>$1,500</p>
+            <p style={{ color: '#e2e8f0', fontSize: '0.9rem' }}>CAC via B2B2C</p>
+            <p style={{ color: '#64748b', fontSize: '0.75rem' }}>vs $5,000 B2C</p>
           </div>
           <div style={{
             background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(251, 146, 60, 0.05))',
@@ -104,9 +104,9 @@ export default function B2B2CDistributionSlide() {
             padding: '1rem',
             textAlign: 'center'
           }}>
-            <p style={{ color: '#f97316', fontSize: '2rem', fontWeight: 'bold' }}>70%</p>
-            <p style={{ color: '#e2e8f0' }}>Year 1 Acquisition</p>
-            <p style={{ color: '#64748b', fontSize: '0.8rem' }}>via CPA channel</p>
+            <p style={{ color: '#f97316', fontSize: '1.5rem', fontWeight: 'bold' }}>70%</p>
+            <p style={{ color: '#e2e8f0', fontSize: '0.9rem' }}>Year 1 Acquisition</p>
+            <p style={{ color: '#64748b', fontSize: '0.75rem' }}>via CPA channel</p>
           </div>
         </motion.div>
       </div>
