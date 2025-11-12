@@ -245,20 +245,17 @@ function AppContent() {
 
   // Named button handlers for better debugging
   const handleEditModeClick = () => {
-    alert('Edit Mode button clicked!')
     console.log('Edit Mode button clicked! Current state:', isEditMode)
     setIsEditMode(!isEditMode)
     console.log('Setting Edit Mode to:', !isEditMode)
   }
 
   const handleExportPDFClick = () => {
-    alert('Export PDF button clicked!')
     console.log('Export PDF button clicked!')
     window.print()
   }
 
   const handleExportOptionsClick = () => {
-    alert('Export Options button clicked!')
     console.log('Export Options button clicked! Current state:', showExportDashboard)
     setShowExportDashboard(true)
     console.log('Setting Export Dashboard to: true')
