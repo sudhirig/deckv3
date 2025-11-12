@@ -13,23 +13,18 @@ import './SlideStyles.css'
 export default function TractionDashboardSlide() {
   const [currentTime, setCurrentTime] = useState(new Date())
   const [liveMetrics, setLiveMetrics] = useState({
-    aum: 42000000,
-    clients: 27,
-    dailyVolume: 1234567,
-    activeSessions: 8
+    prototypeValue: 10000000,  // $10M analyzed in prototype
+    pipelineCPAs: 50,          // Real Ascendum pipeline
+    integrations: 3,           // Zerodha, NSE, etc
+    monthsDev: 6               // Actual development time
   })
 
   // Update time every second for live feel
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date())
-      // Simulate live metric updates
-      setLiveMetrics(prev => ({
-        aum: prev.aum + Math.floor(Math.random() * 10000),
-        clients: prev.clients,
-        dailyVolume: prev.dailyVolume + Math.floor(Math.random() * 50000),
-        activeSessions: Math.floor(Math.random() * 5) + 6
-      }))
+      // Keep metrics stable (they're real, not simulated)
+      setLiveMetrics(prev => prev)
     }, 3000)
     return () => clearInterval(timer)
   }, [])
@@ -44,7 +39,7 @@ export default function TractionDashboardSlide() {
   const title = (
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem' }}>
       <GradientText gradient="from-green-400 to-emerald-400">
-        Live Traction Dashboard
+        Prototype Validation Metrics
       </GradientText>
       <motion.div
         initial={{ opacity: 0 }}
@@ -90,9 +85,9 @@ export default function TractionDashboardSlide() {
           <span style={{ color: '#22c55e', fontSize: pxToRem(14) }}>+23.4%</span>
         </div>
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e', marginBottom: pxToRem(4) }}>
-          {formatNumber(liveMetrics.aum)}
+          {formatNumber(liveMetrics.prototypeValue)}
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Assets Under Management</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Portfolio Analyzed in Prototype</div>
       </motion.div>
 
       {/* Active Clients */}
@@ -106,12 +101,12 @@ export default function TractionDashboardSlide() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
           <Users size={20} color="#60a5fa" />
-          <span style={{ color: '#60a5fa', fontSize: pxToRem(14) }}>+7 this month</span>
+          <span style={{ color: '#60a5fa', fontSize: pxToRem(14) }}>Via Ascendum</span>
         </div>
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#60a5fa', marginBottom: pxToRem(4) }}>
-          {liveMetrics.clients}
+          {liveMetrics.pipelineCPAs}
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Active HNW Clients</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>CPAs in Pipeline</div>
       </motion.div>
 
       {/* Daily Volume */}
@@ -125,12 +120,12 @@ export default function TractionDashboardSlide() {
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
           <Activity size={20} color="#a78bfa" />
-          <span style={{ color: '#4ade80', fontSize: pxToRem(14) }}>LIVE</span>
+          <span style={{ color: '#4ade80', fontSize: pxToRem(14) }}>WORKING</span>
         </div>
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa', marginBottom: pxToRem(4) }}>
-          {formatNumber(liveMetrics.dailyVolume)}
+          {liveMetrics.integrations}
         </div>
-        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Daily Trade Volume</div>
+        <div style={{ fontSize: TYPOGRAPHY.caption, color: '#94a3b8' }}>Live Integrations</div>
       </motion.div>
     </div>,
 

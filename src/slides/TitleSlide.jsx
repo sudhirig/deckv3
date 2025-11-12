@@ -10,18 +10,10 @@ import './SlideStyles.css'
 
 export default function TitleSlide() {
   const moats = [
-    { text: 'Agentic AI', description: '68+ AI Agents Working 24/7' },
-    { text: 'Tax Alpha', description: '₹1.55L Annual Savings' },
-    { text: 'Alternative Access', description: 'GIFT City Exclusive Gateway' }
+    { text: 'ARIA AI Brain', description: 'Proprietary Multi-Agent Tech' },
+    { text: 'India Gateway', description: 'Exclusive Vora/GIFT Access' },
+    { text: 'B2B2C Channel', description: 'Ascendum CPA Network' }
   ]
-
-  const trustBadges = [
-    { icon: Shield, label: 'SOC2', subtext: 'Compliant' },
-    { icon: Lock, label: 'ISO27001', subtext: 'Certified' },
-    { icon: Award, label: 'Bank-Grade', subtext: 'Security' }
-  ]
-
-  const mediaLogos = ['TechCrunch', 'Forbes', 'Bloomberg', 'WSJ', 'FT']
 
   return (
     <AspectFrame>
@@ -60,7 +52,7 @@ export default function TitleSlide() {
             >
               <h1 className="title-main">
                 <GradientText gradient="from-teal-400 via-cyan-400 to-green-400">
-                  The AI-Powered Digital Family Office
+                  ARIA
                 </GradientText>
               </h1>
             </EditableWrapper>
@@ -73,8 +65,8 @@ export default function TitleSlide() {
               isResizable={false}
             >
               <p className="title-subtitle">
-                Institutional-Grade Wealth Management<br />
-                For the Next Generation
+                The Virtuoso Intelligence for Global Wealth<br />
+                AI Risk & Investment Advisor
               </p>
             </EditableWrapper>
           </motion.div>
@@ -119,54 +111,34 @@ export default function TitleSlide() {
             </motion.p>
           </EditableWrapper>
           
-          {/* Trust Badges */}
+          {/* Partnership Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 2.2, duration: 0.6 }}
-            className="title-badges-section"
+            style={{
+              textAlign: 'center',
+              marginTop: '2rem',
+              padding: '1rem',
+              background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.05))',
+              borderRadius: pxToRem(12),
+              border: `1px solid rgba(20, 184, 166, 0.3)`
+            }}
           >
-            {trustBadges.map((badge, index) => (
-              <motion.div
-                key={badge.label}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 2.4 + index * 0.1, duration: 0.4 }}
-                whileHover={{ scale: 1.1, y: -3 }}
-                className="title-badge"
-              >
-                {React.createElement(badge.icon, { 
-                  size: 24, 
-                  color: '#14b8a6'
-                })}
-                <span className="title-badge-label">{badge.label}</span>
-                <span className="title-badge-subtext">{badge.subtext}</span>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          {/* Media Logos */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2.8, duration: 0.8 }}
-            className="title-media-section"
-          >
-            <p className="title-media-label">As Featured In</p>
-            <div className="title-media-logos">
-              {mediaLogos.map((logo, index) => (
-                <motion.span
-                  key={logo}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 0.7, x: 0 }}
-                  whileHover={{ opacity: 1, scale: 1.1 }}
-                  transition={{ delay: 3.0 + index * 0.1, duration: 0.4 }}
-                  className="title-media-logo"
-                >
-                  {logo}
-                </motion.span>
-              ))}
-            </div>
+            <p style={{ 
+              color: '#14b8a6', 
+              fontSize: '1.1rem', 
+              fontWeight: 'bold',
+              marginBottom: '0.5rem'
+            }}>
+              Backed by Vora Ventures | Working Prototype Operational
+            </p>
+            <p style={{ 
+              color: '#94a3b8', 
+              fontSize: '0.9rem'
+            }}>
+              Exclusive GIFT City Partnership | Patent-Pending Technology
+            </p>
           </motion.div>
           
           <motion.p
