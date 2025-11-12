@@ -12,6 +12,8 @@
   justify-content: center;
   background: var(--bg-gradient-primary, linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%));
   overflow: hidden;
+  z-index: 1;
+  pointer-events: none;
 }
 
 /* Stage enforces 16:9 aspect ratio with letterboxing */
@@ -24,6 +26,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  pointer-events: auto;
   
   /* CSS custom property for scale - used by child components */
   --slide-scale: min(

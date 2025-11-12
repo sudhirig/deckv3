@@ -243,6 +243,27 @@ function AppContent() {
     console.log('Export Dashboard State:', showExportDashboard)
   }, [showExportDashboard])
 
+  // Named button handlers for better debugging
+  const handleEditModeClick = () => {
+    alert('Edit Mode button clicked!')
+    console.log('Edit Mode button clicked! Current state:', isEditMode)
+    setIsEditMode(!isEditMode)
+    console.log('Setting Edit Mode to:', !isEditMode)
+  }
+
+  const handleExportPDFClick = () => {
+    alert('Export PDF button clicked!')
+    console.log('Export PDF button clicked!')
+    window.print()
+  }
+
+  const handleExportOptionsClick = () => {
+    alert('Export Options button clicked!')
+    console.log('Export Options button clicked! Current state:', showExportDashboard)
+    setShowExportDashboard(true)
+    console.log('Setting Export Dashboard to: true')
+  }
+
   // Check if static mode is enabled (for crisp screenshots)
   const isStaticMode = new URLSearchParams(window.location.search).get('static') === '1'
 
@@ -423,7 +444,8 @@ function AppContent() {
         right: 0,
         height: '4px',
         background: 'rgba(255, 255, 255, 0.1)',
-        zIndex: 1000
+        zIndex: 10000,
+        pointerEvents: 'none'
       }}>
         <motion.div
           style={{
@@ -442,7 +464,9 @@ function AppContent() {
           left: '20px',
           display: 'flex',
           gap: '12px',
-          alignItems: 'center'
+          alignItems: 'center',
+          pointerEvents: 'auto',
+          zIndex: 10001
         }}>
           <div style={{
             fontSize: '0.8rem',
@@ -474,7 +498,9 @@ function AppContent() {
           backdropFilter: 'blur(12px)',
           padding: '6px 10px',
           borderRadius: '8px',
-          border: '1px solid rgba(255, 255, 255, 0.1)'
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          pointerEvents: 'auto',
+          zIndex: 10001
         }}>
           <button 
             onClick={() => navigateToSlide(currentSlide - 1)}
@@ -525,12 +551,9 @@ function AppContent() {
           }}></div>
           
           <button
-            onClick={() => {
-              console.log('Edit Mode button clicked! Current state:', isEditMode)
-              setIsEditMode(!isEditMode)
-              console.log('Setting Edit Mode to:', !isEditMode)
-            }}
+            onClick={handleEditModeClick}
             style={{
+              position: 'relative',
               background: isEditMode ? 'rgba(34, 197, 94, 0.2)' : 'rgba(59, 130, 246, 0.15)',
               border: `1px solid ${isEditMode ? 'rgba(34, 197, 94, 0.4)' : 'rgba(59, 130, 246, 0.3)'}`,
               color: isEditMode ? '#86efac' : '#93c5fd',
@@ -540,15 +563,18 @@ function AppContent() {
               borderRadius: '4px',
               fontWeight: '500',
               transition: 'all 0.2s',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              zIndex: 10002,
+              pointerEvents: 'auto'
             }}
           >
             ✏️ {isEditMode ? 'Exit Edit' : 'Edit Mode'}
           </button>
           
           <button
-            onClick={() => window.print()}
+            onClick={handleExportPDFClick}
             style={{
+              position: 'relative',
               background: 'rgba(20, 184, 166, 0.15)',
               border: '1px solid rgba(20, 184, 166, 0.3)',
               color: '#5eead4',
@@ -558,19 +584,18 @@ function AppContent() {
               borderRadius: '4px',
               fontWeight: '500',
               transition: 'all 0.2s',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              zIndex: 10002,
+              pointerEvents: 'auto'
             }}
           >
             📄 Export PDF
           </button>
           
           <button
-            onClick={() => {
-              console.log('Export Options button clicked! Current state:', showExportDashboard)
-              setShowExportDashboard(true)
-              console.log('Setting Export Dashboard to: true')
-            }}
+            onClick={handleExportOptionsClick}
             style={{
+              position: 'relative',
               background: 'rgba(168, 85, 247, 0.15)',
               border: '1px solid rgba(168, 85, 247, 0.3)',
               color: '#c4b5fd',
@@ -580,7 +605,9 @@ function AppContent() {
               borderRadius: '4px',
               fontWeight: '500',
               transition: 'all 0.2s',
-              whiteSpace: 'nowrap'
+              whiteSpace: 'nowrap',
+              zIndex: 10002,
+              pointerEvents: 'auto'
             }}
           >
             ⚡ Export Options
