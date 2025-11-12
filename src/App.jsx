@@ -38,13 +38,14 @@ import GrowthPathSlide from './slides/GrowthPathSlide'
 import TeamSlide from './slides/TeamSlide'
 import FundingSlide from './slides/FundingSlide'
 import AppendixSlide from './slides/AppendixSlide'
-// New slides for 50+ mother deck
-import InvestorPersona1Slide from './slides/InvestorPersona1Slide'
-import InvestorPersona2Slide from './slides/InvestorPersona2Slide'
-import InvestorPersona3Slide from './slides/InvestorPersona3Slide'
-import CustomerJourney1Slide from './slides/CustomerJourney1Slide'
-import CustomerJourney2Slide from './slides/CustomerJourney2Slide'
-import CustomerJourney3Slide from './slides/CustomerJourney3Slide'
+// New ARIA transformation slides
+import IntroducingARIASlide from './slides/IntroducingARIASlide'
+import WedgeExpandSlide from './slides/WedgeExpandSlide'
+import B2B2CDistributionSlide from './slides/B2B2CDistributionSlide'
+import ARIAFundManagerSlide from './slides/ARIAFundManagerSlide'
+import DigitalFamilyOfficeOSSlide from './slides/DigitalFamilyOfficeOSSlide'
+import USTechStrategySlide from './slides/USTechStrategySlide'
+import GoToMarketSlide from './slides/GoToMarketSlide'
 import TechArchitecture1Slide from './slides/TechArchitecture1Slide'
 import TechArchitecture2Slide from './slides/TechArchitecture2Slide'
 import TechArchitecture3Slide from './slides/TechArchitecture3Slide'
@@ -55,23 +56,9 @@ import FinancialProjections3Slide from './slides/FinancialProjections3Slide'
 import RiskMitigation1Slide from './slides/RiskMitigation1Slide'
 import RiskMitigation2Slide from './slides/RiskMitigation2Slide'
 import ExitStrategySlide from './slides/ExitStrategySlide'
-import CaseStudy1Slide from './slides/CaseStudy1Slide'
-import CaseStudy2Slide from './slides/CaseStudy2Slide'
-import CaseStudy3Slide from './slides/CaseStudy3Slide'
 import PartnershipStrategy1Slide from './slides/PartnershipStrategy1Slide'
 import PartnershipStrategy2Slide from './slides/PartnershipStrategy2Slide'
 import ClosingCommitmentSlide from './slides/ClosingCommitmentSlide'
-// GIFT City Act 6 Slides
-import GiftCityIntroSlide from './slides/GiftCityIntroSlide'
-import GiftCityEntityStructureSlide from './slides/GiftCityEntityStructureSlide'
-import GiftCityThreePillarPlatformSlide from './slides/GiftCityThreePillarPlatformSlide'
-import GiftCityAIFAdvantagesSlide from './slides/GiftCityAIFAdvantagesSlide'
-import GiftCityTaxOptimizationSlide from './slides/GiftCityTaxOptimizationSlide'
-import GiftCityGrowthStagesSlide from './slides/GiftCityGrowthStagesSlide'
-import GiftCityGlobalInvestorAccessSlide from './slides/GiftCityGlobalInvestorAccessSlide'
-import GiftCityRegulatoryComplianceSlide from './slides/GiftCityRegulatoryComplianceSlide'
-import GiftCityTechnologyInfrastructureSlide from './slides/GiftCityTechnologyInfrastructureSlide'
-import GiftCityCallToActionSlide from './slides/GiftCityCallToActionSlide'
 // Product Appendix Slides - Chapter 1: Zerodha
 import ZerodhaConceptSlide from './slides/ZerodhaConceptSlide'
 import ZerodhaFeaturesSlide from './slides/ZerodhaFeaturesSlide'
@@ -105,72 +92,60 @@ import LiveMetricsDashboardSlide from './slides/LiveMetricsDashboardSlide'
 import ProductOverviewSlide from './slides/ProductOverviewSlide'
 
 const slides = [
-  { component: TitleSlide, title: 'Title' },
+  // OPENING
+  { component: TitleSlide, title: 'ARIA - The Virtuoso Intelligence' },
   { component: ExecutiveSummarySlide, title: 'Executive Summary' },
-  { component: AgendaRoadmapSlide, title: 'Agenda & Roadmap' },
-  { component: Act1Slide, title: 'Act 1: The Problem' },
+  { component: AgendaRoadmapSlide, title: 'Agenda: The 5-Act Journey' },
+  
+  // ACT 1: THE DISRUPTION
+  { component: Act1Slide, title: 'Act 1: The Disruption' },
   { component: StanfordSlide, title: 'AI is the New Alpha' },
   { component: MarketSwitchingSlide, title: 'Market Switching Now' },
   { component: AlphaGapSlide, title: 'The Three Failures' },
-  { component: Act2Slide, title: 'Act 2: The Solution' },
-  { component: IntroducingSlide, title: 'Introducing AI Family Office' },
-  { component: ProductOverviewSlide, title: 'Complete AI Family Office Suite' },
-  { component: AICommitteeSlide, title: 'AI Investment Committee' },
-  { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },
-  { component: Act3Slide, title: 'Act 3: The Deep Dive' },
+  
+  // ACT 2: THE ARIA STRATEGY
+  { component: Act2Slide, title: 'Act 2: The ARIA Strategy' },
+  { component: IntroducingARIASlide, title: 'Introducing ARIA' },
+  { component: WedgeExpandSlide, title: 'The Wedge & Expand Strategy' },
+  { component: B2B2CDistributionSlide, title: 'Our B2B2C Distribution Moat' },
+  { component: ProductOverviewSlide, title: 'ARIA Orchestration Platform' },
+  { component: ThreeAlphaAgentsSlide, title: 'Three Core Products' },
+  
+  // ACT 3: THE UNFAIR ADVANTAGES
+  { component: Act3Slide, title: 'Act 3: The Unfair Advantages' },
   { component: IndiaProblemSlide, title: 'India: $5T Market Locked' },
-  { component: GIFTSolutionSlide, title: 'GIFT City AI Gateway' },
-  { component: AIGatewaySlide, title: 'AI Makes It Simple' },
-  { component: TaxAlphaDailySlide, title: 'Tax Alpha: Daily vs Annual' },
-  { component: AlternativeAIDDSlide, title: 'Alternative Asset AI DD' },
-  { component: AgentArchitectureSlideNew, title: 'Swarm of 20+ Agents' },
-  { component: Act4Slide, title: 'Act 4: The Proof' },
-  { component: RealJourneysSlide, title: 'Real Journeys, Real Alpha' },
-  { component: LivePlatformSlide, title: 'Live Platform - 100% Operational' },
-  { component: TractionDashboardSlide, title: 'Traction Dashboard' },
-  { component: WhyWeWinSlide, title: 'Why We Win' },
-  { component: WhyIncumbentsCantRespondSlide, title: 'Why Incumbents Can\'t Respond' },
-  { component: UnfairAdvantagesSlide, title: 'Triple Lock Advantages' },
+  { component: GIFTSolutionSlide, title: 'The India Gateway Fund' },
+  { component: ARIAFundManagerSlide, title: 'ARIA as AI Fund Manager' },
+  { component: AlternativeAIDDSlide, title: 'The ARIA Data Engine' },
+  { component: USTechStrategySlide, title: 'US Tech Strategy: Read vs Execute' },
+  { component: DigitalFamilyOfficeOSSlide, title: 'Digital Family Office OS' },
+  { component: AgentArchitectureSlideNew, title: 'Multi-Agent Architecture' },
+  
+  // ACT 4: VALIDATION
+  { component: Act4Slide, title: 'Act 4: Validation' },
+  { component: LivePlatformSlide, title: 'Prototype Validated' },
+  { component: TractionDashboardSlide, title: 'Validation Metrics' },
+  { component: TechArchitecture1Slide, title: 'Tech Architecture: System' },
+  { component: TechArchitecture2Slide, title: 'Tech Architecture: Agents' },
+  { component: TechArchitecture3Slide, title: 'Tech Architecture: Security' },
+  
+  // ACT 5: THE BUSINESS
   { component: Act5Slide, title: 'Act 5: The Business' },
   { component: OpportunitySlide, title: 'Market Opportunity' },
-  { component: InvestorPersona1Slide, title: 'Investor Persona: Tech Founder' },
-  { component: InvestorPersona2Slide, title: 'Investor Persona: Family Office' },
-  { component: InvestorPersona3Slide, title: 'Investor Persona: Executive' },
-  { component: CustomerJourney1Slide, title: 'Customer Journey: First 30 Days' },
-  { component: CustomerJourney2Slide, title: 'Customer Journey: Year One' },
-  { component: CustomerJourney3Slide, title: 'Customer Journey: Loyalty & Advocacy' },
+  { component: GoToMarketSlide, title: 'Go-to-Market Strategy' },
   { component: CompetitiveMatrixSlide, title: 'Competitive Analysis' },
-  { component: ValueCreationSlide, title: '10x Value Creation' },
-  { component: FinancialProjections1Slide, title: 'Financial Projections: Path to Profitability' },
-  { component: FinancialProjections2Slide, title: 'Unit Economics & Revenue Model' },
-  { component: FinancialProjections3Slide, title: 'Use of Funds & Milestones' },
+  { component: WhyWeWinSlide, title: 'Why We Win' },
+  { component: FinancialProjections1Slide, title: 'Financial Projections' },
+  { component: FinancialProjections2Slide, title: 'Unit Economics' },
+  { component: FinancialProjections3Slide, title: 'Use of Funds' },
   { component: GrowthPathSlide, title: 'Path to $1B AUM' },
-  { component: CaseStudy1Slide, title: 'Case Study: Tech Founder Success' },
-  { component: CaseStudy2Slide, title: 'Case Study: Multi-Generational Family' },
-  { component: CaseStudy3Slide, title: 'Case Study: Executive Transformation' },
-  { component: TechArchitecture1Slide, title: 'Tech Architecture: System Overview' },
-  { component: TechArchitecture2Slide, title: 'Tech Architecture: Agent Swarm' },
-  { component: TechArchitecture3Slide, title: 'Tech Architecture: Security & Compliance' },
   { component: PartnershipStrategy1Slide, title: 'Partnership Ecosystem' },
-  { component: PartnershipStrategy2Slide, title: 'GIFT City Global Gateway' },
-  { component: RiskMitigation1Slide, title: 'Risk Analysis & Mitigation' },
-  { component: RiskMitigation2Slide, title: 'Contingency Plans & Business Continuity' },
-  { component: ExitStrategySlide, title: 'Exit Strategy & Investor Returns' },
+  { component: PartnershipStrategy2Slide, title: 'Vora Partnership Details' },
   { component: TeamSlide, title: 'Team' },
   { component: FundingSlide, title: '$5M Seed Round' },
-  { component: ClosingCommitmentSlide, title: 'Join Us: The Commitment' },
   
-  // GIFT City Act 6 - Complete Section
-  { component: GiftCityIntroSlide, title: 'Act 6: GIFT City Advantage' },
-  { component: GiftCityEntityStructureSlide, title: 'Vora Ventures Entity Structure' },
-  { component: GiftCityThreePillarPlatformSlide, title: 'Three-Pillar Platform' },
-  { component: GiftCityAIFAdvantagesSlide, title: 'Category III AIF Advantages' },
-  { component: GiftCityTaxOptimizationSlide, title: 'Tax Optimization Showcase' },
-  { component: GiftCityGrowthStagesSlide, title: '30-Month Growth Journey' },
-  { component: GiftCityGlobalInvestorAccessSlide, title: 'Global Investor Access' },
-  { component: GiftCityRegulatoryComplianceSlide, title: 'Full Regulatory Compliance' },
-  { component: GiftCityTechnologyInfrastructureSlide, title: 'GIFT City Tech Infrastructure' },
-  { component: GiftCityCallToActionSlide, title: 'Join Us in GIFT City' },
+  // CLOSING
+  { component: ClosingCommitmentSlide, title: 'Join Us' },
   
   // Product Appendix - Chapter 1: Zerodha
   { component: ZerodhaConceptSlide, title: 'Chapter 1: Zerodha Trading Intelligence' },
