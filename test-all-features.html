@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Comprehensive Feature Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #1a1a1a;
+      color: white;
+    }
+    .test-section {
+      margin: 20px 0;
+      padding: 20px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      border: 1px solid #3a3a3a;
+    }
+    h2 {
+      color: #14b8a6;
+      margin-bottom: 10px;
+    }
+    .result {
+      margin: 10px 0;
+      padding: 10px;
+      background: #3a3a3a;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .success {
+      color: #22c55e;
+    }
+    .failure {
+      color: #ef4444;
+    }
+    .info {
+      color: #60a5fa;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 16px;
+      background: #14b8a6;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #10a190;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI Family Office - Feature Testing</h1>
+  
+  <div class="test-section">
+    <h2>1. Edit Mode Test</h2>
+    <button onclick="testEditMode()">Run Edit Mode Test</button>
+    <div id="editModeResult" class="result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>2. Export PDF Test</h2>
+    <button onclick="testExportPDF()">Run Export PDF Test</button>
+    <div id="exportPDFResult" class="result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>3. Export Options Modal Test</h2>
+    <button onclick="testExportOptions()">Run Export Options Test</button>
+    <div id="exportOptionsResult" class="result"></div>
+  </div>
+  
+  <div class="test-section">
+    <h2>4. Component State Analysis</h2>
+    <button onclick="analyzeState()">Analyze React State</button>
+    <div id="stateAnalysisResult" class="result"></div>
+  </div>
+  
+  <iframe id="app" src="http://localhost:5000" width="100%" height="600" style="margin-top: 20px; border: 1px solid #3a3a3a; border-radius: 8px;"></iframe>
+  
+  <script>
+    function wait(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    
+    function log(elementId, message, type = 'info') {
+      const element = document.getElementById(elementId);
+      const className = type === 'success' ? 'success' : type === 'failure' ? 'failure' : 'info';
+      element.innerHTML += `<div class="${className}">${message}</div>`;
+      console.log(message);
+    }
+    
+    function getIframeWindow() {
+      const iframe = document.getElementById('app');
+      return iframe.contentWindow;
+    }
+    
+    function getIframeDocument() {
+      const iframe = document.getElementById('app');
+      return iframe.contentDocument || iframe.contentWindow.document;
+    }
+    
+    async function testEditMode() {
+      const resultId = 'editModeResult';
+      document.getElementById(resultId).innerHTML = '';
+      
+      log(resultId, 'Starting Edit Mode Test...', 'info');
+      
+      const doc = getIframeDocument();
+      const win = getIframeWindow();
+      
+      // Find the Edit Mode button
+      const buttons = Array.from(doc.querySelectorAll('button'));
+      const editButton = buttons.find(btn => btn.textContent.includes('Edit Mode'));
+      
+      if (!editButton) {
+        log(resultId, '❌ FAILED: Edit Mode button not found', 'failure');
+        return;
+      }
+      
+      log(resultId, '✓ Edit Mode button found', 'success');
+      
+      // Check initial state
+      const initialText = editButton.textContent;
+      const initialStyle = editButton.style.background;
+      log(resultId, `Initial button text: "${initialText}"`, 'info');
+      
+      // Click the button
+      editButton.click();
+      log(resultId, 'Clicked Edit Mode button', 'info');
+      
+      await wait(500);
+      
+      // Check if button changed
+      const newText = editButton.textContent;
+      const newStyle = editButton.style.background;
+      
+      if (newText !== initialText) {
+        log(resultId, `✓ Button text changed to: "${newText}"`, 'success');
+      } else {
+        log(resultId, '❌ Button text did not change', 'failure');
+      }
+      
+      if (newStyle !== initialStyle) {
+        log(resultId, '✓ Button style changed', 'success');
+      } else {
+        log(resultId, '❌ Button style did not change', 'failure');
+      }
+      
+      // Check if EditModeBar appeared
+      const editModeBar = doc.querySelector('.edit-mode-bar');
+      if (editModeBar) {
+        log(resultId, '✓ EditModeBar is now visible!', 'success');
+        
+        // Check what's in the bar
+        const controls = editModeBar.querySelectorAll('.control-btn');
+        log(resultId, `Found ${controls.length} control buttons in EditModeBar`, 'info');
+        
+        const editToggle = editModeBar.querySelector('.edit-mode-toggle');
+        if (editToggle) {
+          log(resultId, '✓ Edit Mode toggle found in bar', 'success');
+        }
+      } else {
+        log(resultId, '❌ EditModeBar did not appear', 'failure');
+        
+        // Try to find React components
+        try {
+          const reactRoot = doc.getElementById('root');
+          if (reactRoot && reactRoot._reactRootContainer) {
+            log(resultId, 'React root found, checking component tree...', 'info');
+          }
+        } catch (e) {
+          log(resultId, 'Could not inspect React internals', 'info');
+        }
+      }
+      
+      // Check if EditableWrapper elements are activated
+      const editableWrappers = doc.querySelectorAll('.editable-wrapper');
+      if (editableWrappers.length > 0) {
+        log(resultId, `Found ${editableWrappers.length} EditableWrapper elements`, 'info');
+      }
+    }
+    
+    async function testExportPDF() {
+      const resultId = 'exportPDFResult';
+      document.getElementById(resultId).innerHTML = '';
+      
+      log(resultId, 'Starting Export PDF Test...', 'info');
+      
+      const doc = getIframeDocument();
+      const win = getIframeWindow();
+      
+      // Find the Export PDF button
+      const buttons = Array.from(doc.querySelectorAll('button'));
+      const exportButton = buttons.find(btn => btn.textContent.includes('Export PDF'));
+      
+      if (!exportButton) {
+        log(resultId, '❌ FAILED: Export PDF button not found', 'failure');
+        return;
+      }
+      
+      log(resultId, '✓ Export PDF button found', 'success');
+      
+      // Check for print-only slides section
+      const printOnlySlides = doc.querySelector('.print-only-slides');
+      if (printOnlySlides) {
+        const slides = printOnlySlides.querySelectorAll('.print-slide');
+        log(resultId, `✓ Found print-only-slides section with ${slides.length} slides`, 'success');
+        
+        if (slides.length >= 87) {
+          log(resultId, '✓ All 87+ slides are present in print section!', 'success');
+        } else {
+          log(resultId, `❌ Only ${slides.length} slides found, expected 87+`, 'failure');
+        }
+      } else {
+        log(resultId, '❌ No print-only-slides section found', 'failure');
+      }
+      
+      // Override window.print to detect if it's called
+      let printCalled = false;
+      const originalPrint = win.print;
+      win.print = function() {
+        printCalled = true;
+        log(resultId, '✓ window.print() was called', 'success');
+        win.print = originalPrint; // Restore
+      };
+      
+      exportButton.click();
+      log(resultId, 'Clicked Export PDF button', 'info');
+      
+      await wait(500);
+      
+      if (!printCalled) {
+        log(resultId, '❌ window.print() was not called', 'failure');
+      }
+    }
+    
+    async function testExportOptions() {
+      const resultId = 'exportOptionsResult';
+      document.getElementById(resultId).innerHTML = '';
+      
+      log(resultId, 'Starting Export Options Test...', 'info');
+      
+      const doc = getIframeDocument();
+      
+      // Find the Export Options button
+      const buttons = Array.from(doc.querySelectorAll('button'));
+      const exportButton = buttons.find(btn => btn.textContent.includes('Export Options'));
+      
+      if (!exportButton) {
+        log(resultId, '❌ FAILED: Export Options button not found', 'failure');
+        return;
+      }
+      
+      log(resultId, '✓ Export Options button found', 'success');
+      
+      // Click the button
+      exportButton.click();
+      log(resultId, 'Clicked Export Options button', 'info');
+      
+      await wait(500);
+      
+      // Look for the modal
+      const exportDashboard = doc.querySelector('.export-modal, .export-dashboard-overlay, .export-backdrop');
+      if (exportDashboard) {
+        log(resultId, '✓ Export Dashboard modal appeared!', 'success');
+        
+        // Check modal content
+        const modalHeader = doc.querySelector('.export-header h2');
+        if (modalHeader) {
+          log(resultId, `Modal title: "${modalHeader.textContent}"`, 'info');
+        }
+        
+        const exportOptions = doc.querySelectorAll('.export-option');
+        log(resultId, `Found ${exportOptions.length} export options`, 'info');
+        
+        exportOptions.forEach(option => {
+          const title = option.querySelector('h3');
+          if (title) {
+            log(resultId, `  - Option: ${title.textContent}`, 'info');
+          }
+        });
+        
+        // Try to close the modal
+        const closeButton = doc.querySelector('.export-close');
+        if (closeButton) {
+          closeButton.click();
+          log(resultId, 'Clicked close button', 'info');
+          
+          await wait(500);
+          
+          const modalStillVisible = doc.querySelector('.export-modal');
+          if (!modalStillVisible) {
+            log(resultId, '✓ Modal closed successfully', 'success');
+          } else {
+            log(resultId, '❌ Modal did not close', 'failure');
+          }
+        }
+      } else {
+        log(resultId, '❌ Export Dashboard modal did not appear', 'failure');
+        
+        // Check for any modal-like elements
+        const modals = doc.querySelectorAll('[class*="modal"], [class*="overlay"], [style*="fixed"]');
+        log(resultId, `Found ${modals.length} potential modal elements`, 'info');
+        modals.forEach(el => {
+          if (el.className && el.className.includes('export')) {
+            log(resultId, `  - ${el.className}`, 'info');
+          }
+        });
+      }
+    }
+    
+    async function analyzeState() {
+      const resultId = 'stateAnalysisResult';
+      document.getElementById(resultId).innerHTML = '';
+      
+      log(resultId, 'Analyzing React Component State...', 'info');
+      
+      const doc = getIframeDocument();
+      const win = getIframeWindow();
+      
+      // Try to access React DevTools if available
+      if (win.__REACT_DEVTOOLS_GLOBAL_HOOK__) {
+        log(resultId, '✓ React DevTools hook detected', 'success');
+      }
+      
+      // Check for EditModeProvider
+      const root = doc.getElementById('root');
+      if (root) {
+        log(resultId, '✓ React root element found', 'success');
+        
+        // Look for evidence of context providers
+        const contextElements = doc.querySelectorAll('[data-context], [class*="provider"]');
+        log(resultId, `Found ${contextElements.length} potential context elements`, 'info');
+      }
+      
+      // Check current button states
+      const buttons = Array.from(doc.querySelectorAll('button'));
+      const editButton = buttons.find(btn => btn.textContent.includes('Edit'));
+      
+      if (editButton) {
+        const isExitEdit = editButton.textContent.includes('Exit');
+        log(resultId, `Edit button state: ${isExitEdit ? 'Edit Mode ACTIVE' : 'Edit Mode INACTIVE'}`, 'info');
+      }
+      
+      // Check for any error messages in console
+      log(resultId, 'Check browser console for any React errors or warnings', 'info');
+    }
+    
+    // Wait for iframe to load
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        console.log('Test suite ready. Click the buttons to run tests.');
+        
+        // Auto-run all tests
+        setTimeout(async () => {
+          await testEditMode();
+          await wait(1000);
+          await testExportPDF();
+          await wait(1000);
+          await testExportOptions();
+          await wait(1000);
+          await analyzeState();
+        }, 1000);
+      }, 2000);
+    });
+  </script>
+</body>
+</html>

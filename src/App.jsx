@@ -232,7 +232,6 @@ function AppContent() {
   
   // Use EditModeContext
   const { isEditMode, setIsEditMode } = useEditMode()
-  
 
   // Check if static mode is enabled (for crisp screenshots)
   const isStaticMode = new URLSearchParams(window.location.search).get('static') === '1'
