@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 9 Test - ProductOverviewSlide</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="app" src="http://localhost:5000/#/slide/9"></iframe>
+    
+    <script>
+        // Wait for iframe to load then run tests
+        window.onload = () => {
+            setTimeout(() => {
+                const iframe = document.getElementById('app');
+                const app = iframe.contentWindow;
+                
+                // Navigate to slide 9
+                app.location.hash = '#/slide/9';
+                
+                console.log('Navigated to Slide 9 - ProductOverviewSlide');
+                
+                // After navigation, enable edit mode
+                setTimeout(() => {
+                    const editBtn = app.document.querySelector('.edit-mode-toggle');
+                    if (editBtn) {
+                        editBtn.click();
+                        console.log('Edit Mode enabled');
+                    }
+                }, 2000);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
