@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
+import EditableWrapper from '../components/EditableWrapper'
 import { AspectFrame } from '../components/StandardLayouts'
 import { Shield, Award, Lock } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
@@ -50,16 +51,32 @@ export default function TitleSlide() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="title-main-section"
           >
-            <h1 className="title-main">
-              <GradientText gradient="from-teal-400 via-cyan-400 to-green-400">
-                The AI-Powered Digital Family Office
-              </GradientText>
-            </h1>
+            <EditableWrapper
+              slideId="title"
+              elementId="main-title"
+              type="text"
+              isDraggable={true}
+              isResizable={false}
+            >
+              <h1 className="title-main">
+                <GradientText gradient="from-teal-400 via-cyan-400 to-green-400">
+                  The AI-Powered Digital Family Office
+                </GradientText>
+              </h1>
+            </EditableWrapper>
             
-            <p className="title-subtitle">
-              Institutional-Grade Wealth Management<br />
-              For the Next Generation
-            </p>
+            <EditableWrapper
+              slideId="title"
+              elementId="subtitle"
+              type="text"
+              isDraggable={true}
+              isResizable={false}
+            >
+              <p className="title-subtitle">
+                Institutional-Grade Wealth Management<br />
+                For the Next Generation
+              </p>
+            </EditableWrapper>
           </motion.div>
           
           {/* Three Moats */}
@@ -85,14 +102,22 @@ export default function TitleSlide() {
             ))}
           </motion.div>
           
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.8, duration: 0.8 }}
-            className="title-tagline"
+          <EditableWrapper
+            slideId="title"
+            elementId="tagline"
+            type="text"
+            isDraggable={true}
+            isResizable={false}
           >
-            The entire pitch in one line: Our three "alpha" moats
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.8, duration: 0.8 }}
+              className="title-tagline"
+            >
+              The entire pitch in one line: Our three "alpha" moats
+            </motion.p>
+          </EditableWrapper>
           
           {/* Trust Badges */}
           <motion.div

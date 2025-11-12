@@ -4,7 +4,7 @@ import './App.css'
 import SlideViewport from './components/SlideViewport'
 import ActDropdown from './components/ActDropdown'
 import ExportDashboard from './components/ExportDashboard'
-import { EditModeProvider } from './contexts/EditModeContext'
+import { EditModeProvider, useEditMode } from './contexts/EditModeContext'
 import EditModeBar from './components/EditModeBar'
 import TitleSlide from './slides/TitleSlide'
 import ExecutiveSummarySlide from './slides/ExecutiveSummarySlide'
@@ -213,7 +213,7 @@ const slides = [
   { component: AppendixSlide, title: 'Appendix' }
 ]
 
-function App() {
+function AppContent() {
   // Helper function to get current slide from hash (moved up to use in initial state)
   const getCurrentSlideFromHash = () => {
     const hash = window.location.hash
@@ -229,6 +229,9 @@ function App() {
   const [showThumbnails, setShowThumbnails] = useState(false)
   const [preloadedSlides, setPreloadedSlides] = useState(new Set([getCurrentSlideFromHash()]))
   const [showExportDashboard, setShowExportDashboard] = useState(false)
+  
+  // Use EditModeContext
+  const { isEditMode, setIsEditMode } = useEditMode()
   
 
   // Check if static mode is enabled (for crisp screenshots)
@@ -375,7 +378,6 @@ function App() {
   }
 
   return (
-    <EditModeProvider>
       <div className="presentation">
       {/* Print view: All slides rendered */}
       <div className="print-only-slides">
@@ -514,6 +516,24 @@ function App() {
           }}></div>
           
           <button
+            onClick={() => setIsEditMode(!isEditMode)}
+            style={{
+              background: isEditMode ? 'rgba(34, 197, 94, 0.2)' : 'rgba(59, 130, 246, 0.15)',
+              border: `1px solid ${isEditMode ? 'rgba(34, 197, 94, 0.4)' : 'rgba(59, 130, 246, 0.3)'}`,
+              color: isEditMode ? '#86efac' : '#93c5fd',
+              cursor: 'pointer',
+              fontSize: '0.7rem',
+              padding: '4px 10px',
+              borderRadius: '4px',
+              fontWeight: '500',
+              transition: 'all 0.2s',
+              whiteSpace: 'nowrap'
+            }}
+          >
+            ✏️ {isEditMode ? 'Exit Edit' : 'Edit Mode'}
+          </button>
+          
+          <button
             onClick={() => window.print()}
             style={{
               background: 'rgba(20, 184, 166, 0.15)',
@@ -613,9 +633,17 @@ function App() {
         navigateToSlide={navigateToSlide}
       />
       
-      {/* Edit Mode Bar */}
-      <EditModeBar />
+      {/* Edit Mode Bar - Show when Edit Mode is active */}
+      {isEditMode && <EditModeBar />}
     </div>
+  )
+}
+
+// Main App component that provides EditModeContext
+function App() {
+  return (
+    <EditModeProvider>
+      <AppContent />
     </EditModeProvider>
   )
 }
