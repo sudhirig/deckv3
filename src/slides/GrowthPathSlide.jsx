@@ -11,7 +11,7 @@ export default function GrowthPathSlide() {
   // Title
   const title = (
     <GradientText gradient="from-green-400 to-emerald-400">
-      Path to $1B AUM in 36 Months
+      Path to $500M AUM in 5 Years
     </GradientText>
   )
 
@@ -25,15 +25,15 @@ export default function GrowthPathSlide() {
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
         <div style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 1</p>
-          <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6' }}>$50M</p>
-          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>AUM</p>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>18 Months</p>
+          <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#14b8a6' }}>$100M</p>
+          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Target AUM</p>
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <ArrowRight size={32} stroke="#475569" strokeWidth={2.5} />
         </div>
         <div style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 2</p>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 3</p>
           <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#22c55e' }}>$250M</p>
           <p style={{ fontSize: '0.85rem', color: '#64748b' }}>AUM</p>
         </div>
@@ -41,9 +41,9 @@ export default function GrowthPathSlide() {
           <ArrowRight size={32} stroke="#475569" strokeWidth={2.5} />
         </div>
         <div style={{ textAlign: 'center' }}>
-          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 3</p>
-          <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}>$1B</p>
-          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>AUM Target</p>
+          <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginBottom: '0.5rem' }}>Year 5</p>
+          <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fbbf24' }}>$500M</p>
+          <p style={{ fontSize: '0.85rem', color: '#64748b' }}>Scale Target</p>
         </div>
       </div>
       

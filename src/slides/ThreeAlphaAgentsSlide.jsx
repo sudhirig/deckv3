@@ -9,12 +9,12 @@ export default function ThreeAlphaAgentsSlide() {
   // Title
   const title = (
     <GradientText gradient="from-purple-400 to-pink-400">
-      Our Moat: Three "Alpha Agents" Solving The Three Failures
+      Three Core Products Powering the Strategy
     </GradientText>
   )
   
   // Subtitle
-  const subtitle = "Each agent directly answers one pain point from Slide 4"
+  const subtitle = "Each product powers a phase of our Wedge & Expand strategy"
 
   // Grid cards - 3 Alpha Agents
   const cards = [

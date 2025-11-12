@@ -123,9 +123,9 @@ export default function ExecutiveSummarySlide() {
         <div style={{ padding: '1rem', background: 'linear-gradient(135deg, rgba(251, 146, 60, 0.1), rgba(249, 115, 22, 0.1))', borderRadius: pxToRem(12), borderLeft: `${pxToRem(3)} solid #fb923c` }}>
           <strong className="icon-label icon-heading" style={{ color: '#fdba74', fontSize: '1rem' }}>
             <Icon type="rocket" size={22} variant="inline" gradient="from-orange-400 to-amber-400" />
-            100% Live
+            B2B2C Distribution
           </strong>
-          <p style={{ fontSize: '0.9rem', color: '#e2e8f0', marginTop: '0.3rem' }}>Operational with real portfolios, $42M AUM, 27 HNW clients</p>
+          <p style={{ fontSize: '0.9rem', color: '#e2e8f0', marginTop: '0.3rem' }}>50+ CPAs via Ascendum KPS network ready to onboard HNW clients</p>
         </div>
       </div>
     </motion.div>
@@ -149,23 +149,23 @@ export default function ExecutiveSummarySlide() {
         The Ask
       </h3>
       <div style={{ fontSize: '1.1rem', color: '#e2e8f0', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-        $10M Series A
+        $5M Seed Round
       </div>
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', fontSize: '0.9rem' }}>
         <div>
           <strong style={{ color: '#fbbf24' }}>Use of Funds:</strong>
           <ul style={{ color: '#e2e8f0', marginTop: '0.3rem', paddingLeft: '1.2rem', margin: 0 }}>
-            <li>Technology scaling</li>
-            <li>US market entry</li>
-            <li>Team expansion</li>
+            <li>Launch India Gateway Fund</li>
+            <li>Build ARIA Data Engine</li>
+            <li>50 CPA partnerships</li>
           </ul>
         </div>
         <div>
-          <strong style={{ color: '#fbbf24' }}>Returns:</strong>
+          <strong style={{ color: '#fbbf24' }}>18-Month Targets:</strong>
           <ul style={{ color: '#e2e8f0', marginTop: '0.3rem', paddingLeft: '1.2rem', margin: 0 }}>
-            <li>$5B AUM by Year 5</li>
-            <li>70% EBITDA margins</li>
-            <li>100x potential exit</li>
+            <li>100 HNW clients</li>
+            <li>$100M AUM</li>
+            <li>$10M ARR</li>
           </ul>
         </div>
       </div>
