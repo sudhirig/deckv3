@@ -26,7 +26,7 @@ export default function FinancialProjections1Slide() {
     { label: 'Target', value: '$5B', sublabel: 'Year 5 AUM', icon: Rocket, color: '#a78bfa' }
   ]
 
-  const getChartHeight = (value, max) => pxToRem((value / max) * 250)
+  const getChartHeight = (value, max) => pxToRem((value / max) * 200)
 
   // Title
   const title = (
@@ -49,7 +49,7 @@ export default function FinancialProjections1Slide() {
       style={{
         background: 'rgba(59, 130, 246, 0.05)',
         borderRadius: '12px',
-        padding: '2rem',
+        padding: '1.5rem',
         width: '100%'
       }}
     >
@@ -57,7 +57,7 @@ export default function FinancialProjections1Slide() {
         5-Year AUM Growth Trajectory
       </h3>
       
-      <div style={{ position: 'relative', height: pxToRem(300), maxHeight: '40vh', marginBottom: SPACING.sm }}>
+      <div style={{ position: 'relative', height: pxToRem(250), maxHeight: '35vh', marginBottom: SPACING.sm }}>
         {/* Grid Lines */}
         {[0, 1, 2, 3, 4, 5].map(i => (
           <div
@@ -66,7 +66,7 @@ export default function FinancialProjections1Slide() {
               position: 'absolute',
               left: 0,
               right: 0,
-              bottom: pxToRem(i * 50),
+              bottom: pxToRem(i * 42),
               height: pxToRem(1),
               background: 'rgba(255, 255, 255, 0.05)'
             }}
@@ -80,7 +80,7 @@ export default function FinancialProjections1Slide() {
             style={{
               position: 'absolute',
               left: pxToRem(-40),
-              bottom: pxToRem(i * 50 - 8),
+              bottom: pxToRem(i * 42 - 8),
               fontSize: '0.85rem',
               color: '#64748b'
             }}
@@ -94,7 +94,7 @@ export default function FinancialProjections1Slide() {
           display: 'flex',
           justifyContent: 'space-evenly',
           alignItems: 'flex-end',
-          height: pxToRem(250),
+          height: pxToRem(210),
           paddingTop: SPACING.lg
         }}>
           {projections.map((proj, index) => (

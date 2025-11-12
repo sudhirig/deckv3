@@ -43,11 +43,11 @@ export default function CaseStudy1Slide() {
         style={{
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
           borderRadius: pxToRem(12),
-          padding: SPACING.md,
-          marginBottom: SPACING.lg
+          padding: pxToRem(16),
+          marginBottom: pxToRem(20)
         }}
       >
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: SPACING.lg }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: pxToRem(20) }}>
           {/* Client Info */}
           <div>
             <div style={{

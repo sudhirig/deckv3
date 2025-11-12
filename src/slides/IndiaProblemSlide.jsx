@@ -15,7 +15,7 @@ export default function IndiaProblemSlide() {
 
   // Subtitle
   const subtitle = (
-    <p style={{ fontSize: '1.3rem', color: '#94a3b8', textAlign: 'center' }}>
+    <p style={{ fontSize: '1.2rem', color: '#94a3b8', textAlign: 'center' }}>
       15% of HNW portfolios want India exposure, but only 3% have it
     </p>
   )
@@ -29,14 +29,14 @@ export default function IndiaProblemSlide() {
   )
 
   const leftDetails = (
-    <div style={{ fontSize: '1.2rem', lineHeight: '2' }}>
+    <div style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>
       <motion.div 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.4 }}
-        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
+        style={{ marginBottom: '1.5rem', padding: '1.2rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
           <Icon type="clipboard" size={20} variant="inline" gradient="from-red-400 to-pink-400" />
           Complex Red Tape
         </p>
@@ -47,9 +47,9 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.5 }}
-        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
+        style={{ marginBottom: '1.5rem', padding: '1.2rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
           <Icon type="dollarSign" size={20} variant="inline" gradient="from-red-400 to-pink-400" />
           Crippling Tax
         </p>
@@ -60,9 +60,9 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.6 }}
-        style={{ marginBottom: '2rem', padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
+        style={{ marginBottom: '1.5rem', padding: '1.2rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
           <Icon type="trending" size={20} variant="inline" gradient="from-teal-400 to-green-400" />
           Currency Risk
         </p>
@@ -73,9 +73,9 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.7 }}
-        style={{ padding: '1.5rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
+        style={{ padding: '1.2rem', background: 'rgba(239, 68, 68, 0.1)', borderRadius: pxToRem(12) }}
       >
-        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+        <p className="icon-label icon-heading" style={{ fontWeight: 'bold', color: '#ef4444', fontSize: '1.2rem', marginBottom: '0.5rem' }}>
           <Icon type="xCircle" size={20} variant="inline" gradient="from-red-400 to-pink-400" />
           Repatriation Nightmare
         </p>
@@ -98,9 +98,9 @@ export default function IndiaProblemSlide() {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 0.8, type: 'spring' }}
-        style={{ textAlign: 'center', marginBottom: '3rem' }}
+        style={{ textAlign: 'center', marginBottom: '2rem' }}
       >
-        <Icon type="lock" size={80} gradient="from-red-400 to-pink-400" delay={0.3} variant="inline" />
+        <Icon type="lock" size={64} gradient="from-red-400 to-pink-400" delay={0.3} variant="inline" />
       </motion.div>
       
       <motion.div
@@ -109,18 +109,18 @@ export default function IndiaProblemSlide() {
         transition={{ delay: 1 }}
         style={{
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(249, 115, 22, 0.1))',
-          padding: '2rem',
+          padding: '1.5rem',
           borderRadius: pxToRem(12),
           textAlign: 'center'
         }}
       >
-        <p style={{ fontSize: '3rem', fontWeight: 'bold', color: '#fbbf24', marginBottom: '1rem' }}>15%</p>
-        <p style={{ fontSize: '1.3rem', color: '#e2e8f0', marginBottom: '2rem' }}>
+        <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#fbbf24', marginBottom: '0.8rem' }}>15%</p>
+        <p style={{ fontSize: '1.2rem', color: '#e2e8f0', marginBottom: '1.5rem' }}>
           of HNW portfolios want India exposure
         </p>
         
-        <p style={{ fontSize: '3rem', fontWeight: 'bold', color: '#ef4444', marginBottom: '1rem' }}>Only 3%</p>
-        <p style={{ fontSize: '1.3rem', color: '#e2e8f0' }}>
+        <p style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#ef4444', marginBottom: '0.8rem' }}>Only 3%</p>
+        <p style={{ fontSize: '1.2rem', color: '#e2e8f0' }}>
           actually have it
         </p>
       </motion.div>
@@ -129,7 +129,7 @@ export default function IndiaProblemSlide() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        style={{ marginTop: '2rem', textAlign: 'center' }}
+        style={{ marginTop: '1.5rem', textAlign: 'center' }}
       >
         <p style={{ fontSize: '1.2rem', color: '#94a3b8', fontStyle: 'italic' }}>
           "Too complex" - Traditional advisors
@@ -146,13 +146,13 @@ export default function IndiaProblemSlide() {
       transition={{ delay: 1.4 }}
       style={{
         textAlign: 'center',
-        padding: '1.5rem',
+        padding: '1.2rem',
         background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 191, 36, 0.1))',
         borderRadius: pxToRem(12),
         marginTop: '2rem'
       }}
     >
-      <p style={{ fontSize: '1.4rem', color: '#fbbf24', fontWeight: 'bold' }}>
+      <p style={{ fontSize: '1.3rem', color: '#fbbf24', fontWeight: 'bold' }}>
         The barriers are too high. Traditional advisors have given up.
       </p>
       <p style={{ fontSize: '0.9rem', color: '#64748b', marginTop: '1rem', fontStyle: 'italic' }}>

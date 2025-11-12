@@ -93,14 +93,14 @@ export default function CompetitiveMatrixSlide() {
 
   // Table content
   const tableContent = (
-    <ResponsiveTable minWidth={pxToRem(800)}>
-      <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0', fontSize: '0.95rem' }}>
+    <ResponsiveTable minWidth={pxToRem(700)}>
+      <table style={{ width: '100%', borderCollapse: 'separate', borderSpacing: '0', fontSize: '0.85rem' }}>
         <thead>
           <tr>
             <th style={{
-              padding: pxToRem(12),
+              padding: pxToRem(10),
               textAlign: 'left',
-              fontSize: '1rem',
+              fontSize: '0.95rem',
               color: '#94a3b8',
               borderBottom: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
               minWidth: pxToRem(180)
@@ -111,7 +111,7 @@ export default function CompetitiveMatrixSlide() {
               <motion.th
                 key={competitor.name}
                 style={{
-                  padding: pxToRem(12),
+                  padding: pxToRem(10),
                   textAlign: 'center',
                   borderBottom: `${pxToRem(2)} solid rgba(20, 184, 166, 0.3)`,
                   background: competitor.name === 'Us' ? 
@@ -129,7 +129,7 @@ export default function CompetitiveMatrixSlide() {
                 } : {}}
               >
                 <div style={{ 
-                  fontSize: '1.05rem', 
+                  fontSize: '0.95rem', 
                   color: competitor.color,
                   fontWeight: 'bold',
                   marginBottom: '0.35rem'
@@ -157,8 +157,8 @@ export default function CompetitiveMatrixSlide() {
               }}
             >
               <td style={{
-                padding: pxToRem(12),
-                fontSize: '0.9rem',
+                padding: pxToRem(8),
+                fontSize: '0.85rem',
                 color: '#e2e8f0',
                 borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`
               }}>
@@ -168,7 +168,7 @@ export default function CompetitiveMatrixSlide() {
                 <td
                   key={competitor.name}
                   style={{
-                    padding: pxToRem(10),
+                    padding: pxToRem(8),
                     textAlign: 'center',
                     borderBottom: `${pxToRem(1)} solid rgba(255, 255, 255, 0.05)`,
                     background: competitor.name === 'Us' ? 

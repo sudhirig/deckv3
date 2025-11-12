@@ -42,7 +42,7 @@ export default function FinancialProjections3Slide() {
       style={{
         background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(236, 72, 153, 0.1))',
         borderRadius: pxToRem(12),
-        padding: SPACING.md,
+        padding: pxToRem(16),
         height: '100%'
       }}
     >
@@ -56,7 +56,7 @@ export default function FinancialProjections3Slide() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.5 + index * 0.1 }}
-          style={{ marginBottom: SPACING.sm }}
+          style={{ marginBottom: pxToRem(12) }}
         >
           <div style={{ 
             display: 'flex', 
@@ -92,8 +92,8 @@ export default function FinancialProjections3Slide() {
 
       {/* Total */}
       <div style={{
-        marginTop: SPACING.md,
-        paddingTop: SPACING.sm,
+        marginTop: pxToRem(16),
+        paddingTop: pxToRem(12),
         borderTop: `${pxToRem(1)} solid rgba(255, 255, 255, 0.1)`,
         display: 'flex',
         justifyContent: 'space-between',

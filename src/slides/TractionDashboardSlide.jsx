@@ -70,7 +70,7 @@ export default function TractionDashboardSlide() {
   // Grid cards for 3-column layout
   const cards = [
     // Column 1: Key Metrics
-    <div key="metrics" style={{ display: 'grid', gap: pxToRem(16) }}>
+    <div key="metrics" style={{ display: 'grid', gap: pxToRem(12) }}>
       <h3 className="icon-label icon-heading" style={{ color: '#22c55e', fontSize: TYPOGRAPHY.caption, marginBottom: pxToRem(8) }}>
         <Icon type="trending" size={20} variant="inline" gradient="from-teal-400 to-green-400" />
         Performance Metrics
@@ -81,12 +81,12 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: pxToRem(16),
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
-          <DollarSign size={24} color="#22c55e" />
+          <DollarSign size={20} color="#22c55e" />
           <span style={{ color: '#22c55e', fontSize: pxToRem(14) }}>+23.4%</span>
         </div>
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#22c55e', marginBottom: pxToRem(4) }}>
@@ -100,12 +100,12 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: pxToRem(16),
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.1))'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
-          <Users size={24} color="#60a5fa" />
+          <Users size={20} color="#60a5fa" />
           <span style={{ color: '#60a5fa', fontSize: pxToRem(14) }}>+7 this month</span>
         </div>
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#60a5fa', marginBottom: pxToRem(4) }}>
@@ -119,12 +119,12 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: pxToRem(16),
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(167, 139, 250, 0.1), rgba(196, 181, 253, 0.1))'
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: pxToRem(12), marginBottom: pxToRem(8) }}>
-          <Activity size={24} color="#a78bfa" />
+          <Activity size={20} color="#a78bfa" />
           <span style={{ color: '#4ade80', fontSize: pxToRem(14) }}>LIVE</span>
         </div>
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#a78bfa', marginBottom: pxToRem(4) }}>
@@ -135,13 +135,13 @@ export default function TractionDashboardSlide() {
     </div>,
 
     // Column 2: Milestones & Timeline
-    <div key="timeline" style={{ display: 'grid', gap: pxToRem(16) }}>
+    <div key="timeline" style={{ display: 'grid', gap: pxToRem(12) }}>
       <h3 className="icon-label icon-heading" style={{ color: '#60a5fa', fontSize: TYPOGRAPHY.caption, marginBottom: pxToRem(8) }}>
         <Icon type="rocket" size={20} variant="inline" gradient="from-orange-400 to-amber-400" />
         Execution Timeline
       </h3>
       
-      <div className="glass-card" style={{ padding: pxToRem(16), display: 'grid', gap: pxToRem(10) }}>
+      <div className="glass-card" style={{ padding: pxToRem(12), display: 'grid', gap: pxToRem(8) }}>
         {[
           { date: 'Sep 2024', event: 'First Client Onboarded', status: 'completed', icon: CheckCircle },
           { date: 'Oct 2024', event: 'Zerodha Integration Live', status: 'completed', icon: CheckCircle },
@@ -186,7 +186,7 @@ export default function TractionDashboardSlide() {
     </div>,
 
     // Column 3: Growth Metrics & Achievements
-    <div key="growth" style={{ display: 'grid', gap: pxToRem(16) }}>
+    <div key="growth" style={{ display: 'grid', gap: pxToRem(12) }}>
       <h3 style={{ color: '#a78bfa', fontSize: TYPOGRAPHY.caption, marginBottom: pxToRem(8) }}>
         <Icon type="trophy" size={20} variant="inline" gradient="from-yellow-400 to-orange-400" />
         Key Achievements
@@ -197,11 +197,11 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: pxToRem(16),
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(249, 115, 22, 0.1))'
         }}
       >
-        <TrendingUp size={24} color="#fbbf24" style={{ marginBottom: pxToRem(8) }} />
+        <TrendingUp size={20} color="#fbbf24" style={{ marginBottom: pxToRem(8) }} />
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#fbbf24', marginBottom: pxToRem(4) }}>
           312%
         </div>
@@ -213,11 +213,11 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: pxToRem(16),
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(13, 148, 136, 0.1))'
         }}
       >
-        <Globe size={24} color="#14b8a6" style={{ marginBottom: pxToRem(8) }} />
+        <Globe size={20} color="#14b8a6" style={{ marginBottom: pxToRem(8) }} />
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#14b8a6', marginBottom: pxToRem(4) }}>
           12 Markets
         </div>
@@ -229,11 +229,11 @@ export default function TractionDashboardSlide() {
         whileHover={{ scale: 1.02 }}
         className="glass-card"
         style={{
-          padding: pxToRem(16),
+          padding: pxToRem(12),
           background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(248, 113, 113, 0.1))'
         }}
       >
-        <Shield size={24} color="#ef4444" style={{ marginBottom: pxToRem(8) }} />
+        <Shield size={20} color="#ef4444" style={{ marginBottom: pxToRem(8) }} />
         <div style={{ fontSize: TYPOGRAPHY.subheadline, fontWeight: 'bold', color: '#ef4444', marginBottom: pxToRem(4) }}>
           99.97%
         </div>

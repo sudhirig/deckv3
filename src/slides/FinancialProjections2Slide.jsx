@@ -45,7 +45,7 @@ export default function FinancialProjections2Slide() {
 
   // Table content - Unit Economics and Revenue Streams
   const tableContent = (
-    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem' }}>
       {/* Unit Economics */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
@@ -54,7 +54,7 @@ export default function FinancialProjections2Slide() {
         style={{
           background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
           borderRadius: pxToRem(12),
-          padding: SPACING.md
+          padding: pxToRem(16)
         }}
       >
         <h3 style={{ color: '#60a5fa', marginBottom: SPACING.md, fontSize: TYPOGRAPHY.subheadline }}>
@@ -77,7 +77,7 @@ export default function FinancialProjections2Slide() {
           
           <div style={{
             textAlign: 'center',
-            padding: '1rem',
+            padding: '0.8rem',
             background: 'rgba(255, 255, 255, 0.03)',
             borderRadius: '8px'
           }}>
@@ -90,7 +90,7 @@ export default function FinancialProjections2Slide() {
           
           <div style={{
             textAlign: 'center',
-            padding: '1rem',
+            padding: '0.8rem',
             background: 'rgba(255, 255, 255, 0.03)',
             borderRadius: '8px'
           }}>

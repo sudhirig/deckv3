@@ -94,7 +94,7 @@ export default function TeamSlide() {
       onHoverEnd={() => setHoveredMember(null)}
       className="glass-card"
       style={{
-        padding: SPACING.md,
+        padding: pxToRem(14),
         background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1))',
         position: 'relative'
       }}
@@ -176,7 +176,7 @@ export default function TeamSlide() {
       onHoverEnd={() => setHoveredMember(null)}
       className="glass-card"
       style={{
-        padding: SPACING.md,
+        padding: pxToRem(14),
         background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.1))',
         position: 'relative'
       }}

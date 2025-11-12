@@ -35,68 +35,15 @@ function AnimatedCounter({ value, suffix = '', prefix = '', color }) {
 }
 
 export default function ProductOverviewSlide() {
-  const containerRef = useRef(null)
-  const [modulePositions, setModulePositions] = useState([])
-  const [containerSize, setContainerSize] = useState({ width: 0, height: 0 })
+  const [hoveredModule, setHoveredModule] = useState(null)
+  const [isAnimated, setIsAnimated] = useState(false)
   
-  // Calculate absolute pixel positions based on container size
-  const calculatePositions = () => {
-    if (!containerRef.current) return
-    
-    const rect = containerRef.current.getBoundingClientRect()
-    const containerWidth = rect.width
-    const containerHeight = rect.height
-    const centerX = containerWidth / 2
-    const centerY = containerHeight / 2
-    
-    // Module dimensions
-    const moduleWidth = 140
-    const moduleHeight = 120 // Approximate height
-    
-    // Calculate radius - ensure modules fit within container
-    const maxRadius = Math.min(containerWidth, containerHeight) / 2
-    const moduleRadius = Math.max(moduleWidth, moduleHeight) / 2
-    const circleRadius = maxRadius - moduleRadius - 20 // 20px padding from edges
-    
-    // Generate positions for 7 modules
-    const numberOfModules = 7
-    const angleOffset = -Math.PI / 2 // Start from top
-    
-    const positions = Array.from({ length: numberOfModules }, (_, index) => {
-      const angle = angleOffset + (2 * Math.PI * index) / numberOfModules
-      const x = centerX + circleRadius * Math.cos(angle)
-      const y = centerY + circleRadius * Math.sin(angle)
-      
-      return {
-        // Absolute pixel positioning without transform
-        left: x - moduleWidth / 2,
-        top: y - moduleHeight / 2,
-        // For SVG lines - exact center points
-        centerX: x,
-        centerY: y
-      }
-    })
-    
-    setModulePositions(positions)
-    setContainerSize({ width: containerWidth, height: containerHeight })
-  }
-  
-  // Calculate positions on mount and resize
-  useLayoutEffect(() => {
-    // Initial calculation with small delay to ensure container is rendered
+  // Trigger animation on mount
+  useEffect(() => {
     const timer = setTimeout(() => {
-      calculatePositions()
+      setIsAnimated(true)
     }, 100)
-    
-    const handleResize = () => {
-      calculatePositions()
-    }
-    
-    window.addEventListener('resize', handleResize)
-    return () => {
-      clearTimeout(timer)
-      window.removeEventListener('resize', handleResize)
-    }
+    return () => clearTimeout(timer)
   }, [])
 
   const modules = [
@@ -187,7 +134,8 @@ export default function ProductOverviewSlide() {
       flexDirection: 'column',
       background: 'linear-gradient(135deg, #0f1629 0%, #1a1c3d 100%)',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      boxSizing: 'border-box'
     }}>
       {/* Header Section */}
       <motion.div
@@ -196,7 +144,7 @@ export default function ProductOverviewSlide() {
         transition={{ duration: 0.8 }}
         style={{
           textAlign: 'center',
-          padding: `${pxToRem(20)} ${pxToRem(32)} ${pxToRem(12)}`,
+          padding: `${pxToRem(16)} ${pxToRem(32)} ${pxToRem(8)}`,
           position: 'relative',
           zIndex: 10
         }}
@@ -254,72 +202,101 @@ export default function ProductOverviewSlide() {
         </EditableWrapper>
       </motion.div>
 
-      {/* Main Content Area with Radial Layout */}
+      {/* Main Content Area - Split Layout */}
       <div style={{
         flex: 1,
         position: 'relative',
         padding: `0 ${pxToRem(32)}`,
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'row',
+        alignItems: 'stretch',
+        gap: '0',
+        overflow: 'hidden'
       }}>
-        {/* Radial Module Container */}
-        <div 
-          ref={containerRef}
-          style={{
+        {/* Left Section - 75% width for AI Command and Modules */}
+        <div style={{
+          position: 'relative',
+          width: '75%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '0.5rem',
+          overflow: 'hidden'
+        }}>
+          {/* Circular Module Container */}
+          <div style={{
             position: 'relative',
-            flex: 1,
-            minHeight: '500px',
-            maxWidth: '1200px',
-            margin: '0 auto',
-            width: '100%'
-          }}>
-          {/* Connection Lines SVG with Animated Arrows */}
-          <svg style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
             width: '100%',
             height: '100%',
-            pointerEvents: 'none',
-            zIndex: 1
+            maxHeight: 'calc(100vh - 160px)',
+            aspectRatio: '1.7 / 1'
           }}>
+          {/* SVG for Animated Connection Lines */}
+          <svg 
+            viewBox="0 0 900 500"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              pointerEvents: 'none',
+              zIndex: 0
+            }}
+          >
             <defs>
-              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgba(147, 51, 234, 0.4)" />
-                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.4)" />
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgba(147, 51, 234, 0.6)" />
+                <stop offset="100%" stopColor="rgba(59, 130, 246, 0.6)" />
               </linearGradient>
-              {/* Arrowhead marker */}
-              <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                refX="9" refY="3.5" orient="auto" fill="url(#lineGradient)">
-                <polygon points="0 0, 10 3.5, 0 7" fill="rgba(147, 51, 234, 0.6)" />
-              </marker>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
-            {/* Animated arrow lines from center to each module */}
-            {modulePositions.length > 0 && modulePositions.map((pos, index) => (
-              <g key={index}>
-                <motion.line
-                  x1={containerSize.width / 2}
-                  y1={containerSize.height / 2}
-                  x2={pos.centerX}
-                  y2={pos.centerY}
-                  stroke="url(#lineGradient)"
-                  strokeWidth="2"
-                  strokeDasharray="8,4"
-                  markerEnd="url(#arrowhead)"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 0.85, opacity: 0.5 }}
-                  transition={{ duration: 1.5, delay: 0.5 + index * 0.1 }}
-                >
-                  <animate
-                    attributeName="stroke-dashoffset"
-                    from="0"
-                    to="12"
-                    dur="1.5s"
-                    repeatCount="indefinite"
+            
+            {/* Animated Connection Lines */}
+            {modules.map((module, index) => {
+              const angle = (index * 360 / modules.length - 90) * Math.PI / 180
+              const radius = 160
+              const centerX = 450
+              const centerY = 250
+              const endX = centerX + radius * Math.cos(angle)
+              const endY = centerY + radius * Math.sin(angle)
+              
+              return (
+                <g key={index}>
+                  <motion.line
+                    x1={centerX}
+                    y1={centerY}
+                    x2={endX}
+                    y2={endY}
+                    stroke="url(#lineGrad)"
+                    strokeWidth="2"
+                    strokeDasharray="5 5"
+                    filter="url(#glow)"
+                    initial={{ pathLength: 0, opacity: 0 }}
+                    animate={isAnimated ? { pathLength: 0.7, opacity: 0.6 } : {}}
+                    transition={{ duration: 1.5, delay: 0.3 + index * 0.1 }}
                   />
-                </motion.line>
-              </g>
-            ))}
+                  {/* Animated dots along the line */}
+                  <circle
+                    r="3"
+                    fill="#9333ea"
+                    filter="url(#glow)"
+                  >
+                    <animateMotion
+                      dur="2s"
+                      repeatCount="indefinite"
+                      path={`M ${centerX} ${centerY} L ${endX} ${endY}`}
+                    />
+                  </circle>
+                </g>
+              )
+            })}
           </svg>
 
           {/* Central AI Command Center */}
@@ -333,75 +310,59 @@ export default function ProductOverviewSlide() {
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              zIndex: 5
+              zIndex: 10
             }}
           >
             <div style={{ 
-              width: '240px',
-              height: '240px',
-              padding: 'clamp(1.5rem, 2vw, 2rem)',
-              background: 'radial-gradient(circle at center, rgba(147, 51, 234, 0.25), rgba(59, 130, 246, 0.15))',
-              border: `${pxToRem(3)} solid rgba(147, 51, 234, 0.5)`,
+              width: '200px',
+              height: '200px',
+              padding: '1.25rem',
+              background: 'radial-gradient(circle at center, rgba(147, 51, 234, 0.3), rgba(59, 130, 246, 0.1))',
+              border: '2.5px solid rgba(147, 51, 234, 0.6)',
               borderRadius: '50%',
-              boxShadow: '0 0 40px rgba(147, 51, 234, 0.4), inset 0 0 20px rgba(147, 51, 234, 0.2)',
+              boxShadow: '0 0 50px rgba(147, 51, 234, 0.5), inset 0 0 30px rgba(147, 51, 234, 0.3)',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
               position: 'relative'
             }}>
-              {/* Pulsing ring animation */}
+              {/* Pulsing rings */}
               <div style={{
                 position: 'absolute',
-                top: '-3px',
-                left: '-3px',
-                right: '-3px',
-                bottom: '-3px',
+                inset: '-15px',
                 borderRadius: '50%',
-                border: '2px solid rgba(147, 51, 234, 0.5)',
-                animation: 'pulseRing 2s infinite'
+                border: '2px solid rgba(147, 51, 234, 0.4)',
+                animation: 'pulse 2s infinite'
+              }} />
+              <div style={{
+                position: 'absolute',
+                inset: '-30px',
+                borderRadius: '50%',
+                border: '1px solid rgba(147, 51, 234, 0.2)',
+                animation: 'pulse 2s infinite 0.5s'
               }} />
               
               <Icon type="bot" size={40} variant="inline" gradient="from-purple-400 to-blue-400" />
               <h3 style={{ 
-                fontSize: 'clamp(1rem, 1.3vw, 1.3rem)',
+                fontSize: '1.2rem',
                 color: '#e9d5ff',
-                margin: '0.8rem 0 0.4rem',
+                margin: '0.6rem 0 0.3rem',
                 fontWeight: 700,
-                textAlign: 'center',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
+                textAlign: 'center'
               }}>
-                AI Command Center
+                AI Command
               </h3>
-              <div style={{
-                fontSize: 'clamp(0.75rem, 0.9vw, 0.9rem)',
-                color: '#c4b5fd',
-                textAlign: 'center',
-                fontWeight: 600,
-                marginBottom: '0.5rem'
-              }}>
-                The AI Brain
-              </div>
               <p style={{ 
-                fontSize: 'clamp(0.8rem, 1vw, 1rem)',
+                fontSize: '0.9rem',
                 color: 'rgba(255, 255, 255, 0.9)',
                 textAlign: 'center',
                 margin: 0,
-                lineHeight: '1.5'
+                lineHeight: '1.4'
               }}>
-                30 Specialized Agents<br/>
-                12-Member Committee<br/>
-                18 Hedge Fund Team
-              </p>
-              <div style={{
-                fontSize: 'clamp(0.7rem, 0.85vw, 0.85rem)',
-                color: '#a78bfa',
-                marginTop: '0.8rem',
-                fontWeight: 600
-              }}>
+                68+ Agents<br/>
                 Orchestrating 24/7
-              </div>
+              </p>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -409,284 +370,316 @@ export default function ProductOverviewSlide() {
                 marginTop: '0.5rem'
               }}>
                 <div style={{
-                  width: '10px',
-                  height: '10px',
+                  width: '8px',
+                  height: '8px',
                   borderRadius: '50%',
                   background: '#4ade80',
-                  animation: 'pulse 2s infinite',
-                  boxShadow: '0 0 10px #4ade80'
+                  animation: 'pulse 2s infinite'
                 }} />
-                <span style={{ color: '#4ade80', fontSize: 'clamp(0.8rem, 1vw, 1rem)', fontWeight: 600 }}>LIVE</span>
+                <span style={{ color: '#4ade80', fontSize: '0.9rem', fontWeight: 600 }}>LIVE</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Radially Positioned Module Cards */}
-          {modulePositions.length > 0 && modules.map((module, index) => {
-            const position = modulePositions[index]
-            if (!position) return null
-            
-            return (
-              <motion.div
-                key={index}
-                initial={{ scale: 0, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                whileHover={{ scale: 1.05, zIndex: 10 }}
-                style={{
-                  position: 'absolute',
-                  left: `${position.left}px`,
-                  top: `${position.top}px`,
-                  width: '140px',
-                  zIndex: 2
-                }}
-              >
-                <div style={{
-                  padding: 'clamp(1rem, 1.3vw, 1.3rem)',
-                  background: `linear-gradient(135deg, ${module.bgGradient})`,
-                  border: `${pxToRem(1.5)} solid ${module.border}`,
-                  borderRadius: pxToRem(12),
-                  backdropFilter: 'blur(10px)',
-                  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center'
-                }}>
-                  <Icon type={module.icon} size={28} variant="inline" gradient={module.gradient} />
-                  <h4 style={{ 
-                    fontSize: 'clamp(1rem, 1.2vw, 1.2rem)', 
-                    color: module.color, 
-                    margin: '0.6rem 0 0.5rem', 
-                    fontWeight: 700,
-                    textAlign: 'center'
+            {/* Module Cards in Circular Arrangement */}
+            {modules.map((module, index) => {
+              const angle = (index * 360 / modules.length - 90) * Math.PI / 180
+              const radius = 32  // Optimized radius for better fit
+              const x = 50 + radius * Math.cos(angle)
+              const y = 50 + radius * Math.sin(angle)
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ scale: 0, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ 
+                    duration: 0.5, 
+                    delay: 0.8 + index * 0.1,
+                    type: "spring"
+                  }}
+                  whileHover={{ 
+                    scale: 1.08, 
+                    zIndex: 20,
+                    transition: { duration: 0.2 }
+                  }}
+                  onHoverStart={() => setHoveredModule(index)}
+                  onHoverEnd={() => setHoveredModule(null)}
+                  style={{
+                    position: 'absolute',
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    transform: 'translate(-50%, -50%)',
+                    width: '160px',
+                    zIndex: hoveredModule === index ? 15 : 5
+                  }}
+                >
+                  <div style={{
+                    padding: '1.1rem 0.9rem',
+                    background: hoveredModule === index 
+                      ? `linear-gradient(135deg, ${module.bgGradient.replace('0.12', '0.2').replace('0.08', '0.15')})` 
+                      : `linear-gradient(135deg, ${module.bgGradient})`,
+                    border: `2px solid ${module.border}`,
+                    borderRadius: '12px',
+                    backdropFilter: 'blur(12px)',
+                    boxShadow: hoveredModule === index 
+                      ? `0 10px 30px rgba(0, 0, 0, 0.4), 0 0 25px ${module.color}40`
+                      : '0 4px 16px rgba(0, 0, 0, 0.3)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    transition: 'all 0.3s ease'
                   }}>
-                    {module.title}
-                  </h4>
-                  <div style={{ 
-                    fontSize: 'clamp(0.8rem, 0.95vw, 0.95rem)', 
-                    color: 'rgba(255, 255, 255, 0.8)', 
-                    lineHeight: '1.5',
-                    textAlign: 'center'
-                  }}>
-                    {module.metrics.map((metric, i) => (
-                      <div key={i}>• {metric}</div>
-                    ))}
-                  </div>
-                  <div style={{ 
-                    display: 'flex', 
-                    alignItems: 'center', 
-                    gap: '0.3rem', 
-                    marginTop: '0.6rem' 
-                  }}>
-                    <div style={{ 
-                      width: '7px', 
-                      height: '7px', 
-                      borderRadius: '50%', 
-                      background: module.statusColor 
-                    }} />
-                    <span style={{ 
-                      color: module.statusColor, 
-                      fontSize: 'clamp(0.75rem, 0.85vw, 0.85rem)',
-                      fontWeight: 600 
+                    <Icon type={module.icon} size={28} variant="inline" gradient={module.gradient} />
+                    <h4 style={{ 
+                      fontSize: '1.15rem', 
+                      color: module.color, 
+                      margin: '0.5rem 0 0.4rem', 
+                      fontWeight: 700,
+                      textAlign: 'center'
                     }}>
-                      {module.status}
-                    </span>
+                      {module.title}
+                    </h4>
+                    <div style={{ 
+                      fontSize: '0.85rem', 
+                      color: 'rgba(255, 255, 255, 0.85)', 
+                      lineHeight: '1.4',
+                      textAlign: 'center'
+                    }}>
+                      {module.metrics.map((metric, i) => (
+                        <div key={i} style={{ marginBottom: '2px' }}>• {metric}</div>
+                      ))}
+                    </div>
+                    <div style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '0.3rem', 
+                      marginTop: '0.5rem' 
+                    }}>
+                      <div style={{ 
+                        width: '7px', 
+                        height: '7px', 
+                        borderRadius: '50%', 
+                        background: module.statusColor,
+                        boxShadow: `0 0 6px ${module.statusColor}`
+                      }} />
+                      <span style={{ 
+                        color: module.statusColor, 
+                        fontSize: '0.8rem',
+                        fontWeight: 600 
+                      }}>
+                        {module.status}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            )
-          })}
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
 
-        {/* Summary Section */}
+        {/* Vertical Separator Line */}
+        <div style={{
+          width: '1px',
+          height: '80%',
+          background: 'linear-gradient(to bottom, transparent, rgba(147, 51, 234, 0.3), rgba(147, 51, 234, 0.3), transparent)',
+          alignSelf: 'center',
+          margin: '0 1.5rem'
+        }} />
+
+        {/* Right Section - 25% width for Metrics */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.8 }}
           style={{ 
+            width: '25%',
             display: 'flex',
             flexDirection: 'column',
-            gap: 'clamp(1rem, 1.5vh, 1.5rem)',
-            marginTop: 'clamp(1rem, 1.5vh, 1.5rem)'
+            gap: '0.6rem',
+            justifyContent: 'flex-start',
+            padding: '0.5rem 1rem',
+            overflowY: 'auto',
+            overflowX: 'hidden',
+            maxHeight: '100%'
           }}
         >
-          {/* Metrics Bar */}
+          {/* Metrics Section */}
           <div style={{ 
             display: 'flex',
-            justifyContent: 'center',
-            gap: 'clamp(2rem, 3vw, 3rem)',
-            padding: 'clamp(1rem, 1.5vh, 1.5rem) clamp(1.5rem, 2vw, 2rem)',
-            background: 'linear-gradient(90deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15))',
-            borderRadius: pxToRem(12),
-            border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.3)`
+            flexDirection: 'column',
+            gap: '0.5rem'
           }}>
-            <div style={{ textAlign: 'center' }}>
-              <AnimatedCounter value={10} prefix="$" suffix="M" color="#60a5fa" />
-              <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>AUM</div>
+            {/* AUM */}
+            <div style={{ 
+              padding: '0.4rem 0.8rem',
+              background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(59, 130, 246, 0.05))',
+              borderRadius: '6px',
+              border: '1px solid rgba(59, 130, 246, 0.2)'
+            }}>
+              <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#60a5fa' }}>$10M</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase' }}>AUM</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <AnimatedCounter value={5} suffix="+" color="#4ade80" />
-              <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>Clients</div>
+            
+            {/* Clients */}
+            <div style={{ 
+              padding: '0.4rem 0.8rem',
+              background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05))',
+              borderRadius: '6px',
+              border: '1px solid rgba(34, 197, 94, 0.2)'
+            }}>
+              <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4ade80' }}>5+</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase' }}>Clients</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <AnimatedCounter value={25} suffix="%" color="#fbbf24" />
-              <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>Outperformance</div>
+            
+            {/* Outperformance */}
+            <div style={{ 
+              padding: '0.4rem 0.8rem',
+              background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.05))',
+              borderRadius: '6px',
+              border: '1px solid rgba(251, 191, 36, 0.2)'
+            }}>
+              <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#fbbf24' }}>25%</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase' }}>Outperformance</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <AnimatedCounter value={100} suffix="%" color="#4ade80" />
-              <div style={{ fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)', color: 'rgba(255, 255, 255, 0.7)' }}>Live</div>
+            
+            {/* Live Status */}
+            <div style={{ 
+              padding: '0.4rem 0.8rem',
+              background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05))',
+              borderRadius: '6px',
+              border: '1px solid rgba(34, 197, 94, 0.2)'
+            }}>
+              <div style={{ fontSize: '1.3rem', fontWeight: 'bold', color: '#4ade80' }}>100%</div>
+              <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)', textTransform: 'uppercase' }}>Live</div>
             </div>
           </div>
 
-          {/* Bottom Rows: Moats, Broker Integration, and Tech Stack */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(0.8rem, 1vh, 1rem)' }}>
-            {/* Moat Badges Row */}
-            <div style={{ display: 'flex', justifyContent: 'center', gap: 'clamp(0.8rem, 1vw, 1rem)' }}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                style={{
-                  padding: 'clamp(0.5rem, 0.7vw, 0.7rem) clamp(1rem, 1.3vw, 1.3rem)',
-                  background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(59, 130, 246, 0.1))',
-                  border: `${pxToRem(1)} solid rgba(59, 130, 246, 0.3)`,
-                  borderRadius: pxToRem(8),
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'clamp(0.5rem, 0.6vw, 0.6rem)'
-                }}
-              >
-                <Icon type="lock" size={20} variant="inline" gradient="from-blue-400 to-cyan-400" />
-                <span style={{ fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', color: '#60a5fa', fontWeight: 600 }}>Tech Moat</span>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                style={{
-                  padding: 'clamp(0.5rem, 0.7vw, 0.7rem) clamp(1rem, 1.3vw, 1.3rem)',
-                  background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.1))',
-                  border: `${pxToRem(1)} solid rgba(34, 197, 94, 0.3)`,
-                  borderRadius: pxToRem(8),
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'clamp(0.5rem, 0.6vw, 0.6rem)'
-                }}
-              >
-                <Icon type="scale" size={20} variant="inline" gradient="from-green-400 to-emerald-400" />
-                <span style={{ fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', color: '#4ade80', fontWeight: 600 }}>Regulatory</span>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                style={{
-                  padding: 'clamp(0.5rem, 0.7vw, 0.7rem) clamp(1rem, 1.3vw, 1.3rem)',
-                  background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.2), rgba(20, 184, 166, 0.1))',
-                  border: `${pxToRem(1)} solid rgba(20, 184, 166, 0.3)`,
-                  borderRadius: pxToRem(8),
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'clamp(0.5rem, 0.6vw, 0.6rem)'
-                }}
-              >
-                <Icon type="shield" size={20} variant="inline" gradient="from-teal-400 to-green-400" />
-                <span style={{ fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', color: '#5eead4', fontWeight: 600 }}>Trust</span>
-              </motion.div>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                style={{
-                  padding: 'clamp(0.5rem, 0.7vw, 0.7rem) clamp(1rem, 1.3vw, 1.3rem)',
-                  background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1))',
-                  border: `${pxToRem(1)} solid rgba(168, 85, 247, 0.3)`,
-                  borderRadius: pxToRem(8),
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 'clamp(0.5rem, 0.6vw, 0.6rem)'
-                }}
-              >
-                <Icon type="sparkles" size={20} variant="inline" gradient="from-purple-400 to-pink-400" />
-                <span style={{ fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', color: '#a78bfa', fontWeight: 600 }}>Patents Pending</span>
-              </motion.div>
+          {/* Moats Section */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '0.3rem'
+          }}>
+            <div style={{ fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.5)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Competitive Moats
             </div>
-            
-            {/* Broker Integration Timeline Row */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              style={{ 
-                padding: 'clamp(0.7rem, 0.9vw, 0.9rem) clamp(1.5rem, 2vw, 2rem)',
-                background: 'linear-gradient(90deg, rgba(249, 115, 22, 0.1), rgba(251, 191, 36, 0.1))',
-                borderRadius: pxToRem(10),
-                border: `${pxToRem(1)} solid rgba(249, 115, 22, 0.2)`,
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'column',
+              gap: '0.25rem'
+            }}>
+              <div style={{
+                padding: '0.2rem 0.6rem',
+                background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), transparent)',
+                borderLeft: '2px solid #60a5fa',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                gap: 'clamp(0.5rem, 0.8vw, 0.8rem)'
-              }}
-            >
-              <span style={{ 
-                fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)',
-                color: '#fbbf24',
-                fontWeight: 600
+                gap: '0.4rem'
               }}>
-                Broker APIs:
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(0.8rem, 1.2vw, 1.2rem)' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.5rem',
-                  padding: 'clamp(0.3rem, 0.4vw, 0.4rem) clamp(0.7rem, 0.9vw, 0.9rem)',
-                  background: 'rgba(34, 197, 94, 0.15)',
-                  borderRadius: pxToRem(6),
-                  border: `${pxToRem(1)} solid rgba(34, 197, 94, 0.3)`
-                }}>
-                  <span style={{ color: '#4ade80', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)', fontWeight: 600 }}>
-                    Zerodha
-                  </span>
-                  <span style={{ color: '#4ade80', fontSize: 'clamp(0.9rem, 1.1vw, 1.1rem)' }}>✅</span>
-                </div>
-                <span style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>|</span>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.3rem'
-                }}>
-                  <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>
-                    IBKR
-                  </span>
-                  <span style={{ color: '#fbbf24', fontSize: 'clamp(0.8rem, 0.95vw, 0.95rem)', fontStyle: 'italic' }}>
-                    (Q1'25)
-                  </span>
-                </div>
-                <span style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>|</span>
-                <div style={{ 
-                  display: 'flex', 
-                  alignItems: 'center', 
-                  gap: '0.3rem'
-                }}>
-                  <span style={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: 'clamp(0.9rem, 1.05vw, 1.05rem)' }}>
-                    Alpaca
-                  </span>
-                  <span style={{ color: '#fbbf24', fontSize: 'clamp(0.8rem, 0.95vw, 0.95rem)', fontStyle: 'italic' }}>
-                    (Q2'25)
-                  </span>
-                </div>
+                <Icon type="lock" size={12} variant="inline" gradient="from-blue-400 to-cyan-400" />
+                <span style={{ fontSize: '0.7rem', color: '#60a5fa' }}>Tech Moat</span>
               </div>
-            </motion.div>
+              
+              <div style={{
+                padding: '0.2rem 0.6rem',
+                background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), transparent)',
+                borderLeft: '2px solid #4ade80',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}>
+                <Icon type="scale" size={12} variant="inline" gradient="from-green-400 to-emerald-400" />
+                <span style={{ fontSize: '0.7rem', color: '#4ade80' }}>Regulatory</span>
+              </div>
+              
+              <div style={{
+                padding: '0.2rem 0.6rem',
+                background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), transparent)',
+                borderLeft: '2px solid #5eead4',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}>
+                <Icon type="shield" size={12} variant="inline" gradient="from-teal-400 to-green-400" />
+                <span style={{ fontSize: '0.7rem', color: '#5eead4' }}>Trust</span>
+              </div>
+              
+              <div style={{
+                padding: '0.2rem 0.6rem',
+                background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.1), transparent)',
+                borderLeft: '2px solid #a78bfa',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.4rem'
+              }}>
+                <Icon type="sparkles" size={12} variant="inline" gradient="from-purple-400 to-pink-400" />
+                <span style={{ fontSize: '0.7rem', color: '#a78bfa' }}>Patents Pending</span>
+              </div>
+            </div>
             
-            {/* Tech Stack Row */}
+          </div>
+
+          {/* Broker APIs Section */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '0.3rem'
+          }}>
+            <div style={{ fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.5)', textTransform: 'uppercase', letterSpacing: '0.5px' }}>
+              Broker APIs
+            </div>
             <div style={{ 
-              fontSize: 'clamp(0.85rem, 1.05vw, 1.05rem)',
-              color: 'rgba(255, 255, 255, 0.6)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 'clamp(0.5rem, 0.7vw, 0.7rem)'
+              display: 'flex', 
+              flexDirection: 'column',
+              gap: '0.2rem',
+              fontSize: '0.7rem'
             }}>
-              <span>Powered by:</span>
-              <span style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-                NextJS • Python • AWS • MongoDB • Claude AI • OpenAI
-              </span>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem'
+              }}>
+                <span style={{ color: '#4ade80' }}>✅</span>
+                <span style={{ color: '#4ade80' }}>Zerodha</span>
+              </div>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem'
+              }}>
+                <span style={{ color: '#fbbf24' }}>⏳</span>
+                <span style={{ color: 'rgba(255, 255, 255, 0.6)' }}>IBKR</span>
+                <span style={{ color: '#fbbf24', fontSize: '0.7rem', fontStyle: 'italic' }}>(Q1'25)</span>
+              </div>
+              <div style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '0.5rem'
+              }}>
+                <span style={{ color: '#fbbf24' }}>⏳</span>
+                <span style={{ color: 'rgba(255, 255, 255, 0.6)' }}>Alpaca</span>
+                <span style={{ color: '#fbbf24', fontSize: '0.7rem', fontStyle: 'italic' }}>(Q2'25)</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Tech Stack */}
+          <div style={{ 
+            marginTop: 'auto',
+            paddingTop: '0.5rem',
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <div style={{ 
+              fontSize: '0.65rem',
+              color: 'rgba(255, 255, 255, 0.4)',
+              textAlign: 'center'
+            }}>
+              <div style={{ marginBottom: '0.2rem' }}>Powered by</div>
+              <div style={{ color: 'rgba(255, 255, 255, 0.6)', lineHeight: '1.2' }}>
+                NextJS • Python • AWS<br/>
+                MongoDB • Claude AI • OpenAI
+              </div>
             </div>
           </div>
         </motion.div>
