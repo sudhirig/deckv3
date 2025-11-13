@@ -270,6 +270,24 @@ const slides = [
   { component: PartnershipStrategy1Slide, title: 'Partnership Ecosystem' },
   { component: PartnershipStrategy2Slide, title: 'Vora Partnership Details' },
   
+  // Redesigned World-Class Slides
+  { component: ExecutiveHookSlide, title: 'The AI Revolution is Here' },
+  { component: PerfectStormSlide, title: 'The Perfect Storm' },
+  { component: AdvisorCrisisSlide, title: 'The Advisor Extinction Event' },
+  { component: ARIAatWorkSlide, title: 'ARIA at Work: $25M Example' },
+  { component: ZerodhaIntelligence, title: 'Zerodha Intelligence Module' },
+  { component: CGMFAdvisory, title: 'CGMF Advisory Module' },
+  { component: AgenticAICore, title: 'Agentic AI Core System' },
+  { component: AlgoTradingLab, title: 'Algorithmic Trading Laboratory' },
+  { component: TradingExecution, title: 'Trading Execution Engine' },
+  { component: SentimentAnalysis, title: 'Sentiment Analysis Engine' },
+  { component: FutureVision, title: 'Future Vision & Roadmap' },
+  { component: ProofPointsGrid, title: 'Proof Points' },
+  { component: CompetitiveMoats, title: 'Our Defensive Moats' },
+  { component: BusinessModelComplete, title: 'Path to $100M ARR' },
+  { component: PartnershipEcosystem, title: 'Partnership Ecosystem' },
+  { component: FundingAsk, title: '$5M Seed Round' },
+  
   // Act Markers (Moved to Appendix for cleaner flow)
   { component: Act1Slide, title: 'Act 1: The Disruption' },
   { component: Act2Slide, title: 'Act 2: The ARIA Strategy' },
