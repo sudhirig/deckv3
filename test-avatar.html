@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ARIA Avatar Test</title>
+    <style>
+        body {
+            background: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+            color: white;
+        }
+        .avatar-wrapper {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #14b8a6, #06b6d4);
+            padding: 3px;
+            margin: 0 auto 20px;
+        }
+        .avatar-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+        }
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        h1 {
+            color: #14b8a6;
+        }
+        .status {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 10px;
+        }
+        .test-images {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .test-item {
+            text-align: center;
+        }
+        .small { width: 80px; height: 80px; }
+        .medium { width: 120px; height: 120px; }
+        .large { width: 180px; height: 180px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ARIA Avatar Test Page</h1>
+        
+        <div class="avatar-wrapper">
+            <div class="avatar-inner">
+                <img class="avatar-img" 
+                     src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces" 
+                     alt="ARIA Avatar"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%2314b8a6%22/%3E%3Ctext x=%2250%22 y=%2260%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2230%22%3EARIA%3C/text%3E%3C/svg%3E'">
+            </div>
+        </div>
+        
+        <div class="status">
+            <h2>Test Results</h2>
+            <p>✅ Main Image: <span id="img-status">Loading...</span></p>
+            <p>✅ Fallback Ready: SVG placeholder configured</p>
+            <p>✅ Border Gradient: Teal to cyan</p>
+        </div>
+        
+        <div class="test-images">
+            <div class="test-item">
+                <div class="avatar-wrapper small">
+                    <div class="avatar-inner">
+                        <img class="avatar-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=faces" alt="Small">
+                    </div>
+                </div>
+                <p>Small</p>
+            </div>
+            <div class="test-item">
+                <div class="avatar-wrapper medium">
+                    <div class="avatar-inner">
+                        <img class="avatar-img" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=200&h=200&fit=crop&crop=faces" alt="Medium">
+                    </div>
+                </div>
+                <p>Medium</p>
+            </div>
+            <div class="test-item">
+                <div class="avatar-wrapper large">
+                    <div class="avatar-inner">
+                        <img class="avatar-img" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces" alt="Large">
+                    </div>
+                </div>
+                <p>Large</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Test image loading
+        const img = new Image();
+        img.onload = function() {
+            document.getElementById('img-status').textContent = 'Loaded successfully';
+            document.getElementById('img-status').style.color = '#22c55e';
+        };
+        img.onerror = function() {
+            document.getElementById('img-status').textContent = 'Failed to load';
+            document.getElementById('img-status').style.color = '#ef4444';
+        };
+        img.src = 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=faces';
+    </script>
+</body>
+</html>

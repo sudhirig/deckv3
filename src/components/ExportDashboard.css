@@ -266,6 +266,7 @@
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
@@ -396,13 +397,11 @@
     display: none !important;
   }
   
-  .slide-footer {
-    display: flex !important;
+  /* Hide all footers to prevent content shifting */
+  .slide-footer,
+  .print-footer {
+    display: none !important;
   }
-}
-
-.slide-footer {
-  display: none;
 }
 
 /* Responsive adjustments */

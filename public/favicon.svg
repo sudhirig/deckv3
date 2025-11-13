@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <rect width="128" height="128" rx="24" fill="#0a0f1b"/>
+  <rect x="8" y="8" width="112" height="112" rx="20" fill="url(#bg)"/>
+  
+  <!-- Hexagon -->
+  <path d="M 64 24 L 88 40 L 88 68 L 64 84 L 40 68 L 40 40 Z" 
+        stroke="url(#gradient)" 
+        stroke-width="3" 
+        fill="url(#gradient)" 
+        fill-opacity="0.1"/>
+  
+  <!-- Letter A -->
+  <path d="M 64 36 L 50 72 M 64 36 L 78 72 M 54 60 L 74 60" 
+        stroke="url(#gradient)" 
+        stroke-width="4" 
+        stroke-linecap="round"/>
+  
+  <!-- Neural dots -->
+  <circle cx="64" cy="24" r="4" fill="#14b8a6"/>
+  <circle cx="88" cy="40" r="4" fill="#06b6d4"/>
+  <circle cx="88" cy="68" r="4" fill="#10b981"/>
+  <circle cx="64" cy="84" r="4" fill="#14b8a6"/>
+  <circle cx="40" cy="68" r="4" fill="#06b6d4"/>
+  <circle cx="40" cy="40" r="4" fill="#10b981"/>
+  
+  <!-- Text .ai -->
+  <text x="64" y="108" font-family="system-ui, -apple-system" font-size="20" font-weight="bold" text-anchor="middle" fill="#14b8a6">.ai</text>
+  
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14b8a6"/>
+      <stop offset="50%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <radialGradient id="bg">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a0f1b"/>
+    </radialGradient>
+  </defs>
+</svg>

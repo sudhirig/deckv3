@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './App.css'
+import './styles/print.css'
+import './styles/fixes.css'
+import './styles/presentation.css'
+import './utils/presentationMode.js'
 import SlideViewport from './components/SlideViewport'
 import ActDropdown from './components/ActDropdown'
 import ExportDashboard from './components/ExportDashboard'
@@ -39,6 +43,37 @@ import ARIAFundManagerSlide from './slides/ARIAFundManagerSlide'
 import DigitalFamilyOfficeOSSlide from './slides/DigitalFamilyOfficeOSSlide'
 import USTechStrategySlide from './slides/USTechStrategySlide'
 import GoToMarketSlide from './slides/GoToMarketSlide'
+// New Agentic AI Value Slides (First Batch)
+import AgentOrchestraSlide from './slides/AgentOrchestraSlide'
+import AgentAutonomySlide from './slides/AgentAutonomySlide'
+import IntelligenceMultiplierSlide from './slides/IntelligenceMultiplierSlide'
+import GlassBoxAISlide from './slides/GlassBoxAISlide'
+import AgentROICalculatorSlide from './slides/AgentROICalculatorSlide'
+// New Agentic AI Deep Dive Slides (Second Batch - Fiscalix/AssureCare Inspired)
+import EvolutionOfWealthTechSlide from './slides/EvolutionOfWealthTechSlide'
+import ARIASwarmSlide from './slides/ARIASwarmSlide'
+import ARIAInActionSlide from './slides/ARIAInActionSlide'
+import HybridTrustModelSlide from './slides/HybridTrustModelSlide'
+import AgenticValuePropSlide from './slides/AgenticValuePropSlide'
+import StrategicPartnershipsSlide from './slides/StrategicPartnershipsSlide'
+import VoraVenturesSlide from './slides/VoraVenturesSlide'
+// New Appendix Slides (First Batch)
+import TechStackAPISlide from './slides/TechStackAPISlide'
+import AgenticMoatSlide from './slides/AgenticMoatSlide'
+import AIEquityAgentSlide from './slides/AIEquityAgentSlide'
+import MarketSizingSlide from './slides/MarketSizingSlide'
+import AgenticWorkflowSlide from './slides/AgenticWorkflowSlide'
+// New Appendix Slides (Second Batch)
+import LargestMarketSlide from './slides/LargestMarketSlide'
+import MarketInMotionSlide from './slides/MarketInMotionSlide'
+import ThreeCoreFailuresSlide from './slides/ThreeCoreFailuresSlide'
+import AdvisorShortageSlide from './slides/AdvisorShortageSlide'
+import TraditionalAdviceFailsSlide from './slides/TraditionalAdviceFailsSlide'
+// New Appendix Slides (Third Batch)
+import ThreeFailuresComparisonSlide from './slides/ThreeFailuresComparisonSlide'
+import AlternativeAssetAgentSlide from './slides/AlternativeAssetAgentSlide'
+import AIInvestmentCommitteeSlide from './slides/AIInvestmentCommitteeSlide'
+import ThreeAlphaAgentsMoatSlide from './slides/ThreeAlphaAgentsMoatSlide'
 import TechArchitecture1Slide from './slides/TechArchitecture1Slide'
 import TechArchitecture2Slide from './slides/TechArchitecture2Slide'
 import TechArchitecture3Slide from './slides/TechArchitecture3Slide'
@@ -83,6 +118,17 @@ import SentimentModuleLiveSnapshotSlide from './slides/SentimentModuleLiveSnapsh
 // Supporting Enhancement Slides
 import LiveMetricsDashboardSlide from './slides/LiveMetricsDashboardSlide'
 import ProductOverviewSlide from './slides/ProductOverviewSlide'
+import IndiaGatewaySlide from './slides/IndiaGatewaySlide'
+import TechValidationSlide from './slides/TechValidationSlide'
+import TestVisualsSlide from './slides/TestVisualsSlide'
+// New ARIA Platform Experience Slides
+import ARIAPlatformExperienceSlide from './slides/ARIAPlatformExperienceSlide'
+import ARIAClientJourneySlide from './slides/ARIAClientJourneySlide'
+// New Competitive Analysis Slides
+import ARIATechMFSlide from './slides/ARIATechMFSlide'
+import ARIAInvestmentAdvisorySlide from './slides/ARIAInvestmentAdvisorySlide'
+import ARIAGoalBasedInvestingSlide from './slides/ARIAGoalBasedInvestingSlide'
+import ARIAAIFSlide from './slides/ARIAAIFSlide'
 
 const slides = [
   // OPENING
@@ -91,39 +137,46 @@ const slides = [
   { component: AgendaRoadmapSlide, title: 'Agenda: The 5-Act Journey' },
   
   // ACT 1: THE DISRUPTION
-  { component: Act1Slide, title: 'Act 1: The Disruption' },
   { component: StanfordSlide, title: 'AI is the New Alpha' },
   { component: MarketSwitchingSlide, title: 'Market Switching Now' },
   { component: AlphaGapSlide, title: 'The Three Failures' },
   
-  // ACT 2: THE ARIA STRATEGY
-  { component: Act2Slide, title: 'Act 2: The ARIA Strategy' },
+  // THE SOLUTION: ARIA
   { component: IntroducingARIASlide, title: 'Introducing ARIA' },
-  { component: WedgeExpandSlide, title: 'The Wedge & Expand Strategy' },
-  { component: B2B2CDistributionSlide, title: 'Our B2B2C Distribution Moat' },
-  { component: ProductOverviewSlide, title: 'ARIA Orchestration Platform' },
-  { component: ThreeAlphaAgentsSlide, title: 'Three Core Products' },
+  { component: AgentOrchestraSlide, title: 'The ARIA Agent Orchestra' },
   
-  // ACT 3: THE UNFAIR ADVANTAGES
-  { component: Act3Slide, title: 'Act 3: The Unfair Advantages' },
-  { component: IndiaProblemSlide, title: 'India: $5T Market Locked' },
-  { component: GIFTSolutionSlide, title: 'The India Gateway Fund' },
-  { component: ARIAFundManagerSlide, title: 'ARIA as AI Fund Manager' },
+  // THE STRATEGY: WEDGE & EXPAND
+  { component: WedgeExpandSlide, title: 'The Wedge & Expand Strategy' },
+  { component: IndiaGatewaySlide, title: 'India: Our Gateway, Not Our Ceiling' },
   { component: AlternativeAIDDSlide, title: 'The ARIA Data Engine' },
   { component: USTechStrategySlide, title: 'US Tech Strategy: Read vs Execute' },
-  { component: DigitalFamilyOfficeOSSlide, title: 'Digital Family Office OS' },
-  { component: AgentArchitectureSlideNew, title: 'Multi-Agent Architecture' },
+  { component: B2B2CDistributionSlide, title: 'Our B2B2C Distribution Moat' },
+  { component: ThreeAlphaAgentsSlide, title: 'Three Core Products' },
   
-  // ACT 4: VALIDATION
-  { component: Act4Slide, title: 'Act 4: Validation' },
+  // THE MOAT: UNFAIR ADVANTAGES
+  { component: DigitalFamilyOfficeOSSlide, title: 'Digital Family Office OS' },
+  
+  // Keep one key slide about ARIA in action
+  { component: ARIAInActionSlide, title: 'ARIA in Action: The Symphony' },
+  
+  // ARIA PLATFORM EXPERIENCE
+  { component: ARIAPlatformExperienceSlide, title: 'The ARIA Experience' },
+  { component: ARIAClientJourneySlide, title: 'Real Success Stories' },
+  
+  // COMPETITIVE DIFFERENTIATION
+  { component: ARIATechMFSlide, title: 'ARIA vs Tech-MF Platforms' },
+  { component: ARIAInvestmentAdvisorySlide, title: 'AI-Powered Advisory' },
+  { component: ARIAGoalBasedInvestingSlide, title: 'Goal-Based Wealth Creation' },
+  { component: ARIAAIFSlide, title: 'Alternative Investment Fund' },
+  
+  // VALIDATION & PROOF
   { component: LivePlatformSlide, title: 'Prototype Validated' },
   { component: TractionDashboardSlide, title: 'Validation Metrics' },
-  { component: TechArchitecture1Slide, title: 'Tech Architecture: System' },
-  { component: TechArchitecture2Slide, title: 'Tech Architecture: Agents' },
-  { component: TechArchitecture3Slide, title: 'Tech Architecture: Security' },
+  { component: StrategicPartnershipsSlide, title: 'Strategic Partnerships' },
+  { component: TechValidationSlide, title: 'Proven Technology Architecture' },
+  { component: GlassBoxAISlide, title: 'Glass Box AI Transparency' },
   
-  // ACT 5: THE BUSINESS
-  { component: Act5Slide, title: 'Act 5: The Business' },
+  // THE BUSINESS MODEL
   { component: OpportunitySlide, title: 'Market Opportunity' },
   { component: GoToMarketSlide, title: 'Go-to-Market Strategy' },
   { component: CompetitiveMatrixSlide, title: 'Competitive Analysis' },
@@ -131,10 +184,9 @@ const slides = [
   { component: FinancialProjections1Slide, title: 'Financial Projections' },
   { component: FinancialProjections2Slide, title: 'Unit Economics' },
   { component: FinancialProjections3Slide, title: 'Use of Funds' },
-  { component: GrowthPathSlide, title: 'Path to $1B AUM' },
-  { component: PartnershipStrategy1Slide, title: 'Partnership Ecosystem' },
-  { component: PartnershipStrategy2Slide, title: 'Vora Partnership Details' },
+  // TEAM & ASK
   { component: TeamSlide, title: 'Team' },
+  { component: VoraVenturesSlide, title: 'The Vora Advantage' },
   { component: FundingSlide, title: '$5M Seed Round' },
   
   // CLOSING
@@ -177,6 +229,53 @@ const slides = [
   
   // Supporting Enhancement Slides
   { component: LiveMetricsDashboardSlide, title: 'Live Platform Metrics' },
+  
+  // Additional Appendix Slides - Deep Dive (First Batch)
+  { component: TechStackAPISlide, title: 'Tech Stack & API Design' },
+  { component: AgenticMoatSlide, title: 'Why We Win: Agentic Moat' },
+  { component: AIEquityAgentSlide, title: 'AI Equity Agent Roadmap' },
+  { component: MarketSizingSlide, title: 'Market Sizing Deep Dive' },
+  { component: AgenticWorkflowSlide, title: 'Agentic Workflow Example' },
+  
+  // Additional Appendix Slides - Market Analysis (Second Batch)
+  { component: LargestMarketSlide, title: 'The Largest Market on Earth' },
+  { component: MarketInMotionSlide, title: 'A Market in Motion' },
+  { component: ThreeCoreFailuresSlide, title: 'The Three Core Failures' },
+  { component: AdvisorShortageSlide, title: 'The Advisor Shortage Crisis' },
+  { component: TraditionalAdviceFailsSlide, title: 'Traditional Advice Fails HNWIs' },
+  
+  // Additional Appendix Slides - Deep Analysis (Third Batch)
+  { component: ThreeFailuresComparisonSlide, title: 'Why They\'re Switching' },
+  { component: AlternativeAssetAgentSlide, title: 'Alternative Asset AI Agent' },
+  { component: AIInvestmentCommitteeSlide, title: 'AI Investment Committee' },
+  { component: ThreeAlphaAgentsMoatSlide, title: 'Three Alpha Agents Moat' },
+  
+  // Technical Deep Dive (Moved from main deck)
+  { component: ProductOverviewSlide, title: 'ARIA Orchestration Platform' },
+  { component: IndiaProblemSlide, title: 'India: $5T Market Locked' },
+  { component: GIFTSolutionSlide, title: 'The India Gateway Fund' },
+  { component: ARIAFundManagerSlide, title: 'ARIA as AI Fund Manager' },
+  { component: EvolutionOfWealthTechSlide, title: 'Evolution: Robo to Agentic' },
+  { component: ARIASwarmSlide, title: 'Meet ARIA\'s 68+ Agent Swarm' },
+  { component: HybridTrustModelSlide, title: 'The AI + Human Hybrid Model' },
+  { component: AgenticValuePropSlide, title: 'The Agentic Value Proposition' },
+  { component: AgentArchitectureSlideNew, title: 'Multi-Agent Architecture' },
+  { component: AgentAutonomySlide, title: 'Agent Autonomy Roadmap' },
+  { component: IntelligenceMultiplierSlide, title: '10,000x Speed Advantage' },
+  { component: TechArchitecture1Slide, title: 'Tech Architecture: System' },
+  { component: TechArchitecture2Slide, title: 'Tech Architecture: Agents' },
+  { component: TechArchitecture3Slide, title: 'Tech Architecture: Security' },
+  { component: AgentROICalculatorSlide, title: 'Agent ROI: 473x Return' },
+  { component: GrowthPathSlide, title: 'Path to $1B AUM' },
+  { component: PartnershipStrategy1Slide, title: 'Partnership Ecosystem' },
+  { component: PartnershipStrategy2Slide, title: 'Vora Partnership Details' },
+  
+  // Act Markers (Moved to Appendix for cleaner flow)
+  { component: Act1Slide, title: 'Act 1: The Disruption' },
+  { component: Act2Slide, title: 'Act 2: The ARIA Strategy' },
+  { component: Act3Slide, title: 'Act 3: The Unfair Advantages' },
+  { component: Act4Slide, title: 'Act 4: Validation' },
+  { component: Act5Slide, title: 'Act 5: The Business' },
   
   { component: AppendixSlide, title: 'Appendix' }
 ]
@@ -318,25 +417,39 @@ function AppContent() {
   }
 
   useEffect(() => {
-    const handleKeyPress = (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
+    const handleKeyDown = (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return
+      
+      // Check for Ctrl/Cmd + P for PDF export
+      if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
         e.preventDefault()
-        navigateToSlide(getCurrentSlideFromHash() + 1)
-      } else if (e.key === 'ArrowLeft') {
+        setShowExportDashboard(true)
+        return
+      }
+      
+      if (e.key === 'ArrowLeft') {
+        navigateToSlide(currentSlide - 1)
+      } else if (e.key === 'ArrowRight' || e.key === ' ') {
         e.preventDefault()
-        navigateToSlide(getCurrentSlideFromHash() - 1)
+        navigateToSlide(currentSlide + 1)
       } else if (e.key === 'Home') {
         navigateToSlide(0)
       } else if (e.key === 'End') {
         navigateToSlide(slides.length - 1)
       } else if (e.key === 't' || e.key === 'T') {
         setShowThumbnails(prev => !prev)
+      } else if (e.key === 'e' || e.key === 'E') {
+        console.log('E key pressed - toggling edit mode')
+        setIsEditMode(prev => !prev)
+      } else if (e.key === 'x' || e.key === 'X') {
+        // Quick export shortcut
+        setShowExportDashboard(true)
       }
     }
 
-    window.addEventListener('keydown', handleKeyPress)
-    return () => window.removeEventListener('keydown', handleKeyPress)
-  }, [])
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [currentSlide, slides.length])
 
   const slideTransitions = {
     fade: {
@@ -374,20 +487,20 @@ function AppContent() {
 
   return (
       <div className="presentation">
-      {/* Print view: All slides rendered */}
-      <div className="print-only-slides">
+      {/* Print view: All slides rendered - Hidden on screen, visible in print */}
+      <div className="print-only-slides" style={{ display: 'none' }}>
         {slides.map((slide, index) => {
           const SlideComponent = slide.component
           return (
-            <div key={index} className="slide print-slide">
+            <div key={index} className="print-slide">
               <SlideComponent {...slideProps} />
             </div>
           )
         })}
       </div>
 
-      {/* Screen view: Current slide only */}
-      <div className="screen-only-slides">
+      {/* Main Slide Viewport - Hidden during print */}
+      <div className="screen-view">
         <SlideViewport>
           <AnimatePresence mode="wait">
             <motion.div

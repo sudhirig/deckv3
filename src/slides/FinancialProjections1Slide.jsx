@@ -8,6 +8,7 @@ import ResponsiveTable from '../components/ResponsiveTable'
 import { TrendingUp, DollarSign, Users, Target, BarChart3, PiggyBank, Rocket } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import { toFiniteNumber } from '../utils/number'
+import { RevenueProjectionChart } from '../components/DataCharts'
 import './SlideStyles.css'
 
 export default function FinancialProjections1Slide() {
@@ -40,124 +41,18 @@ export default function FinancialProjections1Slide() {
     </>
   )
 
-  // Main visual - Growth Chart
+  // Main visual - Revenue Projection Chart
   const mainVisual = (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.7 }}
       style={{
-        background: 'rgba(59, 130, 246, 0.05)',
-        borderRadius: '12px',
-        padding: '1.5rem',
-        width: '100%'
+        width: '100%',
+        height: '100%'
       }}
     >
-      <h3 style={{ color: '#60a5fa', marginBottom: SPACING.md, fontSize: TYPOGRAPHY.subheadline }}>
-        5-Year AUM Growth Trajectory
-      </h3>
-      
-      <div style={{ position: 'relative', height: pxToRem(250), maxHeight: '35vh', marginBottom: SPACING.sm }}>
-        {/* Grid Lines */}
-        {[0, 1, 2, 3, 4, 5].map(i => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute',
-              left: 0,
-              right: 0,
-              bottom: pxToRem(i * 42),
-              height: pxToRem(1),
-              background: 'rgba(255, 255, 255, 0.05)'
-            }}
-          />
-        ))}
-        
-        {/* Y-axis labels */}
-        {[0, 1, 2, 3, 4, 5].map(i => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute',
-              left: pxToRem(-40),
-              bottom: pxToRem(i * 42 - 8),
-              fontSize: '0.85rem',
-              color: '#64748b'
-            }}
-          >
-            ${i}B
-          </div>
-        ))}
-        
-        {/* Chart Bars */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          alignItems: 'flex-end',
-          height: pxToRem(210),
-          paddingTop: SPACING.lg
-        }}>
-          {projections.map((proj, index) => (
-            <div key={proj.year} style={{ width: '15%', position: 'relative' }}>
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: getChartHeight(proj.aum, 5000) }}
-                transition={{ delay: 0.8 + index * 0.1, duration: 0.8 }}
-                style={{
-                  width: '100%',
-                  background: 'linear-gradient(180deg, #60a5fa, #3b82f6)',
-                  borderRadius: `${pxToRem(8)} ${pxToRem(8)} 0 0`,
-                  position: 'relative',
-                  boxShadow: `0 ${pxToRem(-4)} ${pxToRem(20)} rgba(96, 165, 250, 0.3)`
-                }}
-              >
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 1.3 + index * 0.1 }}
-                  style={{
-                    position: 'absolute',
-                    top: pxToRem(-30),
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    fontSize: '1.1rem',
-                    fontWeight: 'bold',
-                    color: '#60a5fa',
-                    whiteSpace: 'nowrap'
-                  }}
-                >
-                  ${proj.aum}M
-                </motion.div>
-              </motion.div>
-              
-              {/* X-axis Label */}
-              <div style={{
-                textAlign: 'center',
-                marginTop: '0.75rem',
-                fontSize: '0.9rem',
-                color: '#94a3b8'
-              }}>
-                {proj.year}
-              </div>
-              
-              {/* Revenue indicator */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 + index * 0.1 }}
-                style={{
-                  textAlign: 'center',
-                  marginTop: '0.25rem',
-                  fontSize: '0.8rem',
-                  color: '#22c55e'
-                }}
-              >
-                Rev: ${proj.revenue}M
-              </motion.div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <RevenueProjectionChart animated={true} />
     </motion.div>
   )
 

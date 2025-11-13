@@ -50,20 +50,7 @@ export default function ExportDashboard({
     // Add print-specific class to body for better control
     document.body.classList.add('printing-mode')
     
-    // Add slide footers to the print-only slides
-    const printSlides = document.querySelectorAll('.print-slide')
-    printSlides.forEach((slide, index) => {
-      // Check if footer already exists
-      if (!slide.querySelector('.slide-footer')) {
-        const footer = document.createElement('div')
-        footer.className = 'slide-footer'
-        footer.innerHTML = `
-          <span class="slide-footer-title">AI-Powered Family Office Platform</span>
-          <span class="slide-footer-number">Slide ${index + 1} of ${slides.length}</span>
-        `
-        slide.appendChild(footer)
-      }
-    })
+    // NOTE: Removed footer addition to prevent content shifting
     
     // Small delay to ensure DOM updates
     setTimeout(() => {
@@ -72,8 +59,6 @@ export default function ExportDashboard({
       // Clean up after print dialog closes
       setTimeout(() => {
         document.body.classList.remove('printing-mode')
-        // Remove footers after printing
-        document.querySelectorAll('.print-slide .slide-footer').forEach(el => el.remove())
         setExportStatus('PDF export complete!')
         setTimeout(() => {
           setExportStatus('')

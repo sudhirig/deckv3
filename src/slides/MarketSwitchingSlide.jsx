@@ -8,6 +8,7 @@ import CircularProgress from '../components/CircularProgress'
 import { TrendingUp } from 'lucide-react'
 import { SPACING, TYPOGRAPHY, pxToRem } from '../utils/responsive'
 import { toFiniteNumber } from '../utils/number'
+import { MarketGrowthChart } from '../components/DataCharts'
 import './SlideStyles.css'
 
 export default function MarketSwitchingSlide() {
@@ -18,36 +19,17 @@ export default function MarketSwitchingSlide() {
     </GradientText>
   )
 
-  // Main visual - Circular progress and stats
+  // Main visual - Market Growth Chart
   const mainVisual = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: SPACING.lg, height: '100%', justifyContent: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around' }}>
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ delay: 0.3, type: 'spring' }}
-        >
-          <CircularProgress 
-            value={46} 
-            size={180} 
-            strokeWidth={12} 
-            color="#fb923c"
-            label="Planning to Switch"
-            delay={0.3}
-          />
-        </motion.div>
-        
-        <AnimatedText delay={1.5}>
-          <div style={{ maxWidth: pxToRem(400) }}>
-            <p style={{ fontSize: pxToRem(22.4), color: '#e2e8f0', fontWeight: '500', lineHeight: '1.6' }}>
-              Planning to switch advisors in next <strong style={{ color: '#fb923c' }}>1-2 years</strong>
-            </p>
-            <p style={{ fontSize: pxToRem(17.6), color: '#94a3b8', marginTop: SPACING.sm }}>
-              The largest wealth transfer in history is creating unprecedented opportunity
-            </p>
-          </div>
-        </AnimatedText>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3, type: 'spring' }}
+        style={{ height: '60%', width: '100%' }}
+      >
+        <MarketGrowthChart animated={true} />
+      </motion.div>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: SPACING.md }}>
         <motion.div 

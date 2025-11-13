@@ -1,0 +1,198 @@
+/* Global fixes for overflow and UI issues */
+
+/* Prevent horizontal overflow on all slides */
+.slidev-layout {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+/* Fix for AspectFrame overflow */
+[style*="aspect-ratio"] {
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* Ensure text doesn't overflow containers */
+p, span, div {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+/* Fix for long headers */
+h1, h2, h3, h4 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.3;
+}
+
+/* Ensure badges don't cause overflow */
+[class*="Badge"] {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Fix for mobile/desktop mockups */
+[style*="width: 320px"] { /* Mobile mockup */
+  max-width: 90%;
+  width: min(320px, 90%);
+}
+
+[style*="width: 90%"] { /* Desktop mockup */
+  max-width: calc(100% - 2rem);
+}
+
+/* Ensure bottom bars don't overflow */
+[style*="borderTop: 1px solid"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Fix for grid layouts on smaller screens */
+@media (max-width: 1366px) {
+  [style*="gridTemplateColumns: 1fr 2fr"] {
+    gap: 1rem !important;
+  }
+  
+  [style*="gridTemplateColumns: 350px"] {
+    grid-template-columns: 300px 1fr !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  [style*="padding: 2rem 3rem"] {
+    padding: 1.5rem 2rem !important;
+  }
+  
+  [style*="fontSize: clamp(2rem"] {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem) !important;
+  }
+}
+
+/* Ensure feature cards don't overflow */
+[style*="padding: 1.2rem"] {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Fix for testimonial text */
+[style*="fontStyle: italic"] {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+/* Ensure metrics bar is scrollable on small screens */
+@media (max-width: 1024px) {
+  [style*="justifyContent: center"][style*="gap: 3rem"] {
+    overflow-x: auto;
+    justify-content: flex-start !important;
+    padding: 1rem !important;
+  }
+}
+
+/* Fix z-index conflicts */
+[style*="zIndex: 100"] {
+  z-index: 100 !important;
+}
+
+[style*="zIndex: 10"] {
+  z-index: 10 !important;
+}
+
+/* Ensure animations don't cause layout shifts */
+[style*="transform"] {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Fix for AIF tier cards */
+[style*="gridTemplateColumns: repeat(3"] {
+  min-height: 0;
+  align-content: start;
+}
+
+@media (max-width: 1280px) {
+  [style*="gridTemplateColumns: repeat(3"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* Ensure progress bars don't overflow */
+[style*="height: 4px"] {
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Fix for client journey cards */
+[style*="gridTemplateColumns: 300px 1fr 380px"] {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 1366px) {
+  [style*="gridTemplateColumns: 300px 1fr 380px"] {
+    grid-template-columns: 280px 1fr 350px !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Ensure tab navigation doesn't break */
+[style*="display: flex"][style*="gap: 0.5rem"][style*="padding: 0.5rem"] {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* Fix for comparison tables */
+[style*="gridTemplateColumns: 1fr 2fr 2fr 1fr"] {
+  min-width: 0;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 1280px) {
+  [style*="gridTemplateColumns: 1fr 2fr 2fr 1fr"] {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Ensure buttons are always clickable */
+button {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+/* Fix for goal cards */
+[style*="padding: 1.25rem"][style*="background: selectedGoal"] {
+  min-height: 0;
+  overflow: visible;
+}
+
+/* Smooth scrolling for overflow areas */
+[style*="overflow: auto"],
+[style*="overflow-y: auto"],
+[style*="overflow-x: auto"] {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbars but keep functionality */
+[style*="overflow: auto"]::-webkit-scrollbar,
+[style*="overflow-y: auto"]::-webkit-scrollbar,
+[style*="overflow-x: auto"]::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+[style*="overflow: auto"]::-webkit-scrollbar-thumb,
+[style*="overflow-y: auto"]::-webkit-scrollbar-thumb,
+[style*="overflow-x: auto"]::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 2px;
+}
+
+/* Ensure ARIA Icon Badge doesn't get cut off */
+[class*="ARIAIconBadge"] {
+  flex-shrink: 0;
+  min-width: 45px;
+  min-height: 45px;
+}

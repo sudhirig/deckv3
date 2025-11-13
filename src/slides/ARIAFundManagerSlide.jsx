@@ -117,10 +117,10 @@ export default function ARIAFundManagerSlide() {
         This is NOT a B2C Tool
       </p>
       <p style={{ fontSize: '0.95rem', color: '#e2e8f0', marginTop: '0.75rem' }}>
-        ARIA is the in-house AI Fund Manager for the Vora AIF.
+        ARIA is the AI CEO managing the Vora AIF. She makes the decisions.
       </p>
       <p style={{ fontSize: '0.9rem', color: '#94a3b8', marginTop: '0.5rem' }}>
-        Clients get transparency, not control.
+        Clients get transparency into her thinking, not control.
       </p>
     </motion.div>
   )

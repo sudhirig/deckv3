@@ -8,6 +8,7 @@ import Icon from '../components/Icon'
 import { TrendingUp, Users, DollarSign, Activity, Globe, Shield, Clock, CheckCircle, Target } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import { toFiniteNumber } from '../utils/number'
+import { AgentMetricsChart } from '../components/DataCharts'
 import './SlideStyles.css'
 
 export default function TractionDashboardSlide() {

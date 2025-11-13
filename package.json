@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=.replit.dev,.repl.co,.replit.app vite --host 0.0.0.0 --port 5000",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "audit": "node -e \"import('./src/utils/slideAudit.js').then(m => console.log('Audit script loaded. Run window.runSlideAudit() in browser.'))\""
   },
   "dependencies": {
     "file-saver": "^2.0.5",

@@ -1,9 +1,11 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import AnimatedCounter from '../components/AnimatedCounter'
 import AnimatedText from '../components/AnimatedText'
 import GradientText from '../components/GradientText'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import { toFiniteNumber } from '../utils/number'
+import { MarketShareChart } from '../components/DataChartsAdvanced'
 import './SlideStyles.css'
 
 export default function OpportunitySlide() {

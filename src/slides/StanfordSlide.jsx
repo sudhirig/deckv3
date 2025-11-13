@@ -9,6 +9,7 @@ import CircularProgress from '../components/CircularProgress'
 import { GraduationCap, QrCode, TrendingUp, Award, BarChart3 } from 'lucide-react'
 import { pxToRem, SPACING, TYPOGRAPHY } from '../utils/responsive'
 import { toFiniteNumber } from '../utils/number'
+import { AIPerformanceChart } from '../components/DataCharts'
 import './SlideStyles.css'
 
 export default function StanfordSlide() {
@@ -53,85 +54,17 @@ export default function StanfordSlide() {
     </div>
   )
 
-  // Main visual with circular progress and bar chart
+  // Main visual with AI Performance Chart
   const mainVisual = (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '3rem' }}>
-      {/* Large Circular Progress */}
+    <div style={{ display: 'flex', alignItems: 'center', gap: '3rem', height: '100%' }}>
+      {/* AI Performance Comparison Chart */}
       <motion.div
-        initial={{ scale: 0, opacity: 0 }}
+        initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
+        style={{ flex: 1, height: '100%' }}
       >
-        <CircularProgress 
-          value={93} 
-          size={220} 
-          strokeWidth={14} 
-          color="#14b8a6"
-          label="AI Outperforms"
-          delay={0.5}
-        />
-      </motion.div>
-      
-      {/* Bar Chart Comparison */}
-      <motion.div
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.2 }}
-        style={{ flex: 1 }}
-      >
-        <h3 style={{ color: '#14b8a6', marginBottom: SPACING.sm, fontSize: TYPOGRAPHY.subheadline }}>
-          Performance Comparison
-        </h3>
-        <div style={{ display: 'flex', alignItems: 'flex-end', height: pxToRem(180), maxHeight: '30vh', gap: SPACING.md }}>
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <motion.div
-              style={{
-                width: pxToRem(80),
-                background: 'linear-gradient(180deg, #64748b, #475569)',
-                borderRadius: `${pxToRem(4)} ${pxToRem(4)} 0 0`,
-                position: 'relative'
-              }}
-              initial={{ height: 0 }}
-              animate={{ height: pxToRem(60) }}
-              transition={{ delay: 1.5, duration: 0.8 }}
-            >
-              <div style={{ position: 'absolute', top: pxToRem(-30), width: '100%', textAlign: 'center', fontSize: '1.1rem', color: '#94a3b8' }}>
-                100%
-              </div>
-            </motion.div>
-            <span style={{ fontSize: '0.9rem', color: '#64748b', marginTop: SPACING.xs }}>Human Fund Managers</span>
-          </div>
-          
-          <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <motion.div
-              style={{
-                width: pxToRem(80),
-                background: 'linear-gradient(180deg, #14b8a6, #0d9488)',
-                borderRadius: `${pxToRem(4)} ${pxToRem(4)} 0 0`,
-                position: 'relative'
-              }}
-              initial={{ height: 0 }}
-              animate={{ height: pxToRem(150) }}
-              transition={{ delay: 1.8, duration: 1.2 }}
-            >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2.8 }}
-                style={{ position: 'absolute', top: pxToRem(-30), width: '100%', textAlign: 'center' }}
-              >
-                <AnimatedCounter 
-                  end={toFiniteNumber(600)} 
-                  suffix="%" 
-                  style={{ fontSize: '1.1rem', fontWeight: 'bold', color: '#14b8a6' }}
-                  delay={2.8}
-                  duration={2}
-                />
-              </motion.div>
-            </motion.div>
-            <span style={{ fontSize: '0.9rem', color: '#14b8a6', marginTop: SPACING.xs }}>AI-Powered Portfolios</span>
-          </div>
-        </div>
+        <AIPerformanceChart animated={true} />
       </motion.div>
     </div>
   )
