@@ -73,58 +73,129 @@ HOOK → PROBLEM → SOLUTION → PROOF → BUSINESS → ASK
 
 ---
 
-### ACT 1: THE PROBLEM (4 slides)
+### ACT 1: THE PROBLEM (3 slides only - World-Class Compression)
+
+**Philosophy:** Arta/Sequoia style - One big idea per slide, 10 seconds to understand
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **3** | **The Gap** | Goldman vs Robinhood - you're stuck | KEEP: Slide1InequalityV4 |
-| **4** | **Three Failures** | Tax + Alternatives + India locked | NEW or ThreeAlphaAgentsSlide inverted |
-| **5** | **India Barriers** | USD/Trust/Tax/Compliance walls | NEW or IndiaGatewaySlide (problem half) |
-| **6** | **Why Solutions Fail** | 2x2 positioning matrix | KEEP: Slide4TwoDimensionalProblemV7Better |
+| **3** | **The EMILLI Trap** | Goldman vs You vs Robinhood - stuck in middle | **NEW** (merge EMILLI + Gap) |
+| **4** | **The Dual Gap** | Access + Intelligence = $124T | **MODIFY** Slide2DualGapV7Fixed (add ARIA position) |
+| **5** | **Why Solutions Fail** | 2x2 positioning matrix | KEEP: Slide4TwoDimensionalProblemV7Better |
 
-#### Slide 3: The Gap (Slide1InequalityV4) ✅ KEEP AS-IS
-**Story Arc Element:** THE GAP - "Too small for Goldman, outgrown Robinhood"
+---
+
+#### Slide 3: The EMILLI Trap ⚠️ NEW SLIDE
+**Story Arc Element:** TARGET + GAP combined
+**One Big Idea:** "Too small for Goldman, outgrown Robinhood"
+
+**Content (consolidated from Slide1InequalityV4 + EMILLI data):**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                    THE EMILLI TRAP                              │
+│         7.9M families stuck between two worlds                  │
+│                                                                 │
+│  ┌─────────────┐         YOU          ┌─────────────┐          │
+│  │   GOLDMAN   │    ┌─────────┐       │  ROBINHOOD  │          │
+│  │   $25M+     │    │ $1-25M  │       │   <$500K    │          │
+│  │  ✓ Global   │    │  EMILLI │       │  ✓ Cheap    │          │
+│  │  ✓ 0% tax   │    │         │       │  ✗ No alts  │          │
+│  │  ✓ AI       │    │  STUCK  │       │  ✗ No India │          │
+│  │  ✓ Alts     │    │         │       │  ✗ No AI    │          │
+│  │  +8.2% α    │    │ +2.5% α │       │  +1.5% α    │          │
+│  └─────────────┘    └─────────┘       └─────────────┘          │
+│                                                                 │
+│  $107T in wealth │ 46% switching │ $124T transferring NOW      │
+│                                                                 │
+│  "Your Annual Loss: $190,000 on $3M portfolio"                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Key Data Points:**
+- Goldman: 87 markets, 0% India tax, AI optimization, +8.2% alpha
+- You (EMILLI): US-only trap, 35% India tax, manual chaos, +2.5% alpha
+- Robinhood: Cheap but no alts, no India, no AI
+- 7.9M HNWIs, $107T wealth, 46% switching, $124T transfer
+
+**Speaker note:** "7.9 million families with $1-25M. Too small for Goldman. Outgrown Robinhood. Losing $190K/year. This is our market."
+
+---
+
+#### Slide 4: The Dual Gap ⚠️ MODIFY Slide2DualGapV7Fixed
+**Story Arc Element:** THE LOCK + THE BARRIERS combined
+**One Big Idea:** Two massive failures = $124T opportunity. ARIA solves both.
+
+**Keep existing content + ADD ARIA position:**
+```
+┌─────────────────────────────────────────────────────────────────┐
+│           THE DUAL GAP CREATING A $124T OPPORTUNITY             │
+│                                                                 │
+│  ┌──────────────────────┐    ┌──────────────────────┐          │
+│  │    ACCESS GAP        │    │   INTELLIGENCE GAP   │          │
+│  │    (The Lock)        │    │    (The Failure)     │          │
+│  │                      │    │                      │          │
+│  │  • India: $5T locked │    │  • Humans: 10 pts    │          │
+│  │    (35% tax walls)   │    │    (quarterly only)  │          │
+│  │  • PE: $5M minimums  │    │  • K-1s: 40 hrs each │          │
+│  │    (95% excluded)    │    │    (3 months late)   │          │
+│  │  • GIFT: 3 have it   │    │  • Tax: 2% alpha lost│          │
+│  │    (We're one)       │    │    (yearly TLH)      │          │
+│  │  • 87 markets → 3    │    │  • Real-time: No     │          │
+│  │    (97% locked)      │    │    (miss opportunities)│        │
+│  │                      │    │                      │          │
+│  │     $60T locked      │    │    $64T unoptimized  │          │
+│  └──────────────────────┘    └──────────────────────┘          │
+│                                                                 │
+│        $60T  +  $64T  =  $124T OPPORTUNITY                     │
+│                                                                 │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │  ★ ARIA: Only platform solving BOTH gaps simultaneously │   │
+│  │    Access (GIFT City) + Intelligence (68+ AI agents)    │   │
+│  └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Modification needed:**
+- Add bottom bar: "ARIA: Only platform solving BOTH gaps"
+- Add small ARIA logo/star indicator
+
+**Speaker note:** "Two gaps. $124T opportunity. Everyone solves one. ARIA solves both."
+
+---
+
+#### Slide 5: Why Solutions Fail (Slide4TwoDimensionalProblemV7Better) ✅ KEEP AS-IS
+**Story Arc Element:** THE POSITIONING
+**One Big Idea:** Everyone has one piece. ARIA has both.
+
 **Content from raw extract:**
-- Goldman Client: "Global access" / "87 markets" / "0% India tax" / "AI optimization" / "+8.2% alpha"
-- Your Reality: "US-only trap" / "35% India tax" / "Manual chaos" / "+2.5% alpha"
-- "Your Annual Loss: $190,000 on $3M portfolio"
-
-**Why Keep:** Most powerful emotional slide. Creates "that's not fair" reaction.
-
-#### Slide 4: Three Failures ⚠️ NEW SLIDE NEEDED
-**Story Arc Element:** THE LOCK - Alternatives + India = Out of reach
-**Content needed (from Gemini deck "Three Alpha Agents" inverted):**
-
-| Failure | What EMILLI Want | What They Get |
-|---------|------------------|---------------|
-| **Tax** | Proactive Tax Alpha (+1.8%/yr) | Basic allocation, yearly TLH |
-| **Alternatives** | 15% PE/VC allocation | 80% data in PDFs, no access |
-| **India/EM** | $5T market exposure | FPI nightmare, 35% tax |
-
-**Visual:** 3-column "WANT vs GET" comparison
-**Speaker note:** "Three things every EMILLI wants. Three things they can't get."
-
-#### Slide 5: India Barriers ⚠️ NEW SLIDE NEEDED
-**Story Arc Element:** THE BARRIERS - USD/Trust/Tax/Compliance walls
-**Content needed (from original slides 2):**
-- **USD Risk:** INR depreciation erodes returns
-- **Trust:** No local presence, who do you call?
-- **Tax:** 35% CGT + STT drag performance
-- **Compliance:** FPI regulations, multi-month setup
-
-**Visual:** 4 walls/barriers visual with lock icons
-**Speaker note:** "Four walls keeping $5T locked. Every advisor says 'too complex.'"
-
-#### Slide 6: Why Solutions Fail (Slide4TwoDimensionalProblemV7Better) ✅ KEEP AS-IS
-**Story Arc Element:** THE POSITIONING - Why ARIA is the only answer
-**Content:**
 - 2x2 Matrix: Access (Y-axis) vs Intelligence (X-axis)
-- Robinhood: Low/Low (95% here)
-- Arta/Betterment: Low Access/High Intelligence
-- Private Banks: High Access/Low Intelligence
-- ARIA: High/High (only solution)
+- Quadrants:
+  - Robinhood: Low/Low ("No Intel, No Access")
+  - Arta/Betterment: Low Access/High Intel ("Has AI tools, US-only")
+  - Private Banks: High Access/Low Intel ("Global, Alts access, No AI, High fees")
+  - ARIA: High/High ("HIGH ACCESS + HIGH INTELLIGENCE")
 
-**Why Keep:** Defines competitive positioning. Shows why ARIA is unique category.
+**Key insight:** "Intel + Access = ARIA is the only solution"
+
+**Speaker note:** "Access without intelligence = blind investing. Intelligence without access = limited returns. You need BOTH = You need ARIA."
+
+---
+
+### What We Eliminated (moved to appendix):
+- ❌ Slide4ConvergenceWindowTealTheme (18-Month Window) → stats in Slide 3
+- ❌ Slide2GeographicTrapV5 (Geographic Trap) → merged into Dual Gap
+- ❌ Slide3ThreeWallsTealTheme (Three Walls) → merged into Dual Gap
+- ❌ Slide5ScaleForAIV5Fixed (Scale Only AI) → implied in Intelligence Gap
+- ❌ Separate EMILLI slide → merged into Slide 3
+- ❌ Separate India Barriers slide → merged into Access Gap
+
+### What We Kept:
+- ✅ Goldman vs You positioning (Slide 3)
+- ✅ $124T opportunity (Slides 3 & 4)
+- ✅ 46% switching (Slide 3)
+- ✅ Dual Gap framework (Slide 4)
+- ✅ 2x2 Matrix positioning (Slide 5)
+- ✅ All India/Alts locked messaging (Slide 4)
 
 ---
 
@@ -132,13 +203,13 @@ HOOK → PROBLEM → SOLUTION → PROOF → BUSINESS → ASK
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **7** | **Meet ARIA** | AI CEO introduction | KEEP: IntroducingARIASlide |
-| **8** | **Three Alpha Agents** | 1:1 solution to Three Failures | KEEP/MODIFY: ThreeAlphaAgentsSlide |
-| **9** | **India Gateway** | Solves all 4 barriers | MERGE: IndiaGatewaySlide + GIFTExecutionSlide |
-| **10** | **The Symphony** | 68+ agents visual | KEEP: AgenticSymphonyFixed |
-| **11** | **Why ARIA Wins** | vs Arta, Banks, Robos | KEEP: WhyARIAWinsSlide |
+| **6** | **Meet ARIA** | AI CEO introduction | KEEP: IntroducingARIASlide |
+| **7** | **Three Alpha Agents** | 1:1 solution to Three Failures | KEEP/MODIFY: ThreeAlphaAgentsSlide |
+| **8** | **India Gateway** | Solves all 4 barriers | MERGE: IndiaGatewaySlide + GIFTExecutionSlide |
+| **9** | **The Symphony** | 68+ agents visual | KEEP: AgenticSymphonyFixed |
+| **10** | **Why ARIA Wins** | vs Arta, Banks, Robos | KEEP: WhyARIAWinsSlide |
 
-#### Slide 7: Meet ARIA (IntroducingARIASlide) ✅ KEEP AS-IS
+#### Slide 6: Meet ARIA (IntroducingARIASlide) ✅ KEEP AS-IS
 **Story Arc Element:** THE SOLUTION - Introducing the AI CEO
 **Content:**
 - "She orchestrates" - key verb
@@ -147,7 +218,7 @@ HOOK → PROBLEM → SOLUTION → PROOF → BUSINESS → ASK
 
 **Why Keep:** Introduces ARIA as CEO, not tool. Establishes "she/her" positioning.
 
-#### Slide 8: Three Alpha Agents ⚠️ MODIFY ThreeAlphaAgentsSlide
+#### Slide 7: Three Alpha Agents ⚠️ MODIFY ThreeAlphaAgentsSlide
 **Story Arc Element:** THE SOLUTION - 1:1 mapping to Three Failures
 **Content needed (mirrors Slide 4 exactly):**
 
@@ -324,45 +395,45 @@ From VoraVenturesFixed:
 
 ---
 
-## 🎯 FINAL 19-SLIDE SUMMARY (V3.0)
+## 🎯 FINAL 18-SLIDE SUMMARY (V3.1 - World-Class Compression)
 
 | # | Slide | Act | Source | Action |
 |---|-------|-----|--------|--------|
 | 1 | Meet ARIA | Hook | TitleSlide | KEEP |
-| 2 | The EMILLI Opportunity | Hook | ExecutiveSummarySlide | **NEW/MODIFY** |
-| 3 | The Gap | Problem | Slide1InequalityV4 | KEEP |
-| 4 | Three Failures | Problem | ThreeAlphaAgentsSlide (inverted) | **NEW** |
-| 5 | India Barriers | Problem | IndiaGatewaySlide (problem half) | **NEW** |
-| 6 | Why Solutions Fail | Problem | Slide4TwoDimensionalProblemV7Better | KEEP |
-| 7 | Meet ARIA (CEO) | Solution | IntroducingARIASlide | KEEP |
-| 8 | Three Alpha Agents | Solution | ThreeAlphaAgentsSlide | MODIFY |
-| 9 | India Gateway | Solution | IndiaGateway + GIFTExecution | MERGE |
-| 10 | The Symphony | Solution | AgenticSymphonyFixed | KEEP |
-| 11 | Why ARIA Wins | Solution | WhyARIAWinsSlide | KEEP |
-| 12 | ARIA in Action | Proof | ARIALiquidityEventSlide | KEEP |
-| 13 | Platform is Live | Proof | PrototypeValidated + LivePlatform | MERGE |
-| 14 | Strategic Partners | Proof | StrategicPartnershipsSlide | KEEP |
-| 15 | The Market | Business | MarketSizingSlide | KEEP |
-| 16 | Path to $1B | Business | Roadmap + BusinessModel | MERGE |
-| 17 | Team + Vora | Business | TeamSlide + VoraVentures | MERGE |
-| 18 | $5M Seed Round | Ask | FundingAskFixed | KEEP |
-| 19 | Join Us | Ask | ClosingCommitmentSlide | KEEP |
+| 2 | The Opportunity | Hook | ExecutiveSummarySlide | SIMPLIFY |
+| 3 | **The EMILLI Trap** | Problem | Slide1InequalityV4 + EMILLI | **NEW** |
+| 4 | **The Dual Gap** | Problem | Slide2DualGapV7Fixed | **MODIFY** (add ARIA) |
+| 5 | Why Solutions Fail | Problem | Slide4TwoDimensionalProblemV7Better | KEEP |
+| 6 | Meet ARIA (CEO) | Solution | IntroducingARIASlide | KEEP |
+| 7 | Three Alpha Agents | Solution | ThreeAlphaAgentsSlide | MODIFY |
+| 8 | India Gateway | Solution | IndiaGateway + GIFTExecution | MERGE |
+| 9 | The Symphony | Solution | AgenticSymphonyFixed | KEEP |
+| 10 | Why ARIA Wins | Solution | WhyARIAWinsSlide | KEEP |
+| 11 | ARIA in Action | Proof | ARIALiquidityEventSlide | KEEP |
+| 12 | Platform is Live | Proof | PrototypeValidated + LivePlatform | MERGE |
+| 13 | Strategic Partners | Proof | StrategicPartnershipsSlide | KEEP |
+| 14 | The Market | Business | MarketSizingSlide | KEEP |
+| 15 | Path to $1B | Business | Roadmap + BusinessModel | MERGE |
+| 16 | Team + Vora | Business | TeamSlide + VoraVentures | MERGE |
+| 17 | $5M Seed Round | Ask | FundingAskFixed | KEEP |
+| 18 | Join Us | Ask | ClosingCommitmentSlide | KEEP |
 
-### Summary of Changes:
-- **53 slides → 19 core slides** (64% reduction)
-- **3 NEW slides needed:** EMILLI Opportunity, Three Failures, India Barriers
+### Summary of Changes (V3.1):
+- **53 slides → 18 core slides** (66% reduction)
+- **1 NEW slide:** The EMILLI Trap (merges EMILLI + Goldman vs You)
+- **1 MODIFY:** The Dual Gap (add ARIA position indicator)
 - **4 merges:** India Gateway, Platform Live, Path to $1B, Team+Vora
-- **1 modification:** Three Alpha Agents (to mirror Three Failures)
-- **34 slides → Appendix**
+- **35 slides → Appendix**
 
-### Story Arc Alignment:
-| Your Arc | Slide(s) |
-|----------|----------|
-| TARGET: EMILLI + Advisors | Slide 2 |
-| THE GAP: Goldman vs Robinhood | Slide 3 |
-| THE LOCK: Alts + India out of reach | Slide 4 |
-| THE BARRIERS: USD/Trust/Tax/Compliance | Slide 5 |
-| THE SOLUTION: ARIA solves each | Slides 7-11 (1:1 mapping) |
+### Story Arc Alignment (3-Slide Problem Section):
+| Your Arc | Slide |
+|----------|-------|
+| TARGET: EMILLI + Advisors | Slide 3 (The EMILLI Trap) |
+| THE GAP: Goldman vs Robinhood | Slide 3 (The EMILLI Trap) |
+| THE LOCK: Alts + India out of reach | Slide 4 (The Dual Gap - Access) |
+| THE BARRIERS: USD/Trust/Tax/Compliance | Slide 4 (The Dual Gap - Access) |
+| THE POSITIONING: 2x2 Matrix | Slide 5 (Why Solutions Fail) |
+| THE SOLUTION: ARIA solves each | Slides 6-10 |
 
 ---
 
