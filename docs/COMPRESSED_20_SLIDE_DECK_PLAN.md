@@ -1,8 +1,26 @@
-# ARIA Compressed Investor Deck - 18 Core Slides
+# ARIA Compressed Investor Deck - 19 Core Slides
 ## World-Class Pitch Deck for $5M Seed Round
 **Branch:** `compressed-20-slide-deck`
 **Date:** November 27, 2025
-**Version:** 2.0 (Deep Dive Revision)
+**Version:** 3.0 (Story Arc Revision based on Advsr/Arta/Gemini reference decks)
+
+---
+
+## 🎯 THE CORE STORY ARC (User-Defined)
+
+```
+1. TARGET → EMILLI (Emerging Millionaires) + Their Advisors
+2. THE GAP → "Too small for Goldman, outgrown Robinhood"
+3. THE LOCK → Alternatives + India/Developing Markets = Out of reach
+4. THE BARRIERS → USD / Trust / Tax / Compliance walls
+5. THE SOLUTION → ARIA solves EACH barrier (1:1 mapping)
+```
+
+### Reference Decks Analyzed:
+- **Advsr** (UK wealthtech): Problem→Solution→USP→Competition→GTM flow
+- **Arta Finance**: AI wealth validation, B2C + B2B2C hybrid GTM
+- **Google Gemini ARIA**: 5-act structure, "Three Alpha Agents" concept
+- **Original slides 2**: Tax Agent + Alt Agent + India Gateway Agent
 
 ---
 
@@ -12,85 +30,101 @@ Based on analysis of successful $5M+ raises (OpenAI, Stripe, Carta, Airbnb):
 - **10-15 seconds per slide** (not 30-45)
 - **7 words max** for titles
 - **3 points max** per slide
-- **1 story, 5 acts, 18 core slides**
-- **12-15 minute presentation** (45 sec/slide average)
+- **1 story, 5 acts, 19 core slides**
+- **14-minute presentation** (45 sec/slide average)
 
 ### The Perfect Investor Story Arc
 ```
 HOOK → PROBLEM → SOLUTION → PROOF → BUSINESS → ASK
- (2)     (3)       (5)       (3)      (3)      (2)
+ (2)     (4)       (5)       (3)      (3)      (2)
 ```
 
 ---
 
-## 📊 THE 18-SLIDE STRUCTURE (REVISED)
+## 📊 THE 19-SLIDE STRUCTURE (V3.0 - Story Arc Aligned)
 
 ### OPENING: THE HOOK (2 slides)
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
 | **1** | **Meet ARIA** | First impression + positioning | KEEP: TitleSlide |
-| **2** | **Why Now** | Urgency + opportunity size | MERGE: ExecutiveSummary + key stats |
+| **2** | **The EMILLI Opportunity** | Target market + Why Now | NEW or MERGE: ExecutiveSummary |
 
 #### Slide 1: Meet ARIA (TitleSlide) ✅ KEEP AS-IS
-**Content from raw extract:**
-- "68+ AI Specialists" / "5 Orchestrated Teams"
-- "GIFT City Gateway" / "Exclusive India Access"  
-- "50+ CPAs" / "B2B2C Distribution"
-- ARIA avatar visual
+**Content:**
+- ARIA avatar visual (the hook)
+- "Your AI Family Office CEO"
+- "68+ AI Specialists" / "GIFT City Gateway" / "50+ CPAs"
 - "Vora Ventures Backed"
 
-**Why Keep:** Perfect first impression. Visual hook with ARIA avatar. Sets positioning immediately.
+**Why Keep:** Perfect first impression. Visual hook with ARIA avatar.
 
-#### Slide 2: Why Now (NEW - Merge ExecutiveSummary)
-**Content to consolidate:**
-- "$124T wealth transfer" (from Exec Summary)
-- "46% of HNWIs switching" (from Exec Summary)
-- "93% AI outperformance - Stanford Study" (from Exec Summary)
-- "$5T India Gateway TAM" (from Exec Summary)
-- "Our ask: $5M Seed → $1B AUM in 36 months"
+#### Slide 2: The EMILLI Opportunity ⚠️ NEW/MODIFY
+**Story Arc Element:** TARGET - EMILLI + Their Advisors
+**Content needed:**
+- Define EMILLI: "Emerging Millionaires" ($1-25M net worth)
+- 7.9M HNWIs in US, $107T in wealth
+- Their advisors: 46% switching, 100K shortage by 2030
+- $124T wealth transfer underway
+- "Too small for Goldman, outgrown Robinhood"
 
-**Visual:** Single slide with 4 key stats + the ask preview
-**Speaker note:** "Three converging forces create a once-in-a-generation opportunity..."
+**Visual:** EMILLI persona + market size
+**Speaker note:** "7.9 million families with $1-25M. Too small for Goldman. Outgrown Robinhood. Their advisors are retiring. This is our market."
 
 ---
 
-### ACT 1: THE PROBLEM (3 slides)
+### ACT 1: THE PROBLEM (4 slides)
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **3** | **The Wealth Gap** | Goldman vs You - emotional hook | KEEP: Slide1InequalityV4 |
-| **4** | **Why Solutions Fail** | 2x2 positioning matrix | KEEP: Slide4TwoDimensionalProblemV7Better |
-| **5** | **The Window is Closing** | Urgency + market timing | MERGE: MarketSwitchingSlide + 18-Month content |
+| **3** | **The Gap** | Goldman vs Robinhood - you're stuck | KEEP: Slide1InequalityV4 |
+| **4** | **Three Failures** | Tax + Alternatives + India locked | NEW or ThreeAlphaAgentsSlide inverted |
+| **5** | **India Barriers** | USD/Trust/Tax/Compliance walls | NEW or IndiaGatewaySlide (problem half) |
+| **6** | **Why Solutions Fail** | 2x2 positioning matrix | KEEP: Slide4TwoDimensionalProblemV7Better |
 
-#### Slide 3: The Wealth Gap (Slide1InequalityV4) ✅ KEEP AS-IS
+#### Slide 3: The Gap (Slide1InequalityV4) ✅ KEEP AS-IS
+**Story Arc Element:** THE GAP - "Too small for Goldman, outgrown Robinhood"
 **Content from raw extract:**
-- Goldman Client: "Global access" / "87 markets instantly" / "0% India tax" / "Via GIFT City AIF" / "AI optimization" / "600% outperformance" / "Single platform" / "Annual Alpha +8.2%"
-- Your Reality: "US-only trap" / "82% concentration risk" / "35% India tax" / "FPI penalty" / "Manual chaos" / "Excel + emails" / "10+ providers" / "Annual Alpha +2.5%"
+- Goldman Client: "Global access" / "87 markets" / "0% India tax" / "AI optimization" / "+8.2% alpha"
+- Your Reality: "US-only trap" / "35% India tax" / "Manual chaos" / "+2.5% alpha"
 - "Your Annual Loss: $190,000 on $3M portfolio"
 
-**Why Keep:** Most powerful emotional slide. Creates visceral "that's not fair" reaction.
+**Why Keep:** Most powerful emotional slide. Creates "that's not fair" reaction.
 
-#### Slide 4: Why Solutions Fail (Slide4TwoDimensionalProblemV7Better) ✅ KEEP AS-IS
-**Content from raw extract:**
+#### Slide 4: Three Failures ⚠️ NEW SLIDE NEEDED
+**Story Arc Element:** THE LOCK - Alternatives + India = Out of reach
+**Content needed (from Gemini deck "Three Alpha Agents" inverted):**
+
+| Failure | What EMILLI Want | What They Get |
+|---------|------------------|---------------|
+| **Tax** | Proactive Tax Alpha (+1.8%/yr) | Basic allocation, yearly TLH |
+| **Alternatives** | 15% PE/VC allocation | 80% data in PDFs, no access |
+| **India/EM** | $5T market exposure | FPI nightmare, 35% tax |
+
+**Visual:** 3-column "WANT vs GET" comparison
+**Speaker note:** "Three things every EMILLI wants. Three things they can't get."
+
+#### Slide 5: India Barriers ⚠️ NEW SLIDE NEEDED
+**Story Arc Element:** THE BARRIERS - USD/Trust/Tax/Compliance walls
+**Content needed (from original slides 2):**
+- **USD Risk:** INR depreciation erodes returns
+- **Trust:** No local presence, who do you call?
+- **Tax:** 35% CGT + STT drag performance
+- **Compliance:** FPI regulations, multi-month setup
+
+**Visual:** 4 walls/barriers visual with lock icons
+**Speaker note:** "Four walls keeping $5T locked. Every advisor says 'too complex.'"
+
+#### Slide 6: Why Solutions Fail (Slide4TwoDimensionalProblemV7Better) ✅ KEEP AS-IS
+**Story Arc Element:** THE POSITIONING - Why ARIA is the only answer
+**Content:**
 - 2x2 Matrix: Access (Y-axis) vs Intelligence (X-axis)
-- Quadrants: "Has AI tools, Low cost" vs "Global, Alts access" vs "No AI, High fees" vs "No Intel, Manual"
-- ARIA position: "HIGH ACCESS + HIGH INTELLIGENCE"
-- Key insight: "Intel + Access = ARIA is the only solution"
+- Robinhood: Low/Low (95% here)
+- Arta/Betterment: Low Access/High Intelligence
+- Private Banks: High Access/Low Intelligence
+- ARIA: High/High (only solution)
 
 **Why Keep:** Defines competitive positioning. Shows why ARIA is unique category.
-
-#### Slide 5: The Window is Closing (NEW - Merge)
-**Content to consolidate from MarketSwitchingSlide + others:**
-- "46% Already switched (last 3 years)"
-- "Under 55 switch rate" higher
-- "$107T in US HNW wealth"
-- "$124T wealth transfer in motion"
-- "NOW - Window to capture share"
-- "Perfect Timing" messaging
-
-**Visual:** Countdown/urgency visual with wealth transfer animation
-**Speaker note:** "46% have already moved. The rest are deciding NOW."
 
 ---
 
@@ -98,58 +132,62 @@ HOOK → PROBLEM → SOLUTION → PROOF → BUSINESS → ASK
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **6** | **Meet ARIA** | AI CEO introduction | KEEP: IntroducingARIASlide |
-| **7** | **The Symphony** | 68+ agents visual | KEEP: AgenticSymphonyFixed |
-| **8** | **Wedge & Expand** | GTM strategy | KEEP: WedgeExpandSlide |
-| **9** | **India Gateway** | $5T moat + execution | MERGE: IndiaGatewaySlide + GIFTExecutionSlide |
-| **10** | **Why ARIA Wins** | Competitive advantage | KEEP: WhyARIAWinsSlide |
+| **7** | **Meet ARIA** | AI CEO introduction | KEEP: IntroducingARIASlide |
+| **8** | **Three Alpha Agents** | 1:1 solution to Three Failures | KEEP/MODIFY: ThreeAlphaAgentsSlide |
+| **9** | **India Gateway** | Solves all 4 barriers | MERGE: IndiaGatewaySlide + GIFTExecutionSlide |
+| **10** | **The Symphony** | 68+ agents visual | KEEP: AgenticSymphonyFixed |
+| **11** | **Why ARIA Wins** | vs Arta, Banks, Robos | KEEP: WhyARIAWinsSlide |
 
-#### Slide 6: Meet ARIA (IntroducingARIASlide) ✅ KEEP AS-IS
-**Content from raw extract:**
+#### Slide 7: Meet ARIA (IntroducingARIASlide) ✅ KEEP AS-IS
+**Story Arc Element:** THE SOLUTION - Introducing the AI CEO
+**Content:**
 - "She orchestrates" - key verb
 - ARIA acronym: "Artificial Intelligence" / "Risk Management" / "Investment" / "Advisor"
-- "68+ specialists working in perfect orchestration across tax intelligence, market analysis, risk protection, alternative assets, and compliance"
+- "68+ specialists working in perfect orchestration"
 
 **Why Keep:** Introduces ARIA as CEO, not tool. Establishes "she/her" positioning.
 
-#### Slide 7: The Agentic Symphony (AgenticSymphonyFixed) ✅ KEEP AS-IS
-**Content from raw extract:**
-- 6 agent types: "Research - Analyzing data" / "Tax - Optimizing strategies" / "India - GIFT City opportunities" / "Risk - Stress scenarios" / "Execution - Best venues" / "Monitor - Real-time tracking"
-- Agent collaboration messages: "Research shares market insights with Tax for optimization" / "Tax coordinates with India for GIFT City structuring" / "Risk validates strategies with Execution for safety" / "All agents converge on unified recommendation"
+#### Slide 8: Three Alpha Agents ⚠️ MODIFY ThreeAlphaAgentsSlide
+**Story Arc Element:** THE SOLUTION - 1:1 mapping to Three Failures
+**Content needed (mirrors Slide 4 exactly):**
+
+| Failure (Slide 4) | Agent Solution (Slide 8) |
+|-------------------|--------------------------|
+| **Tax** (yearly TLH) | **Tax Alpha Agent**: Daily TLH, +1.8% annual alpha |
+| **Alternatives** (80% in PDFs) | **Alt Asset Agent**: AI reads 16,000+ funds, 1-page memos |
+| **India/EM** (FPI nightmare) | **India Gateway Agent**: GIFT City, 0% tax, 5 min setup |
+
+**Visual:** 3-column layout matching Slide 4 structure
+**Speaker note:** "Each failure has a dedicated agent. Each agent creates measurable alpha."
+
+#### Slide 9: India Gateway (MERGE: IndiaGatewaySlide + GIFTExecutionSlide)
+**Story Arc Element:** THE SOLUTION - Solves all 4 barriers from Slide 5
+**Content mapping:**
+
+| Barrier (Slide 5) | GIFT City Solution (Slide 9) |
+|-------------------|------------------------------|
+| **USD Risk** | USD-denominated trading |
+| **Trust** | Vora Ventures partnership, 15+ years |
+| **Tax** | 0% CGT via GIFT City AIF |
+| **Compliance** | 100% RBI compliant, automated |
+
+**Visual:** Side-by-side: 6 months → 5 minutes
+**Speaker note:** "Every barrier solved. 18-month head start. Only we have the key."
+
+#### Slide 10: The Symphony (AgenticSymphonyFixed) ✅ KEEP AS-IS
+**Content:**
+- 6 agent types orbiting ARIA
+- Agent collaboration messages
 - Visual: ARIA at center, agents orbiting
 
 **Why Keep:** Most visually impressive slide. Shows the "how" of ARIA's intelligence.
 
-#### Slide 8: Wedge & Expand (WedgeExpandSlide) ✅ KEEP AS-IS
-**Content from raw extract:**
-- "LAND - The Wedge": "India Gateway Fund" / "Via Vora Ventures GIFT City AIF" / "First 100 clients via CPAs"
-- "EXPAND - The Hero": "ARIA Data Engine" / "AI reads all K-1s/LPAs" / "Become System of Record"
-- "DOMINATE - The Vision": "Global AI Advisor" / "Via Alpaca/IBKR integrations" / "Cross-sell to captured base"
-- Timeline: "Year 1: 100 clients → Year 2: 500 clients → Year 3: 10,000+"
-
-**Why Keep:** Clear GTM strategy. Shows land-and-expand playbook investors love.
-
-#### Slide 9: India Gateway (MERGE: IndiaGatewaySlide + GIFTExecutionSlide)
-**Content to consolidate:**
-From IndiaGatewaySlide:
-- "Everyone wants in, nobody can enter"
-- "ARIA is the AI CEO"
-
-From GIFTExecutionSlide:
-- Traditional Way (6+ months): "Find Advisor 2-4 weeks" → "Due Diligence 4-6 weeks" → "Legal Setup 6-8 weeks" → "Bank Account 4-6 weeks" → "Fund Transfer 2-4 weeks" → "First Investment 2-4 weeks"
-- ARIA + GIFT City (5 minutes): "Connect Account 30 sec" → "KYC Verification 2 min" → "GIFT Structure 1 min" → "Fund Allocation 1 min" → "Live Investment 30 sec"
-- Stats: "GIFT City AIF - 0% Tax" / "Cross-Border - Seamless" / "Compliance - 100% RBI"
-
-**Visual:** Side-by-side comparison: 6 months vs 5 minutes
-**Speaker note:** "This is our moat. 18-month head start. Zero tax. Only we have the key."
-
-#### Slide 10: Why ARIA Wins (WhyARIAWinsSlide) ✅ KEEP AS-IS
-**Content from raw extract:**
-- "Better Economics - B2B2C distribution = 70% lower CAC than ARTA"
-- "Unique Access - Only platform with GIFT City India gateway"
-- "AI ROI - Each agent delivers 473x value vs cost"
-- Competitor comparison: ARTA ("Tech without global access"), Traditional Banks ("Access without intelligence"), Robo-Advisors ("Neither access nor intelligence")
-- ARIA: "AI + India Access + B2B2C Distribution + 473x ROI = Complete solution at scale"
+#### Slide 11: Why ARIA Wins (WhyARIAWinsSlide) ✅ KEEP AS-IS
+**Content:**
+- vs ARTA: "Tech without global access"
+- vs Banks: "Access without intelligence"
+- vs Robos: "Neither access nor intelligence"
+- ARIA: "AI + India Access + B2B2C = Complete solution"
 
 **Why Keep:** Direct competitive positioning. Answers "why you vs alternatives?"
 
@@ -159,19 +197,19 @@ From GIFTExecutionSlide:
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **11** | **ARIA in Action** | Live demo / real example | KEEP: ARIALiquidityEventSlide |
-| **12** | **Platform is Live** | Validation metrics | MERGE: PrototypeValidatedSlide + LivePlatformSlide |
-| **13** | **Strategic Partners** | Credibility + distribution | KEEP: StrategicPartnershipsSlide |
+| **12** | **ARIA in Action** | Live demo / real example | KEEP: ARIALiquidityEventSlide |
+| **13** | **Platform is Live** | Validation metrics | MERGE: PrototypeValidatedSlide + LivePlatformSlide |
+| **14** | **Strategic Partners** | Credibility + distribution | KEEP: StrategicPartnershipsSlide |
 
-#### Slide 11: ARIA in Action (ARIALiquidityEventSlide) ✅ KEEP AS-IS
-**Content from raw extract:**
-- Scenario: "Liquidity Event - Startup acquisition proceeds requiring sophisticated planning"
-- Results: "Tax Saved - Through QSBS optimization, installment sale, and opportunity zones" / "IRR Achieved - Diversified across India, alternatives, and tax-advantaged strategies"
-- Workflow: "QUERY - Client Request: 'I just sold my startup for $25M'" → "ORCHESTRATE - ARIA Activates: CEO orchestrates specialist teams, Deploys 12 agents in parallel" → "ANALYZE - Parallel Analysis: 4 teams work simultaneously (Tax, India, Alts, Risk)" → "OPTIMIZE - Strategy Formation: QSBS + GIFT City + OZ structure" → "PRESENT - Recommendation: Comprehensive plan delivered" → "EXECUTE - Implementation: All trades and structures placed"
+#### Slide 12: ARIA in Action (ARIALiquidityEventSlide) ✅ KEEP AS-IS
+**Content:**
+- Scenario: "$25M Liquidity Event"
+- Workflow: Query → Orchestrate → Analyze → Optimize → Present → Execute
+- Results: Tax Saved + IRR Achieved
 
 **Why Keep:** Best "show don't tell" slide. Real use case with real numbers.
 
-#### Slide 12: Platform is Live (MERGE: PrototypeValidatedSlide + LivePlatformSlide)
+#### Slide 13: Platform is Live (MERGE: PrototypeValidatedSlide + LivePlatformSlide)
 **Content to consolidate:**
 From PrototypeValidatedSlide:
 - "Transactions Processed - Real transactions across multiple asset classes"
@@ -208,9 +246,9 @@ From LivePlatformSlide:
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **14** | **The Market** | TAM/SAM/SOM + growth drivers | KEEP: MarketSizingSlide |
-| **15** | **Path to $1B** | Roadmap + unit economics | MERGE: RoadmapSlide + BusinessModel |
-| **16** | **The Team + Vora** | Credibility + strategic backer | MERGE: TeamSlide + VoraVenturesFixed |
+| **15** | **The Market** | TAM/SAM/SOM + growth drivers | KEEP: MarketSizingSlide |
+| **16** | **Path to $1B** | Roadmap + unit economics | MERGE: RoadmapSlide + BusinessModel |
+| **17** | **Team + Vora** | Credibility + strategic backer | MERGE: TeamSlide + VoraVenturesFixed |
 
 #### Slide 14: The Market (MarketSizingSlide) ✅ KEEP AS-IS
 **Content from raw extract:**
@@ -262,10 +300,10 @@ From VoraVenturesFixed:
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **17** | **$5M Seed Round** | The ask + use of funds | KEEP: FundingAskFixed |
-| **18** | **Join Us** | Call to action + next steps | KEEP: ClosingCommitmentSlide |
+| **18** | **$5M Seed Round** | The ask + use of funds | KEEP: FundingAskFixed |
+| **19** | **Join Us** | Call to action + next steps | KEEP: ClosingCommitmentSlide |
 
-#### Slide 17: $5M Seed Round (FundingAskFixed) ✅ KEEP AS-IS
+#### Slide 18: $5M Seed Round (FundingAskFixed) ✅ KEEP AS-IS
 **Content from raw extract:**
 - "Seed Round - $5M" / "12mo Runway" / "User Target: 10,000" / "ARR Target: $5M"
 - Use of Funds: "Technology (20 engineers, AI/ML infrastructure, Platform scaling)" / "Sales & Marketing (B2B2C partnerships, Digital marketing, Brand building)" / "Operations (Customer success, Compliance officers, Data analysts)" / "Regulatory (SEBI compliance, International licenses, Patent filings)"
@@ -275,7 +313,7 @@ From VoraVenturesFixed:
 
 **Why Keep:** Clear ask with clear milestones. Shows capital efficiency.
 
-#### Slide 18: Join Us (ClosingCommitmentSlide) ✅ KEEP AS-IS
+#### Slide 19: Join Us (ClosingCommitmentSlide) ✅ KEEP AS-IS
 **Content from raw extract:**
 - "Seed Round" / "Lead Investor"
 - Use of funds breakdown: "Product & AI Development" / "Customer Acquisition" / "Compliance & Operations" / "Working Capital"
@@ -286,33 +324,45 @@ From VoraVenturesFixed:
 
 ---
 
-## 🎯 FINAL 18-SLIDE SUMMARY
+## 🎯 FINAL 19-SLIDE SUMMARY (V3.0)
 
 | # | Slide | Act | Source | Action |
 |---|-------|-----|--------|--------|
-| 1 | Meet ARIA | Opening | TitleSlide | KEEP |
-| 2 | Why Now | Opening | ExecutiveSummarySlide | SIMPLIFY |
-| 3 | The Wealth Gap | Problem | Slide1InequalityV4 | KEEP |
-| 4 | Why Solutions Fail | Problem | Slide4TwoDimensionalProblemV7Better | KEEP |
-| 5 | The Window is Closing | Problem | MarketSwitchingSlide | SIMPLIFY |
-| 6 | Meet ARIA (CEO) | Solution | IntroducingARIASlide | KEEP |
-| 7 | The Symphony | Solution | AgenticSymphonyFixed | KEEP |
-| 8 | Wedge & Expand | Solution | WedgeExpandSlide | KEEP |
+| 1 | Meet ARIA | Hook | TitleSlide | KEEP |
+| 2 | The EMILLI Opportunity | Hook | ExecutiveSummarySlide | **NEW/MODIFY** |
+| 3 | The Gap | Problem | Slide1InequalityV4 | KEEP |
+| 4 | Three Failures | Problem | ThreeAlphaAgentsSlide (inverted) | **NEW** |
+| 5 | India Barriers | Problem | IndiaGatewaySlide (problem half) | **NEW** |
+| 6 | Why Solutions Fail | Problem | Slide4TwoDimensionalProblemV7Better | KEEP |
+| 7 | Meet ARIA (CEO) | Solution | IntroducingARIASlide | KEEP |
+| 8 | Three Alpha Agents | Solution | ThreeAlphaAgentsSlide | MODIFY |
 | 9 | India Gateway | Solution | IndiaGateway + GIFTExecution | MERGE |
-| 10 | Why ARIA Wins | Solution | WhyARIAWinsSlide | KEEP |
-| 11 | ARIA in Action | Proof | ARIALiquidityEventSlide | KEEP |
-| 12 | Platform is Live | Proof | PrototypeValidated + LivePlatform | MERGE |
-| 13 | Strategic Partners | Proof | StrategicPartnershipsSlide | KEEP |
-| 14 | The Market | Business | MarketSizingSlide | KEEP |
-| 15 | Path to $1B | Business | Roadmap + BusinessModel | MERGE |
-| 16 | Team + Vora | Business | TeamSlide + VoraVentures | MERGE |
-| 17 | $5M Seed Round | Ask | FundingAskFixed | KEEP |
-| 18 | Join Us | Ask | ClosingCommitmentSlide | KEEP |
+| 10 | The Symphony | Solution | AgenticSymphonyFixed | KEEP |
+| 11 | Why ARIA Wins | Solution | WhyARIAWinsSlide | KEEP |
+| 12 | ARIA in Action | Proof | ARIALiquidityEventSlide | KEEP |
+| 13 | Platform is Live | Proof | PrototypeValidated + LivePlatform | MERGE |
+| 14 | Strategic Partners | Proof | StrategicPartnershipsSlide | KEEP |
+| 15 | The Market | Business | MarketSizingSlide | KEEP |
+| 16 | Path to $1B | Business | Roadmap + BusinessModel | MERGE |
+| 17 | Team + Vora | Business | TeamSlide + VoraVentures | MERGE |
+| 18 | $5M Seed Round | Ask | FundingAskFixed | KEEP |
+| 19 | Join Us | Ask | ClosingCommitmentSlide | KEEP |
 
-**Result:** 53 slides → 18 core slides (66% reduction)
-**Slides merged:** 4 merges (saves 4 slides)
-**Slides kept as-is:** 14 slides
-**Slides to appendix:** 35 slides
+### Summary of Changes:
+- **53 slides → 19 core slides** (64% reduction)
+- **3 NEW slides needed:** EMILLI Opportunity, Three Failures, India Barriers
+- **4 merges:** India Gateway, Platform Live, Path to $1B, Team+Vora
+- **1 modification:** Three Alpha Agents (to mirror Three Failures)
+- **34 slides → Appendix**
+
+### Story Arc Alignment:
+| Your Arc | Slide(s) |
+|----------|----------|
+| TARGET: EMILLI + Advisors | Slide 2 |
+| THE GAP: Goldman vs Robinhood | Slide 3 |
+| THE LOCK: Alts + India out of reach | Slide 4 |
+| THE BARRIERS: USD/Trust/Tax/Compliance | Slide 5 |
+| THE SOLUTION: ARIA solves each | Slides 7-11 (1:1 mapping) |
 
 ---
 
