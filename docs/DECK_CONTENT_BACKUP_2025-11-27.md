@@ -347,18 +347,27 @@ $45T locked from 2.4M families. AI is the only key.
 **File:** `IntroducingARIASlide.jsx`
 
 ### Title
-**MEET ARIA**
+**Meet ARIA - Your AI Family Office CEO**
 
-### Subtitle
-Your AI Family Office CEO
+### Left Column: Your Wealth's AI CEO
+**Heading:** Your Wealth's AI CEO
 
-### Description
-Not a chatbot. An AI CEO orchestrating 68+ specialists for your entire balance sheet.
+**Description:** ARIA **orchestrates** your wealth like a Fortune 500 CFO.
 
-### Key Points
-- She makes decisions, not suggestions
-- 24/7 monitoring and optimization
-- Institutional-grade for everyone
+**Subtext:** She's not a chatbot. She commands 5 specialized teams that bring order to complexity.
+
+### Right Column: The Acronym
+**AI Risk & Investment Advisor**
+
+- **A** - Artificial Intelligence
+- **R** - Risk Management
+- **I** - Investment
+- **A** - Advisor
+
+### Bottom Panel
+**ARIA Commands 5 Specialized Teams**
+
+68+ specialists working in perfect orchestration across tax intelligence, market analysis, risk protection, alternative assets, and compliance.
 
 ---
 
@@ -810,6 +819,8 @@ The Investment Opportunity
 - $124T wealth transfer underway
 - 562K new millionaires/year in US
 - Gen X inheriting $1.4T/year (peak)
+
+### Behavioral Shifts
 - 46% planning to switch advisors
 - 72% say stocks/bonds insufficient
 - Demand for digital + alternatives
@@ -928,27 +939,49 @@ Arjun, $25M net worth
 **File:** `TeamSlide.jsx`
 
 ### Title
-**THE TEAM**
+**Built by Experts in AI, Finance, and Global Markets**
+
+### Subtitle
+Former Google, Goldman Sachs & Morgan Stanley Leaders Building the Future
 
 ### Founders
+
 **Sudhir G - Co-Founder & CEO**
-- AI Strategy
-- Goldman Sachs background
-- 15+ years wealth management
-- Ex-Goldman Sachs PWM
-- MBA, CFA Charter
-- Built AI systems managing $2B+ AUM
+- LinkedIn: linkedin.com/in/sudhir-g-0972298/
+- Expertise: AI Strategy, Product, Engineering
+- Companies: Google, Goldman Sachs
+- Background:
+  - 15+ years wealth management
+  - Ex-Goldman Sachs PWM
+  - MBA, CFA Charter
+- Achievement: "Built AI systems managing $2B+ AUM"
 
 **Sachin Shah - Co-Founder & CFO**
-- Morgan Stanley, JP Morgan background
-- Vora Ventures Partner
-- Financial Architecture
-- Tax Optimization Expert
-- Structured $5B+ in alternative investments
+- LinkedIn: voraventures.com/executive-team/sachin-shah
+- Expertise: Finance, Risk, Compliance
+- Companies: Morgan Stanley, JP Morgan
+- Background:
+  - Vora Ventures Partner
+  - Financial Architecture
+  - Tax Optimization Expert
+- Achievement: "Structured $5B+ in alternative investments"
 
-### Combined Experience
-- 30+ years
-- $7B+ AUM Managed
+### Team Impact Metrics
+| Metric | Value |
+|--------|-------|
+| Combined Experience | 33+ years |
+| AUM Managed | $250M |
+| AI Agents Deployed | 68+ |
+| Client Success Rate | 97% |
+
+### Previous Companies
+- Google
+- Goldman Sachs
+- Morgan Stanley
+- JP Morgan
+
+### Why We Win
+Deep domain expertise + cutting-edge AI + proven execution track record
 
 ---
 
