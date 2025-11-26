@@ -355,7 +355,6 @@ export default function ARIALiveDemoSlide() {
     <DataSlideLayout
       title={title}
       mainVisual={mainVisual}
-      metrics={metrics}
     />
   )
 }

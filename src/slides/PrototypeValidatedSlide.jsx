@@ -302,7 +302,6 @@ export default function PrototypeValidatedSlide() {
     <DataSlideLayout
       title={title}
       mainVisual={mainVisual}
-      metrics={metrics}
     />
   )
 }

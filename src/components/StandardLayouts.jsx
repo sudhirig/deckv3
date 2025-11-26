@@ -105,6 +105,7 @@ export const ActSlideLayout = ({
 );
 
 // Template 2: Data Presentation - Visual left, insights right
+// If no keyInsights provided, mainVisual takes full width
 export const DataSlideLayout = ({ 
   title, 
   mainVisual, 
@@ -112,64 +113,77 @@ export const DataSlideLayout = ({
   supportingData, 
   citation,
   particles 
-}) => (
-  <AspectFrame>
-    <div className="data-layout" style={{ overflow: 'hidden' }}>
-    {particles}
-    <motion.div 
-      className="data-header"
-      initial={{ opacity: 0, y: -30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      style={{ flexShrink: 0 }}
-    >
-      <h1 className="data-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)' }}>
-        <GradientText>{title}</GradientText>
-      </h1>
-    </motion.div>
-    
-    <div className="data-grid" style={{ flexWrap: 'wrap', overflow: 'hidden' }}>
+}) => {
+  const hasInsights = keyInsights || supportingData;
+  
+  return (
+    <AspectFrame>
+      <div className="data-layout" style={{ overflow: 'hidden' }}>
+      {particles}
       <motion.div 
-        className="data-visual"
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        style={{ overflow: 'hidden' }}
+        className="data-header"
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{ flexShrink: 0 }}
       >
-        {mainVisual}
+        <h1 className="data-title" style={{ fontSize: 'clamp(1.8rem, 4vw, 3.2rem)' }}>
+          <GradientText>{title}</GradientText>
+        </h1>
       </motion.div>
       
-      <motion.div 
-        className="data-insights"
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 0.3 }}
-        style={{ overflow: 'auto' }}
+      <div 
+        className="data-grid" 
+        style={{ 
+          flexWrap: 'wrap', 
+          overflow: 'hidden',
+          gridTemplateColumns: hasInsights ? '1.5fr 1fr' : '1fr'
+        }}
       >
-        {keyInsights}
-        {supportingData && (
-          <div className="data-supporting" style={{ maxWidth: '100%' }}>{supportingData}</div>
-        )}
-      </motion.div>
-    </div>
-    
-    <AnimatePresence>
-      {citation && (
         <motion.div 
-          className="data-citation"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
+          className="data-visual"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{ overflow: 'hidden' }}
         >
-          {citation}
+          {mainVisual}
         </motion.div>
-      )}
-    </AnimatePresence>
-    </div>
-  </AspectFrame>
-);
+        
+        {hasInsights && (
+          <motion.div 
+            className="data-insights"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            style={{ overflow: 'auto' }}
+          >
+            {keyInsights}
+            {supportingData && (
+              <div className="data-supporting" style={{ maxWidth: '100%' }}>{supportingData}</div>
+            )}
+          </motion.div>
+        )}
+      </div>
+      
+      <AnimatePresence>
+        {citation && (
+          <motion.div 
+            className="data-citation"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            style={{ fontSize: 'clamp(0.8rem, 1.2vw, 0.95rem)', flexShrink: 0 }}
+          >
+            {citation}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      </div>
+    </AspectFrame>
+  );
+};
 
 // Template 3: Comparison Layout - Side by side with VS
 export const ComparisonLayout = ({ 

@@ -60,12 +60,14 @@ import PersonalizationAtScaleFixed from './slides/PersonalizationAtScaleFixed'
 import YourAICEOatWorkSlide from './slides/YourAICEOatWorkSlide'
 import YourAICEOatWorkFixed from './slides/YourAICEOatWorkFixed'
 import AgenticSymphonySlide from './slides/AgenticSymphonySlide'
+import AgenticSymphonyFixed from './slides/AgenticSymphonyFixed'
 import ARIALiveDemoSlide from './slides/ARIALiveDemoSlide'
 import PrototypeValidatedSlide from './slides/PrototypeValidatedSlide'
 import ARIALiquidityEventSlide from './slides/ARIALiquidityEventSlide'
 import WhyARIAWinsSlide from './slides/WhyARIAWinsSlide'
 import StrategicPartnershipsSlide from './slides/StrategicPartnershipsSlide'
 import VoraVenturesSlide from './slides/VoraVenturesSlide'
+import VoraVenturesFixed from './slides/VoraVenturesFixed'
 // New Appendix Slides (First Batch)
 import TechStackAPISlide from './slides/TechStackAPISlide'
 import AgenticMoatSlide from './slides/AgenticMoatSlide'
@@ -693,7 +695,7 @@ const tuesdayStrategyDeck = [
   { component: IndiaProblemSlide, title: 'India Access' },
   { component: AlternativeAIDDSlide, title: 'ARIA Data Engine' },
   { component: ThreeAlphaAgentsSlide, title: 'Three Core Products' },
-  { component: AgenticSymphonySlide, title: 'Agentic Symphony' },
+  { component: AgenticSymphonyFixed, title: 'Agentic Symphony' },
   { component: B2B2CDistributionSlide, title: 'B2B2C Distribution' },
   { component: WhyARIAWinsSlide, title: 'Why ARIA Wins' },
   { component: CompetitiveMatrixSlide, title: 'Competitive Matrix' },
@@ -731,7 +733,7 @@ const tuesdayStrategyDeck = [
   { component: FinancialProjections1Slide, title: 'Financial Projections' },
   { component: BusinessModelCompleteFixed, title: 'Path to $100M ARR' },
   { component: TeamSlide, title: 'Team' },
-  { component: VoraVenturesSlide, title: 'Vora Advantage' },
+  { component: VoraVenturesFixed, title: 'Vora Advantage' },
   { component: FundingAskFixed, title: '$5M Seed' },
   
   // CLOSING (1 slide, 54)

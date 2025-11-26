@@ -299,7 +299,6 @@ export default function WhyARIAWinsSlide() {
     <DataSlideLayout
       title={title}
       mainVisual={mainVisual}
-      metrics={metrics}
     />
   )
 }

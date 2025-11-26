@@ -412,7 +412,6 @@ export default function ARIALiquidityEventSlide() {
     <DataSlideLayout
       title={title}
       mainVisual={mainVisual}
-      metrics={metrics}
     />
   )
 }

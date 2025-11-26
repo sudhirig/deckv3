@@ -286,5 +286,5 @@ export default function StrategicPartnershipsSlide() {
     }
   ]
 
-  return <DataSlideLayout title={title} mainVisual={mainVisual} metrics={metrics} />
+  return <DataSlideLayout title={title} mainVisual={mainVisual} />
 }
