@@ -121,6 +121,9 @@ import FundingAsk from './slides/redesigned/FundingAsk'
 import ZerodhaIntelligenceFixed from './slides/ZerodhaIntelligenceFixed'
 import AgenticAICoreFixed from './slides/AgenticAICoreFixed'
 import FundingAskFixed from './slides/FundingAskFixed'
+import GIFTExecutionSlide from './slides/GIFTExecutionSlide'
+import ARIAClientJourneySlideNew from './slides/ARIAClientJourneySlideNew'
+import RoadmapSlide from './slides/RoadmapSlide'
 
 // Product Appendix Slides - Chapter 1: Zerodha
 import ZerodhaConceptSlide from './slides/ZerodhaConceptSlide'
@@ -692,7 +695,7 @@ const tuesdayStrategyDeck = [
   { component: DigitalFamilyOfficeOSSlide, title: 'Digital Family Office OS' },
   { component: WedgeExpandSlide, title: 'Wedge & Expand' },
   { component: IndiaGatewaySlide, title: 'India Gateway' },
-  { component: IndiaProblemSlide, title: 'India Access' },
+  { component: GIFTExecutionSlide, title: 'From Locked to Liquid' },
   { component: AlternativeAIDDSlide, title: 'ARIA Data Engine' },
   { component: ThreeAlphaAgentsSlide, title: 'Three Core Products' },
   { component: AgenticSymphonyFixed, title: 'Agentic Symphony' },
@@ -715,23 +718,22 @@ const tuesdayStrategyDeck = [
   { component: LivePlatformSlide, title: 'Platform is Live' },
   { component: MarketSwitchingSlide, title: '46% Who Switched' },
   
-  // ACT 4: VALIDATION (5 slides, 37-41)  
+  // ACT 4: VALIDATION (6 slides)  
   { component: PrototypeValidatedSlide, title: 'Platform Live' },
+  { component: ARIAClientJourneySlideNew, title: 'Client Journey: Before/After' },
   { component: TractionDashboardSlide, title: 'Validation Metrics' },
   { component: StrategicPartnershipsSlide, title: 'Strategic Partnerships' },
   { component: HybridTrustModelSlide, title: 'AI + Human Trust Model' },
   { component: TechArchitecture1Slide, title: 'Technology Validated' },
   
-  // ACT 5: THE BUSINESS (12 slides, 42-53)
+  // ACT 5: THE BUSINESS (10 slides)
   { component: Act5Slide, title: 'Act 5 Introduction' },
-  { component: OpportunitySlide, title: 'Market Opportunity' },
-  { component: LargestMarketSlide, title: 'Largest Market' },
-  { component: MarketInMotionSlide, title: 'Market in Motion' },
-  { component: MarketSizingSlide, title: 'TAM SAM SOM' },
+  { component: MarketSizingSlide, title: 'Market Opportunity' },
   { component: GoToMarketSlide, title: 'Go-to-Market' },
   { component: CompetitiveMoatsFixed, title: 'Our Defensive Moats' },
   { component: FinancialProjections1Slide, title: 'Financial Projections' },
   { component: BusinessModelCompleteFixed, title: 'Path to $100M ARR' },
+  { component: RoadmapSlide, title: 'Roadmap: Path to $1B' },
   { component: TeamSlide, title: 'Team' },
   { component: VoraVenturesFixed, title: 'Vora Advantage' },
   { component: FundingAskFixed, title: '$5M Seed' },
