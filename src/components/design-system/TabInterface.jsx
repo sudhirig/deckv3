@@ -96,7 +96,8 @@ const TabInterface = ({
             {/* Tab Icon */}
             {tab.icon && (
               <span className="opacity-80">
-                {tab.icon}
+                {typeof tab.icon === 'function' ? React.createElement(tab.icon) : 
+                 React.isValidElement(tab.icon) ? tab.icon : null}
               </span>
             )}
             

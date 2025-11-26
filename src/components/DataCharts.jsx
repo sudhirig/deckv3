@@ -308,3 +308,6 @@ export const AllCharts = {
   AgentMetricsChart,
   TaxSavingsChart
 }
+
+// Default export for index.js
+export default AllCharts

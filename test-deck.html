@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Deck Loading</title>
+</head>
+<body>
+    <h1>Testing Deck Configuration</h1>
+    <div id="test-output"></div>
+    
+    <script type="module">
+        // Test if we can access the deck
+        fetch('http://localhost:5173/')
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById('test-output').innerHTML = "✅ Server is responding";
+                
+                // Now test with deck parameter
+                fetch('http://localhost:5173/?deck=act1-custom')
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('test-output').innerHTML += "<br/>✅ Act 1 deck loads";
+                    })
+                    .catch(error => {
+                        document.getElementById('test-output').innerHTML += "<br/>❌ Act 1 deck error: " + error;
+                    });
+            })
+            .catch(error => {
+                document.getElementById('test-output').innerHTML = "❌ Server error: " + error;
+            });
+    </script>
+</body>
+</html>

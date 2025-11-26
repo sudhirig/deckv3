@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=.replit.dev,.repl.co,.replit.app vite --host 0.0.0.0 --port 5000",
+    "dev": "__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS=.replit.dev,.repl.co,.replit.app vite --host 0.0.0.0 --port 5173",
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",

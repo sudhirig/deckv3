@@ -259,5 +259,32 @@ export default function StrategicPartnershipsSlide() {
     </div>
   )
 
-  return <DataSlideLayout title={title} mainVisual={mainVisual} />
+  const metrics = [
+    {
+      icon: Building2,
+      value: 1,
+      suffix: '',
+      label: 'Govt Mandate',
+      color: '#ef4444',
+      description: 'Maharashtra REIT exclusive'
+    },
+    {
+      icon: Users,
+      value: 1000,
+      suffix: '+',
+      label: 'CPAs Ready',
+      color: '#10b981',
+      description: 'Through partner network'
+    },
+    {
+      icon: Globe,
+      value: 50,
+      suffix: 'K+',
+      label: 'HNW Access',
+      color: '#3b82f6',
+      description: 'Premium client reach'
+    }
+  ]
+
+  return <DataSlideLayout title={title} mainVisual={mainVisual} metrics={metrics} />
 }

@@ -390,3 +390,6 @@ export const AdvancedCharts = {
   CompetitiveMatrixChart,
   UnitEconomicsChart
 }
+
+// Default export for index.js
+export default AdvancedCharts

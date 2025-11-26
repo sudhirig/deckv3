@@ -55,6 +55,15 @@ import ARIASwarmSlide from './slides/ARIASwarmSlide'
 import ARIAInActionSlide from './slides/ARIAInActionSlide'
 import HybridTrustModelSlide from './slides/HybridTrustModelSlide'
 import AgenticValuePropSlide from './slides/AgenticValuePropSlide'
+import PersonalizationAtScaleSlide from './slides/PersonalizationAtScaleSlide'
+import PersonalizationAtScaleFixed from './slides/PersonalizationAtScaleFixed'
+import YourAICEOatWorkSlide from './slides/YourAICEOatWorkSlide'
+import YourAICEOatWorkFixed from './slides/YourAICEOatWorkFixed'
+import AgenticSymphonySlide from './slides/AgenticSymphonySlide'
+import ARIALiveDemoSlide from './slides/ARIALiveDemoSlide'
+import PrototypeValidatedSlide from './slides/PrototypeValidatedSlide'
+import ARIALiquidityEventSlide from './slides/ARIALiquidityEventSlide'
+import WhyARIAWinsSlide from './slides/WhyARIAWinsSlide'
 import StrategicPartnershipsSlide from './slides/StrategicPartnershipsSlide'
 import VoraVenturesSlide from './slides/VoraVenturesSlide'
 // New Appendix Slides (First Batch)
@@ -89,22 +98,27 @@ import PartnershipStrategy2Slide from './slides/PartnershipStrategy2Slide'
 import ClosingCommitmentSlide from './slides/ClosingCommitmentSlide'
 
 // Redesigned World-Class Slides
-import ExecutiveHookSlide from './slides/redesigned/ExecutiveHookSlideFixed'
-import PerfectStormSlide from './slides/redesigned/PerfectStormSlideFixed'
-import AdvisorCrisisSlide from './slides/redesigned/AdvisorCrisisSlideFixed'
-import ARIAatWorkSlide from './slides/redesigned/ARIAatWorkSlideFixed'
-import ZerodhaIntelligence from './slides/redesigned/ZerodhaIntelligenceFixed'
-import CGMFAdvisory from './slides/redesigned/CGMFAdvisoryFixed'
-import AgenticAICore from './slides/redesigned/ProductShowcaseTabsFixed'
-import AlgoTradingLab from './slides/redesigned/ProductShowcaseTabsFixed'
-import TradingExecution from './slides/redesigned/ProductShowcaseTabsFixed'
-import SentimentAnalysis from './slides/redesigned/ProductShowcaseTabsFixed'
-import FutureVision from './slides/redesigned/ProductShowcaseTabsFixed'
-import ProofPointsGrid from './slides/redesigned/ProofPointsGridFixed'
-import CompetitiveMoats from './slides/redesigned/CompetitiveMoatsFixed'
-import BusinessModelComplete from './slides/redesigned/BusinessModelCompleteFixed'
-import PartnershipEcosystem from './slides/redesigned/PartnershipEcosystemFixed'
-import FundingAsk from './slides/redesigned/FundingAskFixed'
+import ExecutiveHookSlide from './slides/redesigned/ExecutiveHookSlide'
+import PerfectStormSlide from './slides/redesigned/PerfectStormSlide'
+import AdvisorCrisisSlide from './slides/redesigned/AdvisorCrisisSlide'
+import ARIAatWorkSlide from './slides/redesigned/ARIAatWorkSlide'
+import ZerodhaIntelligence from './slides/redesigned/ZerodhaIntelligence'
+import CGMFAdvisory from './slides/redesigned/CGMFAdvisory'
+import AgenticAICore from './slides/redesigned/AgenticAICore'
+import AlgoTradingLab from './slides/redesigned/AlgoTradingLab'
+import TradingExecution from './slides/redesigned/TradingExecution'
+import SentimentAnalysis from './slides/redesigned/SentimentAnalysis'
+import FutureVision from './slides/redesigned/FutureVision'
+import ProofPointsGrid from './slides/redesigned/ProofPointsGrid'
+import CompetitiveMoats from './slides/redesigned/CompetitiveMoats'
+import CompetitiveMoatsFixed from './slides/CompetitiveMoatsFixed'
+import BusinessModelComplete from './slides/redesigned/BusinessModelComplete'
+import BusinessModelCompleteFixed from './slides/BusinessModelCompleteFixed'
+import PartnershipEcosystem from './slides/redesigned/PartnershipEcosystem'
+import FundingAsk from './slides/redesigned/FundingAsk'
+import ZerodhaIntelligenceFixed from './slides/ZerodhaIntelligenceFixed'
+import AgenticAICoreFixed from './slides/AgenticAICoreFixed'
+import FundingAskFixed from './slides/FundingAskFixed'
 
 // Product Appendix Slides - Chapter 1: Zerodha
 import ZerodhaConceptSlide from './slides/ZerodhaConceptSlide'
@@ -221,20 +235,21 @@ import Slide4ConvergenceWindowV8 from './slides/act1-new/Slide4ConvergenceWindow
 // import EighteenMonthWindowV4 from './slides/alt/EighteenMonthWindowV4'
 // import EighteenMonthWindowV5 from './slides/alt/EighteenMonthWindowV5'
 // import EighteenMonthWindowV6 from './slides/alt/EighteenMonthWindowV6'
-import MeetARIAAltSlide from './slides/alt/MeetARIAAltSlide'
-import SpecializedTeamsAltSlide from './slides/alt/SpecializedTeamsAltSlide'
-import TripleLockMoatAltSlide from './slides/alt/TripleLockMoatAltSlide'
-import ARIAExperienceAltSlide from './slides/alt/ARIAExperienceAltSlide'
-import ClientJourneysAltSlide from './slides/alt/ClientJourneysAltSlide'
-import TechVsARIAAltSlide from './slides/alt/TechVsARIAAltSlide'
-import AdvisoryPillarsAltSlide from './slides/alt/AdvisoryPillarsAltSlide'
-import ProofPointsAltSlide from './slides/alt/ProofPointsAltSlide'
-import PartnershipEcosystemAltSlide from './slides/alt/PartnershipEcosystemAltSlide'
-import LiveStatusAltSlide from './slides/alt/LiveStatusAltSlide'
-import BusinessModelAltSlide from './slides/alt/BusinessModelAltSlide'
-import FundingAskAltSlide from './slides/alt/FundingAskAltSlide'
-import TeamGovernanceAltSlide from './slides/alt/TeamGovernanceAltSlide'
-import ClosingCTAAltSlide from './slides/alt/ClosingCTAAltSlide'
+// ALT slides - commented out since they don't exist after revert
+// import MeetARIAAltSlide from './slides/alt/MeetARIAAltSlide'
+// import SpecializedTeamsAltSlide from './slides/alt/SpecializedTeamsAltSlide'
+// import TripleLockMoatAltSlide from './slides/alt/TripleLockMoatAltSlide'
+// import ARIAExperienceAltSlide from './slides/alt/ARIAExperienceAltSlide'
+// import ClientJourneysAltSlide from './slides/alt/ClientJourneysAltSlide'
+// import TechVsARIAAltSlide from './slides/alt/TechVsARIAAltSlide'
+// import AdvisoryPillarsAltSlide from './slides/alt/AdvisoryPillarsAltSlide'
+// import ProofPointsAltSlide from './slides/alt/ProofPointsAltSlide'
+// import PartnershipEcosystemAltSlide from './slides/alt/PartnershipEcosystemAltSlide'
+// import LiveStatusAltSlide from './slides/alt/LiveStatusAltSlide'
+// import BusinessModelAltSlide from './slides/alt/BusinessModelAltSlide'
+// import FundingAskAltSlide from './slides/alt/FundingAskAltSlide'
+// import TeamGovernanceAltSlide from './slides/alt/TeamGovernanceAltSlide'
+// import ClosingCTAAltSlide from './slides/alt/ClosingCTAAltSlide'
 // import DebugOverlay from './DebugOverlay'  // Uncomment to debug white lines
 
 // CUSTOM Act 1 - 7 Slides (Final optimized structure)
@@ -279,14 +294,14 @@ const mainDeckSlides = [
   { component: ARIAInvestmentAdvisorySlide, title: 'AI-Powered Advisory' },                // Slide 20
   { component: ARIAGoalBasedInvestingSlide, title: 'Goal-Based Wealth Creation' },         // Slide 21
   { component: ARIAAIFSlide, title: 'Alternative Investment Fund' },                       // Slide 22
-  { component: TripleLockMoatAltSlide, title: 'Our Triple Lock Moat' },
+  // { component: TripleLockMoatAltSlide, title: 'Our Triple Lock Moat' },
   
   // ====== ACT 4 - VALIDATION (5 slides) ======
   { component: Act4Slide, title: 'Act 4: Validation' },                                    // Slide 24
   { component: LivePlatformSlide, title: 'Prototype Validated' },                          // Slide 25
   { component: TractionDashboardSlide, title: 'Validation Metrics' },                      // Slide 26
   { component: StrategicPartnershipsSlide, title: 'Strategic Partnerships' },              // Slide 27
-  { component: ProofPointsAltSlide, title: 'Proof Points Grid 2.0' },
+  // { component: ProofPointsAltSlide, title: 'Proof Points Grid 2.0' },
   
   // ====== ACT 5 - THE BUSINESS (8 slides) ======
   { component: Act5Slide, title: 'Act 5: The Business' },                                  // Slide 29
@@ -513,28 +528,29 @@ const appendixSlides = [
   // { component: EighteenMonthWindowV4, title: 'V4: The 18-Month Window (Professional)' },
   // { component: EighteenMonthWindowV5, title: 'V5: The 18-Month Window (Balanced)' },
   // { component: EighteenMonthWindowV6, title: 'V6: The 18-Month Window (Problem-Focused)' },
-  { component: MeetARIAAltSlide, title: 'ALT: Meet ARIA – Your AI Family Office CEO' },
-  { component: SpecializedTeamsAltSlide, title: "ALT: ARIA's 5 Specialized Teams" },
-  { component: TripleLockMoatAltSlide, title: 'ALT: Our Triple Lock Moat' },
-  { component: ARIAExperienceAltSlide, title: 'ALT: The ARIA CEO Experience' },
-  { component: ClientJourneysAltSlide, title: 'ALT: The 46% Who Switched – Client Journeys' },
-  { component: TechVsARIAAltSlide, title: "ALT: Tech vs ARIA – Why Tech Alone Isn't Enough" },
-  { component: AdvisoryPillarsAltSlide, title: 'ALT: Your AI CEO at Work – Advisory Pillars' },
-  { component: ProofPointsAltSlide, title: 'ALT: Proof Points Grid 2.0' },
-  { component: LiveStatusAltSlide, title: 'ALT: Live Status & Prototype Readiness' },
-  { component: BusinessModelAltSlide, title: 'ALT: Business Model & Unit Economics 2.0' },
-  { component: FundingAskAltSlide, title: 'ALT: Funding Ask & 18-Month Plan' },
-  { component: TeamGovernanceAltSlide, title: 'ALT: Team & Governance 2.0' },
-  { component: ClosingCTAAltSlide, title: 'ALT: Closing CTA 2.0' }
+  // Commented out - components not imported
+  // { component: MeetARIA, title: 'Meet ARIA – Your AI Family Office CEO' },
+  // { component: SpecializedTeams, title: "ARIA's 5 Specialized Teams" },
+  // { component: TripleLockMoat, title: 'Our Triple Lock Moat' },
+  // { component: ARIAExperience, title: 'The ARIA CEO Experience' },
+  // { component: ClientJourneys, title: 'The 46% Who Switched – Client Journeys' },
+  // { component: TechVsARIA, title: "Tech vs ARIA – Why Tech Alone Isn't Enough" },
+  // { component: AdvisoryPillars, title: 'Your AI CEO at Work – Advisory Pillars' },
+  // { component: ProofPoints, title: 'Proof Points Grid 2.0' },
+  // { component: LiveStatus, title: 'Live Status & Prototype Readiness' },
+  // { component: BusinessModel, title: 'Business Model & Unit Economics 2.0' },
+  // { component: FundingAsk, title: '$5M Seed Round' },
+  // { component: TeamGovernance, title: 'Team & Governance 2.0' },
+  // { component: ClosingCTA, title: 'Closing CTA 2.0' }
 ];
 
-// PREMIUM ALTERNATIVE SLIDES - High-quality alternatives to main deck slides
+// PREMIUM ALTERNATIVE SLIDES - commented out (components not imported)
 const premiumAltSlides = [
-  { component: MeetARIAAltSlide, title: 'ALT: Meet ARIA – Your AI Family Office CEO' },
-  { component: SpecializedTeamsAltSlide, title: "ALT: ARIA's 5 Specialized Teams" },
-  { component: ARIAExperienceAltSlide, title: 'ALT: The ARIA CEO Experience' },
-  { component: ClientJourneysAltSlide, title: 'ALT: The 46% Who Switched' },
-  { component: BusinessModelAltSlide, title: 'ALT: Business Model & Economics 2.0' }
+  // { component: MeetARIA, title: 'Meet ARIA – Your AI Family Office CEO' },
+  // { component: SpecializedTeams, title: "ARIA's 5 Specialized Teams" },
+  // { component: ARIAExperience, title: 'The ARIA CEO Experience' },
+  // { component: ClientJourneys, title: 'The 46% Who Switched' },
+  // { component: BusinessModel, title: 'Business Model & Economics 2.0' }
 ];
 
 // CUSTOM ACT 1 - 7 SLIDES (Optimal story arc sequence with compact versions)
@@ -594,9 +610,8 @@ const expandedDeckSlides = [
   
   // ====== ACT 2 - THE ARIA STRATEGY (11 slides) ======
   { component: Act2Slide, title: 'Act 2: The ARIA Strategy' },
-  // Using premium ALT versions we developed
-  { component: MeetARIAAltSlide, title: 'Meet ARIA – Your AI Family Office CEO' },
-  { component: SpecializedTeamsAltSlide, title: "ARIA's 5 Specialized Teams" },
+  // Using IntroducingARIASlide instead of ALT slides that don't exist
+  { component: IntroducingARIASlide, title: 'Meet ARIA – Your AI Family Office CEO' },
   { component: ARIASwarmSlide, title: 'Meet ARIA\'s 68+ Agent Swarm' },
   { component: EvolutionOfWealthTechSlide, title: 'Evolution: Robo to Agentic' },
   { component: WedgeExpandSlide, title: 'The Wedge & Expand Strategy' },
@@ -620,7 +635,7 @@ const expandedDeckSlides = [
   { component: CGMFAdvisory, title: 'CGMF Advisory Module' },
   { component: AgenticAICore, title: 'Agentic AI Core System' },
   { component: AlgoTradingLab, title: 'Algorithmic Trading Laboratory' },
-  { component: TripleLockMoatAltSlide, title: 'Our Triple Lock Moat' },
+  // { component: TripleLockMoatAltSlide, title: 'Our Triple Lock Moat' },
   { component: FutureVision, title: 'Future Vision & Roadmap' },
   
   // ====== ACT 4 - VALIDATION (7 slides) ======
@@ -647,33 +662,135 @@ const expandedDeckSlides = [
   { component: FundingAsk, title: '$5M Seed Round' },
   
   // ====== CLOSING (2 slides) ======
-  { component: ClosingCommitmentSlide, title: 'Join Us' },
-  { component: ClosingCTAAltSlide, title: 'The Next Step' }
+  { component: ClosingCommitmentSlide, title: 'Join Us' }
+  // { component: ClosingCTAAltSlide, title: 'The Next Step' }
 ];
+
+// TUESDAY NIGHT FINAL DECK - 55 slides (Updated Nov 26)
+// Based on SPEAKER_NOTES_STRATEGY_DECK.md - the exact structure + HybridTrustModelSlide
+const tuesdayStrategyDeck = [
+  // OPENING (3 slides)
+  { component: TitleSlide, title: 'ARIA - The Virtuoso Intelligence' },
+  { component: ExecutiveSummarySlide, title: 'Executive Summary' },
+  { component: AgendaRoadmapSlide, title: 'Agenda' },
+  
+  // ACT 1: THE DISRUPTION (7 slides, 4-10)
+  { component: Slide1InequalityV4, title: 'Wealth Inequality Gap' },
+  { component: Slide4ConvergenceWindowTealTheme, title: '18-Month Window' },
+  { component: Slide2GeographicTrapV5, title: 'Geographic Trap' },
+  { component: Slide3ThreeWallsTealTheme, title: 'Three Walls' },
+  { component: Slide5ScaleForAIV5Fixed, title: 'Scale Only AI Can Handle' },
+  { component: Slide2DualGapV7Fixed, title: 'Dual Gap' },
+  { component: Slide4TwoDimensionalProblemV7Better, title: 'Why Solutions Fail' },
+  
+  // ACT 2: THE ARIA STRATEGY (13 slides, 11-23)
+  { component: Act2Slide, title: 'Act 2 Introduction' },
+  { component: AlphaGapSlide, title: 'Alpha & Access Gap' },
+  { component: IntroducingARIASlide, title: 'Meet ARIA' },
+  { component: DigitalFamilyOfficeOSSlide, title: 'Digital Family Office OS' },
+  { component: WedgeExpandSlide, title: 'Wedge & Expand' },
+  { component: IndiaGatewaySlide, title: 'India Gateway' },
+  { component: IndiaProblemSlide, title: 'India Access' },
+  { component: AlternativeAIDDSlide, title: 'ARIA Data Engine' },
+  { component: ThreeAlphaAgentsSlide, title: 'Three Core Products' },
+  { component: AgenticSymphonySlide, title: 'Agentic Symphony' },
+  { component: B2B2CDistributionSlide, title: 'B2B2C Distribution' },
+  { component: WhyARIAWinsSlide, title: 'Why ARIA Wins' },
+  { component: CompetitiveMatrixSlide, title: 'Competitive Matrix' },
+  
+  // ACT 3: THE UNFAIR ADVANTAGES (13 slides, 24-36)
+  { component: Act3Slide, title: 'Act 3 Introduction' },
+  { component: ProductOverviewSlide, title: 'AI Family Office Suite' },
+  { component: ARIALiveDemoSlide, title: 'ARIA in Action' },
+  { component: ARIALiquidityEventSlide, title: '$25M Liquidity Event' },
+  { component: ZerodhaIntelligenceFixed, title: 'Zerodha Module' },
+  { component: ARIAPlatformExperienceSlide, title: 'ARIA CEO Experience' },
+  { component: AgentArchitectureSlideNew, title: 'Multi-Agent Architecture' },
+  { component: AgenticAICoreFixed, title: 'Agentic AI Core' },
+  { component: ARIATechMFSlide, title: 'Why Tech Alone Fails' },
+  { component: YourAICEOatWorkFixed, title: 'Your AI CEO at Work' },
+  { component: PersonalizationAtScaleFixed, title: 'Personalization at Scale' },
+  { component: LivePlatformSlide, title: 'Platform is Live' },
+  { component: MarketSwitchingSlide, title: '46% Who Switched' },
+  
+  // ACT 4: VALIDATION (5 slides, 37-41)  
+  { component: PrototypeValidatedSlide, title: 'Platform Live' },
+  { component: TractionDashboardSlide, title: 'Validation Metrics' },
+  { component: StrategicPartnershipsSlide, title: 'Strategic Partnerships' },
+  { component: HybridTrustModelSlide, title: 'AI + Human Trust Model' },
+  { component: TechArchitecture1Slide, title: 'Technology Validated' },
+  
+  // ACT 5: THE BUSINESS (12 slides, 42-53)
+  { component: Act5Slide, title: 'Act 5 Introduction' },
+  { component: OpportunitySlide, title: 'Market Opportunity' },
+  { component: LargestMarketSlide, title: 'Largest Market' },
+  { component: MarketInMotionSlide, title: 'Market in Motion' },
+  { component: MarketSizingSlide, title: 'TAM SAM SOM' },
+  { component: GoToMarketSlide, title: 'Go-to-Market' },
+  { component: CompetitiveMoatsFixed, title: 'Our Defensive Moats' },
+  { component: FinancialProjections1Slide, title: 'Financial Projections' },
+  { component: BusinessModelCompleteFixed, title: 'Path to $100M ARR' },
+  { component: TeamSlide, title: 'Team' },
+  { component: VoraVenturesSlide, title: 'Vora Advantage' },
+  { component: FundingAskFixed, title: '$5M Seed' },
+  
+  // CLOSING (1 slide, 54)
+  { component: ClosingCommitmentSlide, title: 'Join Us' }
+];
+
+// Keep the filtered version for fallback
+const strategyDeckSlides = expandedDeckSlides.filter(slide => 
+  slide && slide.component // Filter out any undefined components
+);
 
 // DECK CONFIGURATION OPTIONS
 const DECK_CONFIGS = {
   'main': mainDeckSlides,                                   // 40-slide investor deck
   'expanded': expandedDeckSlides,                          // 60-slide comprehensive deck
+  'strategy-deck': strategyDeckSlides,                     // Strategy deck (filtered)
+  'tuesday-deck': tuesdayStrategyDeck,                     // Tuesday 9 PM exact 54-slide deck
+  'liquidity-demo': [{ component: ARIALiquidityEventSlide, title: '$25M Liquidity Event Demo' }], // Standalone demo
+  'strategy-compact': mainDeckSlides,                      // Compact strategy
   'elevator': mainDeckSlides.slice(0, 24),                 // 24-slide quick pitch
   'full': [...mainDeckSlides, ...appendixSlides],          // Everything (256)
   'premium': [...mainDeckSlides, ...premiumAltSlides],     // Main + premium alts
   'act1-custom': customAct1Slides,                         // Custom 9-slide Act 1
+  'act2-custom': [],                                       // Placeholder
+  'act3-custom': [],                                       // Placeholder
+  'act4-custom': [],                                       // Placeholder
+  'act5-custom': []                                        // Placeholder
 };
 
 // COMBINED SLIDES ARRAY - Multiple deck configurations available
 const urlParams = new URLSearchParams(window.location.search);
-const DECK_MODE = urlParams.get('deck') || 'full';
-const slides = DECK_CONFIGS[DECK_MODE] || DECK_CONFIGS['full'];
+const DECK_MODE = urlParams.get('deck') || 'act1-custom';
+const slides = DECK_CONFIGS[DECK_MODE] || customAct1Slides;
 
 console.log('==========================================')
 console.log('DECK V2 CONFIGURATION LOADED!')
-console.log(`Mode: ${DECK_MODE.toUpperCase()}`)
-console.log(`Main Deck: ${mainDeckSlides.length} slides (with Act markers)`)
-console.log(`Appendix: ${appendixSlides.length} slides`)
-console.log(`Premium Alts: ${premiumAltSlides.length} slides`)
+console.log(`Mode: ${DECK_MODE}`)
+console.log(`Main Deck: ${mainDeckSlides.length} slides`)
+console.log(`Expanded Deck: ${expandedDeckSlides.length} slides`)
+console.log(`Strategy Deck: ${strategyDeckSlides.length} slides (filtered)`)
+console.log(`Tuesday Deck: ${tuesdayStrategyDeck.length} slides (exact Tuesday 9PM config)`)
 console.log(`Currently Loaded: ${slides.length} slides`)
+if (slides.length < 10) {
+  console.log('⚠️ Warning: Only', slides.length, 'slides loaded. Check for undefined components.')
+  console.log('Slides array:', slides)
+}
 console.log('------------------------------------------')
+if (DECK_MODE === 'tuesday-deck') {
+  console.log('🎯 TUESDAY EVENING DECK (Nov 19, 9 PM) - 54 SLIDES')
+  console.log('  Opening: Slides 1-3')
+  console.log('  Act 1: Slides 4-10 (The Disruption - 7 slides)')
+  console.log('  Act 2: Slides 11-23 (The ARIA Strategy - 13 slides)')
+  console.log('  Act 3: Slides 24-35 (The Unfair Advantages - 12 slides)')
+  console.log('  Act 4: Slides 36-41 (Validation - 6 slides)')
+  console.log('  Act 5: Slides 42-53 (The Business - 12 slides)')
+  console.log('  Closing: Slide 54')
+  console.log('  ✅ Exact structure from SPEAKER_NOTES_STRATEGY_DECK.md!')
+  console.log('------------------------------------------')
+}
 if (DECK_MODE === 'expanded') {
   console.log('🏆 EXPANDED DECK LOADED - World-Class Configuration')
   console.log('  Act 1: V7 Dual Gap Framework (10 slides)')
@@ -697,14 +814,15 @@ if (DECK_MODE === 'expanded') {
   console.log('------------------------------------------')
 }
 console.log('Available Configurations:')
-console.log('  → http://localhost:5173/?deck=act1-custom (9-slide custom Act 1) ⭐ NEW')
-console.log('  → http://localhost:5173/?deck=expanded    (62-slide world-class deck)')
+console.log('  → http://localhost:5173/?deck=tuesday-deck (54-slide Tuesday 9PM FINAL) ⭐⭐⭐')
+console.log('  → http://localhost:5173/?deck=strategy-deck (53-slide strategy deck)')
+console.log('  → http://localhost:5173/?deck=act1-custom (9-slide custom Act 1)')
+console.log('  → http://localhost:5173/?deck=expanded    (60-slide world-class deck)')
 console.log('  → http://localhost:5173/?deck=main        (40-slide investor deck)')
 console.log('  → http://localhost:5173/?deck=elevator    (24-slide quick pitch)')
 console.log('  → http://localhost:5173/?deck=premium     (Main + premium alternatives)')
-console.log('  → http://localhost:5173/                  (Full 256 slides)')
-console.log('Current URL:', window.location.href)
-console.log('==========================================');
+console.log(`Current URL: ${window.location.href}`)
+console.log('===========================================');
 
 function AppContent() {
   console.log('AppContent is rendering...')

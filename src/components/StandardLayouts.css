@@ -158,16 +158,22 @@
   flex: 1;
   min-height: 0;
   overflow: auto;
-  align-items: start;
+  align-items: stretch;
 }
 
 .data-visual {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
   padding: clamp(0.75rem, 1.5vw, 1.5rem);
-  max-height: 100%;
+  height: 100%;
   overflow: auto;
+}
+
+.data-visual > * {
+  flex: 1;
+  min-height: 0;
 }
 
 .data-insights {

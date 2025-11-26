@@ -3,10 +3,26 @@ import { motion } from 'framer-motion'
 import { CheckCircle, Activity } from 'lucide-react'
 
 export default function OperationalBadge({ 
-  variant = 'default', // default, compact, large
+  variant = 'medium', // small, medium, large
   animated = true 
 }) {
   const variants = {
+    small: {
+      padding: '0.4rem 0.75rem',
+      fontSize: '0.75rem',
+      iconSize: 14
+    },
+    medium: {
+      padding: '0.5rem 1rem',
+      fontSize: '0.85rem',
+      iconSize: 16
+    },
+    large: {
+      padding: '0.75rem 1.25rem',
+      fontSize: '1rem',
+      iconSize: 20
+    },
+    // Add aliases for backwards compatibility
     default: {
       padding: '0.5rem 1rem',
       fontSize: '0.85rem',
@@ -16,15 +32,10 @@ export default function OperationalBadge({
       padding: '0.4rem 0.75rem',
       fontSize: '0.75rem',
       iconSize: 14
-    },
-    large: {
-      padding: '0.75rem 1.25rem',
-      fontSize: '1rem',
-      iconSize: 20
     }
   }
   
-  const config = variants[variant]
+  const config = variants[variant] || variants.medium
   
   return (
     <motion.div

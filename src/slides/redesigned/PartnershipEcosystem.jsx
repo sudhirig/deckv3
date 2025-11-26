@@ -6,7 +6,7 @@ import {
 } from '../../components/design-system'
 import { 
   Building2, Briefcase, Globe, Cloud, Brain, 
-  Database, Users, Handshake, Network, Sparkles
+  Database, Users, Handshake, Network, Sparkles, TrendingUp
 } from 'lucide-react'
 import styles from '../../utils/styleConstants'
 
