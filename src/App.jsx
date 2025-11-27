@@ -270,6 +270,13 @@ import SlideGapInTheMiddle from './slides/compressed/SlideGapInTheMiddle'
 import SlideWhySolutionsFail from './slides/compressed/SlideWhySolutionsFail'
 import SlideGapInTheMiddleV2 from './slides/compressed/SlideGapInTheMiddleV2'
 import SlideWhySolutionsFailV2 from './slides/compressed/SlideWhySolutionsFailV2'
+import SlideMeetARIAV2 from './slides/compressed/SlideMeetARIAV2'
+import SlideThreeAlphaAgentsV2 from './slides/compressed/SlideThreeAlphaAgentsV2'
+import SlideIndiaGatewayV2 from './slides/compressed/SlideIndiaGatewayV2'
+import SlideAgenticSymphonyV2 from './slides/compressed/SlideAgenticSymphonyV2'
+import SlideWhyARIAWinsV2 from './slides/compressed/SlideWhyARIAWinsV2'
+import SlideWedgeExpandV2 from './slides/compressed/SlideWedgeExpandV2'
+import SlideLockedToLiquidV2 from './slides/compressed/SlideLockedToLiquidV2'
 
 console.log('Defining slides arrays...')
 
@@ -763,26 +770,28 @@ const compressedDeck = [
   { component: SlideGapInTheMiddleV2, title: 'The Gap in the Middle' },            // 2 - V2 Enhanced
   { component: SlideWhySolutionsFailV2, title: 'Why Solutions Fail' },             // 3 - V2 Enhanced
   
-  // ====== SOLUTION (5 slides) ======
-  { component: IntroducingARIASlide, title: 'Meet ARIA' },                         // 4
-  { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },               // 5
-  { component: IndiaGatewaySlide, title: 'India Gateway' },                        // 6
-  { component: AgentOrchestraSlide, title: 'The Agentic Symphony' },               // 7
-  { component: WhyWeWinSlide, title: 'Why ARIA Wins' },                            // 8
+  // ====== SOLUTION (7 slides) ======
+  { component: SlideMeetARIAV2, title: 'Meet ARIA' },                             // 4
+  { component: SlideWedgeExpandV2, title: 'Wedge & Expand Strategy' },             // 5 - NEW
+  { component: SlideIndiaGatewayV2, title: 'India Gateway' },                      // 6
+  { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 7 - NEW
+  { component: SlideThreeAlphaAgentsV2, title: 'Three Alpha Agents' },             // 8
+  { component: SlideAgenticSymphonyV2, title: 'The Agentic Symphony' },            // 9
+  { component: SlideWhyARIAWinsV2, title: 'Why ARIA Wins' },                       // 10
   
   // ====== PROOF (3 slides) ======
-  { component: ARIALiquidityEventSlide, title: 'ARIA in Action' },                 // 9
-  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 10
-  { component: StrategicPartnershipsSlide, title: 'Strategic Partners' },          // 11
+  { component: ARIALiquidityEventSlide, title: 'ARIA in Action' },                 // 11
+  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 12
+  { component: StrategicPartnershipsSlide, title: 'Strategic Partners' },          // 13
   
   // ====== BUSINESS (4 slides) ======
-  { component: OpportunitySlide, title: 'The Market' },                            // 12
-  { component: GrowthPathSlide, title: 'Path to $1B' },                            // 13
-  { component: TeamSlide, title: 'Team + Vora' },                                  // 14
-  { component: FundingSlide, title: '$5M Seed Round' },                            // 15
+  { component: OpportunitySlide, title: 'The Market' },                            // 14
+  { component: GrowthPathSlide, title: 'Path to $1B' },                            // 15
+  { component: TeamSlide, title: 'Team + Vora' },                                  // 16
+  { component: FundingSlide, title: '$5M Seed Round' },                            // 17
   
   // ====== CLOSING (1 slide) ======
-  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 16
+  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 18
 ];
 
 // DECK CONFIGURATION OPTIONS
