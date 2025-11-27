@@ -6,7 +6,7 @@ import AnimatedCounter from '../components/AnimatedCounter'
 import { 
   DollarSign, TrendingUp, Globe, Shield, Brain, Users, 
   Calculator, FileText, CheckCircle, ArrowRight, Sparkles,
-  Activity, Target, Award
+  Activity, Target, Award, Wallet
 } from 'lucide-react'
 import './SlideStyles.css'
 

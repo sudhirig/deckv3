@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { AspectFrame } from '../../components/StandardLayouts'
-import { FileText, ArrowRight, Zap, CheckCircle, AlertTriangle } from 'lucide-react'
+import { FileText, ArrowRight, Zap, CheckCircle, AlertTriangle, Brain } from 'lucide-react'
 
 /**
  * SlideAIEngineV2 - World-Class UI/UX
@@ -22,8 +22,26 @@ const SlideAIEngineV2 = () => {
         fontFamily: 'Inter, -apple-system, sans-serif',
         overflow: 'hidden'
       }}>
+        {/* Module Badge */}
+        <div style={{ 
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          background: 'rgba(20, 184, 166, 0.15)',
+          border: '1px solid rgba(20, 184, 166, 0.3)',
+          borderRadius: '20px',
+          padding: '0.4rem 1rem',
+          marginBottom: '1rem',
+          alignSelf: 'flex-start'
+        }}>
+          <Brain size={14} color="#14B8A6" />
+          <span style={{ color: '#14B8A6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+            ARIA AI
+          </span>
+        </div>
+
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <h1 style={{
             fontSize: 'clamp(2.5rem, 4vw, 3rem)',
             fontWeight: '800',

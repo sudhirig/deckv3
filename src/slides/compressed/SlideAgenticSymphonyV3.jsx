@@ -43,8 +43,27 @@ const SlideAgenticSymphonyV3 = () => {
         fontFamily: 'Inter, -apple-system, sans-serif',
         overflow: 'hidden'
       }}>
+        {/* Module Badge */}
+        <div style={{ 
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          background: 'rgba(20, 184, 166, 0.15)',
+          border: '1px solid rgba(20, 184, 166, 0.3)',
+          borderRadius: '20px',
+          padding: '0.4rem 1rem',
+          marginBottom: '1rem',
+          alignSelf: 'flex-start',
+          zIndex: 10
+        }}>
+          <Brain size={14} color="#14B8A6" />
+          <span style={{ color: '#14B8A6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+            ARIA AI
+          </span>
+        </div>
+
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '2rem', zIndex: 10 }}>
+        <div style={{ textAlign: 'center', marginBottom: '1.5rem', zIndex: 10 }}>
           <h1 style={{
             fontSize: 'clamp(2rem, 4vw, 2.5rem)',
             fontWeight: '800',
@@ -54,8 +73,8 @@ const SlideAgenticSymphonyV3 = () => {
           }}>
             THE AGENTIC SYMPHONY
           </h1>
-          <p style={{ fontSize: '1.1rem', color: '#94A3B8' }}>
-            Real-time collaboration across 5 specialized domains
+          <p style={{ fontSize: '1rem', color: '#94A3B8' }}>
+            68+ AI agents orchestrated in real-time
           </p>
         </div>
 

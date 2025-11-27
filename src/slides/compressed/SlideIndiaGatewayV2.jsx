@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { AspectFrame } from '../../components/StandardLayouts'
-import { Globe, Lock, ArrowRight, CheckCircle } from 'lucide-react'
+import { Globe, Lock, ArrowRight, CheckCircle, Wallet } from 'lucide-react'
 
 /**
  * SlideIndiaGatewayV2 - World-Class UI/UX
@@ -33,11 +33,31 @@ const SlideIndiaGatewayV2 = () => {
           pointerEvents: 'none'
         }} />
 
+        {/* Module Badge */}
+        <div style={{ 
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          background: 'rgba(139, 92, 246, 0.15)',
+          border: '1px solid rgba(139, 92, 246, 0.3)',
+          borderRadius: '20px',
+          padding: '0.4rem 1rem',
+          marginBottom: '1rem',
+          alignSelf: 'flex-start',
+          position: 'relative',
+          zIndex: 1
+        }}>
+          <Wallet size={14} color="#8B5CF6" />
+          <span style={{ color: '#8B5CF6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+            ARIA WEALTH
+          </span>
+        </div>
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ marginBottom: '3rem', position: 'relative', zIndex: 1 }}
+          style={{ marginBottom: '2rem', position: 'relative', zIndex: 1 }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
             <Globe size={28} color="#EC4899" />
@@ -51,7 +71,7 @@ const SlideIndiaGatewayV2 = () => {
               INDIA GATEWAY
             </h1>
           </div>
-          <p style={{ fontSize: '1.25rem', color: '#94A3B8' }}>
+          <p style={{ fontSize: '1.1rem', color: '#94A3B8' }}>
             Everyone wants in. Nobody can enter. <span style={{ color: '#EC4899', fontWeight: '600' }}>ARIA is the key.</span>
           </p>
         </motion.div>

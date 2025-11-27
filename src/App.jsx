@@ -66,6 +66,7 @@ import PrototypeValidatedSlide from './slides/PrototypeValidatedSlide'
 import ARIALiquidityEventSlide from './slides/ARIALiquidityEventSlide'
 import WhyARIAWinsSlide from './slides/WhyARIAWinsSlide'
 import StrategicPartnershipsSlide from './slides/StrategicPartnershipsSlide'
+import StrategicPartnershipsSlideV2 from './slides/StrategicPartnershipsSlideV2'
 import VoraVenturesSlide from './slides/VoraVenturesSlide'
 import VoraVenturesFixed from './slides/VoraVenturesFixed'
 // New Appendix Slides (First Batch)
@@ -277,6 +278,13 @@ import SlideCompetitiveDominanceV3 from './slides/compressed/SlideCompetitiveDom
 import SlideIndiaGatewayV2 from './slides/compressed/SlideIndiaGatewayV2'
 import SlideWedgeExpandV2 from './slides/compressed/SlideWedgeExpandV2'
 import SlideLockedToLiquidV2 from './slides/compressed/SlideLockedToLiquidV2'
+import SlideThreeModules from './slides/compressed/SlideThreeModules'
+import SlideMeetARIAV2 from './slides/compressed/SlideMeetARIAV2'
+import SlideMeetARIAOrgChart from './slides/compressed/SlideMeetARIAOrgChart'
+import SlideMeetARIAOrgChartV2 from './slides/compressed/SlideMeetARIAOrgChartV2'
+import SlideAgenticDecisionFlow from './slides/compressed/SlideAgenticDecisionFlow'
+import SlideEnterARIA from './slides/compressed/SlideEnterARIA'
+// Slide1DualCrisisV6 already imported above
 
 console.log('Defining slides arrays...')
 
@@ -760,38 +768,60 @@ const strategyDeckSlides = expandedDeckSlides.filter(slide =>
   slide && slide.component // Filter out any undefined components
 );
 
-// COMPRESSED DECK - 17 slides (World-class investor pitch)
+// COMPRESSED DECK - 29 slides (World-class investor pitch with 3-Module Structure)
 const compressedDeck = [
-  // ====== HOOK (2 slides) ======
+  // ====== OPENING (3 slides) ======
   { component: TitleSlide, title: 'ARIA - The Virtuoso Intelligence' },           // 0
   { component: ExecutiveSummarySlide, title: 'The Opportunity' },                  // 1
+  { component: LargestMarketSlide, title: 'The EMILLI Opportunity' },              // 2 - Target Customer
   
-  // ====== PROBLEM (2 slides) - World-class compression ======
-  { component: SlideGapInTheMiddleV2, title: 'The Gap in the Middle' },            // 2 - V2 Enhanced
-  { component: SlideWhySolutionsFailV2, title: 'Why Solutions Fail' },             // 3 - V2 Enhanced
+  // ====== PROBLEM (2 slides) ======
+  { component: SlideGapInTheMiddleV2, title: 'The Gap in the Middle' },            // 3
+  { component: SlideWhySolutionsFailV2, title: 'Why Solutions Fail' },             // 4
   
-  // ====== SOLUTION (7 slides) ======
-  { component: SlideMeetARIAV3, title: 'Meet ARIA (Value Prop)' },                // 4
-  { component: SlideWedgeExpandV2, title: 'Wedge & Expand Strategy' },             // 5
-  { component: SlideIndiaGatewayV2, title: 'India Gateway' },                      // 6
-  { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 7
-  { component: SlideAIEngineV2, title: 'The AI Data Engine' },                     // 8
-  { component: SlideAgenticSymphonyV3, title: 'The Agentic Symphony' },            // 9
-  { component: SlideCompetitiveDominanceV3, title: 'Competitive Dominance' },      // 10
+  // ====== BRIDGE (1 slide) ======
+  { component: SlideEnterARIA, title: 'Enter ARIA' },                              // 5 - Problem→Solution Bridge
   
-  // ====== PROOF (3 slides) ======
-  { component: ARIALiquidityEventSlide, title: 'ARIA in Action' },                 // 11
-  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 12
-  { component: StrategicPartnershipsSlide, title: 'Strategic Partners' },          // 13
+  // ====== PLATFORM INTRO (3 slides) ======
+  { component: SlideMeetARIAOrgChartV2, title: 'Your AI Family Office CEO' },      // 6 - Org Chart
+  { component: SlideAgenticDecisionFlow, title: 'AI Trading Decision Flow' },      // 7 - How Agents Decide
+  { component: SlideThreeModules, title: 'The ARIA Platform' },                    // 8 - 3 Modules Overview
   
-  // ====== BUSINESS (4 slides) ======
-  { component: OpportunitySlide, title: 'The Market' },                            // 14
-  { component: GrowthPathSlide, title: 'Path to $1B' },                            // 15
-  { component: TeamSlide, title: 'Team + Vora' },                                  // 16
-  { component: FundingSlide, title: '$5M Seed Round' },                            // 17
+  // ====== 🧠 ARIA AI (3 slides) - Intelligence & Experience ======
+  { component: SlideAIEngineV2, title: 'The AI Data Engine' },                     // 9
+  { component: SlideAgenticSymphonyV3, title: 'The Agentic Symphony' },            // 10
+  { component: ARIAPlatformExperienceSlide, title: 'The ARIA Experience' },        // 11 - AI-powered UX
+  
+  // ====== 🌏 ARIA WEALTH (4 slides) - GIFT City, AIF, Alternatives ======
+  { component: SlideIndiaGatewayV2, title: 'India Gateway' },                      // 12
+  { component: GIFTSolutionSlide, title: 'GIFT City Solution' },                   // 13 - Tax-free structure
+  { component: ARIAAIFSlide, title: 'ARIA AIF Tiers' },                            // 14 - Alternative Investment Fund
+  { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 15
+  
+  // ====== ⚡ ARIA TRADE (3 slides) - Broker Integration & Execution ======
+  { component: ZerodhaIntelligenceFixed, title: 'Zerodha Integration' },           // 16
+  { component: ARIALiveDemoSlide, title: 'ARIA Live Demo' },                       // 17
+  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 18
+  
+  // ====== PROOF (2 slides) ======
+  { component: ARIALiquidityEventSlide, title: '$25M Liquidity Event' },           // 19 - Case study
+  { component: StrategicPartnershipsSlideV2, title: 'Strategic Partners' },        // 20
+  
+  // ====== TRUST (1 slide) ======
+  { component: HybridTrustModelSlide, title: 'AI + Human Trust Model' },           // 21
+  
+  // ====== COMPETITIVE (1 slide) ======
+  { component: SlideCompetitiveDominanceV3, title: 'Why ARIA Wins' },              // 22
+  
+  // ====== BUSINESS (5 slides) ======
+  { component: OpportunitySlide, title: 'The Market' },                            // 23
+  { component: SlideWedgeExpandV2, title: 'Go-to-Market Strategy' },               // 24
+  { component: GrowthPathSlide, title: 'Path to $1B' },                            // 25
+  { component: TeamSlide, title: 'Team + Vora' },                                  // 26
+  { component: FundingSlide, title: '$5M Seed Round' },                            // 27
   
   // ====== CLOSING (1 slide) ======
-  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 18
+  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 28
 ];
 
 // DECK CONFIGURATION OPTIONS
@@ -800,7 +830,7 @@ const DECK_CONFIGS = {
   'expanded': expandedDeckSlides,                          // 60-slide comprehensive deck
   'strategy-deck': strategyDeckSlides,                     // Strategy deck (filtered)
   'tuesday-deck': tuesdayStrategyDeck,                     // Tuesday 9 PM exact 54-slide deck
-  'compressed': compressedDeck,                            // NEW: 18-slide world-class pitch
+  'compressed': compressedDeck,                            // 29-slide world-class pitch
   'liquidity-demo': [{ component: ARIALiquidityEventSlide, title: '$25M Liquidity Event Demo' }], // Standalone demo
   'strategy-compact': mainDeckSlides,                      // Compact strategy
   'elevator': mainDeckSlides.slice(0, 24),                 // 24-slide quick pitch

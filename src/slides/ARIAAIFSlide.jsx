@@ -5,7 +5,7 @@ import GradientText from '../components/GradientText'
 import ARIAIconBadge from '../components/ARIAIconBadge'
 import ARIAAvatar from '../components/ARIAAvatar'
 import StanfordBadge from '../components/StanfordBadge'
-import { Building2, TrendingUp, Shield, Award, Users, DollarSign, BarChart3, Lock, ChevronRight } from 'lucide-react'
+import { Building2, TrendingUp, Shield, Award, Users, DollarSign, BarChart3, Lock, ChevronRight, Wallet } from 'lucide-react'
 import './SlideStyles.css'
 
 export default function ARIAAIFSlide() {
@@ -126,15 +126,31 @@ export default function ARIAAIFSlide() {
           }}
         >
           <div>
+            {/* Module Badge */}
+            <div style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'rgba(139, 92, 246, 0.15)',
+              border: '1px solid rgba(139, 92, 246, 0.3)',
+              borderRadius: '20px',
+              padding: '0.4rem 1rem',
+              marginBottom: '0.75rem'
+            }}>
+              <Wallet size={14} color="#8B5CF6" />
+              <span style={{ color: '#8B5CF6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+                ARIA WEALTH
+              </span>
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
               <h1 style={{
                 fontSize: 'clamp(2rem, 3vw, 2.5rem)',
                 fontWeight: '700',
-                background: 'linear-gradient(135deg, #fbbf24, #14b8a6)',
+                background: 'linear-gradient(135deg, #8B5CF6, #A855F7)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
               }}>
-                Solving the Alternative Access Gap
+                ARIA AIF Tiers
               </h1>
               <ARIAIconBadge size={45} animated={true} />
             </div>

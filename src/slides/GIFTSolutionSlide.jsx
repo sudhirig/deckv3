@@ -2,15 +2,38 @@ import { motion } from 'framer-motion'
 import DualPaneComparison from '../components/DualPaneComparison'
 import GradientText from '../components/GradientText'
 import Icon from '../components/Icon'
+import { Wallet } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function GIFTSolutionSlide() {
+  // Module Badge
+  const moduleBadge = (
+    <div style={{ 
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      background: 'rgba(139, 92, 246, 0.15)',
+      border: '1px solid rgba(139, 92, 246, 0.3)',
+      borderRadius: '20px',
+      padding: '0.4rem 1rem',
+      marginBottom: '0.75rem'
+    }}>
+      <Wallet size={14} color="#8B5CF6" />
+      <span style={{ color: '#8B5CF6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+        ARIA WEALTH
+      </span>
+    </div>
+  )
+
   // Title
   const title = (
-    <GradientText gradient="from-green-400 to-emerald-400">
-      Our Solution: The GIFT City "AI Gateway"
-    </GradientText>
+    <div>
+      {moduleBadge}
+      <GradientText gradient="from-purple-400 to-pink-400">
+        GIFT City Solution
+      </GradientText>
+    </div>
   )
 
   // Left option - Old Route

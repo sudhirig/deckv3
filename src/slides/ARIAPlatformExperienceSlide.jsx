@@ -68,15 +68,31 @@ export default function ARIAPlatformExperienceSlide() {
           }}
         >
           <div>
+            {/* Module Badge */}
+            <div style={{ 
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.5rem',
+              background: 'rgba(20, 184, 166, 0.15)',
+              border: '1px solid rgba(20, 184, 166, 0.3)',
+              borderRadius: '20px',
+              padding: '0.4rem 1rem',
+              marginBottom: '0.75rem'
+            }}>
+              <Brain size={14} color="#14B8A6" />
+              <span style={{ color: '#14B8A6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+                ARIA AI
+              </span>
+            </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
               <h1 style={{
                 fontSize: 'clamp(2rem, 3vw, 2.5rem)',
                 fontWeight: '700',
-                background: 'linear-gradient(135deg, #14b8a6, #06b6d4)',
+                background: 'linear-gradient(135deg, #14B8A6, #06B6D4)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent'
               }}>
-                The ARIA CEO Experience
+                The ARIA Experience
               </h1>
               <ARIAIconBadge size={45} animated={true} />
               <OperationalBadge variant="default" />

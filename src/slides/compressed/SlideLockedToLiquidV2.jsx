@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { AspectFrame } from '../../components/StandardLayouts'
-import { Clock, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react'
+import { Clock, CheckCircle, AlertCircle, ArrowRight, Wallet } from 'lucide-react'
 
 /**
  * SlideLockedToLiquidV2 - World-Class UI/UX
@@ -22,8 +22,26 @@ const SlideLockedToLiquidV2 = () => {
         fontFamily: 'Inter, -apple-system, sans-serif',
         overflow: 'hidden'
       }}>
+        {/* Module Badge */}
+        <div style={{ 
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          background: 'rgba(139, 92, 246, 0.15)',
+          border: '1px solid rgba(139, 92, 246, 0.3)',
+          borderRadius: '20px',
+          padding: '0.4rem 1rem',
+          marginBottom: '1rem',
+          alignSelf: 'flex-start'
+        }}>
+          <Wallet size={14} color="#8B5CF6" />
+          <span style={{ color: '#8B5CF6', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+            ARIA WEALTH
+          </span>
+        </div>
+
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <h1 style={{
             fontSize: 'clamp(2.5rem, 4vw, 3rem)',
             fontWeight: '800',

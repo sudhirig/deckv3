@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { AspectFrame } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
-import { Brain, ArrowRight, BarChart3, Activity, Target, Shield } from 'lucide-react'
+import { Brain, ArrowRight, BarChart3, Activity, Target, Shield, Zap } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
@@ -31,6 +31,26 @@ export default function ZerodhaIntelligenceFixed() {
           pointerEvents: 'none'
         }} />
 
+        {/* Module Badge */}
+        <div style={{ 
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '0.5rem',
+          background: 'rgba(245, 158, 11, 0.15)',
+          border: '1px solid rgba(245, 158, 11, 0.3)',
+          borderRadius: '20px',
+          padding: '0.4rem 1rem',
+          marginBottom: '1rem',
+          alignSelf: 'flex-start',
+          position: 'relative',
+          zIndex: 1
+        }}>
+          <Zap size={14} color="#F59E0B" />
+          <span style={{ color: '#F59E0B', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+            ARIA TRADE
+          </span>
+        </div>
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -38,12 +58,12 @@ export default function ZerodhaIntelligenceFixed() {
           style={{ textAlign: 'center', marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}
         >
           <h1 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', marginBottom: '0.5rem' }}>
-            <GradientText gradient="from-purple-400 to-pink-400">
-              Zerodha Intelligence Module
+            <GradientText gradient="from-amber-400 to-orange-400">
+              Zerodha Integration
             </GradientText>
           </h1>
           <p style={{ fontSize: '1.1rem', color: '#94a3b8' }}>
-            AI-powered trading intelligence on India's largest broker
+            Broker integration with 11ms execution latency
           </p>
         </motion.div>
 
@@ -212,11 +232,11 @@ export default function ZerodhaIntelligenceFixed() {
           </div>
           <div style={{ 
             padding: '0.75rem 1.5rem',
-            background: 'rgba(139, 92, 246, 0.2)',
+            background: 'rgba(245, 158, 11, 0.2)',
             borderRadius: pxToRem(10),
-            border: '1px solid rgba(139, 92, 246, 0.3)'
+            border: '1px solid rgba(245, 158, 11, 0.3)'
           }}>
-            <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#a78bfa' }}>Module 1 of 5</span>
+            <span style={{ fontSize: '1.1rem', fontWeight: '600', color: '#FBBF24' }}>11ms Latency</span>
           </div>
         </motion.div>
       </div>

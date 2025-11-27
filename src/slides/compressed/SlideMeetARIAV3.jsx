@@ -61,46 +61,103 @@ const SlideMeetARIAV3 = () => {
           zIndex: 2
         }}>
           
-          {/* Left: The Avatar & Teams */}
-          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-             {/* Hero Avatar */}
+          {/* Left: The Avatar & Teams - Premium Version */}
+          <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', width: '450px', height: '400px' }}>
+             
+             {/* Connector Lines */}
+             <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 0 }}>
+               {[
+                 { x: -160, y: -80 },
+                 { x: 160, y: -80 },
+                 { x: -160, y: 80 },
+                 { x: 160, y: 80 },
+                 { x: 0, y: 150 }
+               ].map((pos, i) => (
+                 <motion.line
+                   key={i}
+                   x1="225"
+                   y1="200"
+                   x2={225 + pos.x}
+                   y2={200 + pos.y}
+                   stroke="rgba(255,255,255,0.1)"
+                   strokeWidth="1"
+                   initial={{ pathLength: 0 }}
+                   animate={{ pathLength: 1 }}
+                   transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+                 />
+               ))}
+             </svg>
+
+             {/* Hero Avatar with Gradient Border */}
              <motion.div
-                initial={{ scale: 0.9, opacity: 0 }}
+                initial={{ scale: 0, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.8, type: 'spring' }}
+                style={{ zIndex: 10 }}
              >
-                <ARIAAvatar size="large" variant="gradient" animated={true} showPulse={true} showTitle={false} />
+               <div style={{
+                 padding: '4px',
+                 background: 'linear-gradient(135deg, #14B8A6, #06B6D4)',
+                 borderRadius: '50%',
+                 boxShadow: '0 0 40px rgba(20, 184, 166, 0.4)'
+               }}>
+                 <div style={{
+                   background: '#0f172a',
+                   borderRadius: '50%',
+                   padding: '8px',
+                   width: '120px',
+                   height: '120px',
+                   display: 'flex',
+                   alignItems: 'center',
+                   justifyContent: 'center'
+                 }}>
+                   <ARIAAvatar size="large" variant="gradient" animated={true} showPulse={true} showTitle={false} />
+                 </div>
+               </div>
              </motion.div>
 
-             {/* Orbiting Badges */}
+             {/* Orbiting Team Cards - Premium Style */}
              {[
-               { label: 'Tax', icon: TrendingUp, x: -140, y: -80, color: '#FBBF24' },
-               { label: 'Risk', icon: Shield, x: 140, y: -80, color: '#EF4444' },
-               { label: 'India', icon: Globe, x: -140, y: 80, color: '#8B5CF6' },
-               { label: 'Alts', icon: Brain, x: 140, y: 80, color: '#14B8A6' },
-               { label: 'Legal', icon: FileCheck, x: 0, y: 150, color: '#3B82F6' },
+               { label: 'Investment', detail: 'Global Macro Strategy', icon: Brain, x: -160, y: -80, color: '#14B8A6' },
+               { label: 'Risk', detail: 'Real-time Protection', icon: Shield, x: 160, y: -80, color: '#EF4444' },
+               { label: 'Tax', detail: 'Daily Harvesting', icon: TrendingUp, x: -160, y: 80, color: '#FBBF24' },
+               { label: 'India', detail: 'GIFT City Access', icon: Globe, x: 160, y: 80, color: '#8B5CF6' },
+               { label: 'Compliance', detail: 'Auto-Regulatory', icon: FileCheck, x: 0, y: 150, color: '#3B82F6' },
              ].map((item, i) => (
                <motion.div
                 key={item.label}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.5 + i * 0.1 }}
+                initial={{ opacity: 0, x: 0, y: 0 }}
+                animate={{ opacity: 1, x: item.x, y: item.y }}
+                transition={{ duration: 0.8, delay: 0.8 + i * 0.1, type: 'spring', stiffness: 50 }}
                 style={{
                   position: 'absolute',
-                  transform: `translate(${item.x}px, ${item.y}px)`,
-                  background: 'rgba(15, 23, 42, 0.8)',
+                  zIndex: 5,
+                  background: 'rgba(30, 41, 59, 0.6)',
                   backdropFilter: 'blur(10px)',
-                  border: `1px solid ${item.color}40`,
-                  borderRadius: '30px',
-                  padding: '8px 16px',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(100, 116, 139, 0.3)',
+                  borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                  borderRadius: '12px',
+                  padding: '0.6rem 1rem',
+                  minWidth: '140px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
-                  boxShadow: `0 4px 12px ${item.color}20`
+                  gap: '0.6rem',
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.2)'
                 }}
                >
-                 <item.icon size={16} color={item.color} />
-                 <span style={{ color: '#fff', fontSize: '0.85rem', fontWeight: '600' }}>{item.label}</span>
+                 <div style={{
+                   padding: '6px',
+                   borderRadius: '8px',
+                   background: `${item.color}20`,
+                   color: item.color
+                 }}>
+                   <item.icon size={16} />
+                 </div>
+                 <div>
+                   <p style={{ fontSize: '0.75rem', fontWeight: '700', color: '#FFFFFF', margin: 0 }}>{item.label}</p>
+                   <p style={{ fontSize: '0.6rem', color: '#94A3B8', margin: 0 }}>{item.detail}</p>
+                 </div>
                </motion.div>
              ))}
           </div>

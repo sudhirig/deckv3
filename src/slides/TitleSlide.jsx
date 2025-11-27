@@ -208,9 +208,10 @@ export default function TitleSlide() {
                   maxWidth: '600px'
                 }}
               >
-                She orchestrates wealth like no human can — combining the precision of 
-                68+ AI specialists with exclusive India market access to deliver 
-                institutional-grade wealth management.
+                <span style={{ color: '#e2e8f0' }}>ARIA</span>
+                <span style={{ color: '#94a3b8' }}> — </span>
+                <span style={{ color: '#14b8a6' }}>Autonomous Risk & Investment Advisor</span>
+                <span style={{ color: '#94a3b8' }}> — She orchestrates wealth like no human can, combining the precision of 68+ AI specialists with exclusive India market access to deliver institutional-grade wealth management.</span>
               </motion.p>
               
               {/* Website Badge */}

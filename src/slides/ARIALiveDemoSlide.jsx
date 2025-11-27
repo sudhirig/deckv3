@@ -5,7 +5,7 @@ import GradientText from '../components/GradientText'
 import AnimatedCounter from '../components/AnimatedCounter'
 import { 
   Monitor, Play, MessageSquare, TrendingUp, DollarSign,
-  Globe, Shield, ChevronRight, Terminal, CheckCircle
+  Globe, Shield, ChevronRight, Terminal, CheckCircle, Zap
 } from 'lucide-react'
 import './SlideStyles.css'
 
@@ -59,10 +59,31 @@ export default function ARIALiveDemoSlide() {
     return () => clearTimeout(timer)
   }, [currentQuery])
 
+  const moduleBadge = (
+    <div style={{ 
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      background: 'rgba(245, 158, 11, 0.15)',
+      border: '1px solid rgba(245, 158, 11, 0.3)',
+      borderRadius: '20px',
+      padding: '0.4rem 1rem',
+      marginBottom: '0.75rem'
+    }}>
+      <Zap size={14} color="#F59E0B" />
+      <span style={{ color: '#F59E0B', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+        ARIA TRADE
+      </span>
+    </div>
+  )
+
   const title = (
-    <GradientText gradient="from-teal-400 to-cyan-400">
-      ARIA in Action - Live Demo
-    </GradientText>
+    <div>
+      {moduleBadge}
+      <GradientText gradient="from-amber-400 to-orange-400">
+        ARIA Live Demo
+      </GradientText>
+    </div>
   )
 
   const metrics = [

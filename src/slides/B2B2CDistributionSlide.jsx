@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { AspectFrame } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
-import { Building, Users, Briefcase, TrendingUp, ChevronDown } from 'lucide-react'
+import { Building, Users, Briefcase, TrendingUp, ChevronDown, Wallet } from 'lucide-react'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
@@ -34,9 +34,6 @@ export default function B2B2CDistributionSlide() {
           </h1>
           <p style={{ fontSize: '1rem', color: '#94a3b8' }}>
             The Vora/Ascendum KPS Flywheel
-          </p>
-          <p style={{ fontSize: '0.9rem', color: '#5eead4', marginTop: '0.25rem', fontStyle: 'italic' }}>
-            "Our credible, low-CAC beachhead for B2C vision"
           </p>
         </motion.div>
 

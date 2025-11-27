@@ -1,17 +1,39 @@
 import { motion } from 'framer-motion'
 import { GridLayout } from '../components/StandardLayouts'
 import GradientText from '../components/GradientText'
-import { Check, ArrowRight } from 'lucide-react'
+import { Check, ArrowRight, Zap } from 'lucide-react'
 import Icon from '../components/Icon'
 import { pxToRem } from '../utils/responsive'
 import './SlideStyles.css'
 
 export default function LivePlatformSlide() {
+  // Module Badge
+  const moduleBadge = (
+    <div style={{ 
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      background: 'rgba(245, 158, 11, 0.15)',
+      border: '1px solid rgba(245, 158, 11, 0.3)',
+      borderRadius: '20px',
+      padding: '0.4rem 1rem',
+      marginBottom: '0.75rem'
+    }}>
+      <Zap size={14} color="#F59E0B" />
+      <span style={{ color: '#F59E0B', fontSize: '0.75rem', fontWeight: '600', letterSpacing: '0.05em' }}>
+        ARIA TRADE
+      </span>
+    </div>
+  )
+
   // Title
   const title = (
-    <GradientText gradient="from-green-400 to-emerald-400">
-      This is Not a Concept. Our Core Platform is Live.
-    </GradientText>
+    <div>
+      {moduleBadge}
+      <GradientText gradient="from-amber-400 to-orange-400">
+        Platform is Live
+      </GradientText>
+    </div>
   )
   
   // Subtitle
