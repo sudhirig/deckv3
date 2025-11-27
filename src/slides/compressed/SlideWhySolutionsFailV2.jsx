@@ -25,19 +25,29 @@ const SlideWhySolutionsFailV2 = () => {
     return () => clearInterval(timer)
   }, [])
 
-  // Visual bar component for Access/Intelligence
+  // Visual bar component for Access/Intelligence with 50% benchmark
   const MetricBar = ({ label, value, color, maxValue = 100 }) => (
     <div style={{ marginBottom: '0.5rem' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '4px' }}>
-        <span style={{ fontSize: '0.9rem', color: '#94A3B8' }}>{label}</span>
-        <span style={{ fontSize: '0.9rem', color, fontWeight: '600' }}>{value}%</span>
+        <span style={{ fontSize: '0.85rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{label}</span>
+        <span style={{ fontSize: '0.9rem', color, fontWeight: '700' }}>{value}%</span>
       </div>
-      <div style={{ height: '8px', background: 'rgba(100, 116, 139, 0.2)', borderRadius: '4px', overflow: 'hidden' }}>
+      <div style={{ height: '8px', background: 'rgba(100, 116, 139, 0.2)', borderRadius: '4px', overflow: 'hidden', position: 'relative' }}>
+        {/* 50% Benchmark Line */}
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: 0,
+          bottom: 0,
+          width: '1px',
+          background: 'rgba(255, 255, 255, 0.3)',
+          zIndex: 1
+        }} />
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${value}%` }}
-          transition={{ duration: 1, delay: 0.5 }}
-          style={{ height: '100%', background: color, borderRadius: '4px' }}
+          transition={{ duration: 1, delay: 0.5, type: 'spring', stiffness: 50 }}
+          style={{ height: '100%', background: color, borderRadius: '4px', position: 'relative', zIndex: 2 }}
         />
       </div>
     </div>
@@ -101,8 +111,11 @@ const SlideWhySolutionsFailV2 = () => {
             transition={{ delay: 0.2 }}
             style={{
               background: 'rgba(30, 41, 59, 0.6)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               border: '1px solid rgba(20, 184, 166, 0.3)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '1.25rem',
               display: 'flex',
               flexDirection: 'column'
@@ -165,22 +178,44 @@ const SlideWhySolutionsFailV2 = () => {
             transition={{ delay: 0.3 }}
             style={{
               background: 'linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.05))',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               border: '2px solid rgba(251, 191, 36, 0.4)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
               padding: '1.25rem',
               display: 'flex',
               flexDirection: 'column',
               position: 'relative',
-              boxShadow: '0 10px 40px rgba(251, 191, 36, 0.1)'
+              boxShadow: '0 10px 40px rgba(251, 191, 36, 0.15)',
+              overflow: 'hidden'
             }}
           >
+            {/* Shimmer Effect */}
+            <motion.div
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ duration: 3, repeat: Infinity, repeatDelay: 2, ease: 'easeInOut' }}
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '50%',
+                height: '100%',
+                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)',
+                pointerEvents: 'none',
+                zIndex: 0
+              }}
+            />
+
             {/* Badge */}
             <div style={{
               alignSelf: 'flex-start',
               background: 'linear-gradient(135deg, #FBBF24, #F59E0B)',
               padding: '6px 14px',
               borderRadius: '20px',
-              marginBottom: '0.5rem'
+              marginBottom: '0.5rem',
+              position: 'relative',
+              zIndex: 1
             }}>
               <span style={{ fontSize: '0.75rem', color: '#0A1628', fontWeight: '700' }}>HAS BOTH</span>
             </div>
@@ -243,8 +278,11 @@ const SlideWhySolutionsFailV2 = () => {
             transition={{ delay: 0.4 }}
             style={{
               background: 'rgba(30, 41, 59, 0.6)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               border: '1px solid rgba(148, 163, 184, 0.3)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '1.25rem',
               display: 'flex',
               flexDirection: 'column'
@@ -307,8 +345,11 @@ const SlideWhySolutionsFailV2 = () => {
             transition={{ delay: 0.5 }}
             style={{
               background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.04))',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               border: '1px solid rgba(239, 68, 68, 0.3)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '1.25rem',
               display: 'flex',
               flexDirection: 'column'
@@ -361,13 +402,13 @@ const SlideWhySolutionsFailV2 = () => {
               alignItems: 'center'
             }}>
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: '1.5rem', color: '#EF4444', fontWeight: '700', margin: 0 }}>{advisorCount.toLocaleString()}</p>
-                <p style={{ fontSize: '0.85rem', color: '#94A3B8', margin: 0 }}>shortage by 2030</p>
+                <p style={{ fontSize: '1.5rem', color: '#EF4444', fontWeight: '800', margin: 0 }}>{advisorCount.toLocaleString()}</p>
+                <p style={{ fontSize: '0.7rem', color: '#94A3B8', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>shortage by 2030</p>
               </div>
               <div style={{ width: '1px', height: '40px', background: 'rgba(239, 68, 68, 0.3)' }} />
               <div style={{ textAlign: 'center' }}>
-                <p style={{ fontSize: '1.5rem', color: '#EF4444', fontWeight: '700', margin: 0 }}>1:500</p>
-                <p style={{ fontSize: '0.85rem', color: '#94A3B8', margin: 0 }}>advisor ratio</p>
+                <p style={{ fontSize: '1.5rem', color: '#EF4444', fontWeight: '800', margin: 0 }}>1:500</p>
+                <p style={{ fontSize: '0.7rem', color: '#94A3B8', margin: 0, textTransform: 'uppercase', letterSpacing: '0.05em' }}>advisor ratio</p>
               </div>
             </div>
           </motion.div>

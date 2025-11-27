@@ -77,8 +77,8 @@ const SlideGapInTheMiddleV2 = () => {
               transition={{ delay: 0.1 + i * 0.1 }}
               style={{ textAlign: 'center' }}
             >
-              <p style={{ fontSize: '1.75rem', color: stat.color, fontWeight: '700', margin: 0 }}>{stat.value}</p>
-              <p style={{ fontSize: '0.9rem', color: '#64748B', margin: '4px 0 0 0' }}>{stat.label}</p>
+              <p style={{ fontSize: '1.75rem', color: stat.color, fontWeight: '800', margin: 0, fontFamily: 'Inter, sans-serif' }}>{stat.value}</p>
+              <p style={{ fontSize: '0.75rem', color: '#64748B', margin: '6px 0 0 0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -98,9 +98,12 @@ const SlideGapInTheMiddleV2 = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.3 }}
             style={{
-              background: 'rgba(30, 41, 59, 0.5)',
+              background: 'rgba(30, 41, 59, 0.6)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               border: '1px solid rgba(100, 116, 139, 0.3)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '2rem',
               display: 'flex',
               flexDirection: 'column'
@@ -185,7 +188,7 @@ const SlideGapInTheMiddleV2 = () => {
                     background: '#FB7185',
                     borderRadius: '50%',
                     border: '4px solid #0A1628',
-                    boxShadow: '0 0 24px rgba(251, 113, 133, 0.7)'
+                    boxShadow: '0 0 30px rgba(251, 113, 133, 0.8), 0 0 60px rgba(251, 113, 133, 0.4)'
                   }}
                 />
               </div>
@@ -238,8 +241,11 @@ const SlideGapInTheMiddleV2 = () => {
             transition={{ delay: 0.3 }}
             style={{
               background: 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(20, 184, 166, 0.03))',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
               borderRadius: '20px',
               border: '1px solid rgba(20, 184, 166, 0.3)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '2rem',
               display: 'flex',
               flexDirection: 'column'
