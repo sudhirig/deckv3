@@ -272,10 +272,9 @@ import SlideGapInTheMiddleV2 from './slides/compressed/SlideGapInTheMiddleV2'
 import SlideWhySolutionsFailV2 from './slides/compressed/SlideWhySolutionsFailV2'
 import SlideMeetARIAV3 from './slides/compressed/SlideMeetARIAV3'
 import SlideAIEngineV2 from './slides/compressed/SlideAIEngineV2'
-import SlideCompetitiveDominanceV2 from './slides/compressed/SlideCompetitiveDominanceV2'
+import SlideAgenticSymphonyV3 from './slides/compressed/SlideAgenticSymphonyV3'
+import SlideCompetitiveDominanceV3 from './slides/compressed/SlideCompetitiveDominanceV3'
 import SlideIndiaGatewayV2 from './slides/compressed/SlideIndiaGatewayV2'
-import SlideAgenticSymphonyV2 from './slides/compressed/SlideAgenticSymphonyV2'
-import SlideWhyARIAWinsV2 from './slides/compressed/SlideWhyARIAWinsV2'
 import SlideWedgeExpandV2 from './slides/compressed/SlideWedgeExpandV2'
 import SlideLockedToLiquidV2 from './slides/compressed/SlideLockedToLiquidV2'
 
@@ -777,8 +776,8 @@ const compressedDeck = [
   { component: SlideIndiaGatewayV2, title: 'India Gateway' },                      // 6
   { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 7
   { component: SlideAIEngineV2, title: 'The AI Data Engine' },                     // 8
-  { component: SlideAgenticSymphonyV2, title: 'The Agentic Symphony' },            // 9
-  { component: SlideCompetitiveDominanceV2, title: 'Competitive Dominance' },      // 10
+  { component: SlideAgenticSymphonyV3, title: 'The Agentic Symphony' },            // 9
+  { component: SlideCompetitiveDominanceV3, title: 'Competitive Dominance' },      // 10
   
   // ====== PROOF (3 slides) ======
   { component: ARIALiquidityEventSlide, title: 'ARIA in Action' },                 // 11

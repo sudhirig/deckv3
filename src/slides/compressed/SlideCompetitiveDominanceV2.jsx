@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { AspectFrame } from '../../components/StandardLayouts'
-import { Trophy, Brain, Globe, Check, X, Minus } from 'lucide-react'
+import { Trophy, Brain, Globe, Check, X, Minus, Users } from 'lucide-react'
 
 /**
  * SlideCompetitiveDominanceV2 - World-Class UI/UX
@@ -10,7 +10,7 @@ import { Trophy, Brain, Globe, Check, X, Minus } from 'lucide-react'
  */
 const SlideCompetitiveDominanceV2 = () => {
   const metrics = [
-    { label: 'Better Economics', value: '70%', suffix: 'Lower CAC', icon: Trophy, color: '#F59E0B' },
+    { label: 'B2B2C Scale', value: '1000+', suffix: 'CPA Partners', icon: Users, color: '#F59E0B' },
     { label: 'Unique Access', value: 'Only', suffix: 'GIFT Gateway', icon: Globe, color: '#FBBF24' },
     { label: 'AI Leverage', value: '473x', suffix: 'ROI / Agent', icon: Brain, color: '#F97316' }
   ]
