@@ -270,8 +270,9 @@ import SlideGapInTheMiddle from './slides/compressed/SlideGapInTheMiddle'
 import SlideWhySolutionsFail from './slides/compressed/SlideWhySolutionsFail'
 import SlideGapInTheMiddleV2 from './slides/compressed/SlideGapInTheMiddleV2'
 import SlideWhySolutionsFailV2 from './slides/compressed/SlideWhySolutionsFailV2'
-import SlideMeetARIAV2 from './slides/compressed/SlideMeetARIAV2'
-import SlideThreeAlphaAgentsV2 from './slides/compressed/SlideThreeAlphaAgentsV2'
+import SlideMeetARIAV3 from './slides/compressed/SlideMeetARIAV3'
+import SlideAIEngineV2 from './slides/compressed/SlideAIEngineV2'
+import SlideCompetitiveDominanceV2 from './slides/compressed/SlideCompetitiveDominanceV2'
 import SlideIndiaGatewayV2 from './slides/compressed/SlideIndiaGatewayV2'
 import SlideAgenticSymphonyV2 from './slides/compressed/SlideAgenticSymphonyV2'
 import SlideWhyARIAWinsV2 from './slides/compressed/SlideWhyARIAWinsV2'
@@ -771,13 +772,13 @@ const compressedDeck = [
   { component: SlideWhySolutionsFailV2, title: 'Why Solutions Fail' },             // 3 - V2 Enhanced
   
   // ====== SOLUTION (7 slides) ======
-  { component: SlideMeetARIAV2, title: 'Meet ARIA' },                             // 4
-  { component: SlideWedgeExpandV2, title: 'Wedge & Expand Strategy' },             // 5 - NEW
+  { component: SlideMeetARIAV3, title: 'Meet ARIA (Value Prop)' },                // 4
+  { component: SlideWedgeExpandV2, title: 'Wedge & Expand Strategy' },             // 5
   { component: SlideIndiaGatewayV2, title: 'India Gateway' },                      // 6
-  { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 7 - NEW
-  { component: SlideThreeAlphaAgentsV2, title: 'Three Alpha Agents' },             // 8
+  { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 7
+  { component: SlideAIEngineV2, title: 'The AI Data Engine' },                     // 8
   { component: SlideAgenticSymphonyV2, title: 'The Agentic Symphony' },            // 9
-  { component: SlideWhyARIAWinsV2, title: 'Why ARIA Wins' },                       // 10
+  { component: SlideCompetitiveDominanceV2, title: 'Competitive Dominance' },      // 10
   
   // ====== PROOF (3 slides) ======
   { component: ARIALiquidityEventSlide, title: 'ARIA in Action' },                 // 11
