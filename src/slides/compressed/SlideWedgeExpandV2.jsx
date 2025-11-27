@@ -13,7 +13,7 @@ const SlideWedgeExpandV2 = () => {
     {
       phase: 'PHASE 1',
       title: 'LAND',
-      subtitle: 'The Wedge',
+      subtitle: 'Product: India Gateway Fund',
       icon: Target,
       desc: 'Capture HNWIs via exclusive India GIFT City access.',
       metric: '100 Clients',
@@ -22,7 +22,7 @@ const SlideWedgeExpandV2 = () => {
     {
       phase: 'PHASE 2',
       title: 'EXPAND',
-      subtitle: 'The System of Record',
+      subtitle: 'Product: ARIA Data Engine',
       icon: Database,
       desc: 'Ingest all portfolio data via AI Data Engine.',
       metric: '500 Clients',
@@ -31,7 +31,7 @@ const SlideWedgeExpandV2 = () => {
     {
       phase: 'PHASE 3',
       title: 'DOMINATE',
-      subtitle: 'Global AI Advisor',
+      subtitle: 'Product: Global AI Advisor',
       icon: Globe,
       desc: 'Cross-sell global assets via Alpaca/IBKR.',
       metric: 'Global Scale',
