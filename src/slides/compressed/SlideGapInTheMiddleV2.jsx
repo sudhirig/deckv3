@@ -50,39 +50,7 @@ const SlideGapInTheMiddleV2 = () => {
           </p>
         </motion.div>
 
-        {/* Top Stats Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '3rem',
-            marginBottom: '1.5rem',
-            position: 'relative',
-            zIndex: 1
-          }}
-        >
-          {[
-            { value: '7.9M', label: 'Families Stuck', color: '#FB7185' },
-            { value: '$107T', label: 'Total Wealth', color: '#14B8A6' },
-            { value: '-$190K', label: 'Annual Loss', color: '#EF4444' },
-            { value: '46%', label: 'Switching Now', color: '#FBBF24' }
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1 + i * 0.1 }}
-              style={{ textAlign: 'center' }}
-            >
-              <p style={{ fontSize: '1.75rem', color: stat.color, fontWeight: '800', margin: 0, fontFamily: 'Inter, sans-serif' }}>{stat.value}</p>
-              <p style={{ fontSize: '0.75rem', color: '#64748B', margin: '6px 0 0 0', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{stat.label}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
+        
         {/* Main 3-Column Layout */}
         <div style={{
           flex: 1,

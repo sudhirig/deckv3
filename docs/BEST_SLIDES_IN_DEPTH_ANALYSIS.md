@@ -5,6 +5,21 @@
 
 ---
 
+## Core Principle: Minimal Text, Maximum Impact
+
+**CRITICAL:** Avoid repeating data points across a slide. Each piece of information should appear ONCE in its most impactful location.
+
+| Rule | Example |
+|------|---------|
+| **No duplicate stats** | If "7.9M families" is in the subtitle, don't repeat it in a stats bar |
+| **One hero number per concept** | The "-$190K loss" should appear in ONE prominent place, not scattered |
+| **Let visuals speak** | Use bars, icons, and color instead of text labels where possible |
+| **Subtitle carries context** | Put the key narrative in the subtitle, not repeated in body |
+
+**Before adding any text, ask:** *"Is this already shown elsewhere on this slide?"*
+
+---
+
 ## Table of Contents
 1. [Reference Slides](#reference-slides)
 2. [Typography Standards](#typography-standards)
