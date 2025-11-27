@@ -73,15 +73,16 @@ HOOK → PROBLEM → SOLUTION → PROOF → BUSINESS → ASK
 
 ---
 
-### ACT 1: THE PROBLEM (3 slides only - World-Class Compression)
+### ACT 1: THE PROBLEM (2 slides only - World-Class Compression)
 
 **Philosophy:** Arta/Sequoia style - One big idea per slide, 10 seconds to understand
 
 | # | Slide | One-Line Purpose | Keep/Merge/New |
 |---|-------|------------------|----------------|
-| **3** | **The EMILLI Trap** | Goldman vs You vs Robinhood - stuck in middle | **NEW** (merge EMILLI + Gap) |
-| **4** | **The Dual Gap** | Access + Intelligence = $124T | **MODIFY** Slide2DualGapV7Fixed (add ARIA position) |
-| **5** | **Why Solutions Fail** | 2x2 positioning matrix | KEEP: Slide4TwoDimensionalProblemV7Better |
+| **3** | **The Gap in the Middle** | Goldman vs You vs Robinhood + Three Failures | **NEW** SlideGapInTheMiddle.jsx |
+| **4** | **Why Solutions Fail** | 2x2 positioning matrix | KEEP: Slide4TwoDimensionalProblemV7Better |
+
+**✅ IMPLEMENTED:** `/src/slides/compressed/SlideGapInTheMiddle.jsx`
 
 ---
 

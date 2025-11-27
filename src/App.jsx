@@ -265,6 +265,12 @@ import Slide5ScaleForAIV5Fixed from './slides/act1-new/Slide5ScaleForAIV5Fixed'
 import Slide2DualGapV7Fixed from './slides/act1-new/Slide2DualGapV7Fixed'
 import Slide4TwoDimensionalProblemV7Better from './slides/act1-new/Slide4TwoDimensionalProblemV7Better'
 
+// COMPRESSED DECK - New slides
+import SlideGapInTheMiddle from './slides/compressed/SlideGapInTheMiddle'
+import SlideWhySolutionsFail from './slides/compressed/SlideWhySolutionsFail'
+import SlideGapInTheMiddleV2 from './slides/compressed/SlideGapInTheMiddleV2'
+import SlideWhySolutionsFailV2 from './slides/compressed/SlideWhySolutionsFailV2'
+
 console.log('Defining slides arrays...')
 
 // MAIN INVESTOR DECK - 40 SLIDES (Following DECK_AUDIT_AND_STORY_ARC_V2.md)
@@ -747,12 +753,45 @@ const strategyDeckSlides = expandedDeckSlides.filter(slide =>
   slide && slide.component // Filter out any undefined components
 );
 
+// COMPRESSED DECK - 17 slides (World-class investor pitch)
+const compressedDeck = [
+  // ====== HOOK (2 slides) ======
+  { component: TitleSlide, title: 'ARIA - The Virtuoso Intelligence' },           // 0
+  { component: ExecutiveSummarySlide, title: 'The Opportunity' },                  // 1
+  
+  // ====== PROBLEM (2 slides) - World-class compression ======
+  { component: SlideGapInTheMiddleV2, title: 'The Gap in the Middle' },            // 2 - V2 Enhanced
+  { component: SlideWhySolutionsFailV2, title: 'Why Solutions Fail' },             // 3 - V2 Enhanced
+  
+  // ====== SOLUTION (5 slides) ======
+  { component: IntroducingARIASlide, title: 'Meet ARIA' },                         // 4
+  { component: ThreeAlphaAgentsSlide, title: 'Three Alpha Agents' },               // 5
+  { component: IndiaGatewaySlide, title: 'India Gateway' },                        // 6
+  { component: AgentOrchestraSlide, title: 'The Agentic Symphony' },               // 7
+  { component: WhyWeWinSlide, title: 'Why ARIA Wins' },                            // 8
+  
+  // ====== PROOF (3 slides) ======
+  { component: ARIALiquidityEventSlide, title: 'ARIA in Action' },                 // 9
+  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 10
+  { component: StrategicPartnershipsSlide, title: 'Strategic Partners' },          // 11
+  
+  // ====== BUSINESS (4 slides) ======
+  { component: OpportunitySlide, title: 'The Market' },                            // 12
+  { component: GrowthPathSlide, title: 'Path to $1B' },                            // 13
+  { component: TeamSlide, title: 'Team + Vora' },                                  // 14
+  { component: FundingSlide, title: '$5M Seed Round' },                            // 15
+  
+  // ====== CLOSING (1 slide) ======
+  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 16
+];
+
 // DECK CONFIGURATION OPTIONS
 const DECK_CONFIGS = {
   'main': mainDeckSlides,                                   // 40-slide investor deck
   'expanded': expandedDeckSlides,                          // 60-slide comprehensive deck
   'strategy-deck': strategyDeckSlides,                     // Strategy deck (filtered)
   'tuesday-deck': tuesdayStrategyDeck,                     // Tuesday 9 PM exact 54-slide deck
+  'compressed': compressedDeck,                            // NEW: 18-slide world-class pitch
   'liquidity-demo': [{ component: ARIALiquidityEventSlide, title: '$25M Liquidity Event Demo' }], // Standalone demo
   'strategy-compact': mainDeckSlides,                      // Compact strategy
   'elevator': mainDeckSlides.slice(0, 24),                 // 24-slide quick pitch
