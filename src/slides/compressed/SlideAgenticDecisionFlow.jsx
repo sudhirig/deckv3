@@ -1,50 +1,29 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AspectFrame } from '../../components/StandardLayouts'
-import { Brain, TrendingUp, TrendingDown, Minus, Shield, Target, ArrowRight, Zap, BarChart3, Activity } from 'lucide-react'
+import { Brain, TrendingUp, Shield, Target, ArrowRight, Zap, Newspaper, FileText, CheckCircle } from 'lucide-react'
 
 /**
- * SlideAgenticDecisionFlow - World-Class UI/UX
- * "How ARIA Makes Decisions"
- * Shows the agentic flow: Analysts → Risk Manager → Portfolio Manager → Execution
+ * SlideAgenticDecisionFlow - World-Class Animated Decision Flow
+ * Shows TESLA example with Sentiment → Analysts → Consensus → Risk → Portfolio → Zerodha Execution
  */
 const SlideAgenticDecisionFlow = () => {
-  const [activeStep, setActiveStep] = useState(0)
+  const [phase, setPhase] = useState(0)
   
   useEffect(() => {
     const timer = setInterval(() => {
-      setActiveStep(prev => (prev + 1) % 5)
-    }, 2000)
+      setPhase(prev => (prev + 1) % 6)
+    }, 2500)
     return () => clearInterval(timer)
   }, [])
 
-  const analystAgents = [
-    { name: 'Warren Buffett', style: 'Value Investing', signal: 'bullish', confidence: 75 },
-    { name: 'Ben Graham', style: 'Deep Value', signal: 'bullish', confidence: 80 },
-    { name: 'Cathie Wood', style: 'Disruptive Innovation', signal: 'bearish', confidence: 45 },
-    { name: 'Phil Fisher', style: 'Growth', signal: 'bullish', confidence: 70 },
-    { name: 'Ray Dalio', style: 'All-Weather', signal: 'neutral', confidence: 55 },
-    { name: 'Stan Druckenmiller', style: 'Macro Trading', signal: 'bullish', confidence: 65 }
-  ]
-
-  const getSignalColor = (signal) => {
-    if (signal === 'bullish') return '#10B981'
-    if (signal === 'bearish') return '#EF4444'
-    return '#F59E0B'
-  }
-
-  const getSignalIcon = (signal) => {
-    if (signal === 'bullish') return TrendingUp
-    if (signal === 'bearish') return TrendingDown
-    return Minus
-  }
-
-  const steps = [
-    { label: 'Start', sublabel: 'Market Data' },
-    { label: 'Pick Agents', sublabel: 'Strategy Selection' },
-    { label: 'Trading Signals', sublabel: 'Analysis Complete' },
-    { label: 'Risk Signals', sublabel: 'Risk Assessment' },
-    { label: 'Take Action', sublabel: 'Execute Trade' }
+  const phases = [
+    { label: 'Market Data', color: '#64748B' },
+    { label: 'Sentiment Analysis', color: '#3B82F6' },
+    { label: 'Investment Committee', color: '#14B8A6' },
+    { label: 'Risk Assessment', color: '#EF4444' },
+    { label: 'Portfolio Decision', color: '#8B5CF6' },
+    { label: 'Zerodha Execution', color: '#F59E0B' }
   ]
 
   return (
@@ -56,7 +35,7 @@ const SlideAgenticDecisionFlow = () => {
         background: 'linear-gradient(180deg, #0a0f1b 0%, #0f172a 100%)',
         display: 'flex',
         flexDirection: 'column',
-        padding: '1.5rem 2rem',
+        padding: '2rem 2.5rem',
         fontFamily: 'Inter, -apple-system, sans-serif',
         overflow: 'hidden'
       }}>
@@ -64,355 +43,347 @@ const SlideAgenticDecisionFlow = () => {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ textAlign: 'center', marginBottom: '1rem' }}
+          style={{ textAlign: 'center', marginBottom: '1.5rem' }}
         >
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            background: 'rgba(20, 184, 166, 0.15)',
-            border: '1px solid rgba(20, 184, 166, 0.3)',
-            borderRadius: '20px',
-            padding: '0.3rem 0.8rem',
-            marginBottom: '0.5rem'
-          }}>
-            <Brain size={14} color="#14B8A6" />
-            <span style={{ color: '#14B8A6', fontSize: '0.7rem', fontWeight: '600', letterSpacing: '0.05em' }}>
-              ARIA AI • DECISION ENGINE
+          <h1 style={{ fontSize: '2rem', fontWeight: '800', color: '#FFFFFF', marginBottom: '0.5rem' }}>
+            HOW ARIA MAKES DECISIONS
+          </h1>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.75rem' }}>
+            <span style={{ fontSize: '1rem', color: '#64748B' }}>Live Example:</span>
+            <span style={{ 
+              fontSize: '1.1rem', 
+              fontWeight: '700', 
+              color: '#14B8A6',
+              background: 'rgba(20, 184, 166, 0.15)',
+              padding: '0.25rem 0.75rem',
+              borderRadius: '6px',
+              border: '1px solid rgba(20, 184, 166, 0.3)'
+            }}>
+              TSLA — Tesla Inc.
             </span>
           </div>
-          <h1 style={{
-            fontSize: '1.75rem',
-            fontWeight: '800',
-            color: '#FFFFFF',
-            marginBottom: '0.25rem'
-          }}>
-            AI TRADING DECISION FLOW
-          </h1>
-          <p style={{ fontSize: '0.85rem', color: '#64748B' }}>
-            How 68+ agents collaborate to make optimal investment decisions
-          </p>
         </motion.div>
 
-        {/* Flow Steps Progress */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '0.5rem',
-            marginBottom: '1.25rem'
-          }}
-        >
-          {steps.map((step, i) => (
-            <div key={step.label} style={{ display: 'flex', alignItems: 'center' }}>
-              <motion.div
-                animate={{
-                  background: i <= activeStep ? '#14B8A6' : 'rgba(100, 116, 139, 0.3)',
-                  scale: i === activeStep ? 1.1 : 1
-                }}
-                style={{
-                  padding: '0.4rem 0.8rem',
-                  borderRadius: '20px',
-                  border: i <= activeStep ? '1px solid #14B8A6' : '1px solid rgba(100, 116, 139, 0.3)'
-                }}
-              >
-                <span style={{
-                  fontSize: '0.65rem',
-                  fontWeight: '700',
-                  color: i <= activeStep ? '#0F172A' : '#64748B'
-                }}>
-                  {i + 1}. {step.label}
-                </span>
-              </motion.div>
-              {i < steps.length - 1 && (
-                <ArrowRight size={14} color={i < activeStep ? '#14B8A6' : '#334155'} style={{ margin: '0 0.25rem' }} />
-              )}
-            </div>
+        {/* Phase Progress Bar */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginBottom: '1.5rem' }}>
+          {phases.map((p, i) => (
+            <motion.div
+              key={p.label}
+              animate={{ 
+                background: i <= phase ? p.color : 'rgba(100, 116, 139, 0.2)',
+                scale: i === phase ? 1.05 : 1
+              }}
+              style={{
+                padding: '0.4rem 0.75rem',
+                borderRadius: '20px',
+                border: `1px solid ${i <= phase ? p.color : 'rgba(100, 116, 139, 0.3)'}`,
+                transition: 'all 0.3s ease'
+              }}
+            >
+              <span style={{ fontSize: '0.7rem', fontWeight: '600', color: i <= phase ? '#FFF' : '#64748B' }}>
+                {i + 1}. {p.label}
+              </span>
+            </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Main Flow Visualization */}
+        {/* Main Flow - Horizontal */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1.5fr 0.3fr 1fr 0.3fr 1fr 0.3fr 0.8fr',
-          gap: '0.5rem',
           flex: 1,
+          display: 'grid',
+          gridTemplateColumns: '1fr auto 1fr auto 1fr auto 1fr auto 1fr',
+          gap: '0.75rem',
           alignItems: 'center'
         }}>
-          {/* Analyst Agents Column */}
+          
+          {/* 1. Sentiment Analysis */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
+            animate={{ opacity: phase >= 1 ? 1 : 0.3, x: 0 }}
             style={{
-              background: 'rgba(20, 184, 166, 0.05)',
-              border: '1px solid rgba(20, 184, 166, 0.2)',
+              background: phase >= 1 ? 'rgba(59, 130, 246, 0.1)' : 'rgba(30, 41, 59, 0.5)',
+              border: `1px solid ${phase >= 1 ? 'rgba(59, 130, 246, 0.4)' : 'rgba(100, 116, 139, 0.2)'}`,
               borderRadius: '16px',
-              padding: '0.75rem',
-              height: '100%'
+              padding: '1rem',
+              transition: 'all 0.5s ease'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.5rem' }}>
-              <BarChart3 size={16} color="#14B8A6" />
-              <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#14B8A6' }}>ANALYST AGENTS</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <Newspaper size={20} color="#3B82F6" />
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#3B82F6' }}>SENTIMENT</span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.35rem' }}>
-              {analystAgents.map((agent, i) => {
-                const SignalIcon = getSignalIcon(agent.signal)
-                return (
-                  <motion.div
-                    key={agent.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + i * 0.05 }}
-                    style={{
-                      background: 'rgba(15, 23, 42, 0.8)',
-                      border: '1px solid rgba(100, 116, 139, 0.2)',
-                      borderRadius: '8px',
-                      padding: '0.4rem 0.6rem',
+            <AnimatePresence>
+              {phase >= 1 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+                >
+                  <div style={{ background: 'rgba(16, 185, 129, 0.15)', borderRadius: '8px', padding: '0.5rem' }}>
+                    <p style={{ fontSize: '0.65rem', color: '#94A3B8', margin: 0 }}>News Score</p>
+                    <p style={{ fontSize: '1.1rem', fontWeight: '800', color: '#10B981', margin: 0 }}>+0.72</p>
+                  </div>
+                  <div style={{ background: 'rgba(59, 130, 246, 0.15)', borderRadius: '8px', padding: '0.5rem' }}>
+                    <p style={{ fontSize: '0.65rem', color: '#94A3B8', margin: 0 }}>Social Buzz</p>
+                    <p style={{ fontSize: '1.1rem', fontWeight: '800', color: '#3B82F6', margin: 0 }}>HIGH</p>
+                  </div>
+                  <p style={{ fontSize: '0.6rem', color: '#64748B', margin: 0, fontStyle: 'italic' }}>
+                    182 sources • FinBERT (Goldman-grade)
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Arrow */}
+          <motion.div animate={{ x: phase >= 2 ? [0, 8, 0] : 0 }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <ArrowRight size={24} color={phase >= 2 ? '#14B8A6' : '#334155'} />
+          </motion.div>
+
+          {/* 2. Investment Committee */}
+          <motion.div
+            animate={{ opacity: phase >= 2 ? 1 : 0.3 }}
+            style={{
+              background: phase >= 2 ? 'rgba(20, 184, 166, 0.1)' : 'rgba(30, 41, 59, 0.5)',
+              border: `1px solid ${phase >= 2 ? 'rgba(20, 184, 166, 0.4)' : 'rgba(100, 116, 139, 0.2)'}`,
+              borderRadius: '16px',
+              padding: '1rem',
+              transition: 'all 0.5s ease'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <Brain size={20} color="#14B8A6" />
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#14B8A6' }}>COMMITTEE</span>
+            </div>
+            <AnimatePresence>
+              {phase >= 2 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}
+                >
+                  {[
+                    { name: 'Buffett AI', vote: 'BUY', conf: 78 },
+                    { name: 'Graham AI', vote: 'HOLD', conf: 65 },
+                    { name: 'Wood AI', vote: 'BUY', conf: 92 }
+                  ].map((agent) => (
+                    <div key={agent.name} style={{
                       display: 'flex',
+                      justifyContent: 'space-between',
                       alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}
-                  >
-                    <div>
-                      <p style={{ fontSize: '0.65rem', fontWeight: '700', color: '#E2E8F0', margin: 0 }}>{agent.name}</p>
-                      <p style={{ fontSize: '0.5rem', color: '#64748B', margin: 0 }}>{agent.style}</p>
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
+                      background: 'rgba(15, 23, 42, 0.8)',
+                      borderRadius: '6px',
+                      padding: '0.35rem 0.5rem'
+                    }}>
+                      <span style={{ fontSize: '0.7rem', color: '#E2E8F0', fontWeight: '600' }}>{agent.name}</span>
                       <span style={{
-                        fontSize: '0.55rem',
+                        fontSize: '0.6rem',
                         padding: '0.15rem 0.35rem',
                         borderRadius: '4px',
-                        background: `${getSignalColor(agent.signal)}20`,
-                        color: getSignalColor(agent.signal),
-                        fontWeight: '600',
-                        textTransform: 'uppercase'
+                        background: agent.vote === 'BUY' ? 'rgba(16, 185, 129, 0.2)' : 'rgba(245, 158, 11, 0.2)',
+                        color: agent.vote === 'BUY' ? '#10B981' : '#F59E0B',
+                        fontWeight: '700'
                       }}>
-                        {agent.signal}
+                        {agent.vote}
                       </span>
-                      <span style={{ fontSize: '0.55rem', color: '#94A3B8' }}>{agent.confidence}%</span>
                     </div>
-                  </motion.div>
-                )
-              })}
-            </div>
+                  ))}
+                  <p style={{ fontSize: '0.6rem', color: '#14B8A6', margin: '0.25rem 0 0 0', fontWeight: '600' }}>
+                    18 AI Experts → Consensus: BUY
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
-          {/* Arrow 1 */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <ArrowRight size={24} color="#14B8A6" />
-            </motion.div>
-          </div>
+          {/* Arrow */}
+          <motion.div animate={{ x: phase >= 3 ? [0, 8, 0] : 0 }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <ArrowRight size={24} color={phase >= 3 ? '#EF4444' : '#334155'} />
+          </motion.div>
 
-          {/* Risk Manager */}
+          {/* 3. Risk Manager */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
+            animate={{ opacity: phase >= 3 ? 1 : 0.3 }}
             style={{
-              background: 'rgba(239, 68, 68, 0.05)',
-              border: '1px solid rgba(239, 68, 68, 0.2)',
+              background: phase >= 3 ? 'rgba(239, 68, 68, 0.1)' : 'rgba(30, 41, 59, 0.5)',
+              border: `1px solid ${phase >= 3 ? 'rgba(239, 68, 68, 0.4)' : 'rgba(100, 116, 139, 0.2)'}`,
               borderRadius: '16px',
               padding: '1rem',
-              height: 'fit-content'
+              transition: 'all 0.5s ease'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                background: 'rgba(239, 68, 68, 0.2)',
-                borderRadius: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Shield size={20} color="#EF4444" />
-              </div>
-              <div>
-                <p style={{ fontSize: '0.8rem', fontWeight: '700', color: '#EF4444', margin: 0 }}>RISK MANAGER</p>
-                <p style={{ fontSize: '0.6rem', color: '#64748B', margin: 0 }}>Aggregates & Validates</p>
-              </div>
+              <Shield size={20} color="#EF4444" />
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#EF4444' }}>RISK CHECK</span>
             </div>
-            
-            <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              borderRadius: '10px',
-              padding: '0.75rem',
-              marginBottom: '0.5rem'
-            }}>
-              <p style={{ fontSize: '0.6rem', color: '#94A3B8', margin: '0 0 0.3rem 0' }}>Consensus Signal</p>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <TrendingUp size={18} color="#10B981" />
-                <span style={{ fontSize: '1rem', fontWeight: '800', color: '#10B981' }}>BULLISH</span>
-                <span style={{ fontSize: '0.7rem', color: '#64748B' }}>4/6 agents</span>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', gap: '0.5rem' }}>
-              <div style={{ flex: 1, background: 'rgba(16, 185, 129, 0.1)', borderRadius: '6px', padding: '0.4rem', textAlign: 'center' }}>
-                <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#10B981', margin: 0 }}>68%</p>
-                <p style={{ fontSize: '0.5rem', color: '#64748B', margin: 0 }}>CONFIDENCE</p>
-              </div>
-              <div style={{ flex: 1, background: 'rgba(245, 158, 11, 0.1)', borderRadius: '6px', padding: '0.4rem', textAlign: 'center' }}>
-                <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#F59E0B', margin: 0 }}>LOW</p>
-                <p style={{ fontSize: '0.5rem', color: '#64748B', margin: 0 }}>RISK LEVEL</p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Arrow 2 */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-            >
-              <ArrowRight size={24} color="#8B5CF6" />
-            </motion.div>
-          </div>
-
-          {/* Portfolio Manager */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            style={{
-              background: 'rgba(139, 92, 246, 0.05)',
-              border: '1px solid rgba(139, 92, 246, 0.2)',
-              borderRadius: '16px',
-              padding: '1rem',
-              height: 'fit-content'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-              <div style={{
-                width: '36px',
-                height: '36px',
-                background: 'rgba(139, 92, 246, 0.2)',
-                borderRadius: '10px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}>
-                <Target size={20} color="#8B5CF6" />
-              </div>
-              <div>
-                <p style={{ fontSize: '0.8rem', fontWeight: '700', color: '#8B5CF6', margin: 0 }}>PORTFOLIO MGR</p>
-                <p style={{ fontSize: '0.6rem', color: '#64748B', margin: 0 }}>Final Decision</p>
-              </div>
-            </div>
-            
-            <div style={{
-              background: 'rgba(15, 23, 42, 0.8)',
-              borderRadius: '10px',
-              padding: '0.75rem',
-              marginBottom: '0.5rem'
-            }}>
-              <p style={{ fontSize: '0.6rem', color: '#94A3B8', margin: '0 0 0.3rem 0' }}>Decision</p>
-              <div style={{
-                background: 'linear-gradient(135deg, #10B981, #059669)',
-                borderRadius: '8px',
-                padding: '0.5rem',
-                textAlign: 'center'
-              }}>
-                <span style={{ fontSize: '1.2rem', fontWeight: '800', color: '#FFFFFF' }}>BUY</span>
-              </div>
-            </div>
-
-            <div style={{ background: 'rgba(139, 92, 246, 0.1)', borderRadius: '6px', padding: '0.4rem' }}>
-              <p style={{ fontSize: '0.6rem', color: '#8B5CF6', margin: 0, fontWeight: '600' }}>Position Size: 2.5%</p>
-              <p style={{ fontSize: '0.5rem', color: '#64748B', margin: '0.15rem 0 0 0' }}>Within risk limits</p>
-            </div>
-          </motion.div>
-
-          {/* Arrow 3 */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <motion.div
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
-            >
-              <ArrowRight size={24} color="#F59E0B" />
-            </motion.div>
-          </div>
-
-          {/* Execution */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.7 }}
-            style={{
-              background: 'rgba(245, 158, 11, 0.05)',
-              border: '1px solid rgba(245, 158, 11, 0.2)',
-              borderRadius: '16px',
-              padding: '0.75rem',
-              height: 'fit-content'
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '0.5rem' }}>
-              <Zap size={16} color="#F59E0B" />
-              <span style={{ fontSize: '0.7rem', fontWeight: '700', color: '#F59E0B' }}>EXECUTION</span>
-            </div>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
-              {['BUY', 'COVER', 'SELL', 'SHORT', 'HOLD'].map((action, i) => (
+            <AnimatePresence>
+              {phase >= 3 && (
                 <motion.div
-                  key={action}
-                  animate={{
-                    background: action === 'BUY' ? 'rgba(16, 185, 129, 0.3)' : 'rgba(30, 41, 59, 0.6)',
-                    borderColor: action === 'BUY' ? '#10B981' : 'rgba(100, 116, 139, 0.2)'
-                  }}
-                  style={{
-                    padding: '0.3rem 0.5rem',
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+                >
+                  <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ flex: 1, background: 'rgba(16, 185, 129, 0.15)', borderRadius: '6px', padding: '0.4rem', textAlign: 'center' }}>
+                      <p style={{ fontSize: '0.55rem', color: '#94A3B8', margin: 0 }}>VaR</p>
+                      <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#10B981', margin: 0 }}>2.1%</p>
+                    </div>
+                    <div style={{ flex: 1, background: 'rgba(245, 158, 11, 0.15)', borderRadius: '6px', padding: '0.4rem', textAlign: 'center' }}>
+                      <p style={{ fontSize: '0.55rem', color: '#94A3B8', margin: 0 }}>Beta</p>
+                      <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#F59E0B', margin: 0 }}>1.8</p>
+                    </div>
+                  </div>
+                  <div style={{
+                    background: 'rgba(16, 185, 129, 0.2)',
                     borderRadius: '6px',
-                    border: '1px solid',
+                    padding: '0.4rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.3rem'
+                  }}>
+                    <CheckCircle size={14} color="#10B981" />
+                    <span style={{ fontSize: '0.7rem', fontWeight: '700', color: '#10B981' }}>APPROVED</span>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Arrow */}
+          <motion.div animate={{ x: phase >= 4 ? [0, 8, 0] : 0 }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <ArrowRight size={24} color={phase >= 4 ? '#8B5CF6' : '#334155'} />
+          </motion.div>
+
+          {/* 4. Portfolio Manager */}
+          <motion.div
+            animate={{ opacity: phase >= 4 ? 1 : 0.3 }}
+            style={{
+              background: phase >= 4 ? 'rgba(139, 92, 246, 0.1)' : 'rgba(30, 41, 59, 0.5)',
+              border: `1px solid ${phase >= 4 ? 'rgba(139, 92, 246, 0.4)' : 'rgba(100, 116, 139, 0.2)'}`,
+              borderRadius: '16px',
+              padding: '1rem',
+              transition: 'all 0.5s ease'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <Target size={20} color="#8B5CF6" />
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#8B5CF6' }}>DECISION</span>
+            </div>
+            <AnimatePresence>
+              {phase >= 4 && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+                >
+                  <motion.div
+                    animate={{ boxShadow: ['0 0 0px #10B981', '0 0 20px #10B981', '0 0 0px #10B981'] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                    style={{
+                      background: 'linear-gradient(135deg, #10B981, #059669)',
+                      borderRadius: '10px',
+                      padding: '0.6rem',
+                      textAlign: 'center'
+                    }}
+                  >
+                    <span style={{ fontSize: '1.5rem', fontWeight: '800', color: '#FFFFFF' }}>BUY</span>
+                  </motion.div>
+                  <div style={{ textAlign: 'center' }}>
+                    <p style={{ fontSize: '0.9rem', fontWeight: '700', color: '#E2E8F0', margin: 0 }}>250 shares</p>
+                    <p style={{ fontSize: '0.65rem', color: '#8B5CF6', margin: '0.2rem 0 0 0' }}>2.5% of portfolio</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+
+          {/* Arrow */}
+          <motion.div animate={{ x: phase >= 5 ? [0, 8, 0] : 0 }} transition={{ duration: 1.5, repeat: Infinity }}>
+            <ArrowRight size={24} color={phase >= 5 ? '#F59E0B' : '#334155'} />
+          </motion.div>
+
+          {/* 5. Zerodha Execution */}
+          <motion.div
+            animate={{ opacity: phase >= 5 ? 1 : 0.3 }}
+            style={{
+              background: phase >= 5 ? 'rgba(245, 158, 11, 0.1)' : 'rgba(30, 41, 59, 0.5)',
+              border: `1px solid ${phase >= 5 ? 'rgba(245, 158, 11, 0.4)' : 'rgba(100, 116, 139, 0.2)'}`,
+              borderRadius: '16px',
+              padding: '1rem',
+              transition: 'all 0.5s ease'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <Zap size={20} color="#F59E0B" />
+              <span style={{ fontSize: '0.85rem', fontWeight: '700', color: '#F59E0B' }}>ZERODHA</span>
+            </div>
+            <AnimatePresence>
+              {phase >= 5 && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+                >
+                  <div style={{
+                    background: 'rgba(16, 185, 129, 0.2)',
+                    borderRadius: '8px',
+                    padding: '0.5rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.4rem'
+                  }}>
+                    <motion.div
+                      animate={{ scale: [1, 1.3, 1] }}
+                      transition={{ duration: 0.8, repeat: Infinity }}
+                      style={{ width: '8px', height: '8px', background: '#10B981', borderRadius: '50%' }}
+                    />
+                    <span style={{ fontSize: '0.75rem', fontWeight: '700', color: '#10B981' }}>EXECUTED</span>
+                  </div>
+                  <div style={{ background: 'rgba(15, 23, 42, 0.8)', borderRadius: '6px', padding: '0.4rem' }}>
+                    <p style={{ fontSize: '0.6rem', color: '#94A3B8', margin: 0 }}>TSLA @ $248.50</p>
+                    <p style={{ fontSize: '0.6rem', color: '#F59E0B', margin: '0.2rem 0 0 0', fontWeight: '600' }}>11ms latency</p>
+                  </div>
+                  <div style={{
+                    background: 'rgba(139, 92, 246, 0.15)',
+                    borderRadius: '6px',
+                    padding: '0.35rem',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.3rem'
-                  }}
-                >
-                  {action === 'BUY' && <motion.div animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 1, repeat: Infinity }} style={{ width: '6px', height: '6px', background: '#10B981', borderRadius: '50%' }} />}
-                  <span style={{
-                    fontSize: '0.6rem',
-                    fontWeight: '700',
-                    color: action === 'BUY' ? '#10B981' : action === 'SELL' || action === 'SHORT' ? '#EF4444' : '#64748B'
                   }}>
-                    {action}
-                  </span>
+                    <FileText size={12} color="#8B5CF6" />
+                    <span style={{ fontSize: '0.6rem', color: '#8B5CF6' }}>Research Report →</span>
+                  </div>
                 </motion.div>
-              ))}
-            </div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </div>
 
-        {/* Bottom Note */}
+        {/* Bottom Stats */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
+          transition={{ delay: 0.5 }}
           style={{
-            marginTop: '0.75rem',
-            padding: '0.5rem 1rem',
-            background: 'rgba(20, 184, 166, 0.1)',
-            borderRadius: '8px',
-            border: '1px solid rgba(20, 184, 166, 0.2)',
+            marginTop: '1.5rem',
             display: 'flex',
-            alignItems: 'center',
             justifyContent: 'center',
-            gap: '0.75rem'
+            gap: '3rem'
           }}
         >
-          <Activity size={16} color="#14B8A6" />
-          <span style={{ fontSize: '0.75rem', color: '#14B8A6', fontWeight: '600' }}>
-            Real-time decisions in 11ms • No human intervention required • 24/7 automated execution
-          </span>
+          {[
+            { value: '18', label: 'AI Investors', color: '#14B8A6' },
+            { value: '122+', label: 'Indicators', color: '#8B5CF6' },
+            { value: '2.78M+', label: 'Data Points', color: '#3B82F6' },
+            { value: '73%', label: 'Prediction Accuracy', color: '#10B981' }
+          ].map((stat) => (
+            <div key={stat.label} style={{ textAlign: 'center' }}>
+              <p style={{ fontSize: '1.25rem', fontWeight: '800', color: stat.color, margin: 0 }}>{stat.value}</p>
+              <p style={{ fontSize: '0.7rem', color: '#64748B', margin: 0 }}>{stat.label}</p>
+            </div>
+          ))}
         </motion.div>
       </div>
     </AspectFrame>

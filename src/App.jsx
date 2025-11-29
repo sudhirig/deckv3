@@ -274,15 +274,23 @@ import SlideWhySolutionsFailV2 from './slides/compressed/SlideWhySolutionsFailV2
 import SlideMeetARIAV3 from './slides/compressed/SlideMeetARIAV3'
 import SlideAIEngineV2 from './slides/compressed/SlideAIEngineV2'
 import SlideAgenticSymphonyV3 from './slides/compressed/SlideAgenticSymphonyV3'
+import SlideARIAAIPricing from './slides/compressed/SlideARIAAIPricing'
 import SlideCompetitiveDominanceV3 from './slides/compressed/SlideCompetitiveDominanceV3'
 import SlideIndiaGatewayV2 from './slides/compressed/SlideIndiaGatewayV2'
 import SlideWedgeExpandV2 from './slides/compressed/SlideWedgeExpandV2'
+import SlideGoToMarketV3 from './slides/compressed/SlideGoToMarketV3'
+import SlideARIAWealthDemo from './slides/compressed/SlideARIAWealthDemo'
+import SlideWealthOrchestratorAgent from './slides/compressed/SlideWealthOrchestratorAgent'
+import SlideAlternativesShowcase from './slides/compressed/SlideAlternativesShowcase'
+import SlideARIATradeDemo from './slides/compressed/SlideARIATradeDemo'
 import SlideLockedToLiquidV2 from './slides/compressed/SlideLockedToLiquidV2'
 import SlideThreeModules from './slides/compressed/SlideThreeModules'
 import SlideMeetARIAV2 from './slides/compressed/SlideMeetARIAV2'
 import SlideMeetARIAOrgChart from './slides/compressed/SlideMeetARIAOrgChart'
 import SlideMeetARIAOrgChartV2 from './slides/compressed/SlideMeetARIAOrgChartV2'
 import SlideAgenticDecisionFlow from './slides/compressed/SlideAgenticDecisionFlow'
+import Slide18AIInvestmentCommittee from './slides/compressed/Slide18AIInvestmentCommittee'
+import SlideWhoItsFor from './slides/compressed/SlideWhoItsFor'
 import SlideEnterARIA from './slides/compressed/SlideEnterARIA'
 // Slide1DualCrisisV6 already imported above
 
@@ -768,12 +776,12 @@ const strategyDeckSlides = expandedDeckSlides.filter(slide =>
   slide && slide.component // Filter out any undefined components
 );
 
-// COMPRESSED DECK - 29 slides (World-class investor pitch with 3-Module Structure)
+// COMPRESSED DECK - 23 slides (World-class investor pitch with 3-Module Structure)
 const compressedDeck = [
   // ====== OPENING (3 slides) ======
   { component: TitleSlide, title: 'ARIA - The Virtuoso Intelligence' },           // 0
   { component: ExecutiveSummarySlide, title: 'The Opportunity' },                  // 1
-  { component: LargestMarketSlide, title: 'The EMILLI Opportunity' },              // 2 - Target Customer
+  { component: SlideWhoItsFor, title: 'The EMILLI Opportunity' },                   // 2 - Target Personas
   
   // ====== PROBLEM (2 slides) ======
   { component: SlideGapInTheMiddleV2, title: 'The Gap in the Middle' },            // 3
@@ -782,46 +790,41 @@ const compressedDeck = [
   // ====== BRIDGE (1 slide) ======
   { component: SlideEnterARIA, title: 'Enter ARIA' },                              // 5 - Problem→Solution Bridge
   
-  // ====== PLATFORM INTRO (3 slides) ======
+  // ====== PLATFORM INTRO (1 slide) ======
   { component: SlideMeetARIAOrgChartV2, title: 'Your AI Family Office CEO' },      // 6 - Org Chart
-  { component: SlideAgenticDecisionFlow, title: 'AI Trading Decision Flow' },      // 7 - How Agents Decide
-  { component: SlideThreeModules, title: 'The ARIA Platform' },                    // 8 - 3 Modules Overview
   
-  // ====== 🧠 ARIA AI (3 slides) - Intelligence & Experience ======
-  { component: SlideAIEngineV2, title: 'The AI Data Engine' },                     // 9
-  { component: SlideAgenticSymphonyV3, title: 'The Agentic Symphony' },            // 10
-  { component: ARIAPlatformExperienceSlide, title: 'The ARIA Experience' },        // 11 - AI-powered UX
+  // ====== 🧠 ARIA AI (4 slides) - Intelligence & Experience ======
+  { component: Slide18AIInvestmentCommittee, title: '18 AI Investment Committee' }, // 7 - Investment Committee
+  { component: SlideAgenticDecisionFlow, title: 'How ARIA Makes Decisions' },      // 8 - Decision Flow
+  { component: ARIAPlatformExperienceSlide, title: 'The ARIA Experience' },        // 8 - AI-powered UX
+  { component: SlideARIAAIPricing, title: 'ARIA AI Pricing' },                     // 9 - Pricing tiers
   
-  // ====== 🌏 ARIA WEALTH (4 slides) - GIFT City, AIF, Alternatives ======
-  { component: SlideIndiaGatewayV2, title: 'India Gateway' },                      // 12
-  { component: GIFTSolutionSlide, title: 'GIFT City Solution' },                   // 13 - Tax-free structure
-  { component: ARIAAIFSlide, title: 'ARIA AIF Tiers' },                            // 14 - Alternative Investment Fund
-  { component: SlideLockedToLiquidV2, title: 'Locked to Liquid' },                 // 15
+  // ====== 🌏 ARIA WEALTH (2 slides) - GIFT City, Alternatives ======
+  { component: SlideWealthOrchestratorAgent, title: 'The Wealth Orchestrator' },   // 10 - How agent works + live demo
+  { component: SlideAlternativesShowcase, title: 'Curated Alternatives' },         // 11 - 15-40% IRR opportunities
   
-  // ====== ⚡ ARIA TRADE (3 slides) - Broker Integration & Execution ======
-  { component: ZerodhaIntelligenceFixed, title: 'Zerodha Integration' },           // 16
-  { component: ARIALiveDemoSlide, title: 'ARIA Live Demo' },                       // 17
-  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 18
+  // ====== ⚡ ARIA TRADE (2 slides) - Broker Integration & Execution ======
+  { component: SlideARIATradeDemo, title: 'ARIA Trade Live' },                     // 12 - Integration + Demo
+  { component: LivePlatformSlide, title: 'Platform is Live' },                     // 13 - Production ready
   
   // ====== PROOF (2 slides) ======
-  { component: ARIALiquidityEventSlide, title: '$25M Liquidity Event' },           // 19 - Case study
-  { component: StrategicPartnershipsSlideV2, title: 'Strategic Partners' },        // 20
+  { component: ARIALiquidityEventSlide, title: '$25M Liquidity Event' },           // 16 - Case study
+  { component: StrategicPartnershipsSlideV2, title: 'Strategic Partners' },        // 17
   
   // ====== TRUST (1 slide) ======
-  { component: HybridTrustModelSlide, title: 'AI + Human Trust Model' },           // 21
+  { component: HybridTrustModelSlide, title: 'AI + Human Trust Model' },           // 18
   
   // ====== COMPETITIVE (1 slide) ======
-  { component: SlideCompetitiveDominanceV3, title: 'Why ARIA Wins' },              // 22
+  { component: SlideCompetitiveDominanceV3, title: 'Why ARIA Wins' },              // 19
   
-  // ====== BUSINESS (5 slides) ======
-  { component: OpportunitySlide, title: 'The Market' },                            // 23
-  { component: SlideWedgeExpandV2, title: 'Go-to-Market Strategy' },               // 24
-  { component: GrowthPathSlide, title: 'Path to $1B' },                            // 25
-  { component: TeamSlide, title: 'Team + Vora' },                                  // 26
-  { component: FundingSlide, title: '$5M Seed Round' },                            // 27
+  // ====== BUSINESS (4 slides) ======
+  { component: OpportunitySlide, title: 'The Market' },                            // 20
+  { component: SlideGoToMarketV3, title: 'Go-to-Market Strategy' },                // 21
+  { component: TeamSlide, title: 'Team + Vora' },                                  // 22
+  { component: FundingSlide, title: '$5M Seed Round' },                            // 23
   
   // ====== CLOSING (1 slide) ======
-  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 28
+  { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 24
 ];
 
 // DECK CONFIGURATION OPTIONS
@@ -830,7 +833,7 @@ const DECK_CONFIGS = {
   'expanded': expandedDeckSlides,                          // 60-slide comprehensive deck
   'strategy-deck': strategyDeckSlides,                     // Strategy deck (filtered)
   'tuesday-deck': tuesdayStrategyDeck,                     // Tuesday 9 PM exact 54-slide deck
-  'compressed': compressedDeck,                            // 29-slide world-class pitch
+  'compressed': compressedDeck,                            // 23-slide world-class pitch
   'liquidity-demo': [{ component: ARIALiquidityEventSlide, title: '$25M Liquidity Event Demo' }], // Standalone demo
   'strategy-compact': mainDeckSlides,                      // Compact strategy
   'elevator': mainDeckSlides.slice(0, 24),                 // 24-slide quick pitch

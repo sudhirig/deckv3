@@ -18,7 +18,7 @@ export default function ZerodhaIntelligenceFixed() {
         width: '100%',
         height: '100%',
         background: 'linear-gradient(135deg, #0a0f1b 0%, #0f172a 50%, #1e293b 100%)',
-        padding: '2rem 2.5rem',
+        padding: '1.5rem 2rem',
         display: 'flex',
         flexDirection: 'column',
         overflow: 'hidden'
@@ -40,7 +40,7 @@ export default function ZerodhaIntelligenceFixed() {
           border: '1px solid rgba(245, 158, 11, 0.3)',
           borderRadius: '20px',
           padding: '0.4rem 1rem',
-          marginBottom: '1rem',
+          marginBottom: '0.75rem',
           alignSelf: 'flex-start',
           position: 'relative',
           zIndex: 1
@@ -55,14 +55,14 @@ export default function ZerodhaIntelligenceFixed() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          style={{ textAlign: 'center', marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}
+          style={{ textAlign: 'center', marginBottom: '1rem', position: 'relative', zIndex: 1 }}
         >
-          <h1 style={{ fontSize: 'clamp(2rem, 3.5vw, 2.8rem)', marginBottom: '0.5rem' }}>
+          <h1 style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', marginBottom: '0.35rem' }}>
             <GradientText gradient="from-amber-400 to-orange-400">
               Zerodha Integration
             </GradientText>
           </h1>
-          <p style={{ fontSize: '1.1rem', color: '#94a3b8' }}>
+          <p style={{ fontSize: '1rem', color: '#94a3b8' }}>
             Broker integration with 11ms execution latency
           </p>
         </motion.div>
@@ -76,8 +76,8 @@ export default function ZerodhaIntelligenceFixed() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            gap: '1.5rem',
-            marginBottom: '2rem',
+            gap: '1rem',
+            marginBottom: '1.25rem',
             position: 'relative',
             zIndex: 1
           }}
@@ -92,16 +92,16 @@ export default function ZerodhaIntelligenceFixed() {
                 whileHover={{ scale: 1.05 }}
                 style={{
                   textAlign: 'center',
-                  padding: '1.5rem 2.5rem',
+                  padding: '1rem 1.5rem',
                   background: `linear-gradient(135deg, ${step.color}15, ${step.color}05)`,
                   border: `2px solid ${step.color}40`,
                   borderRadius: pxToRem(16),
-                  minWidth: '180px'
+                  minWidth: '150px'
                 }}
               >
-                <div style={{ fontSize: '3rem', marginBottom: '0.5rem' }}>{step.icon}</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: '600', color: '#e2e8f0' }}>{step.label}</div>
-                <div style={{ fontSize: '1rem', color: '#9ca3af' }}>{step.sub}</div>
+                <div style={{ fontSize: '2rem', marginBottom: '0.35rem' }}>{step.icon}</div>
+                <div style={{ fontSize: '1rem', fontWeight: '600', color: '#e2e8f0' }}>{step.label}</div>
+                <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>{step.sub}</div>
               </motion.div>
               {i < 2 && (
                 <ArrowRight size={32} color="#4b5563" />
@@ -118,7 +118,7 @@ export default function ZerodhaIntelligenceFixed() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(2, 1fr)',
-            gap: '1.25rem',
+            gap: '0.85rem',
             flex: 1,
             position: 'relative',
             zIndex: 1
@@ -156,7 +156,7 @@ export default function ZerodhaIntelligenceFixed() {
                 key={cap.title}
                 whileHover={{ scale: 1.02 }}
                 style={{
-                  padding: '1.5rem',
+                  padding: '1rem',
                   background: 'rgba(17, 24, 39, 0.6)',
                   backdropFilter: 'blur(8px)',
                   border: '1px solid rgba(255,255,255,0.1)',
@@ -167,8 +167,8 @@ export default function ZerodhaIntelligenceFixed() {
                 }}
               >
                 <div style={{
-                  width: '50px',
-                  height: '50px',
+                  width: '40px',
+                  height: '40px',
                   background: `${cap.color}20`,
                   borderRadius: pxToRem(12),
                   display: 'flex',
@@ -176,13 +176,13 @@ export default function ZerodhaIntelligenceFixed() {
                   justifyContent: 'center',
                   flexShrink: 0
                 }}>
-                  <Icon size={26} color={cap.color} />
+                  <Icon size={20} color={cap.color} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '1.15rem', fontWeight: '600', color: '#e2e8f0', marginBottom: '0.3rem' }}>
+                  <div style={{ fontSize: '1rem', fontWeight: '600', color: '#e2e8f0', marginBottom: '0.2rem' }}>
                     {cap.title}
                   </div>
-                  <div style={{ fontSize: '0.95rem', color: '#9ca3af', lineHeight: 1.4 }}>
+                  <div style={{ fontSize: '0.85rem', color: '#9ca3af', lineHeight: 1.4 }}>
                     {cap.desc}
                   </div>
                 </div>
@@ -197,8 +197,8 @@ export default function ZerodhaIntelligenceFixed() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
           style={{
-            marginTop: '1.5rem',
-            padding: '1rem 1.5rem',
+            marginTop: '1rem',
+            padding: '0.85rem 1.25rem',
             background: 'linear-gradient(to right, rgba(139, 92, 246, 0.12), rgba(16, 185, 129, 0.12))',
             borderRadius: pxToRem(12),
             border: '1px solid rgba(255,255,255,0.1)',
@@ -211,21 +211,21 @@ export default function ZerodhaIntelligenceFixed() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
             <div style={{
-              width: '48px',
-              height: '48px',
+              width: '40px',
+              height: '40px',
               background: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
               borderRadius: pxToRem(12),
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <Brain size={26} color="#fff" />
+              <Brain size={20} color="#fff" />
             </div>
             <div>
-              <div style={{ fontSize: '1.15rem', fontWeight: '600', color: '#e2e8f0' }}>
+              <div style={{ fontSize: '1rem', fontWeight: '600', color: '#e2e8f0' }}>
                 Seamless Zerodha Kite Integration
               </div>
-              <div style={{ fontSize: '0.95rem', color: '#9ca3af' }}>
+              <div style={{ fontSize: '0.85rem', color: '#9ca3af' }}>
                 Works with your existing Zerodha account • No additional setup
               </div>
             </div>
