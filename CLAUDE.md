@@ -4,7 +4,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-React-based investor presentation deck for ARIA, an AI-powered digital family office platform. Features investment-grade UI/UX with animated gradients, particle effects, glassmorphism, and cinematic transitions. Built with React 18, Vite, and Framer Motion for both browser presentation and PDF export.
+React-based investor presentation deck for ARIA, an AI-powered digital family office platform targeting the $107T EMILLI (Emerging Mass Intellectuals Leading Liquidity and Investments) market. Features investment-grade UI/UX with animated gradients, particle effects, glassmorphism, and cinematic transitions. Built with React 18, Vite, and Framer Motion for both browser presentation and PDF export.
+
+**Key Business Context:**
+- ARIA positions as an "AI Family Office CEO" with 68+ AI agents
+- Three core modules: ARIA AI (advisory), ARIA Wealth (alternatives), ARIA Trade (execution)
+- Targets HNIs ($1M-$50M), NRIs, Post-exit Founders, and CPAs/Advisors
+- Uses B2B2C distribution through CPA channels
+- Leverages GIFT City for India market access ($5T opportunity)
 
 ## Commands
 
@@ -129,3 +136,50 @@ Browser-native PDF export (Ctrl/Cmd+P):
 - Automatically hides navigation controls
 - Maintains full styling and gradients
 - Set margins to "None" and enable "Background graphics"
+
+## Deck Variants
+
+The application supports multiple deck configurations via URL parameters:
+- **Main Deck**: Default 40+ slide presentation
+- **Compressed Deck**: `?deck=compressed` - 25-slide condensed version
+- **Tuesday Deck**: `?deck=tuesday-deck` - 48-slide variant
+- **Static Mode**: `?static=1` - Disables animations for screenshots
+
+## Key Metrics & Validation Points
+
+When working on slides, ensure these key metrics remain consistent:
+- **68+ AI agents** orchestrating wealth management
+- **18 legendary investor personas** in AI Investment Committee
+- **$107T** stranded wealth opportunity (EMILLI market)
+- **$25M** liquidity event case study
+- **11ms** voice trading execution
+- **600%** AI outperformance (Stanford study)
+- **46%** advisors switching (PwC 2024)
+- **50x** LTV/CAC ratio
+
+## Content & Story Arc Considerations
+
+The deck follows a 5-act narrative structure:
+1. **Act 1: The Disruption** - Problem identification, market gaps
+2. **Act 2: The ARIA Strategy** - Solution introduction, wedge & expand
+3. **Act 3: Product Suite** - Features, comparisons, use cases
+4. **Act 4: Validation** - Proof points, partnerships, traction
+5. **Act 5: The Business** - Market, team, financials, ask
+
+### Known Issues & Improvement Areas
+
+Based on recent reviews:
+- **Story Arc**: Needs stronger emotional hook in opening
+- **Complexity**: Simplify "68+ agents" messaging - overwhelming for investors
+- **Navigation**: Confusing as website vs presentation - needs clarity
+- **Mobile**: Slide format not optimized for mobile viewing
+- **CTAs**: Missing clear next actions throughout deck
+- **Human Element**: Lacks personal stories and testimonials
+
+### When Making Changes
+
+1. **Maintain Visual Consistency**: Use existing color palette (Teal #14B8A6 primary)
+2. **Preserve Animations**: Keep Framer Motion patterns consistent
+3. **Test Multiple Variants**: Check main, compressed, and tuesday-deck versions
+4. **Verify Metrics**: Ensure key numbers remain accurate across slides
+5. **Consider Story Flow**: Changes should enhance, not disrupt, the narrative arc

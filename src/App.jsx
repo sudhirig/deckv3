@@ -168,6 +168,23 @@ import ARIATechMFSlide from './slides/ARIATechMFSlide'
 import ARIAInvestmentAdvisorySlide from './slides/ARIAInvestmentAdvisorySlide'
 import ARIAGoalBasedInvestingSlide from './slides/ARIAGoalBasedInvestingSlide'
 import ARIAAIFSlide from './slides/ARIAAIFSlide'
+
+// CONSUMER DECK - Arta-Style Light Mode (12 slides)
+import {
+  Page1Title as ConsumerPage1Title,
+  Page2Problem as ConsumerPage2Problem,
+  Page2bWhySolutionsFail as ConsumerPage2bWhySolutionsFail,
+  Page2cMeetARIA as ConsumerPage2cMeetARIA,
+  Page3Solution as ConsumerPage3Solution,
+  Page4Pillars as ConsumerPage4Pillars,
+  Page5AlternativesAI as ConsumerPage5AlternativesAI,
+  Page5bHowARIAWorks as ConsumerPage5bHowARIAWorks,
+  Page6FeaturesPricing as ConsumerPage6FeaturesPricing,
+  Page7Trust as ConsumerPage7Trust,
+  Page8ProofTeam as ConsumerPage8ProofTeam,
+  Page9CommunityCTA as ConsumerPage9CommunityCTA
+} from './slides/consumer'
+
 // OLD Act 1 - Replaced with strategic redesign
 // import PerfectStormAltSlide from './slides/alt/PerfectStormAltSlide'
 // import ThreeLocksAltSlide from './slides/alt/ThreeLocksAltSlide'
@@ -827,6 +844,21 @@ const compressedDeck = [
   { component: ClosingCommitmentSlide, title: 'Join Us' }                          // 24
 ];
 
+// CONSUMER DECK - Arta-Style Light Mode (11 slides)
+const consumerDeck = [
+  { component: ConsumerPage1Title, title: 'Your AI Family Office' },
+  { component: ConsumerPage2Problem, title: 'The Ultra-Rich Play Differently' },
+  { component: ConsumerPage2bWhySolutionsFail, title: 'Why Solutions Fail' },
+  { component: ConsumerPage2cMeetARIA, title: 'Meet ARIA - Your AI CEO' },
+  { component: ConsumerPage4Pillars, title: 'Your AI Family Office CEO' },  // Merged with Solution text
+  { component: ConsumerPage5bHowARIAWorks, title: 'How ARIA Works' },
+  { component: ConsumerPage5AlternativesAI, title: 'Alternatives & AI' },
+  { component: ConsumerPage6FeaturesPricing, title: 'Features & Pricing' },
+  { component: ConsumerPage7Trust, title: 'Trust & Security' },
+  { component: ConsumerPage8ProofTeam, title: 'Proof & Team' },
+  { component: ConsumerPage9CommunityCTA, title: 'Get Started' }
+];
+
 // DECK CONFIGURATION OPTIONS
 const DECK_CONFIGS = {
   'main': mainDeckSlides,                                   // 40-slide investor deck
@@ -834,6 +866,7 @@ const DECK_CONFIGS = {
   'strategy-deck': strategyDeckSlides,                     // Strategy deck (filtered)
   'tuesday-deck': tuesdayStrategyDeck,                     // Tuesday 9 PM exact 54-slide deck
   'compressed': compressedDeck,                            // 23-slide world-class pitch
+  'consumer': consumerDeck,                                // 11-slide Arta-style consumer deck
   'liquidity-demo': [{ component: ARIALiquidityEventSlide, title: '$25M Liquidity Event Demo' }], // Standalone demo
   'strategy-compact': mainDeckSlides,                      // Compact strategy
   'elevator': mainDeckSlides.slice(0, 24),                 // 24-slide quick pitch
@@ -848,7 +881,7 @@ const DECK_CONFIGS = {
 
 // COMBINED SLIDES ARRAY - Multiple deck configurations available
 const urlParams = new URLSearchParams(window.location.search);
-const DECK_MODE = urlParams.get('deck') || 'act1-custom';
+const DECK_MODE = urlParams.get('deck') || 'consumer';
 const slides = DECK_CONFIGS[DECK_MODE] || customAct1Slides;
 
 console.log('==========================================')
@@ -931,6 +964,16 @@ function AppContent() {
   
   // Use EditModeContext
   const { isEditMode, setIsEditMode } = useEditMode()
+
+  // Add body class for consumer deck (for print CSS)
+  useEffect(() => {
+    if (DECK_MODE === 'consumer') {
+      document.body.classList.add('consumer-deck-mode');
+    } else {
+      document.body.classList.remove('consumer-deck-mode');
+    }
+    return () => document.body.classList.remove('consumer-deck-mode');
+  }, [])
 
   // Debug logging for Edit Mode state
   useEffect(() => {
@@ -1165,7 +1208,8 @@ function AppContent() {
           transition={{ duration: 0.3 }}
         />
         
-        {/* Progress Label and Act Navigation - Left side */}
+        {/* Progress Label and Act Navigation - Left side (hidden for consumer deck) */}
+        {DECK_MODE !== 'consumer' && (
         <div style={{
           position: 'absolute',
           top: '8px',
@@ -1193,8 +1237,10 @@ function AppContent() {
             onNavigate={navigateToSlide}
           />
         </div>
+        )}
 
-        {/* Navigation Controls - Right side (translucent) */}
+        {/* Navigation Controls - Right side (hidden for consumer deck) */}
+        {DECK_MODE !== 'consumer' && (
         <div style={{
           position: 'absolute',
           top: '8px',
@@ -1210,6 +1256,8 @@ function AppContent() {
           pointerEvents: 'auto',
           zIndex: 10001
         }}>
+          {DECK_MODE !== 'consumer' && (
+          <>
           <button 
             onClick={() => navigateToSlide(currentSlide - 1)}
             disabled={currentSlide === 0}
@@ -1250,7 +1298,11 @@ function AppContent() {
           >
             →
           </button>
+          </>
+          )}
           
+          {DECK_MODE !== 'consumer' && (
+          <>
           <div style={{ 
             width: '1px', 
             height: '20px', 
@@ -1299,7 +1351,10 @@ function AppContent() {
           >
             📄 Export PDF
           </button>
+          </>
+          )}
           
+          {DECK_MODE !== 'consumer' && (
           <button
             onClick={handleExportOptionsClick}
             style={{
@@ -1320,7 +1375,9 @@ function AppContent() {
           >
             ⚡ Export Options
           </button>
+          )}
           
+          {DECK_MODE !== 'consumer' && (
           <button
             onClick={() => {
               const slideUrl = `${window.location.origin}${window.location.pathname}#/slide/${currentSlide}`
@@ -1345,7 +1402,9 @@ function AppContent() {
           >
             🔗 Share
           </button>
+          )}
         </div>
+        )}
       </div>
 
 

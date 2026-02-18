@@ -167,9 +167,9 @@
   width: 100vw;
 }
 
-/* Minimum resolution warning */
+/* Minimum resolution warning - hidden for consumer deck */
 @media (max-width: 1365px) {
-  body::before {
+  body:not(.consumer-deck-mode)::before {
     content: "⚠️ This presentation is optimized for screens 1366px and wider";
     position: fixed;
     top: 0;

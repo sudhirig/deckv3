@@ -29,21 +29,10 @@ export class PresentationMode {
   
   setupKeyboardShortcuts() {
     document.addEventListener('keydown', (e) => {
-      // P - Toggle presentation mode
-      if (e.key === 'p' && (e.ctrlKey || e.metaKey)) {
-        e.preventDefault();
-        this.togglePresentationMode();
-      }
-      
       // F - Toggle fullscreen
       if (e.key === 'f' && (e.ctrlKey || e.metaKey)) {
         e.preventDefault();
         this.toggleFullscreen();
-      }
-      
-      // Escape - Exit presentation mode
-      if (e.key === 'Escape') {
-        this.exitPresentationMode();
       }
       
       // Print/Export to PDF
@@ -163,6 +152,16 @@ export class PresentationMode {
   }
   
   addPresentationButton() {
+    // Don't show present button for consumer deck (consumer is now default)
+    const urlParams = new URLSearchParams(window.location.search);
+    const deck = urlParams.get('deck') || 'consumer';
+    if (deck === 'consumer') {
+      // Remove if it exists
+      const existing = document.getElementById('presentation-toggle');
+      if (existing) existing.remove();
+      return;
+    }
+    
     const button = document.createElement('button');
     button.id = 'presentation-toggle';
     button.innerHTML = '🎯 Present';
@@ -300,12 +299,10 @@ if (typeof window !== 'undefined') {
     window.presentationMode = new PresentationMode();
     
     // Show keyboard shortcuts in console
-    console.log('🎯 Presentation Mode Ready!');
+    console.log('🎯 Deck Ready!');
     console.log('Keyboard Shortcuts:');
-    console.log('  Ctrl+P - Toggle Presentation Mode');
     console.log('  Ctrl+F - Toggle Fullscreen');
     console.log('  Ctrl+E - Export to PDF');
-    console.log('  ESC - Exit Presentation Mode');
   });
 }
 
